@@ -26,10 +26,12 @@ paths:
 remote:
   host: "100.87.153.84"
   user: "Administrator"
-  work_dir: "D:/docking-repro"          # Windows 工作目录
-  adfr_bin: "D:/ADFRsuite/bin"          # ADFR Suite 安装路径
-  orca_bin: "D:/orca/orca.exe"          # Orca 可执行文件
-  conda_env: "docking-repro"            # Windows conda 环境名
+  # 所有工具统一放在 D:\drylab-tools\ 下，不占用 C 盘
+  work_dir: "D:/drylab-tools/workspace"
+  adfr_bin: "D:/drylab-tools/ADFRsuite/bin"
+  orca_bin: "D:/drylab-tools/orca/orca.exe"
+  conda_python: "D:/drylab-tools/miniconda3/envs/docking-repro/Scripts/python.exe"
+  conda_env: "docking-repro"
 
 # ---------------------------------------------------------------------------
 # 受体配置（与 v2 相同，只对接 GprC 复现 Hu2024）
