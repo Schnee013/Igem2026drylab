@@ -1,0 +1,88 @@
+# =====================================================================
+# iGEM 2026 Dry Lab — .gitignore
+# =====================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Conda environments (not committed — use conda env export)
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# =====================================================================
+# 计算产出（大文件 / 可重新生成）
+# =====================================================================
+
+# v2 pipeline 产出（PDBQT、pose 文件、交互分析）
+experiments/docking/prepared/
+experiments/docking/results/poses/
+experiments/docking/results/interactions/
+experiments/docking/results/docking_results.json
+experiments/docking/results/blind_validation.json
+
+# docking-repro 产出
+experiments/docking-repro/prepared/
+experiments/docking-repro/results/
+experiments/docking-repro/ligands/orca/
+
+# 日志（运行日志不入库，但保留目录）
+experiments/docking/logs/*.log
+experiments/docking-repro/logs/*.log
+
+# =====================================================================
+# 保留（明确 track 的内容）
+# =====================================================================
+
+# 原始受体 PDB（AlphaFold 结构，小文件，需版本控制）
+!experiments/docking/receptors/*.pdb
+
+# 原始配体 SDF/MOL2（PubChem 下载，需版本控制）
+!experiments/docking/ligands/*.sdf
+!experiments/docking/ligands/*.mol2
+
+# 分析产出（CSV、图表、验证报告）
+!experiments/docking/analysis/
+!experiments/docking-repro/analysis/
+
+# 日志目录本身（空目录占位）
+!experiments/docking/logs/.gitkeep
+!experiments/docking-repro/logs/.gitkeep
+
+# =====================================================================
+# 文献 PDF（通常较大，不入库；summaries 文本入库）
+# =====================================================================
+docs/papers/pdf/
+
+# =====================================================================
+# Claude Code 私有配置
+# =====================================================================
+.claude/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 临时文件
+*.tmp
+*.bak
+*.orig

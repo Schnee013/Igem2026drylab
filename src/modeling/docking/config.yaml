@@ -1,0 +1,115 @@
+# P0 分子对接 Pipeline 配置
+# 修改参数不需要改动代码
+
+paths:
+  project_root: "/Users/roy/Documents/drylab"
+  receptor_dir: "experiments/docking/receptors"
+  ligand_dir: "experiments/docking/ligands"
+  prepared_dir: "experiments/docking/prepared"
+  results_dir: "experiments/docking/results"
+  analysis_dir: "experiments/docking/analysis"
+  log_dir: "experiments/docking/logs"
+
+receptors:
+  Gpr2:
+    pdb_file: "Gpr2_G1X9E2.pdb"
+    uniprot: "G1X9E2"
+    species: "Arthrobotrys oligospora"
+    n_residues: 406
+    # Kuo2024 Fig.3d: Y168 属于 Gpr2，N161 属于 SRBC-66（C.elegans 受体）
+    # "Y168 and N161 in Gpr2 and SRBC-66, respectively"
+    binding_residues: [168]   # Y168 only
+    literature_deltaG:
+      ascr3: -6.99   # Kuo2024 (SwissDock)，仅验排名
+      ascr7: -7.07   # Kuo2024 (SwissDock)，仅验排名
+      ascr18: null   # 未见文献，本项目填补
+
+  Gpr3:
+    pdb_file: "Gpr3_G1XJN1.pdb"
+    uniprot: "G1XJN1"
+    species: "Arthrobotrys oligospora"
+    n_residues: 401
+    # Gpr3 文献无已知结合残基，改用 center_of_mass 策略
+    # Gpr3 位置 161=Leu, 168=Leu（与 Gpr2 的 His/Tyr 不同，无法借用）
+    binding_residues: null
+    literature_deltaG:
+      ascr3: -7.05   # Kuo2024 (SwissDock)，仅验排名
+      ascr7: -6.41   # Kuo2024 (SwissDock)，仅验排名
+      ascr18: null
+
+  GprC:
+    pdb_file: "GprC_A0A437AGY2.pdb"
+    uniprot: "A0A437AGY2"
+    species: "Arthrobotrys flagrans"
+    n_residues: 538
+    # 使用 center_of_mass 策略，不再依赖 BW 残基编号
+    binding_residues: null
+    validation_residues:
+      N2_57: 83    # 已确认: 残基83=Asn ✓
+      R6_45: 281   # 已确认: 残基281=Arg ✓（突变 R6.45A 显著降低亲和力）
+    # Hu2024 Extended Data Table 2（AutoDock Vina，可验绝对值）
+    literature_deltaG:
+      ascr1: -7.26
+      ascr3: -8.31
+      ascr18: -8.29
+
+ligands:
+  ascr18:
+    sdf_file: "ascr18_CID71514784.sdf"
+    pubchem_cid: 71514784
+    cas: "1355681-10-5"
+    formula: "C17H32O6"
+    smiles: "CC1C(CC(C(O1)OC(C)CCCCCCCCC(=O)O)O)O"
+    description: "ascaroside #18, fully saturated C10 acyl chain"
+
+  ascr3:
+    sdf_file: "ascr3_CID16066476.sdf"
+    pubchem_cid: 16066476
+    cas: "946524-26-1"
+    formula: "C15H26O6"
+    smiles: "CC1C(CC(C(O1)OC(C)CCCCC=CC(=O)O)O)O"
+    description: "ascaroside #3, C8 chain with trans double bond"
+
+  ascr7:
+    sdf_file: "ascr7_CID86289656.sdf"
+    pubchem_cid: 86289656
+    cas: "1139837-37-8"
+    formula: "C13H22O6"
+    smiles: "CC1C(CC(C(O1)OC(C)CCC=CC(=O)O)O)O"
+    description: "ascaroside #7, C6 chain with trans double bond"
+
+vina:
+  exhaustiveness: 200     # 匹配 Hu2024 参数
+  num_modes: 20
+  energy_range: 3.0
+  seed: 42
+  # spacing=0.1（Hu2024）在 40Å box 下产生 64M 格点，触发 Vina szv_grid.cpp assertion
+  # 实测 0.25 可行（4M 格点），比原来的 0.375（1.2M）精度高 3x
+  spacing: 0.25
+
+  # 快速模式参数（开发/测试用）
+  fast:
+    exhaustiveness: 32
+    num_modes: 9
+
+grid_box:
+  default_size: 40.0      # 40 Å，匹配 Hu2024 参数（三轴等大）
+  strategy: "center_of_mass"  # Hu2024: "box size of 40 Å around the centre of mass"
+  blind_padding: 10.0     # blind docking 时在蛋白 bounding box 外扩充 10 Å
+
+analysis:
+  top_n_poses: 5          # 匹配 Hu2024 参数
+  plip_distance_cutoff: 4.0  # Å，PLIP 相互作用距离截断
+  blind_validation_ligand: "ascr3"   # 用于 blind docking 验证的配体
+  blind_rmsd_threshold: 5.0          # Å，informed vs blind top pose 可接受偏差
+
+  # 文献排名验证
+  expected_ranking:
+    # Kuo2024: Gpr3 对 ascr#3 的亲和力高于 ascr#7（-7.05 vs -6.41）
+    - receptor: Gpr3
+      better: ascr3
+      worse: ascr7
+    # Kuo2024: Gpr2 对 ascr#7 略强于 ascr#3（-7.07 vs -6.99）
+    - receptor: Gpr2
+      better: ascr7
+      worse: ascr3

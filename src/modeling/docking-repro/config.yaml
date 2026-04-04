@@ -1,0 +1,160 @@
+# Hu2024 精确复现 Pipeline 配置
+# 方法参考: Hu et al. 2024 Nat Microbiol (doi: 10.1038/s41564-024-01731-9)
+# 执行架构: Mac M1（代码/分析）→ Windows 7500F（ADFR/Orca/Vina 计算）
+
+pipeline_version: "hu2024-repro-v1"
+method_reference: "Hu et al. 2024 Nat Microbiol"
+
+# ---------------------------------------------------------------------------
+# 路径配置（相对于 project_root）
+# ---------------------------------------------------------------------------
+paths:
+  project_root: "/Users/roy/Documents/drylab"
+  # 输入：共享 v2 的原始 PDB 和 SDF（不复制，通过 symlink 引用）
+  receptor_dir: "experiments/docking/receptors"
+  ligand_dir: "experiments/docking/ligands"
+  # 输出：独立目录
+  prepared_dir: "experiments/docking-repro/prepared"
+  results_dir: "experiments/docking-repro/results"
+  analysis_dir: "experiments/docking-repro/analysis"
+  log_dir: "experiments/docking-repro/logs"
+  orca_dir: "experiments/docking-repro/ligands/orca"
+
+# ---------------------------------------------------------------------------
+# Windows 计算节点（通过 SSH 远程调用）
+# ---------------------------------------------------------------------------
+remote:
+  host: "100.87.153.84"
+  user: "Administrator"
+  work_dir: "D:/docking-repro"          # Windows 工作目录
+  adfr_bin: "D:/ADFRsuite/bin"          # ADFR Suite 安装路径
+  orca_bin: "D:/orca/orca.exe"          # Orca 可执行文件
+  conda_env: "docking-repro"            # Windows conda 环境名
+
+# ---------------------------------------------------------------------------
+# 受体配置（与 v2 相同，只对接 GprC 复现 Hu2024）
+# ---------------------------------------------------------------------------
+receptors:
+  GprC:
+    pdb_file: "GprC_A0A437AGY2.pdb"
+    uniprot: "A0A437AGY2"
+    species: "Arthrobotrys flagrans"
+    n_residues: 538
+    # Hu2024: pLDDT > 0.85 for TM region
+  # Gpr2/Gpr3 也包含（复现 Kuo2024 排名验证）
+  Gpr2:
+    pdb_file: "Gpr2_G1X9E2.pdb"
+    uniprot: "G1X9E2"
+    species: "Arthrobotrys oligospora"
+    n_residues: 406
+  Gpr3:
+    pdb_file: "Gpr3_G1XJN1.pdb"
+    uniprot: "G1XJN1"
+    species: "Arthrobotrys oligospora"
+    n_residues: 401
+
+# ---------------------------------------------------------------------------
+# 配体配置
+# ---------------------------------------------------------------------------
+ligands:
+  ascr18:
+    sdf_file: "ascr18_CID71514784.sdf"
+    smiles: "CC1C(CC(C(O1)OC(C)CCCCCCCCC(=O)O)O)O"
+    pubchem_cid: 71514784
+    formula: "C17H32O6"
+    # Hu2024: 使用 Avogadro 构建 + Orca 优化
+    # 本方案: SMILES → RDKit 3D 嵌入 → Orca 优化（等效）
+  ascr3:
+    sdf_file: "ascr3_CID16066476.sdf"
+    smiles: "CC1C(CC(C(O1)OC(C)CCCCC=CC(=O)O)O)O"
+    pubchem_cid: 16066476
+    formula: "C15H26O6"
+  ascr7:
+    sdf_file: "ascr7_CID86289656.sdf"
+    smiles: "CC1C(CC(C(O1)OC(C)CCC=CC(=O)O)O)O"
+    pubchem_cid: 86289656
+    formula: "C13H22O6"
+
+# ---------------------------------------------------------------------------
+# ADFR Suite 受体/配体准备参数
+# ---------------------------------------------------------------------------
+adfr:
+  receptor:
+    # prepare_receptor 标准参数（匹配 Hu2024）
+    add_hydrogens: true                  # -A hydrogens
+    cleanup: "nphs_lps_waters_nonstdres" # -U 选项：去除非极性氢、孤对电子、水、非标准残基
+  ligand:
+    max_dofs: 11                         # 上限 11 DOFs（Hu2024: "7-11 DOFs"）
+    # ascarylose 环外非环单键设为可旋转（Hu2024 方法）
+    rotatable_bonds: "non_cyclic"        # -B non_cyclic
+    add_hydrogens: true                  # -A hydrogens
+
+# ---------------------------------------------------------------------------
+# Orca 量子化学优化参数
+# ---------------------------------------------------------------------------
+orca:
+  method: "B3LYP"                        # Hu2024: B3LYP
+  basis: "def2-TZVP"                     # Hu2024: def2-TZVP
+  keywords: "OPT TightOPT"              # 几何优化，严格收敛
+  charge: 0
+  multiplicity: 1
+  nprocs: 6                             # 7500F 6核（留2核给系统）
+  maxiter: 500
+  # 如果 DFT 不收敛的备选方案：
+  # method_fallback: "B3LYP"
+  # basis_fallback: "def2-SVP"
+
+# ---------------------------------------------------------------------------
+# AutoDock Vina 两阶段对接参数（解决 spacing=0.1 + 40Å box 格点溢出）
+# ---------------------------------------------------------------------------
+vina:
+  seed: 42
+  num_modes: 20
+  energy_range: 3.0
+
+  # Stage 1: 全局搜索（定位结合口袋）
+  stage1:
+    spacing: 0.25
+    box_size: 40.0
+    exhaustiveness: 32
+    # 格点数: (40/0.25+1)^3 = 161^3 = 4.2M ✓
+
+  # Stage 2: 局部精修（spacing=0.1，Hu2024 参数）
+  stage2:
+    spacing: 0.1
+    box_size: 20.0                       # 缩小 box 以满足格点限制
+    exhaustiveness: 200                  # 匹配 Hu2024
+    # 格点数: (20/0.1+1)^3 = 201^3 = 8.1M ✓（< 27M 限制）
+
+# ---------------------------------------------------------------------------
+# Grid Box（与 v2 一致：受体质心为中心）
+# ---------------------------------------------------------------------------
+grid_box:
+  stage1_size: 40.0
+  stage2_size: 20.0
+  strategy: "center_of_mass"            # Hu2024: "centre of mass of the receptor"
+
+# ---------------------------------------------------------------------------
+# 分析参数
+# ---------------------------------------------------------------------------
+analysis:
+  top_n_poses: 5                         # Hu2024: 分析前 5 个 pose
+  plip_enabled: true
+  # 文献参考关键残基（Ballesteros-Weinstein 编号）
+  key_residues:
+    GprC:
+      N2_57: 83    # 胞外侧，突变为 Ala 后丧失功能
+      R6_45: 281   # R-motif，突变为 Ala 后结合亲和力剧降
+      S2_41: 77    # S-motif
+
+# ---------------------------------------------------------------------------
+# 验证标准（比 v2 更严格）
+# ---------------------------------------------------------------------------
+validation:
+  tolerance_kcal: 0.5                    # Hu2024 参考值偏差上限（v2 用 1.0）
+  reference:
+    GprC_ascr18: -8.29                   # Hu2024 Fig. 2
+    GprC_ascr3: -8.31                    # Hu2024 Fig. 2
+  kuo2024_rankings:
+    Gpr2: ["ascr7", "ascr3"]             # ascr7 > ascr3（结合更强）
+    Gpr3: ["ascr3", "ascr7"]             # ascr3 > ascr7
