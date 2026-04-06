@@ -12,8 +12,6 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
-from Bio import PDB
-from Bio.PDB import PPBuilder
 
 from utils import get_logger
 
@@ -40,12 +38,95 @@ class GridBox:
         )
 
 
-def _load_structure(pdb_path: str | Path, struct_id: str = "receptor") -> PDB.Structure.Structure:
+def _load_structure(pdb_path: str | Path, struct_id: str = "receptor"):
+    from Bio import PDB  # 懒加载，避免 Windows SSH 非交互模式下 C-extension DLL crash
     parser = PDB.PDBParser(QUIET=True)
     return parser.get_structure(struct_id, str(pdb_path))
 
 
-def _get_ca_coords(structure: PDB.Structure.Structure, residue_ids: list[int],
+# 标准原子量（用于全原子质量加权质心计算）
+_ATOMIC_MASSES: dict[str, float] = {
+    "H": 1.008, "C": 12.011, "N": 14.007, "O": 15.999,
+    "S": 32.065, "P": 30.974, "F": 18.998, "CL": 35.45,
+    "BR": 79.904, "I": 126.904, "SE": 78.971, "FE": 55.845,
+    "ZN": 65.38, "MG": 24.305,
+}
+
+
+def _get_all_atom_coords_masses_stdlib(
+    pdb_path: str | Path, chain_id: str = "A"
+) -> tuple[np.ndarray, np.ndarray]:
+    """
+    读取 PDB 所有 ATOM 记录，返回坐标数组和原子质量数组。
+
+    用于计算全原子质量加权质心，匹配 Hu2024 "centre of mass of the receptor"。
+    元素优先从 PDB 第 77-78 列读取；不存在则从原子名称首字符推断。
+    """
+    coords: list[list[float]] = []
+    masses: list[float] = []
+    for line in Path(pdb_path).read_text(errors="replace").splitlines():
+        if not line.startswith("ATOM"):
+            continue
+        if len(line) < 54:
+            continue
+        if line[21] != chain_id:
+            continue
+        atom_name = line[12:16].strip()
+        try:
+            x = float(line[30:38])
+            y = float(line[38:46])
+            z = float(line[46:54])
+        except ValueError:
+            continue
+
+        # 元素推断：优先 element 列（第 77-78 列），否则从原子名首字符
+        elem = line[76:78].strip().upper() if len(line) >= 78 else ""
+        if not elem:
+            name = atom_name.strip()
+            if name and name[0].isdigit():
+                elem = "H"
+            elif name:
+                elem = name[0].upper()
+            else:
+                elem = "C"
+
+        coords.append([x, y, z])
+        masses.append(_ATOMIC_MASSES.get(elem, 12.011))
+
+    if not coords:
+        raise ValueError(f"无法从 {pdb_path} 提取 ATOM 坐标")
+    return np.array(coords), np.array(masses)
+
+
+def _get_ca_coords_stdlib(pdb_path: str | Path, residue_ids: list[int],
+                          chain_id: str = "A") -> np.ndarray:
+    """用 stdlib 文本解析提取指定残基 CA 坐标（无 Bio.PDB 依赖）。"""
+    coords = []
+    found = set()
+    for line in Path(pdb_path).read_text(errors="replace").splitlines():
+        if not line.startswith("ATOM"):
+            continue
+        if len(line) < 54:
+            continue
+        atom_name = line[12:16].strip()
+        chain = line[21]
+        try:
+            resseq = int(line[22:26].strip())
+            x = float(line[30:38])
+            y = float(line[38:46])
+            z = float(line[46:54])
+        except ValueError:
+            continue
+        if atom_name == "CA" and chain == chain_id:
+            if residue_ids is None or resseq in residue_ids:
+                coords.append([x, y, z])
+                found.add(resseq)
+    if not coords:
+        raise ValueError(f"无法从 {pdb_path} 提取 CA 原子坐标")
+    return np.array(coords)
+
+
+def _get_ca_coords(structure, residue_ids: list[int],
                    chain_id: str = "A") -> np.ndarray:
     """提取指定残基的 CA 原子坐标。"""
     coords = []
@@ -80,8 +161,7 @@ def compute_box_from_residues(
     Returns:
         GridBox 对象
     """
-    structure = _load_structure(pdb_path)
-    coords = _get_ca_coords(structure, residue_ids, chain_id)
+    coords = _get_ca_coords_stdlib(pdb_path, residue_ids, chain_id)
     centroid = coords.mean(axis=0)
 
     box = GridBox(
@@ -143,9 +223,10 @@ def compute_box_center_of_mass(
     chain_id: str = "A",
 ) -> GridBox:
     """
-    以受体 TM-only PDB 的 CA 原子质心为中心定义 grid box。
+    以受体 TM-only PDB 的全原子质量加权质心为中心定义 grid box。
 
     匹配 Hu2024: "box size of 40 Å around the centre of mass of the receptor"
+    使用 stdlib 文本解析，无 Bio.PDB 依赖。
 
     Args:
         pdb_path: TM-only 受体 PDB 路径（已裁剪到跨膜域）
@@ -155,28 +236,19 @@ def compute_box_center_of_mass(
     Returns:
         GridBox 对象
     """
-    structure = _load_structure(pdb_path)
-    ca_coords = []
-    for res in structure[0][chain_id].get_residues():
-        if res.get_id()[0] == " " and "CA" in res:
-            ca_coords.append(res["CA"].get_vector().get_array())
-
-    if not ca_coords:
-        raise ValueError(f"无法从 {pdb_path} 提取 CA 原子坐标")
-
-    coords = np.array(ca_coords)
-    centroid = coords.mean(axis=0)
+    coords, masses = _get_all_atom_coords_masses_stdlib(pdb_path, chain_id)
+    com = (masses[:, np.newaxis] * coords).sum(axis=0) / masses.sum()
 
     box = GridBox(
-        center_x=float(centroid[0]),
-        center_y=float(centroid[1]),
-        center_z=float(centroid[2]),
+        center_x=float(com[0]),
+        center_y=float(com[1]),
+        center_z=float(com[2]),
         size_x=box_size,
         size_y=box_size,
         size_z=box_size,
     )
     get_logger().info(
-        f"Center-of-mass box ({len(ca_coords)} CA 原子): {box}"
+        f"Center-of-mass box ({len(coords)} atoms, mass-weighted): {box}"
     )
     return box
 
