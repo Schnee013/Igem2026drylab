@@ -120,6 +120,99 @@ def extract_tm_domain(
     return first_res_id, last_res_id
 
 
+def extract_tm_domain_by_annotation(
+    pdb_path: Path,
+    output_path: Path,
+    tm_topology: dict,
+    receptor_name: str,
+) -> tuple[int, int, int]:
+    """
+    基于 UniProt/DeepTMHMM TM 拓扑注释提取 TM 域，截断 ICL3。
+
+    策略（方案 A）：
+    - 保留 TM1_start - flank 到 TM5_end + linker（包含 ECL1-2、ICL1-2）
+    - 跳过 ICL3 主体（仅保留两端 linker）
+    - 保留 TM6_start - linker 到 TM7_end + flank（包含 ECL3）
+
+    Args:
+        pdb_path: 全长 AlphaFold PDB
+        output_path: 输出 TM-only PDB
+        tm_topology: config["tm_topology"] 字典
+        receptor_name: 受体名称（GprC/Gpr2/Gpr3）
+
+    Returns:
+        (n_kept, n_removed, n_total) 残基数
+    """
+    from Bio import PDB
+    logger = get_logger()
+
+    rec_topo = tm_topology[receptor_name]
+    helices = rec_topo["helices"]
+    icl3_start, icl3_end = rec_topo["icl3"]
+    linker_len = tm_topology.get("linker_length", 5)
+    flank = tm_topology.get("flank", 5)
+
+    # 计算保留范围
+    tm1_start = helices["TM1"][0]
+    tm5_end = helices["TM5"][1]
+    tm6_start = helices["TM6"][0]
+    tm7_end = helices["TM7"][1]
+
+    # 区域 1: TM1前flank → TM5末端 + linker (进入ICL3少许)
+    keep_start = tm1_start - flank
+    keep_mid_end = tm5_end + linker_len
+
+    # 区域 2: TM6前linker → TM7末端 + flank
+    keep_mid_start = tm6_start - linker_len
+    keep_end = tm7_end + flank
+
+    logger.info(
+        f"{receptor_name} TM 域提取（annotation-based）:\n"
+        f"  区域1: {keep_start}–{keep_mid_end}（TM1-5 + ECL1-2 + ICL3 linker）\n"
+        f"  跳过 ICL3: {keep_mid_end + 1}–{keep_mid_start - 1}（{keep_mid_start - keep_mid_end - 1} aa）\n"
+        f"  区域2: {keep_mid_start}–{keep_end}（TM6-7 + ECL3 + ICL3 linker）"
+    )
+
+    parser = PDB.PDBParser(QUIET=True)
+    structure = parser.get_structure("rec", str(pdb_path))
+
+    # 统计残基
+    all_residues = [
+        r for r in structure[0]["A"].get_residues()
+        if r.get_id()[0] == " "
+    ]
+    n_total = len(all_residues)
+
+    class TmAnnotationSelect(PDB.Select):
+        def accept_chain(self, c):
+            return c.id == "A"
+
+        def accept_residue(self, res):
+            if res.get_id()[0] != " ":
+                return False
+            rid = res.get_id()[1]
+            return (keep_start <= rid <= keep_mid_end) or \
+                   (keep_mid_start <= rid <= keep_end)
+
+    io = PDB.PDBIO()
+    io.set_structure(structure)
+    io.save(str(output_path), TmAnnotationSelect())
+
+    # 计算保留/移除数
+    n_kept = sum(
+        1 for r in all_residues
+        if (keep_start <= r.get_id()[1] <= keep_mid_end) or
+           (keep_mid_start <= r.get_id()[1] <= keep_end)
+    )
+    n_removed = n_total - n_kept
+
+    logger.info(
+        f"  结果: {n_total} → {n_kept} 残基（移除 {n_removed}，"
+        f"含 ICL3 ~{icl3_end - icl3_start + 1 - 2 * linker_len} aa）"
+    )
+    return n_kept, n_removed, n_total
+
+
 def _clean_pdb(pdb_path: Path, output_path: Path) -> None:
     """
     去除水分子和 HETATM，只保留 chain A 标准残基。
@@ -146,12 +239,17 @@ def prepare_receptor_adfr(
     output_dir: Path,
     adfr_bin: str,
     skip_tm_extraction: bool = False,
+    tm_topology: dict | None = None,
+    receptor_name: str | None = None,
 ) -> Path:
     """
     将受体 PDB 转换为 PDBQT（ADFR Suite 方法，匹配 Hu2024）。
 
     流程:
-    1. BioPython 提取 TM 域（pLDDT 导向，skip_tm_extraction=True 时跳过）
+    1. TM 域提取：
+       - tm_topology 提供时：基于 UniProt 注释截断 ICL3（推荐）
+       - 否则：pLDDT 自动识别（旧方法，保留向后兼容）
+       - skip_tm_extraction=True：跳过（FoldX 突变体，已是 TM-only）
     2. BioPython 清理 PDB（去水/HETATM）
     3. ADFR prepare_receptor 转换（加氢、原子类型指派）
 
@@ -159,7 +257,9 @@ def prepare_receptor_adfr(
         pdb_path: 受体 PDB（全长 AlphaFold PDB 或已提取的 TM-only PDB）
         output_dir: PDBQT 输出目录
         adfr_bin: ADFR Suite bin 目录路径
-        skip_tm_extraction: True 时跳过 TM 域提取（用于 FoldX 突变体，已经是 TM-only 结构）
+        skip_tm_extraction: True 时跳过 TM 域提取
+        tm_topology: config["tm_topology"]，提供时使用 annotation-based 提取
+        receptor_name: 受体名称（tm_topology 模式下必须提供）
 
     Returns:
         输出 PDBQT 文件路径
@@ -175,15 +275,24 @@ def prepare_receptor_adfr(
         # FoldX 突变体：已经是 TM-only 结构，直接清理
         cleaned_pdb = output_dir / f"{stem}_cleaned.pdb"
         _clean_pdb(pdb_path, cleaned_pdb)
+    elif tm_topology is not None and receptor_name is not None:
+        # 方案 A：基于 UniProt/DeepTMHMM 注释提取（截断 ICL3）
+        tm_pdb = output_dir / f"{stem}_tm.pdb"
+        if not tm_pdb.exists():
+            extract_tm_domain_by_annotation(pdb_path, tm_pdb, tm_topology, receptor_name)
+        else:
+            logger.info(f"  TM PDB 已存在，跳过提取: {tm_pdb.name}")
+
+        cleaned_pdb = output_dir / f"{stem}_tm_cleaned.pdb"
+        _clean_pdb(tm_pdb, cleaned_pdb)
     else:
-        # Step 1: TM 域提取
+        # 旧方法：pLDDT 自动识别（向后兼容）
         tm_pdb = output_dir / f"{stem}_tm.pdb"
         if not tm_pdb.exists():
             extract_tm_domain(pdb_path, tm_pdb)
         else:
             logger.info(f"  TM PDB 已存在，跳过提取: {tm_pdb.name}")
 
-        # Step 2: 清理
         cleaned_pdb = output_dir / f"{stem}_tm_cleaned.pdb"
         _clean_pdb(tm_pdb, cleaned_pdb)
 
@@ -244,13 +353,18 @@ def prepare_all_receptors(config: dict) -> dict:
     prepared_dir = root / config["paths"]["prepared_dir"]
     rec_out = prepared_dir / "receptors"
     adfr_bin = config["remote"]["adfr_bin"]
+    tm_topology = config.get("tm_topology")
 
     paths = {"receptors": {}, "tm_pdbs": {}}
 
-    logger.info("=== 准备所有受体（TM 域提取 + ADFR PDBQT）===")
+    method = "annotation-based（ICL3 截断）" if tm_topology else "pLDDT-based（旧方法）"
+    logger.info(f"=== 准备所有受体（{method} TM 域提取 + ADFR PDBQT）===")
     for name, rec_cfg in config["receptors"].items():
         pdb_path = receptor_dir / rec_cfg["pdb_file"]
-        pdbqt_path = prepare_receptor_adfr(pdb_path, rec_out, adfr_bin)
+        pdbqt_path = prepare_receptor_adfr(
+            pdb_path, rec_out, adfr_bin,
+            tm_topology=tm_topology, receptor_name=name,
+        )
         paths["receptors"][name] = pdbqt_path
         paths["tm_pdbs"][name] = rec_out / f"{pdb_path.stem}_tm.pdb"
 

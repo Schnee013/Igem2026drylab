@@ -221,6 +221,7 @@ def compute_box_center_of_mass(
     pdb_path: str | Path,
     box_size: float = 40.0,
     chain_id: str = "A",
+    tm_helix_ranges: list[list[int]] | None = None,
 ) -> GridBox:
     """
     以受体 TM-only PDB 的全原子质量加权质心为中心定义 grid box。
@@ -232,11 +233,59 @@ def compute_box_center_of_mass(
         pdb_path: TM-only 受体 PDB 路径（已裁剪到跨膜域）
         box_size: box 大小（Å），默认 40.0
         chain_id: 蛋白链 ID
+        tm_helix_ranges: 可选，TM 螺旋残基范围列表 [[start, end], ...]。
+            如果提供，仅用 TM 螺旋原子计算质心（排除 ECL/ICL loop 残基），
+            确保质心定位在 7-TM 束几何中心。
 
     Returns:
         GridBox 对象
     """
-    coords, masses = _get_all_atom_coords_masses_stdlib(pdb_path, chain_id)
+    if tm_helix_ranges is not None:
+        # 仅提取 TM 螺旋残基范围内的原子
+        tm_residue_set = set()
+        for start, end in tm_helix_ranges:
+            tm_residue_set.update(range(start, end + 1))
+
+        coords_list: list[list[float]] = []
+        masses_list: list[float] = []
+        for line in Path(pdb_path).read_text(errors="replace").splitlines():
+            if not line.startswith("ATOM") or len(line) < 54:
+                continue
+            if line[21] != chain_id:
+                continue
+            try:
+                resseq = int(line[22:26].strip())
+            except ValueError:
+                continue
+            if resseq not in tm_residue_set:
+                continue
+            try:
+                x = float(line[30:38])
+                y = float(line[38:46])
+                z = float(line[46:54])
+            except ValueError:
+                continue
+            elem = line[76:78].strip().upper() if len(line) >= 78 else ""
+            if not elem:
+                name = line[12:16].strip()
+                if name and name[0].isdigit():
+                    elem = "H"
+                elif name:
+                    elem = name[0].upper()
+                else:
+                    elem = "C"
+            coords_list.append([x, y, z])
+            masses_list.append(_ATOMIC_MASSES.get(elem, 12.011))
+
+        if not coords_list:
+            raise ValueError(f"无法从 {pdb_path} 的 TM 螺旋范围提取原子")
+        coords = np.array(coords_list)
+        masses = np.array(masses_list)
+        label = f"TM-helix-only, {len(tm_helix_ranges)} helices"
+    else:
+        coords, masses = _get_all_atom_coords_masses_stdlib(pdb_path, chain_id)
+        label = "all atoms"
+
     com = (masses[:, np.newaxis] * coords).sum(axis=0) / masses.sum()
 
     box = GridBox(
@@ -248,7 +297,7 @@ def compute_box_center_of_mass(
         size_z=box_size,
     )
     get_logger().info(
-        f"Center-of-mass box ({len(coords)} atoms, mass-weighted): {box}"
+        f"Center-of-mass box ({len(coords)} atoms, {label}, mass-weighted): {box}"
     )
     return box
 

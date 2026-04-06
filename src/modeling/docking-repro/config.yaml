@@ -145,6 +145,56 @@ vina:
     exhaustiveness: 200
 
 # ---------------------------------------------------------------------------
+# TM 拓扑注释（UniProt + DeepTMHMM 交叉验证）
+# 用于 TM 域提取，替代 pLDDT 自动识别方法
+# 参考：Phase 0a 确认 Hu2024 用 Phyre2/TMHMM 拓扑，非 pLDDT 阈值
+# ---------------------------------------------------------------------------
+tm_topology:
+  # 每个受体的 7-TM helix 残基范围 [start, end]（含）
+  # ICL3 截断策略：保留 TM5_end 后 5aa 和 TM6_start 前 5aa 作为 linker
+  linker_length: 5    # ICL3 两端保留的 linker 残基数
+  flank: 5            # TM1 前 / TM7 后额外保留的残基数
+
+  GprC:
+    # UniProt A0A437AGY2 — https://www.uniprot.org/uniprotkb/A0A437AGY2
+    # DeepTMHMM ICL3: 189-373 (184aa), UniProt ICL3: 193-373 (180aa)
+    helices:
+      TM1: [15, 35]
+      TM2: [47, 69]
+      TM3: [89, 109]
+      TM4: [125, 145]
+      TM5: [172, 192]
+      TM6: [374, 394]
+      TM7: [405, 427]
+    icl3: [193, 373]    # 180 aa — 截断目标
+
+  Gpr2:
+    # UniProt G1X9E2 — https://www.uniprot.org/uniprotkb/G1X9E2
+    # DeepTMHMM ICL3: 202-326 (124aa), UniProt ICL3: 207-326 (119aa)
+    helices:
+      TM1: [30, 50]
+      TM2: [62, 82]
+      TM3: [108, 128]
+      TM4: [144, 164]
+      TM5: [186, 206]
+      TM6: [327, 347]
+      TM7: [357, 377]
+    icl3: [207, 326]    # 119 aa
+
+  Gpr3:
+    # UniProt G1XJN1 — https://www.uniprot.org/uniprotkb/G1XJN1
+    # DeepTMHMM ICL3: 190-294 (104aa), UniProt ICL3: 197-294 (97aa)
+    helices:
+      TM1: [17, 37]
+      TM2: [48, 68]
+      TM3: [94, 114]
+      TM4: [129, 149]
+      TM5: [176, 196]
+      TM6: [295, 315]
+      TM7: [322, 342]
+    icl3: [197, 294]    # 97 aa
+
+# ---------------------------------------------------------------------------
 # Grid Box（与 v2 一致：受体质心为中心）
 # ---------------------------------------------------------------------------
 grid_box:
@@ -191,10 +241,13 @@ mutagenesis:
   foldx_bin: "D:/foldxWindows/foldx_20261231.exe"
 
   # 突变体结构来源：
-  #   "foldx" — FoldX BuildModel（副链替换，快速，精度有限）
-  #   "af2"   — AF2 web server 预测结构（需提前手动提交，精度更高，Hu2024 方法）
-  #             AF2 PDBQT 存放于: experiments/docking-repro/mutagenesis/af2_prepared/{rec_name}/{label}_tm.pdbqt
-  mutant_source: "foldx"                 # 先用 foldx 确认 pipeline 可跑通，验证后改 af2
+  #   "foldx" — FoldX BuildModel（副链替换，快速，精度有限；已弃用）
+  #   "af2"   — AF2 web server（已被 AF3 取代）
+  #   "af3"   — AF3 web server 预测结构（当前方法）
+  #             AF3 结构: mutagenesis/af3_structures/{RecName}/{Label}[_tm].pdb
+  #             AF3 PDBQT: mutagenesis/af3_prepared/{RecName}/{Label}_tm.pdbqt
+  #             注意: AF3 使用 diffusion-based 架构，不等同于 Hu2024 的 AF2（详见 logs/2026-04-07.md §5）
+  mutant_source: "af3"                   # AF3 预测结构（2026-04-07 起使用）
 
   # 对接协议：
   #   "singlestage" — 单阶段 40Å/0.1/200（Hu2024 原文，主协议）
@@ -247,7 +300,7 @@ mutagenesis:
     Gpr3:
       - 192   # v2 PLIP（ascr7）；无实验验证
       - 193   # v2 PLIP（ascr18/3/7 共享）
-      - 196   # v2 PLIP（ascr18/3）
+      # - 196   # v2 PLIP（ascr18/3）— AF3 未提交，暂移除
       - 197   # v2 PLIP（ascr18/3/7 共享）
       - 285   # v2 PLIP 最高频（ascr18/3/7 共享）
       - 286   # v2 PLIP（ascr18）

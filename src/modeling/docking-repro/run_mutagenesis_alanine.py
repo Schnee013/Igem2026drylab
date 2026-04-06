@@ -2,9 +2,10 @@
 Alanine Scan：3 受体全量扫描（GprC × 11 残基，Gpr2 × 9 残基，Gpr3 × 8 残基 = 28 突变体）
 
 依赖：
-  - S1 完成：experiments/docking-repro/results/wt_twostage/docking_results.json
-  - Orca 配体：experiments/docking-repro/prepared/ligands/ascr{18,3,7}_optimized.pdbqt
-  - 受体 TM PDB：experiments/docking-repro/prepared/receptors/Gpr{2,3,C}_*_tm.pdb
+  - WT 单阶段基线：experiments/docking-repro/results/wt_singlestage/docking_results.json
+  - Orca 配体：experiments/docking-repro/prepared/ligands/ascr{18,3}_optimized.pdbqt
+  - AF3 突变体 PDBQT：experiments/docking-repro/mutagenesis/af3_prepared/{RecName}/{Label}_tm.pdbqt
+  - WT TM PDB：experiments/docking-repro/prepared/receptors/Gpr{2,3,C}_*_tm.pdb
 
 用法（Windows）：
     python run_mutagenesis_alanine.py
@@ -12,8 +13,7 @@ Alanine Scan：3 受体全量扫描（GprC × 11 残基，Gpr2 × 9 残基，Gpr
     python run_mutagenesis_alanine.py --receptors GprC Gpr2   # 仅扫描指定受体
 
 输出：
-    experiments/docking-repro/mutagenesis/*/          — 每个受体的 FoldX/ADFR/docking 中间文件
-    experiments/docking-repro/mutagenesis/prepared/   — 突变体 PDBQT 平铺目录（供 S2/S4 使用）
+    experiments/docking-repro/mutagenesis/{RecName}/{Label}/docking/ — 对接中间文件
     experiments/docking-repro/mutagenesis/mutagenesis_results.json
     experiments/docking-repro/mutagenesis/mutagenesis_report.md
 """
@@ -44,15 +44,15 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_s1_baseline(root: Path) -> dict[str, float]:
-    """从 S1 两阶段结果加载 WT 基线，并校验预期键存在。"""
-    s1_json = root / "experiments/docking-repro/results/wt_twostage/docking_results.json"
-    if not s1_json.exists():
+def load_wt_baseline(root: Path) -> dict[str, float]:
+    """从 WT 单阶段结果加载基线，并校验预期键存在。"""
+    wt_json = root / "experiments/docking-repro/results/wt_singlestage/docking_results.json"
+    if not wt_json.exists():
         raise FileNotFoundError(
-            f"S1 WT 基线不存在: {s1_json}\n"
-            "请先完成 run_wt_twostage.py（S1）。"
+            f"WT 单阶段基线不存在: {wt_json}\n"
+            "请先完成 run_wt_singlestage.py。"
         )
-    raw = json.loads(s1_json.read_text(encoding="utf-8"))
+    raw = json.loads(wt_json.read_text(encoding="utf-8"))
     baseline = {r["pair_name"]: r["best_affinity"] for r in raw}
     expected = [
         "GprC_ascr18", "GprC_ascr3",
@@ -62,9 +62,9 @@ def load_s1_baseline(root: Path) -> dict[str, float]:
     missing = [k for k in expected if k not in baseline]
     if missing:
         raise ValueError(
-            f"S1 基线缺少键: {missing}\n"
+            f"WT 基线缺少键: {missing}\n"
             f"实际键: {sorted(baseline.keys())}\n"
-            "请检查 run_wt_twostage.py 输出的 pair_name 格式。"
+            "请检查 run_wt_singlestage.py 输出的 pair_name 格式。"
         )
     return baseline
 
@@ -114,16 +114,19 @@ def main() -> None:
         f"mutagenesis_alanine_{run_id}",
     )
 
-    # 确保使用 repro 基线（TM PDB 来自 docking-repro/prepared/receptors/）
+    # 使用 AF3 突变体结构 + 单阶段对接协议
     config["mutagenesis"]["wt_baseline"] = "repro"
+    config["mutagenesis"]["mutant_source"] = "af3"
+    config["mutagenesis"]["docking_mode"] = "singlestage"
     config["mutagenesis"]["scan_type"] = "alanine"
     config["mutagenesis"]["target_receptors"] = args.receptors
 
     prepared_root = root / config["paths"]["prepared_dir"]
     rec_dir = prepared_root / "receptors"
     lig_dir = prepared_root / "ligands"
+    mut_dir = root / config["paths"]["mutagenesis_dir"]
 
-    # preflight 检查（TM PDB 文件名从 config 推导，与 mutagenesis.py 保持一致）
+    # preflight 检查
     receptor_tm_pdbs = {
         rec: Path(config["receptors"][rec]["pdb_file"]).stem + "_tm.pdb"
         for rec in ["GprC", "Gpr2", "Gpr3"]
@@ -131,8 +134,8 @@ def main() -> None:
     }
     checks = [
         {"type": "file_exists",
-         "path": root / "experiments/docking-repro/results/wt_twostage/docking_results.json",
-         "hint": "S1 WT 基线不存在，请先运行 run_wt_twostage.py"},
+         "path": root / "experiments/docking-repro/results/wt_singlestage/docking_results.json",
+         "hint": "WT 单阶段基线不存在，请先运行 run_wt_singlestage.py"},
         {"type": "file_exists", "path": lig_dir / "ascr18_optimized.pdbqt",
          "hint": "ascr18 配体不存在，请先完成 Orca 配体准备（run_prepare_ligands.py）"},
         {"type": "file_exists", "path": lig_dir / "ascr3_optimized.pdbqt",
@@ -142,12 +145,16 @@ def main() -> None:
          "hint": f"{rec} TM PDB 不存在，请检查 prepared/receptors/"}
         for rec, tm_pdb in receptor_tm_pdbs.items()
         if rec in args.receptors
+    ] + [
+        {"type": "file_exists", "path": mut_dir / "af3_prepared" / rec,
+         "hint": f"{rec} AF3 突变体 PDBQT 目录不存在，请先运行 ADFR prepare_receptor"}
+        for rec in args.receptors
     ]
     preflight_check(checks, logger)
 
-    # 加载 S1 WT 基线
-    wt_baseline = load_s1_baseline(root)
-    logger.info(f"已加载 S1 WT 基线（{len(wt_baseline)} 对）：")
+    # 加载 WT 单阶段基线
+    wt_baseline = load_wt_baseline(root)
+    logger.info(f"已加载 WT 单阶段基线（{len(wt_baseline)} 对）：")
     for k, v in sorted(wt_baseline.items()):
         logger.info(f"  {k}: {v:.3f} kcal/mol")
 
@@ -158,9 +165,11 @@ def main() -> None:
     )
     logger.info(
         f"Alanine Scan 启动 [run_id={run_id}]"
+        f"\n  突变体来源: AF3"
+        f"\n  对接协议: 单阶段 (40Å/0.1/exh=200)"
         f"\n  受体: {args.receptors}"
-        f"\n  预计突变数: {total_muts} （每突变 ~2 × two-stage docking）"
-        f"\n  预计用时: ~{total_muts * 12 // 60}-{total_muts * 18 // 60} 小时"
+        f"\n  预计突变数: {total_muts} （每突变 × 2 配体 × singlestage）"
+        f"\n  预计用时: ~{total_muts * 4 // 60}-{total_muts * 6 // 60} 小时"
     )
 
     # 执行扫描

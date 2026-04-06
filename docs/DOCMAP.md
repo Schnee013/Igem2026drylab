@@ -121,7 +121,13 @@ drylab/
 │       ├── prepared/            # ADFR 准备的 PDBQT（单一来源）
 │       ├── results/             # 对接结果 JSON
 │       ├── logs/                # 运行日志
-│       └── mutagenesis/         # 突变体相关（FASTA、AF3 结构、prepared PDBQT）
+│       ├── analysis/            # 分析产出
+│       │   └── deeptmhmm/       # DeepTMHMM TM 拓扑预测（UniProt 交叉验证）
+│       └── mutagenesis/         # 突变体相关
+│           ├── fastas/          # AF3 输入 FASTA + 批量提交 JSON
+│           ├── af3_downloads/   # AF3 原始下载（5 model × confidence JSON）
+│           ├── af3_structures/  # 最优 model PDB/CIF + TM 截断版（_tm.pdb）
+│           └── af3_prepared/    # ADFR 生成的突变体 PDBQT（Windows 端）
 │
 ├── environments/                # conda 环境定义和锁定
 │   ├── mac-docking.yml

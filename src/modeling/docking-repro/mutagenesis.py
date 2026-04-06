@@ -510,6 +510,8 @@ def run_mutagenesis(
             continue
         logger.info(f"  共 {len(mutations)} 个突变待处理")
 
+        repaired_pdb = None  # 仅 FoldX 模式使用
+
         if mutant_source == "foldx":
             # Step 1: FoldX RepairPDB
             repaired_pdb = repair_receptor(tm_pdb, rec_mut_dir / "foldx", foldx_bin)
@@ -542,25 +544,26 @@ def run_mutagenesis(
                 except Exception as e:
                     logger.error(f"  ADFR 准备失败 ({label}): {e}")
 
-        else:  # mutant_source == "af2"
-            # AF2 突变体 PDBQT 已手动准备好，直接加载
-            # 命名约定: {mutagenesis_dir}/af2_prepared/{rec_name}/{label}_tm.pdbqt
-            af2_dir = mutant_dir / "af2_prepared" / rec_name
+        elif mutant_source in ("af2", "af3"):
+            # AF2/AF3 突变体 PDBQT 已通过外部流程准备好，直接加载
+            # AF3 命名约定: {mutagenesis_dir}/af3_prepared/{rec_name}/{label}_tm.pdbqt
+            # AF2 命名约定: {mutagenesis_dir}/af2_prepared/{rec_name}/{label}_tm.pdbqt
+            af_dir = mutant_dir / f"{mutant_source}_prepared" / rec_name
             mutant_pdbqts = {}
             for mut in mutations:
                 label = f"{mut['wt']}{mut['resnum']}{mut['mut']}"
-                pdbqt = af2_dir / f"{label}_tm.pdbqt"
+                pdbqt = af_dir / f"{label}_tm.pdbqt"
                 if pdbqt.exists():
                     mutant_pdbqts[label] = pdbqt
                 else:
                     logger.warning(
-                        f"  AF2 突变体 PDBQT 不存在: {pdbqt}\n"
-                        f"  请先提交 AF2 web server 并运行 prepare_receptor_adfr"
+                        f"  {mutant_source.upper()} 突变体 PDBQT 不存在: {pdbqt}\n"
+                        f"  请先通过 AlphaFold Server 预测并运行 ADFR prepare_receptor"
                     )
             if not mutant_pdbqts:
                 logger.error(
-                    f"  {rec_name}: 未找到任何 AF2 突变体 PDBQT，跳过。\n"
-                    f"  运行 generate_mutant_fastas.py 生成序列后提交 AF2 web server。"
+                    f"  {rec_name}: 未找到任何 {mutant_source.upper()} 突变体 PDBQT，跳过。\n"
+                    f"  运行 generate_mutant_fastas.py 生成序列后提交 AlphaFold Server。"
                 )
                 continue
 
@@ -586,6 +589,8 @@ def run_mutagenesis(
                 pair_name = f"{rec_name}_{label}_{lig_name}"
                 out_dir = rec_mut_dir / label / "docking"
                 try:
+                    # COM 计算用 WT TM PDB（单残基突变对质心影响 <0.1Å）
+                    # FoldX 模式用 repaired_pdb 保持历史兼容
                     tm_ref = repaired_pdb if mutant_source == "foldx" else tm_pdb
                     if docking_mode == "singlestage":
                         result = dock_pair_singlestage(
@@ -655,7 +660,7 @@ def run_mutagenesis(
 
     # 生成报告
     report_path = mutant_dir / "mutagenesis_report.md"
-    _write_report(all_results, report_path)
+    _write_report(all_results, report_path, mutant_source=mutant_source, docking_mode=docking_mode)
     logger.info(f"报告已保存: {report_path}")
 
     return all_results
@@ -696,7 +701,12 @@ def _get_scan_residues(config: dict, rec_name: str) -> list[int]:
 # 报告生成
 # ---------------------------------------------------------------------------
 
-def _write_report(results: list[MutantDockingResult], output_path: Path) -> None:
+def _write_report(
+    results: list[MutantDockingResult],
+    output_path: Path,
+    mutant_source: str = "foldx",
+    docking_mode: str = "singlestage",
+) -> None:
     """生成 Markdown 格式的突变扫描报告。"""
     if not results:
         output_path.write_text("# 突变扫描结果\n\n无有效结果。\n", encoding="utf-8")
@@ -744,9 +754,9 @@ def _write_report(results: list[MutantDockingResult], output_path: Path) -> None
         "",
         "## 方法说明",
         "",
-        "1. **结构预测**：FoldX BuildModel（以 Orca B3LYP/def2-TZVP 配体优化后的 WT 结构为基础 → FoldX 力场快速突变体建模）",
+        f"1. **结构预测**：{'AlphaFold 3 Server（diffusion-based，全长蛋白预测 + pLDDT TM 域提取）' if mutant_source == 'af3' else 'AlphaFold 2 Server' if mutant_source == 'af2' else 'FoldX BuildModel（WT 结构基础上的副链替换）'}",
         "2. **受体准备**：ADFR Suite prepare_receptor（与 Hu2024 方法一致）",
-        "3. **对接**：AutoDock Vina 两阶段（Stage1: 40Å/0.25Å, Stage2: 20Å/0.1Å, exh=200）",
+        f"3. **对接**：AutoDock Vina {'单阶段（40Å/0.1Å, exh=200）' if docking_mode == 'singlestage' else '两阶段（Stage1: 40Å/0.25Å, Stage2: 20Å/0.1Å, exh=200）'}",
         "4. **验证基准**：N83A（Hu2024 报道丧失功能）、R281A（亲和力剧降）",
         "",
     ]

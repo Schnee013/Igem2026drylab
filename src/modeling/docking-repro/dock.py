@@ -28,6 +28,23 @@ from grid_box import GridBox, compute_box_center_of_mass
 from utils import get_logger, get_project_root
 
 
+def get_tm_helix_ranges(config: dict, receptor_name: str) -> list[list[int]] | None:
+    """
+    从 config["tm_topology"] 中提取指定受体的 TM 螺旋范围列表。
+
+    Returns:
+        [[start, end], ...] 按 TM1-TM7 顺序，或 None（config 无 tm_topology）
+    """
+    tm_topo = config.get("tm_topology")
+    if tm_topo is None:
+        return None
+    rec_topo = tm_topo.get(receptor_name)
+    if rec_topo is None:
+        return None
+    helices = rec_topo.get("helices", {})
+    return [helices[k] for k in sorted(helices.keys())]
+
+
 @dataclass
 class DockingResult:
     pair_name: str
@@ -154,6 +171,7 @@ def dock_pair_twostage(
     config: dict,
     seed: int | None = None,
     stage2_box_size: float | None = None,
+    tm_helix_ranges: list[list[int]] | None = None,
 ) -> DockingResult:
     """
     两阶段对接（Hu2024 spacing=0.1 复现）。
@@ -170,6 +188,8 @@ def dock_pair_twostage(
         config: pipeline 配置字典
         seed: 随机种子（覆盖 config["vina"]["seed"]；用于多 seed 方差实验）
         stage2_box_size: Stage2 box 边长覆盖（Å）；None 则用 config 默认值（20A）
+        tm_helix_ranges: 可选 TM 螺旋范围 [[start, end], ...]，
+            提供时仅用 TM 螺旋原子计算 Stage1 质心
 
     Returns:
         DockingResult（Stage2 精修结果）
@@ -192,7 +212,9 @@ def dock_pair_twostage(
     # Stage 1: 全局搜索（定位结合口袋）
     # -----------------------------------------------------------------------
     stage1_poses = output_dir / f"{pair_name}_stage1_poses.pdbqt"
-    stage1_box = compute_box_center_of_mass(tm_pdb, box_size=stage1_cfg["box_size"])
+    stage1_box = compute_box_center_of_mass(
+        tm_pdb, box_size=stage1_cfg["box_size"], tm_helix_ranges=tm_helix_ranges,
+    )
     logger.info(
         f"[Stage1] {pair_name}: box={stage1_cfg['box_size']}A, "
         f"spacing={stage1_cfg['spacing']}, exh={stage1_cfg['exhaustiveness']}"
@@ -278,6 +300,7 @@ def dock_pair_singlestage(
     output_dir: Path,
     config: dict,
     seed: int | None = None,
+    tm_helix_ranges: list[list[int]] | None = None,
 ) -> DockingResult:
     """
     单阶段对接（精确复现 Hu2024 参数）。
@@ -292,6 +315,8 @@ def dock_pair_singlestage(
         output_dir: 结果输出目录
         config: pipeline 配置字典
         seed: 随机种子（覆盖 config["vina"]["seed"]）
+        tm_helix_ranges: 可选 TM 螺旋范围 [[start, end], ...]，
+            提供时仅用 TM 螺旋原子计算质心（排除 ECL/ICL loop）
 
     Returns:
         DockingResult（stage2_box 为空 dict，box_type="singlestage"）
@@ -312,7 +337,9 @@ def dock_pair_singlestage(
 
     t_start = time.time()
 
-    box = compute_box_center_of_mass(tm_pdb, box_size=ss_cfg["box_size"])
+    box = compute_box_center_of_mass(
+        tm_pdb, box_size=ss_cfg["box_size"], tm_helix_ranges=tm_helix_ranges,
+    )
     n_points = ((ss_cfg["box_size"] / ss_cfg["spacing"]) + 1) ** 3
     logger.info(
         f"[Singlestage] {pair_name}: box={ss_cfg['box_size']}A, "

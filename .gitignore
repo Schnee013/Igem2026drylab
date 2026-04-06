@@ -46,6 +46,9 @@ experiments/docking-repro/mutagenesis/*.json
 experiments/docking-repro/mutagenesis/*.md
 experiments/docking-repro/mutagenesis/af2_structures/
 experiments/docking-repro/mutagenesis/af2_prepared/
+experiments/docking-repro/mutagenesis/af3_downloads/
+experiments/docking-repro/mutagenesis/af3_structures/
+experiments/docking-repro/mutagenesis/af3_prepared/
 
 # 日志（运行日志不入库，但保留目录）
 experiments/docking/logs/*.log

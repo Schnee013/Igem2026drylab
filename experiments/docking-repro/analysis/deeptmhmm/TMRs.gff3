@@ -1,0 +1,55 @@
+##gff-version 3
+# GprC_A0A437AGY2 Length: 538
+# GprC_A0A437AGY2 Number of predicted TMRs: 7
+GprC_A0A437AGY2	outside	1	8				
+GprC_A0A437AGY2	TMhelix	9	34				
+GprC_A0A437AGY2	inside	35	44				
+GprC_A0A437AGY2	TMhelix	45	65				
+GprC_A0A437AGY2	outside	66	83				
+GprC_A0A437AGY2	TMhelix	84	107				
+GprC_A0A437AGY2	inside	108	124				
+GprC_A0A437AGY2	TMhelix	125	145				
+GprC_A0A437AGY2	outside	146	167				
+GprC_A0A437AGY2	TMhelix	168	188				
+GprC_A0A437AGY2	inside	189	373				
+GprC_A0A437AGY2	TMhelix	374	397				
+GprC_A0A437AGY2	outside	398	405				
+GprC_A0A437AGY2	TMhelix	406	427				
+GprC_A0A437AGY2	inside	428	538				
+//
+# Gpr2_G1X9E2 Length: 406
+# Gpr2_G1X9E2 Number of predicted TMRs: 7
+Gpr2_G1X9E2	signal	1	11				
+Gpr2_G1X9E2	outside	12	29				
+Gpr2_G1X9E2	TMhelix	30	50				
+Gpr2_G1X9E2	inside	51	61				
+Gpr2_G1X9E2	TMhelix	62	82				
+Gpr2_G1X9E2	outside	83	103				
+Gpr2_G1X9E2	TMhelix	104	122				
+Gpr2_G1X9E2	inside	123	141				
+Gpr2_G1X9E2	TMhelix	142	163				
+Gpr2_G1X9E2	outside	164	181				
+Gpr2_G1X9E2	TMhelix	182	201				
+Gpr2_G1X9E2	inside	202	326				
+Gpr2_G1X9E2	TMhelix	327	347				
+Gpr2_G1X9E2	outside	348	357				
+Gpr2_G1X9E2	TMhelix	358	380				
+Gpr2_G1X9E2	inside	381	406				
+//
+# Gpr3_G1XJN1 Length: 401
+# Gpr3_G1XJN1 Number of predicted TMRs: 7
+Gpr3_G1XJN1	outside	1	14				
+Gpr3_G1XJN1	TMhelix	15	37				
+Gpr3_G1XJN1	inside	38	47				
+Gpr3_G1XJN1	TMhelix	48	68				
+Gpr3_G1XJN1	outside	69	86				
+Gpr3_G1XJN1	TMhelix	87	112				
+Gpr3_G1XJN1	inside	113	128				
+Gpr3_G1XJN1	TMhelix	129	149				
+Gpr3_G1XJN1	outside	150	167				
+Gpr3_G1XJN1	TMhelix	168	189				
+Gpr3_G1XJN1	inside	190	294				
+Gpr3_G1XJN1	TMhelix	295	315				
+Gpr3_G1XJN1	outside	316	327				
+Gpr3_G1XJN1	TMhelix	328	349				
+Gpr3_G1XJN1	inside	350	401				

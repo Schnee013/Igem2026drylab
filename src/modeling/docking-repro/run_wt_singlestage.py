@@ -26,7 +26,7 @@ _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
 
-from dock import DockingResult, dock_pair_singlestage
+from dock import DockingResult, dock_pair_singlestage, get_tm_helix_ranges
 from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
 
 
@@ -114,6 +114,7 @@ def main() -> None:
     for rec_name in args.receptors:
         rec_pdbqt = rec_dir / RECEPTOR_PDBQTS[rec_name]
         tm_pdb = rec_dir / RECEPTOR_TM_PDBS[rec_name]
+        helix_ranges = get_tm_helix_ranges(config, rec_name)
 
         for lig_name in args.ligands:
             lig_pdbqt = lig_dir / LIGAND_PDBQTS[lig_name]
@@ -129,6 +130,7 @@ def main() -> None:
                 tm_pdb=tm_pdb,
                 output_dir=pair_dir,
                 config=config,
+                tm_helix_ranges=helix_ranges,
             )
             results.append(result)
             logger.info(
