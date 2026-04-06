@@ -146,6 +146,8 @@ GprC 是 *A. flagrans* 中的一个双功能 GPCR：
 | GprC | **R6.45→Ala** | R-motif | **结合亲和力剧烈下降** | R-motif 对功能关键 |
 | GprC | **S2.41→Ala** | S-motif | 实验确认对功能关键 | S-motif 参与信号传导 |
 
+> ⚠️ **重要**：Hu2024 全文仅使用 Ballesteros-Weinstein（BW）编号系统（如 R6.45、S2.41），**未给出任何残基的绝对序列位置**。突变株命名为 gprC^R6.45A (strain 2)、gprC^S2.41A (strain 3)、gprC^N2.57A (strain 4)、gprC^N2.53 (strain 13/14)。若需确定 R6.45 对应 GprC 序列中的第几号残基，必须自行用 Phyre2/TMHMM 2.0 预测 TM 螺旋后推算，不能凭估算得出。
+
 ### S-motif 和 R-motif
 
 - 比较 GprC 与 *C. elegans* ascaroside 感应 GPCR 的序列，发现两个保守序列基序：
@@ -228,3 +230,4 @@ GprC 是 *A. flagrans* 中的一个双功能 GPCR：
 | 日期 | 版本 | 说明 |
 |------|------|------|
 | 2026-04-03 | v1.0 | 初始总结，忠实于原文内容 |
+| 2026-04-06 | v1.1 | 补充 R6.45 仅有 BW 编号、无绝对序列位置的说明；补充突变株命名；明确 TM 预测工具（Phyre2/TMHMM 2.0） |

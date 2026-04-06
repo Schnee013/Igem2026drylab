@@ -14,7 +14,8 @@ $installer_dir = "$install_root\installers"
 $orca_dir = "$install_root\orca"
 
 # 自动找 zip 包（不要求精确版本号）
-$orca_zip = Get-ChildItem $installer_dir -Filter "orca_5_*_windows_*.zip" |
+# 匹配 Orca 5.x 或 6.x，以及官方 autoci/msmpi 命名格式
+$orca_zip = Get-ChildItem $installer_dir -Include "orca_5_*_windows_*.zip","orca_6_*_windows_*.zip","Orca.*.Win64*.zip" -Recurse |
             Sort-Object LastWriteTime -Descending |
             Select-Object -First 1 -ExpandProperty FullName
 
@@ -57,14 +58,8 @@ if (Test-Path $orca_bin) {
 # 简单功能测试（H2O，约 10 秒）
 Write-Host "运行 H2O 优化测试..."
 $test_inp = "$install_root\test_h2o.inp"
-@"
-! B3LYP def2-SVP OPT
-* xyz 0 1
-O  0.000000  0.000000  0.119748
-H  0.000000  0.756950 -0.478993
-H  0.000000 -0.756950 -0.478993
-*
-"@ | Out-File -FilePath $test_inp -Encoding ASCII
+$h2o_content = "! B3LYP def2-SVP OPT`n* xyz 0 1`nO  0.000000  0.000000  0.119748`nH  0.000000  0.756950 -0.478993`nH  0.000000 -0.756950 -0.478993`n*`n"
+[System.IO.File]::WriteAllText($test_inp, $h2o_content, [System.Text.Encoding]::ASCII)
 
 $test_out = "$install_root\test_h2o.out"
 & $orca_bin $test_inp | Out-File $test_out

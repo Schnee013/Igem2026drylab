@@ -9,17 +9,21 @@
 $install_root = "D:\drylab-tools"
 $installer_dir = "$install_root\installers"
 $adfr_dir = "$install_root\ADFRsuite"
-$installer = "$installer_dir\ADFRsuite_Windows_x86_64.exe"
+# 自动找安装包（匹配多种命名格式）
+$installer = Get-ChildItem $installer_dir -Include "ADFRsuite*.exe","ADFRsuite*Setup*.exe" -Recurse |
+             Sort-Object LastWriteTime -Descending |
+             Select-Object -First 1 -ExpandProperty FullName
 
-if (-not (Test-Path $installer)) {
-    Write-Host "ERROR: 未找到安装包"
-    Write-Host "请将 ADFR Suite Windows 安装包放到: $installer"
+if (-not $installer) {
+    Write-Host "ERROR: 未找到 ADFR Suite 安装包"
+    Write-Host "请将安装包放到: $installer_dir\"
     Write-Host "下载地址: https://ccsb.scripps.edu/adfr/downloads/"
     exit 1
 }
 
 New-Item -ItemType Directory -Force -Path $install_root | Out-Null
 
+Write-Host "找到安装包: $installer"
 Write-Host "安装 ADFR Suite 到 $adfr_dir ..."
 Start-Process -FilePath $installer -ArgumentList "/S", "/D=$adfr_dir" -Wait -NoNewWindow
 
