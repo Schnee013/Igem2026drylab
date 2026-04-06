@@ -106,5 +106,5 @@ last_updated: 2026-04-03
   - [P1-soil-diffusion](P1-soil-diffusion.md): 灵敏度极限 → 检测有效距离计算
   - [P1-bayesian-inference](P1-bayesian-inference.md): 剂量-响应曲线 → 正向模型组件
 - **依赖于**:
-  - [P0-molecular-docking](P0-molecular-docking.md): 结合亲和力 Kd → ODE 模型输入参数
+  - [P0-molecular-docking](P0-molecular-docking.md): 结合亲和力 Kd → ODE 模型输入参数（v2 WT 对接数据 2026-04-05 已可用；注：Vina 评分 ≠ 实验 Kd，需换算或用文献值校准）
   - [底盘决策](../prd/chassis-decision.md): 决定使用策略 A 还是 B

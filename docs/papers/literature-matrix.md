@@ -37,6 +37,13 @@
 |---|------|------|----------|
 | 9 | Huang et al. 2023 *Pathogens* "Ammonia and nematode ascaroside are synergistic in trap formation in *Arthrobotrys oligospora*" | 氨与 ascaroside 协同效应 | ascr#18 信号背景 |
 | 10 | Lin et al. 2023 *PLoS Biol* "Key processes required for the different stages of fungal carnivory" | NTF 捕食各阶段关键过程 | 项目叙事背景 |
+| **★NEW** | **Heinen M et al. 2025** *PLoS Pathog* "The rise of fungal G-protein coupled receptors in pathogenesis and symbiosis" PMID:40504784 | 最新真菌 GPCR 综述；明确指出实验结构仍空白，计算对接是唯一途径 | **领域综述**：验证计算方法必要性，引用计划 [已总结](summaries/Heinen2025-fungal-GPCR-pathogenesis-review-summary.md) |
+| **★NEW** | **Jiang C et al. 2024** *Curr Opin Plant Biol* "Sensing host and environmental cues by fungal GPCRs" PMID:39566322 | 系统分类真菌 GPCR 家族，包含 NTF carbon receptor family | **受体分类参考**：确认 Gpr2/3/C 的家族归属 |
+| **★NEW** | **Kuo C-Y et al. 2026** bioRxiv 2026.03.09.710510 "A nematode-trapping fungus orchestrates polarity cues, septins, and NOX signaling for trap formation" | NADPH 氧化酶/ROS 新信号节点，捕陷器形成上游 | ODE 模型新节点（P0-ODE 启动时读） |
+| **★NEW** | **Juan S-C et al. 2026** bioRxiv 2026.02.06.704490 "Ammonium Transporters Govern Nutrient Sensing and Trap Induction in the Nematode-Trapping Fungi *Arthrobotrys oligospora*" | 铵转运体 Mep1/Mep3 介导氮感知，与 ascaroside 信号通路独立 | ODE 模型：氮感知与 ascaroside 感知分离 |
+| **★NEW** | **Ma J et al. 2021** *Virulence* PMID:34224331 "Functional analysis of seven heterotrimeric G protein-coupled receptor signaling components in *Arthrobotrys oligospora*" | 系统性敲除 7 个 RGS 基因，调控 cAMP 信号和捕陷器形成 | Gpr2/3 下游信号调控 |
+| **★NEW** | **Bai N et al. 2022** *Environ Microbiol* PMID:34431203 "Ric8 acts as a guanine-nucleotide exchange factor for Gα subunit to regulate the cAMP signaling pathway in the nematode-trapping fungus *Arthrobotrys oligospora*" | 非受体 GEF Ric8，敲除后完全丧失捕陷能力 | 信号通路关键节点 |
+| **★NEW** | **Duan J-H et al. 2025** *Microorganisms* 13(12):2816 "Nutrient State-Dependent Ascarosides and Nematode Immune Response Limit the Predation of *Arthrobotrys oligospora*" doi:10.3390/microorganisms13122816 | 饥饿线虫下调 acox 基因，减少 ascr#1/3/5/9 分泌，降低被捕概率；被捕后启动 FSHR-1/PMK-1 免疫通路 | 检测灵敏度讨论背景：田间 ascaroside 浓度受线虫营养状态影响 |
 
 ---
 
@@ -76,6 +83,7 @@
 |---|------|------|----------|
 | 22 | Huang et al. 2023 *Curr Biol* "NILR1 perceives a nematode ascaroside triggering immune signaling and resistance" | **植物端 ascaroside 受体 NILR1** | 跨界感知机制参考 |
 | 23 | Mendy et al. 2017 *PLoS Pathog* "Arabidopsis LRR-RLK NILR1 is required for induction of innate immunity to parasitic nematodes" | NILR1 功能鉴定 | 植物免疫背景 |
+| **★NEW** | **Huang L et al. 2024** *PNAS* "A receptor for dual ligands governs plant immunity and hormone response and is targeted by a nematode effector" PMID:39388275 | 马铃薯 StNILR1 双受体（ascr#18 + 油菜素类固醇）；无晶体结构；ascr#18 Kd ~1.79 μM；Island Domain 必需 | ascr#18 结合亲和力量级参考；**无原子级结合残基数据** [已总结](summaries/Huang2024-StNILR1-ascr18-dual-receptor-summary.md) |
 
 ### 线虫代谢 ascaroside
 
@@ -126,6 +134,7 @@
 | 45 | Eberhardt et al. 2021 *J Chem Inf Model* "AutoDock Vina 1.2.0: new docking methods, expanded force field, and Python bindings" | Vina 1.2 更新 | **必须引用** |
 | 46 | Jumper et al. 2021 *Nature* "Highly accurate protein structure prediction with AlphaFold" | AlphaFold2 原始论文 | **必须引用** |
 | 47 | G protein-coupled receptors: advances in structures, mechanisms and drug discovery 2024 *Signal Transduct Target Ther* | GPCR 结构与药物发现综述 | GPCR 对接方法论背景 |
+| **★NEW** | **Lee et al. 2022** *Comput Struct Biotechnol J* "Evaluating GPCR modeling and docking strategies in the era of deep learning-based protein structure prediction" PMID:36544468 | AF2 对接成功率 ~35-47%（vs TBM ~5-8%）；刚性 Vina 仅 24-32%，灵活对接 47%；p-lDDT>0.95 才可信 | **⚠️ 关键方法论**：提示需查 p-lDDT，在 wiki 中声明刚性 Vina 局限性 [已总结](summaries/Lee2022-GPCR-AF2-docking-benchmark-summary.md) |
 
 ---
 
@@ -173,3 +182,4 @@
 | 日期 | 版本 | 说明 |
 |------|------|------|
 | 2026-04-03 | v1.0 | 初始文献矩阵，基于 WebSearch 257 条结果筛选 |
+| 2026-04-06 | v1.1 | 系统性检索 4 组查询，新增 ~9 篇★NEW 条目（Lee2022、Heinen2025、Huang2024 PNAS 等）；前提假设全部验证，路径确认正确 |

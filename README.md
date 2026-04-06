@@ -71,10 +71,12 @@ python run_pipeline.py --step all
 python run_pipeline.py --step all --fast
 ```
 
-### docking-repro (Hu2024 Exact Reproduction)
+### docking-repro (Hu2024 Exact Reproduction + In Silico Mutagenesis)
 
 Requires **ADFR Suite** and **Orca** (see [scripts/win-setup/](scripts/win-setup/) for Windows installation).  
 Two-stage docking: Stage 1 (40 Å / spacing=0.25) → Stage 2 (20 Å / spacing=0.1) to work around Vina grid limits.
+
+**Alanine scan complete (2026-04-05)**: 27 mutations across 3 receptors. Key finding: Gpr2 Y200A (ΔΔG_sel=+1.12) and Y378A (+0.92) are high-confidence wet-lab candidates. See [mutagenesis report](experiments/docking-repro/mutagenesis/mutagenesis_report.md).
 
 ```bash
 cd src/modeling/docking-repro

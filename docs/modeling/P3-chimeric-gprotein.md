@@ -48,5 +48,5 @@ last_updated: 2026-04-03
 
 - **输出到**: 通路工程组（嵌合 Gpa1 设计方案）
 - **依赖于**:
-  - [P0-molecular-docking](P0-molecular-docking.md): 结合口袋结构信息
+  - [P0-molecular-docking](P0-molecular-docking.md): 结合口袋结构信息（alanine scan 已产出各受体关键残基灵敏度数据，2026-04-05）
   - [底盘决策](../prd/chassis-decision.md)（仅酵母时激活/升级）

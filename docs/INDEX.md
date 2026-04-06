@@ -3,7 +3,7 @@
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
-- **当前阶段**: 文档体系搭建 + 底盘决策等待中
+- **当前阶段**: P0 分子对接（S1 WT 重对接运行中，Orca 配体已就绪）；底盘决策等待 PI 确认
 - **主要卡点**: 底盘选择未确定（等 PI 确认真菌物种和遗传操作工具）
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌](prd/overview.md)
@@ -53,6 +53,12 @@
 | 底盘决策分析 | §2C-2D 酵母vs真菌、决策树、行动项 | [chassis-decision.md](prd/chassis-decision.md) |
 | 学习路线图 | §4+§6 学习资源、硬件、工具 | [roadmap.md](learning/roadmap.md) |
 
+## 运维参考
+
+| 文档 | 内容 | 链接 |
+|------|------|------|
+| Windows SSH 操作指南 | Mac→Win SSH 正确调用方式、踩坑快查表、bat 模板 | [ssh-windows-compute.md](ops/ssh-windows-compute.md) |
+
 ## 文献
 
 > **读取策略**: 需要某篇文献时，先查矩阵确认编号，再只读取对应的 `summaries/` 文件。**不要批量读取所有总结，不要直接读 PDF**。
@@ -92,11 +98,10 @@
 
 ## 最近进展
 
-- **2026-04-04**: v2 pipeline production 对接完成（exh=200，9 对）；Kuo2024 排名验证 PASS；GprC 绝对值差 ~2 kcal/mol（方法差异）
-- **2026-04-04**: docking-repro pipeline 代码完成（ADFR+Orca+两阶段对接）；待在 Windows 安装 ADFR Suite + Orca 后运行
-- **2026-04-03**: 文献总结完成 16 篇（3 批并行处理），覆盖核心对接、信号通路、酵母底盘、嵌合 G protein 全链路
-- **2026-04-03**: papers/ 目录重组（pdf/ + summaries/），37 个 PDF 全部规范命名；文献矩阵勘误 5 处（作者错误、虚构条目、PDF 错配）
-- **2026-04-03**: 文献全面调研完成（6 Tier, 257→47 筛选），产出文献矩阵和搜索日志；发现关键新文献 Mukherjee et al. 2025 PNAS
+- **2026-04-06**: ① Orca 3 配体准备完成（ascr18/ascr3/ascr7 _optimized.pdbqt）② S2 multiseed WT 完成（9 组 mean±SD）③ pipeline 代码全面审计修复 12 个 bug（路径约定、配体命名、MMFF 结果标注、统计方法、preflight 机制）④ S1 重跑已启动（Orca 配体，两阶段协议）
+- **2026-04-05**: alanine scan 完成（27 突变体，3 受体）；Gpr2 Y200/Y378 效应量最大（ΔΔG_sel > 0.9，但为 MMFF 结果待重新验证）
+- **2026-04-04**: v2 pipeline production 对接完成；Kuo2024 排名验证 PASS；docking-repro pipeline 代码完成
+- **2026-04-03**: 文献总结 16 篇；papers/ 重组；文献矩阵勘误 5 处
 
 ---
 
@@ -105,9 +110,9 @@
 - [ ] 问 PI 确认真菌物种、遗传工具、底盘倾向（本周内）
 - [ ] 检索 GEO/SRA 转录组数据
 - [ ] 与 HP 组沟通经济效益模型需求
-- [x] §3.1 数据源验证 + 受体 PDB 下载（完成）
-- [x] §3.1 配体 SDF 下载 + 工具环境搭建（完成，conda `docking` 环境已配置）
-- [x] 文献 PDF 管理 + 16 篇核心文献总结（完成）
-- [ ] §3.1 分子对接 pipeline 编写（下一步）
+- [ ] **[运行中] S1 WT 两阶段重对接**（Orca 配体，run_s1.bat）
+- [ ] S1 完成后：启动 mutagenesis alanine scan（3 受体，用 S1 WT 基线）
+- [ ] mutagenesis 完成后：S2 补跑突变体部分 + S3 饱和扫描（Gpr2 Y200/Y378）
+- [ ] S1-S3 完成后汇总分析，重新确认湿实验候选
 - [ ] 开始 §3.5c 经济效益模型（收集作物损失函数文献）
 - [ ] 第 4 周前确定主线底盘
