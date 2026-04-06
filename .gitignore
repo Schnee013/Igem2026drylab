@@ -42,6 +42,10 @@ experiments/docking/results/blind_validation.json
 experiments/docking-repro/prepared/
 experiments/docking-repro/results/
 experiments/docking-repro/ligands/orca/
+experiments/docking-repro/mutagenesis/*.json
+experiments/docking-repro/mutagenesis/*.md
+experiments/docking-repro/mutagenesis/af2_structures/
+experiments/docking-repro/mutagenesis/af2_prepared/
 
 # 日志（运行日志不入库，但保留目录）
 experiments/docking/logs/*.log
