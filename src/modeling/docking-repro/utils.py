@@ -15,7 +15,7 @@ def load_config(config_path: str | Path) -> dict:
     config_path = Path(config_path)
     if not config_path.exists():
         raise FileNotFoundError(f"配置文件不存在: {config_path}")
-    with open(config_path) as f:
+    with open(config_path, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
@@ -68,3 +68,69 @@ def setup_logging(log_dir: Path, run_id: str) -> logging.Logger:
 
 def get_logger() -> logging.Logger:
     return logging.getLogger("docking-repro")
+
+
+def preflight_check(checks: list[dict], logger: logging.Logger) -> None:
+    """
+    通用启动前检查。任一检查不通过则 log ERROR + sys.exit(1)。
+
+    checks 格式（每项为 dict）：
+      {"type": "file_exists",   "path": Path(...),        "hint": "说明"}
+      {"type": "dir_not_empty", "path": Path(...),        "hint": "说明"}
+      {"type": "file_not_stale","path": Path(...), "marker": "MMFF_voided", "hint": "说明"}
+      {"type": "names_match",   "expected": ["a.pdbqt"],
+                                "actual_dir": Path(...), "hint": "说明"}
+
+    type 说明：
+      file_exists   — 文件或目录必须存在
+      dir_not_empty — 目录必须存在且至少含一个文件
+      file_not_stale— 若文件名包含 marker 字符串则视为作废文件，拒绝运行
+      names_match   — actual_dir 下必须包含 expected 中所有文件名
+    """
+    failed = False
+    for chk in checks:
+        kind = chk["type"]
+        hint = chk.get("hint", "")
+
+        if kind == "file_exists":
+            p = Path(chk["path"])
+            if not p.exists():
+                logger.error(f"[preflight] 文件不存在: {p}  →  {hint}")
+                failed = True
+
+        elif kind == "dir_not_empty":
+            p = Path(chk["path"])
+            if not p.exists() or not any(p.iterdir()):
+                logger.error(f"[preflight] 目录为空或不存在: {p}  →  {hint}")
+                failed = True
+
+        elif kind == "file_not_stale":
+            p = Path(chk["path"])
+            marker = chk.get("marker", "MMFF_voided")
+            if p.exists() and marker in p.name:
+                logger.error(f"[preflight] 检测到已作废文件: {p}  →  {hint}")
+                failed = True
+
+        elif kind == "names_match":
+            actual_dir = Path(chk["actual_dir"])
+            expected = chk["expected"]
+            if not actual_dir.exists():
+                logger.error(f"[preflight] 目录不存在: {actual_dir}  →  {hint}")
+                failed = True
+            else:
+                actual = {f.name for f in actual_dir.iterdir()}
+                missing = [e for e in expected if e not in actual]
+                if missing:
+                    logger.error(
+                        f"[preflight] 目录 {actual_dir} 缺少文件: {missing}  →  {hint}"
+                    )
+                    failed = True
+
+        else:
+            logger.warning(f"[preflight] 未知检查类型: {kind}，已跳过")
+
+    if failed:
+        logger.error("[preflight] 启动前检查失败，请修复上述问题后重试")
+        sys.exit(1)
+    else:
+        logger.info("[preflight] 启动前检查全部通过")

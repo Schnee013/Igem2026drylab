@@ -1,0 +1,26 @@
+name: docking
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - requests
+  - biopython
+  - rdkit
+  - openbabel
+  - vina
+  - meeko
+  - plip
+  - prody
+  - lxml
+  - pillow
+  - gemmi
+  - sqlalchemy
+  - typing_extensions
+  - tqdm
+  - pip:
+    - openpyxl
+    - python-docx

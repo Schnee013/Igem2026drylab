@@ -17,7 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from utils import load_config, get_logger, setup_logging, get_project_root
+from utils import generate_run_id, get_logger, get_project_root, load_config, setup_logging
 
 # v2 结果路径（用于三方对比）
 V2_RESULTS_JSON = "experiments/docking/results/docking_results.json"
@@ -242,7 +242,7 @@ def main():
 
     config = load_config(args.config)
     root = get_project_root(config)
-    logger = setup_logging(root / config["paths"]["log_dir"], "validate_repro")
+    logger = setup_logging(root / config["paths"]["log_dir"], f"validate_repro_{generate_run_id()}")
 
     logger.info("=== Hu2024 复现验证 ===")
 

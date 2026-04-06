@@ -19,6 +19,7 @@ paths:
   analysis_dir: "experiments/docking-repro/analysis"
   log_dir: "experiments/docking-repro/logs"
   orca_dir: "experiments/docking-repro/ligands/orca"
+  mutagenesis_dir: "experiments/docking-repro/mutagenesis"
 
 # ---------------------------------------------------------------------------
 # Windows 计算节点（通过 SSH 远程调用）
@@ -28,9 +29,11 @@ remote:
   user: "Administrator"
   # 所有工具统一放在 D:\drylab-tools\ 下，不占用 C 盘
   work_dir: "D:/drylab-tools/workspace"
-  adfr_bin: "D:/drylab-tools/ADFRsuite/bin"
-  orca_bin: "D:/drylab-tools/orca/orca.exe"
-  conda_python: "D:/drylab-tools/miniconda3/envs/docking-repro/Scripts/python.exe"
+  adfr_bin: "D:/ADFRsuite/bin"                 # ADFR Suite 安装在 D:\ADFRsuite
+  orca_bin: "D:/orca/orca.exe"                 # Orca 6.1.1 Win64 msmpi
+  vina_bin: "D:/drylab-tools/vina.exe"         # AutoDock-Vina v1.2.7 standalone
+  conda_python: "D:/drylab-tools/envs/docking-repro/python.exe"
+  conda_prefix: "D:/drylab-tools/envs/docking-repro"  # 用 conda run --prefix 调用
   conda_env: "docking-repro"
 
 # ---------------------------------------------------------------------------
@@ -59,6 +62,14 @@ receptors:
 # 配体配置
 # ---------------------------------------------------------------------------
 ligands:
+  ascr1:
+    sdf_file: "ascr1_CID11471380.sdf"
+    smiles: "CC1C(CC(C(O1)OC(C)CCCCC(=O)O)O)O"
+    pubchem_cid: 11471380
+    formula: "C13H24O6"
+    # ascr#1 (daumone-1), C7 链长饱和 ascaroside
+    # SDF 来源: experiments/docking/ligands/ascr1_CID11471380.sdf（PubChem 3D）
+    # 需走 Orca B3LYP/def2-TZVP 优化 + ADFR prepare_ligand
   ascr18:
     sdf_file: "ascr18_CID71514784.sdf"
     smiles: "CC1C(CC(C(O1)OC(C)CCCCCCCCC(=O)O)O)O"
@@ -100,33 +111,38 @@ orca:
   keywords: "OPT TightOPT"              # 几何优化，严格收敛
   charge: 0
   multiplicity: 1
-  nprocs: 6                             # 7500F 6核（留2核给系统）
+  nprocs: 6                             # 6=Ryzen 7500F 物理核心数，需 MS-MPI（已安装）
   maxiter: 500
   # 如果 DFT 不收敛的备选方案：
   # method_fallback: "B3LYP"
   # basis_fallback: "def2-SVP"
 
 # ---------------------------------------------------------------------------
-# AutoDock Vina 两阶段对接参数（解决 spacing=0.1 + 40Å box 格点溢出）
+# AutoDock Vina 对接参数
 # ---------------------------------------------------------------------------
 vina:
   seed: 42
   num_modes: 20
   energy_range: 3.0
 
-  # Stage 1: 全局搜索（定位结合口袋）
+  # 单阶段（Hu2024 原文精确参数）— 主协议
+  singlestage:
+    spacing: 0.1
+    box_size: 40.0
+    exhaustiveness: 200
+    # 格点数: (40/0.1+1)^3 = 401^3 = 64.5M
+    # Vina 1.2.7 实测可运行，仅输出 WARNING（非崩溃）
+
+  # 两阶段（保留向后兼容，已弃用）
   stage1:
     spacing: 0.25
     box_size: 40.0
     exhaustiveness: 32
-    # 格点数: (40/0.25+1)^3 = 161^3 = 4.2M ✓
 
-  # Stage 2: 局部精修（spacing=0.1，Hu2024 参数）
   stage2:
     spacing: 0.1
-    box_size: 20.0                       # 缩小 box 以满足格点限制
-    exhaustiveness: 200                  # 匹配 Hu2024
-    # 格点数: (20/0.1+1)^3 = 201^3 = 8.1M ✓（< 27M 限制）
+    box_size: 20.0
+    exhaustiveness: 200
 
 # ---------------------------------------------------------------------------
 # Grid Box（与 v2 一致：受体质心为中心）
@@ -155,8 +171,126 @@ analysis:
 validation:
   tolerance_kcal: 0.5                    # Hu2024 参考值偏差上限（v2 用 1.0）
   reference:
-    GprC_ascr18: -8.29                   # Hu2024 Fig. 2
-    GprC_ascr3: -8.31                    # Hu2024 Fig. 2
+    GprC_ascr18: -8.29                   # Hu2024 Extended Data Table 2
+    GprC_ascr3: -8.31                    # Hu2024 Extended Data Table 2
+    GprC_ascr1: null                     # 待从 Hu2024 Extended Data Table 2 确认
+  kuo2024_absolute:                      # Kuo2024 SwissDock 报告绝对 ΔG（kcal/mol）
+    Gpr2_ascr3: -6.99
+    Gpr2_ascr7: -7.07
+    Gpr3_ascr3: -7.05
+    Gpr3_ascr7: -6.41
   kuo2024_rankings:
     Gpr2: ["ascr7", "ascr3"]             # ascr7 > ascr3（结合更强）
     Gpr3: ["ascr3", "ascr7"]             # ascr3 > ascr7
+
+# ---------------------------------------------------------------------------
+# In Silico 突变扫描（mutagenesis step）
+# ---------------------------------------------------------------------------
+mutagenesis:
+  # FoldX 可执行文件路径（mutant_source=foldx 时使用）
+  foldx_bin: "D:/foldxWindows/foldx_20261231.exe"
+
+  # 突变体结构来源：
+  #   "foldx" — FoldX BuildModel（副链替换，快速，精度有限）
+  #   "af2"   — AF2 web server 预测结构（需提前手动提交，精度更高，Hu2024 方法）
+  #             AF2 PDBQT 存放于: experiments/docking-repro/mutagenesis/af2_prepared/{rec_name}/{label}_tm.pdbqt
+  mutant_source: "foldx"                 # 先用 foldx 确认 pipeline 可跑通，验证后改 af2
+
+  # 对接协议：
+  #   "singlestage" — 单阶段 40Å/0.1/200（Hu2024 原文，主协议）
+  #   "twostage"    — 两阶段（已弃用，保留向后兼容）
+  docking_mode: "singlestage"
+
+  # WT 基线来源：
+  #   "v2"   — 使用 experiments/docking/（已完成，Kuo2024 排名验证 PASS）
+  #   "repro" — 使用 experiments/docking-repro/（Orca DFT 精确复现）
+  wt_baseline: "v2"
+
+  # 扫描类型：
+  #   "alanine"    — 丙氨酸扫描（每个目标残基 → Ala，快速，验证口袋关键性）
+  #   "saturation" — 饱和扫描（每个位点 × 19 种氨基酸，耗时长，找最优替换）
+  scan_type: "alanine"
+
+  # 扫描受体
+  target_receptors: ["GprC", "Gpr2", "Gpr3"]
+
+  # 扫描残基（绝对残基编号）
+  # GprC: Hu2024 实验验证 3 个 + v2 PLIP 高频接触残基
+  # Gpr2/Gpr3: v2 PLIP 高频接触残基（ascr18/ascr3/ascr7 union）
+  scan_residues:
+    GprC:
+      # 前 3 个为 Hu2024 实验验证的关键残基（结论可信）
+      - 77    # S2.41 — Hu2024 S-motif（实验验证）
+      - 83    # N2.57 — Hu2024，突变为 Ala 后功能丧失（阳性对照）
+      - 281   # R6.45 — Hu2024 R-motif，突变后亲和力剧降（阳性对照）
+      # 以下均来自 v2 PLIP 接触分析，无实验验证
+      - 42    # v2 PLIP（ascr3/ascr7 高频）
+      - 105   # v2 PLIP（ascr7）
+      - 185   # v2 PLIP（最高频，ascr18/3/7 共享）
+      - 189   # v2 PLIP（ascr18/3/7 共享）
+      - 377   # v2 PLIP（ascr3）
+      - 378   # v2 PLIP（ascr18/3/7 共享）
+      - 381   # v2 PLIP（ascr18）
+      - 425   # v2 PLIP（ascr18）
+    # 注意：Gpr2/Gpr3 全部残基来自 v2 PLIP 计算分析，无文献实验验证。
+    # Kuo2024 仅报告 Gpr2 Y168 一个结合残基（SwissDock），无 Ala scan 数据。
+    Gpr2:
+      - 59    # v2 PLIP 最高频（ascr18/3/7 共享）；无实验验证
+      - 63    # v2 PLIP（ascr18/ascr7）
+      - 120   # v2 PLIP（ascr18）
+      - 200   # v2 PLIP（ascr7）；alanine scan ΔΔG_sel=+1.12（效应量最大，方向为增强 ascr3 偏好）
+      - 326   # v2 PLIP（ascr3）
+      - 327   # v2 PLIP（ascr3）
+      - 330   # v2 PLIP（ascr3）
+      - 378   # v2 PLIP（ascr18/3/7 共享）；alanine scan ΔΔG_sel=+0.92
+      - 381   # v2 PLIP（ascr18/ascr7）
+    Gpr3:
+      - 192   # v2 PLIP（ascr7）；无实验验证
+      - 193   # v2 PLIP（ascr18/3/7 共享）
+      - 196   # v2 PLIP（ascr18/3）
+      - 197   # v2 PLIP（ascr18/3/7 共享）
+      - 285   # v2 PLIP 最高频（ascr18/3/7 共享）
+      - 286   # v2 PLIP（ascr18）
+      - 288   # v2 PLIP（ascr3）
+      - 289   # v2 PLIP（ascr3/ascr7）
+
+# ---------------------------------------------------------------------------
+# 补充实验（Supplementary Experiments，解决 Alanine Scan 局限性）
+# ---------------------------------------------------------------------------
+
+# S1: WT 两阶段重对接（run_wt_twostage.py）
+# 无额外配置，直接使用上方 vina.stage1/stage2 参数
+# 输出: experiments/docking-repro/results/wt_twostage/
+
+# S2: 多 seed 方差评估（run_multiseed.py）
+multiseed:
+  seeds: [42, 123, 456, 789, 1024]
+  # WT 受体（全部三个）+ top 突变体（Gpr2 Y200A/Y378A/Y330A/R59A）
+  wt_receptors: ["GprC", "Gpr2", "Gpr3"]
+  top_mutants:
+    - receptor: "Gpr2"
+      mutation: "Y200A"
+    - receptor: "Gpr2"
+      mutation: "Y378A"
+    - receptor: "Gpr2"
+      mutation: "Y330A"
+    - receptor: "Gpr2"
+      mutation: "R59A"
+  # 输出: experiments/docking-repro/results/multiseed/
+
+# S3: Gpr2 Y200/Y378 饱和扫描（run_saturation_gpr2.py）
+# 配置通过脚本内部动态覆盖 mutagenesis 节，不在此单独定义
+# 关键参数：
+#   scan_type: saturation
+#   target_receptors: [Gpr2]
+#   scan_residues: {Gpr2: [200, 378]}
+#   exclude_aas: [A, P, C]   # A 已测，P 扰骨架，C 形成二硫
+# WT 基线: 优先 S1 两阶段结果，否则退回 v2
+# 输出: experiments/docking-repro/mutagenesis_saturation_gpr2/
+
+# S4: GprC 扩大 Docking Box（25Å）验证外周残基（run_wt_twostage.py --gprc-expand）
+gprc_expanded_box:
+  stage2_box_size: 25.0   # 25Å → 251³ = 15.8M 格点（< 27M 限制）
+  # 目标：捕获 S77A/N83A（Hu2024 已验证功能丧失残基）的灵敏度
+  # 用 dock_pair_twostage(..., stage2_box_size=25.0) 调用
+  target_mutants: ["S77A", "N83A", "R42A", "T105A"]   # 原 20Å box 外/边缘残基

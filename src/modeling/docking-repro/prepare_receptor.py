@@ -15,8 +15,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-from Bio import PDB
-
 from utils import get_logger, get_project_root, resolve_path
 
 
@@ -42,6 +40,7 @@ def extract_tm_domain(
     Returns:
         (first_res_id, last_res_id)
     """
+    from Bio import PDB  # 懒加载，避免 Windows SSH 非交互模式下 DLL crash
     logger = get_logger()
     parser = PDB.PDBParser(QUIET=True)
     structure = parser.get_structure("rec", str(pdb_path))
@@ -122,20 +121,20 @@ def extract_tm_domain(
 
 
 def _clean_pdb(pdb_path: Path, output_path: Path) -> None:
-    """去除水分子和 HETATM，只保留 chain A 标准残基。"""
-    parser = PDB.PDBParser(QUIET=True)
-    structure = parser.get_structure("rec", str(pdb_path))
-
-    class CleanSelect(PDB.Select):
-        def accept_chain(self, chain):
-            return chain.id == "A"
-
-        def accept_residue(self, residue):
-            return residue.get_id()[0] == " "
-
-    io = PDB.PDBIO()
-    io.set_structure(structure)
-    io.save(str(output_path), CleanSelect())
+    """
+    去除水分子和 HETATM，只保留 chain A 标准残基。
+    使用 stdlib 文本解析，不依赖 Bio.PDB（避免 Windows SSH DLL crash）。
+    """
+    lines = []
+    for line in Path(pdb_path).read_text(errors="replace").splitlines():
+        rec = line[:6]
+        if rec == "ATOM  ":
+            chain = line[21] if len(line) > 21 else ""
+            if chain == "A":
+                lines.append(line)
+        elif rec in ("TER   ", "END   ", "END\n", "END"):
+            lines.append(line)
+    Path(output_path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -146,19 +145,21 @@ def prepare_receptor_adfr(
     pdb_path: Path,
     output_dir: Path,
     adfr_bin: str,
+    skip_tm_extraction: bool = False,
 ) -> Path:
     """
-    将受体 TM-only PDB 转换为 PDBQT（ADFR Suite 方法，匹配 Hu2024）。
+    将受体 PDB 转换为 PDBQT（ADFR Suite 方法，匹配 Hu2024）。
 
     流程:
-    1. BioPython 提取 TM 域（pLDDT 导向）
+    1. BioPython 提取 TM 域（pLDDT 导向，skip_tm_extraction=True 时跳过）
     2. BioPython 清理 PDB（去水/HETATM）
     3. ADFR prepare_receptor 转换（加氢、原子类型指派）
 
     Args:
-        pdb_path: 原始受体 PDB
+        pdb_path: 受体 PDB（全长 AlphaFold PDB 或已提取的 TM-only PDB）
         output_dir: PDBQT 输出目录
-        adfr_bin: ADFR Suite bin 目录路径（本地或远程映射路径）
+        adfr_bin: ADFR Suite bin 目录路径
+        skip_tm_extraction: True 时跳过 TM 域提取（用于 FoldX 突变体，已经是 TM-only 结构）
 
     Returns:
         输出 PDBQT 文件路径
@@ -169,35 +170,49 @@ def prepare_receptor_adfr(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     stem = pdb_path.stem
-    # Step 1: TM 域提取
-    tm_pdb = output_dir / f"{stem}_tm.pdb"
-    if not tm_pdb.exists():
-        extract_tm_domain(pdb_path, tm_pdb)
-    else:
-        logger.info(f"  TM PDB 已存在，跳过提取: {tm_pdb.name}")
 
-    # Step 2: 清理
-    cleaned_pdb = output_dir / f"{stem}_tm_cleaned.pdb"
-    _clean_pdb(tm_pdb, cleaned_pdb)
+    if skip_tm_extraction:
+        # FoldX 突变体：已经是 TM-only 结构，直接清理
+        cleaned_pdb = output_dir / f"{stem}_cleaned.pdb"
+        _clean_pdb(pdb_path, cleaned_pdb)
+    else:
+        # Step 1: TM 域提取
+        tm_pdb = output_dir / f"{stem}_tm.pdb"
+        if not tm_pdb.exists():
+            extract_tm_domain(pdb_path, tm_pdb)
+        else:
+            logger.info(f"  TM PDB 已存在，跳过提取: {tm_pdb.name}")
+
+        # Step 2: 清理
+        cleaned_pdb = output_dir / f"{stem}_tm_cleaned.pdb"
+        _clean_pdb(tm_pdb, cleaned_pdb)
 
     # Step 3: ADFR prepare_receptor
-    output_pdbqt = output_dir / f"{stem}_tm.pdbqt"
-    adfr_receptor = Path(adfr_bin) / "prepare_receptor"
-    if sys.platform == "win32":
-        # Windows 可执行文件可能带或不带 .exe
-        if not adfr_receptor.exists():
-            adfr_receptor = Path(adfr_bin) / "prepare_receptor.exe"
-        if not adfr_receptor.exists():
-            # MGLTools 风格: prepare_receptor4.py
-            adfr_receptor = Path(adfr_bin) / "prepare_receptor4.py"
+    # 输出文件名：TM 提取模式用 _tm.pdbqt，skip 模式直接用 stem.pdbqt
+    pdbqt_suffix = ".pdbqt" if skip_tm_extraction else "_tm.pdbqt"
+    output_pdbqt = output_dir / f"{stem}{pdbqt_suffix}"
+    adfr_receptor = None
+    for candidate in ["prepare_receptor.exe", "prepare_receptor.bat",
+                      "prepare_receptor", "prepare_receptor4.py"]:
+        p = Path(adfr_bin) / candidate
+        if p.exists():
+            adfr_receptor = p
+            break
+    if adfr_receptor is None:
+        raise FileNotFoundError(f"ADFR prepare_receptor 未找到于: {adfr_bin}")
 
-    cmd = [
-        str(adfr_receptor),
+    args = [
         "-r", str(cleaned_pdb),
         "-o", str(output_pdbqt),
-        "-A", "hydrogens",                # 加极性氢
-        "-U", "nphs_lps_waters_nonstdres", # 清理选项（匹配 ADFR 默认）
+        "-A", "hydrogens",
+        "-U", "nphs_lps_waters_nonstdres",
     ]
+    # .bat 文件需要通过 cmd /c 调用
+    if adfr_receptor.suffix == ".bat":
+        cmd = ["cmd", "/c", str(adfr_receptor)] + args
+    else:
+        cmd = [str(adfr_receptor)] + args
+
     logger.info(f"准备受体（ADFR）: {pdb_path.name}")
     logger.debug(f"  CMD: {' '.join(cmd)}")
 

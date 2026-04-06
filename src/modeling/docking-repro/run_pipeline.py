@@ -31,10 +31,10 @@ import sys
 import time
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
-
-# 复用 v2 的 analyze.py（方法无关，只处理结果）
+# 复用 v2 的 analyze.py / grid_box.py（方法无关，只处理结果）
 sys.path.insert(0, str(Path(__file__).parent.parent / "docking"))
+# docking-repro 自己的模块优先级最高（覆盖 v2 的同名模块）
+sys.path.insert(0, str(Path(__file__).parent))
 
 from dock import dock_matrix
 from prepare_ligand import prepare_all_ligands
@@ -61,11 +61,14 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--config", default=str(Path(__file__).parent / "config.yaml"))
     parser.add_argument(
-        "--step", choices=["prepare", "dock", "analyze", "validate", "all"],
+        "--step",
+        choices=["prepare", "dock", "analyze", "validate", "mutagenesis", "all"],
         default="all",
     )
     parser.add_argument("--resume", action="store_true", help="跳过已有结果（断点续跑）")
     parser.add_argument("--dry-run", action="store_true", help="打印计划不执行")
+    parser.add_argument("--project-root", default=None,
+                        help="覆盖 config.yaml 中的 project_root（在 Windows 上运行时使用）")
     return parser.parse_args()
 
 
@@ -142,6 +145,8 @@ def load_manifest(config: dict) -> dict:
 def main() -> None:
     args = parse_args()
     config = load_config(args.config)
+    if args.project_root:
+        config["paths"]["project_root"] = args.project_root
 
     if args.dry_run:
         print_plan(config, args)
@@ -200,6 +205,22 @@ def main() -> None:
         from validate import main as validate_main
         sys.argv = ["validate.py", "--config", args.config]
         validate_main()
+
+    # === mutagenesis ===
+    if args.step in ("mutagenesis",):
+        logger.info("--- In Silico 突变扫描（FoldX + Vina 重对接）---")
+        from mutagenesis import run_mutagenesis
+        mut_results = run_mutagenesis(config)
+        root = get_project_root(config)
+        mut_dir = root / config["paths"].get(
+            "mutagenesis_dir",
+            config["paths"]["results_dir"].replace("results", "mutagenesis"),
+        )
+        logger.info(
+            f"突变扫描完成：{len(mut_results)} 个突变\n"
+            f"  报告: {mut_dir}/mutagenesis_report.md\n"
+            f"  JSON: {mut_dir}/mutagenesis_results.json"
+        )
 
     elapsed = time.time() - t_total
     logger.info(f"Pipeline 完成！总用时: {elapsed / 60:.1f} 分钟")

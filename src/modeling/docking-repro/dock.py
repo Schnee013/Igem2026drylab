@@ -1,27 +1,29 @@
 """
-AutoDock Vina 两阶段对接（Hu2024 复现）
+AutoDock Vina 对接模块（Hu2024 复现）
 
-与 v2 的区别：
-  v2:  单阶段，spacing=0.25，box=40Å
-  本模块: 两阶段——Stage1 定位（spacing=0.25, box=40Å）→ Stage2 精修（spacing=0.1, box=20Å）
+提供两种对接协议：
+  dock_pair_singlestage: 单阶段，spacing=0.1, box=40A, exh=200（Hu2024 原文参数）
+  dock_pair_twostage:    两阶段（保留向后兼容）—— Stage1 定位（spacing=0.25, box=40A）
+                         → Stage2 精修（spacing=0.1, box=20A）
 
-原因：spacing=0.1 + box=40Å 产生 64M 格点，触发 Vina szv_grid.cpp 断言（上限 ~27M）。
-两阶段方案：Stage2 用 20Å box，格点数 8.1M，在限制内，同时达到 Hu2024 的 0.1Å 精度。
+注：Vina 1.2.7 可正常运行 40A/0.1（64.5M 格点），仅输出 WARNING，不崩溃。
+    此前认为有 ~27M 格点限制，是错误假设，已移除硬限制。
+
+注意：使用 AutoDock-Vina 独立可执行文件（vina.exe），不依赖 Python vina 包。
 """
 
 from __future__ import annotations
 
 import json
+import re
+import subprocess
 import sys
 import time
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-import numpy as np
-from vina import Vina
-
 sys.path.insert(0, str(Path(__file__).parent.parent / "docking"))  # 复用 v2 的 grid_box.py
-from grid_box import GridBox, compute_box_center_of_mass, compute_box_blind
+from grid_box import GridBox, compute_box_center_of_mass
 
 from utils import get_logger, get_project_root
 
@@ -34,12 +36,82 @@ class DockingResult:
     best_affinity: float
     all_affinities: list[float]
     poses_path: str
-    stage1_box: dict           # Stage1 grid box（40Å）
-    stage2_box: dict           # Stage2 grid box（20Å，精修用）
-    box_type: str              # "twostage"
-    exhaustiveness: int        # Stage2 exhaustiveness
-    spacing: float             # Stage2 spacing（0.1）
+    stage1_box: dict    # twostage: Stage1 box（40A）；singlestage: 单阶段对接 box（40A）
+    stage2_box: dict    # twostage: Stage2 box（20A）；singlestage: {}（空）
+    box_type: str       # "twostage" | "singlestage"
+    exhaustiveness: int
+    spacing: float
     elapsed_sec: float
+
+
+def _parse_vina_output(output: str) -> list[float]:
+    """
+    解析 Vina CLI 标准输出中的结合能列表。
+
+    Vina 输出格式：
+      mode |   affinity | dist from best mode
+           | (kcal/mol) | rmsd l.b.| rmsd u.b.
+      -----+------------+----------+----------
+         1         -8.3      0.000      0.000
+         2         -7.9      1.234      2.345
+    """
+    affinities = []
+    for line in output.splitlines():
+        m = re.match(r"\s*\d+\s+([-\d.]+)\s+[\d.]+\s+[\d.]+", line)
+        if m:
+            affinities.append(float(m.group(1)))
+    return affinities
+
+
+def _run_vina(
+    vina_bin: str,
+    receptor: Path,
+    ligand: Path,
+    center: tuple[float, float, float],
+    box_size: float,
+    spacing: float,
+    exhaustiveness: int,
+    num_modes: int,
+    energy_range: float,
+    seed: int,
+    output: Path,
+) -> list[float]:
+    """
+    调用 vina.exe CLI 执行对接，返回结合能列表（kcal/mol）。
+    """
+    logger = get_logger()
+    cmd = [
+        vina_bin,
+        "--receptor", str(receptor),
+        "--ligand",   str(ligand),
+        "--center_x", f"{center[0]:.4f}",
+        "--center_y", f"{center[1]:.4f}",
+        "--center_z", f"{center[2]:.4f}",
+        "--size_x",   f"{box_size:.2f}",
+        "--size_y",   f"{box_size:.2f}",
+        "--size_z",   f"{box_size:.2f}",
+        "--spacing",  f"{spacing:.3f}",
+        "--exhaustiveness", str(exhaustiveness),
+        "--num_modes",      str(num_modes),
+        "--energy_range",   f"{energy_range:.1f}",
+        "--seed",           str(seed),
+        "--out",      str(output),
+    ]
+    logger.debug("vina cmd: " + " ".join(cmd))
+
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise RuntimeError(
+            f"vina.exe 失败（exit {proc.returncode}）\n"
+            f"stdout: {proc.stdout}\nstderr: {proc.stderr}"
+        )
+
+    affinities = _parse_vina_output(proc.stdout)
+    if not affinities:
+        raise RuntimeError(
+            f"vina.exe 未输出结合能。stdout:\n{proc.stdout}"
+        )
+    return affinities
 
 
 def _extract_pose_centroid(poses_pdbqt: Path) -> tuple[float, float, float]:
@@ -48,8 +120,10 @@ def _extract_pose_centroid(poses_pdbqt: Path) -> tuple[float, float, float]:
     """
     coords = []
     in_model = False
-    for line in poses_pdbqt.read_text().splitlines():
-        if line.startswith("MODEL        1"):
+    for line in poses_pdbqt.read_text(encoding="utf-8", errors="replace").splitlines():
+        # 兼容 vina.exe ("MODEL 1") 和 Python vina 包 ("MODEL        1") 两种格式
+        parts = line.split()
+        if len(parts) == 2 and parts[0] == "MODEL" and parts[1] == "1":
             in_model = True
         elif line.startswith("ENDMDL") and in_model:
             break
@@ -78,12 +152,14 @@ def dock_pair_twostage(
     tm_pdb: Path,
     output_dir: Path,
     config: dict,
+    seed: int | None = None,
+    stage2_box_size: float | None = None,
 ) -> DockingResult:
     """
     两阶段对接（Hu2024 spacing=0.1 复现）。
 
-    Stage 1: box=40Å, spacing=0.25, exh=32  → 定位结合口袋
-    Stage 2: box=20Å（以 Stage1 top pose 质心为中心），spacing=0.1, exh=200
+    Stage 1: box=40A, spacing=0.25, exh=32  → 定位结合口袋
+    Stage 2: box=20A（以 Stage1 top pose 质心为中心），spacing=0.1, exh=200
 
     Args:
         receptor_pdbqt: 受体 PDBQT 路径
@@ -92,6 +168,8 @@ def dock_pair_twostage(
         tm_pdb: TM-only PDB（用于计算受体质心）
         output_dir: 结果输出目录
         config: pipeline 配置字典
+        seed: 随机种子（覆盖 config["vina"]["seed"]；用于多 seed 方差实验）
+        stage2_box_size: Stage2 box 边长覆盖（Å）；None 则用 config 默认值（20A）
 
     Returns:
         DockingResult（Stage2 精修结果）
@@ -100,9 +178,13 @@ def dock_pair_twostage(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    vina_bin = config["remote"]["vina_bin"]
     vina_cfg = config["vina"]
     stage1_cfg = vina_cfg["stage1"]
     stage2_cfg = vina_cfg["stage2"]
+
+    effective_seed = seed if seed is not None else vina_cfg["seed"]
+    effective_stage2_box = stage2_box_size if stage2_box_size is not None else stage2_cfg["box_size"]
 
     t_start = time.time()
 
@@ -111,64 +193,59 @@ def dock_pair_twostage(
     # -----------------------------------------------------------------------
     stage1_poses = output_dir / f"{pair_name}_stage1_poses.pdbqt"
     stage1_box = compute_box_center_of_mass(tm_pdb, box_size=stage1_cfg["box_size"])
-    logger.info(f"[Stage1] {pair_name}: box={stage1_cfg['box_size']}Å, spacing={stage1_cfg['spacing']}, exh={stage1_cfg['exhaustiveness']}")
+    logger.info(
+        f"[Stage1] {pair_name}: box={stage1_cfg['box_size']}A, "
+        f"spacing={stage1_cfg['spacing']}, exh={stage1_cfg['exhaustiveness']}"
+    )
 
-    v = Vina(sf_name="vina", seed=vina_cfg["seed"], verbosity=0)
-    v.set_receptor(str(receptor_pdbqt))
-    v.set_ligand_from_file(str(ligand_pdbqt))
-    v.compute_vina_maps(
-        center=list(stage1_box.center),
-        box_size=[stage1_cfg["box_size"]] * 3,
+    stage1_affinities = _run_vina(
+        vina_bin=vina_bin,
+        receptor=receptor_pdbqt,
+        ligand=ligand_pdbqt,
+        center=(stage1_box.center_x, stage1_box.center_y, stage1_box.center_z),
+        box_size=stage1_cfg["box_size"],
         spacing=stage1_cfg["spacing"],
-    )
-    v.dock(
         exhaustiveness=stage1_cfg["exhaustiveness"],
-        n_poses=vina_cfg["num_modes"],
+        num_modes=vina_cfg["num_modes"],
         energy_range=vina_cfg["energy_range"],
+        seed=effective_seed,
+        output=stage1_poses,
     )
-    v.write_poses(str(stage1_poses), n_poses=vina_cfg["num_modes"], overwrite=True)
-    stage1_best = v.energies(n_poses=1)[0][0]
+    stage1_best = stage1_affinities[0]
     logger.info(f"  Stage1 最佳 ΔG = {stage1_best:.2f} kcal/mol")
 
     # -----------------------------------------------------------------------
-    # Stage 2: 局部精修（spacing=0.1，20Å box）
+    # Stage 2: 局部精修（spacing=0.1，20A box）
     # -----------------------------------------------------------------------
     pose_center = _extract_pose_centroid(stage1_poses)
     stage2_poses = output_dir / f"{pair_name}_poses.pdbqt"
-    stage2_box = GridBox(
-        center=pose_center,
-        size=(stage2_cfg["box_size"], stage2_cfg["box_size"], stage2_cfg["box_size"]),
-    )
 
     # 验证格点数量
-    n_points = ((stage2_cfg["box_size"] / stage2_cfg["spacing"]) + 1) ** 3
+    n_points = ((effective_stage2_box / stage2_cfg["spacing"]) + 1) ** 3
     logger.info(
-        f"[Stage2] {pair_name}: box={stage2_cfg['box_size']}Å, spacing={stage2_cfg['spacing']}, "
-        f"exh={stage2_cfg['exhaustiveness']}, 格点数={n_points/1e6:.1f}M"
+        f"[Stage2] {pair_name}: box={effective_stage2_box}A, spacing={stage2_cfg['spacing']}, "
+        f"exh={stage2_cfg['exhaustiveness']}, grid_points={n_points/1e6:.1f}M, seed={effective_seed}"
     )
     if n_points > 27e6:
-        raise RuntimeError(
-            f"Stage2 格点数 {n_points/1e6:.1f}M > 27M 限制！"
-            f"请减小 box_size（当前: {stage2_cfg['box_size']}Å）"
+        logger.warning(
+            f"Stage2 grid {n_points/1e6:.1f}M > 27M（Vina 1.2.7 仍可运行，仅输出 WARNING）"
         )
 
-    v2 = Vina(sf_name="vina", seed=vina_cfg["seed"], verbosity=0)
-    v2.set_receptor(str(receptor_pdbqt))
-    v2.set_ligand_from_file(str(ligand_pdbqt))
-    v2.compute_vina_maps(
-        center=list(stage2_box.center),
-        box_size=[stage2_cfg["box_size"]] * 3,
+    stage2_affinities = _run_vina(
+        vina_bin=vina_bin,
+        receptor=receptor_pdbqt,
+        ligand=ligand_pdbqt,
+        center=pose_center,
+        box_size=effective_stage2_box,
         spacing=stage2_cfg["spacing"],
-    )
-    v2.dock(
         exhaustiveness=stage2_cfg["exhaustiveness"],
-        n_poses=vina_cfg["num_modes"],
+        num_modes=vina_cfg["num_modes"],
         energy_range=vina_cfg["energy_range"],
+        seed=effective_seed,
+        output=stage2_poses,
     )
-    v2.write_poses(str(stage2_poses), n_poses=vina_cfg["num_modes"], overwrite=True)
 
-    all_energies = [e[0] for e in v2.energies(n_poses=vina_cfg["num_modes"])]
-    best_affinity = all_energies[0]
+    best_affinity = stage2_affinities[0]
     elapsed = time.time() - t_start
 
     logger.info(
@@ -182,13 +259,105 @@ def dock_pair_twostage(
         receptor=receptor_pdbqt.stem,
         ligand=ligand_pdbqt.stem,
         best_affinity=best_affinity,
-        all_affinities=all_energies,
+        all_affinities=stage2_affinities,
         poses_path=str(stage2_poses),
-        stage1_box={"center": list(stage1_box.center), "size": [stage1_cfg["box_size"]] * 3},
-        stage2_box={"center": list(stage2_box.center), "size": [stage2_cfg["box_size"]] * 3},
+        stage1_box={"center": [stage1_box.center_x, stage1_box.center_y, stage1_box.center_z], "size": [stage1_cfg["box_size"]] * 3},
+        stage2_box={"center": list(pose_center), "size": [effective_stage2_box] * 3},
         box_type="twostage",
         exhaustiveness=stage2_cfg["exhaustiveness"],
         spacing=stage2_cfg["spacing"],
+        elapsed_sec=elapsed,
+    )
+
+
+def dock_pair_singlestage(
+    receptor_pdbqt: Path,
+    ligand_pdbqt: Path,
+    pair_name: str,
+    tm_pdb: Path,
+    output_dir: Path,
+    config: dict,
+    seed: int | None = None,
+) -> DockingResult:
+    """
+    单阶段对接（精确复现 Hu2024 参数）。
+
+    参数：box=40Å, spacing=0.1Å, exhaustiveness=200, center=受体全原子质量加权质心
+
+    Args:
+        receptor_pdbqt: 受体 PDBQT 路径
+        ligand_pdbqt: 配体 PDBQT 路径
+        pair_name: 对接对名称（如 "GprC_ascr18"）
+        tm_pdb: TM-only PDB（用于计算受体质心）
+        output_dir: 结果输出目录
+        config: pipeline 配置字典
+        seed: 随机种子（覆盖 config["vina"]["seed"]）
+
+    Returns:
+        DockingResult（stage2_box 为空 dict，box_type="singlestage"）
+    """
+    logger = get_logger()
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    vina_bin = config["remote"]["vina_bin"]
+    vina_cfg = config["vina"]
+    ss_cfg = vina_cfg.get("singlestage", {
+        "spacing": 0.1,
+        "box_size": 40.0,
+        "exhaustiveness": 200,
+    })
+
+    effective_seed = seed if seed is not None else vina_cfg["seed"]
+
+    t_start = time.time()
+
+    box = compute_box_center_of_mass(tm_pdb, box_size=ss_cfg["box_size"])
+    n_points = ((ss_cfg["box_size"] / ss_cfg["spacing"]) + 1) ** 3
+    logger.info(
+        f"[Singlestage] {pair_name}: box={ss_cfg['box_size']}A, "
+        f"spacing={ss_cfg['spacing']}, exh={ss_cfg['exhaustiveness']}, "
+        f"grid={n_points/1e6:.1f}M, seed={effective_seed}"
+    )
+    if n_points > 27e6:
+        logger.warning(
+            f"  grid {n_points/1e6:.1f}M > 27M（Vina 1.2.7 可运行，仅 WARNING）"
+        )
+
+    poses_out = output_dir / f"{pair_name}_poses.pdbqt"
+    affinities = _run_vina(
+        vina_bin=vina_bin,
+        receptor=receptor_pdbqt,
+        ligand=ligand_pdbqt,
+        center=(box.center_x, box.center_y, box.center_z),
+        box_size=ss_cfg["box_size"],
+        spacing=ss_cfg["spacing"],
+        exhaustiveness=ss_cfg["exhaustiveness"],
+        num_modes=vina_cfg["num_modes"],
+        energy_range=vina_cfg["energy_range"],
+        seed=effective_seed,
+        output=poses_out,
+    )
+
+    best_affinity = affinities[0]
+    elapsed = time.time() - t_start
+    logger.info(
+        f"  ΔG = {best_affinity:.3f} kcal/mol（{elapsed:.0f}s）"
+    )
+
+    return DockingResult(
+        pair_name=pair_name,
+        receptor=receptor_pdbqt.stem,
+        ligand=ligand_pdbqt.stem,
+        best_affinity=best_affinity,
+        all_affinities=affinities,
+        poses_path=str(poses_out),
+        stage1_box={"center": [box.center_x, box.center_y, box.center_z],
+                    "size": [ss_cfg["box_size"]] * 3},
+        stage2_box={},
+        box_type="singlestage",
+        exhaustiveness=ss_cfg["exhaustiveness"],
+        spacing=ss_cfg["spacing"],
         elapsed_sec=elapsed,
     )
 
@@ -219,7 +388,7 @@ def dock_matrix(
 
     logger.info(
         f"=== 两阶段对接矩阵 [{len(receptors)}×{len(ligands)}，"
-        f"Stage2: spacing={config['vina']['stage2']['spacing']}Å, "
+        f"Stage2: spacing={config['vina']['stage2']['spacing']}A, "
         f"exh={config['vina']['stage2']['exhaustiveness']}] ==="
     )
 
@@ -246,7 +415,7 @@ def dock_matrix(
     # 保存汇总 JSON
     results_json = root / config["paths"]["results_dir"] / "docking_results.json"
     results_data = [asdict(r) for r in results]
-    results_json.write_text(json.dumps(results_data, indent=2, ensure_ascii=False))
+    results_json.write_text(json.dumps(results_data, indent=2, ensure_ascii=False), encoding="utf-8")
     logger.info(f"对接矩阵完成，结果已保存: {results_json}")
 
     return results

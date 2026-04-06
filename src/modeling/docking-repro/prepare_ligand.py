@@ -126,12 +126,20 @@ def run_orca(inp_path: Path, orca_binary: str) -> Path:
     name = inp_path.stem
     xyz_optimized = inp_path.parent / f"{name}.xyz"
 
-    cmd = [orca_binary, str(inp_path)]
+    # Orca 并行模式要求自身和 MS-MPI 都在 PATH 中
+    import os
+    env = os.environ.copy()
+    orca_dir = str(Path(orca_binary).parent)
+    mpi_bin = r"C:\Program Files\Microsoft MPI\Bin"
+    env["PATH"] = orca_dir + os.pathsep + mpi_bin + os.pathsep + env.get("PATH", "")
+
+    cmd = [str(Path(orca_binary).resolve()), str(inp_path.resolve())]
     logger.info(f"  运行 Orca ({method_from_inp(inp_path)}): {inp_path.name}")
     logger.info(f"  预计时间: 10-30 分钟（取决于硬件和配体大小）")
 
     with open(out_path, "w") as f_out:
-        result = subprocess.run(cmd, stdout=f_out, stderr=subprocess.STDOUT)
+        result = subprocess.run(cmd, stdout=f_out, stderr=subprocess.STDOUT,
+                                cwd=str(inp_path.parent), env=env)
 
     if result.returncode != 0:
         raise RuntimeError(
@@ -241,24 +249,32 @@ def prepare_ligand_adfr(
     stem = pdb_path.stem
     output_pdbqt = output_dir / f"{stem}.pdbqt"
 
-    adfr_ligand = Path(adfr_bin) / "prepare_ligand"
-    if sys.platform == "win32":
-        if not adfr_ligand.exists():
-            adfr_ligand = Path(adfr_bin) / "prepare_ligand.exe"
-        if not adfr_ligand.exists():
-            adfr_ligand = Path(adfr_bin) / "prepare_ligand4.py"
+    adfr_ligand = None
+    for candidate in ["prepare_ligand.exe", "prepare_ligand.bat",
+                      "prepare_ligand", "prepare_ligand4.py"]:
+        p = Path(adfr_bin) / candidate
+        if p.exists():
+            adfr_ligand = p
+            break
+    if adfr_ligand is None:
+        raise FileNotFoundError(f"ADFR prepare_ligand 未找到于: {adfr_bin}")
 
-    cmd = [
-        str(adfr_ligand),
-        "-l", str(pdb_path),
+    # ADFR prepare_ligand4.py 只接受文件名（不接受绝对路径），用 cwd 解决
+    args = [
+        "-l", pdb_path.name,
         "-o", str(output_pdbqt),
-        "-A", "hydrogens",                # 加极性氢
-        "-B", "non_cyclic",               # 只有非环单键可旋转（ascarylose 环外）
+        "-A", "hydrogens",
+        "-B", "non_cyclic",
     ]
+    if adfr_ligand.suffix == ".bat":
+        cmd = ["cmd", "/c", str(adfr_ligand)] + args
+    else:
+        cmd = [str(adfr_ligand)] + args
+
     logger.info(f"准备配体（ADFR）: {pdb_path.name}")
     logger.debug(f"  CMD: {' '.join(cmd)}")
 
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(pdb_path.parent))
     if result.returncode != 0:
         raise RuntimeError(
             f"ADFR prepare_ligand 失败 (code={result.returncode}):\n"
@@ -424,8 +440,8 @@ def prepare_ligand_full(
 # 批量准备
 # ---------------------------------------------------------------------------
 
-def prepare_all_ligands(config: dict) -> dict:
-    """批量准备所有配体，返回 {name: Path} 字典。"""
+def prepare_all_ligands(config: dict, only: list[str] | None = None) -> dict:
+    """批量准备所有配体，返回 {name: Path} 字典。only 不为 None 时仅处理指定配体。"""
     logger = get_logger()
     root = get_project_root(config)
     ligand_dir = root / config["paths"]["ligand_dir"]
@@ -442,6 +458,9 @@ def prepare_all_ligands(config: dict) -> dict:
     logger.info("=== 准备所有配体（Orca DFT + ADFR PDBQT）===")
 
     for name, lig_cfg in config["ligands"].items():
+        if only is not None and name not in only:
+            logger.info(f"  跳过 {name}（未在 --ligands 中指定）")
+            continue
         sdf_path = ligand_dir / lig_cfg["sdf_file"]
         smiles = lig_cfg["smiles"]
         pdbqt_path = prepare_ligand_full(
