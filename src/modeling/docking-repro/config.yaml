@@ -208,12 +208,17 @@ grid_box:
 analysis:
   top_n_poses: 5                         # Hu2024: 分析前 5 个 pose
   plip_enabled: true
-  # 文献参考关键残基（Ballesteros-Weinstein 编号）
+  # ── 唯一权威源：Hu2024 关键残基 BW→序列映射 ──
+  # 映射方法：D2.50=ASP53（TM2 唯一 ASP），P6.50=PRO390（WxP motif）
+  # ⚠️ R6.45 精确 BW 编号待 GPCRdb 比对确认，ARG395 为 TM6 螺旋内唯一 ARG
+  # 所有消费代码（validate.py, run_ifp_analysis.py, run_gprc_expanded_box.py）
+  # 必须从此处读取，禁止硬编码副本。
   key_residues:
     GprC:
-      N2_57: 83    # 胞外侧，突变为 Ala 后丧失功能
-      R6_45: 281   # R-motif，突变为 Ala 后结合亲和力剧降
-      S2_41: 77    # S-motif
+      N2_57: {seqpos: 60,  resname: ASN, role: pos, desc: "胞外侧结合口袋，突变→功能丧失"}
+      N2_53: {seqpos: 56,  resname: ASN, role: neg, desc: "胞内侧，突变无影响（阴性对照）"}
+      R6_45: {seqpos: 395, resname: ARG, role: pos, desc: "R-motif TM6，突变→亲和力剧降；BW 待确认"}
+      S2_41: {seqpos: 44,  resname: SER, role: pos, desc: "S-motif TM2 胞内端，远离 binding site"}
 
 # ---------------------------------------------------------------------------
 # 验证标准（比 v2 更严格）
@@ -272,13 +277,16 @@ mutagenesis:
   # Gpr2/Gpr3: v2 PLIP 高频接触残基（ascr18/ascr3/ascr7 union）
   scan_residues:
     GprC:
-      # 前 3 个为 Hu2024 实验验证的关键残基（结论可信）
-      - 77    # S2.41 — Hu2024 S-motif（实验验证）
-      - 83    # N2.57 — Hu2024，突变为 Ala 后功能丧失（阳性对照）
-      - 281   # R6.45 — Hu2024 R-motif，突变后亲和力剧降（阳性对照）
-      # 以下均来自 v2 PLIP 接触分析，无实验验证
-      - 42    # v2 PLIP（ascr3/ascr7 高频）
-      - 105   # v2 PLIP（ascr7）
+      # 前 4 个为 Hu2024 实验验证的关键残基（BW→序列映射已修正 2026-04-08）
+      - 60    # N2.57 (ASN60) — Hu2024 阳性对照，突变→功能丧失
+      - 56    # N2.53 (ASN56) — Hu2024 阴性对照，突变无影响
+      - 395   # R6.45 (ARG395) — Hu2024 R-motif 阳性对照，突变→亲和力剧降
+      - 44    # S2.41 (SER44) — Hu2024 S-motif 阳性对照，远离 binding site 但 essential
+      # 以下来自 ProLIF IFP 差异接触分析 + v2 PLIP
+      - 174   # ARG174 — IFP 最高频共享残基（ascr18=18, ascr3=25）
+      - 415   # GLN415 — IFP 最高频共享残基（ascr18=20, ascr3=18）
+      - 411   # GLN411 — IFP 高频共享残基（ascr18=17, ascr3=16）
+      - 91    # VAL91 — IFP 高频共享残基（ascr18=15, ascr3=17）
       - 185   # v2 PLIP（最高频，ascr18/3/7 共享）
       - 189   # v2 PLIP（ascr18/3/7 共享）
       - 377   # v2 PLIP（ascr3）
@@ -344,6 +352,7 @@ multiseed:
 # S4: GprC 扩大 Docking Box（25Å）验证外周残基（run_wt_twostage.py --gprc-expand）
 gprc_expanded_box:
   stage2_box_size: 25.0   # 25Å → 251³ = 15.8M 格点（< 27M 限制）
-  # 目标：捕获 S77A/N83A（Hu2024 已验证功能丧失残基）的灵敏度
+  # 目标：捕获 S44A/R395A 等口袋周边残基的灵敏度
+  # 注意：旧配置中 S77A/N83A 为错误 BW 映射，已修正 2026-04-08
   # 用 dock_pair_twostage(..., stage2_box_size=25.0) 调用
-  target_mutants: ["S77A", "N83A", "R42A", "T105A"]   # 原 20Å box 外/边缘残基
+  target_mutants: ["S44A", "N60A", "R395A", "R42A", "T105A"]

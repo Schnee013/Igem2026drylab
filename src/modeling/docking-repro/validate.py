@@ -3,7 +3,7 @@
 
 对比 v2 validate.py 的改动：
   - HU2024_TOLERANCE: 1.0 → 0.5 kcal/mol（复现目标更严格）
-  - 新增 PLIP 残基验证（Res83/Res281 是否出现在 top-5 接触中）
+  - 新增 PLIP 残基验证（ASN60/ARG395 是否出现在 top-5 接触中）
   - 新增 DOF count 验证（7-11）
   - 新增三方对比报告（v2 vs repro vs Hu2024）
 """
@@ -32,13 +32,8 @@ HU2024_GPRC = {
 }
 HU2024_TOLERANCE = 0.5   # 比 v2 更严格（v2 用 1.0）
 
-# 文献关键接触残基（Hu2024 Extended Data，BW 编号 → 序列号）
-HU2024_KEY_RESIDUES = {
-    "GprC": {
-        83:  "N2.57（胞外侧，突变为 Ala 丧失功能）",
-        281: "R6.45（R-motif，突变后亲和力剧降）",
-    }
-}
+# 文献关键残基：权威源在 config.yaml analysis.key_residues
+# 消费方式: config["analysis"]["key_residues"][rec_name] → {bw: {seqpos, resname, role, desc}}
 
 KUO2024_RANKINGS = [
     {"receptor": "Gpr2", "better": "ascr7", "worse": "ascr3"},
@@ -224,7 +219,7 @@ def format_report(
         "",
         "- **方法差异（v2 → repro）**：受体准备 OpenBabel → ADFR；配体几何 MMFF → Orca DFT B3LYP/def2-TZVP；",
         "  配体 PDBQT Meeko(15 DOF) → ADFR(7-11 DOF)；格点精度 0.25Å → 0.1Å（两阶段对接）",
-        "- **PLIP 关键残基**：Hu2024 预测 GprC 结合位点依赖 N2.57(Res83) 和 R6.45(Res281)",
+        "- **PLIP 关键残基**：Hu2024 预测 GprC 结合位点依赖 N2.57(ASN60) 和 R6.45(ARG395?)",
         "  若复现成功，这两个残基应出现在 top-5 pose 的接触列表中",
     ]
 

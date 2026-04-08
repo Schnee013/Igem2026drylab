@@ -569,9 +569,10 @@ def run_mutagenesis(
 
         # Step 4: Vina 对接（ascr18 + ascr3）
         if docking_mode == "singlestage":
-            from dock import dock_pair_singlestage
+            from dock import dock_pair_singlestage, get_tm_helix_ranges
         else:
-            from dock import dock_pair_twostage
+            from dock import dock_pair_twostage, get_tm_helix_ranges
+        helix_ranges = get_tm_helix_ranges(config, rec_name)
 
         ligand_dir = baseline_prepared_dir / "ligands"
         lig_pdbqts = {}
@@ -600,6 +601,7 @@ def run_mutagenesis(
                             tm_pdb=tm_ref,
                             output_dir=out_dir,
                             config=config,
+                            tm_helix_ranges=helix_ranges,
                         )
                     else:
                         result = dock_pair_twostage(
@@ -609,6 +611,7 @@ def run_mutagenesis(
                             tm_pdb=tm_ref,
                             output_dir=out_dir,
                             config=config,
+                            tm_helix_ranges=helix_ranges,
                         )
                     dg[lig_name] = result.best_affinity
                 except Exception as e:
@@ -686,10 +689,11 @@ def _get_scan_residues(config: dict, rec_name: str) -> list[int]:
     if user_residues:
         return sorted(user_residues)
 
-    # 文献关键残基
+    # 文献关键残基（权威源：config.yaml analysis.key_residues）
     key_res = config.get("analysis", {}).get("key_residues", {}).get(rec_name, {})
     if key_res:
-        return sorted(key_res.values())
+        # 结构化格式 {bw: {seqpos, resname, ...}} → 提取 seqpos
+        return sorted(v["seqpos"] if isinstance(v, dict) else v for v in key_res.values())
 
     raise ValueError(
         f"未找到 {rec_name} 的扫描残基。\n"

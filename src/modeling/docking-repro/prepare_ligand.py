@@ -229,7 +229,7 @@ def prepare_ligand_adfr(
 
     流程:
     1. ADFR prepare_ligand 生成 PDBQT（自动检测可旋转键）
-    2. 验证 DOF 计数（BRANCH 行数），若 > max_dofs 则冻结末端旋转键
+    2. 验证 DOF 计数（BRANCH 行数），若 > max_dofs 则冻结末端旋转键（保留原子）
     3. 输出满足 7-11 DOFs 的 PDBQT
 
     Args:
@@ -311,21 +311,24 @@ def count_dofs(pdbqt_path: Path) -> int:
 
 def freeze_terminal_torsions(pdbqt_path: Path, max_dofs: int) -> Path:
     """
-    通过删除末端 BRANCH/ENDBRANCH 块来减少 DOF 数。
+    通过移除 BRANCH/ENDBRANCH 标记来减少 DOF 数，**保留所有原子**。
 
-    策略：优先冻结仅含甲基或 OH 的末端分支（对结合构象影响最小）。
+    策略：从最末尾的叶子 BRANCH 开始，移除 BRANCH/ENDBRANCH 行但保留
+    其中的 ATOM/HETATM 行（即原子保留在上一级分支中，只是旋转键不再活跃）。
+
+    旧实现（bug）：连同原子一起删除，导致分子被截断。
+    修复后：仅移除 BRANCH/ENDBRANCH 标记行，原子合并到父级分支。
+
     修改后的文件写回原路径。
 
     Returns:
         修改后的 PDBQT 路径
     """
     logger = get_logger()
-    text = Path(pdbqt_path).read_text()
-    lines = text.splitlines()
 
     while count_dofs(pdbqt_path) > max_dofs:
         lines = Path(pdbqt_path).read_text().splitlines()
-        # 找到最后一个 BRANCH，尝试移除其对应的 BRANCH/ENDBRANCH 块
+        # 找到最后一个 BRANCH，尝试冻结
         branch_indices = [i for i, l in enumerate(lines) if l.startswith("BRANCH")]
         if not branch_indices:
             break
@@ -356,10 +359,14 @@ def freeze_terminal_torsions(pdbqt_path: Path, max_dofs: int) -> Path:
             logger.warning(f"  末端分支有嵌套，跳过冻结，停止尝试")
             break
 
-        # 删除 BRANCH + 内部原子 + ENDBRANCH
-        new_lines = lines[:last_branch_idx] + lines[endbranch_idx + 1:]
+        # 移除 BRANCH 和 ENDBRANCH 行，但保留其间的原子行
+        new_lines = (
+            lines[:last_branch_idx]
+            + [l for l in inner_lines if l.startswith(("ATOM", "HETATM"))]
+            + lines[endbranch_idx + 1:]
+        )
         pdbqt_path.write_text("\n".join(new_lines) + "\n")
-        logger.debug(f"  冻结 BRANCH {atom1}-{atom2}")
+        logger.debug(f"  冻结 BRANCH {atom1}-{atom2}（保留原子）")
 
     return pdbqt_path
 

@@ -1,7 +1,7 @@
 """
 WT 单阶段对接 — Hu2024 精确复现协议
 
-参数：box=40Å, spacing=0.1Å, exhaustiveness=200, center=全原子质量加权质心
+参数：box=40Å, spacing=0.1Å, exhaustiveness=200, center=TM螺旋质量加权质心
 配体：ascr1, ascr18, ascr3, ascr7（共 12 对接对）
 
 用法（在 Windows 上运行）：

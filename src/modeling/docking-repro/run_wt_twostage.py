@@ -29,7 +29,7 @@ _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
 
-from dock import DockingResult, dock_pair_twostage
+from dock import DockingResult, dock_pair_twostage, get_tm_helix_ranges
 from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
 
 
@@ -111,6 +111,8 @@ def main() -> None:
             logger.error(f"受体 TM PDB 不存在: {tm_pdb}")
             sys.exit(1)
 
+        helix_ranges = get_tm_helix_ranges(config, rec_name)
+
         for lig_name in args.ligands:
             lig_pdbqt = lig_dir / LIGAND_PDBQTS[lig_name]
             if not lig_pdbqt.exists():
@@ -129,7 +131,7 @@ def main() -> None:
                 tm_pdb=tm_pdb,
                 output_dir=pair_dir,
                 config=config,
-                # seed 和 stage2_box_size 使用 config 默认值（seed=42, box=20A）
+                tm_helix_ranges=helix_ranges,
             )
             results.append(result)
             logger.info(

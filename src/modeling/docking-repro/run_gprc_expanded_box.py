@@ -1,16 +1,13 @@
 """
 S4: GprC 扩大 Docking Box — 捕获 Hu2024 外周关键残基
 
-问题：Stage2 默认 box=20Å，GprC S77/N83（Hu2024 功能验证残基）落在 box 外，
-      与 WT 产出字节一致结果（零灵敏度）。
-
 方案：GprC 专用 box=25Å（251³=15.8M 格点，< 27M 限制），对以下 pair 重对接：
   - GprC WT (ascr18, ascr3)    — 建立 25Å box WT 基线
-  - GprC S77A/N83A/R42A/T105A — 现在应能检测到结合能变化
+  - GprC 突变体（config gprc_expanded_box.target_mutants）— 检测结合能变化
 
 验证目标：
-  N83A 已知（Hu2024）突变后丧失 ascr18 结合 → 预期 ΔΔG(ascr18) > 0
-  如果扩大 box 后 N83A 确实显示亲和力损失，证明方法有效（阳性对照成立）
+  N60A (N2.57) 已知（Hu2024）突变后丧失功能 → 预期 ΔΔG(ascr18) > 0
+  R395A (R6.45?) 突变后亲和力剧降 → 预期 ΔΔG(ascr18) > 0
 
 依赖：突变体 PDBQT 来自 mutagenesis 步骤已生成文件
 
@@ -31,7 +28,7 @@ _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
 
-from dock import DockingResult, dock_pair_twostage
+from dock import DockingResult, dock_pair_twostage, get_tm_helix_ranges
 from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
 
 
@@ -44,14 +41,8 @@ LIGAND_PDBQTS = {
     "ascr3":  "ascr3_optimized.pdbqt",
 }
 
-# 突变体 PDBQT：mutagenesis.py 生成后统一复制到 mutagenesis/prepared/
-# 命名约定：{Receptor}_{Mutation}_tm.pdbqt
-MUTANT_PDBQTS = {
-    "S77A":  "GprC_S77A_tm.pdbqt",
-    "N83A":  "GprC_N83A_tm.pdbqt",
-    "R42A":  "GprC_R42A_tm.pdbqt",
-    "T105A": "GprC_T105A_tm.pdbqt",
-}
+# 突变体 PDBQT：从 config gprc_expanded_box.target_mutants 动态构建
+# 命名约定：GprC_{Mutation}_tm.pdbqt（mutagenesis.py 生成）
 
 
 def parse_args() -> argparse.Namespace:
@@ -108,6 +99,17 @@ def main() -> None:
 
     rec_pdbqt = rec_dir / RECEPTOR_TM_PDBQT
     tm_pdb    = rec_dir / RECEPTOR_TM_PDB
+    helix_ranges = get_tm_helix_ranges(config, "GprC")
+
+    # 从 config 动态构建突变体 PDBQT 映射和阳性对照集合
+    target_mutants = config.get("gprc_expanded_box", {}).get("target_mutants", [])
+    mutant_pdbqts = {m: f"GprC_{m}_tm.pdbqt" for m in target_mutants}
+
+    key_residues = config.get("analysis", {}).get("key_residues", {}).get("GprC", {})
+    expected_loss_mutants = set()
+    for _bw, info in key_residues.items():
+        if info["role"] == "pos" and "远离" not in info.get("desc", ""):
+            expected_loss_mutants.add(f"{info['resname']}{info['seqpos']}A")
 
     all_results: list[DockingResult] = []
 
@@ -124,6 +126,7 @@ def main() -> None:
             output_dir=out_dir / "poses" / pair_name,
             config=config,
             stage2_box_size=box_size,
+            tm_helix_ranges=helix_ranges,
         )
         all_results.append(r)
         logger.info(f"  ΔG = {r.best_affinity:.3f} kcal/mol")
@@ -135,7 +138,7 @@ def main() -> None:
     # ── 突变体 ────────────────────────────────────────────────────────────
     mut_results: dict[str, dict[str, float]] = {}
 
-    for mut_name, mut_pdbqt_name in MUTANT_PDBQTS.items():
+    for mut_name, mut_pdbqt_name in mutant_pdbqts.items():
         # 在多个可能路径中查找
         mut_pdbqt = None
         for search_dir in [mut_prepared_dir, rec_dir]:
@@ -161,6 +164,7 @@ def main() -> None:
                 output_dir=out_dir / "poses" / pair_name,
                 config=config,
                 stage2_box_size=box_size,
+                tm_helix_ranges=helix_ranges,
             )
             all_results.append(r)
             mut_results[mut_name][lig_name] = r.best_affinity
@@ -187,8 +191,8 @@ def main() -> None:
         ddg3  = dg3  - wt_3
         ddg_sel = ddg18 - ddg3
 
-        # 验证：N83A/R281A 应显示亲和力损失（Hu2024）
-        expected_loss = mut_name in ("N83A", "R42A")
+        # 验证：N60A/R395A 应显示亲和力损失（Hu2024 阳性对照）
+        expected_loss = mut_name in expected_loss_mutants
         check = ("✓ 符合预期" if expected_loss and ddg18 > 0.1
                  else "✗ 与预期不符" if expected_loss and ddg18 < -0.1
                  else "")
@@ -197,7 +201,8 @@ def main() -> None:
             f"{ddg18:>+8.3f}  {ddg_sel:>+8.3f}  {check}"
         )
 
-    print("\n  N83A 验证：若 ΔΔG(ascr18) > 0 → 25Å box 成功捕获到功能残基灵敏度")
+    pos_names = "/".join(sorted(expected_loss_mutants)) or "无"
+    print(f"\n  {pos_names} 验证：若 ΔΔG(ascr18) > 0 → 阳性对照成立")
     print(f"  结果文件: {out_json}")
     logger.info("S4 GprC 扩大 box 完成")
 

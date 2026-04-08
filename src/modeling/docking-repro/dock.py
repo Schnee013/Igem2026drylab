@@ -423,6 +423,7 @@ def dock_matrix(
     idx = 0
     for rec_name, rec_pdbqt in receptors.items():
         tm_pdb = tm_pdbs[rec_name]
+        helix_ranges = get_tm_helix_ranges(config, rec_name)
         for lig_name, lig_pdbqt in ligands.items():
             idx += 1
             pair_name = f"{rec_name}_{lig_name}"
@@ -436,6 +437,7 @@ def dock_matrix(
                 tm_pdb=tm_pdb,
                 output_dir=pair_dir,
                 config=config,
+                tm_helix_ranges=helix_ranges,
             )
             results.append(result)
 
