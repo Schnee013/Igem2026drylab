@@ -19,7 +19,6 @@ S4: GprC 扩大 Docking Box — 捕获 Hu2024 外周关键残基
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from dataclasses import asdict
 from pathlib import Path
@@ -29,7 +28,10 @@ sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
 
 from dock import DockingResult, dock_pair_twostage, get_tm_helix_ranges
-from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
+from utils import (
+    generate_run_id, get_project_root, load_config, preflight_check,
+    save_results_json, setup_logging,
+)
 
 
 RECEPTOR_TM_PDBQT = "GprC_A0A437AGY2_tm.pdbqt"
@@ -80,7 +82,7 @@ def main() -> None:
     lig_dir = prepared_root / "ligands"
 
     # 突变体 PDBQT 统一平铺目录（由 mutagenesis.py 生成并复制）
-    mut_prepared_dir = root / "experiments" / "docking-repro" / "mutagenesis" / "prepared"
+    mut_prepared_dir = root / config["paths"]["mutagenesis_dir"] / "prepared"
 
     # preflight 检查
     preflight_check([
@@ -94,7 +96,8 @@ def main() -> None:
          "hint": "ascr3 配体不存在，请先完成 Orca 配体准备（run_prepare_ligands.py）"},
     ], logger)
 
-    out_dir = root / "experiments" / "docking-repro" / "results" / f"gprc_box{int(box_size)}A"
+    results_base = root / config["paths"]["results_dir"]
+    out_dir = results_base / f"gprc_box{int(box_size)}A"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     rec_pdbqt = rec_dir / RECEPTOR_TM_PDBQT
@@ -170,9 +173,10 @@ def main() -> None:
             mut_results[mut_name][lig_name] = r.best_affinity
             logger.info(f"  ΔG = {r.best_affinity:.3f} kcal/mol")
 
-    # 保存
-    out_json = out_dir / "docking_results.json"
-    out_json.write_text(json.dumps([asdict(r) for r in all_results], indent=2, ensure_ascii=False), encoding="utf-8")
+    # 保存（时间戳 + latest）
+    out_json = save_results_json(
+        [asdict(r) for r in all_results], out_dir, run_id, config,
+    )
 
     # 打印分析
     print("\n" + "=" * 65)

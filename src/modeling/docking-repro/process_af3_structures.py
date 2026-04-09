@@ -1,8 +1,8 @@
 """
 处理 AF3 Server 下载的突变体结构
 
-输入：experiments/docking-repro/mutagenesis/af3_downloads/{job_name}/
-输出：experiments/docking-repro/mutagenesis/af3_structures/{RecName}/{Label}.cif（最优 model）
+输入：{mutagenesis_dir}/af3_downloads/{job_name}/
+输出：{mutagenesis_dir}/af3_structures/{RecName}/{Label}.cif（最优 model）
 
 流程：
   1. 读取每个 job 的 5 个 summary_confidences，按 ranking_score 选最优
@@ -11,16 +11,21 @@
 
 用法：
     python process_af3_structures.py
+    python process_af3_structures.py --config path/to/config.yaml --project-root /path/to/root
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import shutil
+import sys
 from pathlib import Path
 
-DOWNLOADS_DIR = Path("experiments/docking-repro/mutagenesis/af3_downloads")
-OUTPUT_DIR = Path("experiments/docking-repro/mutagenesis/af3_structures")
+_this_dir = Path(__file__).resolve().parent
+sys.path.insert(0, str(_this_dir))
+
+from utils import get_project_root, load_config
 
 # job 目录名到 (RecName, Label) 的映射
 # 目录名格式: gprc_n83a → (GprC, N83A)
@@ -56,12 +61,29 @@ def find_best_model(job_dir: Path) -> tuple[int, float, dict]:
     return best_idx, best_score, best_conf
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="处理 AF3 Server 下载的突变体结构")
+    parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
+    parser.add_argument("--project-root", default=None)
+    return parser.parse_args()
+
+
 def main() -> None:
-    if not DOWNLOADS_DIR.exists():
-        print(f"错误: {DOWNLOADS_DIR} 不存在")
+    args = parse_args()
+    config = load_config(args.config)
+    if args.project_root:
+        config["paths"]["project_root"] = args.project_root
+
+    root = get_project_root(config)
+    mut_dir = root / config["paths"]["mutagenesis_dir"]
+    downloads_dir = mut_dir / "af3_downloads"
+    output_dir = mut_dir / "af3_structures"
+
+    if not downloads_dir.exists():
+        print(f"错误: {downloads_dir} 不存在")
         return
 
-    job_dirs = sorted([d for d in DOWNLOADS_DIR.iterdir() if d.is_dir() and not d.name.startswith(".")])
+    job_dirs = sorted([d for d in downloads_dir.iterdir() if d.is_dir() and not d.name.startswith(".")])
     print(f"找到 {len(job_dirs)} 个 AF3 job 目录\n")
 
     results = []
@@ -83,7 +105,7 @@ def main() -> None:
             continue
 
         # 复制到输出目录
-        out_dir = OUTPUT_DIR / rec_name
+        out_dir = output_dir / rec_name
         out_dir.mkdir(parents=True, exist_ok=True)
         out_cif = out_dir / f"{label}.cif"
         shutil.copy2(cif_files[0], out_cif)
@@ -106,7 +128,7 @@ def main() -> None:
     # 汇总
     print(f"\n{'='*65}")
     print(f"  共处理 {len(results)} 个突变体结构")
-    print(f"  输出目录: {OUTPUT_DIR}")
+    print(f"  输出目录: {output_dir}")
     print(f"{'='*65}")
     print(f"  {'受体':<8} {'突变':<8} {'Model':>5} {'Ranking':>8} {'pTM':>6} {'Disordered':>10}")
     print(f"  {'-'*55}")
@@ -115,6 +137,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    import os
-    os.chdir(Path(__file__).resolve().parents[3])  # cd to project root
     main()

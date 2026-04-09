@@ -25,18 +25,19 @@ S2: 多 Seed 方差评估 — 量化 Vina 随机噪声，为关键结果提供�
 from __future__ import annotations
 
 import argparse
-import json
 import math
 import sys
-from dataclasses import asdict
 from pathlib import Path
 
 _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
 
-from dock import dock_pair_twostage, get_tm_helix_ranges
-from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
+from dock import dock_pair_singlestage, get_tm_helix_ranges
+from utils import (
+    generate_run_id, get_project_root, get_results_subdir, load_config,
+    preflight_check, save_results_json, setup_logging,
+)
 
 # ---------------------------------------------------------------------------
 # 配置
@@ -113,7 +114,7 @@ def main() -> None:
     prepared_root = root / config["paths"]["prepared_dir"]
     rec_dir = prepared_root / "receptors"
     lig_dir = prepared_root / "ligands"
-    mut_dir = root / "experiments" / "docking-repro" / "mutagenesis" / "prepared"
+    mut_dir = root / config["paths"]["mutagenesis_dir"] / "prepared"
 
     # preflight 检查
     active_ligands_check = args.ligands if args.ligands else list(LIGAND_PDBQTS.keys())
@@ -127,8 +128,7 @@ def main() -> None:
         logger,
     )
 
-    out_dir = root / "experiments" / "docking-repro" / "results" / "multiseed"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = get_results_subdir(config, "multiseed_subdir")
 
     # 汇总：{pair_name: {seed: affinity}}
     all_raw: dict[str, list[float]] = {}
@@ -155,7 +155,7 @@ def main() -> None:
             done += 1
             logger.info(f"[WT {done}/{total_wt}] {pair_name} seed={seed}")
             pair_out = out_dir / "poses" / f"{pair_name}_seed{seed}"
-            r = dock_pair_twostage(
+            r = dock_pair_singlestage(
                 receptor_pdbqt=rec_pdbqt,
                 ligand_pdbqt=lig_pdbqt,
                 pair_name=f"{pair_name}_s{seed}",
@@ -191,7 +191,7 @@ def main() -> None:
                     mut_done += 1
                     logger.info(f"[Mut {mut_done}/{mut_total}] {pair_name} seed={seed}")
                     pair_out = out_dir / "poses" / f"{pair_name}_seed{seed}"
-                    r = dock_pair_twostage(
+                    r = dock_pair_singlestage(
                         receptor_pdbqt=mut_pdbqt,
                         ligand_pdbqt=lig_pdbqt,
                         pair_name=f"{pair_name}_s{seed}",
@@ -206,8 +206,9 @@ def main() -> None:
     # ── 统计分析 ────────────────────────────────────────────────────────────
     stats: dict[str, dict] = {k: _stats(v) for k, v in all_raw.items() if v}
 
-    out_json = out_dir / "multiseed_stats.json"
-    out_json.write_text(json.dumps(stats, indent=2, ensure_ascii=False), encoding="utf-8")
+    out_json = save_results_json(
+        stats, out_dir, run_id, config, filename="multiseed_stats.json",
+    )
 
     # 打印结果表
     print("\n" + "=" * 70)

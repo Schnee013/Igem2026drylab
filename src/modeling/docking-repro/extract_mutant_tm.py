@@ -1,49 +1,51 @@
 """
 批量提取 AF3 突变体结构的 TM 域
 
-输入：experiments/docking-repro/mutagenesis/af3_structures/{RecName}/{Label}.pdb
-输出：experiments/docking-repro/mutagenesis/af3_structures/{RecName}/{Label}_tm.pdb
+输入：{mutagenesis_dir}/af3_structures/{RecName}/{Label}.pdb
+输出：{mutagenesis_dir}/af3_structures/{RecName}/{Label}_tm.pdb
 
 优先使用 annotation-based 提取（ICL3 截断），读取 config.yaml 中的 tm_topology。
 config 不存在或无 tm_topology 时回退到 pLDDT 方法。
 
 用法：
     python extract_mutant_tm.py
+    python extract_mutant_tm.py --config path/to/config.yaml --project-root /path/to/root
 """
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
-# 确保能 import 同目录模块
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+_this_dir = Path(__file__).resolve().parent
+sys.path.insert(0, str(_this_dir))
 
 from prepare_receptor import extract_tm_domain, extract_tm_domain_by_annotation
-
-STRUCTURES_DIR = Path("experiments/docking-repro/mutagenesis/af3_structures")
-CONFIG_PATH = Path(__file__).resolve().parent / "config.yaml"
+from utils import get_project_root, load_config
 
 
-def _load_tm_topology() -> dict | None:
-    """尝试从 config.yaml 加载 tm_topology。"""
-    if not CONFIG_PATH.exists():
-        return None
-    try:
-        import yaml
-        with open(CONFIG_PATH) as f:
-            config = yaml.safe_load(f)
-        return config.get("tm_topology")
-    except Exception:
-        return None
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="批量 TM 域提取")
+    parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
+    parser.add_argument("--project-root", default=None)
+    return parser.parse_args()
 
 
 def main() -> None:
-    tm_topology = _load_tm_topology()
+    args = parse_args()
+    config = load_config(args.config)
+    if args.project_root:
+        config["paths"]["project_root"] = args.project_root
+
+    root = get_project_root(config)
+    structures_dir = root / config["paths"]["mutagenesis_dir"] / "af3_structures"
+    tm_topology = config.get("tm_topology")
+
     method = "annotation-based（ICL3 截断）" if tm_topology else "pLDDT-based（旧方法）"
     print(f"TM 提取方法: {method}\n")
 
-    pdb_files = sorted(STRUCTURES_DIR.glob("*/*.pdb"))
+    pdb_files = sorted(structures_dir.glob("*/*.pdb"))
     # 排除已有的 _tm.pdb
     pdb_files = [p for p in pdb_files if not p.stem.endswith("_tm")]
     print(f"找到 {len(pdb_files)} 个突变体 PDB\n")
@@ -78,6 +80,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    import os
-    os.chdir(Path(__file__).resolve().parents[3])
     main()

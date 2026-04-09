@@ -27,7 +27,10 @@ sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
 
 from dock import DockingResult, dock_pair_singlestage, get_tm_helix_ranges
-from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
+from utils import (
+    generate_run_id, get_project_root, get_results_subdir, load_config,
+    preflight_check, save_results_json, setup_logging,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -104,8 +107,7 @@ def main() -> None:
     preflight_check(checks, logger)
 
     # 输出目录
-    out_dir = root / "experiments" / "docking-repro" / "results" / "wt_singlestage"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = get_results_subdir(config, "wt_singlestage_subdir")
 
     results: list[DockingResult] = []
     pairs_total = len(args.receptors) * len(args.ligands)
@@ -138,11 +140,9 @@ def main() -> None:
                 f"（{result.elapsed_sec:.0f}s）"
             )
 
-    # 保存 JSON 结果
-    out_json = out_dir / "docking_results.json"
-    out_json.write_text(
-        json.dumps([asdict(r) for r in results], indent=2, ensure_ascii=False),
-        encoding="utf-8",
+    # 保存 JSON 结果（时间戳 + latest）
+    out_json = save_results_json(
+        [asdict(r) for r in results], out_dir, run_id, config,
     )
 
     # 汇总表

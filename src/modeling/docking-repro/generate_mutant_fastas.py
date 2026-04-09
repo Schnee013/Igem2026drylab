@@ -142,7 +142,7 @@ def main() -> None:
     # AF2 的 MSA 和结构预测依赖全长序列上下文，截断 TM 域会改变预测结果。
     receptor_dir = root / config["paths"]["receptor_dir"]
 
-    output_base = root / "experiments/docking-repro/mutagenesis/fastas"
+    output_base = root / config["paths"]["mutagenesis_dir"] / "fastas"
     scan_residues_cfg = mut_cfg.get("scan_residues", {})
 
     all_generated = []

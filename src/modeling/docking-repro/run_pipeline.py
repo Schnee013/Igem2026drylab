@@ -183,7 +183,7 @@ def main() -> None:
         results = dock_matrix(prepared_paths, config)
     elif args.step in ("analyze", "validate"):
         import json
-        results_json = root / config["paths"]["results_dir"] / "docking_results.json"
+        results_json = root / config["paths"]["results_dir"] / config["paths"].get("results_filename", "docking_results.json")
         if results_json.exists():
             raw = json.loads(results_json.read_text())
             # 简单转为 DockingResult-like 对象（用字典也行，analyze 接受字典）

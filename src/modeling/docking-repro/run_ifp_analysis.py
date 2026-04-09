@@ -35,7 +35,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from utils import load_config
+from utils import get_project_root, get_results_subdir, load_config
 
 import numpy as np
 import pandas as pd
@@ -87,7 +87,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--ligands", nargs="+", default=LIGANDS)
     parser.add_argument("--top-n", type=int, default=20,
                         help="分析的 pose 数量（默认全部 20）")
-    parser.add_argument("--project-root", default=str(Path(__file__).parent.parent.parent.parent))
+    parser.add_argument("--project-root", default=None,
+                        help="覆盖 config.yaml 中的 project_root")
     parser.add_argument("--config", default=str(Path(__file__).parent / "config.yaml"))
     return parser.parse_args()
 
@@ -183,11 +184,13 @@ def compute_contact_frequency(df: pd.DataFrame) -> dict[str, dict[str, int]]:
 def main() -> None:
     args = parse_args()
     config = load_config(args.config)
-    root = Path(args.project_root)
-    rec_dir = root / "experiments" / "docking-repro" / "prepared" / "receptors"
-    pose_dir = root / "experiments" / "docking-repro" / "results" / "wt_singlestage" / "poses"
-    out_dir = root / "experiments" / "docking-repro" / "results" / "ifp_analysis"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    if args.project_root:
+        config["paths"]["project_root"] = args.project_root
+    root = get_project_root(config)
+    rec_dir = root / config["paths"]["prepared_dir"] / "receptors"
+    wt_ss_dir = get_results_subdir(config, "wt_singlestage_subdir")
+    pose_dir = wt_ss_dir / "poses"
+    out_dir = get_results_subdir(config, "ifp_subdir")
     (out_dir / "figures").mkdir(exist_ok=True)
 
     # 临时目录用于加氢 PDB 和 SDF 转换

@@ -1,8 +1,9 @@
-"""工具函数（docking-repro）：配置加载、日志、路径管理。
+"""工具函数（docking-repro）：配置加载、日志、路径管理、结果持久化。
 
 与 v2 utils.py 相同，仅 logger 名改为 "docking-repro"。
 """
 
+import json
 import logging
 import sys
 from datetime import datetime
@@ -21,10 +22,6 @@ def load_config(config_path: str | Path) -> dict:
 
 def get_project_root(config: dict) -> Path:
     return Path(config["paths"]["project_root"])
-
-
-def resolve_path(config: dict, key: str) -> Path:
-    return get_project_root(config) / config["paths"][key]
 
 
 def ensure_dirs(config: dict) -> None:
@@ -68,6 +65,62 @@ def setup_logging(log_dir: Path, run_id: str) -> logging.Logger:
 
 def get_logger() -> logging.Logger:
     return logging.getLogger("docking-repro")
+
+
+def get_results_subdir(config: dict, subdir_key: str) -> Path:
+    """从 config 构建结果子目录的完整路径。
+
+    Args:
+        config: pipeline 配置
+        subdir_key: config["paths"] 中的子目录键名（如 "wt_singlestage_subdir"）
+
+    Returns:
+        root / results_dir / subdir
+    """
+    root = get_project_root(config)
+    results_dir = root / config["paths"]["results_dir"]
+    subdir = config["paths"][subdir_key]
+    full = results_dir / subdir
+    full.mkdir(parents=True, exist_ok=True)
+    return full
+
+
+def save_results_json(
+    data, out_dir: Path, run_id: str, config: dict,
+    filename: str | None = None,
+) -> Path:
+    """保存结果 JSON：时间戳副本（历史）+ latest 文件（向后兼容）。
+
+    Args:
+        data: 可序列化数据（list 或 dict）
+        out_dir: 输出目录
+        run_id: 运行 ID（YYYYMMDD_HHMMSS 格式，用作时间戳后缀）
+        config: pipeline 配置（读取 results_filename）
+        filename: 自定义文件名（默认 None → 从 config 读取 results_filename）
+
+    Returns:
+        latest 文件路径
+    """
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    content = json.dumps(data, indent=2, ensure_ascii=False)
+
+    if filename is None:
+        filename = config["paths"].get("results_filename", "docking_results.json")
+    filename = Path(filename).name  # strip any directory components
+    stem = Path(filename).stem
+    suffix = Path(filename).suffix
+
+    # 时间戳副本
+    ts_path = out_dir / f"{stem}_{run_id}{suffix}"
+    ts_path.write_text(content, encoding="utf-8")
+
+    # latest 副本（覆写，但历史已保留）
+    latest_path = out_dir / filename
+    latest_path.write_text(content, encoding="utf-8")
+
+    get_logger().info(f"结果已保存: {latest_path} (历史副本: {ts_path.name})")
+    return latest_path
 
 
 def preflight_check(checks: list[dict], logger: logging.Logger) -> None:

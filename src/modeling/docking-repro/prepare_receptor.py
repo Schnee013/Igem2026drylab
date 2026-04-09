@@ -12,10 +12,9 @@ TM 域提取逻辑复用 v2 prepare.py 的实现（方法相同）。
 from __future__ import annotations
 
 import subprocess
-import sys
 from pathlib import Path
 
-from utils import get_logger, get_project_root, resolve_path
+from utils import get_logger, get_project_root
 
 
 # ---------------------------------------------------------------------------

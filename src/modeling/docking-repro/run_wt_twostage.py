@@ -19,8 +19,6 @@ S1: WT 两阶段重对接 — 解决协议不匹配问题
 from __future__ import annotations
 
 import argparse
-import json
-import logging
 import sys
 from pathlib import Path
 
@@ -29,8 +27,13 @@ _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
 
+from dataclasses import asdict
+
 from dock import DockingResult, dock_pair_twostage, get_tm_helix_ranges
-from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
+from utils import (
+    generate_run_id, get_project_root, get_results_subdir, load_config,
+    preflight_check, save_results_json, setup_logging,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -93,8 +96,7 @@ def main() -> None:
     )
 
     # 输出目录
-    out_dir = root / "experiments" / "docking-repro" / "results" / "wt_twostage"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = get_results_subdir(config, "wt_twostage_subdir")
 
     results: list[DockingResult] = []
     pairs_done = 0
@@ -139,12 +141,9 @@ def main() -> None:
                 f"（{result.elapsed_sec:.0f}s）"
             )
 
-    # 保存 JSON 结果
-    from dataclasses import asdict
-    out_json = out_dir / "docking_results.json"
-    out_json.write_text(
-        json.dumps([asdict(r) for r in results], indent=2, ensure_ascii=False),
-        encoding="utf-8",
+    # 保存 JSON 结果（时间戳 + latest）
+    out_json = save_results_json(
+        [asdict(r) for r in results], out_dir, run_id, config,
     )
 
     # 打印汇总表

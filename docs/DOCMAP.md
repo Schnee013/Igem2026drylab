@@ -336,6 +336,12 @@ AI 署名已通过 `attribution` 配置在源头关闭，`git-identity-guard` ho
 
 **修复**：memory 存行为提醒（10-20 行）。如果信息在 docs/ 有完整版，memory 只放指针和行为摘要。
 
+### 代码中硬编码路径
+
+**症状**：脚本用 `Path("experiments/docking-repro/mutagenesis/af3_structures")` 而非从 `config.yaml` 读取。`mutagenesis_dir` 变更时，主 pipeline 跟随更新但辅助脚本静默指向旧路径。
+
+**修复**：所有 `.py` 脚本的目录路径必须从 `config.yaml` 的 `paths` 节读取（通过 `load_config()` + `get_project_root()`），不在代码中硬编码 `experiments/` 下的任何路径。`config.yaml` 是路径的唯一权威源。
+
 ### 猜测文件名
 
 **症状**：AI 尝试 `cat run_results.log`，实际文件是 `run_multiseed_20260406_072954.log`。

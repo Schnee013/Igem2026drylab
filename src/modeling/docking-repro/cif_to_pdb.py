@@ -1,22 +1,26 @@
 """
 批量将 AF3 输出的 mmCIF 转为 PDB 格式
 
-输入：experiments/docking-repro/mutagenesis/af3_structures/{RecName}/{Label}.cif
-输出：experiments/docking-repro/mutagenesis/af3_structures/{RecName}/{Label}.pdb
+输入：{mutagenesis_dir}/af3_structures/{RecName}/{Label}.cif
+输出：{mutagenesis_dir}/af3_structures/{RecName}/{Label}.pdb
 
 用法：
     python cif_to_pdb.py
+    python cif_to_pdb.py --config path/to/config.yaml --project-root /path/to/root
 """
 
 from __future__ import annotations
 
+import argparse
 import warnings
 from pathlib import Path
 
 from Bio.PDB import MMCIFParser, PDBIO
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
 
-STRUCTURES_DIR = Path("experiments/docking-repro/mutagenesis/af3_structures")
+_this_dir = Path(__file__).resolve().parent
+
+from utils import get_project_root, load_config
 
 
 def convert_one(cif_path: Path) -> Path:
@@ -33,8 +37,23 @@ def convert_one(cif_path: Path) -> Path:
     return pdb_path
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="批量 CIF → PDB 转换")
+    parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
+    parser.add_argument("--project-root", default=None)
+    return parser.parse_args()
+
+
 def main() -> None:
-    cif_files = sorted(STRUCTURES_DIR.glob("*/*.cif"))
+    args = parse_args()
+    config = load_config(args.config)
+    if args.project_root:
+        config["paths"]["project_root"] = args.project_root
+
+    root = get_project_root(config)
+    structures_dir = root / config["paths"]["mutagenesis_dir"] / "af3_structures"
+
+    cif_files = sorted(structures_dir.glob("*/*.cif"))
     print(f"找到 {len(cif_files)} 个 CIF 文件\n")
 
     for cif in cif_files:
@@ -47,6 +66,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    import os
-    os.chdir(Path(__file__).resolve().parents[3])
+    import sys
+    sys.path.insert(0, str(_this_dir))
     main()

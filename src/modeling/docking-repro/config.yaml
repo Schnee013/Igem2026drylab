@@ -20,6 +20,13 @@ paths:
   log_dir: "experiments/docking-repro/logs"
   orca_dir: "experiments/docking-repro/ligands/orca"
   mutagenesis_dir: "experiments/docking-repro/mutagenesis"
+  # results_dir 下的子目录（各脚本从此读取，不硬编码）
+  wt_singlestage_subdir: "wt_singlestage"
+  wt_twostage_subdir: "wt_twostage"
+  multiseed_subdir: "multiseed"
+  ifp_subdir: "ifp_analysis"
+  # 结果 JSON 文件名约定
+  results_filename: "docking_results.json"
 
 # ---------------------------------------------------------------------------
 # Windows 计算节点（通过 SSH 远程调用）
@@ -209,15 +216,21 @@ analysis:
   top_n_poses: 5                         # Hu2024: 分析前 5 个 pose
   plip_enabled: true
   # ── 唯一权威源：Hu2024 关键残基 BW→序列映射 ──
-  # 映射方法：D2.50=ASP53（TM2 唯一 ASP），P6.50=PRO390（WxP motif）
-  # ⚠️ R6.45 精确 BW 编号待 GPCRdb 比对确认，ARG395 为 TM6 螺旋内唯一 ARG
+  # 映射方法：D2.50=ASP53（TM2 唯一 ASP），P6.50=PRO390（WxP W388-I389-P390）
+  # ⚠️ ARG395 BW 编号存疑（见 docs/logs/2026-04-09.md §2）：
+  #   - Hu2024 原文标注 R6.45（p.1759）
+  #   - 我们的算术：P6.50=390 → 6.45=res385=ILE, 6.55=res395=ARG
+  #   - W6.48=TRP388 验证了 P6.50=390，算术链完整
+  #   - 可能原因：(a) Hu2024 BW 标记有误，实为 R6.55；(b) 我们对 TM6 边界/bulge 的理解有误
+  #   - GPCRdb 不收录 C. elegans GPCR，无法交叉验证
+  #   - 结论：残基身份(ARG395)和功能角色确定，BW 编号暂标 R6_45 与原文一致
   # 所有消费代码（validate.py, run_ifp_analysis.py, run_gprc_expanded_box.py）
   # 必须从此处读取，禁止硬编码副本。
   key_residues:
     GprC:
       N2_57: {seqpos: 60,  resname: ASN, role: pos, desc: "胞外侧结合口袋，突变→功能丧失"}
       N2_53: {seqpos: 56,  resname: ASN, role: neg, desc: "胞内侧，突变无影响（阴性对照）"}
-      R6_45: {seqpos: 395, resname: ARG, role: pos, desc: "R-motif TM6，突变→亲和力剧降；BW 待确认"}
+      R6_45: {seqpos: 395, resname: ARG, role: pos, desc: "R-motif TM6，突变→亲和力剧降；Hu2024标R6.45，算术推R6.55，见日志§2"}
       S2_41: {seqpos: 44,  resname: SER, role: pos, desc: "S-motif TM2 胞内端，远离 binding site"}
 
 # ---------------------------------------------------------------------------
@@ -305,15 +318,20 @@ mutagenesis:
       - 330   # v2 PLIP（ascr3）
       - 378   # v2 PLIP（ascr18/3/7 共享）；alanine scan ΔΔG_sel=+0.92
       - 381   # v2 PLIP（ascr18/ascr7）
+    # Gpr3: IFP 高频接触残基（2026-04-09 替换 v2 PLIP 残基）
+    # 原 v2 PLIP 残基 (192,193,197,285-289) 全部无效：
+    #   - 285-289 在 ICL3 截断区 (202-289) 中不存在
+    #   - 192,193,197 在 IFP 中零接触（TM5 胞内端，远离结合口袋）
+    #   - 根因：v2 质心偏移 13.5Å 导致 PLIP 接触来自错误 pose
     Gpr3:
-      - 192   # v2 PLIP（ascr7）；无实验验证
-      - 193   # v2 PLIP（ascr18/3/7 共享）
-      # - 196   # v2 PLIP（ascr18/3）— AF3 未提交，暂移除
-      - 197   # v2 PLIP（ascr18/3/7 共享）
-      - 285   # v2 PLIP 最高频（ascr18/3/7 共享）
-      - 286   # v2 PLIP（ascr18）
-      - 288   # v2 PLIP（ascr3）
-      - 289   # v2 PLIP（ascr3/ascr7）
+      - 171   # ASN171 ECL2 — IFP 最高频（ascr18=13, ascr3=18, ascr7=13）
+      - 93    # GLN93  TM3前 — IFP 高频（ascr18=12, ascr3=7, ascr7=11）
+      - 170   # PHE170 ECL2 — IFP 高频（ascr18=10, ascr3=11, ascr7=10）
+      - 175   # ARG175 ECL2 — IFP 高频（ascr18=10, ascr3=11, ascr7=5）
+      - 100   # ASP100 TM3  — IFP ascr3偏高（ascr18=8, ascr3=13, ascr7=3）
+      - 178   # ILE178 TM5  — IFP 共享（ascr18=3, ascr3=9, ascr7=5）
+      - 138   # VAL138 TM4  — IFP 共享（ascr18=7, ascr3=4, ascr7=7）
+      - 141   # ILE141 TM4  — IFP 共享（ascr18=4, ascr3=7, ascr7=1）
 
 # ---------------------------------------------------------------------------
 # 补充实验（Supplementary Experiments，解决 Alanine Scan 局限性）

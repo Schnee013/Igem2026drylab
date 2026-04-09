@@ -51,13 +51,13 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_wt_baseline(root: Path, use_v2: bool) -> dict[str, float] | None:
+def load_wt_baseline(root: Path, use_v2: bool, config: dict) -> dict[str, float] | None:
     """
     优先加载 S1 两阶段 WT 基线；S1 未完成时退回 v2 基线并警告。
     返回 {pair_name: best_affinity}，None 表示让 run_mutagenesis 自行加载。
     """
     if not use_v2:
-        s1_json = root / "experiments" / "docking-repro" / "results" / "wt_twostage" / "docking_results.json"
+        s1_json = root / config["paths"]["results_dir"] / config["paths"]["wt_twostage_subdir"] / config["paths"].get("results_filename", "docking_results.json")
         if s1_json.exists():
             raw = json.loads(s1_json.read_text(encoding="utf-8"))
             baseline = {r["pair_name"]: r["best_affinity"] for r in raw}
@@ -180,7 +180,7 @@ def main() -> None:
     )
 
     # 加载 WT 基线（优先 S1 两阶段结果）
-    wt_baseline = load_wt_baseline(root, args.use_v2_wt)
+    wt_baseline = load_wt_baseline(root, args.use_v2_wt, config)
 
     # 构建饱和扫描专用 config
     sat_config = make_saturation_config(config, args.residues, args.use_v2_wt)

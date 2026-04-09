@@ -44,9 +44,12 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_wt_baseline(root: Path) -> dict[str, float]:
+def load_wt_baseline(root: Path, config: dict) -> dict[str, float]:
     """从 WT 单阶段结果加载基线，并校验预期键存在。"""
-    wt_json = root / "experiments/docking-repro/results/wt_singlestage/docking_results.json"
+    results_dir = root / config["paths"]["results_dir"]
+    subdir = config["paths"]["wt_singlestage_subdir"]
+    filename = config["paths"].get("results_filename", "docking_results.json")
+    wt_json = results_dir / subdir / filename
     if not wt_json.exists():
         raise FileNotFoundError(
             f"WT 单阶段基线不存在: {wt_json}\n"
@@ -132,9 +135,12 @@ def main() -> None:
         for rec in ["GprC", "Gpr2", "Gpr3"]
         if rec in config["receptors"]
     }
+    wt_baseline_dir = (root / config["paths"]["results_dir"]
+                       / config["paths"]["wt_singlestage_subdir"])
+    wt_baseline_file = config["paths"].get("results_filename", "docking_results.json")
     checks = [
         {"type": "file_exists",
-         "path": root / "experiments/docking-repro/results/wt_singlestage/docking_results.json",
+         "path": wt_baseline_dir / wt_baseline_file,
          "hint": "WT 单阶段基线不存在，请先运行 run_wt_singlestage.py"},
         {"type": "file_exists", "path": lig_dir / "ascr18_optimized.pdbqt",
          "hint": "ascr18 配体不存在，请先完成 Orca 配体准备（run_prepare_ligands.py）"},
@@ -153,7 +159,7 @@ def main() -> None:
     preflight_check(checks, logger)
 
     # 加载 WT 单阶段基线
-    wt_baseline = load_wt_baseline(root)
+    wt_baseline = load_wt_baseline(root, config)
     logger.info(f"已加载 WT 单阶段基线（{len(wt_baseline)} 对）：")
     for k, v in sorted(wt_baseline.items()):
         logger.info(f"  {k}: {v:.3f} kcal/mol")

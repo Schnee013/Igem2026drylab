@@ -1,22 +1,26 @@
 """
 在 Windows 上批量运行 ADFR prepare_receptor 处理 AF3 突变体 TM PDB
 
-输入：D:/drylab-tools/workspace/experiments/docking-repro/mutagenesis/af3_tm_pdbs/{RecName}/{Label}_tm.pdb
-输出：D:/drylab-tools/workspace/experiments/docking-repro/mutagenesis/af3_prepared/{RecName}/{Label}_tm.pdbqt
+输入：{mutagenesis_dir}/af3_structures/{RecName}/{Label}_tm.pdb
+输出：{mutagenesis_dir}/af3_prepared/{RecName}/{Label}_tm.pdbqt
 
 用法（Windows 端）：
-    python run_adfr_mutants.py
+    python run_adfr_mutants.py --project-root D:\\drylab-tools\\workspace
 """
 
 from __future__ import annotations
 
+import argparse
 import subprocess
 import sys
 from pathlib import Path
 
+_this_dir = Path(__file__).resolve().parent
+sys.path.insert(0, str(_this_dir))
+
+from utils import get_project_root, load_config
+
 ADFR_BIN = Path("D:/ADFRsuite/bin")
-TM_DIR = Path("D:/drylab-tools/workspace/experiments/docking-repro/mutagenesis/af3_tm_pdbs")
-OUT_DIR = Path("D:/drylab-tools/workspace/experiments/docking-repro/mutagenesis/af3_prepared")
 
 
 def prepare_one(pdb_path: Path, out_pdbqt: Path) -> bool:
@@ -33,8 +37,25 @@ def prepare_one(pdb_path: Path, out_pdbqt: Path) -> bool:
     return result.returncode == 0 and out_pdbqt.exists()
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="批量 ADFR prepare_receptor")
+    parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
+    parser.add_argument("--project-root", default=None)
+    return parser.parse_args()
+
+
 def main() -> None:
-    pdb_files = sorted(TM_DIR.glob("*/*_tm.pdb"))
+    args = parse_args()
+    config = load_config(args.config)
+    if args.project_root:
+        config["paths"]["project_root"] = args.project_root
+
+    root = get_project_root(config)
+    mut_dir = root / config["paths"]["mutagenesis_dir"]
+    tm_dir = mut_dir / "af3_structures"
+    out_base = mut_dir / "af3_prepared"
+
+    pdb_files = sorted(tm_dir.glob("*/*_tm.pdb"))
     print(f"找到 {len(pdb_files)} 个 TM PDB 文件")
 
     ok = 0
@@ -42,7 +63,7 @@ def main() -> None:
     for pdb in pdb_files:
         rec = pdb.parent.name
         label = pdb.stem  # e.g. N83A_tm
-        out_dir = OUT_DIR / rec
+        out_dir = out_base / rec
         out_dir.mkdir(parents=True, exist_ok=True)
         out_pdbqt = out_dir / f"{label}.pdbqt"
 

@@ -31,7 +31,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Optional
 
-from utils import get_logger, get_project_root, resolve_path
+from utils import generate_run_id, get_logger, get_project_root, save_results_json
 from prepare_receptor import prepare_receptor_adfr
 
 
@@ -423,12 +423,14 @@ def run_mutagenesis(
         logger.info("WT 基线: v2 pipeline (experiments/docking/)")
     else:
         baseline_prepared_dir = root / config["paths"]["prepared_dir"]
-        baseline_results_dir = root / config["paths"]["results_dir"]
+        wt_subdir = config["paths"].get("wt_singlestage_subdir", "wt_singlestage")
+        baseline_results_dir = root / config["paths"]["results_dir"] / wt_subdir
         logger.info("WT 基线: docking-repro pipeline")
 
     # 加载 WT 对接结果
     if wt_dock_results is None:
-        results_json = baseline_results_dir / "docking_results.json"
+        results_filename = config["paths"].get("results_filename", "docking_results.json")
+        results_json = baseline_results_dir / results_filename
         if not results_json.exists():
             raise FileNotFoundError(
                 f"WT 对接结果不存在: {results_json}\n"
@@ -653,11 +655,10 @@ def run_mutagenesis(
     # 排序（ΔΔG_sel 升序，越小越好）
     all_results.sort(key=lambda r: r.ddg_selectivity)
 
-    # 保存 JSON
-    results_path = mutant_dir / "mutagenesis_results.json"
-    results_path.write_text(
-        json.dumps([asdict(r) for r in all_results], indent=2, ensure_ascii=False),
-        encoding="utf-8",
+    # 保存 JSON（时间戳 + latest）
+    results_path = save_results_json(
+        [asdict(r) for r in all_results], mutant_dir, generate_run_id(), config,
+        filename="mutagenesis_results.json",
     )
     logger.info(f"\n突变扫描完成，结果已保存: {results_path}")
 

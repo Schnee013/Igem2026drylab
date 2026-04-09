@@ -39,7 +39,7 @@ def main() -> None:
     logger = setup_logging(root / config["paths"]["log_dir"], f"fix_ascr18_{run_id}")
 
     # 已有的 Orca 优化 PDB
-    orca_pdb = root / "experiments" / "docking-repro" / "ligands" / "orca" / "ascr18" / "ascr18_optimized.pdb"
+    orca_pdb = root / config["paths"]["orca_dir"] / "ascr18" / "ascr18_optimized.pdb"
     if not orca_pdb.exists():
         logger.error(f"Orca 优化 PDB 不存在: {orca_pdb}")
         sys.exit(1)

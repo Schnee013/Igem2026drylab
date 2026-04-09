@@ -19,11 +19,11 @@ import re
 import subprocess
 import sys
 import time
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "docking"))  # 复用 v2 的 grid_box.py
-from grid_box import GridBox, compute_box_center_of_mass
+from grid_box import compute_box_center_of_mass
 
 from utils import get_logger, get_project_root
 
@@ -442,7 +442,8 @@ def dock_matrix(
             results.append(result)
 
     # 保存汇总 JSON
-    results_json = root / config["paths"]["results_dir"] / "docking_results.json"
+    results_filename = config["paths"].get("results_filename", "docking_results.json")
+    results_json = root / config["paths"]["results_dir"] / results_filename
     results_data = [asdict(r) for r in results]
     results_json.write_text(json.dumps(results_data, indent=2, ensure_ascii=False), encoding="utf-8")
     logger.info(f"对接矩阵完成，结果已保存: {results_json}")
