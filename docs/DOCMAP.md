@@ -104,10 +104,12 @@ drylab/
 │   ├── logs/                    # 每日工作日志
 │   │   └── YYYY-MM-DD.md
 │   ├── papers/                  # 文献（矩阵 + 按需加载的总结）
-│   │   ├── literature-matrix.md
-│   │   ├── search-log.md
-│   │   ├── pdf/
-│   │   └── summaries/
+│   │   ├── README.md                      #   组员使用说明（多维表格 + 云文档 + AI 读文献）
+│   │   ├── literature-matrix.md           #   本地权威矩阵（按 Tier 分层，稳定 ID）
+│   │   ├── literature-quick-ref.csv       #   扁平化 CSV，用于导入飞书多维表格
+│   │   ├── literature-review-feishu.md    #   详细总结汇编（贴入飞书云文档）
+│   │   ├── pdf/                           #   本地 PDF
+│   │   └── summaries/                     #   按 {Author}{Year}-{Topic} 命名的单篇总结
 │   └── archive/                 # 归档文件（原始 PRD、通用指南等）
 │
 ├── src/modeling/                # 源代码（按研究方向）
@@ -235,6 +237,19 @@ AI 判断下一步加载什么的唯一入口。如果 AI 仅凭 INDEX.md 就能
 ### Memory 文件 — 跨会话行为规则
 
 位于 `~/.claude/projects/{project-hash}/memory/`。每个文件 10-20 行，存储行为指导，不复制 docs/ 的内容。如果信息在 docs/ 有完整版本，memory 只放指针。
+
+### 文献管理 — 三文件架构 + 稳定 ID
+
+文献采用 **Author-Year 稳定 ID**（如 `Hu2024`、`Huang2023a/b`、`FanC2023`、`iGEM-BITChina2017`），废弃全局序号——插入新文献不再触发下游重编号，跨文档引用永不失效。
+
+| 文件 | 角色 | 读者 |
+|------|------|------|
+| `literature-matrix.md` | 本地权威矩阵，按 Tier 分层 | AI 助手、dry lab |
+| `literature-quick-ref.csv` | 扁平 CSV，导入飞书多维表格 | 组员（通过多维表格） |
+| `literature-review-feishu.md` | 详细总结汇编，贴入飞书云文档 | 组员（通过云文档） |
+| `summaries/{ID}-{Topic}-summary.md` | 单篇按需加载总结 | AI 助手 |
+
+组员使用流程（多维表格新增、AI 读文献 prompt 模板、ID 命名规则）详见 **[papers/README.md](papers/README.md)**。
 
 ### 当日日志 — 跨会话粘合剂
 

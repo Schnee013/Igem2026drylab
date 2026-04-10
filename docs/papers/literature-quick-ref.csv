@@ -1,0 +1,66 @@
+ID,Tier,文献,期刊,年份,核心内容,项目关联度,DOI
+Hu2024,1-NTF受体与信号通路,Hu et al.,Nat Microbiol,2024,GprC 感知 ascr#18 + Vina 对接 25 poses + 6 突变验证,★★★,10.1038/s41564-024-01731-9
+Kuo2024,1-NTF受体与信号通路,Kuo et al.,Nat Microbiol,2024,Gpr2/Gpr3 感知 ascr#3/#7 + SwissDock 对接 ΔG,★★★,10.1038/s41564-024-01679-w
+Hsueh2013,1-NTF受体与信号通路,Hsueh et al.,Curr Biol,2013,首次证明 NTF 感知 ascaroside 触发捕陷器（奠基文献）,★★★,10.1016/j.cub.2012.11.035
+Chen2021,1-NTF受体与信号通路,Chen et al.,Genetics,2021,Fus3 MAPK cascade 调控捕食响应 → ODE 磷酸化动力学,★★★,10.1093/genetics/iyaa008
+Chen2022,1-NTF受体与信号通路,Chen et al.,G3,2022,cAMP-PKA 通路调控捕陷器形态 → ODE cAMP 节点,★★★,10.1093/g3journal/jkac217
+Bai2022,1-NTF受体与信号通路,Bai et al.,Environ Microbiol,2022,Ric8 非受体 GEF → ODE Gα 激活动力学,★★★,10.1111/1462-2920.15735
+Ma2021,1-NTF受体与信号通路,Ma et al.,Virulence,2021,7 个 RGS 基因负调控 cAMP → ODE 负反馈参数,★★☆,10.1080/21505594.2021.1948667
+Kuo2026,1-NTF受体与信号通路,Kuo et al.,bioRxiv,2026,NOX/ROS + septin 协调捕陷器闭合 → ODE 新节点,★★☆,10.64898/2026.03.09.710510
+Juan2026,1-NTF受体与信号通路,Juan et al.,bioRxiv,2026,Mep1/3 铵转运体 → ODE 氮感知独立于 ascaroside,★★☆,10.64898/2026.02.06.704490
+Huang2023a,1-NTF受体与信号通路,Huang et al.,Pathogens,2023,氨与 ascr#18 协同触发捕陷器,★★☆,10.3390/pathogens12091114
+Heinen2025,1-NTF受体与信号通路,Heinen et al.,PLoS Pathog,2025,真菌 GPCR 综述：实验结构空白 → 计算对接必要性,★★☆,—
+Jiang2024,1-NTF受体与信号通路,Jiang et al.,Curr Opin Plant Biol,2024,真菌 GPCR 系统分类 → Gpr2/3/C 家族归属,★★☆,10.1016/j.pbi.2024.102667
+Lin2023,1-NTF受体与信号通路,Lin et al.,PLoS Biol,2023,NTF 捕食三阶段转录组：感知→黏附→消化,★★☆,10.1371/journal.pbio.3002400
+Yang2020,1-NTF受体与信号通路,Yang et al.,PNAS,2020,TWF154 模式菌株 + Gpb1 验证 GPCR 假说,★★☆,10.1073/pnas.1919726117
+Hsueh2017,1-NTF受体与信号通路,Hsueh et al.,eLife,2017,A. oligospora 化学拟态（MMB）引诱线虫,★☆☆,10.7554/eLife.20023
+Youssar2019,1-NTF受体与信号通路,Youssar et al.,PLoS Genet,2019,D. flagrans 细胞间通讯与捕陷器形成,★☆☆,10.1371/journal.pgen.1008029
+Wernet2021,1-NTF受体与信号通路,Wernet et al.,PLoS Pathog,2021,CyrA 毒力因子攻击 C. elegans,★☆☆,10.1371/journal.ppat.1010028
+Wernet2024,1-NTF受体与信号通路,Wernet et al.,Nat Commun,2024,NipA 干扰 C. elegans 角质层完整性,★☆☆,10.1038/s41467-024-50096-4
+Duan2025,1-NTF受体与信号通路,Duan et al.,Microorganisms,2025,饥饿线虫减少 ascaroside 分泌降低被捕概率,★☆☆,10.3390/microorganisms13122816
+Park2012,2-线虫ascaroside受体,Park et al.,PNAS,2012,首次鉴定 C. elegans ascaroside 受体 SRBC-64/66,★★★,10.1073/pnas.1202216109
+Kim2009,2-线虫ascaroside受体,Kim et al.,Science,2009,DAF-37/38 dauer pheromone 受体功能鉴定,★★☆,10.1126/science.1176331
+McGrath2011,2-线虫ascaroside受体,McGrath et al.,Nature,2011,SRG-36/37 平行进化 → 跨物种受体进化参考,★☆☆,10.1038/nature10378
+Manosalva2015,3-Ascaroside生物学,Manosalva et al.,Nat Commun,2015,ascr#18 激活植物 MAPK 免疫（HP 叙事核心）,★★★,10.1038/ncomms8795
+Ludewig2013,3-Ascaroside生物学,Ludewig & Schroeder,WormBook,2013,Ascaroside 信号全景综述（必须引用）,★★★,10.1895/wormbook.1.155.1
+Huang2023b,3-Ascaroside生物学,Huang et al.,Curr Biol,2023,NILR1 直接结合 ascr#18 Kd=0.61µM,★★☆,10.1016/j.cub.2023.08.017
+Huang2024,3-Ascaroside生物学,Huang et al.,PNAS,2024,StNILR1 双受体（ascr#18+BR）Kd~1.79µM,★★☆,—
+Klessig2019,3-Ascaroside生物学,Klessig et al.,J Phytopathol,2019,ascr#18 广谱抗性（多病原体系统）,★★☆,10.1111/jph.12795
+Choe2012,3-Ascaroside生物学,Choe et al.,Curr Biol,2012,Ascaroside 在线虫中广泛保守,★★☆,10.1016/j.cub.2012.03.024
+Dong2020,3-Ascaroside生物学,Dong et al.,Nat Commun,2020,植物 β-oxidation 代谢 ascr#18 半衰期 0.5-3h,★★☆,10.1038/s41467-019-14104-2
+Letia2025,3-Ascaroside生物学,Letia et al.,Physiol Plant,2025,ascr#18 抑制 auxin 信号促进防御,★☆☆,10.1111/ppl.70386
+Kamboj2024,3-Ascaroside生物学,Kamboj et al.,J Plant Dis Prot,2024,ascr#18 诱导小麦抗叶锈 LOD=0.01nM,★☆☆,10.1007/s41348-024-00950-w
+Mendy2017,3-Ascaroside生物学,Mendy et al.,PLoS Pathog,2017,NILR1 LRR-RLK 功能鉴定,★☆☆,10.1371/journal.ppat.1006284
+Srinivasan2012,3-Ascaroside生物学,Srinivasan et al.,PLoS Biol,2012,Ascaroside 模块化组装与社会行为,★☆☆,10.1371/journal.pbio.1001237
+vonReuss2012,3-Ascaroside生物学,von Reuss et al.,JACS,2012,代谢组学揭示 ascaroside β-oxidation 生物合成,★☆☆,10.1021/ja210202y
+Zhao2016,3-Ascaroside生物学,Zhao et al.,Nat Commun,2016,Ascaroside 协调 PWN-天牛种间同步,★☆☆,10.1038/ncomms12341
+Mukherjee2025,4a-GPR/Gpa1偶联改造,Mukherjee et al.,PNAS,2025,酵母 mating 平台筛选真菌 GPCR-配体互作,★★★,10.1073/pnas.2521198122
+Lengger2020,4a-GPR/Gpa1偶联改造,Lengger & Jensen,FEMS Yeast Res,2020,酵母 GPCR 工程综述（底盘设计必读）,★★★,10.1093/femsyr/foz087
+Ladds2005,4a-GPR/Gpa1偶联改造,Ladds et al.,Trends Biotechnol,2005,酵母异源 GPCR 综述 >30 GPCRs 偶联,★★☆,10.1016/j.tibtech.2005.05.007
+Medici1997,4a-GPR/Gpa1偶联改造,Medici et al.,EMBO J,1997,嵌合 Gpa1-Gsα 经典文献,★★☆,—
+Brown2000,4a-GPR/Gpa1偶联改造,Brown et al.,Yeast,2000,10 种嵌合 Gpa1 transplants C-末端 5aa,★★☆,10.1002/(SICI)1097-0061(20000115)16:1<11::AID-YEA497>3.0.CO;2-K
+Hara2012,4a-GPR/Gpa1偶联改造,Hara et al.,Biosci Biotechnol Biochem,2012,嵌合 Gpa1 C-末端 37aa 替换,★★☆,10.1271/bbb.110820
+Lengger2022,4a-GPR/Gpa1偶联改造,Lengger et al.,ACS Sensors,2022,12 GPCRs × 12 Gα = 144 组合库,★★☆,10.1021/acssensors.1c02061
+Shaw2019,4b-下游通路改造,Shaw et al.,Cell,2019,酵母 GPCR 极简化 + ODE 指导表达量优化,★★★,10.1016/j.cell.2019.02.023
+Fan2024,4b-下游通路改造,Fan et al.,Biosens Bioelectron,2024,GPCR+GAL4 级联放大 LOD=0.25pM,★★☆,10.1016/j.bios.2024.116058
+Miettinen2022,4b-下游通路改造,Miettinen et al.,Nat Commun,2022,酵母 GPCR 大麻素生物传感器,★★☆,10.1038/s41467-022-31357-6
+FanC2023,4b-下游通路改造,Fan C & Yuan,Cell Rep Methods,2023,GPCR cascade 重塑 GAL 调控子,★★☆,10.1016/j.crmeth.2023.100647
+Billerbeck2017,4c-显色输出,Billerbeck et al.,Sci Adv,2017,模块化酵母生物传感器 番茄红素比色 dipstick,★★☆,10.1126/sciadv.1603221
+Lind2024,4c-显色输出,Lind et al.,FEMS Microbiol Lett,2024,番茄红素 vs 紫色杆菌素系统比较,★★☆,10.1093/femsle/fnae034
+iGEM-BITChina2017,5-iGEM历史项目,BIT-China,iGEM,2017,GPCR 信号通路建模,参考,—
+iGEM-Patras2021,5-iGEM历史项目,Patras,iGEM,2021,分子对接建模,参考,—
+iGEM-Duke2017,5-iGEM历史项目,Duke,iGEM,2017,分子对接建模,参考,—
+iGEM-TUDarmstadt2012,5-iGEM历史项目,TU Darmstadt,iGEM,2012,分子对接建模,参考,—
+iGEM-UCopenhagen2019,5-iGEM历史项目,UCopenhagen,iGEM,2019,GPCR 设计,参考,—
+iGEM-SJTU2016,5-iGEM历史项目,SJTU-BioX-Shanghai,iGEM,2016,酵母 GPCR 传感器,参考,—
+iGEM-Chalmers2012,5-iGEM历史项目,Chalmers-Gothenburg,iGEM,2012,酵母 GPCR 检测 hCG,参考,—
+iGEM-TUDelft2012,5-iGEM历史项目,TU-Delft,iGEM,2012,酵母 GPCR 平台,参考,—
+iGEM-Peking2013,5-iGEM历史项目,Peking,iGEM,2013,生物传感器设计,参考,—
+Trott2010,6-方法学,Trott & Olson,J Comput Chem,2010,AutoDock Vina 算法与评分函数（必须引用）,★★★,10.1002/jcc.21334
+Eberhardt2021,6-方法学,Eberhardt et al.,J Chem Inf Model,2021,Vina 1.2.0 + Python bindings（必须引用）,★★★,10.1021/acs.jcim.1c00203
+Jumper2021,6-方法学,Jumper et al.,Nature,2021,AlphaFold2 蛋白结构预测（必须引用）,★★★,10.1038/s41586-021-03819-2
+Lee2022,6-方法学,Lee et al.,CSBJ,2022,AF2+Vina benchmark：刚性 Vina 24-32%,★★★,—
+Bouysset2021,6-方法学,Bouysset et al.,J Cheminform,2021,ProLIF 交互指纹工具（必须引用）,★★★,10.1186/s13321-021-00548-6
+Boukharta2014,6-方法学,Boukharta et al.,PLoS Comput Biol,2014,FEP 预测 GPCR alanine scan 结合能,★★☆,10.1371/journal.pcbi.1003585
+Vass2016,6-方法学,Vass et al.,Curr Opin Pharmacol,2016,GPCR 交互指纹（IFP）综述,★★☆,10.1016/j.coph.2016.07.007
+Zhang2024,6-方法学,Zhang et al.,Signal Transduct Target Ther,2024,GPCR 结构/机制/药物发现综述,★☆☆,10.1038/s41392-024-01803-6
