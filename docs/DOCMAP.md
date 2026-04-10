@@ -93,7 +93,8 @@ drylab/
 │   │   ├── P0-*.md              #   直接支撑湿实验
 │   │   ├── P1-*.md              #   增强叙事完整性
 │   │   ├── P2-*.md              #   完成检测→预防闭环
-│   │   └── P3-*.md              #   加分项
+│   │   ├── P3-*.md              #   加分项
+│   │   └── wet-lab-handoff-*.md #   面向湿实验团队的交接文档
 │   ├── learning/
 │   │   └── roadmap.md           #   学习路线图、硬件需求、工具环境
 │   ├── decisions/               # 技术决策记录
@@ -120,14 +121,32 @@ drylab/
 │   └── docking-repro/           # Hu2024 复现产出
 │       ├── prepared/            # ADFR 准备的 PDBQT（单一来源）
 │       ├── results/             # 对接结果 JSON
+│       │   ├── wt_singlestage/  # WT 单阶段对接结果（权威 WT 基线）
+│       │   ├── multiseed/       # 多 seed 方差评估统计
+│       │   └── ifp_analysis/    # ProLIF IFP 分析中间文件（contact_frequency.json 等）
 │       ├── logs/                # 运行日志
 │       ├── analysis/            # 分析产出
-│       │   └── deeptmhmm/       # DeepTMHMM TM 拓扑预测（UniProt 交叉验证）
+│       │   ├── deeptmhmm/       # DeepTMHMM TM 拓扑预测（UniProt 交叉验证）
+│       │   ├── lignetwork/      # ProLIF LigNetwork 2D 交互示意图（HTML，交互式）
+│       │   ├── plip_3d/         # PLIP 3D 交互 viewer（3Dmol.js HTML）+ 文本报告
+│       │   └── ifp_heatmap_*.png  # IFP 热图（按受体 + 全量）
 │       └── mutagenesis/         # 突变体相关
-│           ├── fastas/          # AF3 输入 FASTA + 批量提交 JSON
-│           ├── af3_downloads/   # AF3 原始下载（5 model × confidence JSON）
+│           ├── fastas/          # AF3 输入 FASTA（按受体分子目录）
+│           │   ├── {Rec}/{Label}.fasta       # alanine scan 单突变
+│           │   └── {Rec}/saturation/         # 饱和扫描（Tier 1/2 位点 × 18 AA）
+│           │   # AF3 batch JSON 格式（提交后已清理，需要时按此格式重新生成）：
+│           │   # [{"name":"gpr2_m327c","modelSeeds":["645910426"],
+│           │   #   "sequences":[{"proteinChain":{"sequence":"...","count":1,
+│           │   #   "useStructureTemplate":true}}],
+│           │   #   "dialect":"alphafoldserver","version":2}]
+│           ├── af3_downloads/   # AF3 原始下载（5 model × confidence JSON，冷存储）
 │           ├── af3_structures/  # 最优 model PDB/CIF + TM 截断版（_tm.pdb）
-│           └── af3_prepared/    # ADFR 生成的突变体 PDBQT（Windows 端）
+│           ├── af3_prepared/    # ADFR 生成的突变体 PDBQT（Windows 端）
+│           ├── archive/         # 已作废/替换的结果和结构（MMFF-voided、旧 fasta JSON）
+│           ├── mutagenesis_results.json          # pipeline 实时写入（每次跑覆盖）
+│           ├── mutagenesis_results_{run_id}.json # 时间戳备份（pipeline 自动创建）
+│           ├── mutagenesis_results_all_YYYYMMDD.json  # 手动合并全量（权威源）
+│           └── tier_recommendations_YYYYMMDD.md  # Tier 推荐表（分析输出）
 │
 ├── environments/                # conda 环境定义和锁定
 │   ├── mac-docking.yml

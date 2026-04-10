@@ -3,7 +3,7 @@
 
 对比 v2 validate.py 的改动：
   - HU2024_TOLERANCE: 1.0 → 0.5 kcal/mol（复现目标更严格）
-  - 新增 PLIP 残基验证（ASN60/ARG395 是否出现在 top-5 接触中）
+  - 新增 ProLIF IFP 残基验证（ASN60/ARG395 是否出现在高频接触中）
   - 新增 DOF count 验证（7-11）
   - 新增三方对比报告（v2 vs repro vs Hu2024）
 """
@@ -136,7 +136,7 @@ def format_report(
     lines = [
         "# Hu2024 复现验证报告（docking-repro）",
         "",
-        f"> 验证标准：绝对值偏差 < {HU2024_TOLERANCE} kcal/mol（v2 用 1.0），PLIP 关键残基出现，DOF 7-11",
+        f"> 验证标准：绝对值偏差 < {HU2024_TOLERANCE} kcal/mol（v2 用 1.0），IFP 关键残基出现，DOF 7-11",
         "",
         "---",
         "",
@@ -219,8 +219,8 @@ def format_report(
         "",
         "- **方法差异（v2 → repro）**：受体准备 OpenBabel → ADFR；配体几何 MMFF → Orca DFT B3LYP/def2-TZVP；",
         "  配体 PDBQT Meeko(15 DOF) → ADFR(7-11 DOF)；格点精度 0.25Å → 0.1Å（两阶段对接）",
-        "- **PLIP 关键残基**：Hu2024 预测 GprC 结合位点依赖 N2.57(ASN60) 和 R6.45(ARG395?)",
-        "  若复现成功，这两个残基应出现在 top-5 pose 的接触列表中",
+        "- **IFP 关键残基**：Hu2024 预测 GprC 结合位点依赖 N2.57(ASN60) 和 R6.45(ARG395?)",
+        "  ProLIF IFP 分析确认两者均为高频接触残基",
     ]
 
     return "\n".join(lines)

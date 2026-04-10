@@ -1,59 +1,67 @@
 # 文献矩阵
 
-> 搜索日期: 2026-04-03 | 搜索工具: WebSearch | 去重前: 257 条 | 筛选后: 见下方
+> 51 篇本地 PDF | 22 篇已总结 | 更新: 2026-04-10
 
 ---
 
-## Tier 1: 核心受体-配体研究（Gpr2/Gpr3/GprC + ascaroside）
+## Tier 1: 核心受体-配体研究（NTF GPCRs + ascaroside 对接）
 
-### 已有核心文献（已总结）
-
-| # | 文献 | 受体 | 配体 | 对接工具 | 对接数据 | 总结 |
+| # | 文献 | 受体 | 配体 | 对接工具 | 关键数据 | 总结 |
 |---|------|------|------|---------|---------|------|
-| ★ | Kuo et al. 2024 *Nat Microbiol* | Gpr2, Gpr3 | ascr#3, ascr#7 | SwissDock | ΔG 值 + 残基 | [已总结](summaries/Kuo2024-Gpr2Gpr3-summary.md) |
-| ★ | Hu et al. 2024 *Nat Microbiol* | GprC, SRBC64, DAF37 | ascr#1,2,3,5,18 | AutoDock Vina | 25 poses + 残基 + 突变 | [已总结](summaries/Hu2024-GprC-summary.md) |
+| 1 | Hu et al. 2024 *Nat Microbiol* 9:1752–1763 | GprC, SRBC64, DAF37 | ascr#1,2,3,5,18 | AutoDock Vina 1.2.3 | 25 poses + BW 残基 + 突变验证 | [已总结](summaries/Hu2024-GprC-summary.md) |
+| 2 | Kuo et al. 2024 *Nat Microbiol* | Gpr2, Gpr3 | ascr#3, ascr#7 | SwissDock | ΔG 值 + Y168 残基 | [已总结](summaries/Kuo2024-Gpr2Gpr3-summary.md) |
 
-### Hsueh 实验室前期工作（Kuo et al. 前驱研究）
+### Hsueh 实验室（*A. oligospora*，Kuo 前驱）
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 1 | Hsueh et al. 2013 *Curr Biol* "Nematode-trapping fungi eavesdrop on nematode pheromones" | 首次证明 *A. oligospora* 能感知 ascaroside 触发捕陷器形成 | **奠基性文献，必须引用** [已总结](summaries/Hsueh2013-NTF-eavesdrop-pheromones-summary.md) |
-| 2 | Chen et al. 2021 *Genetics* "Prey sensing and response in a nematode-trapping fungus is governed by the MAPK pheromone response pathway" | MAPK 通路在 *A. oligospora* 中调控捕食响应 | Gpr2/Gpr3 下游信号通路 [已总结](summaries/Chen2021-MAPK-prey-sensing-summary.md) |
-| 3 | Chen et al. 2022 *G3* "cAMP-PKA pathway regulates prey sensing and trap morphogenesis in *Arthrobotrys oligospora*" | cAMP-PKA 通路调控捕陷器形态 | Gpr2/Gpr3 的 Gpa2-cAMP 下游 [已总结](summaries/Chen2022-cAMP-PKA-trap-morphogenesis-summary.md) |
-| 4 | Hsueh 2017 *eLife* "Nematophagous fungus *Arthrobotrys oligospora* mimics olfactory cues of sex and food to lure its nematode prey" | *A. oligospora* 通过化学拟态引诱线虫 | 项目叙事背景 |
-| 5 | Yang et al. 2020 *PNAS* "Natural diversity in the predatory behavior facilitates the establishment of a robust model strain for nematode-trapping fungi" | TWF154 株系建立为模式菌株 | Kuo 文献使用的就是此菌株 |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 3 | Hsueh et al. 2013 *Curr Biol* | 首次证明 NTF 感知 ascaroside 触发捕陷器 | **奠基性文献，必须引用** | [已总结](summaries/Hsueh2013-NTF-eavesdrop-pheromones-summary.md) |
+| 4 | Chen et al. 2021 *Genetics* | MAPK 通路调控捕食响应 | Gpr2/Gpr3 下游信号 | [已总结](summaries/Chen2021-MAPK-prey-sensing-summary.md) |
+| 5 | Chen et al. 2022 *G3* | cAMP-PKA 通路调控捕陷器形态 | Gpr2/Gpr3 → Gpa2 → cAMP 下游 | [已总结](summaries/Chen2022-cAMP-PKA-trap-morphogenesis-summary.md) |
+| 6 | Hsueh et al. 2017 *eLife* | *A. oligospora* 化学拟态引诱线虫 | 项目叙事背景 | — |
+| 7 | Yang et al. 2020 *PNAS* | TWF154 模式菌株建立 | Kuo 使用的菌株 | — |
 
-### Fischer 实验室前期工作（Hu et al. 前驱研究）
+### Fischer 实验室（*A. flagrans*，Hu 前驱）
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 6 | Youssar et al. 2019 *PLoS Genet* "Intercellular communication is required for trap formation in *Duddingtonia flagrans*" | *D. flagrans*（= *A. flagrans*）细胞间通讯与捕陷器 | GprC 信号机制背景 |
-| 7 | Wernet et al. 2021 *PLoS Pathog* "The cysteine-rich protein CyrA is a virulence factor" | CyrA 毒力因子 | Fischer 实验室 *A. flagrans* 体系 |
-| 8 | Wernet et al. 2024 *Nat Commun* "NipA of *Arthrobotrys flagrans* interferes with cuticle integrity of *C. elegans*" | NipA 毒力因子 | Fischer 实验室最新工作 |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 8 | Youssar et al. 2019 *PLoS Genet* | 细胞间通讯与捕陷器形成 | GprC 信号机制背景 | — |
+| 9 | Wernet et al. 2021 *PLoS Pathog* | CyrA 毒力因子参与攻击 *C. elegans* | Fischer 实验室体系 | — |
+| 10 | Wernet et al. 2024 *Nat Commun* | NipA 干扰 *C. elegans* 角质层完整性 | Fischer 实验室最新工作 | — |
 
-### 其他 NTF 信号/ascaroside 相关
+### NTF 信号通路与 G 蛋白调控
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 9 | Huang et al. 2023 *Pathogens* "Ammonia and nematode ascaroside are synergistic in trap formation in *Arthrobotrys oligospora*" | 氨与 ascaroside 协同效应 | ascr#18 信号背景 |
-| 10 | Lin et al. 2023 *PLoS Biol* "Key processes required for the different stages of fungal carnivory" | NTF 捕食各阶段关键过程 | 项目叙事背景 |
-| **★NEW** | **Heinen M et al. 2025** *PLoS Pathog* "The rise of fungal G-protein coupled receptors in pathogenesis and symbiosis" PMID:40504784 | 最新真菌 GPCR 综述；明确指出实验结构仍空白，计算对接是唯一途径 | **领域综述**：验证计算方法必要性，引用计划 [已总结](summaries/Heinen2025-fungal-GPCR-pathogenesis-review-summary.md) |
-| **★NEW** | **Jiang C et al. 2024** *Curr Opin Plant Biol* "Sensing host and environmental cues by fungal GPCRs" PMID:39566322 | 系统分类真菌 GPCR 家族，包含 NTF carbon receptor family | **受体分类参考**：确认 Gpr2/3/C 的家族归属 |
-| **★NEW** | **Kuo C-Y et al. 2026** bioRxiv 2026.03.09.710510 "A nematode-trapping fungus orchestrates polarity cues, septins, and NOX signaling for trap formation" | NADPH 氧化酶/ROS 新信号节点，捕陷器形成上游 | ODE 模型新节点（P0-ODE 启动时读） |
-| **★NEW** | **Juan S-C et al. 2026** bioRxiv 2026.02.06.704490 "Ammonium Transporters Govern Nutrient Sensing and Trap Induction in the Nematode-Trapping Fungi *Arthrobotrys oligospora*" | 铵转运体 Mep1/Mep3 介导氮感知，与 ascaroside 信号通路独立 | ODE 模型：氮感知与 ascaroside 感知分离 |
-| **★NEW** | **Ma J et al. 2021** *Virulence* PMID:34224331 "Functional analysis of seven heterotrimeric G protein-coupled receptor signaling components in *Arthrobotrys oligospora*" | 系统性敲除 7 个 RGS 基因，调控 cAMP 信号和捕陷器形成 | Gpr2/3 下游信号调控 |
-| **★NEW** | **Bai N et al. 2022** *Environ Microbiol* PMID:34431203 "Ric8 acts as a guanine-nucleotide exchange factor for Gα subunit to regulate the cAMP signaling pathway in the nematode-trapping fungus *Arthrobotrys oligospora*" | 非受体 GEF Ric8，敲除后完全丧失捕陷能力 | 信号通路关键节点 |
-| **★NEW** | **Duan J-H et al. 2025** *Microorganisms* 13(12):2816 "Nutrient State-Dependent Ascarosides and Nematode Immune Response Limit the Predation of *Arthrobotrys oligospora*" doi:10.3390/microorganisms13122816 | 饥饿线虫下调 acox 基因，减少 ascr#1/3/5/9 分泌，降低被捕概率；被捕后启动 FSHR-1/PMK-1 免疫通路 | 检测灵敏度讨论背景：田间 ascaroside 浓度受线虫营养状态影响 |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 11 | Ma et al. 2021 *Virulence* | 7 个 RGS 基因功能分析，负调控 cAMP 信号 | Gpr2/3 下游信号调控 | — |
+| 12 | Bai et al. 2022 *Environ Microbiol* | Ric8 非受体 GEF，敲除丧失捕陷能力 | 信号通路关键节点 | — |
+| 13 | Huang et al. 2023 *Pathogens* | 氨与 ascaroside 协同触发捕陷器 | ascr#18 信号背景 | — |
+| 14 | Lin et al. 2023 *PLoS Biol* | NTF 捕食各阶段关键过程 | 项目叙事背景 | — |
+| 15 | Duan et al. 2025 *Microorganisms* | 饥饿线虫减少 ascaroside 分泌，降低被捕概率 | 田间浓度受线虫营养状态影响 | — |
+
+### 真菌 GPCR 综述与分类
+
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 16 | Heinen et al. 2025 *PLoS Pathog* | 真菌 GPCR 综述；指出实验结构空白，计算对接是唯一途径 | 验证计算方法必要性 | [已总结](summaries/Heinen2025-fungal-GPCR-pathogenesis-review-summary.md) |
+| 17 | Jiang et al. 2024 *Curr Opin Plant Biol* | 系统分类真菌 GPCR 家族 | 确认 Gpr2/3/C 家族归属 | — |
+
+### 信号通路新节点（ODE 模型用）
+
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 18 | Kuo et al. 2026 bioRxiv | NOX/ROS + septin 协调捕陷器形成 | ODE 新节点 | — |
+| 19 | Juan et al. 2026 bioRxiv | Mep1/Mep3 铵转运体介导氮感知 | ODE：氮感知与 ascaroside 感知独立 | — |
 
 ---
 
-## Tier 2: C. elegans ascaroside 受体
+## Tier 2: *C. elegans* ascaroside 受体
 
-| # | 文献 | 受体 | 内容 | 与项目关系 |
-|---|------|------|------|----------|
-| 11 | Park et al. 2012 *PNAS* "Interaction of structure-specific and promiscuous GPCRs mediates small-molecule signaling in *C. elegans*" | SRBC-64/66, DAF-37/38 | **首次鉴定 C. elegans ascaroside 受体** | 结构比较的参考，Hu 文献嵌合设计的基础 [已总结](summaries/Park2012-SRBC-DAF-receptors-summary.md) |
-| 12 | Kim et al. 2009 *Science* "Two chemoreceptors mediate developmental effects of dauer pheromone in *C. elegans*" | DAF-37, DAF-38 | 信息素受体功能鉴定 | ascr#3/ascr#7 受体生物学 |
-| 13 | McGrath et al. 2011 *Nature* "Parallel evolution of domesticated *Caenorhabditis* species targets pheromone receptor genes" | srg 受体家族 | 信息素受体平行进化 | 跨物种受体进化参考 |
+| # | 文献 | 受体 | 内容 | 与项目关系 | 总结 |
+|---|------|------|------|----------|------|
+| 20 | Park et al. 2012 *PNAS* | SRBC-64/66, DAF-37/38 | 首次鉴定 *C. elegans* ascaroside 受体 | Hu 嵌合设计基础 | [已总结](summaries/Park2012-SRBC-DAF-receptors-summary.md) |
+| 21 | Kim et al. 2009 *Science* | DAF-37, DAF-38 | 信息素受体功能鉴定 | ascr#3/ascr#7 受体生物学 | — |
+| 22 | McGrath et al. 2011 *Nature* | srg 家族 | 信息素受体平行进化 | 跨物种受体进化参考 | — |
 
 ---
 
@@ -61,118 +69,113 @@
 
 ### 综述与化学
 
-| # | 文献 | 内容 | ascr#18? | 与项目关系 |
-|---|------|------|---------|----------|
-| 14 | Ludewig & Schroeder 2013 *WormBook* "Ascaroside signaling in *C. elegans*" | **权威综述**，ascaroside 信号全景 | 是 | **必须引用的综述** [已总结](summaries/Ludewig2013-ascaroside-signaling-review-summary.md) |
-| 15 | Srinivasan et al. 2012 *PLoS Biol* "A modular library of small molecule signals regulates social behaviors in *C. elegans*" | Ascaroside 模块化组装与社会行为 | 是 | 配体多样性背景 |
-| 16 | von Reuss et al. 2012 *JACS* "Comparative metabolomics reveals biogenesis of ascarosides" | Ascaroside 生物合成全景 | 是 | ascr#18 化学背景 |
-| 17 | Choe et al. 2012 *Curr Biol* "Ascaroside signaling is widely conserved among nematodes" | **Ascaroside 在线虫中广泛保守** | 是 | ascr#18 在 PPN 中的分布 [已总结](summaries/Choe2012-ascaroside-conserved-summary.md) |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 23 | Ludewig & Schroeder 2013 *WormBook* | ascaroside 信号全景综述 | **必须引用** | [已总结](summaries/Ludewig2013-ascaroside-signaling-review-summary.md) |
+| 24 | Srinivasan et al. 2012 *PLoS Biol* | ascaroside 模块化组装与社会行为 | 配体多样性背景 | — |
+| 25 | von Reuss et al. 2012 *JACS* | 代谢组学揭示 ascaroside 生物合成 | ascr#18 化学背景 | — |
+| 26 | Choe et al. 2012 *Curr Biol* | ascaroside 在线虫中广泛保守 | ascr#18 在 PPN 中分布 | [已总结](summaries/Choe2012-ascaroside-conserved-summary.md) |
 
 ### ascr#18 与植物防御
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 18 | Manosalva et al. 2015 *Nat Commun* "Conserved nematode signalling molecules elicit plant defenses and pathogen resistance" | **ascr#18 激活植物免疫** | 项目 HP 叙事核心 [已总结](summaries/Manosalva2015-ascaroside-plant-defense-summary.md) |
-| 19 | Klessig et al. 2019 *J Phytopathol* "Nematode ascaroside enhances resistance in a broad spectrum of plant-pathogen systems" | ascr#18 广谱抗性 | ascr#18 生物活性 [已总结](summaries/Klessig2019-ascaroside-broad-spectrum-summary.md) |
-| 20 | Letia et al. 2025 *Physiol Plant* "Ascaroside#18 promotes plant defence by repressing auxin signalling" | ascr#18 抑制生长素信号 | ascr#18 最新研究 |
-| 21 | Kamboj et al. 2024 *J Plant Dis Prot* 131:2053-2062 "The nematode signaling molecule ascr#18 induces prepenetration defenses in wheat against a leaf rust fungus" | ascr#18 诱导小麦对 *P. triticina* 的穿透前防御，剂量-响应低至 0.01 nM，H₂O₂ 积累阻止气孔穿透 | ascr#18 在作物中的效果，剂量-响应数据支撑经济效益模型 |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 27 | Manosalva et al. 2015 *Nat Commun* | ascr#18 激活植物免疫 | **HP 叙事核心** | [已总结](summaries/Manosalva2015-ascaroside-plant-defense-summary.md) |
+| 28 | Klessig et al. 2019 *J Phytopathol* | ascr#18 广谱抗性 | ascr#18 生物活性 | [已总结](summaries/Klessig2019-ascaroside-broad-spectrum-summary.md) |
+| 29 | Letia et al. 2025 *Physiol Plant* | ascr#18 抑制 auxin 信号促进防御 | ascr#18 最新机制 | — |
+| 30 | Kamboj et al. 2024 *J Plant Dis Prot* | ascr#18 诱导小麦抗叶锈，LOD 0.01 nM | 剂量-响应数据 | — |
 
-### 植物 ascaroside 受体
+### 植物端 ascaroside 受体
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 22 | Huang et al. 2023 *Curr Biol* "NILR1 perceives a nematode ascaroside triggering immune signaling and resistance" | **植物端 ascaroside 受体 NILR1** | 跨界感知机制参考 |
-| 23 | Mendy et al. 2017 *PLoS Pathog* "Arabidopsis LRR-RLK NILR1 is required for induction of innate immunity to parasitic nematodes" | NILR1 功能鉴定 | 植物免疫背景 |
-| **★NEW** | **Huang L et al. 2024** *PNAS* "A receptor for dual ligands governs plant immunity and hormone response and is targeted by a nematode effector" PMID:39388275 | 马铃薯 StNILR1 双受体（ascr#18 + 油菜素类固醇）；无晶体结构；ascr#18 Kd ~1.79 μM；Island Domain 必需 | ascr#18 结合亲和力量级参考；**无原子级结合残基数据** [已总结](summaries/Huang2024-StNILR1-ascr18-dual-receptor-summary.md) |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 31 | Huang et al. 2023 *Curr Biol* | NILR1 直接结合 ascr#18 触发免疫 | 跨界感知机制 | — |
+| 32 | Mendy et al. 2017 *PLoS Pathog* | NILR1 LRR-RLK 功能鉴定 | 植物免疫背景 | — |
+| 33 | Huang et al. 2024 *PNAS* | StNILR1 双受体（ascr#18 + BR），Kd ~1.79 μM | ascr#18 亲和力量级参考 | [已总结](summaries/Huang2024-StNILR1-ascr18-dual-receptor-summary.md) |
 
-### 线虫代谢 ascaroside
+### 线虫-植物 ascaroside 代谢
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 24 | Dong et al. 2020 *Nat Commun* "Plant metabolism of nematode pheromones mediates plant-nematode interactions" | 植物代谢 ascaroside | ascr#18 在土壤中的命运 |
-| 25 | Zhao et al. 2016 *Nat Commun* "Ascarosides coordinate the dispersal of a plant-parasitic nematode with the metamorphosis of its vector beetle" | asc-ΔC6/asc-C5/asc-C9 介导 PWN 与天牛的种间同步；证明 PPN 产 ascaroside 用于功能性种间信号（主要 ascaroside 为 ascr#3/ascr#10，**非** ascr#18） | PPN 产 ascaroside 的直接实证；叙事背景 [已总结](summaries/Zhao2016-ascaroside-PPN-dispersal-summary.md) |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 34 | Dong (Manohar) et al. 2020 *Nat Commun* | 植物经 β-oxidation 代谢 ascr#18 | ascr#18 土壤命运 | — |
+| 35 | Zhao et al. 2016 *Nat Commun* | ascaroside 协调 PWN-天牛种间同步 | PPN 产 ascaroside 实证 | [已总结](summaries/Zhao2016-ascaroside-PPN-dispersal-summary.md) |
 
 ---
 
 ## Tier 4: 酵母 GPCR 异源表达
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 26 | Lengger & Jensen 2020 *FEMS Yeast Res* "Engineering G protein-coupled receptor signalling in yeast for biotechnological and medical purposes" | **酵母 GPCR 工程综述** | **PRD 已引用，需要深读** [已总结](summaries/Lengger2020-yeast-GPCR-engineering-summary.md) |
-| 27 | Mukherjee et al. 2025 *PNAS* "A yeast mating platform for multiplex screening of fungal GPCR-ligand interactions" | 酵母 mating pathway 筛选真菌 GPCR-配体互作 | **高度相关！酵母底盘 + 真菌 GPCR** [已总结](summaries/Mukherjee2025-yeast-mating-fungal-GPCR-summary.md) |
-| 28 | Shaw et al. 2019 *Cell* 177(3):782-796 "Engineering a Model Cell for Rational Tuning of GPCR Signaling" (已在 PRD 引用) | 酵母 GPCR 信号通路模块化调控 | 底盘设计参考 |
-| 29 | Fan, He & Yuan 2024 *Biosens Bioelectron* 246:116020 "Cascaded amplifying circuit enables sensitive detection of fungal pathogens" (已在 PRD 引用) | GPCR+GAL4 级联放大酵母传感器，LOD 0.25 pM | 底盘设计参考 |
-| 30 | Ladds, Goddard & Davey 2005 *Trends Biotechnol* 23(7):367-373 "Functional analysis of heterologous GPCR signalling pathways in yeast" | 酵母 GPCR 异源表达综述：Gpa1-Gα chimera 设计、reporter 系统、>30 GPCRs 偶联、S. pombe 替代底盘 | 方法论参考 + §3.6 嵌合 Gpa1 设计参考 |
-| 31 | Hara et al. 2012 *Biosci Biotechnol Biochem* "Heterologous GPCR signaling in yeast: chimeric Gpa1 C-terminal design" | 嵌合 Gpa1 C-末端 37 aa vs 44 aa 替换比较 | §3.6 嵌合 Gpa1 设计直接参考 [已总结](summaries/Hara2012-chimeric-Gpa1-yeast-summary.md) |
-| 32 | Medici et al. 1997 *EMBO J* 16:7241-7249 "Efficient signal transduction by a chimeric yeast-mammalian G protein α subunit Gpa1-Gsα covalently fused to the yeast receptor Ste2" PMID:9405353 | **嵌合 Gpa1 经典文献** | §3.6 直接参考 [已总结](summaries/Medici1997-chimeric-Gpa1-Gs-summary.md) |
-| 33 | Miettinen et al. 2022 *Nat Commun* 13:3664 "A GPCR-based yeast biosensor for biomedical, biotechnological, and point-of-use cannabinoid determination" PMID:35760809 | 酵母 GPCR 生物传感器 | 底盘设计参考 [已总结](summaries/Miettinen2022-GPCR-yeast-cannabinoid-summary.md) |
-| 34 | Billerbeck et al. 2018 *Sci Adv* "A modular yeast biosensor for low-cost point-of-care pathogen detection" | 酵母模块化生物传感器 | 产品化参考 |
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 36 | Lengger & Jensen 2020 *FEMS Yeast Res* | 酵母 GPCR 工程综述 | **底盘设计必读** | [已总结](summaries/Lengger2020-yeast-GPCR-engineering-summary.md) |
+| 37 | Mukherjee et al. 2025 *PNAS* | 酵母 mating pathway 筛选真菌 GPCR-配体互作 | **高度相关：酵母 + 真菌 GPCR** | [已总结](summaries/Mukherjee2025-yeast-mating-fungal-GPCR-summary.md) |
+| 38 | Shaw et al. 2019 *Cell* 177:782–796 | 酵母 GPCR 信号通路模块化调控 | 底盘设计参考 | — |
+| 39 | Fan et al. 2024 *Biosens Bioelectron* 246:116020 | GPCR+GAL4 级联放大，LOD 0.25 pM | 底盘放大回路 | — |
+| 40 | Ladds et al. 2005 *Trends Biotechnol* 23:367–373 | 酵母异源 GPCR 综述，>30 GPCRs 偶联 | 嵌合 Gpa1 设计参考 | — |
+| 41 | Hara et al. 2012 *Biosci Biotechnol Biochem* | 嵌合 Gpa1 C-末端 37 aa vs 44 aa 替换 | 嵌合设计直接参考 | [已总结](summaries/Hara2012-chimeric-Gpa1-yeast-summary.md) |
+| 42 | Medici et al. 1997 *EMBO J* 16:7241–7249 | 嵌合 Gpa1-Gsα 经典文献 | 嵌合设计直接参考 | [已总结](summaries/Medici1997-chimeric-Gpa1-Gs-summary.md) |
+| 43 | Miettinen et al. 2022 *Nat Commun* 13:3664 | 酵母 GPCR 大麻素生物传感器 | 底盘设计参考 | [已总结](summaries/Miettinen2022-GPCR-yeast-cannabinoid-summary.md) |
+| 44 | Billerbeck (Ostrov) et al. 2017 *Sci Adv* | 模块化酵母生物传感器，比色输出 | 产品化参考 | — |
 
 ---
 
 ## Tier 5: iGEM 历史项目
 
-| # | 团队 | 年份 | 内容 | URL |
-|---|------|------|------|-----|
-| 35 | BIT-China | 2017 | GPCR 信号通路建模 | https://2017.igem.org/Team:BIT-China/Model/GPCRpathway |
-| 36 | Patras | 2021 | 分子对接建模 | https://2021.igem.org/Team:Patras/Docking |
-| 37 | Duke | 2017 | 分子对接建模 | https://2017.igem.org/Team:Duke/Model/Docking |
-| 38 | TU Darmstadt | 2012 | 分子对接建模 | https://2012.igem.org/Team:TU_Darmstadt/Modeling_Docking |
-| 39 | UCopenhagen | 2019 | GPCR 设计 | https://2019.igem.org/Team:UCopenhagen/Design |
-| 40 | SJTU-BioX-Shanghai | 2016 | 酵母 GPCR 传感器 | https://2016.igem.org/Team:SJTU-BioX-Shanghai/Design |
-| 41 | Chalmers-Gothenburg | 2012 | 酵母 GPCR 检测 hCG | https://2012.igem.org/Team:Chalmers-Gothenburg/Biodetection_of_hCG |
-| 42 | TU-Delft | 2012 | 酵母 GPCR 平台 | https://2012.igem.org/Team:TU-Delft/overview |
-| 43 | Peking | 2013 | 生物传感器设计 | https://2013.igem.org/Team:Peking/Project/BioSensors |
+| # | 团队 | 年份 | 内容 |
+|---|------|------|------|
+| 45 | BIT-China | 2017 | GPCR 信号通路建模 |
+| 46 | Patras | 2021 | 分子对接建模 |
+| 47 | Duke | 2017 | 分子对接建模 |
+| 48 | TU Darmstadt | 2012 | 分子对接建模 |
+| 49 | UCopenhagen | 2019 | GPCR 设计 |
+| 50 | SJTU-BioX-Shanghai | 2016 | 酵母 GPCR 传感器 |
+| 51 | Chalmers-Gothenburg | 2012 | 酵母 GPCR 检测 hCG |
+| 52 | TU-Delft | 2012 | 酵母 GPCR 平台 |
+| 53 | Peking | 2013 | 生物传感器设计 |
 
 ---
 
 ## Tier 6: 方法学
 
-| # | 文献 | 内容 | 与项目关系 |
-|---|------|------|----------|
-| 44 | Trott & Olson 2010 *J Comput Chem* "AutoDock Vina: improving the speed and accuracy of docking" | **Vina 原始论文** | **必须引用** |
-| 45 | Eberhardt et al. 2021 *J Chem Inf Model* "AutoDock Vina 1.2.0: new docking methods, expanded force field, and Python bindings" | Vina 1.2 更新 | **必须引用** |
-| 46 | Jumper et al. 2021 *Nature* "Highly accurate protein structure prediction with AlphaFold" | AlphaFold2 原始论文 | **必须引用** |
-| 47 | G protein-coupled receptors: advances in structures, mechanisms and drug discovery 2024 *Signal Transduct Target Ther* | GPCR 结构与药物发现综述 | GPCR 对接方法论背景 |
-| **★NEW** | **Lee et al. 2022** *Comput Struct Biotechnol J* "Evaluating GPCR modeling and docking strategies in the era of deep learning-based protein structure prediction" PMID:36544468 | AF2 对接成功率 ~35-47%（vs TBM ~5-8%）；刚性 Vina 仅 24-32%，灵活对接 47%；p-lDDT>0.95 才可信 | **⚠️ 关键方法论**：提示需查 p-lDDT，在 wiki 中声明刚性 Vina 局限性 [已总结](summaries/Lee2022-GPCR-AF2-docking-benchmark-summary.md) |
+### 对接与结构预测
+
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 54 | Trott & Olson 2010 *J Comput Chem* | AutoDock Vina 原始论文 | **必须引用** | — |
+| 55 | Eberhardt et al. 2021 *J Chem Inf Model* | Vina 1.2.0 新方法 + Python bindings | **必须引用** | — |
+| 56 | Jumper et al. 2021 *Nature* | AlphaFold2 蛋白结构预测 | **必须引用** | — |
+| 57 | Zhang et al. 2024 *Signal Transduct Target Ther* | GPCR 结构/机制/药物发现综述 | GPCR 对接背景 | — |
+| 58 | Lee et al. 2022 *Comput Struct Biotechnol J* | AF2+Vina 对接 benchmark；刚性 Vina 24–32%；pLDDT>0.95 可信 | **关键方法论：wiki 须声明局限性** | [已总结](summaries/Lee2022-GPCR-AF2-docking-benchmark-summary.md) |
+
+### Alanine Scan 与 IFP 分析
+
+| # | 文献 | 内容 | 与项目关系 | 总结 |
+|---|------|------|----------|------|
+| 59 | Boukharta et al. 2014 *PLoS Comput Biol* | FEP 计算预测 GPCR alanine scan 与配体结合能 | Ala scan 方法学参考 | [已总结](summaries/Boukharta2014-FEP-alanine-scan-GPCR-summary.md) |
+| 60 | Vass et al. 2016 (GPCR IFP review) | GPCR 交互指纹（IFP）综述 | IFP 分析方法学背景 | [已总结](summaries/Vass2016-GPCR-IFP-review-summary.md) |
+| 61 | Bouysset et al. 2021 *J Cheminform* | ProLIF：蛋白-配体交互指纹工具 | IFP 分析工具论文，**必须引用** | [已总结](summaries/Bouysset2021-ProLIF-summary.md) |
 
 ---
 
-## 优先阅读清单
-
-### 第一批（直接影响对接方案）
-
-1. **Mukherjee et al. 2025 PNAS** — 酵母 mating pathway 筛选真菌 GPCR（可能有对接数据）
-2. **Park et al. 2012 PNAS** — SRBC/DAF 受体结构功能（Hu 文献嵌合设计的基础）
-3. **Hsueh et al. 2013 Curr Biol** — 奠基性文献
-
-### 第二批（支撑叙事和 ascr#18 判别逻辑）
-
-4. **Choe et al. 2012 Curr Biol** — ascaroside 跨物种保守性
-5. **Manosalva et al. 2015 Nat Commun** — ascr#18 植物免疫
-6. **Zhao et al. 2016 Nat Commun** — ascr#18 在 PPN 中的特异性
-
-### 第三批（底盘决策和工程参考）
-
-7. **Lengger & Jensen 2020 FEMS Yeast Res** — 酵母 GPCR 工程综述
-8. **Mukherjee et al. 2025 PNAS** — 酵母筛选真菌 GPCR 互作
-
----
-
-## 对接数据缺口总结
+## 对接数据现状
 
 ```
-已有对接数据:
-  Gpr2 × ascr#3:  -6.99 kcal/mol (Kuo, SwissDock)
-  Gpr2 × ascr#7:  -7.07 kcal/mol (Kuo, SwissDock)
-  Gpr3 × ascr#3:  -7.05 kcal/mol (Kuo, SwissDock)
-  Gpr3 × ascr#7:  -6.41 kcal/mol (Kuo, SwissDock)
-  GprC × ascr#1,2,3,5,18: 有 poses 和残基 (Hu, Vina)
+文献参考值:
+  Gpr2 × ascr#3:  -6.99 (Kuo, SwissDock)    我们: -6.03  Δ=0.96
+  Gpr2 × ascr#7:  -7.07 (Kuo, SwissDock)    我们: -6.45  Δ=0.62
+  Gpr3 × ascr#3:  -7.05 (Kuo, SwissDock)    我们: -6.18  Δ=0.87
+  Gpr3 × ascr#7:  -6.41 (Kuo, SwissDock)    我们: -6.24  Δ=0.17
+  GprC × ascr#18: -8.29 (Hu, Vina)          我们: -8.235 Δ=0.05 ✓
 
-本项目需要填补:
-  ★ Gpr2 × ascr#18:  无数据
-  ★ Gpr3 × ascr#18:  无数据
-  ★ 全部 9 组用 Vina 统一方法重做:  可与文献交叉验证
+本项目已完成:
+  ✅ 3 受体 × 4 配体 = 12 WT 单阶段对接
+  ✅ 32 突变体 alanine scan（GprC×14 + Gpr2×10 + Gpr3×8）
+  ✅ ProLIF IFP 交叉验证（3 受体 × 3 配体）
+  ✅ Tier 1–4 湿实验候选分层推荐
+
+待完成:
+  □ ascr#1 Orca DFT 优化
+  □ Vina --flex 柔性对接验证
+  □ wiki 写作
 ```
 
 ---
@@ -182,4 +185,5 @@
 | 日期 | 版本 | 说明 |
 |------|------|------|
 | 2026-04-03 | v1.0 | 初始文献矩阵，基于 WebSearch 257 条结果筛选 |
-| 2026-04-06 | v1.1 | 系统性检索 4 组查询，新增 ~9 篇★NEW 条目（Lee2022、Heinen2025、Huang2024 PNAS 等）；前提假设全部验证，路径确认正确 |
+| 2026-04-06 | v1.1 | 系统性检索新增 ~9 篇（Lee2022、Heinen2025、Huang2024 等） |
+| 2026-04-10 | v2.0 | 全面重写：51 PDF 全量整合，新增方法学 3 篇（Boukharta2014/Vass2016/Bouysset2021），更新对接数据现状，清理分层结构 |

@@ -232,31 +232,57 @@
 
 ---
 
-## Methods 中的关键实验参数
+## Methods 逐项细节
 
 ### 菌株与培养
 
-- *A. oligospora* TWF154（野生分离株）
-- 基因敲除在 ku70 突变体背景下进行（提高同源重组效率）
+- *A. oligospora* TWF154（野生分离株，Yang et al. 2020 建立）
+- 基因敲除在 **ku70 突变体**背景下进行（提高同源重组效率）
 - 培养：PDA（常规），LNM（低营养培养基，用于捕陷器诱导）
+- 转化方法：**电穿孔**（protoplast electroporation，非 PEG）
 
 ### 捕陷器诱导实验
 
-- 3.5 cm LNM plate, 25°C, 48h
-- 加入 30 只 *C. elegans* N2 L4 幼虫
+- 3.5 cm LNM plate, 25°C, 48h 预培养
+- 加入 30 只 *C. elegans* N2 **L4 幼虫**
 - 6h 后移除线虫，24h 后在 0.5 cm 范围内计数
-- Ascaroside 处理：1 mM ascr#3 或 ascr#7 加在菌丝边缘 2 mm 处，2 天后计数
+- Ascaroside 处理：**1 mM** ascr#3 或 ascr#7 加在菌丝边缘 2 mm 处，**2 天后**计数
+- *daf-22* 突变体对照：仍触发捕陷器但数量降低 ~75% → ascaroside 仅贡献 ~25% 的信号
+
+### GPCR 鉴定方法
+
+- **TMHMM 2.0 + Phobius** 预测 7-TM 蛋白 → 鉴定出 **83 个** putative GPCR
+- 根据序列同源性和结构相似性分为 **10 个类别**
+- 其中 **69 个属于 Pth11-like**（*A. oligospora* 特异性扩增）
+- **3 个碳受体**同源物：Gpr1, Gpr2, Gpr3（与 *S. cerevisiae* Gpr1 同源）
+- RNA-seq 时间序列分析鉴定 32 个 GIN 基因（线虫暴露后上调）
 
 ### 对接方法
 
-| 参数 | 值 |
-|------|------|
-| 对接工具 | **SwissDock**（web 服务） |
-| 受体结构 | AlphaFold 预测 |
-| 配体来源 | **ChemSpider** |
-| 结构比对 | **TM-align**（TM score > 0.5 视为相似） |
-| 配体 | ascr#3, ascr#7 |
-| 对接受体 | Gpr2, Gpr3, SRBC-66 |
+| 参数 | 值 | 说明 |
+|------|------|------|
+| 对接工具 | **SwissDock** web 服务 | 使用 **EADock DSS** 算法，非 Vina 评分函数 |
+| 受体结构 | **AlphaFold** 预测 | 未指定 AF 版本，推测为 AFDB v2.0 |
+| 配体来源 | **ChemSpider** 3D 结构 | 未经 DFT 优化 |
+| Grid box | **无**（SwissDock 自行搜索结合口袋） | 与 Vina 的显式 grid box 根本不同 |
+| 报告值 | **docking score (corr)** = binding free energy ΔG | 负值越大表示结合越强 |
+| 结构比对 | **TM-align**（TM score > 0.5 视为相似） | Gpr2 vs SRBC-66 TM score ≈ 0.7 |
+| 配体 | ascr#3, ascr#7（**仅 2 种，不含 ascr#18**） | 与 Hu2024 的 5 种配体不同 |
+| 对接受体 | Gpr2, Gpr3, SRBC-66 | Gpr1 也做了但"did not yield reliable results" |
+
+> **SwissDock vs Vina 的根本差异**：SwissDock 使用 CHARMM 力场进行全局搜索，不需要用户定义 grid box，算法全自动定位结合口袋。Vina 需要显式定义 search space。两者的 ΔG 数值**不可直接比较**（评分函数不同），但排名趋势可参考。
+
+### Co-IP 实验（酵母异源表达）
+
+- 在 *S. cerevisiae* 中共表达 Gpr2/Gpr3（3×HA 标签）与 Gpa1/Gpa2/Gpa3（Myc 标签）
+- Gpr2 和 Gpr3 **均仅与 Gpa2 互作**（不与 Gpa1/Gpa3 互作）
+- Gpr2-3×HA 与 Gpr3-Myc 共表达证实**异源二聚体**
+- → **酵母中功能性表达的直接先例**（虽为 co-IP 非信号转导验证）
+
+### AlphaFold 结构中的 ICL3 区域
+
+- Fig. 3c 注释：Gpr2 残基 **217–336** 被 AlphaFold 预测为 **random coil**（无序）
+- 原文图中该区域已被移除（"has been predicted due to its prediction as a random coil"）
 
 ### 数据可用性
 
@@ -265,17 +291,19 @@
 
 ---
 
-## 与本项目的关键关联
+## 与本项目的潜在关联
 
-1. **Gpr2 (G1X9E2) 和 Gpr3 (G1XJN1)** 是 *A. oligospora* 中 ascaroside 感应的核心受体，功能已验证
+1. **Gpr2 (G1X9E2) 和 Gpr3 (G1XJN1)** 是 *A. oligospora* 中 ascaroside 感应的核心受体，功能已通过基因敲除/回补/过表达实验验证
 2. 两者通过 **Gpa2** 激活 **cAMP–PKA 通路**（与 Hu et al. 中 GprC 通过 GasA 激活 MAPK 通路不同）
-3. **Gpr2/Gpr3 可形成异源二聚体**，这对酵母异源表达策略有参考意义
-4. 本文对接使用 **SwissDock**（非 AutoDock Vina），且仅对接了 ascr#3 和 ascr#7，**未包含 ascr#18**
-5. 对接结合能：Gpr2 对 ascr#3 约 −7.0, ascr#7 约 −7.1；Gpr3 对 ascr#3 约 −7.1, ascr#7 约 −6.4
-6. 关键结合残基：Gpr2 中 **Y168**（SRBC-66 中对应 N161）
-7. RNA-seq 数据（GEO GSE233568）可用于丝状真菌方案的启动子挖掘
-8. 过表达可增强 ascaroside 灵敏度 → 对酵母底盘方案的表达策略有参考
-9. **Gin 受体（特别是 Gin3）** 检测非 ascaroside 信号，如果项目需要检测活体线虫（而非纯 ascaroside），需考虑此通路
+3. **Gpr2/Gpr3 可形成异源二聚体**（酵母 co-IP 证实）
+4. SwissDock 使用的是 EADock DSS 算法（非 Vina），ΔG 数值来自不同评分函数，与 Vina 结果**不可直接比较**
+5. Gpr2 唯一确认的关键结合残基为 **Y168**（ECL2），属 SwissDock blind docking 结果
+6. **daf-22 实验**：ascaroside 仅贡献 ~25% 的捕陷器信号，其余来自 Gin 受体感知的非 ascaroside 信号
+7. RNA-seq 数据（GEO GSE233568）可用于启动子挖掘
+8. 过表达 Gpr2/Gpr3（*A. nidulans* gpdA 启动子）可增强灵敏度
+9. **Gin3** 感知非 ascaroside 信号，且也通过 Gpa2→cAMP-PKA 通路
+10. AlphaFold 中 Gpr2 ICL3（217-336）为 random coil
+11. **TMHMM 2.0 + Phobius** 用于鉴定 83 个 GPCR
 
 ---
 
@@ -284,4 +312,6 @@
 | 日期 | 版本 | 说明 |
 |------|------|------|
 | 2026-04-03 | v1.0 | 初始总结，忠实于原文内容 |
-| 2026-04-06 | v1.1 | 修正 N161 归属：N161 属于 SRBC-66（非 Gpr2），Gpr2 唯一确认结合残基为 Y168；修正"关键关联"第 6 条 |
+| 2026-04-06 | v1.1 | 修正 N161 归属：N161 属于 SRBC-66（非 Gpr2），Gpr2 唯一确认结合残基为 Y168 |
+| 2026-04-10 | v2.0 | 全面重写 Methods：SwissDock 算法说明、GPCR 鉴定方法（TMHMM+Phobius→83 GPCRs）、Co-IP 酵母先例、ICL3 random coil 证据、对接参数详表 |
+| 2026-04-10 | v2.1 | 清理项目特定内容（pipeline 对照表、IFP 分析、ΔG 对比表），遵循 DOCMAP 唯一权威源原则 |

@@ -1,11 +1,9 @@
 """
-生成突变体 FASTA 文件，供手动提交 AF2 web server（alphafoldserver.com）
+生成突变体 FASTA 文件，供手动提交 AlphaFold 3 Server（alphafoldserver.com）
 
-AF2 web server 参数（匹配 Hu2024 Methods）：
-  - 5 models per output
-  - 24 max_recycles
-  - 2 num_ensemble
-  - 选择最高 pLDDT 的 model 作为结构来源
+注意：Hu2024 原文使用 AF2 web server（5 models, 24 max_recycles, 2 num_ensemble），
+但 alphafoldserver.com 现运行 AF3（diffusion-based 架构），不提供上述参数。
+我们使用 AF3 默认参数。详见 docs/logs/2026-04-07.md §5。
 
 输出目录：experiments/docking-repro/mutagenesis/fastas/{rec_name}/
 
@@ -122,7 +120,7 @@ def generate_fastas_for_receptor(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="为 AF2 web server 生成突变体 FASTA")
+    parser = argparse.ArgumentParser(description="为 AF3 Server 生成突变体 FASTA")
     parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
     parser.add_argument("--project-root", default=None)
     parser.add_argument("--receptors", nargs="+", default=None,
@@ -138,8 +136,8 @@ def main() -> None:
     target_receptors = args.receptors or mut_cfg.get("target_receptors", ["GprC"])
 
     # 使用全长 PDB 生成 FASTA（NOT TM-only）
-    # 原因：Hu2024 提交全长序列给 AF2 web server，获得全长预测后提取 TM 域。
-    # AF2 的 MSA 和结构预测依赖全长序列上下文，截断 TM 域会改变预测结果。
+    # 原因：Hu2024 提交全长序列给 AF server，获得全长预测后提取 TM 域。
+    # AF 的 MSA 和结构预测依赖全长序列上下文，截断 TM 域会改变预测结果。
     receptor_dir = root / config["paths"]["receptor_dir"]
 
     output_base = root / config["paths"]["mutagenesis_dir"] / "fastas"

@@ -1,14 +1,16 @@
 """
-S3: Gpr2 Y200/Y378 饱和突变扫描 — 找到增强 ascr18 选择性的最优替换
+⚠️ SUPERSEDED — 本脚本基于 v2 MMFF alanine scan 结论（Y200A/Y378A 为 Tier 1）。
+Orca DFT + ICL3 截断修复后，Y200A/Y378A 降为 Tier 4。
+当前 Tier 1 位点为 M327A/R59A（Gpr2）和 I141A（Gpr3）。
+饱和扫描已改用 generate_saturation_fastas.py（2026-04-10）。
+保留本脚本仅作为历史参考和 pipeline 测试用途。
 
-背景：
-  Alanine scan 发现 Gpr2 Y200A (ΔΔG_sel=+1.12) 和 Y378A (+0.92) 是 ascr3 选择性
-  的关键决定残基（效应量 > 2× Vina 噪声）。但 Ala 不是工程化的最优选择：
-  - 其他替换可能进一步增强 ascr18 偏好
-  - 带电/极性残基可能创建新的 ascr18 氢键网络
+---
+原始 S3: Gpr2 Y200/Y378 饱和突变扫描
 
-本脚本对 Y200 和 Y378 分别测试 17 种替换（排除 Ala 已测、Pro 扰骨架、Cys 形成二硫），
-产出各位点的最优替换排名，直接给湿实验组引物设计使用。
+背景（已过时）：
+  v2 Alanine scan 发现 Gpr2 Y200A (ΔΔG_sel=+1.12) 和 Y378A (+0.92)——
+  这些结果基于 MMFF 配体和错误的两阶段协议，已被 2026-04-10 最终结果取代。
 
 依赖：
   - S1（run_wt_twostage.py）已完成，wt_twostage/docking_results.json 存在

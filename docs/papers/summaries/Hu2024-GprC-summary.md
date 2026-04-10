@@ -191,37 +191,84 @@ GprC 是 *A. flagrans* 中的一个双功能 GPCR：
 
 ---
 
-## Methods 中的对接参数细节
+## Methods 逐项细节（Reporting Summary + 正文交叉核实）
 
-| 参数 | 值 |
-|------|------|
-| 结构来源 | AlphaFold Protein Structure Database |
-| pLDDT 阈值 | > 0.85（跨膜区域） |
-| 突变建模 | AF2 web server, 5 models, 24 max_recycles |
-| 配体构建 | Avogadro |
-| 配体优化 | Orca, B3LYP/def2-TZVP |
-| 受体准备 | ADFR suite 'prepare_receptor' |
-| 配体准备 | ADFR suite 'prepare_ligand'（ascarylose 环外单键设为可旋转，7–11 DOFs） |
-| 原子电荷 | Gasteiger charge model |
-| 对接软件 | **AutoDock Vina** |
-| Grid box | 40 Å, 以受体质心为中心 |
-| Exhaustiveness | 200 |
-| Spacing | 0.1 Å |
-| 分析 | 前 5 个结合位姿 |
-| 配体 | ascaroside #1, #2, #3, #5, #18 |
-| 对接受体 | GprC, SRBC64, DAF37 及嵌合体 |
-| 结构比对工具 | TM-align (TM score > 0.7 表示结构相似) |
+| 参数 | 原文值 | 来源 |
+|------|------|------|
+| WT 结构 | AlphaFold Protein Structure Database（PDB 头标注 AF monomer v2.0） | p.1760 + Reporting Summary |
+| 突变体结构 | **AF2 web server**：5 models/output, 24 max_recycles, 2 num_ensemble | p.1760 |
+| TM 拓扑预测 | **Phyre2** (http://www.sbg.bio.ic.ac.uk/~phyre2/) + **TMHMM 2.0** | Reporting Summary |
+| pLDDT > 0.85 | 是 TM 螺旋区域的**质量描述**，原文未将其作为 TM 提取阈值 | p.1760 |
+| 信号肽/MTS 预测 | **ipsort** + **mitoprot** | Reporting Summary |
+| 配体构建 | **Avogadro 1.2.0** | Reporting Summary |
+| 配体优化 | **Orca 5.0.1**，B3LYP/def2-TZVP | Reporting Summary |
+| 受体准备 | ADFR suite **prepare_receptor** | p.1760 |
+| 配体准备 | ADFR suite **prepare_ligand**（默认设置：ascarylose 环外非环内单键设为可旋转，7–11 DOFs） | p.1760 "Following the default settings" |
+| 原子电荷 | **Gasteiger charge model** | p.1760 |
+| 对接软件 | **AutoDock Vina 1.2.3** | Reporting Summary |
+| Grid box | 40 Å，中心 = **受体质心**（"the centre of mass of the receptor"） | p.1760 |
+| Exhaustiveness | 200 | p.1760 |
+| Spacing | 0.1 Å | p.1760 |
+| num_modes | 未明确声明（原文写"25 binding poses of ascarosides #1, #2, #3, #5 and #18"，即 5 poses/ligand） | Fig. 5 legend |
+| 报告值 | **best pose 的 ΔG**（"Binding affinities and structures of the first binding poses"） | p.1760 |
+| 配体 | ascaroside #1, #2, #3, #5, #18（5 种） | Extended Data Table 2 |
+| 对接受体 | GprC, GprB, GprD, SRBC64, DAF37 + 2 嵌合体 + 3 突变体 = 10 种 | Extended Data Table 2 |
+| 结构叠合 | **VMD 1.9.4** + **TM-align**（TM score > 0.7 表示结构相似） | Reporting Summary + p.1760 |
+
+### Extended Data Table 2：best pose ΔG（kcal/mol）
+
+| 受体 | ascr#1 | ascr#2 | ascr#3 | ascr#5 | ascr#18 | Glucose | Sucrose |
+|------|--------|--------|--------|--------|---------|---------|---------|
+| GprB | -6.25 | -6.11 | -7.04 | -6.09 | -7.02 | -5.73 | -5.97 |
+| **GprC** | **-7.26** | **-6.90** | **-8.31** | **-6.62** | **-8.29** | -5.63 | -6.85 |
+| GprD | -5.08 | -5.69 | -6.30 | -5.00 | -5.85 | -4.86 | -5.64 |
+| SRBC64 | -6.99 | -6.61 | -7.61 | -6.50 | -7.51 | -6.00 | -6.57 |
+| SRBC66 | -6.36 | -6.34 | -6.18 | -6.05 | -6.94 | -5.36 | -5.77 |
+| Daf37 | -6.06 | -5.40 | -6.25 | -5.24 | -6.76 | -4.70 | -6.32 |
+| Daf38 | -7.03 | -6.40 | -7.64 | -5.54 | n.d. | n.d. | n.d. |
+| Chimeric SRBC64-GprC | -7.06 | -6.93 | -7.48 | -5.66 | n.d. | n.d. | n.d. |
+| Chimeric DAF37-GprC | -7.06 | -6.79 | -7.01 | -6.18 | n.d. | n.d. | n.d. |
+| Mutation SRBC64^N2.60A | -6.90 | -6.68 | -7.45 | -6.10 | n.d. | n.d. | n.d. |
+| Mutation GprC^N2.53A | -6.97 | -7.09 | -7.91 | -6.29 | n.d. | n.d. | n.d. |
+| Mutation GprC^N2.57A | -7.13 | -6.96 | -7.57 | -6.12 | n.d. | n.d. | n.d. |
+| Mutation GprC^R6.45A | -6.65 | -6.50 | -6.69 | -5.92 | n.d. | n.d. | n.d. |
+
+> GprC 对 ascr#3（-8.31）和 ascr#18（-8.29）亲和力最强。突变体中 R6.45A 的 ascr#3 亲和力降幅最大（-8.31 → -6.69，ΔΔG = +1.62）。N2.53A（阴性对照）对 ascr#3 几乎无影响（-8.31 → -7.91）。
+
+### Extended Data Table 3：BW 编号对应的配位残基
+
+| TM | Orthosteric site (ref 34) | GprC | SRBC64 | DAF37 |
+|----|--------------------------|------|--------|-------|
+| TM1 | — | — | — | — |
+| TM2 | 2.60, 2.63 | N2.53, N2.57, S2.60, R2.63 | Y2.53, V2.57, N2.60, N2.61 | L2.53, Y2.61 |
+| TM3 | 3.28, 3.29, 3.32, 3.33, 3.36, 3.37 | N3.28, Q3.33, V3.36 | I3.29, T3.32, I3.33, C3.37, R3.39 | S3.32, H3.33, Q3.36 |
+| TM4 | — | — | — | — |
+| TM5 | 5.39, 5.40, 5.43, 5.44, 5.47 | T5.39, H5.40, R5.44 | W5.39, R5.42, D5.43, Q5.46, Y5.47 | T5.42, N5.43, M5.46, V5.47 |
+| TM6 | **6.44, 6.48**, 6.51, 6.52, 6.55, 6.58 | W6.48, R6.55 | I6.43, S6.47, S6.51 | N6.48, L6.54, T6.55 |
+| TM7 | 7.31, 7.34, 7.38, 7.41, 7.42 | Q7.39, T7.42, Q7.43 | I7.32, K7.35, H7.36 | R7.35, I7.36, N7.39, A7.42, N7.45 |
+| Loop4-5 | **45.52** | W45.52, W45.54 | F45.48 | — |
+
+> 注：原文 TM6 中 GprC 标注为 **R6.45**（p.1759），但 Extended Data Table 3 中 GprC TM6 列出的是 W6.48 和 R6.55。表中加粗数字（6.44, 6.48）表示在 >200 种 Class A GPCR 晶体结构中 interaction frequency >40% 的位置（ref 34）。原文注释："The most conserved residue in TM7 could not be clearly defined for GprC and SRBC64, therefore, the most likely positions are shown."
+
+### 原文未提及的关键细节
+
+1. **Grid box center 细节不足**：原文仅写"the centre of mass of the receptor"，未说明是否对 ICL3 等无序区做了预处理。GprC 有 180aa 的 ICL3（A0A437AGY2 残基 193–373），未截断时会显著偏移质心。
+2. **突变体仅对接 4 种配体**（ascr#1,2,3,5），**不含 ascr#18**（Extended Data Table 2 中突变行 ascr#18 = n.d.）。
+3. **无 GitHub 链接**：Reporting Summary "Software and code" 仅列第三方工具，未发布自定义代码。
 
 ---
 
-## 与本项目的关键关联
+## 与本项目的潜在关联
 
 1. **GprC (A0A437AGY2)** 是 *A. flagrans* 中 ascaroside 感应的核心受体，功能已通过基因敲除/回补/过表达实验验证
 2. **GprC 通过 MAPK 通路**（非 cAMP-PKA）传导信号，与 Kuo et al. 中 Gpr2/Gpr3 的 cAMP-PKA 通路**不同**
-3. 对接参数（AutoDock Vina, box size 40 Å, exhaustiveness 200）可作为本项目的参考
-4. **嵌合蛋白策略**：前 4 TM 替换 + 保留后 3 TM 的设计思路对 §3.6 有直接参考价值
+3. 对接参数：AutoDock Vina 1.2.3, box 40 Å, exh 200, spacing 0.1 Å
+4. **嵌合蛋白策略**：前 4 TM 替换 + 保留后 3 TM 的设计思路
 5. S-motif 和 R-motif 是筛选/改造 ascaroside 受体特异性的潜在靶点
-6. 对接用了 5 种 ascaroside（#1, #2, #3, #5, #18），而非仅 #3 和 #18
+6. 对接用了 5 种 ascaroside（#1, #2, #3, #5, #18），不含 #7
+7. **Extended Data Table 2** 提供 10 种受体/嵌合/突变 × 多配体的 ΔG 参考值
+8. **Extended Data Table 3** 提供 3 种受体的 BW 编号配位残基（仅 BW 编号，无序列位置）
+9. **无 GitHub 代码**
 
 ---
 
@@ -231,3 +278,5 @@ GprC 是 *A. flagrans* 中的一个双功能 GPCR：
 |------|------|------|
 | 2026-04-03 | v1.0 | 初始总结，忠实于原文内容 |
 | 2026-04-06 | v1.1 | 补充 R6.45 仅有 BW 编号、无绝对序列位置的说明；补充突变株命名；明确 TM 预测工具（Phyre2/TMHMM 2.0） |
+| 2026-04-10 | v2.0 | 全面重写 Methods 细节：精确软件版本（Vina 1.2.3/Orca 5.0.1/Avogadro 1.2.0）、Extended Data Table 2+3 完整数据、pLDDT 澄清、grid box center 说明 |
+| 2026-04-10 | v2.1 | 清理项目特定内容（pipeline 对照表、ΔG 分析），遵循 DOCMAP 唯一权威源原则 |

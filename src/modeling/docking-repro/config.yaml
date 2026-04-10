@@ -255,11 +255,7 @@ validation:
 # In Silico 突变扫描（mutagenesis step）
 # ---------------------------------------------------------------------------
 mutagenesis:
-  # FoldX 可执行文件路径（mutant_source=foldx 时使用）
-  foldx_bin: "D:/foldxWindows/foldx_20261231.exe"
-
   # 突变体结构来源：
-  #   "foldx" — FoldX BuildModel（副链替换，快速，精度有限；已弃用）
   #   "af2"   — AF2 web server（已被 AF3 取代）
   #   "af3"   — AF3 web server 预测结构（当前方法）
   #             AF3 结构: mutagenesis/af3_structures/{RecName}/{Label}[_tm].pdb
@@ -275,7 +271,8 @@ mutagenesis:
   # WT 基线来源：
   #   "v2"   — 使用 experiments/docking/（已完成，Kuo2024 排名验证 PASS）
   #   "repro" — 使用 experiments/docking-repro/（Orca DFT 精确复现）
-  wt_baseline: "v2"
+  # 注意：run_mutagenesis_alanine.py L121 强制设为 "repro"（忽略此处配置）
+  wt_baseline: "repro"
 
   # 扫描类型：
   #   "alanine"    — 丙氨酸扫描（每个目标残基 → Ala，快速，验证口袋关键性）
@@ -306,18 +303,22 @@ mutagenesis:
       - 378   # v2 PLIP（ascr18/3/7 共享）
       - 381   # v2 PLIP（ascr18）
       - 425   # v2 PLIP（ascr18）
-    # 注意：Gpr2/Gpr3 全部残基来自 v2 PLIP 计算分析，无文献实验验证。
+    # 注意：Gpr2 残基来自 v2 PLIP 计算分析，无文献实验验证。
     # Kuo2024 仅报告 Gpr2 Y168 一个结合残基（SwissDock），无 Ala scan 数据。
+    # IFP 交叉验证（2026-04-10）：全部 9 个原始残基在 docking-repro IFP 中有接触，PASS。
+    # 格式：接触次数(ascr18/ascr3/ascr7)；ICL3 截断区=[212,321]（212-321 已删除），以下残基均不受影响。
+    # 2026-04-10 新增：THR124（IFP=9/11/15=35，高频）；AF3 已提交，单独补跑。
     Gpr2:
-      - 59    # v2 PLIP 最高频（ascr18/3/7 共享）；无实验验证
-      - 63    # v2 PLIP（ascr18/ascr7）
-      - 120   # v2 PLIP（ascr18）
-      - 200   # v2 PLIP（ascr7）；alanine scan ΔΔG_sel=+1.12（效应量最大，方向为增强 ascr3 偏好）
-      - 326   # v2 PLIP（ascr3）
-      - 327   # v2 PLIP（ascr3）
-      - 330   # v2 PLIP（ascr3）
-      - 378   # v2 PLIP（ascr18/3/7 共享）；alanine scan ΔΔG_sel=+0.92
-      - 381   # v2 PLIP（ascr18/ascr7）
+      - 59    # ARG59  TM2 — IFP 45次(16/14/15) HIGH；v2 PLIP 最高频
+      - 63    # ILE63  TM2 — IFP 29次(11/11/7)  MODERATE
+      - 120   # ILE120 TM3 — IFP 21次(7/6/8)   MODERATE
+      - 124   # THR124 TM3 — IFP 35次(9/11/15)  HIGH；IFP 验证新增（2026-04-10）；AF3 pending
+      - 200   # TYR200 TM5 — IFP 21次(6/7/8)   MODERATE
+      - 326   # LYS326 ICL3-linker — IFP 43次(18/14/11) VERY HIGH；linker 322-326 保留
+      - 327   # MET327 TM6 — IFP 51次(18/16/17) VERY HIGH（全场最高）
+      - 330   # TYR330 TM6 — IFP 11次(3/5/3)   LOW 但存在；old scan ΔΔG_sel=-1.19
+      - 378   # TYR378 TM7 — IFP 48次(16/16/16) HIGH；均匀跨配体
+      - 381   # ASN381 TM7 — IFP 39次(13/14/12) HIGH
     # Gpr3: IFP 高频接触残基（2026-04-09 替换 v2 PLIP 残基）
     # 原 v2 PLIP 残基 (192,193,197,285-289) 全部无效：
     #   - 285-289 在 ICL3 截断区 (202-289) 中不存在
@@ -344,28 +345,21 @@ mutagenesis:
 # S2: 多 seed 方差评估（run_multiseed.py）
 multiseed:
   seeds: [42, 123, 456, 789, 1024]
-  # WT 受体（全部三个）+ top 突变体（Gpr2 Y200A/Y378A/Y330A/R59A）
+  # WT 受体（全部三个）+ top 突变体（Tier 1，2026-04-10 更新）
   wt_receptors: ["GprC", "Gpr2", "Gpr3"]
   top_mutants:
     - receptor: "Gpr2"
-      mutation: "Y200A"
-    - receptor: "Gpr2"
-      mutation: "Y378A"
-    - receptor: "Gpr2"
-      mutation: "Y330A"
+      mutation: "M327A"
     - receptor: "Gpr2"
       mutation: "R59A"
+    - receptor: "Gpr3"
+      mutation: "I141A"
   # 输出: experiments/docking-repro/results/multiseed/
 
-# S3: Gpr2 Y200/Y378 饱和扫描（run_saturation_gpr2.py）
-# 配置通过脚本内部动态覆盖 mutagenesis 节，不在此单独定义
-# 关键参数：
-#   scan_type: saturation
-#   target_receptors: [Gpr2]
-#   scan_residues: {Gpr2: [200, 378]}
-#   exclude_aas: [A, P, C]   # A 已测，P 扰骨架，C 形成二硫
-# WT 基线: 优先 S1 两阶段结果，否则退回 v2
-# 输出: experiments/docking-repro/mutagenesis_saturation_gpr2/
+# S3: 饱和扫描（generate_saturation_fastas.py 已取代 run_saturation_gpr2.py）
+# 旧脚本 run_saturation_gpr2.py 基于 v2 结果（Y200/Y378），已被 Tier 1 位点取代
+# 新脚本使用 Tier 1/2 位点：Gpr2 M327/R59, Gpr3 I141/F170/V138
+# 详见 generate_saturation_fastas.py
 
 # S4: GprC 扩大 Docking Box（25Å）验证外周残基（run_wt_twostage.py --gprc-expand）
 gprc_expanded_box:

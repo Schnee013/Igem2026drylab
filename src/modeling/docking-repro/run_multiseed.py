@@ -6,7 +6,7 @@ S2: 多 Seed 方差评估 — 量化 Vina 随机噪声，为关键结果提供�
 
 策略：
   1. WT 受体（GprC/Gpr2/Gpr3）× 配体 × 5 seeds = 多次对接
-  2. Top 突变体（Gpr2 Y200A, Y378A, Y330A, R59A）× 配体 × 5 seeds
+  2. Top 突变体（Tier 1: Gpr2 M327A, R59A, Gpr3 I141A）× 配体 × 5 seeds
   3. 计算 mean ± SD，报告 95% CI 和 ΔΔG_sel 统计显著性
 
 依赖：
@@ -62,15 +62,12 @@ LIGAND_PDBQTS = {
     "ascr7":  "ascr7_optimized.pdbqt",
 }
 
-# 方差评估的突变体（效应量最大的 Gpr2 突变，用于验证关键残基对接稳定性）
-# 注意：这些突变的 ΔΔG_sel 均为正值（0.37~1.12），表示增强 ascr3 偏好（非选择性改善方向）。
-# 其意义在于：效应量大 → 该位点是结合口袋关键残基 → S3 饱和扫描的优先靶点。
-# PDBQT 由 mutagenesis.py 生成后复制到 mutagenesis/prepared/（统一平铺命名）。
+# 方差评估的突变体（Tier 1 候选，2026-04-10 更新）
+# PDBQT 由 mutagenesis.py 生成后复制到 mutagenesis/af3_prepared/（按受体子目录）。
 TOP_MUTANTS = {
-    ("Gpr2", "Y200A"): "Gpr2_Y200A_tm.pdbqt",
-    ("Gpr2", "Y378A"): "Gpr2_Y378A_tm.pdbqt",
-    ("Gpr2", "Y330A"): "Gpr2_Y330A_tm.pdbqt",
+    ("Gpr2", "M327A"): "Gpr2_M327A_tm.pdbqt",
     ("Gpr2", "R59A"):  "Gpr2_R59A_tm.pdbqt",
+    ("Gpr3", "I141A"): "Gpr3_I141A_tm.pdbqt",
 }
 
 

@@ -1,0 +1,29 @@
+PLIP Interaction Report: GprC_ascr18
+==================================================
+
+Binding site: UNL:Z:1
+----------------------------------------
+
+Hydrogen bonds (5):
+  GLN411 (P→L) d=3.43Å angle=174.6°
+  GLN415 (P→L) d=3.1Å angle=146.9°
+  ASN60 (P→L) d=3.4Å angle=124.5°
+  ARG174 (P→L) d=2.95Å angle=154.3°
+  ARG174 (P→L) d=3.85Å angle=126.5°
+
+Hydrophobic contacts (8):
+  VAL91 d=3.73Å
+  VAL91 d=3.63Å
+  TRP155 d=3.97Å
+  TRP155 d=3.5Å
+  TRP157 d=3.72Å
+  TRP157 d=3.65Å
+  TRP157 d=3.75Å
+  TRP157 d=3.78Å
+
+Salt bridges (3):
+  HIS171 d=4.51Å
+  ARG174 d=4.51Å
+  ARG395 d=3.97Å
+
+Pi-stacking (0):

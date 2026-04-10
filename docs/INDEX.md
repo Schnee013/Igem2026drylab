@@ -3,7 +3,7 @@
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
-- **当前阶段**: P0 分子对接（S1 WT 重对接运行中，Orca 配体已就绪）；底盘决策等待 PI 确认
+- **当前阶段**: P0 分子对接（计算完成，进入输出阶段：Wiki 写作 + 湿实验交接）；底盘决策等待 PI 确认
 - **主要卡点**: 底盘选择未确定（等 PI 确认真菌物种和遗传操作工具）
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌](prd/overview.md)
@@ -14,7 +14,7 @@
 
 | 优先级 | 方向 | 底盘相关 | 状态 | 文档 |
 |--------|------|---------|------|------|
-| **P0** | 受体-配体分子对接 | 否 | in_progress | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
+| **P0** | 受体-配体分子对接 | 否 | completed | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0** | 信号通路 ODE 建模 | **是** | not_started | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
@@ -52,6 +52,12 @@
 | 干实验总策略 | §2 方向评估、痛点调研、防治决策 | [dry-lab-strategy.md](prd/dry-lab-strategy.md) |
 | 底盘决策分析 | §2C-2D 酵母vs真菌、决策树、行动项 | [chassis-decision.md](prd/chassis-decision.md) |
 | 学习路线图 | §4+§6 学习资源、硬件、工具 | [roadmap.md](learning/roadmap.md) |
+
+## 湿实验交接
+
+| 文档 | 内容 | 链接 |
+|------|------|------|
+| P0 分子对接交接 | Tier 1-2 候选位点、实验建议、计算局限性 | [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md) |
 
 ## 运维参考
 
@@ -98,21 +104,25 @@
 
 ## 最近进展
 
-- **2026-04-06**: ① Orca 3 配体准备完成（ascr18/ascr3/ascr7 _optimized.pdbqt）② S2 multiseed WT 完成（9 组 mean±SD）③ pipeline 代码全面审计修复 12 个 bug（路径约定、配体命名、MMFF 结果标注、统计方法、preflight 机制）④ S1 重跑已启动（Orca 配体，两阶段协议）
-- **2026-04-05**: alanine scan 完成（27 突变体，3 受体）；Gpr2 Y200/Y378 效应量最大（ΔΔG_sel > 0.9，但为 MMFF 结果待重新验证）
-- **2026-04-04**: v2 pipeline production 对接完成；Kuo2024 排名验证 PASS；docking-repro pipeline 代码完成
-- **2026-04-03**: 文献总结 16 篇；papers/ 重组；文献矩阵勘误 5 处
+- **2026-04-10**: ① GprC×14 + Gpr2×10 alanine scan 完成（Run 20260410_014537）② 全量 32 条合并（mutagenesis_results_all_20260410.json）③ Tier 1-4 推荐表生成 — **P0 分子对接计算部分基本完成**
+- **2026-04-09**: Gpr3 IFP alanine scan 完成（8 残基）；Gpr2 IFP 交叉验证 PASS；BW 映射修正
+- **2026-04-08**: WT 单阶段 GprC_ascr18 精确复现 Hu2024（Δ=0.05）；BW 映射修正完成
+- **2026-04-07**: 协议偏差修复（单阶段 Hu2024）；ICL3 截断；AF3 pipeline 完成
+- **2026-04-06**: Orca 3 配体完成；S2 multiseed WT；pipeline 审计修复 12 bugs
 
 ---
 
 ## 待办
 
-- [ ] 问 PI 确认真菌物种、遗传工具、底盘倾向（本周内）
+### P0 分子对接（计算完成，进入输出阶段）
+- [x] WT 单阶段；[x] Alanine scan 32 突变体；[x] Tier 1-4 推荐表
+- [ ] **Wiki 写作**：计算结果 → iGEM wiki（[P0-molecular-docking.md](modeling/P0-molecular-docking.md)）
+- [ ] **湿实验候选交接**：Tier 1-2（M327A/R59A/I141A）结构化报告给湿实验团队
+- [ ] M327A / R59A 多 seed 验证（可选，已超 3σ）
+
+### 其他待启动
+- [ ] 问 PI 确认真菌物种、遗传工具、底盘倾向
+- [ ] 启动 P0-signal-pathway-ode（底盘确认后）
 - [ ] 检索 GEO/SRA 转录组数据
 - [ ] 与 HP 组沟通经济效益模型需求
-- [ ] **[运行中] S1 WT 两阶段重对接**（Orca 配体，run_s1.bat）
-- [ ] S1 完成后：启动 mutagenesis alanine scan（3 受体，用 S1 WT 基线）
-- [ ] mutagenesis 完成后：S2 补跑突变体部分 + S3 饱和扫描（Gpr2 Y200/Y378）
-- [ ] S1-S3 完成后汇总分析，重新确认湿实验候选
-- [ ] 开始 §3.5c 经济效益模型（收集作物损失函数文献）
-- [ ] 第 4 周前确定主线底盘
+- [ ] 开始 §3.5c 经济效益模型

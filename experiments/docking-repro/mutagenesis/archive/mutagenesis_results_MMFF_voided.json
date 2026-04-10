@@ -1,0 +1,50 @@
+[
+  {
+    "receptor": "GprC",
+    "mutation": "R281A",
+    "wt_residue": "R",
+    "mut_residue": "A",
+    "residue_num": 281,
+    "dg_ascr18": -6.813,
+    "dg_ascr3": -6.693,
+    "dg_wt_ascr18": -6.048,
+    "dg_wt_ascr3": -6.445,
+    "ddg_ascr18": -0.7649999999999997,
+    "ddg_ascr3": -0.24799999999999933,
+    "ddg_selectivity": -0.5170000000000003,
+    "sel_wt": 0.39700000000000024,
+    "sel_mut": -0.1200000000000001
+  },
+  {
+    "receptor": "GprC",
+    "mutation": "S77A",
+    "wt_residue": "S",
+    "mut_residue": "A",
+    "residue_num": 77,
+    "dg_ascr18": -6.733,
+    "dg_ascr3": -6.687,
+    "dg_wt_ascr18": -6.048,
+    "dg_wt_ascr3": -6.445,
+    "ddg_ascr18": -0.6849999999999996,
+    "ddg_ascr3": -0.242,
+    "ddg_selectivity": -0.4429999999999996,
+    "sel_wt": 0.39700000000000024,
+    "sel_mut": -0.045999999999999375
+  },
+  {
+    "receptor": "GprC",
+    "mutation": "N83A",
+    "wt_residue": "N",
+    "mut_residue": "A",
+    "residue_num": 83,
+    "dg_ascr18": -6.733,
+    "dg_ascr3": -6.687,
+    "dg_wt_ascr18": -6.048,
+    "dg_wt_ascr3": -6.445,
+    "ddg_ascr18": -0.6849999999999996,
+    "ddg_ascr3": -0.242,
+    "ddg_selectivity": -0.4429999999999996,
+    "sel_wt": 0.39700000000000024,
+    "sel_mut": -0.045999999999999375
+  }
+]

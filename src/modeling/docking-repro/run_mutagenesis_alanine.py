@@ -118,6 +118,7 @@ def main() -> None:
     )
 
     # 使用 AF3 突变体结构 + 单阶段对接协议
+    # wt_baseline 强制 "repro"（忽略 config.yaml 中的字段，此处为权威源）
     config["mutagenesis"]["wt_baseline"] = "repro"
     config["mutagenesis"]["mutant_source"] = "af3"
     config["mutagenesis"]["docking_mode"] = "singlestage"

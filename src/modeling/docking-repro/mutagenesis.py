@@ -5,11 +5,9 @@ In silico 突变扫描模块 — 预测增强 ascr#18/ascr#3 选择性的突变�
       识别特异性、同时降低对 ascr#3（自由生活线虫标志物）亲和力的突变位点。
 
 方法路线：
-  1. FoldX RepairPDB  — 预处理受体 PDB（能量最小化，修复异常键长/键角）
-  2. FoldX BuildModel — 为每个候选突变生成突变体结构（秒级，~0.5 kcal/mol 精度）
-  3. ADFR prepare_receptor — 将突变体 PDB 转换为 PDBQT
-  4. 两阶段 Vina 对接（复用 dock.py）— 对 ascr18 + ascr3 分别打分
-  5. ΔΔG 选择性评分：
+  1. AlphaFold 3 Server — 预测突变体全长结构，ADFR 准备 PDBQT
+  2. Vina 对接（复用 dock.py，支持 singlestage/twostage）— 对 ascr18 + ascr3 分别打分
+  3. ΔΔG 选择性评分：
        ΔG_sel(WT)  = ΔG(WT, ascr18)  - ΔG(WT, ascr3)
        ΔG_sel(mut) = ΔG(mut, ascr18) - ΔG(mut, ascr3)
        ΔΔG_sel     = ΔG_sel(mut) - ΔG_sel(WT)
@@ -17,22 +15,16 @@ In silico 突变扫描模块 — 预测增强 ascr#18/ascr#3 选择性的突变�
 
 参考文献：
   Hu et al. 2024 Nat Microbiol — GprC 关键残基（N2.57/R6.45/S2.41）实验验证
-  FoldX: Schymkowitz et al. 2005 Nucleic Acids Res — 突变体结构预测
-
-FoldX 下载（学术免费）：https://foldxsuite.crg.eu/academic-license-info
 """
 
 from __future__ import annotations
 
 import json
-import subprocess
-import shutil
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Optional
 
 from utils import generate_run_id, get_logger, get_project_root, save_results_json
-from prepare_receptor import prepare_receptor_adfr
 
 
 # ---------------------------------------------------------------------------
@@ -69,56 +61,6 @@ class MutantDockingResult:
     sel_mut: float         # ΔG_sel(mut) = dg_ascr18 - dg_ascr3
 
 
-# ---------------------------------------------------------------------------
-# FoldX 工具函数
-# ---------------------------------------------------------------------------
-
-def _find_foldx(foldx_bin: Optional[str] = None) -> Path:
-    """
-    查找 FoldX 可执行文件。
-
-    搜索顺序：
-      1. config 指定路径
-      2. 系统 PATH（foldx / foldx.exe）
-      3. 常见安装路径
-
-    未找到时抛出含下载指引的异常。
-    """
-    candidates = []
-    if foldx_bin:
-        candidates.append(Path(foldx_bin))
-
-    # PATH 中查找
-    for name in ["foldx", "foldx.exe", "FoldX", "FoldX.exe"]:
-        found = shutil.which(name)
-        if found:
-            candidates.append(Path(found))
-
-    # 常见路径（包含版本化文件名）
-    for p in [
-        Path("D:/foldxWindows/foldx_20261231.exe"),
-        Path("D:/drylab-tools/foldx/foldx.exe"),
-        Path("D:/foldx/foldx.exe"),
-        Path("/usr/local/bin/foldx"),
-        Path.home() / "foldx" / "foldx",
-        Path.home() / "Downloads" / "foldx" / "foldx",
-    ]:
-        candidates.append(p)
-
-    for p in candidates:
-        if p.exists():
-            return p
-
-    raise FileNotFoundError(
-        "FoldX 未找到。请下载并安装 FoldX（学术免费）：\n"
-        "  https://foldxsuite.crg.eu/academic-license-info\n"
-        "下载后将 foldx 可执行文件放到以下任意位置：\n"
-        "  Windows: D:\\drylab-tools\\foldx\\foldx.exe\n"
-        "  Mac:     ~/foldx/foldx 并 chmod +x\n"
-        "或在 config.yaml 的 mutagenesis.foldx_bin 中指定路径。"
-    )
-
-
 def _get_residue_wt(pdb_path: Path, chain_id: str, residue_num: int) -> str:
     """
     从 PDB 文件中查询指定残基的野生型单字母代码。
@@ -150,162 +92,6 @@ def _get_residue_wt(pdb_path: Path, chain_id: str, residue_num: int) -> str:
             f"残基 {residue_num} 在链 {chain_id} 中未找到。可用范围: {rng}"
         )
     return ONE_LETTER.get(found, "X")
-
-
-def repair_receptor(
-    pdb_path: Path,
-    output_dir: Path,
-    foldx_bin: Path,
-) -> Path:
-    """
-    FoldX RepairPDB：对受体进行能量最小化，修复异常键长/键角。
-    这是 BuildModel 的必要前置步骤。
-
-    Args:
-        pdb_path: 受体 PDB（TM-only，已清理）
-        output_dir: 输出目录
-        foldx_bin: FoldX 可执行文件路径
-
-    Returns:
-        修复后的 PDB 路径（`<stem>_Repair.pdb`）
-    """
-    logger = get_logger()
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    repaired_pdb = output_dir / f"{pdb_path.stem}_Repair.pdb"
-    if repaired_pdb.exists():
-        logger.info(f"  RepairPDB 已存在，跳过: {repaired_pdb.name}")
-        return repaired_pdb
-
-    logger.info(f"FoldX RepairPDB: {pdb_path.name}")
-
-    # FoldX 需要 rotabase.txt 在工作目录；将其从 FoldX 安装目录复制过来
-    rotabase_src = Path(foldx_bin).parent / "rotabase.txt"
-    rotabase_dst = Path(pdb_path.parent) / "rotabase.txt"
-    if rotabase_src.exists() and not rotabase_dst.exists():
-        shutil.copy2(rotabase_src, rotabase_dst)
-
-    cmd = [
-        str(foldx_bin),
-        "--command=RepairPDB",
-        f"--pdb={pdb_path.name}",
-        f"--output-dir={output_dir}",
-    ]
-    result = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True,
-        cwd=str(pdb_path.parent),
-    )
-    if result.returncode != 0:
-        raise RuntimeError(
-            f"FoldX RepairPDB 失败 (code={result.returncode}):\n"
-            f"stdout: {result.stdout}\nstderr: {result.stderr}"
-        )
-
-    if not repaired_pdb.exists():
-        raise RuntimeError(f"FoldX 未生成修复 PDB: {repaired_pdb}")
-
-    logger.info(f"  RepairPDB 完成: {repaired_pdb.name}")
-    return repaired_pdb
-
-
-def build_mutants(
-    repaired_pdb: Path,
-    mutations: list[dict],  # [{"wt": "N", "chain": "A", "resnum": 83, "mut": "A"}, ...]
-    output_dir: Path,
-    foldx_bin: Path,
-) -> dict[str, Path]:
-    """
-    FoldX BuildModel：批量生成突变体 PDB 文件。
-
-    FoldX individual_list.txt 格式（每行一个突变）：
-      <WT_aa><chain><resnum><mut_aa>;
-      示例：NA83A;  → 第 83 号残基 Asn → Ala（chain A）
-
-    FoldX 输出：<pdb_stem>_1.pdb, <pdb_stem>_2.pdb, ...（按列表顺序编号）
-
-    Args:
-        repaired_pdb: FoldX RepairPDB 输出的 PDB
-        mutations: 突变列表，每条含 wt/chain/resnum/mut 字段
-        output_dir: 输出目录
-        foldx_bin: FoldX 可执行文件路径
-
-    Returns:
-        {mutation_label: pdb_path} 字典
-        mutation_label 格式："{wt}{resnum}{mut}"（如 "N83A"）
-    """
-    logger = get_logger()
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    # 写 individual_list.txt
-    list_path = output_dir / "individual_list.txt"
-    lines = []
-    labels = []
-    for m in mutations:
-        label = f"{m['wt']}{m['resnum']}{m['mut']}"
-        foldx_line = f"{m['wt']}{m['chain']}{m['resnum']}{m['mut']};"
-        lines.append(foldx_line)
-        labels.append(label)
-
-    list_path.write_text("\n".join(lines) + "\n")
-    logger.info(f"突变列表已写入: {list_path} ({len(lines)} 个突变)")
-
-    # FoldX 需要 rotabase.txt 在工作目录
-    rotabase_src = Path(foldx_bin).parent / "rotabase.txt"
-    rotabase_dst = Path(repaired_pdb.parent) / "rotabase.txt"
-    if rotabase_src.exists() and not rotabase_dst.exists():
-        shutil.copy2(rotabase_src, rotabase_dst)
-
-    # 运行 BuildModel
-    stem = repaired_pdb.stem
-    cmd = [
-        str(foldx_bin),
-        "--command=BuildModel",
-        f"--pdb={repaired_pdb.name}",
-        f"--mutant-file={list_path.name}",
-        f"--output-dir={output_dir}",
-        "--numberOfRuns=1",
-        "--out-pdb=true",
-    ]
-    logger.info(f"FoldX BuildModel: {len(mutations)} 个突变")
-    result = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True,
-        cwd=str(repaired_pdb.parent),
-    )
-    if result.returncode != 0:
-        raise RuntimeError(
-            f"FoldX BuildModel 失败 (code={result.returncode}):\n"
-            f"stdout: {result.stdout}\nstderr: {result.stderr}"
-        )
-
-    # 收集输出（FoldX 按顺序编号 _1.pdb, _2.pdb, ...）
-    # 特殊情况：单突变时部分 FoldX 版本输出无后缀 {stem}.pdb
-    mutant_pdbs = {}
-    for i, label in enumerate(labels, start=1):
-        expected = output_dir / f"{stem}_{i}.pdb"
-        if not expected.exists():
-            alt_run = output_dir / f"{stem}_{i}_0.pdb"  # numberOfRuns>1 格式
-            alt_single = output_dir / f"{stem}.pdb"      # 单突变无编号格式
-            if alt_run.exists():
-                expected = alt_run
-            elif alt_single.exists() and len(labels) == 1:
-                expected = alt_single
-            else:
-                logger.warning(f"  突变体 PDB 未找到: {expected.name}，跳过 {label}")
-                continue
-        # 重命名为有意义的文件名
-        target = output_dir / f"{repaired_pdb.stem.replace('_Repair', '')}_{label}.pdb"
-        shutil.copy2(expected, target)
-        mutant_pdbs[label] = target
-        logger.info(f"  生成突变体: {target.name}")
-
-    logger.info(f"BuildModel 完成：{len(mutant_pdbs)}/{len(mutations)} 个突变体")
-    return mutant_pdbs
 
 
 # ---------------------------------------------------------------------------
@@ -382,10 +168,9 @@ def run_mutagenesis(
 
     流程：
       1. 加载 WT 对接结果（来自 docking_results.json 或参数传入）
-      2. FoldX RepairPDB → BuildModel 生成突变体
-      3. ADFR 准备突变体 PDBQT
-      4. 两阶段 Vina 对接（ascr18 + ascr3）
-      5. 计算 ΔΔG_selectivity，生成排名报告
+      2. 加载 AF3 预测的突变体 PDBQT（外部准备）
+      3. 两阶段 Vina 对接（ascr18 + ascr3）
+      4. 计算 ΔΔG_selectivity，生成排名报告
 
     Args:
         config: pipeline 配置字典
@@ -405,15 +190,9 @@ def run_mutagenesis(
     )
     mutant_dir.mkdir(parents=True, exist_ok=True)
 
-    mutant_source = mut_cfg.get("mutant_source", "foldx")
+    mutant_source = mut_cfg.get("mutant_source", "af3")
     docking_mode = mut_cfg.get("docking_mode", "singlestage")
     logger.info(f"突变体来源: {mutant_source}，对接协议: {docking_mode}")
-
-    # FoldX 路径（仅 foldx 模式需要）
-    foldx_bin = None
-    if mutant_source == "foldx":
-        foldx_bin = _find_foldx(mut_cfg.get("foldx_bin"))
-        logger.info(f"FoldX: {foldx_bin}")
 
     # 确定 WT baseline 路径（v2 或 repro）
     wt_baseline = mut_cfg.get("wt_baseline", "repro")
@@ -485,8 +264,7 @@ def run_mutagenesis(
 
         # TM PDB — 必须先获取，用于：
         #   1. 确定突变列表（确保残基在 TM 域内）
-        #   2. FoldX RepairPDB + BuildModel 的输入
-        #   3. 受体质心计算（singlestage 对接）
+        #   2. 受体质心计算（singlestage 对接）
         tm_pdb = baseline_prepared_dir / "receptors" / f"{pdb_path.stem}_tm.pdb"
         if not tm_pdb.exists():
             hint = ("experiments/docking/prepared/receptors/"
@@ -512,41 +290,7 @@ def run_mutagenesis(
             continue
         logger.info(f"  共 {len(mutations)} 个突变待处理")
 
-        repaired_pdb = None  # 仅 FoldX 模式使用
-
-        if mutant_source == "foldx":
-            # Step 1: FoldX RepairPDB
-            repaired_pdb = repair_receptor(tm_pdb, rec_mut_dir / "foldx", foldx_bin)
-
-            # Step 2: FoldX BuildModel
-            mutant_pdbs = build_mutants(
-                repaired_pdb,
-                mutations,
-                output_dir=rec_mut_dir / "foldx",
-                foldx_bin=foldx_bin,
-            )
-
-            # Step 3: ADFR 准备突变体 PDBQT
-            adfr_bin = config["remote"]["adfr_bin"]
-            prepared_flat_dir = mutant_dir / "prepared"
-            prepared_flat_dir.mkdir(parents=True, exist_ok=True)
-
-            mutant_pdbqts = {}
-            for label, mut_pdb in mutant_pdbs.items():
-                pdbqt_dir = rec_mut_dir / label / "pdbqt"
-                try:
-                    pdbqt = prepare_receptor_adfr(
-                        mut_pdb, pdbqt_dir, adfr_bin, skip_tm_extraction=True
-                    )
-                    mutant_pdbqts[label] = pdbqt
-                    flat_name = f"{rec_name}_{label}_tm.pdbqt"
-                    flat_dest = prepared_flat_dir / flat_name
-                    shutil.copy2(pdbqt, flat_dest)
-                    logger.info(f"  → 已复制到 prepared/: {flat_name}")
-                except Exception as e:
-                    logger.error(f"  ADFR 准备失败 ({label}): {e}")
-
-        elif mutant_source in ("af2", "af3"):
+        if mutant_source in ("af2", "af3"):
             # AF2/AF3 突变体 PDBQT 已通过外部流程准备好，直接加载
             # AF3 命名约定: {mutagenesis_dir}/af3_prepared/{rec_name}/{label}_tm.pdbqt
             # AF2 命名约定: {mutagenesis_dir}/af2_prepared/{rec_name}/{label}_tm.pdbqt
@@ -593,8 +337,7 @@ def run_mutagenesis(
                 out_dir = rec_mut_dir / label / "docking"
                 try:
                     # COM 计算用 WT TM PDB（单残基突变对质心影响 <0.1Å）
-                    # FoldX 模式用 repaired_pdb 保持历史兼容
-                    tm_ref = repaired_pdb if mutant_source == "foldx" else tm_pdb
+                    tm_ref = tm_pdb
                     if docking_mode == "singlestage":
                         result = dock_pair_singlestage(
                             receptor_pdbqt=pdbqt,
@@ -709,7 +452,7 @@ def _get_scan_residues(config: dict, rec_name: str) -> list[int]:
 def _write_report(
     results: list[MutantDockingResult],
     output_path: Path,
-    mutant_source: str = "foldx",
+    mutant_source: str = "af3",
     docking_mode: str = "singlestage",
 ) -> None:
     """生成 Markdown 格式的突变扫描报告。"""
@@ -759,7 +502,7 @@ def _write_report(
         "",
         "## 方法说明",
         "",
-        f"1. **结构预测**：{'AlphaFold 3 Server（diffusion-based，全长蛋白预测 + pLDDT TM 域提取）' if mutant_source == 'af3' else 'AlphaFold 2 Server' if mutant_source == 'af2' else 'FoldX BuildModel（WT 结构基础上的副链替换）'}",
+        f"1. **结构预测**：{'AlphaFold 3 Server（diffusion-based，全长蛋白预测 + pLDDT TM 域提取）' if mutant_source == 'af3' else 'AlphaFold 2 Server'}",
         "2. **受体准备**：ADFR Suite prepare_receptor（与 Hu2024 方法一致）",
         f"3. **对接**：AutoDock Vina {'单阶段（40Å/0.1Å, exh=200）' if docking_mode == 'singlestage' else '两阶段（Stage1: 40Å/0.25Å, Stage2: 20Å/0.1Å, exh=200）'}",
         "4. **验证基准**：N83A（Hu2024 报道丧失功能）、R281A（亲和力剧降）",

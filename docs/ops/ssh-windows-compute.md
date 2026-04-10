@@ -203,7 +203,7 @@ ssh Administrator@100.87.153.84 'powershell -Command "Remove-Item D:/drylab-tool
 |------|------|
 | `experiments/` 下全部子目录 | 计算产出（results/、logs/、prepared/、ligands/orca/） |
 | `run_*.bat` | 硬编码 Windows PATH 的启动脚本 |
-| `D:\orca\`、`D:\ADFRsuite\`、`D:\foldxWindows\` | 工具二进制 |
+| `D:\orca\`、`D:\ADFRsuite\` | 工具二进制 |
 | `D:\drylab-tools\envs\docking-repro\` | conda 环境 |
 
 ### Windows → Mac（拉回计算结果）
@@ -224,7 +224,6 @@ scp Administrator@100.87.153.84:"D:/drylab-tools/workspace/output.json" \
 | 项目根目录（Windows） | `D:\drylab-tools\workspace` |
 | conda 环境 | `D:\drylab-tools\envs\docking-repro` |
 | vina.exe | `D:\drylab-tools\vina.exe` |
-| FoldX | `D:\foldxWindows\foldx_20261231.exe` |
 | Orca | `D:\orca\orca.exe` |
 | ADFR Suite | `D:\ADFRsuite\bin` |
 | 日志目录 | `D:\drylab-tools\workspace\experiments\docking-repro\logs\` |

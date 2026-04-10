@@ -208,7 +208,7 @@ def main() -> None:
 
     # === mutagenesis ===
     if args.step in ("mutagenesis",):
-        logger.info("--- In Silico 突变扫描（FoldX + Vina 重对接）---")
+        logger.info("--- In Silico 突变扫描（AF3 结构 + Vina 重对接）---")
         from mutagenesis import run_mutagenesis
         mut_results = run_mutagenesis(config)
         root = get_project_root(config)

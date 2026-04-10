@@ -248,7 +248,7 @@ def prepare_receptor_adfr(
     1. TM 域提取：
        - tm_topology 提供时：基于 UniProt 注释截断 ICL3（推荐）
        - 否则：pLDDT 自动识别（旧方法，保留向后兼容）
-       - skip_tm_extraction=True：跳过（FoldX 突变体，已是 TM-only）
+       - skip_tm_extraction=True：跳过（突变体，已是 TM-only）
     2. BioPython 清理 PDB（去水/HETATM）
     3. ADFR prepare_receptor 转换（加氢、原子类型指派）
 
@@ -271,7 +271,7 @@ def prepare_receptor_adfr(
     stem = pdb_path.stem
 
     if skip_tm_extraction:
-        # FoldX 突变体：已经是 TM-only 结构，直接清理
+        # 突变体：已经是 TM-only 结构，直接清理
         cleaned_pdb = output_dir / f"{stem}_cleaned.pdb"
         _clean_pdb(pdb_path, cleaned_pdb)
     elif tm_topology is not None and receptor_name is not None:

@@ -1,0 +1,24 @@
+PLIP Interaction Report: Gpr3_ascr3
+==================================================
+
+Binding site: UNL:Z:1
+----------------------------------------
+
+Hydrogen bonds (2):
+  ASN171 (L→P) d=3.29Å angle=116.5°
+  GLN93 (P→L) d=3.18Å angle=102.8°
+
+Hydrophobic contacts (8):
+  ALA97 d=3.97Å
+  VAL101 d=3.54Å
+  VAL101 d=3.75Å
+  ILE104 d=3.74Å
+  PHE134 d=3.74Å
+  PHE170 d=3.61Å
+  PHE170 d=3.8Å
+  ILE178 d=3.84Å
+
+Salt bridges (1):
+  ARG175 d=4.07Å
+
+Pi-stacking (0):
