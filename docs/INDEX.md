@@ -3,10 +3,10 @@
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
-- **当前阶段**: P0 分子对接（计算完成，进入输出阶段：Wiki 写作 + 湿实验交接）；底盘决策等待 PI 确认
-- **主要卡点**: 底盘选择未确定（等 PI 确认真菌物种和遗传操作工具）
+- **当前阶段**: P0 分子对接计算完成（饱和扫描 Tier v2，122 条）；底盘锁定酵母-STE2；进入 P0-ODE / P0-嵌合 Gpa1 / P0-MD 三线启动 + 湿实验交接 + Wiki 写作阶段
+- **主要卡点**: 显色级联具体方案 TBD（报告基因 / 整合位点 / 是否 GAL4 放大）；MD 算力方案待定（AMD ROCm 兼容性 + PI 课题组服务器配置）
 - **目标**: iGEM Wiki freeze 约 2026-09 底
-- **详细背景**: [项目全貌](prd/overview.md)
+- **详细背景**: [项目全貌 v4](prd/overview-v4.md)
 
 ---
 
@@ -15,22 +15,23 @@
 | 优先级 | 方向 | 底盘相关 | 状态 | 文档 |
 |--------|------|---------|------|------|
 | **P0** | 受体-配体分子对接 | 否 | completed | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
-| **P0** | 信号通路 ODE 建模 | **是** | not_started | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | MD 模拟（V138R 盐桥实证 + Top 6 稳定性） | 否 | learning | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | in_progress | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | in_progress | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
 | **P2** | 早期检测经济效益模型 | 否 | not_started | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
 | **P2** | 化学杀线虫剂剂量-响应 | 否 | not_started | [P2-dose-response.md](modeling/P2-dose-response.md) |
-| **P2** | 生物防治 Lotka-Volterra | 仅丝状真菌 | not_started | [P2-biocontrol-lv.md](modeling/P2-biocontrol-lv.md) |
-| **P3** | 嵌合 Gpa1 同源性建模 | 仅酵母 | not_started | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
+| ~~P2~~ | ~~生物防治 Lotka-Volterra~~ | 仅丝状真菌 | **archived** | [P2-biocontrol-lv.md](modeling/P2-biocontrol-lv.md) |
 
 ---
 
 ## 阻塞性待确认事项
 
-- [ ] **[阻塞] PI 真菌物种确认**: 实验室做的"真菌"是哪个物种？→ 直接决定底盘选择（[决策树](prd/chassis-decision.md)）
-- [ ] **[阻塞] 遗传操作工具确认**: 转化方法、选择标记、CRISPR 是否已建立？
-- [ ] **[阻塞] PI 底盘倾向性**: 酵母 vs 丝状真菌有无明确偏好？
-- [ ] **[重要] 转录组数据检索**: GEO/SRA 中 *A. oligospora*/*A. flagrans* ascaroside RNA-seq 数据？
+> 2026-04-11 底盘 4 项阻塞全部解除（PI 确认酵母-STE2 主线，详见 [决策 003](decisions/003-chassis-yeast-ste2-integration.md)）。
+
+- [ ] **[阻塞] 显色级联方案**：报告基因 / 整合位点 / 拷贝数目标 / 是否 GAL4 放大 → 与通路工程组讨论
+- [ ] **[阻塞] MD 算力方案**：AMD RX 6750 GRE 10G 兼容的 MD 软件评估 + PI 课题组服务器配置确认
 - [ ] **[重要] HP 组沟通**: 经济效益模型需要哪些定量论据？
 
 ---
@@ -48,9 +49,10 @@
 
 | 文档 | 内容 | 链接 |
 |------|------|------|
-| 项目全貌 | §1 信号链路、团队、受体、文献 | [overview.md](prd/overview.md) |
+| 项目全貌 v4 | 锁定酵母-STE2 后的核心信号链路、团队、受体、文献 | [overview-v4.md](prd/overview-v4.md) |
 | 干实验总策略 | §2 方向评估、痛点调研、防治决策 | [dry-lab-strategy.md](prd/dry-lab-strategy.md) |
-| 底盘决策分析 | §2C-2D 酵母vs真菌、决策树、行动项 | [chassis-decision.md](prd/chassis-decision.md) |
+| 底盘决策（已定） | §最终决策：策略 B 酵母-STE2-基因组整合 | [chassis-decision.md](prd/chassis-decision.md) |
+| 决策 003 | 底盘选择技术决策记录 | [003-chassis-yeast-ste2-integration.md](decisions/003-chassis-yeast-ste2-integration.md) |
 | 学习路线图 | §4+§6 学习资源、硬件、工具 | [roadmap.md](learning/roadmap.md) |
 
 ## 湿实验交接
@@ -104,25 +106,40 @@
 
 ## 最近进展
 
-- **2026-04-10**: ① GprC×14 + Gpr2×10 alanine scan 完成（Run 20260410_014537）② 全量 32 条合并（mutagenesis_results_all_20260410.json）③ Tier 1-4 推荐表生成 — **P0 分子对接计算部分基本完成**
+- **2026-04-11**: ① 90 饱和扫描对接完成 + Tier v2（122 条合并）② Top 6 候选确定（M327A/V138R/M327D/R59F/F170E/I141A）③ V138R IFP 显示 ARG138 空间富集（盐桥假说待 MD 实证）④ **PI 确认底盘 = 酵母-STE2，P3→P0，新增 P0-MD，P2-biocontrol-lv archived**
+- **2026-04-10**: GprC×14 + Gpr2×10 alanine scan 完成；全量 32 条合并；Tier 1-4 推荐表 v1 生成
 - **2026-04-09**: Gpr3 IFP alanine scan 完成（8 残基）；Gpr2 IFP 交叉验证 PASS；BW 映射修正
 - **2026-04-08**: WT 单阶段 GprC_ascr18 精确复现 Hu2024（Δ=0.05）；BW 映射修正完成
 - **2026-04-07**: 协议偏差修复（单阶段 Hu2024）；ICL3 截断；AF3 pipeline 完成
-- **2026-04-06**: Orca 3 配体完成；S2 multiseed WT；pipeline 审计修复 12 bugs
 
 ---
 
 ## 待办
 
 ### P0 分子对接（计算完成，进入输出阶段）
-- [x] WT 单阶段；[x] Alanine scan 32 突变体；[x] Tier 1-4 推荐表
+- [x] WT 单阶段；[x] Alanine scan 32 突变体；[x] 饱和扫描 90 突变（Tier v2，122 条合并）；[x] Top 6 IFP 验证
 - [ ] **Wiki 写作**：计算结果 → iGEM wiki（[P0-molecular-docking.md](modeling/P0-molecular-docking.md)）
-- [ ] **湿实验候选交接**：Tier 1-2（M327A/R59A/I141A）结构化报告给湿实验团队
-- [ ] M327A / R59A 多 seed 验证（可选，已超 3σ）
+- [ ] **湿实验候选交接**：Top 6（M327A/V138R/M327D/R59F/F170E/I141A）结构化报告（[wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md)）
+- [ ] V138R+F170E 双突变 / M327D 外围位点：deferred → 算力转 P0-MD
+
+### P0 嵌合 Gpa1（former P3，已升 P0）
+- [ ] MUSCLE 比对 Gpa1 vs *A. oligospora*/*A. flagrans* Gα
+- [ ] C 端 5/10/15 残基三档嫁接方案
+- [ ] AlphaFold-Multimer 预测嵌合复合物
+- [ ] MD 稳定性验证（→ P0-MD）
+
+### P0 信号通路 ODE
+- [ ] 完整酵母 STE2 ODE 模型（参数源 Shaw2019/Fan&Yuan2024/Ladds2005）
+- [ ] 1/2/4 copy 拷贝数敏感性分析
+- [ ] 与 P0-docking 联动：Kd 参数从 Tier v2 获取
+
+### P0 MD 模拟（新方向）
+- [ ] **首要任务**：技术栈调研（GROMACS/OpenMM/AMBER × CHARMM36m/ff19SB × AMD ROCm 兼容性）
+- [ ] V138R + ascr#18 体系 MD（盐桥实证）
+- [ ] F170E pose drift 分析
+- [ ] Top 6 RMSD/RMSF 汇总
 
 ### 其他待启动
-- [ ] 问 PI 确认真菌物种、遗传工具、底盘倾向
-- [ ] 启动 P0-signal-pathway-ode（底盘确认后）
-- [ ] 检索 GEO/SRA 转录组数据
+- [ ] 显色级联方案讨论（与通路工程组）
 - [ ] 与 HP 组沟通经济效益模型需求
 - [ ] 开始 §3.5c 经济效益模型

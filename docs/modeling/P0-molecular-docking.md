@@ -3,7 +3,7 @@ direction: P0-molecular-docking
 status: completed
 priority: P0
 chassis_dependent: false
-last_updated: 2026-04-10
+last_updated: 2026-04-11
 ---
 
 # P0: 受体-配体分子对接与 In Silico 突变扫描
@@ -75,11 +75,13 @@ last_updated: 2026-04-10
 
 - [x] 受体-配体结合能排名表（3 受体 × 3 配体 = 9 组）—— WT 单阶段完成（2026-04-07）
 - [x] 结合口袋关键残基列表（ProLIF IFP 分析完成，Gpr2/3/GprC 各受体高频接触残基已确认）
-- [x] **ΔΔG_selectivity 排名表**（32 突变体 alanine scan 完成，2026-04-10）
-- [x] **Tier 1-4 推荐表**（见 [tier_recommendations_20260410.md](../../experiments/docking-repro/mutagenesis/tier_recommendations_20260410.md)）
-- [x] **推荐突变位点**: Gpr2 M327A（Tier 1, ΔΔG_sel=−0.99）、Gpr2 R59A（−0.52）、Gpr3 I141A（−0.79）
+- [x] **ΔΔG_selectivity 排名表**（32 alanine + 90 saturation = 122 突变体，2026-04-11）
+- [x] **Tier 1-4 推荐表 v2**（见 [tier_recommendations_20260411.md](../../experiments/docking-repro/mutagenesis/tier_recommendations_20260411.md)，权威源）
+- [x] **推荐突变位点**: Top 6 — Gpr2 M327A（−0.99）/ M327D（−0.69）/ R59F（−0.55）；Gpr3 V138R（−1.07 ⭐）/ F170E（−0.70）/ I141A（−0.79）
 - [x] IFP 热图可视化（[ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)）
+- [x] Top 6 mutant IFP 分析（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)）
 - [ ] 可视化图（PyMOL 渲染 WT vs 最优突变体结合构象对比）
+- [ ] V138R 盐桥假说 MD 实证 → 转交 [P0-md-simulation](P0-md-simulation.md)
 
 ## 方法变体
 
@@ -119,44 +121,79 @@ last_updated: 2026-04-10
 - **学习资源**: 见 [学习路线图 阶段二](../learning/roadmap.md)
 - **预计时间**: 1-2 周完成学习 + 首次对接
 
-## 最终结果概览（2026-04-10）
+## 最终结果概览（2026-04-11，Tier v2）
 
-完整推荐表见 [tier_recommendations_20260410.md](../../experiments/docking-repro/mutagenesis/tier_recommendations_20260410.md)。IFP 热图见 [ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)。
+完整推荐表见 [tier_recommendations_20260411.md](../../experiments/docking-repro/mutagenesis/tier_recommendations_20260411.md)（权威源，Alanine 32 + Saturation 90 = 122 条合并）。IFP 热图见 [ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)。
 
 ### Pipeline 验证
 
-Hu2024 阳性对照（GprC N60A、R395A、S44A——ascr18 结合必需残基）全部落入 **Tier 4**（削弱选择性），与文献一致。**Pipeline 通过验证。**
+Hu2024 阳性对照（GprC N60A、R395A、S44A、N56A——ascr18 结合必需残基）全部落入 **Tier 4**（削弱选择性），与文献一致。**Pipeline 通过验证。**
 
 WT 基线复现：GprC ascr18 **ΔG = −8.235 kcal/mol**（Hu2024: −8.29，**Δ = 0.05 kcal/mol**）。
 
-### Tier 1：强选择性增强（3 个）— 首选湿实验验证
+### Tier 分布（122 条）
 
-| 受体 | 突变 | ΔG(18) | ΔG(3) | ΔΔG_sel | 机制 |
-|------|------|--------|-------|---------|------|
-| Gpr2 | **M327A** | −6.74 | −5.35 | **−0.99** | ascr18 几乎不受影响（ΔΔG=+0.09），ascr3 大幅削弱（+1.08） |
-| Gpr3 | **I141A** | −5.19 | −4.60 | **−0.79** | 双配体亲和均下降，ascr3 损失更大 |
-| Gpr2 | **R59A** | −6.53 | −5.60 | **−0.52** | ascr3 比 ascr18 更依赖 R59 |
+| Tier | 数量 | ΔΔG_sel 区间 |
+|------|------|--------------|
+| 1 | 8 | ≤ −0.48（>3σ） |
+| 2 | 29 | −0.48 ~ −0.16 |
+| 3 | 37 | −0.16 ~ +0.20（中性） |
+| 4 | 48 | > +0.20（削弱） |
 
 ΔΔG_sel 阈值 = −0.48（3σ，噪声 SD=0.159 来自 5-seed 方差评估）。
 
-### Tier 2：中度选择性增强（2 个）
+### Tier 1：强选择性增强（8 个）— 按 abs sel 排序
 
-| 受体 | 突变 | ΔΔG_sel |
-|------|------|---------|
-| Gpr3 | **F170A** | −0.36 |
-| Gpr3 | **V138A** | −0.26 |
+| 排名 | 受体 | 突变 | 类型 | ΔG(18) | ΔΔG_sel | abs sel |
+|------|------|------|------|--------|---------|---------|
+| 🥇 P1 | Gpr2 | **M327A** | Ala | −6.74 | −0.987 | **−1.39** |
+| 🥈 P2 | Gpr2 | **M327D** | Sat | −6.67 | −0.685 | **−1.09** |
+| 🥉 P3 | Gpr2 | **R59F**  | Sat | −6.66 | −0.552 | **−0.96** |
+| P4 | Gpr2 | **R59A**  | Ala | −6.53 | −0.521 | **−0.92** |
+| P5 | Gpr3 | **V138R** | Sat | −6.14 | **−1.070** | **−0.88** ⭐ |
+| P6 | Gpr3 | **I141A** | Ala | −5.19 | −0.786 | −0.59 |
+| P7 | Gpr3 | **F170E** | Sat | −6.25 | −0.696 | −0.50 |
+| P8 | Gpr3 | **F170D** | Sat | −6.21 | −0.638 | −0.44 |
 
-### Tier 3-4 汇总
+> **建议构建的 6 个湿实验点**：Gpr2 (M327A, M327D, R59F) + Gpr3 (V138R, F170E, I141A)，覆盖两个受体、两种机制路径（丢失 vs 引入）。详见 [wet-lab-handoff-P0-docking](wet-lab-handoff-P0-docking.md)。
 
-- **Tier 3（中性）**: 6 个突变，ΔΔG_sel 在噪声范围内
-- **Tier 4（削弱选择性，不推荐）**: 21 个突变，含全部 GprC 口袋残基和 Hu2024 阳性对照
+## 饱和扫描结果与三大新发现
 
-### 关键洞察
+04-11 在 5 个 Tier 1/2 位点（Gpr2 M327/R59 + Gpr3 I141/F170/V138）做了 18 AA 全谱饱和扫描（90 突变体 × 2 配体 = 180 次对接），相较 04-10 alanine-only 版（v1）有以下重大补充：
 
-1. **GprC 不适合 alanine 工程化选择性**: 14 个突变中 13 个为 Tier 4，口袋残基对 ascr18/ascr3 均至关重要
-2. **Gpr2 M327A 最强信号**: MET327 是 IFP 全场最高频接触残基（51 次），但对 ascr3 结合贡献远超 ascr18。mutant ΔG(18)=−6.74 仍保持合理亲和力（≈WT −6.83），**湿实验优先级最高**
-3. **Gpr3 WT 偏好 ascr3**（ΔG_sel=+0.20），I141A 可扭转为 ascr18 偏好
-4. **v2 旧结论已被修正**: Orca DFT 配体几何 + ICL3 截断 + BW 映射修正后，Y200A/Y378A 从 Tier 1 降为 Tier 4，M327A 成为新的首选
+### 1. Gpr3 V138R 最重磅发现 ⭐⭐⭐
+
+Gpr3 WT 选择性 sel=+0.195 在 3σ 噪声内（方向轻微偏 ascr3）。V138R 单点突变后翻转到 abs sel=−0.88，**首次穿透 Gpr3 的噪声阈值**，与 Gpr2 WT（−0.40）同量级且更优。ΔG(18)=−6.14 比 WT −5.72 更强，"增强一侧 + 削弱另一侧"双效应。
+
+### 2. Gpr3 F170 酸性残基规则
+
+F170E（−0.70）和 F170D（−0.64）双双进入 Tier 1，方向一致（增强 18 + 削弱 3）。F170 位于 ECL2，酸性替换的影响可能来自配体进入路径或入口处的静电互补，而非深层口袋重塑。**F170→酸性 + V138→Arg 组合可能叠加**（未验证）。
+
+### 3. Gpr2 M327 同位点两条路径
+
+- **M327A**（−1.39 abs sel）：纯粹"移除 ascr3 专属相互作用"，Ala 去除侧链。
+- **M327D**（−1.09 abs sel）：引入羧基，**主动**加强 ascr18 偏好。
+- 湿实验取舍：要"保亲和力 + 增强选择性" → M327A；要"激进调节方向性" → M327D。
+
+### 教训：孤峰 vs 类别规律
+
+V138 全 18 谱中 V138R **是孤峰**而非类别规律——同为碱性的 V138K/V138H 与 V138A 基线几乎等价，远不如 V138R 强；V138Y/N/S/I 反而进入 Tier 2 但都不及 V138R。**碱性/正电荷"类别规律"不成立**，更像是 Arg 胍基特异的侧链长度 + 几何取向效应。湿实验不应默认 K/H 作为 R 的等价替代。
+
+> 该教训已写入 memory（feedback_outlier_vs_rule.md）。后续设计推断前应先做同类一致性检查。
+
+## 机制假说未实证（V138R 盐桥）
+
+ProLIF 验证 Top 6 候选时（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)），Gpr3 V138R 的 mutant IFP 显示 ARG138 对 ascr18 接触 9 次 vs ascr3 仅 2 次（+7 差值），但 `mutant_contacts.csv` 中**这 9 次接触全部为 VdWContact 类型**——本轮 ProLIF 只开启 HBond/VdW 通道，未采集 Ionic 指纹。
+
+**结论**：当前结果只能证明"V138→R 后 Arg 侧链在 ascr18 pose 附近的空间富集"，**不能直接证明盐桥形成**。
+
+**实证路径**（任选其一）：
+
+1. 重跑 ProLIF 开启 `Cationic/Anionic` / `Ionic` 指纹通道
+2. 对 pose 中 ARG138 胍基 Nε/NH₁/NH₂ 与 ascr18 末端羧基 O 的距离（<4 Å）与角度做几何检查
+3. **MD 模拟**测量 ARG138-羧基距离的时间序列与盐桥占比 → 转交 [P0-md-simulation](P0-md-simulation.md)（首选，能同时回答 pose 稳定性问题）
+
+F170E 反直觉现象（GLU170 本身与 ascr3 接触更多但整体 ΔG(ascr3)=+0.17 上升）也无法用静态对接 + IFP 解释，同样需 MD 实证。
 
 ## 方法学局限性
 
@@ -166,6 +203,8 @@ WT 基线复现：GprC ascr18 **ΔG = −8.235 kcal/mol**（Hu2024: −8.29，**
 | 刚性受体 | 构象选择限于 AF3 单预测 | 单点突变对骨架影响 <0.1Å（TM helix 域内） |
 | AF3 预测精度 | pLDDT>90 区域可信，loop 区不确定 | 仅在 TM helix 域内对接；annotation-based TM 提取 |
 | Vina 评分精度（±1 kcal/mol） | 绝对值不精确 | 仅用排名，不用绝对值；Tier 1 全部 >3σ |
+| 静态对接无法证明动态相互作用类型（如盐桥） | V138R / F170E 机制仅有空间富集证据 | 转交 [P0-md-simulation](P0-md-simulation.md)：MD 时间序列测距 + 盐桥占比 |
+| ~~仅 Ala 扫描，无饱和扫描~~ | ~~04-10 之前局限~~ | **2026-04-11 解除**：5 个 Tier 1/2 位点已完成 18 AA 全谱扫描（90 突变） |
 
 ## 方法学迭代记录
 
@@ -196,6 +235,7 @@ P0 对接方法经历三次重大迭代，每次修正了前一阶段的系统�
 | 2026-04-08~09 | v2.6 | 单一权威源重构（4 文件硬编码→config-driven）；全脚本动态路径重构（6 辅助脚本） | DOCMAP §1 原则落地 |
 | 2026-04-09 | v2.7 | Gpr3 scan_residues 全量替换为 IFP 残基（v2 PLIP 8 个→IFP 8 个）；Gpr3 alanine scan 完成（I141A ΔΔG_sel=−0.786） | Truth Audit 发现 v2 PLIP 残基全部无效 |
 | 2026-04-10 | **v3.0** | 32 突变体全量 alanine scan 完成；Tier 1-4 推荐表；Gpr2 IFP 验证（9/9 PASS）；**本文档更新至 Wiki 初版** | P0 计算阶段完成，进入输出阶段 |
+| 2026-04-11 | **v3.1** | 90 饱和扫描合并 → Tier v2（122 条）；Top 6 推荐替换原 3 条；新增"饱和扫描结果与三大新发现""机制假说未实证（V138R 盐桥）"小节；alanine-only 局限性解除；机制实证转交 P0-md-simulation | 饱和扫描完成 + 底盘锁定酵母后湿实验候选审查 |
 
 ## 进展记录
 
@@ -211,11 +251,14 @@ P0 对接方法经历三次重大迭代，每次修正了前一阶段的系统�
 | 2026-04-07~08 | ProLIF IFP 分析 + BW 映射修正 | N2.57=ASN60 确认；R6.45→ARG395（BW 算术 6.55，与 Hu2024 原文编号存争议） |
 | 2026-04-09 | 5-seed 方差基线完成 | Gpr2_ascr18 SD=0.159（最高）；GprC SD<0.03；3σ 阈值=0.48 |
 | 2026-04-09 | Gpr3 scan_residues 全量替换（IFP 验证） | v2 PLIP 8 个残基全部无效→IFP 8 个替换；I141A ΔΔG_sel=−0.786 |
-| 2026-04-10 | **P0 计算阶段完成**: 32 突变体 + Tier 推荐表 | Tier 1: M327A(−0.99) / I141A(−0.79) / R59A(−0.52)；Hu2024 阳性对照全部 Tier 4 ✅ |
+| 2026-04-10 | alanine scan 阶段完成: 32 突变体 + Tier 推荐表 v1 | Tier 1: M327A(−0.99) / I141A(−0.79) / R59A(−0.52)；Hu2024 阳性对照全部 Tier 4 ✅ |
+| 2026-04-11 | **饱和扫描阶段完成**: 90 突变 + Tier v2（122 条合并）+ Top 6 IFP 验证 | Tier 1 增至 8 个；新发现 V138R(−1.07)/M327D(−0.69)/F170E(−0.70)/R59F(−0.55)；ARG138 空间富集（盐桥假说待 MD 实证） |
 
 ## 与其他方向的依赖关系
 
 - **输出到**:
-  - [P0-signal-pathway-ode](P0-signal-pathway-ode.md): 结合亲和力参数（Kd）→ ODE 模型输入
+  - [P0-signal-pathway-ode](P0-signal-pathway-ode.md): Top 6 突变体的 Kd（从 ΔG 推算）→ ODE 模型输入
+  - [P0-md-simulation](P0-md-simulation.md): Top 6 mutant pose → MD 初始构象；V138R/F170E 机制假说 → MD 实证
   - [P3-chimeric-gprotein](P3-chimeric-gprotein.md): 结合口袋结构信息 → 嵌合设计参考
+  - [wet-lab-handoff-P0-docking](wet-lab-handoff-P0-docking.md): Top 6 候选 + 机制说明 → 湿实验交接
 - **依赖于**: 无（本方向可独立启动）

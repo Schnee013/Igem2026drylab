@@ -86,14 +86,18 @@ drylab/
 │   ├── INDEX.md                 # 路由表 —— "灵魂文件"
 │   ├── DOCMAP.md                # 本文件：文档元规则 + 项目文档规范
 │   ├── prd/                     # 需求与策略层
-│   │   ├── overview.md          #   项目全貌、信号链路、团队
+│   │   ├── overview-v4.md       #   项目全貌（当前权威，2026-04-11 锁定酵母-STE2）
 │   │   ├── dry-lab-strategy.md  #   干实验总策略、痛点调研、防治决策
-│   │   └── chassis-decision.md  #   底盘选择分析、决策树、阻塞项
+│   │   ├── chassis-decision.md  #   底盘选择分析（含 §最终决策）
+│   │   └── archive/
+│   │       └── overview-v3.md   #   已归档（底盘待定阶段，2026-04-03 ~ 04-10）
 │   ├── modeling/                # 每个研究方向一个文件
-│   │   ├── P0-*.md              #   直接支撑湿实验
+│   │   ├── P0-molecular-docking.md       #   分子对接（completed）
+│   │   ├── P0-md-simulation.md           #   MD 模拟（learning，技术栈调研中）
+│   │   ├── P0-signal-pathway-ode.md      #   STE2 通路 ODE（in_progress）
+│   │   ├── P0-*.md / P3-chimeric-gprotein.md  #   嵌合 Gpa1（priority P0，文件名保留 P3 前缀）
 │   │   ├── P1-*.md              #   增强叙事完整性
-│   │   ├── P2-*.md              #   完成检测→预防闭环
-│   │   ├── P3-*.md              #   加分项
+│   │   ├── P2-*.md              #   完成检测→预防闭环（biocontrol-lv 已 archived）
 │   │   └── wet-lab-handoff-*.md #   面向湿实验团队的交接文档
 │   ├── learning/
 │   │   └── roadmap.md           #   学习路线图、硬件需求、工具环境

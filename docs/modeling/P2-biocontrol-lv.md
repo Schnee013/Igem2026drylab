@@ -1,18 +1,18 @@
 ---
 direction: P2-biocontrol-lv
-status: not_started
+status: archived
 priority: P2
 chassis_dependent: true
-last_updated: 2026-04-03
+last_updated: 2026-04-11
 ---
 
-# P2: 生物防治效率 Lotka-Volterra 模型
+# P2: 生物防治效率 Lotka-Volterra 模型（已归档）
 
-> 来源: PRD v3 §3.5b | iGEM 评审定位: 完成"检测→预防"闭环（生物防治路径）
+> **2026-04-11 归档**：底盘最终决策为酿酒酵母 + STE2 通路（[决策 003](../decisions/003-chassis-yeast-ste2-integration.md)），本方向所依赖的"丝状真菌底盘 → 用线虫天敌检测线虫"叙事耦合不再成立，方向失去 iGEM 评审价值。文件保留不删除（DOCMAP §8 不删除历史）。
 >
-> **条件性方向**: 仅在底盘最终选**丝状真菌**时才值得做。详见 [底盘决策](../prd/chassis-decision.md) 和 [干实验策略 §3](../prd/dry-lab-strategy.md)。
+> 来源: PRD v3 §3.5b | 原 iGEM 评审定位: 完成"检测→预防"闭环（生物防治路径）
 >
-> **理由**: 如果底盘是 *A. oligospora* 或近缘物种，叙事变为"用线虫天敌来检测线虫，同时还能预测这种天敌在田间的防治效果"，形成完整生物闭环。如果底盘是酵母，此模型与项目主体无直接关联，投入产出比低。
+> **原条件性触发**: 仅在底盘最终选**丝状真菌**时才值得做。详见 [底盘决策](../prd/chassis-decision.md) 和 [干实验策略 §3](../prd/dry-lab-strategy.md)。
 
 ## 解决什么问题
 
@@ -49,6 +49,7 @@ last_updated: 2026-04-03
 | 日期 | 版本 | 变更内容 | 触发原因 |
 |------|------|---------|---------|
 | 2026-04-03 | v1.0 | 占位文件，等待底盘决策 | 文档体系搭建 |
+| 2026-04-11 | v1.1 | status → archived | 底盘锁定酵母后失效 |
 
 ## 进展记录
 

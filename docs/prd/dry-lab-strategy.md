@@ -1,6 +1,8 @@
 # 干实验总策略
 
-> 来源: PRD v3 §2, §2A, §2B, §5 | 最后更新: 2026-04-03
+> 来源: PRD v3 §2, §2A, §2B, §5 | 最后更新: 2026-04-11
+>
+> **底盘**：已锁定 *S. cerevisiae* + STE2 通路（2026-04-11，PI 确认）。详见 [底盘决策 §最终决策](chassis-decision.md#最终决策2026-04-11)。本文件中所有"条件性 / 底盘相关"路线已根据策略 B 激活。
 
 ## 1. 原有方向评估
 
@@ -70,8 +72,8 @@
 ### 最终决策
 
 - **必做**: (c) [经济效益模型](../modeling/P2-economic-benefit.md) — 最短路径、最高性价比
-- **选做（推荐）**: (a) [剂量-响应模型](../modeling/P2-dose-response.md) — 技术角度闭环
-- **条件性**: (b) [生物防治 LV](../modeling/P2-biocontrol-lv.md) — 仅丝状真菌底盘时
+- **推荐做**: (a) [剂量-响应模型](../modeling/P2-dose-response.md) — 技术角度闭环；底盘=酵母后从"选做"升为推荐
+- **不激活**: (b) [生物防治 LV](../modeling/P2-biocontrol-lv.md) — 2026-04-11 底盘锁定酵母后失去叙事耦合，方向归档
 
 ## 4. iGEM 评审策略
 
@@ -86,13 +88,16 @@
 
 ## 5. 建模方向间的依赖图
 
+> 2026-04-11 底盘锁定酵母后：P3-chimeric-gprotein 升 P0；P0-md-simulation 新建作为 docking 与嵌合 Gpa1 的实证补充；P2-biocontrol-lv 灰化（archived）。
+
 ```
 P0-molecular-docking ──→ P0-signal-pathway-ode ──→ P1-soil-diffusion
-        │                       │                        │
-        │                       ▼                        ▼
-        └──→ P3-chimeric-gprotein   P1-bayesian-inference
-                                          │
-                              ┌───────────┼───────────┐
-                              ▼           ▼           ▼
-                    P2-economic    P2-dose-response  P2-biocontrol-lv
+        │   │                   │                        │
+        │   │                   ▼                        ▼
+        │   └──→ P0-md-simulation         P1-bayesian-inference
+        │              │                          │
+        ▼              ▼              ┌───────────┼───────────┐
+   P0-chimeric-gprotein               ▼           ▼           ▼
+   (former P3, 升级为 P0)        P2-economic  P2-dose-response  ~~P2-biocontrol-lv~~
+                                                                  (archived)
 ```
