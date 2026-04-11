@@ -1,0 +1,54 @@
+REMARK Top 1 Vina pose (extracted by obabel -f 1 -l 1)
+HETATM    1  C   LIG X 901       0.035 -10.290  13.443  1.00  0.00           C  
+HETATM    2  C   LIG X 901       0.135  -8.809  13.095  1.00  0.00           C  
+HETATM    3  C   LIG X 901      -1.374 -10.682  13.877  1.00  0.00           C  
+HETATM    4  C   LIG X 901      -1.945  -9.895  15.064  1.00  0.00           C  
+HETATM    5  C   LIG X 901      -3.163 -10.488  15.790  1.00  0.00           C  
+HETATM    6  C   LIG X 901      -4.386 -10.820  14.913  1.00  0.00           C  
+HETATM    7  C   LIG X 901      -5.722 -10.921  15.662  1.00  0.00           C  
+HETATM    8  C   LIG X 901      -6.718  -9.799  15.343  1.00  0.00           C  
+HETATM    9  C   LIG X 901      -8.093  -9.969  15.998  1.00  0.00           C  
+HETATM   10  C   LIG X 901      -9.184 -10.406  15.022  1.00  0.00           C  
+HETATM   11  C   LIG X 901     -10.032 -11.552  15.517  1.00  0.00           C  
+HETATM   12  O   LIG X 901     -10.833 -11.512  16.416  1.00  0.00           O  
+HETATM   13  O   LIG X 901      -9.816 -12.679  14.794  1.00  0.00           O  
+HETATM   14  H   LIG X 901     -10.562 -12.768  14.179  1.00  0.00           H  
+HETATM   15  O   LIG X 901       0.360 -11.096  12.287  1.00  0.00           O  
+HETATM   16  C   LIG X 901       1.629 -11.675  12.259  1.00  0.00           C  
+HETATM   17  C   LIG X 901       1.820 -12.254  10.853  1.00  0.00           C  
+HETATM   18  C   LIG X 901       3.115 -13.077  10.765  1.00  0.00           C  
+HETATM   19  C   LIG X 901       3.740 -13.348  12.135  1.00  0.00           C  
+HETATM   20  C   LIG X 901       2.684 -13.691  13.200  1.00  0.00           C  
+HETATM   21  O   LIG X 901       1.688 -12.651  13.287  1.00  0.00           O  
+HETATM   22  C   LIG X 901       1.991 -15.035  13.003  1.00  0.00           C  
+HETATM   23  O   LIG X 901       0.728 -13.094  10.503  1.00  0.00           O  
+HETATM   24  H   LIG X 901      -0.076 -12.646  10.797  1.00  0.00           H  
+HETATM   25  O   LIG X 901       4.768 -14.329  12.076  1.00  0.00           O  
+HETATM   26  H   LIG X 901       4.418 -15.117  11.644  1.00  0.00           H  
+CONECT    1   15    2    3                                            
+CONECT    2    1                                                      
+CONECT    3    1    4    4                                            
+CONECT    4    3    3    5                                            
+CONECT    5    6    4                                                 
+CONECT    6    7    5                                                 
+CONECT    7    6    8                                                 
+CONECT    8    7    9                                                 
+CONECT    9   10    8                                                 
+CONECT   10   11    9                                                 
+CONECT   11   13   10   12   12                                       
+CONECT   12   11   11                                                 
+CONECT   13   14   11                                                 
+CONECT   14   13                                                      
+CONECT   15   16    1                                                 
+CONECT   16   17   15   21                                            
+CONECT   17   23   18   16                                            
+CONECT   18   17   19                                                 
+CONECT   19   18   25   20                                            
+CONECT   20   19   22   21                                            
+CONECT   21   16   20                                                 
+CONECT   22   20                                                      
+CONECT   23   24   17                                                 
+CONECT   24   23                                                      
+CONECT   25   26   19                                                 
+CONECT   26   25                                                      
+END

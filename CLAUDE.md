@@ -29,7 +29,7 @@ iGEM 2026 干实验（Dry Lab）计算建模仓库。涵盖分子对接（Vina �
 
 ## Windows 计算节点
 
-**任何 SSH Windows 操作前必读**：[docs/ops/ssh-windows-compute.md](docs/ops/ssh-windows-compute.md)（含所有踩坑快查和正确模板，已通过 PreToolUse hook 强制提醒）
+**任何 SSH Windows 操作前必读**：[docs/ops/ssh-windows-compute.md](docs/ops/ssh-windows-compute.md)（含所有踩坑快查和正确模板）
 
 ## 目录约定
 

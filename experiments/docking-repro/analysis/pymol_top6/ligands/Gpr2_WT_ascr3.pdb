@@ -1,0 +1,50 @@
+REMARK Top 1 Vina pose (extracted by obabel -f 1 -l 1)
+HETATM    1  O   LIG X 901     -18.458   5.855   6.222  1.00  0.00           O  
+HETATM    2  C   LIG X 901     -18.183   6.229   7.530  1.00  0.00           C  
+HETATM    3  O   LIG X 901     -16.860   5.844   7.867  1.00  0.00           O  
+HETATM    4  C   LIG X 901     -16.483   6.210   9.196  1.00  0.00           C  
+HETATM    5  C   LIG X 901     -15.021   5.848   9.372  1.00  0.00           C  
+HETATM    6  C   LIG X 901     -17.410   5.561  10.234  1.00  0.00           C  
+HETATM    7  C   LIG X 901     -18.875   5.850   9.892  1.00  0.00           C  
+HETATM    8  C   LIG X 901     -19.188   5.526   8.438  1.00  0.00           C  
+HETATM    9  O   LIG X 901     -17.135   4.162  10.268  1.00  0.00           O  
+HETATM   10  H   LIG X 901     -17.360   3.825  11.142  1.00  0.00           H  
+HETATM   11  O   LIG X 901     -20.515   5.952   8.165  1.00  0.00           O  
+HETATM   12  H   LIG X 901     -20.566   6.887   8.396  1.00  0.00           H  
+HETATM   13  C   LIG X 901     -17.338   5.418   5.421  1.00  0.00           C  
+HETATM   14  C   LIG X 901     -16.909   6.596   4.558  1.00  0.00           C  
+HETATM   15  C   LIG X 901     -17.760   4.181   4.626  1.00  0.00           C  
+HETATM   16  C   LIG X 901     -17.210   2.861   5.177  1.00  0.00           C  
+HETATM   17  C   LIG X 901     -17.431   2.670   6.683  1.00  0.00           C  
+HETATM   18  C   LIG X 901     -16.147   2.393   7.465  1.00  0.00           C  
+HETATM   19  C   LIG X 901     -15.667   0.976   7.494  1.00  0.00           C  
+HETATM   20  C   LIG X 901     -16.421  -0.121   7.594  1.00  0.00           C  
+HETATM   21  C   LIG X 901     -15.892  -1.494   7.614  1.00  0.00           C  
+HETATM   22  O   LIG X 901     -16.580  -2.485   7.548  1.00  0.00           O  
+HETATM   23  O   LIG X 901     -14.538  -1.569   7.719  1.00  0.00           O  
+HETATM   24  H   LIG X 901     -14.314  -1.203   8.587  1.00  0.00           H  
+CONECT    1   13    2                                                 
+CONECT    2    1    3    8                                            
+CONECT    3    2    4                                                 
+CONECT    4    3    5    6                                            
+CONECT    5    4                                                      
+CONECT    6    4    7    9                                            
+CONECT    7    8    6                                                 
+CONECT    8    2   11    7                                            
+CONECT    9    6   10                                                 
+CONECT   10    9                                                      
+CONECT   11   12    8                                                 
+CONECT   12   11                                                      
+CONECT   13   14   15    1                                            
+CONECT   14   13                                                      
+CONECT   15   16   13                                                 
+CONECT   16   15   17                                                 
+CONECT   17   16   18                                                 
+CONECT   18   17   19                                                 
+CONECT   19   18   20   20                                            
+CONECT   20   19   19   21                                            
+CONECT   21   22   22   20   23                                       
+CONECT   22   21   21                                                 
+CONECT   23   21   24                                                 
+CONECT   24   23                                                      
+END

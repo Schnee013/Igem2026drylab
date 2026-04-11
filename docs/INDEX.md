@@ -4,7 +4,7 @@
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
 - **当前阶段**: P0 分子对接计算完成（饱和扫描 Tier v2，122 条）；底盘锁定酵母-STE2；进入 P0-ODE / P0-嵌合 Gpa1 / P0-MD 三线启动 + 湿实验交接 + Wiki 写作阶段
-- **主要卡点**: 显色级联具体方案 TBD（报告基因 / 整合位点 / 是否 GAL4 放大）；MD 算力方案待定（AMD ROCm 兼容性 + PI 课题组服务器配置）
+- **主要卡点**: 显色级联具体方案 TBD（报告基因 / 整合位点 / 是否 GAL4 放大）；MD 将在 PI 课题组服务器执行，配置待确认
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌 v4](prd/overview-v4.md)
 
@@ -31,7 +31,7 @@
 > 2026-04-11 底盘 4 项阻塞全部解除（PI 确认酵母-STE2 主线，详见 [决策 003](decisions/003-chassis-yeast-ste2-integration.md)）。
 
 - [ ] **[阻塞] 显色级联方案**：报告基因 / 整合位点 / 拷贝数目标 / 是否 GAL4 放大 → 与通路工程组讨论
-- [ ] **[阻塞] MD 算力方案**：AMD RX 6750 GRE 10G 兼容的 MD 软件评估 + PI 课题组服务器配置确认
+- [ ] **[阻塞] MD 算力方案**：PI 课题组服务器配置确认（CPU/GPU/RAM），所有 MD 生产计算在该服务器执行；本地 AMD 节点不用于 MD
 - [ ] **[重要] HP 组沟通**: 经济效益模型需要哪些定量论据？
 
 ---
@@ -59,7 +59,8 @@
 
 | 文档 | 内容 | 链接 |
 |------|------|------|
-| P0 分子对接交接 | Tier 1-2 候选位点、实验建议、计算局限性 | [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md) |
+| P0 分子对接交接（权威源） | Top 6 候选、饱和扫描 Tier v2、底盘上下文、计算局限性 | [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md) |
+| P0 分子对接交接（飞书扁平版） | 同上内容，飞书云文档/多维表格粘贴版 | [wet-lab-handoff-P0-docking-feishu.md](modeling/wet-lab-handoff-P0-docking-feishu.md) |
 
 ## 运维参考
 
@@ -106,6 +107,7 @@
 
 ## 最近进展
 
+- **2026-04-12**: ① 算力节点切换到 PI 课题组服务器（本地 AMD 退出 MD 选型约束）② 前 3 维度 MD 技术栈深度调研完成 → 生产栈 = GROMACS + CHARMM36m + CGenFF + CHARMM36 lipid + CHARMM-GUI + 纯 POPC ③ **后 4 维度调研完成 v2.0**：MVP 采样 = 7 holo × 200 ns × 3 rep（~24 A100-day），分析栈 MDAnalysis + ProLIF (Cationic/Anionic) + GetContacts，自由能主路径 gmx_MMPBSA + per-residue + IFP 三角，ascaroside 走 ParamChem → penalty 分级 → 条件 QM（红利：CHARMM 碳水已原生支持 fucose/rhamnose）；详见 [P0-md-tech-stack-research.md v2.0](modeling/P0-md-tech-stack-research.md)
 - **2026-04-11**: ① 90 饱和扫描对接完成 + Tier v2（122 条合并）② Top 6 候选确定（M327A/V138R/M327D/R59F/F170E/I141A）③ V138R IFP 显示 ARG138 空间富集（盐桥假说待 MD 实证）④ **PI 确认底盘 = 酵母-STE2，P3→P0，新增 P0-MD，P2-biocontrol-lv archived**
 - **2026-04-10**: GprC×14 + Gpr2×10 alanine scan 完成；全量 32 条合并；Tier 1-4 推荐表 v1 生成
 - **2026-04-09**: Gpr3 IFP alanine scan 完成（8 残基）；Gpr2 IFP 交叉验证 PASS；BW 映射修正
@@ -134,7 +136,7 @@
 - [ ] 与 P0-docking 联动：Kd 参数从 Tier v2 获取
 
 ### P0 MD 模拟（新方向）
-- [ ] **首要任务**：技术栈调研（GROMACS/OpenMM/AMBER × CHARMM36m/ff19SB × AMD ROCm 兼容性）
+- [ ] **首要任务**：技术栈调研（GROMACS/OpenMM/AMBER × CHARMM36m/ff19SB，按 CUDA 主流生态，不考虑本地 AMD）
 - [ ] V138R + ascr#18 体系 MD（盐桥实证）
 - [ ] F170E pose drift 分析
 - [ ] Top 6 RMSD/RMSF 汇总

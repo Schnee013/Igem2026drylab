@@ -3,7 +3,7 @@ direction: P0-md-simulation
 status: learning
 priority: P0
 chassis_dependent: false
-last_updated: 2026-04-11
+last_updated: 2026-04-12
 ---
 
 # P0: MD 模拟（V138R 盐桥实证 + Top 6 稳定性 + 嵌合 Gpa1 验证）
@@ -37,7 +37,7 @@ last_updated: 2026-04-11
 
 | 维度 | 候选 | 调研问题 |
 |---|---|---|
-| **MD 软件** | GROMACS / OpenMM / AMBER / NAMD / Desmond | GPCR 膜蛋白使用频率？AMD ROCm/HIP 后端成熟度？教程可用性？iGEM 团队历史使用情况？ |
+| **MD 软件** | GROMACS / OpenMM / AMBER / NAMD / Desmond | GPCR 膜蛋白使用频率？教程可用性？iGEM 团队历史使用情况？学术免费授权？ |
 | **力场** | CHARMM36m / Amber ff19SB / OPLS-AA(GROMOS) | GPCR + 小分子配体体系适用性？哪种与所选 MD 软件搭配最佳？是否支持 ascaroside 这类糖脂？ |
 | **膜体系构建** | CHARMM-GUI Membrane Builder / PACKMOL-Memgen / Membed (GROMACS) | 接收 PDB → 出可直接 MD 的体系的工作流？膜组成（POPC vs POPC:POPE 混合）选取依据？ |
 | **配体参数化** | GAFF2 / CGenFF / OpenFF | ascarylose 糖骨架 + 长侧链脂肪酸的拓扑生成？哪个工具对环糖支持最好？ |
@@ -49,9 +49,94 @@ last_updated: 2026-04-11
 
 完成调研后，**回填到本文档**的"工具栈与参数选型"小节，附**每个选择的文献依据**（年份 + DOI / arXiv / 预印本链接）。**禁止凭印象写入决定**。
 
-### 调研后的技术栈选型（待回填）
+### 调研后的技术栈选型
 
-> 调研未完成前留空。完成后此处填入：软件 + 力场 + 膜体系工具 + 配体参数化工具 + 时长 + 复制数 + 分析工具，每项一条文献依据。
+> **两轮调研全部完成（2026-04-12）**，完整报告含对比表 / 引用 / 风险分析：[P0-md-tech-stack-research.md](P0-md-tech-stack-research.md) v2.0
+>
+> 第一轮（§1–§5）= 软件 / 力场 / 膜构建；第二轮（§6–§10）= 时间尺度 / 分析工具 / 自由能 / ascaroside 类比。
+
+**生产栈**（基于 3 维度一致性结论 + 与 V138R 盐桥假说的匹配度）：
+
+| 层 | 选择 | 关键理由 |
+|---|---|---|
+| MD 引擎 | **GROMACS**（最新稳定版） | GPCR MD 文献 ~57%；iGEM 团队主流；LGPL 开源 |
+| 蛋白力场 | **CHARMM36m** | Arg-Asp/Glu 盐桥 LJ 修正**正好对症 V138R 胍基-羧基假说** |
+| 配体参数化 | **CGenFF**（via CHARMM-GUI Ligand Reader & Modeler） | penalty score 定量诊断；与 C36m 同源 |
+| 脂质力场 | **CHARMM36 lipid** | 与 C36m 原生配套；POPC / ergosterol 均支持 |
+| 水 + 离子 | **TIP3P + 0.15 M KCl** | C36m 默认；CHARMM-GUI 无缝 |
+| 膜构建 | **CHARMM-GUI Membrane Builder + PPM 2.0** | 零基础 + 5 月窗口唯一现实选项；全 MD 引擎输出 |
+| 膜组分（第一轮） | 纯 **POPC** | Benchmark，易收敛，对照主流 GPCR MD |
+| 膜组分（第二轮） | **POPC:ergosterol (80:20)** | 真菌质膜近似，CHARMM36 原生 ergosterol |
+| 分析工具 | **MDAnalysis + mdtraj + ProLIF** | 链接上游 IFP 管道，Python-first |
+
+**原型/备份栈**：**OpenMM**（Python 原型 + ProLIF 直连；CHARMM-GUI 同时出双格式）；**AMBER ff19SB + GAFF2 + Lipid21 + OPC** 仅做 alchemical FEP 时切换。
+
+**淘汰选项**：Desmond（闭源 + 公开披露条款）、NAMD（工具链脱节）、g_membed（官方已推荐用 CHARMM-GUI 替代）、OPLS-AA/M（膜生态弱）、OpenFF Sage 做 ascaroside 生产 runs（糖脂 benchmark 缺失）。
+
+### 采样协议（第二轮 §6）
+
+| 方案 | 体系数 | 时长/rep | Reps | 总 ns | A100 天数 | 用途 |
+|---|---|---|---|---|---|---|
+| **最小 MVP** | 7 holo (WT + Top 6) | **200 ns** | **3** | 4200 | ~24 | t-test 可做，首 50 ns eq |
+| **标准** | 7 holo + 1 WT-apo | 300 ns | 3 | 7200 | ~41 | p 值稳定 + bootstrap CI |
+| **理想** | 14 (holo + apo) | 500 ns | 3 | 21000 | ~120 | 匹配 GPCRmd-2 |
+
+**推荐执行路径**：先跑 MVP 出初稿 → 剩余时间把 V138R、F170E 升级到 500 ns × 5 seeds 做 publication-grade。AF3 起始需分阶段 restraint release（2→60→80→20 ns schedule），生产前额外损耗 50–100 ns。**不用 HMR 4 fs**（对 CGenFF 数值不稳定，留后期优化）。**不跑 GaMD / metadynamics / LiGaMD**（5 月窗口内学习曲线吃不下）。
+
+### 分析栈（第二轮 §7）
+
+| 任务 | 工具 | 输出 |
+|---|---|---|
+| **盐桥/HBond IFP 动态** | **ProLIF** `Fingerprint(interactions=["Cationic","Anionic","HBDonor","HBAcceptor"])` 直接接 MDAnalysis trajectory | MultiIndex DataFrame，直接迁移 `run_ifp_mutants.py` |
+| **盐桥几何 cross-check** | MDAnalysis `distances.distance_array`（ARG NH1/NH2/NE ↔ ascr18 羧基 O，取 min() ≤ 4.0 Å） | 布尔矩阵 |
+| **Contact lifetime histogram** | 自写 run-length encoding (itertools.groupby) 或 MDAnalysis `HydrogenBondAnalysis.lifetime(intermittency=)` | dwell time 直方图 |
+| **F170E 侧链动态** | MDAnalysis `analysis.dihedrals.Janin(resid 170).run()` | χ1/χ2 时序 |
+| **RMSD/RMSF** | MDAnalysis `analysis.rms.RMSD` / `RMSF`，PMDA/joblib 并行 18 条 |
+| **GPCR 社区 cross-check** | **GetContacts**（GPCRmd 标准，4.0 Å N↔O 盐桥判据） | flareplot |
+
+**判据纪律**：各工具数值不一致（MDAnalysis 3.0/150° vs mdtraj 2.5/120° vs gmx hbond 3.5/30°），**必须从头到尾用同一套**；ARG 胍基必须取 `min()` 而非 `mean()`；PBC 先 `gmx trjconv -pbc mol -center`；**同时汇报 occupancy 和 lifetime histogram**（闪烁 ≠ 稳定）。
+
+### 自由能路径（第二轮 §8）
+
+**主路径 = gmx_MMPBSA + per-residue decomposition + ProLIF 盐桥占比三角**（避免把单一 ΔG 数字当真理）：
+- 体系：WT 与 V138R holo × 3 rep，ε_in = 4–8 扫描 + `charmm_radii`
+- 论文必须明确声明 MM-PBSA 作为"**定性 ranking**"使用（Genheden-Ryde 误差 ±2–10 kcal/mol；Roux-Chipot JPCB 2024 警告构象熵涨落）
+- per-residue decomposition 把能量贡献定位到 ARG138
+- IFP 占比 + 结构证据作 cross-reference
+
+**Stretch (alchemical RBFE)**：若 7 月前膜系统稳定，做"WT → V138R"蛋白侧单点突变 relative ΔΔG（配体不动，比 ligand RBFE 简单），10–15 λ × 4 ns × 3 rep × 2 腿 ≈ 360 ns。GROMACS 2024 AWH 自适应 λ。
+
+**淘汰**：g_mmpbsa（过时、无 CHARMM 支持）、纯 MM-PBSA absolute ranking（误差窗吞掉 2–4 kcal/mol 真实盐桥贡献）。
+
+### ascaroside 参数化行动计划（第二轮 §9）
+
+**关键红利**：CHARMM36 carbohydrate (par_all36_carb) **已原生覆盖 fucose/rhamnose**（ascarylose 的最近类比）；脂肪酸链 + α-O-glycoside 桥都在 CGenFF drug-like 覆盖范围（CB1 + anandamide 系列证实 "all very low penalties"）。
+
+| 阶段 | 动作 | 预估 |
+|---|---|---|
+| 1. ParamChem | ascr#18 mol2 → CGenFF stream；糖头 / 脂肪链分离跑便于审计 | 1–2 天 |
+| 2. Penalty 分级 | <10 直用 / 10–50 基本验证 / 50–100 torsion 重拟 / >100 ffTK 重拟 / >200 原子型选错 | 2–3 天 |
+| 3. QM 重拟（条件） | Gaussian B3LYP/6-31G*（环糖 MP2/cc-pVTZ 单点校正）：环内 C-C-O-C、糖苷键 φ/ψ、>100 项 relaxed scan + ffTK | 1–2 周 |
+| 4. Sanity check | Cremer-Pople (Q,θ,φ) 椅式分布（应 ⁴C₁ dominant）+ 糖苷键 φ/ψ 热力图 + 液相密度 / ΔG_hyd（目标 ≤15%, ±0.5 kcal/mol） | 1 周 |
+| 5. 并入生产栈 | CHARMM-GUI Ligand Reader & Modeler 读 stream → Gpr3 + POPC 组装 | 2–3 天 |
+| **总计** | | **3–5 周**（若阶段 2 全 < 50 可跳 3，缩至 ~2 周） |
+
+**端到端模板参考**：[ACS Bio Med Chem Au 2025 CB1 ZCZ011](https://pubs.acs.org/doi/10.1021/acsbiomedchemau.5c00169)（CHARMM36m + CGenFF + gmx_MMPBSA 完整工作流）。
+
+**起始构象放置**：测试"直接 orthosteric dock"与"膜内预平衡再入"两种方案（参考 [S1P1R Sci Rep 2016](https://www.nature.com/articles/srep22639) 膜-受体界面 entry）。
+
+### 前置风险与强制动作
+
+排序按严重程度（含第二轮 §10 新增）：
+
+1. ⭐⭐⭐ **ascaroside CGenFF 糖环 penalty 审计**：不审计 = V138R 盐桥占比数字不可信。阶段 1-2 = ParamChem + penalty 分级（1-2 天出数据），即可判断是否触发阶段 3 (QM 重拟 1-2 周)。重点：α-L-ascarylose 环 ⁴C₁/¹C₄ 椅式稳定性 + C7 末端羧基 charge。**重大红利**：CHARMM36 碳水已原生覆盖 fucose/rhamnose（ascarylose 最近类比），若阶段 2 全 <50 可直接锁定。
+2. ⭐⭐⭐ **AlphaFold3 结构必须过 PPM 2.0 对齐**：跳过会在 production 发现 TM 倾角 30°+ 灾难；顺带明确声明"基于 inactive-like 预测"。AF3 起始首 50 ns 必须从分析窗口扣除（不是晶体结构）。
+3. ⭐⭐⭐ **CHARMM-GUI 学术账号**：本周内注册（审批 0.5-1 天，不要卡在里程碑前一天）。
+4. ⭐⭐ **体系清单 pre-register**：跑之前写死 7 或 14 个体系，防止中途增加导致统计比较不公（审稿/iGEM Judging 会质疑）。
+5. ⭐⭐ **脂质力场引入 ionic lock 假信号**：β2AR+POPC 对比研究显示不同脂质力场让 R-E ionic lock 动力学完全不同。锁定 CHARMM36 lipid 不中途切换。
+6. ⭐⭐ **Single replica 审稿常识 = 不够**：≥3 independent seeds，每 ≥200 ns 用于 Welch t-test / Mann-Whitney U；effect size 接近阈值（0.4 vs 0.6）必须 5 seeds 做 bootstrap CI。
+7. ⭐ **水盒子 benchmark**：PI 服务器配置确认后跑一次，验证 `-update gpu -bonded gpu -pme gpu` + CPU ≥ 8 核是否开到位。80k-atom 体系 A100 ~265 ns/day 为基准（[NHR@FAU 2024](https://hpc.fau.de/2024/08/13/gromacs-2024-1-on-brand-new-gpgpus/)）。
+8. ⭐ **分阶段 equilibration schedule**：借鉴 mwSuMD 2→60→80→20 ns restraint release。
 
 ## 待回答的科学问题
 
@@ -105,28 +190,18 @@ last_updated: 2026-04-11
 
 ## 算力资源
 
-### Windows 计算节点（自有，已部署）
+### 执行节点：PI 课题组服务器（即将可用）
 
-| 项 | 配置 |
-|---|---|
-| CPU | AMD Ryzen 5 7500F（6C/12T） |
-| GPU | **AMD Radeon RX 6750 GRE 10 GB** ⚠️ |
-| RAM | 16 × 2 GB DDR5 |
-| 系统 | Windows 11 + Tailscale SSH（详见 [ops/ssh-windows-compute.md](../ops/ssh-windows-compute.md)） |
+- **所有 MD 生产计算在 PI 课题组服务器上执行**（2026-04-12 确认）
+- 配置待 PI 确认（CPU / GPU / RAM）
+- 通常学术服务器以 NVIDIA CUDA 为主流 → 技术栈选型按 **CUDA 主流生态**约束
+- 待服务器配置确认后，回填本节并评估显存 → 体系规模与时间尺度上限
 
-**关键约束**：
-- AMD 卡 → 必须调研 ROCm/HIP 后端成熟度。已知概况（待调研验证）：
-  - GROMACS 有 HIP backend（社区支持，性能不如 CUDA）
-  - OpenMM 对 AMD 支持通过 OpenCL，性能有限
-  - AMBER 主打 CUDA，AMD 支持差
-  - NAMD 通过 OpenCL，但官方文档以 CUDA 为主
-- 显存 10 GB → 足以跑中等体系（~150 k 原子的 GPCR + 膜 + 水），**无法**跑超大 REUS / 复制交换
-- **软件选型必须与硬件兼容性一起评估，不提前押注 CUDA-only 工具链**
+### 本地 Windows 节点：不用于 MD
 
-### PI 课题组服务器（即将可用）
-
-- 配置待 PI 确认（CPU/GPU/RAM）
-- 作为主力或 backup，待配置确认后更新本节
+- 本地 AMD Radeon RX 6750 GRE 10 GB 节点**不用于 MD 生产计算**，也**不作为选型约束**
+- 本地节点仍用于 docking / AF3 下游分析 / 小体系快速 sanity check（如需）
+- 技术栈调研**无需考虑 AMD ROCm/HIP 兼容性**
 
 ## 学习资源
 
@@ -138,10 +213,13 @@ last_updated: 2026-04-11
 
 ### 阶段 0：调研（首要）
 
-- [ ] 完成上述 7 维度的技术栈调研（每维度附 ≥3 条近 3 年文献依据）
-- [ ] 在本文档"调研后的技术栈选型"小节回填决定
-- [ ] AMD ROCm/HIP 实测（单一小体系如水盒 benchmark）确认所选软件能在硬件上跑通
-- [ ] 在 [learning/roadmap.md](../learning/roadmap.md) 阶段三补充入门材料
+- [x] 前 3 维度技术栈调研（软件 / 力场 / 膜构建）：[P0-md-tech-stack-research.md](P0-md-tech-stack-research.md) v1.0（2026-04-12）
+- [x] 回填本文档 §调研后的技术栈选型
+- [x] 剩余 4 维度调研（时间尺度 / 分析工具 / MM-PBSA / ascaroside 类比）：[P0-md-tech-stack-research.md §6-10](P0-md-tech-stack-research.md) v2.0（2026-04-12）
+- [x] 回填采样协议 / 分析栈 / 自由能路径 / ascaroside 行动计划
+- [ ] PI 课题组服务器配置确认后，在本文档 §执行节点 回填并校核软件 CUDA 版本
+- [ ] CHARMM-GUI 学术账号注册（本周内）
+- [ ] 在 [learning/roadmap.md](../learning/roadmap.md) 阶段三补充入门材料（CHARMM-GUI / GROMACS membrane tutorial / CGenFF webserver / ProLIF MD tutorial / gmx_MMPBSA CHARMM-ff 示例）
 
 ### 阶段 1：执行（待调研完成后启动）
 
@@ -153,24 +231,31 @@ last_updated: 2026-04-11
 
 ## 方法学局限性
 
-> 待技术栈确定后回填。预期需要讨论：
-> - 时间尺度局限（ns 级 MD vs μs 级生物学相关时间）
-> - 力场对糖脂配体（ascaroside）的精度
-> - MM-PBSA 自由能精度（典型 ±2-5 kcal/mol，比 docking 更不确定）
-> - 单复制 vs 多复制的统计意义
-> - AMD 后端可能的数值精度差异
+1. **时间尺度**：200–500 ns × 3 rep 足够 bound-state 局部稳定性（盐桥占比 / pose drift / RMSD/RMSF），**不能**覆盖 μs–ms 罕见事件（ligand (un)binding、activation transition）；iGEM 5 月窗口无法触及 Anton 级 3×20 μs。
+2. **AF3 起始结构非晶体**：真菌 GPCR 不在 training set，置信度比人源 GPCR 低；TM helix 断点可能需要基于序列比对手动修复；首 50 ns 必须从分析窗口扣除（侧链 rotamer / loop 平衡 artifact）。
+3. **ascaroside 参数化直接文献 = 0**：α-L-ascarylose / ascr#18 / ascr#3 均无公开全原子 MD 研究；参数依赖 CHARMM 碳水类比 (fucose/rhamnose) + CGenFF 脂肪链（CB1 + anandamide 类比）+ ParamChem penalty 审计；若糖环 penalty >50，结论的物理精度需加不确定性声明。
+4. **MM-PBSA 精度**：Genheden-Ryde 基准 ±2–10 kcal/mol，class A GPCR 20 靶点 / 934 配体评估里 MM-PBSA 仅 8/20 好于 docking；**论文必须明确声明作为"定性 ranking"使用**，不可报 ΔΔG 绝对值；per-residue decomposition + IFP 占比做三角互证避免数字陷阱。
+5. **单 replica 审稿/iGEM 都会被质疑**：即便 1 μs 单 run 不如 3 × 200 ns 有说服力；effect size 接近阈值（0.4 vs 0.6）必须 5 seeds 做 bootstrap CI。
+6. **跨工具判据不可比**：HBond 数值（MDAnalysis 3.0 Å/150° vs mdtraj 2.5 Å/120° vs gmx hbond 3.5 Å/30°）各不相同，V138R 分析必须从头到尾锁定一套判据。
+7. **iGEM 历史无 7-TM GPCR 全原子 MD 先例**（2022–2025 wiki 检索）：reviewer 参照物稀缺，需自证方法合理；同时是本项目方法学亮点。
 
 ## 进展记录
 
 | 日期 | 事件 | 备注 |
 |---|---|---|
 | 2026-04-11 | 方向新建（骨架 + 调研清单） | 底盘锁定酵母后启动；技术栈待调研 |
+| 2026-04-12 | 算力节点切换到 PI 课题组服务器 | 本地 AMD 卡退出 MD 选型约束；技术栈按 CUDA 主流生态调研 |
+| 2026-04-12 | 前 3 维度技术栈调研完成 | 生产栈确定：GROMACS + CHARMM36m + CGenFF + CHARMM36 lipid + CHARMM-GUI + 纯 POPC；详见 [P0-md-tech-stack-research.md](P0-md-tech-stack-research.md) |
+| 2026-04-12 | 后 4 维度调研完成 | 采样 MVP = 7 holo × 200 ns × 3 rep；分析栈 MDAnalysis + ProLIF (Cationic/Anionic) + GetContacts；自由能主路径 gmx_MMPBSA + per-residue + IFP 三角；ascaroside 路径 ParamChem → penalty 分级 → 条件 QM → Cremer-Pople；详见 [P0-md-tech-stack-research.md §6-10](P0-md-tech-stack-research.md) |
 
 ## 版本记录
 
 | 日期 | 版本 | 变更内容 | 触发原因 |
 |---|---|---|---|
 | 2026-04-11 | v1.0 | 新建：方向背景、调研清单、4 个科学问题、AMD 硬件约束 | docking 完成后机制实证 + 嵌合 Gpa1 升 P0 后稳定性验证需求 |
+| 2026-04-12 | v1.1 | 算力节点改为 PI 课题组服务器；移除 AMD ROCm 约束；调研维度 1 简化 | 用户确认本地 AMD 卡不用于 MD |
+| 2026-04-12 | v1.2 | 前 3 维度调研完成，生产栈回填；阶段 0 部分勾选；新增前置风险与强制动作 | deep-research skill + 3 并行子代理产出 [研究报告](P0-md-tech-stack-research.md) |
+| 2026-04-12 | v1.3 | 后 4 维度调研完成：采样协议 / 分析栈 / 自由能路径 / ascaroside 行动计划全量回填；方法学局限性重写；前置风险扩到 8 条（加 pre-register 体系、CHARMM-GUI 账号提前、seeds ≥ 3）；阶段 0 全勾选 | 第二轮 deep-research 3 并行子代理产出 [研究报告 v2.0](P0-md-tech-stack-research.md) |
 
 ## 与其他方向的依赖关系
 

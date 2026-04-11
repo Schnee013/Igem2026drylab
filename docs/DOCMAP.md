@@ -94,6 +94,7 @@ drylab/
 │   ├── modeling/                # 每个研究方向一个文件
 │   │   ├── P0-molecular-docking.md       #   分子对接（completed）
 │   │   ├── P0-md-simulation.md           #   MD 模拟（learning，技术栈调研中）
+│   │   ├── P0-md-tech-stack-research.md  #   MD 技术栈调研报告（软件/力场/膜构建）
 │   │   ├── P0-signal-pathway-ode.md      #   STE2 通路 ODE（in_progress）
 │   │   ├── P0-*.md / P3-chimeric-gprotein.md  #   嵌合 Gpa1（priority P0，文件名保留 P3 前缀）
 │   │   ├── P1-*.md              #   增强叙事完整性
@@ -101,6 +102,11 @@ drylab/
 │   │   └── wet-lab-handoff-*.md #   面向湿实验团队的交接文档
 │   ├── learning/
 │   │   └── roadmap.md           #   学习路线图、硬件需求、工具环境
+│   ├── teaching/                # 组内教学材料（docking 方向答辩准备）
+│   │   ├── README.md            #   学习者入口：阅读顺序 + 学习路径
+│   │   ├── lesson-NN-*.md       #   学习者 Lesson 1-7（发布飞书，面向零计算背景组员）
+│   │   ├── appendix-*.md        #   附录 A-F（工具链/AI 工作流/环境/硬件/坑/时间线）
+│   │   └── _instructor/         #   讲师内部文档（题库/红队/验收/节奏，不发布）
 │   ├── decisions/               # 技术决策记录
 │   │   └── NNN-title.md
 │   ├── ops/                     # 操作规范（SSH、环境、工具链）
@@ -135,6 +141,7 @@ drylab/
 │       │   ├── deeptmhmm/       # DeepTMHMM TM 拓扑预测（UniProt 交叉验证）
 │       │   ├── lignetwork/      # ProLIF LigNetwork 2D 交互示意图（HTML，交互式）
 │       │   ├── plip_3d/         # PLIP 3D 交互 viewer（3Dmol.js HTML）+ 文本报告
+│       │   ├── pymol_top6/      # Top 6 突变体 PyMOL 素材（complex PDB + compare_top6.pml）
 │       │   └── ifp_heatmap_*.png  # IFP 热图（按受体 + 全量）
 │       └── mutagenesis/         # 突变体相关
 │           ├── fastas/          # AF3 输入 FASTA（按受体分子目录）
@@ -321,7 +328,7 @@ Day 3: 识别模式 → 提升为 docs/ops/ 操作规范
 2. **git commit**（内置 `/commit` 命令）：提供时间点快照和精确 diff。Stop hook 在 Claude 停止响应前检查未 commit 改动并提醒
 3. **`/checkpoint` skill**：重大任务前手动创建安全回滚点（wip 快照，非正式 commit）
 
-AI 署名已通过 `attribution` 配置在源头关闭，`git-identity-guard` hook 作为二次保护。
+AI 署名已通过 `attribution` 配置在源头关闭。
 
 ### INDEX.md 更新规则
 

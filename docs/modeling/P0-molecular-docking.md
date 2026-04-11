@@ -80,7 +80,7 @@ last_updated: 2026-04-11
 - [x] **推荐突变位点**: Top 6 — Gpr2 M327A（−0.99）/ M327D（−0.69）/ R59F（−0.55）；Gpr3 V138R（−1.07 ⭐）/ F170E（−0.70）/ I141A（−0.79）
 - [x] IFP 热图可视化（[ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)）
 - [x] Top 6 mutant IFP 分析（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)）
-- [ ] 可视化图（PyMOL 渲染 WT vs 最优突变体结合构象对比）
+- [x] 可视化素材（Top 6 complex PDB + PyMOL scene 脚本；见 [analysis/pymol_top6/](../../experiments/docking-repro/analysis/pymol_top6/)）— 渲染交付 PI 的 PNG/PSE 待补
 - [ ] V138R 盐桥假说 MD 实证 → 转交 [P0-md-simulation](P0-md-simulation.md)
 
 ## 方法变体
@@ -127,9 +127,23 @@ last_updated: 2026-04-11
 
 ### Pipeline 验证
 
-Hu2024 阳性对照（GprC N60A、R395A、S44A、N56A——ascr18 结合必需残基）全部落入 **Tier 4**（削弱选择性），与文献一致。**Pipeline 通过验证。**
+**结论更新（2026-04-12）**：先前 "4/4 Hu2024 对照全部 Tier 4 → Pipeline 通过验证" 的表述**错误地把 N56A（阴性对照）当成阳性对照**。按 Hu2024 原文（[Hu2024-GprC-summary.md:143-145](../papers/summaries/Hu2024-GprC-summary.md#L143)）真实角色重新核对后：
 
-WT 基线复现：GprC ascr18 **ΔG = −8.235 kcal/mol**（Hu2024: −8.29，**Δ = 0.05 kcal/mol**）。
+- **真阳性对照（3 个，预期落 Tier 4）**：N60A (N2.57)、R395A (R6.45)、S44A (S2.41)——全部落 Tier 4 ✓
+- **真阴性对照（1 个，预期落 Tier 3 中性）**：N56A (N2.53，Hu2024 strain 13/14 "无影响")——**实际落 Tier 4 ❌**，ΔΔG_sel = +1.139，ΔΔG(ascr18) = +2.696，**扰动幅度大于任何阳性对照**（N60A +0.396、R395A +0.370、S44A +1.032）
+- **GprC 整体分辨力**：14 个 scan 残基中 **13 个** 落 Tier 4（唯一例外 ΔΔG_sel = +0.04 落 Tier 3），Tier 1 推荐 8 条**全部来自 Gpr2/Gpr3**
+
+**因此 "Pipeline 通过验证" 的论断不成立**。可以确认的是：
+1. Vina alanine scan 在 GprC 上对**阴性对照给出了最强的假阳性**之一，现有 Tier 阈值**不能可靠区分 GprC 的功能性残基**
+2. GprC 单点突变不适合作为湿实验候选；本方向的 Tier 1 推荐全部落在 Gpr2/Gpr3 与此一致
+
+根因尚未锁定，存在至少两种不互斥解释、需进一步实验区分：
+- (a) **pipeline 普遍假阳性**：单点 Ala 扰动放大打分偏差
+- (b) **GprC 口袋几何特异**：口袋浅 / 接触残基密集，任何接触残基的单点替换都破坏结合（此时落 Tier 4 对接触残基本身是真阳性，但 pipeline 对 "结合必需 vs. 功能中性" 无分辨力）
+
+> 待办：对比 Gpr2/Gpr3 是否有已知阴性对照可测，或对 GprC 重做不同 box/seed 控制。`docs/logs/truth-audits/2026-04-12_0205.md` 记录了本次推翻的完整推导。
+
+WT 基线复现不受影响：GprC ascr18 **ΔG = −8.235 kcal/mol**（Hu2024: −8.29，**Δ = 0.05 kcal/mol**）——绝对 ΔG 的重现性和 alanine scan 的残基分辨力是两个独立问题。
 
 ### Tier 分布（122 条）
 
