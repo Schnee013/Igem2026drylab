@@ -35,22 +35,22 @@ pymol_top6/
 
 ## 选这 6 个突变体的理由
 
-全部来自 P0 分子对接 **Tier 1**（ΔΔG_sel ≤ −0.48，>3σ 噪声），覆盖**两条受体**、
+全部来自 P0 分子对接 **Channel A**（sel_mut < −0.477，>3σ 噪声），覆盖**两条受体**、
 **两种机制路径**，直接对应 [wet-lab-handoff-P0-docking.md](../../../../docs/modeling/wet-lab-handoff-P0-docking.md)
 的湿实验推荐清单：
 
 | 受体 | 突变 | abs sel | ΔΔG_sel | 机制 | 为什么选 |
 |------|------|---------|---------|------|---------|
-| Gpr2 | **M327A** | −1.39 | −0.987 | 丢失 ascr3 相互作用 | Tier 1 最强，纯 Ala 机制最干净 |
+| Gpr2 | **M327A** | −1.39 | −0.987 | 丢失 ascr3 相互作用 | Channel A 最强，纯 Ala 机制最干净 |
 | Gpr2 | **M327D** | −1.09 | −0.685 | 主动引入负电 | 同位点两条路径对照（vs M327A）|
 | Gpr2 | **R59F**  | −0.96 | −0.552 | 芳香替换正电 | Gpr2 非 M327 的独立位点 |
 | Gpr3 | **V138R** ⭐ | −0.88 | **−1.070** | Arg 胍基几何 | ΔΔG_sel 全表最负；Gpr3 首次穿透噪声；盐桥假说（待 MD 证）|
-| Gpr3 | **F170E** | −0.50 | −0.696 | ECL2 酸性改造 | F170E + F170D 双双入 Tier 1 |
+| Gpr3 | **F170E** | −0.50 | −0.696 | ECL2 酸性改造 | F170E 进入 Channel A，F170D 在 neutral 边缘 |
 | Gpr3 | **I141A** | −0.59 | −0.786 | 疏水口袋松弛 | Gpr3 非 V138 的独立位点 |
 
 **不选**的候选：
-- R59A / F170D（Tier 1 P4/P8）——与 R59F/F170E 同位点同方向，机制冗余
-- Hu2024 实验对照：N60A (N2.57)、R395A (R6.45)、S44A (S2.41) 为真阳性对照，全部落 Tier 4；N56A (N2.53) 是 Hu2024 阴性对照（strain 13/14 "无影响"），但在本 pipeline 中也落 Tier 4（假阳性）。均不作为湿实验候选，校验用途详见 [P0-molecular-docking.md §Pipeline 验证](../../../../docs/modeling/P0-molecular-docking.md#pipeline-验证)
+- R59A / F170D（Channel A #4/#8）——与 R59F/F170E 同位点同方向，机制冗余
+- Hu2024 实验对照：N60A (N2.57)、R395A (R6.45)、S44A (S2.41) 为真阳性对照，|ΔΔG_sel| 全部显著偏移；N56A (N2.53) 是 Hu2024 阴性对照（strain 13/14 "无影响"），但在本 pipeline 中 |ΔΔG_sel| 也显著偏移（假阳性）。均不作为湿实验候选，校验用途详见 [P0-molecular-docking.md §Pipeline 验证](../../../../docs/modeling/P0-molecular-docking.md#pipeline-验证)
 
 ## 使用方法
 

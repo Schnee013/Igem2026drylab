@@ -345,7 +345,7 @@ mutagenesis:
 # S2: 多 seed 方差评估（run_multiseed.py）
 multiseed:
   seeds: [42, 123, 456, 789, 1024]
-  # WT 受体（全部三个）+ top 突变体（Tier 1，2026-04-10 更新）
+  # WT 受体（全部三个）+ Channel A 候选（2026-04-10 更新）
   wt_receptors: ["GprC", "Gpr2", "Gpr3"]
   top_mutants:
     - receptor: "Gpr2"
@@ -357,8 +357,8 @@ multiseed:
   # 输出: experiments/docking-repro/results/multiseed/
 
 # S3: 饱和扫描（generate_saturation_fastas.py 已取代 run_saturation_gpr2.py）
-# 旧脚本 run_saturation_gpr2.py 基于 v2 结果（Y200/Y378），已被 Tier 1 位点取代
-# 新脚本使用 Tier 1/2 位点：Gpr2 M327/R59, Gpr3 I141/F170/V138
+# 旧脚本 run_saturation_gpr2.py 基于 v2 结果（Y200/Y378），已被 Channel A 位点取代
+# 新脚本使用 Channel A 核心位点：Gpr2 M327/R59, Gpr3 I141/F170/V138
 # 详见 generate_saturation_fastas.py
 
 # S4: GprC 扩大 Docking Box（25Å）验证外周残基（run_wt_twostage.py --gprc-expand）

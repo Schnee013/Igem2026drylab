@@ -18,6 +18,8 @@ last_updated: 2026-04-12
 > 同时 [P3-chimeric-gprotein](P3-chimeric-gprotein.md)（已升 P0）的嵌合 Gpa1 设计也需要 MD 稳定性验证。
 >
 > **本方向的边界**：是 docking 与嵌合 Gpa1 的**实证补充**，**不再做新对接**（用户决策：算力全部投入 MD）。
+>
+> **执行顺序（2026-04-12 决策）**：本方向排在 **嵌合 Gpa1 设计之后**执行。理由：(1) 嵌合 Gpa1 直接阻塞湿实验（不知道用哪个嵌合方案就无法构建），MD 不阻塞任何人；(2) MD 有硬性外部依赖（CHARMM-GUI 审批 + PI 服务器 + ascaroside 参数化 2-5 周），嵌合 Gpa1 的 AF3 预测 1-2 周可交付；(3) MD 是"锦上添花"（方法学首创 + 机制深化），嵌合 Gpa1 是"必须交付"。技术栈调研已全部完成，待嵌合 Gpa1 交付后 + CHARMM-GUI 审批通过后立即启动 ascaroside penalty 扫描。
 
 ## 解决什么问题
 
@@ -77,8 +79,8 @@ last_updated: 2026-04-12
 
 | 方案 | 体系数 | 时长/rep | Reps | 总 ns | A100 天数 | 用途 |
 |---|---|---|---|---|---|---|
-| **最小 MVP** | 7 holo (WT + Top 6) | **200 ns** | **3** | 4200 | ~24 | t-test 可做，首 50 ns eq |
-| **标准** | 7 holo + 1 WT-apo | 300 ns | 3 | 7200 | ~41 | p 值稳定 + bootstrap CI |
+| **最小 MVP** | **8 holo** (2 WT + Top 6) | **200 ns** | **3** | 4800 | ~28 | t-test 可做，首 50 ns eq |
+| **标准** | 8 holo + 2 WT-apo | 300 ns | 3 | 9000 | ~51 | p 值稳定 + bootstrap CI |
 | **理想** | 14 (holo + apo) | 500 ns | 3 | 21000 | ~120 | 匹配 GPCRmd-2 |
 
 **推荐执行路径**：先跑 MVP 出初稿 → 剩余时间把 V138R、F170E 升级到 500 ns × 5 seeds 做 publication-grade。AF3 起始需分阶段 restraint release（2→60→80→20 ns schedule），生产前额外损耗 50–100 ns。**不用 HMR 4 fs**（对 CGenFF 数值不稳定，留后期优化）。**不跑 GaMD / metadynamics / LiGaMD**（5 月窗口内学习曲线吃不下）。
@@ -131,8 +133,8 @@ last_updated: 2026-04-12
 
 1. ⭐⭐⭐ **ascaroside CGenFF 糖环 penalty 审计**：不审计 = V138R 盐桥占比数字不可信。阶段 1-2 = ParamChem + penalty 分级（1-2 天出数据），即可判断是否触发阶段 3 (QM 重拟 1-2 周)。重点：α-L-ascarylose 环 ⁴C₁/¹C₄ 椅式稳定性 + C7 末端羧基 charge。**重大红利**：CHARMM36 碳水已原生覆盖 fucose/rhamnose（ascarylose 最近类比），若阶段 2 全 <50 可直接锁定。
 2. ⭐⭐⭐ **AlphaFold3 结构必须过 PPM 2.0 对齐**：跳过会在 production 发现 TM 倾角 30°+ 灾难；顺带明确声明"基于 inactive-like 预测"。AF3 起始首 50 ns 必须从分析窗口扣除（不是晶体结构）。
-3. ⭐⭐⭐ **CHARMM-GUI 学术账号**：本周内注册（审批 0.5-1 天，不要卡在里程碑前一天）。
-4. ⭐⭐ **体系清单 pre-register**：跑之前写死 7 或 14 个体系，防止中途增加导致统计比较不公（审稿/iGEM Judging 会质疑）。
+3. ~~⭐⭐⭐ **CHARMM-GUI 学术账号**~~：**已通过（2026-04-14）**。
+4. ⭐⭐ ~~**体系清单 pre-register**~~：**已完成**（2026-04-12）→ 8 holo 锁定到 [experiments/md-simulation/README.md](../../experiments/md-simulation/README.md)。
 5. ⭐⭐ **脂质力场引入 ionic lock 假信号**：β2AR+POPC 对比研究显示不同脂质力场让 R-E ionic lock 动力学完全不同。锁定 CHARMM36 lipid 不中途切换。
 6. ⭐⭐ **Single replica 审稿常识 = 不够**：≥3 independent seeds，每 ≥200 ns 用于 Welch t-test / Mann-Whitney U；effect size 接近阈值（0.4 vs 0.6）必须 5 seeds 做 bootstrap CI。
 7. ⭐ **水盒子 benchmark**：PI 服务器配置确认后跑一次，验证 `-update gpu -bonded gpu -pme gpu` + CPU ≥ 8 核是否开到位。80k-atom 体系 A100 ~265 ns/day 为基准（[NHR@FAU 2024](https://hpc.fau.de/2024/08/13/gromacs-2024-1-on-brand-new-gpgpus/)）。
@@ -218,8 +220,8 @@ last_updated: 2026-04-12
 - [x] 剩余 4 维度调研（时间尺度 / 分析工具 / MM-PBSA / ascaroside 类比）：[P0-md-tech-stack-research.md §6-10](P0-md-tech-stack-research.md) v2.0（2026-04-12）
 - [x] 回填采样协议 / 分析栈 / 自由能路径 / ascaroside 行动计划
 - [ ] PI 课题组服务器配置确认后，在本文档 §执行节点 回填并校核软件 CUDA 版本
-- [ ] CHARMM-GUI 学术账号注册（本周内）
-- [ ] 在 [learning/roadmap.md](../learning/roadmap.md) 阶段三补充入门材料（CHARMM-GUI / GROMACS membrane tutorial / CGenFF webserver / ProLIF MD tutorial / gmx_MMPBSA CHARMM-ff 示例）
+- [x] CHARMM-GUI 学术账号注册（已提交 2026-04-12，**审批通过 2026-04-14**）
+- [x] 体系清单 pre-register：8 holo（2 WT + Top 6），已锁定到 [experiments/md-simulation/README.md](../../experiments/md-simulation/README.md)（2026-04-12）
 
 ### 阶段 1：执行（待调研完成后启动）
 
@@ -227,7 +229,7 @@ last_updated: 2026-04-12
 - [ ] F170E pose drift 分析 + GLU170 χ 角时间序列
 - [ ] Top 6 mutant 的 RMSD/RMSF 汇总表 + WT 对照
 - [ ] 嵌合 Gpa1 + Gpr 复合物界面稳定性报告（与 P3 联动）
-- [ ] 产出路径：`experiments/md-simulation/`（待技术栈确定后创建）
+- [ ] 产出路径：`experiments/md-simulation/`（目录骨架已创建 2026-04-12，CHARMM-GUI 输出后填充）
 
 ## 方法学局限性
 
@@ -247,6 +249,7 @@ last_updated: 2026-04-12
 | 2026-04-12 | 算力节点切换到 PI 课题组服务器 | 本地 AMD 卡退出 MD 选型约束；技术栈按 CUDA 主流生态调研 |
 | 2026-04-12 | 前 3 维度技术栈调研完成 | 生产栈确定：GROMACS + CHARMM36m + CGenFF + CHARMM36 lipid + CHARMM-GUI + 纯 POPC；详见 [P0-md-tech-stack-research.md](P0-md-tech-stack-research.md) |
 | 2026-04-12 | 后 4 维度调研完成 | 采样 MVP = 7 holo × 200 ns × 3 rep；分析栈 MDAnalysis + ProLIF (Cationic/Anionic) + GetContacts；自由能主路径 gmx_MMPBSA + per-residue + IFP 三角；ascaroside 路径 ParamChem → penalty 分级 → 条件 QM → Cremer-Pople；详见 [P0-md-tech-stack-research.md §6-10](P0-md-tech-stack-research.md) |
+| 2026-04-14 | CHARMM-GUI 学术账号审批通过 | 阶段 0 前置风险 §3 解除；可启动 ascaroside ParamChem 扫描 + 膜体系搭建规划 |
 
 ## 版本记录
 
@@ -256,6 +259,7 @@ last_updated: 2026-04-12
 | 2026-04-12 | v1.1 | 算力节点改为 PI 课题组服务器；移除 AMD ROCm 约束；调研维度 1 简化 | 用户确认本地 AMD 卡不用于 MD |
 | 2026-04-12 | v1.2 | 前 3 维度调研完成，生产栈回填；阶段 0 部分勾选；新增前置风险与强制动作 | deep-research skill + 3 并行子代理产出 [研究报告](P0-md-tech-stack-research.md) |
 | 2026-04-12 | v1.3 | 后 4 维度调研完成：采样协议 / 分析栈 / 自由能路径 / ascaroside 行动计划全量回填；方法学局限性重写；前置风险扩到 8 条（加 pre-register 体系、CHARMM-GUI 账号提前、seeds ≥ 3）；阶段 0 全勾选 | 第二轮 deep-research 3 并行子代理产出 [研究报告 v2.0](P0-md-tech-stack-research.md) |
+| 2026-04-14 | v1.4 | CHARMM-GUI 学术账号审批通过；前置风险 §3 标记已完成 | 外部审批到位 |
 
 ## 与其他方向的依赖关系
 

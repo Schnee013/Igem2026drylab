@@ -23,7 +23,7 @@ from utils import get_project_root, load_config
 
 LIGANDS = ["ascr18", "ascr3", "ascr7"]
 
-# Tier 1 候选（2026-04-10 alanine scan 结果）
+# Channel A 候选（2026-04-10 alanine scan 结果）
 TIER1 = {
     "Gpr2": {"M327", "R59"},
     "Gpr3": {"I141"},
@@ -178,8 +178,8 @@ def main():
 
     # 图例
     legend_elements = [
-        mpatches.Patch(color="#d62728", label="Tier 1 (ddG_sel <= -0.48)"),
-        mpatches.Patch(color="#ff7f0e", label="Tier 2 (ddG_sel <= -0.16)"),
+        mpatches.Patch(color="#d62728", label="Channel A (sel_mut < -0.477)"),
+        mpatches.Patch(color="#ff7f0e", label="neutral moderate"),
         mpatches.Patch(color="#1f77b4", label="Current scan_residues"),
         mpatches.Patch(color="black",   label="Other contact residues"),
     ]

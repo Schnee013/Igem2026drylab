@@ -1,5 +1,5 @@
 """
-Mutant ProLIF IFP 分析 — Top Tier-1 候选的交互指纹验证
+Mutant ProLIF IFP 分析 — Channel A Top 候选的交互指纹验证
 
 针对饱和扫描 Top 候选，对每个突变体的 mutant 受体 + mutant 对接 pose
 运行 ProLIF，生成残基级接触频率，并与 WT 基线对比。
@@ -39,7 +39,7 @@ from run_ifp_analysis import (
 )
 from utils import get_project_root, load_config
 
-# Top Tier-1 候选（04-11 饱和扫描 + alanine scan 合并）
+# Channel A Top 候选（04-11 饱和扫描 + alanine scan 合并）
 TOP_MUTANTS = [
     ("Gpr2", "M327A"),
     ("Gpr2", "M327D"),

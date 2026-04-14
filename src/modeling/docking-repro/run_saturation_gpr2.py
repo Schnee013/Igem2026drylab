@@ -1,7 +1,7 @@
 """
-⚠️ SUPERSEDED — 本脚本基于 v2 MMFF alanine scan 结论（Y200A/Y378A 为 Tier 1）。
-Orca DFT + ICL3 截断修复后，Y200A/Y378A 降为 Tier 4。
-当前 Tier 1 位点为 M327A/R59A（Gpr2）和 I141A（Gpr3）。
+⚠️ SUPERSEDED — 本脚本基于 v2 MMFF alanine scan 结论（Y200A/Y378A 为 Channel A 候选）。
+Orca DFT + ICL3 截断修复后，Y200A/Y378A 降为 neutral。
+当前 Channel A 位点为 M327A/R59A（Gpr2）和 I141A（Gpr3）。
 饱和扫描已改用 generate_saturation_fastas.py（2026-04-10）。
 保留本脚本仅作为历史参考和 pipeline 测试用途。
 

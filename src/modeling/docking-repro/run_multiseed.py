@@ -6,7 +6,7 @@ S2: 多 Seed 方差评估 — 量化 Vina 随机噪声，为关键结果提供�
 
 策略：
   1. WT 受体（GprC/Gpr2/Gpr3）× 配体 × 5 seeds = 多次对接
-  2. Top 突变体（Tier 1: Gpr2 M327A, R59A, Gpr3 I141A）× 配体 × 5 seeds
+  2. Channel A 候选（Gpr2 M327A, R59A, Gpr3 I141A）× 配体 × 5 seeds
   3. 计算 mean ± SD，报告 95% CI 和 ΔΔG_sel 统计显著性
 
 依赖：
@@ -62,7 +62,7 @@ LIGAND_PDBQTS = {
     "ascr7":  "ascr7_optimized.pdbqt",
 }
 
-# 方差评估的突变体（Tier 1 候选，2026-04-10 更新）
+# 方差评估的突变体（Channel A 候选，2026-04-10 更新）
 # PDBQT 由 mutagenesis.py 生成后复制到 mutagenesis/af3_prepared/（按受体子目录）。
 TOP_MUTANTS = {
     ("Gpr2", "M327A"): "Gpr2_M327A_tm.pdbqt",

@@ -3,8 +3,8 @@
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
-- **当前阶段**: P0 分子对接计算完成（饱和扫描 Tier v2，122 条）；底盘锁定酵母-STE2；进入 P0-ODE / P0-嵌合 Gpa1 / P0-MD 三线启动 + 湿实验交接 + Wiki 写作阶段
-- **主要卡点**: 显色级联具体方案 TBD（报告基因 / 整合位点 / 是否 GAL4 放大）；MD 将在 PI 课题组服务器执行，配置待确认
+- **当前阶段**: P0 对接 completed；底盘锁定酵母-STE2；**P0 执行顺序 = ① 嵌合 Gpa1（阻塞湿实验）→ ② ODE（并行）→ ③ MD（最后，等 CHARMM-GUI + PI 服务器）**
+- **主要卡点**: 显色级联方案 TBD（报告基因/整合位点/GAL4 放大）；嵌合 Gpa1 设计尚未启动（直接阻塞湿实验构建）
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌 v4](prd/overview-v4.md)
 
@@ -31,7 +31,8 @@
 > 2026-04-11 底盘 4 项阻塞全部解除（PI 确认酵母-STE2 主线，详见 [决策 003](decisions/003-chassis-yeast-ste2-integration.md)）。
 
 - [ ] **[阻塞] 显色级联方案**：报告基因 / 整合位点 / 拷贝数目标 / 是否 GAL4 放大 → 与通路工程组讨论
-- [ ] **[阻塞] MD 算力方案**：PI 课题组服务器配置确认（CPU/GPU/RAM），所有 MD 生产计算在该服务器执行；本地 AMD 节点不用于 MD
+- [ ] **[阻塞] 嵌合 Gpa1 设计**：湿实验不知道用哪个嵌合方案，无法开始构建 → **立即启动**
+- [ ] **[重要] MD 算力方案**：PI 课题组服务器配置确认（CPU/GPU/RAM）；排在嵌合 Gpa1 之后
 - [ ] **[重要] HP 组沟通**: 经济效益模型需要哪些定量论据？
 
 ---
@@ -59,7 +60,7 @@
 
 | 文档 | 内容 | 链接 |
 |------|------|------|
-| P0 分子对接交接（权威源） | Top 6 候选、饱和扫描 Tier v2、底盘上下文、计算局限性 | [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md) |
+| P0 分子对接交接（权威源） | Top 6 候选、双通道全谱排名、底盘上下文、计算局限性 | [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md) |
 | P0 分子对接交接（飞书扁平版） | 同上内容，飞书云文档/多维表格粘贴版 | [wet-lab-handoff-P0-docking-feishu.md](modeling/wet-lab-handoff-P0-docking-feishu.md) |
 
 ## 运维参考
@@ -107,41 +108,41 @@
 
 ## 最近进展
 
-- **2026-04-12**: ① 算力节点切换到 PI 课题组服务器（本地 AMD 退出 MD 选型约束）② 前 3 维度 MD 技术栈深度调研完成 → 生产栈 = GROMACS + CHARMM36m + CGenFF + CHARMM36 lipid + CHARMM-GUI + 纯 POPC ③ **后 4 维度调研完成 v2.0**：MVP 采样 = 7 holo × 200 ns × 3 rep（~24 A100-day），分析栈 MDAnalysis + ProLIF (Cationic/Anionic) + GetContacts，自由能主路径 gmx_MMPBSA + per-residue + IFP 三角，ascaroside 走 ParamChem → penalty 分级 → 条件 QM（红利：CHARMM 碳水已原生支持 fucose/rhamnose）；详见 [P0-md-tech-stack-research.md v2.0](modeling/P0-md-tech-stack-research.md)
-- **2026-04-11**: ① 90 饱和扫描对接完成 + Tier v2（122 条合并）② Top 6 候选确定（M327A/V138R/M327D/R59F/F170E/I141A）③ V138R IFP 显示 ARG138 空间富集（盐桥假说待 MD 实证）④ **PI 确认底盘 = 酵母-STE2，P3→P0，新增 P0-MD，P2-biocontrol-lv archived**
-- **2026-04-10**: GprC×14 + Gpr2×10 alanine scan 完成；全量 32 条合并；Tier 1-4 推荐表 v1 生成
-- **2026-04-09**: Gpr3 IFP alanine scan 完成（8 残基）；Gpr2 IFP 交叉验证 PASS；BW 映射修正
-- **2026-04-08**: WT 单阶段 GprC_ascr18 精确复现 Hu2024（Δ=0.05）；BW 映射修正完成
-- **2026-04-07**: 协议偏差修复（单阶段 Hu2024）；ICL3 截断；AF3 pipeline 完成
+- **2026-04-12**: ① MD 技术栈 7 维度调研全部完成（生产栈 GROMACS+CHARMM36m+CGenFF+CHARMM-GUI+POPC）② 体系 pre-register 8 holo 锁定（修正 7→8：2 WT + Top 6）③ **P0 执行顺序重排：嵌合 Gpa1（阻塞湿实验）→ ODE（并行）→ MD（最后）**——MD 是"锦上添花"不是前置依赖
+- **2026-04-11**: ① 双通道全谱排名（122 条）② Top 6 确定 ③ V138R 盐桥假说待 MD 实证 ④ **底盘 = 酵母-STE2，P3→P0**
+- **2026-04-10**: GprC×14 + Gpr2×10 alanine scan；双通道分类 v1
+- **2026-04-09**: Gpr3 IFP alanine scan；BW 映射修正
+- **2026-04-08**: WT 单阶段 GprC_ascr18 复现 Hu2024（Δ=0.05）
 
 ---
 
 ## 待办
 
-### P0 分子对接（计算完成，进入输出阶段）
-- [x] WT 单阶段；[x] Alanine scan 32 突变体；[x] 饱和扫描 90 突变（Tier v2，122 条合并）；[x] Top 6 IFP 验证
-- [ ] **Wiki 写作**：计算结果 → iGEM wiki（[P0-molecular-docking.md](modeling/P0-molecular-docking.md)）
-- [ ] **湿实验候选交接**：Top 6（M327A/V138R/M327D/R59F/F170E/I141A）结构化报告（[wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md)）
-- [ ] V138R+F170E 双突变 / M327D 外围位点：deferred → 算力转 P0-MD
+### ① P0 嵌合 Gpa1 ⭐⭐⭐（立即启动，阻塞湿实验）
+- [x] MUSCLE 比对 Gpa1 vs Ao Gpa2 / Af GasA（+ gustducin/Gsα 对照）→ `experiments/chimeric-gpa1/alignment/`
+- [x] C 端 5/10/15 残基三档嫁接方案 + 6 个候选序列 → `experiments/chimeric-gpa1/chimeras/`
+- [ ] AlphaFold 3 预测嵌合复合物（18 组合 + WT 对照）
+- [ ] iPAE / 接触界面评分 → 推荐方案 → 湿实验交接
+- [ ] MD 稳定性验证（Top 2-3 候选，排在 MD 生产期间）
 
-### P0 嵌合 Gpa1（former P3，已升 P0）
-- [ ] MUSCLE 比对 Gpa1 vs *A. oligospora*/*A. flagrans* Gα
-- [ ] C 端 5/10/15 残基三档嫁接方案
-- [ ] AlphaFold-Multimer 预测嵌合复合物
-- [ ] MD 稳定性验证（→ P0-MD）
-
-### P0 信号通路 ODE
+### ② P0 信号通路 ODE（与 ① 并行）
 - [ ] 完整酵母 STE2 ODE 模型（参数源 Shaw2019/Fan&Yuan2024/Ladds2005）
 - [ ] 1/2/4 copy 拷贝数敏感性分析
-- [ ] 与 P0-docking 联动：Kd 参数从 Tier v2 获取
+- [ ] 与 P0-docking 联动：Kd 参数从双通道排名获取
 
-### P0 MD 模拟（新方向）
-- [ ] **首要任务**：技术栈调研（GROMACS/OpenMM/AMBER × CHARMM36m/ff19SB，按 CUDA 主流生态，不考虑本地 AMD）
+### ③ P0 MD 模拟（排在 ① 之后，等 CHARMM-GUI + PI 服务器）
+- [x] 技术栈调研 7 维度（GROMACS + CHARMM36m + CGenFF + CHARMM-GUI）
+- [x] 体系 pre-register（8 holo 锁定）
+- [~] CHARMM-GUI 学术账号（已提交注册）
+- [ ] ascaroside ParamChem penalty 扫描（CHARMM-GUI 通过后立即做）
 - [ ] V138R + ascr#18 体系 MD（盐桥实证）
 - [ ] F170E pose drift 分析
 - [ ] Top 6 RMSD/RMSF 汇总
 
+### P0 分子对接（计算完成，进入输出阶段）
+- [x] WT 单阶段；[x] Alanine scan；[x] 双通道全谱排名（122 条）；[x] Top 6 IFP
+- [ ] **Wiki 写作** + **湿实验交接**（[wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md)）
+
 ### 其他待启动
 - [ ] 显色级联方案讨论（与通路工程组）
 - [ ] 与 HP 组沟通经济效益模型需求
-- [ ] 开始 §3.5c 经济效益模型

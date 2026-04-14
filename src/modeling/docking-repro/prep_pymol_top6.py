@@ -1,6 +1,6 @@
 """Top 6 突变体 PyMOL 可视化素材生成器。
 
-为 Tier 1 Top 6 突变体（Gpr2 M327A/M327D/R59F, Gpr3 V138R/F170E/I141A）生成
+为 Channel A Top 6 突变体（Gpr2 M327A/M327D/R59F, Gpr3 V138R/F170E/I141A）生成
 **分离的**受体 PDB 和配体 PDB 供 PyMOL 加载。
 
 选择分离而非合并 complex 的原因：

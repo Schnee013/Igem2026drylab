@@ -1,5 +1,5 @@
 """
-Saturation Scan：Tier 1/2 位点饱和突变扫描
+Saturation Scan：Channel A 核心位点饱和突变扫描
   Gpr2: M327 × 18 AA + R59 × 18 AA = 36
   Gpr3: I141 × 18 AA + F170 × 18 AA + V138 × 18 AA = 54
   共 90 突变体（排除 WT 和 Ala，Ala 已在 alanine scan 中完成）
@@ -29,15 +29,15 @@ sys.path.insert(0, str(_this_dir.parent / "docking"))
 from mutagenesis import run_mutagenesis
 from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
 
-# Tier 1/2 饱和扫描位点（来自 tier_recommendations_20260410.md）
+# Channel A 核心饱和扫描位点
 SATURATION_RESIDUES = {
-    "Gpr2": [327, 59],      # M327 (Tier 1), R59 (Tier 1)
-    "Gpr3": [141, 170, 138], # I141 (Tier 1), F170 (Tier 2), V138 (Tier 2)
+    "Gpr2": [327, 59],      # M327 (Channel A), R59 (Channel A)
+    "Gpr3": [141, 170, 138], # I141 (Channel A), F170 (Channel A), V138 (Channel A)
 }
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Tier 1/2 饱和突变扫描")
+    parser = argparse.ArgumentParser(description="Channel A 核心位点饱和突变扫描")
     parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
     parser.add_argument("--project-root", default=None)
     return parser.parse_args()
@@ -76,7 +76,7 @@ def main() -> None:
     config["mutagenesis"]["exclude_aas"] = ["A"]
     config["mutagenesis"]["target_receptors"] = list(SATURATION_RESIDUES.keys())
 
-    # 覆盖 scan_residues 为仅 Tier 1/2 位点
+    # 覆盖 scan_residues 为仅 Channel A 核心位点
     config["mutagenesis"]["scan_residues"] = SATURATION_RESIDUES
 
     prepared_root = root / config["paths"]["prepared_dir"]

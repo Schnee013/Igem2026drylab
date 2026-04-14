@@ -27,7 +27,7 @@ last_updated: 2026-04-11
 
 ```
 异源 Gpr 受体（Gpr2/Gpr3/GprC，单拷贝整合，Top 6 突变体之一）
-    │ ascr#18 / ascr#3 结合（Kd 来自 P0-docking Tier v2）
+    │ ascr#18 / ascr#3 结合（Kd 来自 P0-docking 双通道排名）
     ▼
 嵌合 Gpa1（C 端嫁接真菌 Gα C 端，由 P0-chimeric-gprotein 提供 5/10/15 三档候选）
     │ GTP 结合 → Gβγ 释放
@@ -81,7 +81,7 @@ Ste12（转录因子）
 
 | 参数 | 来源 | 备注 |
 |------|------|------|
-| 异源 Gpr 配体结合 Kd | [P0-molecular-docking](P0-molecular-docking.md) Tier v2 + Hu2024/Kuo2024 实验值校准 | Top 6 突变体单独参数 |
+| 异源 Gpr 配体结合 Kd | [P0-molecular-docking](P0-molecular-docking.md) 双通道排名 + Hu2024/Kuo2024 实验值校准 | Top 6 突变体单独参数 |
 | 嵌合 Gpa1 GTPase 速率 | Shaw 2019 / Hara 2012 | 假设 C 端 5/10/15 嵌合不显著影响 GTPase 域速率（待 MD 验证） |
 | Gβγ 释放 / Sst2 RGS | Shaw 2019 *Cell* | |
 | MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 + Ladds 2005 | |
@@ -128,7 +128,7 @@ Ste12（转录因子）
 | 日期 | 版本 | 变更内容 | 触发原因 |
 |------|------|---------|---------|
 | 2026-04-03 | v1.0 | 从 PRD v3 §3.2 提取，含双底盘策略 | 文档体系搭建 |
-| 2026-04-11 | **v2.0** | status not_started → in_progress；锁定酵母 STE2 路径；新增基因组单拷贝整合基线 + 拷贝数敏感性分析；丝状真菌表保留为历史；与 P0-docking Tier v2 联动 | 底盘决策落地（[决策 003](../decisions/003-chassis-yeast-ste2-integration.md)） |
+| 2026-04-11 | **v2.0** | status not_started → in_progress；锁定酵母 STE2 路径；新增基因组单拷贝整合基线 + 拷贝数敏感性分析；丝状真菌表保留为历史；与 P0-docking 双通道分析联动 | 底盘决策落地（[决策 003](../decisions/003-chassis-yeast-ste2-integration.md)） |
 
 ## 进展记录
 

@@ -103,9 +103,14 @@ drylab/
 │   ├── learning/
 │   │   └── roadmap.md           #   学习路线图、硬件需求、工具环境
 │   ├── teaching/                # 组内教学材料（docking 方向答辩准备）
-│   │   ├── README.md            #   学习者入口：阅读顺序 + 学习路径
-│   │   ├── lesson-NN-*.md       #   学习者 Lesson 1-7（发布飞书，面向零计算背景组员）
-│   │   ├── appendix-*.md        #   附录 A-F（工具链/AI 工作流/环境/硬件/坑/时间线）
+│   │   ├── v2/                  #   当前版本（DO/KNOW 双轨 + REF 参考手册，飞书导入格式）
+│   │   │   ├── README-feishu.md        #     学习者入口：开场信 + 阅读顺序
+│   │   │   ├── do-0-dev-setup-feishu.md #    Day 0 开发环境搭建（VS Code/Copilot/WSL2）
+│   │   │   ├── do-{1-4}-*-feishu.md    #     操作轨（逐命令可复制，GROMACS tutorial 风格）
+│   │   │   ├── know-{1-4}-*-feishu.md  #     理解+答辩轨（从湿实验知识搭桥到干实验）
+│   │   │   ├── ref-{a-d}-*-feishu.md   #     按需查阅手册（工具/坑/代码/SSH）
+│   │   │   └── ref-e-foundations-feishu.md #  终端命令详解 + 硬件 101
+│   │   ├── v1/                  #   已归档 v1（lesson-01~07 + appendix-A~F）
 │   │   └── _instructor/         #   讲师内部文档（题库/红队/验收/节奏，不发布）
 │   ├── decisions/               # 技术决策记录
 │   │   └── NNN-title.md
@@ -130,6 +135,19 @@ drylab/
 │   ├── docking/                 # v2 pipeline 产出
 │   │   ├── receptors/           # 原始 PDB（共享，被 docking-repro 引用）
 │   │   └── ligands/             # 原始 SDF（共享）
+│   ├── chimeric-gpa1/           # 嵌合 Gpa1 设计（序列→比对→AF3→评分）
+│   │   ├── README.md            #   偶联关系 + 序列清单 + 目录说明
+│   │   ├── sequences/           #   源 Gα 序列 FASTA + MUSCLE 比对输入
+│   │   ├── alignment/           #   MUSCLE + ClustalΩ 比对结果
+│   │   ├── chimeras/            #   6 个嵌合候选 FASTA
+│   │   ├── af3_predictions/     #   AF3 Server 结果
+│   │   └── scoring/             #   iPAE/pLDDT 评分矩阵
+│   ├── md-simulation/           # MD 模拟体系（Pre-registered 8 holo）
+│   │   ├── README.md            #   体系清单 + 采样协议 + 判据（锁定文档）
+│   │   ├── systems/             #   每个体系一个目录（CHARMM-GUI 输出 + GROMACS 输入）
+│   │   ├── parameters/          #   配体参数化（CGenFF stream + penalty audit）
+│   │   ├── analysis/            #   跨体系分析脚本
+│   │   └── scripts/             #   Pipeline 通用脚本
 │   └── docking-repro/           # Hu2024 复现产出
 │       ├── prepared/            # ADFR 准备的 PDBQT（单一来源）
 │       ├── results/             # 对接结果 JSON
@@ -146,7 +164,7 @@ drylab/
 │       └── mutagenesis/         # 突变体相关
 │           ├── fastas/          # AF3 输入 FASTA（按受体分子目录）
 │           │   ├── {Rec}/{Label}.fasta       # alanine scan 单突变
-│           │   └── {Rec}/saturation/         # 饱和扫描（Tier 1/2 位点 × 18 AA）
+│           │   └── {Rec}/saturation/         # 饱和扫描（Channel A 核心位点 × 18 AA）
 │           │   # AF3 batch JSON 格式（提交后已清理，需要时按此格式重新生成）：
 │           │   # [{"name":"gpr2_m327c","modelSeeds":["645910426"],
 │           │   #   "sequences":[{"proteinChain":{"sequence":"...","count":1,
@@ -159,7 +177,7 @@ drylab/
 │           ├── mutagenesis_results.json          # pipeline 实时写入（每次跑覆盖）
 │           ├── mutagenesis_results_{run_id}.json # 时间戳备份（pipeline 自动创建）
 │           ├── mutagenesis_results_all_YYYYMMDD.json  # 手动合并全量（权威源）
-│           └── tier_recommendations_YYYYMMDD.md  # Tier 推荐表（分析输出）
+│           └── ratio_channel_report.md           # 双通道全谱排名（权威源）
 │
 ├── environments/                # conda 环境定义和锁定
 │   ├── mac-docking.yml

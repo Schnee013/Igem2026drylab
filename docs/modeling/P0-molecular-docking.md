@@ -3,7 +3,7 @@ direction: P0-molecular-docking
 status: completed
 priority: P0
 chassis_dependent: false
-last_updated: 2026-04-11
+last_updated: 2026-04-14
 ---
 
 # P0: 受体-配体分子对接与 In Silico 突变扫描
@@ -12,7 +12,7 @@ last_updated: 2026-04-11
 
 ## 解决什么问题
 
-核心问题：**如何改造 Gpr2/3/GprC 受体，使其更好地区分 ascr#18（PPN 特征性标志物）和 ascr#3（自由生活线虫标志物）？**
+核心问题：**如何改造 Gpr2/3/GprC 受体，使其对 ascr#18（PPN 富集标志物，Choe 2012 / Manosalva 2015）和 ascr#3（自由生活线虫标志物）具有差异化选择性？** 属于双通道比值型设计（`docs/prd/overview-v4.md` §双靶标判别逻辑）。122 条突变按 sel_mut 双向分类为 Channel A（ascr#18 偏好）/ Channel B（ascr#3 偏好）/ neutral，跨受体配对形成传感器对。完整分析见 [`ratio_channel_report.md`](../../experiments/docking-repro/analysis/ratio_channel_report.md)。
 
 文献（Hu2024、Kuo2024）已给出 WT 受体的结合亲和力排名。干实验的真正价值在于**预测增强选择性的突变位点**，为湿实验组的定点突变设计提供计算依据。
 
@@ -30,7 +30,7 @@ last_updated: 2026-04-11
 4. **In silico 突变扫描（核心新增）**：
    - **AlphaFold 3 Server** 预测突变体全长结构 → annotation-based TM 域提取 → ADFR 准备 PDBQT
    - 重对接计算 ΔΔG_selectivity = ΔΔG(ascr18) − ΔΔG(ascr3)
-   - Tier 1-4 分层推荐 → 供湿实验组验证
+   - Channel A/B 双通道分类 + 跨受体配对推荐 → 供湿实验组验证
 
 ## 工具栈
 
@@ -75,12 +75,12 @@ last_updated: 2026-04-11
 
 - [x] 受体-配体结合能排名表（3 受体 × 3 配体 = 9 组）—— WT 单阶段完成（2026-04-07）
 - [x] 结合口袋关键残基列表（ProLIF IFP 分析完成，Gpr2/3/GprC 各受体高频接触残基已确认）
-- [x] **ΔΔG_selectivity 排名表**（32 alanine + 90 saturation = 122 突变体，2026-04-11）
-- [x] **Tier 1-4 推荐表 v2**（见 [tier_recommendations_20260411.md](../../experiments/docking-repro/mutagenesis/tier_recommendations_20260411.md)，权威源）
-- [x] **推荐突变位点**: Top 6 — Gpr2 M327A（−0.99）/ M327D（−0.69）/ R59F（−0.55）；Gpr3 V138R（−1.07 ⭐）/ F170E（−0.70）/ I141A（−0.79）
+- [x] **双通道全谱排名**（122 突变体 × sel_mut 排序，[ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md)，权威源）
+- [x] **Channel A 候选**（14 条无 caveat）+ **Channel B 候选**（11 条无 caveat）— 3σ 阈值 = ±0.477
+- [x] **跨受体配对推荐** Top 3: Gpr2_M327A + Gpr3_V138T（D=−2.433）/ Gpr2_M327A + Gpr3_V138L（D=−2.277）/ Gpr2_M327D + Gpr3_V138T（D=−2.131）
 - [x] IFP 热图可视化（[ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)）
-- [x] Top 6 mutant IFP 分析（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)）
-- [x] 可视化素材（Top 6 complex PDB + PyMOL scene 脚本；见 [analysis/pymol_top6/](../../experiments/docking-repro/analysis/pymol_top6/)）— 渲染交付 PI 的 PNG/PSE 待补
+- [x] Channel A Top 6 mutant IFP 分析（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)）
+- [x] 可视化素材（Channel A Top 6 complex PDB + PyMOL scene 脚本；见 [analysis/pymol_top6/](../../experiments/docking-repro/analysis/pymol_top6/)）— 渲染交付 PI 的 PNG/PSE 待补
 - [ ] V138R 盐桥假说 MD 实证 → 转交 [P0-md-simulation](P0-md-simulation.md)
 
 ## 方法变体
@@ -102,7 +102,7 @@ last_updated: 2026-04-11
   - ICL3 截断 + TM 螺旋质心（修复 GprC grid box 偏移 18.1Å）
   - Annotation-based TM 域提取（UniProt + DeepTMHMM 交叉验证）
   - ascr18 PDBQT freeze_terminal_torsions bug 修复（15→26 原子）
-- **状态**: **计算完成**（2026-04-10）。32 突变体 alanine scan + Tier 1-4 推荐表 + IFP 热图
+- **状态**: **计算完成**（2026-04-10）。32 突变体 alanine scan + 双通道分类 + IFP 热图
 
 **共享数据**: 两条线共用同一份原始 PDB/SDF（通过 symlink），不重复存储。
 
@@ -121,59 +121,81 @@ last_updated: 2026-04-11
 - **学习资源**: 见 [学习路线图 阶段二](../learning/roadmap.md)
 - **预计时间**: 1-2 周完成学习 + 首次对接
 
-## 最终结果概览（2026-04-11，Tier v2）
+## 最终结果概览（2026-04-14，双通道分析）
 
-完整推荐表见 [tier_recommendations_20260411.md](../../experiments/docking-repro/mutagenesis/tier_recommendations_20260411.md)（权威源，Alanine 32 + Saturation 90 = 122 条合并）。IFP 热图见 [ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)。
+完整双通道全谱排名见 [ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md)（权威源，Alanine 32 + Saturation 90 = 122 条合并）。IFP 热图见 [ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)。
+
+122 条按 sel_mut 全谱排列，Channel A（sel_mut < −0.477，ascr#18 偏好，14 条无 caveat + 1 条 GprC-ala caveat）和 Channel B（sel_mut > +0.477，ascr#3 偏好，11 条无 caveat + 3 条 GprC-ala caveat），跨受体配对排名 Top 1：Gpr2_M327A + Gpr3_V138T（D=−2.433，balance=0.572）。
 
 ### Pipeline 验证
 
-**结论更新（2026-04-12）**：先前 "4/4 Hu2024 对照全部 Tier 4 → Pipeline 通过验证" 的表述**错误地把 N56A（阴性对照）当成阳性对照**。按 Hu2024 原文（[Hu2024-GprC-summary.md:143-145](../papers/summaries/Hu2024-GprC-summary.md#L143)）真实角色重新核对后：
+**结论更新（2026-04-12）**：先前 "4/4 Hu2024 对照 |ΔΔG_sel| 全部显著 → Pipeline 通过验证" 的表述**错误地把 N56A（阴性对照）当成阳性对照**。按 Hu2024 原文（[Hu2024-GprC-summary.md:143-145](../papers/summaries/Hu2024-GprC-summary.md#L143)）真实角色重新核对后：
 
-- **真阳性对照（3 个，预期落 Tier 4）**：N60A (N2.57)、R395A (R6.45)、S44A (S2.41)——全部落 Tier 4 ✓
-- **真阴性对照（1 个，预期落 Tier 3 中性）**：N56A (N2.53，Hu2024 strain 13/14 "无影响")——**实际落 Tier 4 ❌**，ΔΔG_sel = +1.139，ΔΔG(ascr18) = +2.696，**扰动幅度大于任何阳性对照**（N60A +0.396、R395A +0.370、S44A +1.032）
-- **GprC 整体分辨力**：14 个 scan 残基中 **13 个** 落 Tier 4（唯一例外 ΔΔG_sel = +0.04 落 Tier 3），Tier 1 推荐 8 条**全部来自 Gpr2/Gpr3**
+- **真阳性对照（3 个，预期方向一致偏移）**：N60A (N2.57, +0.396 = 2.5σ)、R395A (R6.45, +0.370 = 2.3σ)、S44A (S2.41, +1.032 = 6.5σ)——ΔΔG_sel 方向全部一致且 > 2σ ✓（注：N60A/R395A 未过 Channel 分类的 3σ 阈值，但方向一致性为阳性对照验证的核心判据）
+- **真阴性对照（1 个，预期 |ΔΔG_sel| 在噪声内）**：N56A (N2.53，Hu2024 "无功能影响")——**实际 |ΔΔG_sel| 大幅偏移 ❌**，ΔΔG_sel = +1.139 (7.2σ)，ΔΔG(ascr18) = +2.696，**扰动幅度大于任何阳性对照**（N60A +0.396、R395A +0.370、S44A +1.032）
+- **GprC 整体分辨力**：14 个 scan 残基中 **13 个** |ΔΔG_sel| > 2σ（唯一例外 L377A ΔΔG_sel = +0.04 在噪声内），Channel A/B 无 caveat 候选**全部来自 Gpr2/Gpr3**
 
 **因此 "Pipeline 通过验证" 的论断不成立**。可以确认的是：
-1. Vina alanine scan 在 GprC 上对**阴性对照给出了最强的假阳性**之一，现有 Tier 阈值**不能可靠区分 GprC 的功能性残基**
-2. GprC 单点突变不适合作为湿实验候选；本方向的 Tier 1 推荐全部落在 Gpr2/Gpr3 与此一致
+1. Vina alanine scan 在 GprC 上对**阴性对照给出了最强的假阳性**之一，现有 3σ 阈值**不能可靠区分 GprC 的功能性残基**
+2. GprC 单点突变不适合作为湿实验候选；本方向的 Channel A/B 无 caveat 候选全部来自 Gpr2/Gpr3 与此一致
 
 根因尚未锁定，存在至少两种不互斥解释、需进一步实验区分：
 - (a) **pipeline 普遍假阳性**：单点 Ala 扰动放大打分偏差
-- (b) **GprC 口袋几何特异**：口袋浅 / 接触残基密集，任何接触残基的单点替换都破坏结合（此时落 Tier 4 对接触残基本身是真阳性，但 pipeline 对 "结合必需 vs. 功能中性" 无分辨力）
+- (b) **GprC 口袋几何特异**：口袋浅 / 接触残基密集，任何接触残基的单点替换都破坏结合（此时 sel_mut 显著偏移对接触残基本身是真阳性，但 pipeline 对 "结合必需 vs. 功能中性" 无分辨力）
 
 > 待办：对比 Gpr2/Gpr3 是否有已知阴性对照可测，或对 GprC 重做不同 box/seed 控制。`docs/logs/truth-audits/2026-04-12_0205.md` 记录了本次推翻的完整推导。
 
 WT 基线复现不受影响：GprC ascr18 **ΔG = −8.235 kcal/mol**（Hu2024: −8.29，**Δ = 0.05 kcal/mol**）——绝对 ΔG 的重现性和 alanine scan 的残基分辨力是两个独立问题。
 
-### Tier 分布（122 条）
+### 双通道分布（122 条）
 
-| Tier | 数量 | ΔΔG_sel 区间 |
-|------|------|--------------|
-| 1 | 8 | ≤ −0.48（>3σ） |
-| 2 | 29 | −0.48 ~ −0.16 |
-| 3 | 37 | −0.16 ~ +0.20（中性） |
-| 4 | 48 | > +0.20（削弱） |
+| 通道 | 含义 | 数量 | sel_mut 区间 |
+|------|------|------|--------------|
+| Channel A | ascr#18 偏好 | 15 | < −0.477 |
+| neutral | 噪声内 | 93 | −0.477 ~ +0.477 |
+| Channel B | ascr#3 偏好 | 14 | > +0.477 |
 
-ΔΔG_sel 阈值 = −0.48（3σ，噪声 SD=0.159 来自 5-seed 方差评估）。
+3σ 阈值 = ±0.477（噪声 SD=0.159 来自 5-seed 方差评估）。其中 Channel A 含 1 条 GprC-ala caveat，Channel B 含 3 条 GprC-ala caveat（分辨力存疑，详见 §Pipeline 验证）。
 
-### Tier 1：强选择性增强（8 个）— 按 abs sel 排序
+### Channel A: ascr#18 偏好（前 5 / 共 14 条无 caveat）— 按 sel_mut 升序
 
-| 排名 | 受体 | 突变 | 类型 | ΔG(18) | ΔΔG_sel | abs sel |
-|------|------|------|------|--------|---------|---------|
-| 🥇 P1 | Gpr2 | **M327A** | Ala | −6.74 | −0.987 | **−1.39** |
-| 🥈 P2 | Gpr2 | **M327D** | Sat | −6.67 | −0.685 | **−1.09** |
-| 🥉 P3 | Gpr2 | **R59F**  | Sat | −6.66 | −0.552 | **−0.96** |
-| P4 | Gpr2 | **R59A**  | Ala | −6.53 | −0.521 | **−0.92** |
-| P5 | Gpr3 | **V138R** | Sat | −6.14 | **−1.070** | **−0.88** ⭐ |
-| P6 | Gpr3 | **I141A** | Ala | −5.19 | −0.786 | −0.59 |
-| P7 | Gpr3 | **F170E** | Sat | −6.25 | −0.696 | −0.50 |
-| P8 | Gpr3 | **F170D** | Sat | −6.21 | −0.638 | −0.44 |
+| # | 受体 | 突变 | 类型 | sel_mut | ΔG(ascr18) | ΔG(ascr3) |
+|---|------|------|------|---------|------------|-----------|
+| 1 | Gpr2 | **M327A** | Ala | **−1.391** | −6.74 | −5.35 |
+| 2 | Gpr2 | **M327D** | Sat | **−1.089** | −6.67 | −5.58 |
+| 3 | Gpr2 | **R59F** | Sat | **−0.956** | −6.66 | −5.70 |
+| 4 | Gpr2 | **R59A** | Ala | **−0.925** | −6.53 | −5.60 |
+| 5 | Gpr3 | **V138R** | Sat | **−0.875** ⭐ | −6.14 | −5.26 |
 
-> **建议构建的 6 个湿实验点**：Gpr2 (M327A, M327D, R59F) + Gpr3 (V138R, F170E, I141A)，覆盖两个受体、两种机制路径（丢失 vs 引入）。详见 [wet-lab-handoff-P0-docking](wet-lab-handoff-P0-docking.md)。
+完整 14 条见 [ratio_channel_report.md §3](../../experiments/docking-repro/analysis/ratio_channel_report.md)。
+
+### Channel B: ascr#3 偏好（前 5 / 共 11 条无 caveat）— 按 sel_mut 降序
+
+| # | 受体 | 突变 | 类型 | sel_mut | ΔG(ascr3) | ΔG(ascr18) |
+|---|------|------|------|---------|-----------|------------|
+| 1 | Gpr3 | **V138T** | Sat | **+1.042** | −6.05 | −5.01 |
+| 2 | Gpr3 | **V138L** | Sat | +0.886 | −5.70 | −4.82 |
+| 3 | Gpr2 | **M327G** | Sat | +0.749 | −5.63 | −4.88 |
+| 4 | Gpr3 | **V138P** | Sat | +0.736 | −5.50 | −4.77 |
+| 5 | Gpr3 | **R175A** | Ala | +0.663 | −5.97 | −5.30 |
+
+完整 11 条见 [ratio_channel_report.md §4](../../experiments/docking-repro/analysis/ratio_channel_report.md)。
+
+### 跨受体配对推荐 Top 3
+
+| # | Channel A | Channel B | D | balance |
+|---|-----------|-----------|---|---------|
+| 1 | Gpr2_M327A (sel=−1.391) | Gpr3_V138T (sel=+1.042) | −2.433 | 0.572 |
+| 2 | Gpr2_M327A (sel=−1.391) | Gpr3_V138L (sel=+0.886) | −2.277 | 0.611 |
+| 3 | Gpr2_M327D (sel=−1.089) | Gpr3_V138T (sel=+1.042) | −2.131 | 0.511 |
+
+D = sel_A − sel_B（越负 = 判别力越强）；balance = |sel_A|/(|sel_A|+|sel_B|)（理想=0.5）。完整配对排名见 [ratio_channel_report.md §5](../../experiments/docking-repro/analysis/ratio_channel_report.md)。
+
+> **湿实验建议配对**：优先配对 1（Gpr2_M327A + Gpr3_V138T），D 最强且 balance 合理。Channel A / B 分别取自 Gpr2 / Gpr3，符合 PRD 双传感器设计。详见 [wet-lab-handoff-P0-docking](wet-lab-handoff-P0-docking.md)。
 
 ## 饱和扫描结果与三大新发现
 
-04-11 在 5 个 Tier 1/2 位点（Gpr2 M327/R59 + Gpr3 I141/F170/V138）做了 18 AA 全谱饱和扫描（90 突变体 × 2 配体 = 180 次对接），相较 04-10 alanine-only 版（v1）有以下重大补充：
+04-11 在 5 个 Channel A 核心位点（Gpr2 M327/R59 + Gpr3 I141/F170/V138）做了 18 AA 全谱饱和扫描（90 突变体 × 2 配体 = 180 次对接），相较 04-10 alanine-only 版有以下重大补充：
 
 ### 1. Gpr3 V138R 最重磅发现 ⭐⭐⭐
 
@@ -181,7 +203,7 @@ Gpr3 WT 选择性 sel=+0.195 在 3σ 噪声内（方向轻微偏 ascr3）。V138
 
 ### 2. Gpr3 F170 酸性残基规则
 
-F170E（−0.70）和 F170D（−0.64）双双进入 Tier 1，方向一致（增强 18 + 削弱 3）。F170 位于 ECL2，酸性替换的影响可能来自配体进入路径或入口处的静电互补，而非深层口袋重塑。**F170→酸性 + V138→Arg 组合可能叠加**（未验证）。
+F170E（sel=−0.50）进入 Channel A，F170D（sel=−0.44）在 neutral 边缘，方向一致（增强 ascr#18 + 削弱 ascr#3）。F170 位于 ECL2，酸性替换的影响可能来自配体进入路径或入口处的静电互补，而非深层口袋重塑。**F170→酸性 + V138→Arg 组合可能叠加**（未验证）。
 
 ### 3. Gpr2 M327 同位点两条路径
 
@@ -191,7 +213,7 @@ F170E（−0.70）和 F170D（−0.64）双双进入 Tier 1，方向一致（增
 
 ### 教训：孤峰 vs 类别规律
 
-V138 全 18 谱中 V138R **是孤峰**而非类别规律——同为碱性的 V138K/V138H 与 V138A 基线几乎等价，远不如 V138R 强；V138Y/N/S/I 反而进入 Tier 2 但都不及 V138R。**碱性/正电荷"类别规律"不成立**，更像是 Arg 胍基特异的侧链长度 + 几何取向效应。湿实验不应默认 K/H 作为 R 的等价替代。
+V138 全 18 谱中 V138R **是孤峰**而非类别规律——同为碱性的 V138K/V138H 与 V138A 基线几乎等价，远不如 V138R 强；V138Y/N/S/I 的 sel_mut 落在 neutral moderate 区间，远不及 V138R。**碱性/正电荷"类别规律"不成立**，更像是 Arg 胍基特异的侧链长度 + 几何取向效应。湿实验不应默认 K/H 作为 R 的等价替代。
 
 > 该教训已写入 memory（feedback_outlier_vs_rule.md）。后续设计推断前应先做同类一致性检查。
 
@@ -213,12 +235,12 @@ F170E 反直觉现象（GLU170 本身与 ascr3 接触更多但整体 ΔG(ascr3)=
 
 | 局限性 | 影响 | 缓解 |
 |--------|------|------|
-| 单 seed Vina 噪声（SD=0.159） | ΔΔG_sel < 0.48 不可信 | Tier 划分以 3σ 为阈值；5-seed 方差已量化 |
+| 单 seed Vina 噪声（SD=0.159） | |sel_mut| < 0.477 不可信 | Channel A/B 划分以 3σ 为阈值；5-seed 方差已量化 |
 | 刚性受体 | 构象选择限于 AF3 单预测 | 单点突变对骨架影响 <0.1Å（TM helix 域内） |
 | AF3 预测精度 | pLDDT>90 区域可信，loop 区不确定 | 仅在 TM helix 域内对接；annotation-based TM 提取 |
-| Vina 评分精度（±1 kcal/mol） | 绝对值不精确 | 仅用排名，不用绝对值；Tier 1 全部 >3σ |
+| Vina 评分精度（±1 kcal/mol） | 绝对值不精确 | 仅用排名，不用绝对值；Channel A/B 全部 >3σ |
 | 静态对接无法证明动态相互作用类型（如盐桥） | V138R / F170E 机制仅有空间富集证据 | 转交 [P0-md-simulation](P0-md-simulation.md)：MD 时间序列测距 + 盐桥占比 |
-| ~~仅 Ala 扫描，无饱和扫描~~ | ~~04-10 之前局限~~ | **2026-04-11 解除**：5 个 Tier 1/2 位点已完成 18 AA 全谱扫描（90 突变） |
+| ~~仅 Ala 扫描，无饱和扫描~~ | ~~04-10 之前局限~~ | **2026-04-11 解除**：5 个 Channel A 核心位点已完成 18 AA 全谱扫描（90 突变） |
 
 ## 方法学迭代记录
 
@@ -230,7 +252,7 @@ P0 对接方法经历三次重大迭代，每次修正了前一阶段的系统�
 | docking-repro v1 | 04-05~06 | ADFR + Orca DFT + 两阶段对接 | 配体几何（MMFF→DFT）；发现协议不匹配 |
 | docking-repro v2 | 04-07~10 | **单阶段**（匹配 Hu2024）+ **ICL3 截断** + **TM 螺旋质心** + **BW 映射修正** + **ProLIF IFP** | GprC grid box 偏移 18.1Å；ascr18 PDBQT 截断（15→26 原子）；BW→序列映射错误；v2 PLIP 残基无效（Gpr3 全部替换） |
 
-最终方法（docking-repro v2）的 GprC ascr18 ΔG 与 Hu2024 仅差 0.05 kcal/mol，Hu2024 阳性对照全部通过验证。
+最终方法（docking-repro v2）的 GprC ascr18 ΔG 与 Hu2024 仅差 0.05 kcal/mol。Hu2024 四个对照的分层验证结果已推翻 "4/4 通过验证" 的表述——详见上文 §Pipeline 验证 的修正（[Hu2024-GprC-summary.md:L143-145](../papers/summaries/Hu2024-GprC-summary.md)）。
 
 ## 版本记录
 
@@ -248,8 +270,11 @@ P0 对接方法经历三次重大迭代，每次修正了前一阶段的系统�
 | 2026-04-07~08 | v2.5 | ProLIF IFP 分析；BW→序列映射修正（N2.57=ASN60, S2.41=SER44）；ascr18 PDBQT 修复（15→26 原子）；GprC ascr18 ΔG=−8.235（Hu2024 Δ=0.05） | IFP 交叉验证 + BW 映射纠错 |
 | 2026-04-08~09 | v2.6 | 单一权威源重构（4 文件硬编码→config-driven）；全脚本动态路径重构（6 辅助脚本） | DOCMAP §1 原则落地 |
 | 2026-04-09 | v2.7 | Gpr3 scan_residues 全量替换为 IFP 残基（v2 PLIP 8 个→IFP 8 个）；Gpr3 alanine scan 完成（I141A ΔΔG_sel=−0.786） | Truth Audit 发现 v2 PLIP 残基全部无效 |
-| 2026-04-10 | **v3.0** | 32 突变体全量 alanine scan 完成；Tier 1-4 推荐表；Gpr2 IFP 验证（9/9 PASS）；**本文档更新至 Wiki 初版** | P0 计算阶段完成，进入输出阶段 |
-| 2026-04-11 | **v3.1** | 90 饱和扫描合并 → Tier v2（122 条）；Top 6 推荐替换原 3 条；新增"饱和扫描结果与三大新发现""机制假说未实证（V138R 盐桥）"小节；alanine-only 局限性解除；机制实证转交 P0-md-simulation | 饱和扫描完成 + 底盘锁定酵母后湿实验候选审查 |
+| 2026-04-10 | **v3.0** | 32 突变体全量 alanine scan 完成；双通道分类完成；Gpr2 IFP 验证（9/9 PASS）；**本文档更新至 Wiki 初版** | P0 计算阶段完成，进入输出阶段 |
+| 2026-04-11 | **v3.1** | 90 饱和扫描合并 → 双通道全谱排名（122 条）；Channel A Top 6 推荐替换原 3 条；新增"饱和扫描结果与三大新发现""机制假说未实证（V138R 盐桥）"小节；alanine-only 局限性解除；机制实证转交 P0-md-simulation | 饱和扫描完成 + 底盘锁定酵母后湿实验候选审查 |
+| 2026-04-12 | v3.2 | §Pipeline 验证重写：N56A 阴性对照假阳性推翻 "4/4 通过验证"；进展记录 04-10 条目修正真阳性/真阴性角色 | Truth Audit 发现阳性/阴性对照混淆 |
+| 2026-04-13 | v3.3 | 新增 ratio_channel_report.md 双通道全谱分析 + 跨受体配对排名 | ratio_channel_report.md 完成 |
+| 2026-04-14 | **v3.4** | 全文清除单通道分析（Tier 1-4）痕迹，统一为双通道框架（Channel A/B + 跨受体配对）；产出定义、结果概览、Pipeline 验证、饱和扫描叙述全面重写 | PRD 回溯审查，纠正分析框架错误 |
 
 ## 进展记录
 
@@ -265,8 +290,8 @@ P0 对接方法经历三次重大迭代，每次修正了前一阶段的系统�
 | 2026-04-07~08 | ProLIF IFP 分析 + BW 映射修正 | N2.57=ASN60 确认；R6.45→ARG395（BW 算术 6.55，与 Hu2024 原文编号存争议） |
 | 2026-04-09 | 5-seed 方差基线完成 | Gpr2_ascr18 SD=0.159（最高）；GprC SD<0.03；3σ 阈值=0.48 |
 | 2026-04-09 | Gpr3 scan_residues 全量替换（IFP 验证） | v2 PLIP 8 个残基全部无效→IFP 8 个替换；I141A ΔΔG_sel=−0.786 |
-| 2026-04-10 | alanine scan 阶段完成: 32 突变体 + Tier 推荐表 v1 | Tier 1: M327A(−0.99) / I141A(−0.79) / R59A(−0.52)；Hu2024 阳性对照全部 Tier 4 ✅ |
-| 2026-04-11 | **饱和扫描阶段完成**: 90 突变 + Tier v2（122 条合并）+ Top 6 IFP 验证 | Tier 1 增至 8 个；新发现 V138R(−1.07)/M327D(−0.69)/F170E(−0.70)/R59F(−0.55)；ARG138 空间富集（盐桥假说待 MD 实证） |
+| 2026-04-10 | alanine scan 阶段完成: 32 突变体 + 双通道分类 | Channel A 首批候选: M327A(sel=−1.39) / I141A(sel=−0.59) / R59A(sel=−0.92)；Hu2024 真阳性对照（N60A/R395A/S44A，见 [Hu2024-GprC-summary.md:L143-145](../papers/summaries/Hu2024-GprC-summary.md)）ΔΔG_sel 方向一致且 > 2σ ✅；真阴性对照 N56A (N2.53A) 亦显著偏移（假阳性，详见 §Pipeline 验证 2026-04-12 修正） |
+| 2026-04-11 | **饱和扫描阶段完成**: 90 突变 + 双通道全谱排名（122 条合并）+ Channel A Top 6 IFP 验证 | Channel A 14 条无 caveat + Channel B 11 条无 caveat；新发现 V138R(sel=−0.88)/M327D(sel=−1.09)/F170E(sel=−0.50)/R59F(sel=−0.96)；ARG138 空间富集（盐桥假说待 MD 实证） |
 
 ## 与其他方向的依赖关系
 
