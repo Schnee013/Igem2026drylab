@@ -63,7 +63,7 @@ GprC caveat（不进入推荐）：L377A（sel=−0.758），GprC alanine scan �
 **A1：Gpr2 M327A** — Channel A 最强
 **位置**：TM6 第一个残基。**机制**：Met327 侧链与 ascr#3 形成强疏水接触，Ala 替换后 ascr#3 失去关键结合面，ascr#18 几乎不受影响（ΔΔG 仅 +0.09）。
 **A2：Gpr3 V138R** ⭐ — Gpr3 Channel A 最强
-**位置**：TM4。**机制（待实证）**：V138R 是孤峰（同位 V138K/V138H 与 Ala 基线等价）。ARG138 对 ascr#18 空间接触 9 次 vs ascr#3 仅 2 次，**全部为 VdWContact**，盐桥未实证（ProLIF 未开 Ionic 通道）。MD 实证已转交 P0-md-simulation。**不要默认用 Lys/His 替代 Arg。**
+**位置**：TM4。**机制（待实证）**：V138R 是孤峰（同位 V138K/V138H 与 Ala 基线等价）。ARG138 对 ascr#18 空间接触 9 次 vs ascr#3 仅 2 次，**全部为 VdWContact**，盐桥未实证（PDBQT 工作流下 ProLIF Anionic/Cationic 检测结构性失效——输入无形式电荷，通道本身从未关闭）。MD 实证已转交 P0-md-simulation。**不要默认用 Lys/His 替代 Arg。**
 **A3：Gpr2 M327D** — M327 互补路径
 与 M327A 互补——Ala "删除"vs Asp "主动引入羧基"。ASP327 直接形成 HBond。
 **A4：Gpr2 R59F**

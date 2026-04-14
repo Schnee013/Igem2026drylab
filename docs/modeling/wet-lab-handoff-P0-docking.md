@@ -101,7 +101,7 @@ GprC caveat（不进入湿实验推荐）：L377A（sel=−0.758），GprC alani
 
 **位置**：TM4（Val138 → Arg138）。
 
-**机制（待实证）**：V138 饱和全 18 谱中 V138R 是**孤峰**——同位的 V138K/V138H 与 V138A 基线几乎等价，而 V138R 比第二名 V138Y 强 0.6 kcal/mol。Arg 胍基可能与 ascr#18 末端羧酸形成静电互补 / 盐桥，但 mutant IFP 显示 ARG138 对 ascr#18 接触 9 次 vs ascr#3 仅 2 次，**这 9 次全部为 VdWContact**（本轮 ProLIF 未开启 Ionic 通道），目前只能证明"空间富集"而非"盐桥形成"。
+**机制（待实证）**：V138 饱和全 18 谱中 V138R 是**孤峰**——同位的 V138K/V138H 与 V138A 基线几乎等价，而 V138R 比第二名 V138Y 强 0.6 kcal/mol。Arg 胍基可能与 ascr#18 末端羧酸形成静电互补 / 盐桥，但 mutant IFP 显示 ARG138 对 ascr#18 接触 9 次 vs ascr#3 仅 2 次，**这 9 次全部为 VdWContact**（PDBQT 工作流下 ProLIF 的 Anionic/Cationic 检测结构性失效——输入无形式电荷，通道本身从未关闭），目前只能证明"空间富集"而非"盐桥形成"。
 
 **MD 实证已转交** [P0-md-simulation](P0-md-simulation.md)。
 

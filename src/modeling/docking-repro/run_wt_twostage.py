@@ -24,7 +24,6 @@ from pathlib import Path
 
 # 确保可以导入 docking-repro 和 docking 模块
 _this_dir = Path(__file__).parent
-sys.path.insert(0, str(_this_dir.parent / "docking"))
 sys.path.insert(0, str(_this_dir))
 
 from dataclasses import asdict

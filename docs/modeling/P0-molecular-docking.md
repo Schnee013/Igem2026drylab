@@ -219,15 +219,14 @@ V138 全 18 谱中 V138R **是孤峰**而非类别规律——同为碱性的 V1
 
 ## 机制假说未实证（V138R 盐桥）
 
-ProLIF 验证 Top 6 候选时（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)），Gpr3 V138R 的 mutant IFP 显示 ARG138 对 ascr18 接触 9 次 vs ascr3 仅 2 次（+7 差值），但 `mutant_contacts.csv` 中**这 9 次接触全部为 VdWContact 类型**——本轮 ProLIF 只开启 HBond/VdW 通道，未采集 Ionic 指纹。
+ProLIF 验证 Top 6 候选时（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)），Gpr3 V138R 的 mutant IFP 显示 ARG138 对 ascr18 接触 9 次 vs ascr3 仅 2 次（+7 差值），但 `mutant_contacts.csv` 中**这 9 次接触全部为 VdWContact 类型**——ProLIF 的 Anionic/Cationic 检测在 PDBQT 工作流下**结构性失效**（PDBQT→SDF 不编码形式电荷，ARG 胍基无 +1、ascr#18 羧酸无 -1，SMARTS 匹配永远为空；ProLIF 默认 9 通道包含 Anionic/Cationic，通道从未关闭）。
 
 **结论**：当前结果只能证明"V138→R 后 Arg 侧链在 ascr18 pose 附近的空间富集"，**不能直接证明盐桥形成**。
 
-**实证路径**（任选其一）：
+**实证路径**：
 
-1. 重跑 ProLIF 开启 `Cationic/Anionic` / `Ionic` 指纹通道
-2. 对 pose 中 ARG138 胍基 Nε/NH₁/NH₂ 与 ascr18 末端羧基 O 的距离（<4 Å）与角度做几何检查
-3. **MD 模拟**测量 ARG138-羧基距离的时间序列与盐桥占比 → 转交 [P0-md-simulation](P0-md-simulation.md)（首选，能同时回答 pose 稳定性问题）
+1. 对 pose 中 ARG138 胍基 Nε/NH₁/NH₂ 与 ascr18 末端羧基 O 的距离（<4 Å）与角度做几何检查（精度有限）
+2. **MD 模拟**测量 ARG138-羧基距离的时间序列与盐桥占比 → 转交 [P0-md-simulation](P0-md-simulation.md)（首选，力场自动分配电荷态 + 显式溶剂 + 动力学采样，能同时回答 pose 稳定性问题）
 
 F170E 反直觉现象（GLU170 本身与 ascr3 接触更多但整体 ΔG(ascr3)=+0.17 上升）也无法用静态对接 + IFP 解释，同样需 MD 实证。
 

@@ -10,6 +10,15 @@
 git clone https://github.com/Schnee013/Igem2026drylab.git
 cd Igem2026drylab
 ```
+**第 1.5 步**：拉取最新代码。
+仓库代码会持续更新（修 bug、加功能）。**每次开始操作前**养成习惯先拉一次：
+```bash
+cd ~/Igem2026drylab
+git pull
+```
+如果终端输出 `Already up to date.` 说明你已经是最新的。如果有更新，会显示变更的文件列表。
+> **硬规矩**：每次打开终端准备跑 pipeline 之前，先 `git pull`。不拉最新代码就运行，遇到的 bug 可能早就修好了。
+
 **第 2 步**：获取数据文件。
 pipeline 运行需要的 PDBQT 文件（受体和配体的预处理结果）不在 Git 仓库里（二进制文件太大）。文件压缩包：`prepared_pdbqt.zip`
 放到正确位置：

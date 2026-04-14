@@ -15,10 +15,8 @@ ProLIF 交互指纹分析 — 识别选择性决定残基
 
 输出：
   experiments/docking-repro/results/ifp_analysis/
-    ├── ifp_all.csv                    # 全部 IFP 矩阵
-    ├── contact_frequency.csv          # 残基 × 配体 接触频率
-    ├── differential_contacts.csv      # 差异接触残基
-    └── figures/                       # 可视化
+    ├── ifp_all.csv                    # 全部 IFP 矩阵（receptor, ligand, residue, interaction, count, frequency）
+    └── contact_frequency.json         # 残基 × 配体 接触频率（嵌套 dict）
 
 用法（Mac 本地）：
     python run_ifp_analysis.py
@@ -78,6 +76,20 @@ def _build_key_residues(config: dict, rec_name: str = "GprC") -> dict[str, dict]
         }
     return result
 
+# ProLIF 2.1.0 全部可用交互类型（15 种）。
+# 默认 9 种 + 非默认 6 种，显式枚举以保证审计可追溯。
+# ascarylose 无芳环（Pi*/EdgeToFace/FaceToFace 预期=0）、
+# 无金属（Metal*=0）、无卤素（XB*=0）；
+# Hydrophobic 应在脂肪链×TM 疏水口袋处检出。
+ALL_INTERACTION_TYPES = [
+    "Anionic", "Cationic", "CationPi", "PiCation",
+    "EdgeToFace", "FaceToFace", "PiStacking",
+    "HBAcceptor", "HBDonor", "Hydrophobic",
+    "MetalAcceptor", "MetalDonor",
+    "VdWContact",
+    "XBAcceptor", "XBDonor",
+]
+
 POCKET_RADIUS = 15.0  # Å, 选择配体周围的蛋白残基
 
 
@@ -119,6 +131,37 @@ def pdbqt_to_sdf(pdbqt_path: Path, sdf_path: Path) -> Path:
     return sdf_path
 
 
+def fix_sdf_valence(sdf_path: Path, top_n: int = 20) -> list[plf.Molecule]:
+    """读取 SDF 并修复 implicit H，返回 ProLIF Molecule 列表。
+
+    OpenBabel 的 PDBQT→SDF 转换不含氢原子，V2000 valence 仅反映显式键数。
+    RDKit 在无显式 H 的 V2000 SDF 中通常将 noImplicit=True + numHs=0，
+    导致 Hydrophobic SMARTS（要求 C&H2 等）匹配失败。修复：清除
+    NoImplicit 标志，让 RDKit 按标准化合价推导 implicit H。
+    """
+    if not sdf_path.exists():
+        raise FileNotFoundError(f"SDF not found: {sdf_path}")
+    suppl = Chem.SDMolSupplier(str(sdf_path), removeHs=False, sanitize=False)
+    molecules = []
+    for i, mol in enumerate(suppl):
+        if mol is None:
+            continue
+        if len(molecules) >= top_n:
+            break
+        rw = Chem.RWMol(mol)
+        for atom in rw.GetAtoms():
+            atom.SetNoImplicit(False)
+        try:
+            Chem.SanitizeMol(rw)
+        except Exception as e:
+            print(f"    [WARN] fix_sdf_valence: pose {i} sanitization failed ({e}), skipping")
+            continue
+        molecules.append(plf.Molecule.from_rdkit(rw.GetMol()))
+    if not molecules:
+        raise ValueError(f"fix_sdf_valence: no valid molecules parsed from {sdf_path}")
+    return molecules
+
+
 def get_pocket(prot: mda.AtomGroup, lig_center: np.ndarray,
                radius: float = POCKET_RADIUS) -> mda.AtomGroup:
     """选择配体周围 radius Å 内的蛋白残基"""
@@ -134,8 +177,8 @@ def analyze_pair(
     rec_pdb_h: Path,
     pose_sdf: Path,
     top_n: int = 20,
-) -> pd.DataFrame:
-    """对单个 receptor×ligand 对运行 ProLIF IFP"""
+) -> tuple[pd.DataFrame, int]:
+    """对单个 receptor×ligand 对运行 ProLIF IFP，返回 (IFP DataFrame, 实际 pose 数)"""
     # 读取受体
     u_rec = mda.Universe(str(rec_pdb_h))
     prot = u_rec.select_atoms("protein")
@@ -155,14 +198,13 @@ def analyze_pair(
     pocket = get_pocket(prot, lig_center)
     prot_mol = plf.Molecule.from_mda(pocket)
 
-    # 配体 poses
-    lig_suppl = plf.sdf_supplier(str(pose_sdf))
-    poses = list(lig_suppl[:top_n])
+    # 配体 poses（修复 PDBQT→SDF 转换导致的 implicit H 丢失）
+    poses = fix_sdf_valence(pose_sdf, top_n)
 
-    # 运行 IFP
-    fp = plf.Fingerprint()
+    # 运行 IFP — 显式枚举全部 15 种交互类型
+    fp = plf.Fingerprint(interactions=ALL_INTERACTION_TYPES)
     fp.run_from_iterable(poses, prot_mol)
-    return fp.to_dataframe()
+    return fp.to_dataframe(), len(poses)
 
 
 def compute_contact_frequency(df: pd.DataFrame) -> dict[str, dict[str, int]]:
@@ -191,13 +233,13 @@ def main() -> None:
     wt_ss_dir = get_results_subdir(config, "wt_singlestage_subdir")
     pose_dir = wt_ss_dir / "poses"
     out_dir = get_results_subdir(config, "ifp_subdir")
-    (out_dir / "figures").mkdir(exist_ok=True)
 
     # 临时目录用于加氢 PDB 和 SDF 转换
     tmp_dir = out_dir / "tmp"
     tmp_dir.mkdir(exist_ok=True)
 
     all_freq: dict[str, dict[str, dict[str, int]]] = {}  # {pair: {res: {itype: count}}}
+    pair_n_poses: dict[str, int] = {}  # {pair: actual_pose_count}
 
     for rec_name in args.receptors:
         pdb_path = rec_dir / RECEPTORS[rec_name]
@@ -226,14 +268,15 @@ def main() -> None:
             # IFP 分析
             print(f"\n  [{pair_name}] 运行 ProLIF...")
             try:
-                df = analyze_pair(pdb_h, sdf_path, args.top_n)
+                df, n_poses = analyze_pair(pdb_h, sdf_path, args.top_n)
                 freq = compute_contact_frequency(df)
                 all_freq[pair_name] = freq
+                pair_n_poses[pair_name] = n_poses
 
                 # 打印结果
                 n_contacts = sum(sum(v.values()) for v in freq.values())
                 n_residues = len(freq)
-                print(f"    {n_residues} 接触残基, {n_contacts} 总接触次数 (across {len(df)} poses)")
+                print(f"    {n_residues} 接触残基, {n_contacts} 总接触次数 (across {n_poses} poses)")
 
                 # 高频残基（>50% poses）
                 threshold = len(df) * 0.5
@@ -347,6 +390,22 @@ def main() -> None:
             print(f"    ↳ 阴性对照：突变无影响，接触≠功能必需")
 
     # =====================================================================
+    # 交互类型汇总（审计链）
+    # =====================================================================
+    print("\n" + "=" * 70)
+    print("  交互类型检出汇总")
+    print("=" * 70)
+    type_totals: dict[str, int] = {}
+    for pair_freq in all_freq.values():
+        for res_itypes in pair_freq.values():
+            for itype, count in res_itypes.items():
+                type_totals[itype] = type_totals.get(itype, 0) + count
+    for itype in ALL_INTERACTION_TYPES:
+        total = type_totals.get(itype, 0)
+        status = f"{total} hits" if total > 0 else "0 (expected for ascarylose)"
+        print(f"  {itype:20s}: {status}")
+
+    # =====================================================================
     # 保存结果
     # =====================================================================
 
@@ -365,7 +424,7 @@ def main() -> None:
             pair = f"{rec_name}_{lig_name}"
             if pair not in all_freq:
                 continue
-            n_poses = args.top_n
+            n_poses = pair_n_poses.get(pair, args.top_n)
             for res, itypes in all_freq[pair].items():
                 for itype, count in itypes.items():
                     rows.append({

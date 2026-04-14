@@ -119,11 +119,11 @@ def main() -> None:
             pdbqt_to_sdf(pdbqt_path, sdf_path)
 
             try:
-                df = analyze_pair(pdb_h, sdf_path, args.top_n)
+                df, n_poses = analyze_pair(pdb_h, sdf_path, args.top_n)
                 freq = compute_contact_frequency(df)
                 all_freq[(rec_name, label, lig_name)] = freq
                 n_contacts = sum(sum(v.values()) for v in freq.values())
-                print(f"  [{lig_name}] {len(freq)} 残基, {n_contacts} 接触 ({len(df)} poses)")
+                print(f"  [{lig_name}] {len(freq)} 残基, {n_contacts} 接触 ({n_poses} poses)")
 
                 threshold = len(df) * 0.5
                 high_freq = sorted(

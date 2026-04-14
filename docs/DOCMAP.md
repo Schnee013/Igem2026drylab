@@ -160,7 +160,8 @@ drylab/
 │       │   ├── lignetwork/      # ProLIF LigNetwork 2D 交互示意图（HTML，交互式）
 │       │   ├── plip_3d/         # PLIP 3D 交互 viewer（3Dmol.js HTML）+ 文本报告
 │       │   ├── pymol_top6/      # Top 6 突变体 PyMOL 素材（complex PDB + compare_top6.pml）
-│       │   └── ifp_heatmap_*.png  # IFP 热图（按受体 + 全量）
+│       │   ├── ifp_heatmap_*.png  # IFP 热图（按受体 + 全量）
+│       │   └── ratio_channel_report.md  # 双通道全谱排名（权威源）
 │       └── mutagenesis/         # 突变体相关
 │           ├── fastas/          # AF3 输入 FASTA（按受体分子目录）
 │           │   ├── {Rec}/{Label}.fasta       # alanine scan 单突变
@@ -176,8 +177,7 @@ drylab/
 │           ├── archive/         # 已作废/替换的结果和结构（MMFF-voided、旧 fasta JSON）
 │           ├── mutagenesis_results.json          # pipeline 实时写入（每次跑覆盖）
 │           ├── mutagenesis_results_{run_id}.json # 时间戳备份（pipeline 自动创建）
-│           ├── mutagenesis_results_all_YYYYMMDD.json  # 手动合并全量（权威源）
-│           └── ratio_channel_report.md           # 双通道全谱排名（权威源）
+│           └── mutagenesis_results_all_YYYYMMDD.json  # 手动合并全量（权威源）
 │
 ├── environments/                # conda 环境定义和锁定
 │   ├── mac-docking.yml

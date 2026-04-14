@@ -30,6 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from utils import get_project_root, get_results_subdir, load_config
+from run_ifp_analysis import fix_sdf_valence, ALL_INTERACTION_TYPES
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -82,14 +83,14 @@ def run_fingerprint(rec_pdb_h: Path, pose_sdf: Path,
     u_rec = mda.Universe(str(rec_pdb_h))
     prot = u_rec.select_atoms("protein")
 
-    # 配体第一个 pose — 用于定义 pocket 和获取 ligand mol
-    suppl_rd = Chem.SDMolSupplier(str(pose_sdf), removeHs=False)
-    pose1 = next(iter(suppl_rd))
-    if pose1 is None:
-        raise ValueError(f"无法读取 SDF: {pose_sdf}")
-    conf = pose1.GetConformer()
+    # 配体 poses（修复 PDBQT→SDF 转换导致的 implicit H 丢失）
+    poses = fix_sdf_valence(pose_sdf, top_n)
+
+    # 用修复后的第一个 pose 定义 pocket
+    lig_mol = poses[0]
+    conf = lig_mol.GetConformer()
     lig_center = np.mean(
-        [list(conf.GetAtomPosition(i)) for i in range(pose1.GetNumAtoms())],
+        [list(conf.GetAtomPosition(i)) for i in range(lig_mol.GetNumAtoms())],
         axis=0,
     )
 
@@ -97,15 +98,11 @@ def run_fingerprint(rec_pdb_h: Path, pose_sdf: Path,
     pocket = get_pocket(prot, lig_center)
     prot_mol = plf.Molecule.from_mda(pocket)
 
-    # 配体 poses
-    lig_suppl = plf.sdf_supplier(str(pose_sdf))
-    poses = list(lig_suppl[:top_n])
-
-    # 运行 IFP
-    fp = plf.Fingerprint()
+    # 运行 IFP — 显式枚举全部交互类型
+    fp = plf.Fingerprint(interactions=ALL_INTERACTION_TYPES)
     fp.run_from_iterable(poses, prot_mol)
 
-    return fp, pose1
+    return fp, lig_mol
 
 
 def enhance_html(html_path: Path, title: str) -> None:

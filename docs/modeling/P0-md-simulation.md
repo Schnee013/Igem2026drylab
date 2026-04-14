@@ -12,7 +12,7 @@ last_updated: 2026-04-12
 >
 > **新方向背景**：[P0-molecular-docking](P0-molecular-docking.md) 已完成 122 突变体对接 + Top 6 IFP 验证，但发现两个**静态对接 + IFP 无法回答的机制问题**：
 >
-> 1. **V138R 盐桥假说未实证**：mutant IFP 显示 ARG138 对 ascr18 接触 9 次（vs ascr3 仅 2 次）但**全部为 VdWContact**；本轮 ProLIF 未开启 Ionic 通道，盐桥需 MD 时间序列实证。
+> 1. **V138R 盐桥假说未实证**：mutant IFP 显示 ARG138 对 ascr18 接触 9 次（vs ascr3 仅 2 次）但**全部为 VdWContact**；PDBQT 工作流下 ProLIF 的 Anionic/Cationic 检测结构性失效（输入无形式电荷，通道本身从未关闭），盐桥需 MD 时间序列实证。
 > 2. **F170E 反直觉**：GLU170 与 ascr3 接触反而比 ascr18 多，但整体 ΔG(ascr3) 上升 —— 静态 pose 无法解释，需 MD 检查 pose drift。
 >
 > 同时 [P3-chimeric-gprotein](P3-chimeric-gprotein.md)（已升 P0）的嵌合 Gpa1 设计也需要 MD 稳定性验证。
@@ -25,7 +25,7 @@ last_updated: 2026-04-12
 
 对接 + IFP 给出**静态 pose 与平均接触频率**，无法回答：
 
-1. **相互作用类型**：ARG138-羧基 9 次 VdWContact 是否为伪盐桥（短程范德华接触掩盖了真正的离子键）？
+1. **相互作用类型**：ARG138-羧基 9 次 VdWContact 在 PDBQT 工作流下是否掩盖了真正的盐桥？（PDBQT→SDF 不含形式电荷，ProLIF 盐桥检测结构性失效；MD 力场自动分配电荷态，能正确检测离子型相互作用）
 2. **pose 稳定性**：Top 6 mutant 的 pose 在 ns 时间尺度是否保持？还是只是 Vina 全局搜索找到的局部最小值？
 3. **动态相互作用持续性**：氢键 / 盐桥 / 疏水 / π-π 在时间序列中的占比？
 4. **入口路径与构象选择**：F170E 的 ECL2 取向是否使 ascr3 进入路径偏移？

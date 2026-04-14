@@ -22,7 +22,6 @@ import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "docking"))  # 复用 v2 的 grid_box.py
 from grid_box import compute_box_center_of_mass
 
 from utils import get_logger, get_project_root

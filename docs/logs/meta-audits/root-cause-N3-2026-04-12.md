@@ -414,8 +414,8 @@ meta-audit 若实施，**只需覆盖 3 个维度**，每个对应一个根因�
 
 | # | 文件 | 行 | 原文 | 性质 | 修复 |
 |---|---|---|---|---|---|
-| D2.1 | `memory/project_docking_pipeline.md` | 59 | "V138R **盐桥机制实证**：转交 P0-md-simulation" | 未解决列表中缺否定修饰 | ✅ → "V138R **盐桥假说待 MD 实证**：转交...（当前仅有 VdW 空间富集证据，Ionic 通道未采集）" |
-| D2.2 | `memory/project_md_pipeline.md` | 12 | "V138R 胍基-ascaroside 羧基**盐桥实证**" | 科学问题列表中缺否定修饰；session 开场第一层读取 | ✅ → "V138R 胍基-ascaroside 羧基**盐桥假说待实证**（...Ionic 通道未采集）" |
+| D2.1 | `memory/project_docking_pipeline.md` | 59 | "V138R **盐桥机制实证**：转交 P0-md-simulation" | 未解决列表中缺否定修饰 | ✅ → "V138R **盐桥假说待 MD 实证**：转交...（当前仅有 VdW 空间富集证据，PDBQT 工作流盐桥检测结构性失效）" |
+| D2.2 | `memory/project_md_pipeline.md` | 12 | "V138R 胍基-ascaroside 羧基**盐桥实证**" | 科学问题列表中缺否定修饰；session 开场第一层读取 | ✅ → "V138R 胍基-ascaroside 羧基**盐桥假说待实证**（...PDBQT 工作流盐桥检测结构性失效）" |
 
 ### 推迟（P5）
 
