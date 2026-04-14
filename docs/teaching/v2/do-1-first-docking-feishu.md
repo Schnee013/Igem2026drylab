@@ -8,7 +8,7 @@
 **第 1 步**：克隆仓库（或向我索取）。
 ```bash
 git clone https://github.com/Schnee013/Igem2026drylab.git
-cd drylab
+cd Igem2026drylab
 ```
 **第 2 步**：获取数据文件。
 pipeline 运行需要的 PDBQT 文件（受体和配体的预处理结果）不在 Git 仓库里（二进制文件太大）。文件压缩包：`prepared_pdbqt.zip`
@@ -66,7 +66,7 @@ conda 24.x.x
 ```
 **第 3 步**：用项目的环境定义文件创建 docking 环境。
 ```bash
-cd ~/drylab                           # 替换成你的实际项目路径
+cd ~/Igem2026drylab                           # 替换成你的实际项目路径
 conda env create -f environments/mac-docking.yml
 ```
 这会创建一个叫 `docking` 的环境，包含 Python 3.11 + 所有需要的库（Vina、RDKit、ProLIF、MDAnalysis 等）。首次创建需要 5-10 分钟。
@@ -87,7 +87,7 @@ prolif 2.x.x
 ```bash
 # 确保在项目根目录 + docking 环境
 conda activate docking
-cd ~/drylab                           # 回到项目根目录，如果是Windows系统，根目录路径可能会不同
+cd ~/Igem2026drylab                           # 回到项目根目录，如果是Windows系统，根目录路径可能会不同
 # 跑 GprC × ascr18 单阶段对接
 python src/modeling/docking-repro/run_wt_singlestage.py \
   --receptors GprC \

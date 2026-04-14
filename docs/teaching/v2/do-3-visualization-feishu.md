@@ -25,7 +25,7 @@ print(cmd.get_version())
 在 PyMOL 命令行里逐行执行：
 ```pml
 # 进入 PyMOL 素材目录（替换成你的实际项目路径）
-cd ~/drylab/experiments/docking-repro/analysis/pymol_top6
+cd ~/Igem2026drylab/experiments/docking-repro/analysis/pymol_top6
 # 加载 WT receptor + ligand
 load receptors/Gpr3_WT.pdb,       rec_wt
 load ligands/Gpr3_WT_ascr18.pdb,  lig_wt_18
@@ -77,7 +77,7 @@ png output/M327A_detail.png, dpi=300
 ### 第 1 步：WT IFP 分析
 ```bash
 conda activate docking
-cd ~/drylab
+cd ~/Igem2026drylab
 python src/modeling/docking-repro/run_ifp_analysis.py
 ```
 > 输入：`experiments/docking-repro/results/wt_singlestage/` 下的 pose PDBQT + 受体 PDB
@@ -117,4 +117,4 @@ python -c "import prolif; print('prolif', prolif.__version__)"
 **练习**：在 Gpr2 热图上找 M327，对比 ascr18 和 ascr3 的接触差值。然后看 M327A 的 mutant 热图——Ala 替换后 M327 位点的接触应该大幅减少或消失。
 ---
 ## 5. IFP 的关键警告
-操作时记住两点：**接触频率 ≠ 结合贡献**（IFP 是提出假说的起点，不是 ΔΔG_sel 的等价替代），本轮 ProLIF **只开了 HBond / VdW 通道，未开 Ionic**（盐桥几何不会被报告）。这两点对理解 V138R 至关重要——完整展开见 **KNOW-3 §1-2**。
+操作时记住两点：**接触频率 ≠ 结合贡献**（IFP 是提出假说的起点，不是 ΔΔG_sel 的等价替代），PDBQT 工作流下 ProLIF 的 **Anionic/Cationic 检测结构性失效**（输入无形式电荷，SMARTS 匹配永远为空——不是通道没开，是输入格式限制），因此盐桥几何不会被报告。这两点对理解 V138R 至关重要——完整展开见 **KNOW-3 §1-2**。

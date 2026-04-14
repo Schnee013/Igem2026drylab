@@ -30,8 +30,8 @@ import sys
 from pathlib import Path
 
 _this_dir = Path(__file__).parent
-sys.path.insert(0, str(_this_dir))
 sys.path.insert(0, str(_this_dir.parent / "docking"))
+sys.path.insert(0, str(_this_dir))
 
 from utils import get_project_root, load_config
 

@@ -16,7 +16,7 @@
 **根因**：从子目录运行脚本，相对路径指向错误位置。
 **修复**：回到项目根目录再运行：
 ```bash
-cd ~/drylab                           # 回到项目根目录
+cd ~/Igem2026drylab                   # 回到项目根目录
 python src/modeling/docking-repro/run_wt_singlestage.py
 ```
 ---

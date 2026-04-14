@@ -14,7 +14,7 @@ head -30 experiments/docking-repro/analysis/ratio_channel_report.md
 ## 2. 生成突变体 FASTA
 ```bash
 conda activate docking
-cd ~/drylab                           # 回到项目根目录，如果是Windows系统，根目录路径可能会不同
+cd ~/Igem2026drylab                   # 回到项目根目录，如果是Windows系统，根目录路径可能会不同
 python src/modeling/docking-repro/generate_mutant_fastas.py \
   --receptors Gpr3
 ```
