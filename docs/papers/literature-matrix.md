@@ -1,6 +1,6 @@
 # 文献矩阵
 
-> 55 篇本地 PDF | 56 篇已总结 | 更新: 2026-04-11
+> 58 篇本地 PDF | 59 篇已总结 | 更新: 2026-04-13
 >
 > **ID 规则**: `作者姓+年份`（如 `Hu2024`）；同姓同年加后缀（`Huang2023a/b`）；iGEM 用 `iGEM-团队名+年份`。
 
@@ -117,6 +117,9 @@
 | Brown2000 | Brown et al. 2000 *Yeast* 16:11–22 | 10 种嵌合 Gpa1 transplants，C-末端 5 aa 替换，Gαi/o 最佳 | 嵌合设计系统比较 | [已总结](summaries/Brown2000-chimeric-Gpa1-transplants-summary.md) |
 | Hara2012 | Hara et al. 2012 *Biosci Biotechnol Biochem* | 嵌合 Gpa1 C-末端 37 aa vs 44 aa 替换 | 嵌合设计直接参考 | [已总结](summaries/Hara2012-chimeric-Gpa1-yeast-summary.md) |
 | Lengger2022 | Lengger et al. 2022 *ACS Sensors* 7:1323–1335 | 12 serotonin GPCRs × 12 Gα = 144 组合库，灵敏度跨 >4 数量级 | 系统性 Gα 选型方法论 | [已总结](summaries/Lengger2022-serotonin-GPCR-Galpha-library-summary.md) |
+| Conklin1993 | Conklin et al. 1993 *Nature* 363:274–276 | 3 个 C-terminal aa 切换 Gαq→Gαi 受体特异性，NMR 证实 β-turn | **奠基性：最小替换单元** | [已总结](summaries/Conklin1993-Galpha-Cterminal-specificity-summary.md) |
+| Ueda2003 | Ueda et al. 2003 *J Neurosci* 23:7376–7380 | G16/gust 5/11/23/37/44 aa 长度滴定，仅 37+44 功能化 | **唯一系统性长度对比** | [已总结](summaries/Ueda2003-Galpha16-gustducin-length-summary.md) |
+| Velazhahan2021 | Velazhahan et al. 2021 *Nature* 589:148–153 | Ste2 二聚体 + mini-Gpa1 cryo-EM 3.3 Å (PDB 7AD3)，首个 Class D GPCR 结构 | **AF3 基准：Ste2-Gpa1 实验结构** | [已总结](summaries/Velazhahan2021-Ste2-Gpa1-cryoEM-summary.md) |
 
 ### Tier 4b: 下游通路改造
 
@@ -207,3 +210,4 @@
 | 2026-04-10 | v2.0 | 全面重写：51 PDF 全量整合，新增方法学 3 篇（Boukharta2014/Vass2016/Bouysset2021），更新对接数据现状，清理分层结构 |
 | 2026-04-10 | v2.1 | Tier 4 分三层（偶联/通路/输出），新增 4 篇（Brown2000/Lengger2022/FanC2023/Lind2024） |
 | 2026-04-11 | v3.0 | **全局序号 → Author-Year 稳定 ID**；废弃顺序编号，防止跨文档引用断裂；飞书侧迁移至多维表格 |
+| 2026-04-13 | v3.1 | 新增 3 篇嵌合 Gα 文献（Conklin1993/Ueda2003/Velazhahan2021），支撑 AF3 嵌合 Gpa1 结果解读 |

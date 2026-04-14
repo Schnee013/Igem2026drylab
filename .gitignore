@@ -50,6 +50,9 @@ experiments/docking-repro/mutagenesis/af3_downloads/
 experiments/docking-repro/mutagenesis/af3_structures/
 experiments/docking-repro/mutagenesis/af3_prepared/
 
+# chimeric-gpa1 AF3 产出（2.9 GB，可从 AF3 Server 重新下载）
+experiments/chimeric-gpa1/af3_predictions/downloads/
+
 # 日志（运行日志不入库，但保留目录）
 experiments/docking/logs/*.log
 experiments/docking-repro/logs/*.log

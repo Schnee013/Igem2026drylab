@@ -1,0 +1,12 @@
+name,chimera,graft_len,best_model,plddt_global,plddt_cterminal,ptm,ranking_score,fraction_disordered,score_range
+Gpa1-AfGasA-C10_monomer,Gpa1-AfGasA-C10,10,0,72.39,75.52,0.69,0.8,0.22,0.7700-0.8000
+Gpa1-AfGasA-C15_monomer,Gpa1-AfGasA-C15,15,0,75.53,73.33,0.74,0.81,0.15,0.8000-0.8100
+Gpa1-AfGasA-C25_monomer,Gpa1-AfGasA-C25,25,0,73.57,73.4,0.71,0.8,0.18,0.7900-0.8000
+Gpa1-AfGasA-C37_monomer,Gpa1-AfGasA-C37,37,0,74.52,75.4,0.72,0.81,0.18,0.7900-0.8100
+Gpa1-AfGasA-C5_monomer,Gpa1-AfGasA-C5,5,0,73.79,75.54,0.73,0.81,0.17,0.7900-0.8100
+Gpa1-AoGpa2-C10_monomer,Gpa1-AoGpa2-C10,10,0,75.76,74.7,0.74,0.83,0.18,0.8100-0.8300
+Gpa1-AoGpa2-C15_monomer,Gpa1-AoGpa2-C15,15,0,74.84,72.16,0.73,0.82,0.18,0.8000-0.8200
+Gpa1-AoGpa2-C25_monomer,Gpa1-AoGpa2-C25,25,0,74.98,72.53,0.74,0.83,0.19,0.7900-0.8300
+Gpa1-AoGpa2-C37_monomer,Gpa1-AoGpa2-C37,37,0,75.05,78.0,0.73,0.83,0.19,0.8000-0.8300
+Gpa1-AoGpa2-C5_monomer,Gpa1-AoGpa2-C5,5,0,75.84,77.17,0.75,0.83,0.16,0.8100-0.8300
+Gpa1-WT_monomer,Gpa1-WT,0,0,75.54,N/A,0.74,0.83,0.17,0.8000-0.8300
