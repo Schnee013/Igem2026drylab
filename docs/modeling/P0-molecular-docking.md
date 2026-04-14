@@ -217,16 +217,27 @@ V138 全 18 谱中 V138R **是孤峰**而非类别规律——同为碱性的 V1
 
 > 该教训已写入 memory（feedback_outlier_vs_rule.md）。后续设计推断前应先做同类一致性检查。
 
-## 机制假说未实证（V138R 盐桥）
+## 机制假说（V138R 盐桥）
 
-ProLIF 验证 Top 6 候选时（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)），Gpr3 V138R 的 mutant IFP 显示 ARG138 对 ascr18 接触 9 次 vs ascr3 仅 2 次（+7 差值），但 `mutant_contacts.csv` 中**这 9 次接触全部为 VdWContact 类型**——ProLIF 的 Anionic/Cationic 检测在 PDBQT 工作流下**结构性失效**（PDBQT→SDF 不编码形式电荷，ARG 胍基无 +1、ascr#18 羧酸无 -1，SMARTS 匹配永远为空；ProLIF 默认 9 通道包含 Anionic/Cationic，通道从未关闭）。
+Gpr3 V138R 的 mutant IFP 最新结果（2026-04-15 电荷注入修复后，数据源 `mutant_contacts.csv`）：
 
-**结论**：当前结果只能证明"V138→R 后 Arg 侧链在 ascr18 pose 附近的空间富集"，**不能直接证明盐桥形成**。
+| 配体   | Anionic | Hydrophobic | VdWContact | 总计 |
+| ------ | ------: | ----------: | ---------: | ---: |
+| ascr18 |       2 |           3 |          9 |   14 |
+| ascr3  |   **3** |           3 |          2 |    8 |
+
+**技术说明（修复前）**：ProLIF 的 Anionic/Cationic 在 PDBQT 工作流下结构性失效（PDBQT→SDF 不编码形式电荷，SMARTS 匹配永远为空）。2026-04-15 通过 `fix_sdf_valence(template_smiles)` + `fix_receptor_charges()` 注入 pH 7.4 形式电荷，修复已验证（WT GprC ARG395（暂标 Hu2024 R6.45；BW 编号有争议，见 config.yaml）Anionic=4）。
+
+**结论**：证据不一致——
+
+- **支持假说方向**：VdW 富集 ascr18 远大于 ascr3（9 vs 2），与"ARG138 对较长链配体空间容纳更好"一致
+- **与假说方向相反**：Anionic 计数 ascr3（3）> ascr18（2），说明 ascr3 的羧基与 ARG138 在 Vina 选出的 pose 中也满足盐桥几何——Anionic 结果不能作为"选择性支持 ascr18"的证据
+- 总体结论：**静态 pose 中两个配体均与 ARG138 有盐桥几何接触，不能从 IFP 区分选择性**
+- **不能回答**：盐桥是否热力学驱动（Vina 无静电项，pose 由无电荷世界选出）
 
 **实证路径**：
 
-1. 对 pose 中 ARG138 胍基 Nε/NH₁/NH₂ 与 ascr18 末端羧基 O 的距离（<4 Å）与角度做几何检查（精度有限）
-2. **MD 模拟**测量 ARG138-羧基距离的时间序列与盐桥占比 → 转交 [P0-md-simulation](P0-md-simulation.md)（首选，力场自动分配电荷态 + 显式溶剂 + 动力学采样，能同时回答 pose 稳定性问题）
+1. **MD 模拟**测量 ARG138-羧基距离的时间序列与盐桥占比 → 转交 [P0-md-simulation](P0-md-simulation.md)（首选，力场自动分配电荷态 + 显式溶剂 + 动力学采样，能同时回答 pose 稳定性问题）
 
 F170E 反直觉现象（GLU170 本身与 ascr3 接触更多但整体 ΔG(ascr3)=+0.17 上升）也无法用静态对接 + IFP 解释，同样需 MD 实证。
 

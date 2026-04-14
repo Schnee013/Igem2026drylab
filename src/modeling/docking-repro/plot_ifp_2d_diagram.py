@@ -30,7 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from utils import get_project_root, get_results_subdir, load_config
-from run_ifp_analysis import fix_sdf_valence, ALL_INTERACTION_TYPES
+from run_ifp_analysis import fix_sdf_valence, fix_receptor_charges, ALL_INTERACTION_TYPES
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -77,14 +77,19 @@ def get_pocket(prot: mda.AtomGroup, lig_center: np.ndarray,
 
 
 def run_fingerprint(rec_pdb_h: Path, pose_sdf: Path,
-                    top_n: int = 20) -> tuple[plf.Fingerprint, Chem.Mol]:
-    """运行 ProLIF 并返回 (Fingerprint, ligand_mol)"""
+                    top_n: int = 20,
+                    template_smiles: str | None = None) -> tuple[plf.Fingerprint, Chem.Mol]:
+    """运行 ProLIF 并返回 (Fingerprint, ligand_mol)
+
+    template_smiles: pH 7.4 去质子配体 SMILES（来自 config.yaml smiles_pH74），
+    用于注入形式电荷，启用 Anionic/Cationic 盐桥检测。
+    """
     # 受体
     u_rec = mda.Universe(str(rec_pdb_h))
     prot = u_rec.select_atoms("protein")
 
-    # 配体 poses（修复 PDBQT→SDF 转换导致的 implicit H 丢失）
-    poses = fix_sdf_valence(pose_sdf, top_n)
+    # 配体 poses（修复 PDBQT→SDF 转换导致的 implicit H 丢失；注入 pH 7.4 电荷）
+    poses = fix_sdf_valence(pose_sdf, top_n, template_smiles=template_smiles)
 
     # 用修复后的第一个 pose 定义 pocket
     lig_mol = poses[0]
@@ -94,9 +99,11 @@ def run_fingerprint(rec_pdb_h: Path, pose_sdf: Path,
         axis=0,
     )
 
-    # Pocket 选择
+    # Pocket 选择，注入受体 pH 7.4 形式电荷（ARG +1 / ASP,GLU -1）
     pocket = get_pocket(prot, lig_center)
     prot_mol = plf.Molecule.from_mda(pocket)
+    rdkit_charged = fix_receptor_charges(prot_mol)
+    prot_mol = plf.Molecule.from_rdkit(rdkit_charged)
 
     # 运行 IFP — 显式枚举全部交互类型
     fp = plf.Fingerprint(interactions=ALL_INTERACTION_TYPES)
@@ -246,9 +253,12 @@ def main() -> None:
             print(f"  [SKIP] Pose SDF 不存在: {pose_sdf}")
             continue
 
+        lig_cfg = config.get("ligands", {}).get(lig_name, {})
+        template_smiles = lig_cfg.get("smiles_pH74")
         print(f"\n[{pair}] 运行 ProLIF Fingerprint...")
         try:
-            fp, lig_mol = run_fingerprint(rec_pdb_h, pose_sdf, args.top_n)
+            fp, lig_mol = run_fingerprint(rec_pdb_h, pose_sdf, args.top_n,
+                                          template_smiles=template_smiles)
             n_interactions = fp.to_dataframe().shape[1]
             print(f"  {n_interactions} interaction columns across {len(fp.to_dataframe())} poses")
 

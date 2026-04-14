@@ -118,8 +118,10 @@ def main() -> None:
             sdf_path = tmp_dir / f"{pair_tag}_poses.sdf"
             pdbqt_to_sdf(pdbqt_path, sdf_path)
 
+            lig_cfg = config.get("ligands", {}).get(lig_name, {})
             try:
-                df, n_poses = analyze_pair(pdb_h, sdf_path, args.top_n)
+                df, n_poses = analyze_pair(pdb_h, sdf_path, args.top_n,
+                                           template_smiles=lig_cfg.get("smiles_pH74"))
                 freq = compute_contact_frequency(df)
                 all_freq[(rec_name, label, lig_name)] = freq
                 n_contacts = sum(sum(v.values()) for v in freq.values())

@@ -5,6 +5,28 @@
 ---
 ## 1. 获取项目代码和数据
 **第 0 步**：登陆 GitHub
+**第 0.5 步**：首次认证（只需做一次）。
+仓库是私有的，clone 之前必须让 Git 知道你是谁。最简单的方式是用 GitHub CLI。
+**Mac**：
+```bash
+# 如果还没装 Homebrew，先装它（Mac 的包管理器）
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 再安装 GitHub CLI
+brew install gh
+```
+**WSL2（Windows）**：
+```bash
+sudo apt update && sudo apt install gh -y
+```
+安装完后，两个系统都一样登录：
+```bash
+gh auth login
+```
+遇到选项一路回车选默认值（HTTPS → GitHub.com → Login with a web browser）。
+浏览器弹出页面点 **Authorize GitHub CLI**，终端显示 `Logged in as 你的用户名` 即成功。
+> **只需做一次**：认证信息会保存在本地，以后 clone / pull 不再需要重复操作。
+> **WSL2 注意**：如果浏览器没有自动弹出，把终端里显示的链接手动复制到 Windows 浏览器里打开即可。
 **第 1 步**：克隆仓库（或向我索取）。
 ```bash
 git clone https://github.com/Schnee013/Igem2026drylab.git

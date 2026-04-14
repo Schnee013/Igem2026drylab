@@ -72,6 +72,7 @@ ligands:
   ascr1:
     sdf_file: "ascr1_CID11471380.sdf"
     smiles: "CC1C(CC(C(O1)OC(C)CCCCC(=O)O)O)O"
+    smiles_pH74: "CC1C(CC(C(O1)OC(C)CCCCC(=O)[O-])O)O"
     pubchem_cid: 11471380
     formula: "C13H24O6"
     # ascr#1 (daumone-1), C7 链长饱和 ascaroside
@@ -80,6 +81,7 @@ ligands:
   ascr18:
     sdf_file: "ascr18_CID71514784.sdf"
     smiles: "CC1C(CC(C(O1)OC(C)CCCCCCCCC(=O)O)O)O"
+    smiles_pH74: "CC1C(CC(C(O1)OC(C)CCCCCCCCC(=O)[O-])O)O"
     pubchem_cid: 71514784
     formula: "C17H32O6"
     # Hu2024: 使用 Avogadro 构建 + Orca 优化
@@ -87,11 +89,13 @@ ligands:
   ascr3:
     sdf_file: "ascr3_CID16066476.sdf"
     smiles: "CC1C(CC(C(O1)OC(C)CCCCC=CC(=O)O)O)O"
+    smiles_pH74: "CC1C(CC(C(O1)OC(C)CCCCC=CC(=O)[O-])O)O"
     pubchem_cid: 16066476
     formula: "C15H26O6"
   ascr7:
     sdf_file: "ascr7_CID86289656.sdf"
     smiles: "CC1C(CC(C(O1)OC(C)CCC=CC(=O)O)O)O"
+    smiles_pH74: "CC1C(CC(C(O1)OC(C)CCC=CC(=O)[O-])O)O"
     pubchem_cid: 86289656
     formula: "C13H22O6"
 

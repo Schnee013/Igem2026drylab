@@ -294,7 +294,11 @@ def run_mutagenesis(
             # AF2/AF3 突变体 PDBQT 已通过外部流程准备好，直接加载
             # AF3 命名约定: {mutagenesis_dir}/af3_prepared/{rec_name}/{label}_tm.pdbqt
             # AF2 命名约定: {mutagenesis_dir}/af2_prepared/{rec_name}/{label}_tm.pdbqt
+            # 可选：mutant_pdbqt_subdir（如 "saturation"）→ af3_prepared/{rec_name}/saturation/
             af_dir = mutant_dir / f"{mutant_source}_prepared" / rec_name
+            pdbqt_subdir = mut_cfg.get("mutant_pdbqt_subdir", "")
+            if pdbqt_subdir:
+                af_dir = af_dir / pdbqt_subdir
             mutant_pdbqts = {}
             for mut in mutations:
                 label = f"{mut['wt']}{mut['resnum']}{mut['mut']}"

@@ -45,6 +45,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 import prolif as plf
 import MDAnalysis as mda
 from rdkit import Chem
+from rdkit.Chem.AllChem import AssignBondOrdersFromTemplate
 
 
 # ---------------------------------------------------------------------------
@@ -131,16 +132,31 @@ def pdbqt_to_sdf(pdbqt_path: Path, sdf_path: Path) -> Path:
     return sdf_path
 
 
-def fix_sdf_valence(sdf_path: Path, top_n: int = 20) -> list[plf.Molecule]:
+def fix_sdf_valence(sdf_path: Path, top_n: int = 20,
+                    template_smiles: str | None = None) -> list[plf.Molecule]:
     """读取 SDF 并修复 implicit H，返回 ProLIF Molecule 列表。
 
     OpenBabel 的 PDBQT→SDF 转换不含氢原子，V2000 valence 仅反映显式键数。
     RDKit 在无显式 H 的 V2000 SDF 中通常将 noImplicit=True + numHs=0，
     导致 Hydrophobic SMARTS（要求 C&H2 等）匹配失败。修复：清除
     NoImplicit 标志，让 RDKit 按标准化合价推导 implicit H。
+
+    若提供 template_smiles（pH 7.4 去质子 SMILES），则通过
+    AssignBondOrdersFromTemplate 注入形式电荷，使 ProLIF Anionic/Cationic
+    盐桥检测生效。template_smiles=None 时保持原行为（向后兼容）。
     """
     if not sdf_path.exists():
         raise FileNotFoundError(f"SDF not found: {sdf_path}")
+
+    # 构建电荷模板
+    template = None
+    if template_smiles is not None:
+        tmpl = Chem.MolFromSmiles(template_smiles)
+        if tmpl is None:
+            print(f"    [WARN] fix_sdf_valence: 无效 template_smiles={template_smiles!r}，跳过电荷注入")
+        else:
+            template = Chem.RemoveHs(tmpl)
+
     suppl = Chem.SDMolSupplier(str(sdf_path), removeHs=False, sanitize=False)
     molecules = []
     for i, mol in enumerate(suppl):
@@ -156,10 +172,74 @@ def fix_sdf_valence(sdf_path: Path, top_n: int = 20) -> list[plf.Molecule]:
         except Exception as e:
             print(f"    [WARN] fix_sdf_valence: pose {i} sanitization failed ({e}), skipping")
             continue
-        molecules.append(plf.Molecule.from_rdkit(rw.GetMol()))
+
+        # 注入形式电荷（通过 pH 7.4 模板）
+        if template is not None:
+            try:
+                mol_noH = Chem.RemoveHs(rw.GetMol())
+                charged = AssignBondOrdersFromTemplate(template, mol_noH)
+                molecules.append(plf.Molecule.from_rdkit(charged))
+            except Exception as e:
+                print(f"    [WARN] fix_sdf_valence: pose {i} 模板匹配失败 ({e})，使用无电荷版本")
+                molecules.append(plf.Molecule.from_rdkit(rw.GetMol()))
+        else:
+            molecules.append(plf.Molecule.from_rdkit(rw.GetMol()))
+
     if not molecules:
         raise ValueError(f"fix_sdf_valence: no valid molecules parsed from {sdf_path}")
     return molecules
+
+
+def fix_receptor_charges(prot_mol: Chem.Mol) -> Chem.Mol:
+    """注入受体 pH 7.4 形式电荷，使 ProLIF 盐桥检测生效。
+
+    修改范围（只改标准氨基酸中确定带电的基团）：
+    - ARG guanidinium: NE 原子 SetFormalCharge(+1)（pKa ~12.5，完全带电）
+    - ASP OD2 / GLU OE2 carboxylate: SetFormalCharge(-1) + 删除 OH 的 H
+      （pKa ~4，pH 7.4 完全去质子）
+
+    不修改：LYS（需插入第3个H的3D坐标）、HIS（pKa~6 近中性）、末端（远离口袋）。
+    """
+    rw = Chem.RWMol(prot_mol)
+
+    # ARG guanidinium: NE → +1
+    # SMARTS 匹配 guanidinium C=N，标记 NE（NH0X2）
+    arg_smarts = Chem.MolFromSmarts("[NH0X2:1]=[CX3]([NH2X3])[NH2X3]")
+    if arg_smarts is not None:
+        for match in prot_mol.GetSubstructMatches(arg_smarts):
+            ne_idx = match[0]
+            atom = rw.GetAtomWithIdx(ne_idx)
+            mi = atom.GetMonomerInfo()
+            if mi and mi.GetResidueName().strip() == "ARG":
+                atom.SetFormalCharge(1)
+
+    # ASP OD2 / GLU OE2: 去质子 → -1，删除 OH 的 H
+    asp_glu_smarts = Chem.MolFromSmarts("[OX2H1:1]-[CX3](=[OX1])")
+    h_to_remove: set[int] = set()
+    if asp_glu_smarts is not None:
+        for match in prot_mol.GetSubstructMatches(asp_glu_smarts):
+            o_idx = match[0]
+            atom = rw.GetAtomWithIdx(o_idx)
+            mi = atom.GetMonomerInfo()
+            if mi and mi.GetResidueName().strip() in ("ASP", "GLU"):
+                atom_name = mi.GetName().strip()
+                if atom_name in ("OD2", "OE2"):
+                    atom.SetFormalCharge(-1)
+                    atom.SetNoImplicit(True)
+                    for nb in rw.GetAtomWithIdx(o_idx).GetNeighbors():
+                        if nb.GetAtomicNum() == 1:
+                            h_to_remove.add(nb.GetIdx())
+
+    for h_idx in sorted(h_to_remove, reverse=True):
+        rw.RemoveAtom(h_idx)
+
+    try:
+        Chem.SanitizeMol(rw)
+    except Exception as e:
+        print(f"    [WARN] fix_receptor_charges: sanitization failed ({e}), 返回原始分子")
+        return prot_mol
+
+    return rw.GetMol()
 
 
 def get_pocket(prot: mda.AtomGroup, lig_center: np.ndarray,
@@ -177,8 +257,14 @@ def analyze_pair(
     rec_pdb_h: Path,
     pose_sdf: Path,
     top_n: int = 20,
+    template_smiles: str | None = None,
 ) -> tuple[pd.DataFrame, int]:
-    """对单个 receptor×ligand 对运行 ProLIF IFP，返回 (IFP DataFrame, 实际 pose 数)"""
+    """对单个 receptor×ligand 对运行 ProLIF IFP，返回 (IFP DataFrame, 实际 pose 数)
+
+    template_smiles: pH 7.4 去质子配体 SMILES（来自 config.yaml smiles_pH74），
+    用于为配体注入形式电荷，启用 ProLIF Anionic/Cationic 盐桥检测。
+    None 时保持原行为。
+    """
     # 读取受体
     u_rec = mda.Universe(str(rec_pdb_h))
     prot = u_rec.select_atoms("protein")
@@ -194,12 +280,14 @@ def analyze_pair(
         axis=0,
     )
 
-    # 选择 pocket
+    # 选择 pocket，注入受体 pH 7.4 形式电荷（ARG +1 / ASP,GLU -1）
     pocket = get_pocket(prot, lig_center)
     prot_mol = plf.Molecule.from_mda(pocket)
+    rdkit_charged = fix_receptor_charges(prot_mol)
+    prot_mol = plf.Molecule.from_rdkit(rdkit_charged)
 
-    # 配体 poses（修复 PDBQT→SDF 转换导致的 implicit H 丢失）
-    poses = fix_sdf_valence(pose_sdf, top_n)
+    # 配体 poses（修复 PDBQT→SDF 转换导致的 implicit H 丢失；注入 pH 7.4 电荷）
+    poses = fix_sdf_valence(pose_sdf, top_n, template_smiles=template_smiles)
 
     # 运行 IFP — 显式枚举全部 15 种交互类型
     fp = plf.Fingerprint(interactions=ALL_INTERACTION_TYPES)
@@ -266,9 +354,12 @@ def main() -> None:
             pdbqt_to_sdf(pdbqt_path, sdf_path)
 
             # IFP 分析
+            lig_cfg = config.get("ligands", {}).get(lig_name, {})
+            template_smiles = lig_cfg.get("smiles_pH74")
             print(f"\n  [{pair_name}] 运行 ProLIF...")
             try:
-                df, n_poses = analyze_pair(pdb_h, sdf_path, args.top_n)
+                df, n_poses = analyze_pair(pdb_h, sdf_path, args.top_n,
+                                           template_smiles=template_smiles)
                 freq = compute_contact_frequency(df)
                 all_freq[pair_name] = freq
                 pair_n_poses[pair_name] = n_poses

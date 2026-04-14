@@ -74,7 +74,6 @@ def main() -> None:
     print(f"\nascr18 PDBQT 修复完成: {pdbqt}")
     print(f"  原子数: {n_atoms}（修复前: 15）")
     print(f"  DOFs: {n_dofs}（上限: {max_dofs}）")
-    print(f"\n下一步: 重新运行 WT singlestage 对接（仅 ascr18）")
 
 
 if __name__ == "__main__":
