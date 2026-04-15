@@ -2,7 +2,7 @@
 # 修改参数不需要改动代码
 
 paths:
-  project_root: "/Users/roy/Documents/drylab"
+  project_root: "."
   receptor_dir: "experiments/docking/receptors"
   ligand_dir: "experiments/docking/ligands"
   prepared_dir: "experiments/docking/prepared"

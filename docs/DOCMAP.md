@@ -115,7 +115,8 @@ drylab/
 │   ├── decisions/               # 技术决策记录
 │   │   └── NNN-title.md
 │   ├── ops/                     # 操作规范（SSH、环境、工具链）
-│   │   └── ssh-windows-compute.md
+│   │   ├── ssh-windows-compute.md
+│   │   └── slurm-md-server.md   # Slurm GPU 集群（MD 模拟节点）
 │   ├── logs/                    # 每日工作日志
 │   │   └── YYYY-MM-DD.md
 │   ├── papers/                  # 文献（矩阵 + 按需加载的总结）

@@ -70,6 +70,16 @@ ls experiments/docking-repro/prepared/ligands/*.pdbqt | wc -l
 4
 ```
 如果数量不对，检查文件是否放对了目录。
+
+> **PDB 命名注意**：`receptors/` 下的 3 个 `.pdb` 文件（质心计算用）必须带 `_tm` 后缀。如果你解压出来的文件名是 `GprC_A0A437AGY2.pdb`（没有 `_tm`），需要手动重命名：
+> ```bash
+> cd experiments/docking-repro/prepared/receptors
+> mv GprC_A0A437AGY2.pdb  GprC_A0A437AGY2_tm.pdb
+> mv Gpr2_G1X9E2.pdb      Gpr2_G1X9E2_tm.pdb
+> mv Gpr3_G1XJN1.pdb      Gpr3_G1XJN1_tm.pdb
+> cd ~/Igem2026drylab
+> ```
+> PDBQT 文件不需要改名。
 目录结构速览——你只需要知道三条路径：
 | 路径 | 放什么 |
 |------|--------|

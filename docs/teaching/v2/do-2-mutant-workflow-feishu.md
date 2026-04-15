@@ -22,14 +22,19 @@ python src/modeling/docking-repro/generate_mutant_fastas.py \
 输出目录：
 ```
 experiments/docking-repro/mutagenesis/fastas/Gpr3/
-├── V138A.fasta
-├── V138R.fasta    ← 我们要用的
-├── V138D.fasta
-├── ...（每个位点 18 个文件）
+├── V138A.fasta           ← alanine scan（默认模式）
+├── F170A.fasta
+├── ...
+└── saturation/           ← saturation scan（--scan-type saturation）
+    ├── V138R.fasta       ← 我们要用的
+    ├── V138D.fasta
+    ├── ...（每个位点 × 18 种替换）
 ```
+> **注意**：默认 `--scan-type alanine` 只生成 V138**A**（在 `Gpr3/` 下）。V138**R** 来自 saturation scan，在 `Gpr3/saturation/` 子目录下。教学练习直接用已有的 saturation 结果即可，不需要重新跑生成脚本。
+
 打开 V138R.fasta 看一眼：
 ```bash
-cat experiments/docking-repro/mutagenesis/fastas/Gpr3/V138R.fasta
+cat experiments/docking-repro/mutagenesis/fastas/Gpr3/saturation/V138R.fasta
 ```
 你应该看到一条完整的蛋白质序列，和 WT 相比只有 **第 138 位从 V（Val）变成了 R（Arg）**。
 ---

@@ -74,6 +74,9 @@ png output/M327A_detail.png, dpi=300
 ---
 ## 3b. 跑 IFP 分析（对接完 → 跑 IFP → 读热图）
 对接完成后，IFP（Interaction Fingerprint）分析把 3D pose 翻译成"哪个残基和配体有什么类型的接触"。完整命令链分三步：
+
+> **前置条件**：第 1 步只需要 DO-1 完成（WT 对接结果）。第 2 步需要 DO-2 **全部完成**（突变体对接结果 + pose 文件就位）。如果你还没跑完 DO-2，可以先跑第 1 步和第 3 步的 WT 部分。
+
 ### 第 1 步：WT IFP 分析
 ```bash
 conda activate docking
@@ -81,15 +84,34 @@ cd ~/Igem2026drylab
 python src/modeling/docking-repro/run_ifp_analysis.py
 ```
 > 输入：`experiments/docking-repro/results/wt_singlestage/` 下的 pose PDBQT + 受体 PDB
-> 输出：`experiments/docking-repro/analysis/ifp_results/` 下的 CSV（每行 = 一个残基-配体接触）
+> 输出：`experiments/docking-repro/results/ifp_analysis/ifp_all.csv`（每行 = 一个残基-配体接触）
 > 参数：从 `config.yaml` 读取受体列表和配体列表
 ### 第 2 步：突变体 IFP 分析
 ```bash
 python src/modeling/docking-repro/run_ifp_mutants.py
 ```
-> 输入：`experiments/docking-repro/mutagenesis/` 下的突变体对接 pose + 突变体受体 PDB
-> 输出：`experiments/docking-repro/analysis/ifp_results/` 下的突变体 CSV
-> 参数：从 `config.yaml` 读取
+> 输入：`experiments/docking-repro/results/ifp_analysis_mutants/` 下的文件：
+> - `receptors/{Rec}_{Label}_tm.pdb`（TM 截断后的突变体受体 PDB）
+> - `poses/{Rec}_{Label}_{ligand}_poses.pdbqt`（突变体对接 pose）
+>
+> 输出（同目录）：
+> - `mutant_contacts.csv`（全部突变体 × 配体 × 残基 × interaction 频率）
+> - `mutant_vs_wt_diff.md`（相对 WT 的接触差异摘要）
+>
+> ⚠️ 如果 `ifp_analysis_mutants/` 下只有空的 `tmp/` 文件夹，说明输入数据还没就位。DO-2 的对接 pipeline 会将 pose 输出到 `mutagenesis/{Rec}/{Label}/docking/`，**不会**自动复制到这里。你需要手动准备：
+> ```bash
+> # 示例：准备 Gpr3 V138R 的输入（DO-2 全部完成后）
+> mkdir -p experiments/docking-repro/results/ifp_analysis_mutants/{receptors,poses}
+> # 1. 复制 TM 截断后的突变体 PDB
+> cp experiments/docking-repro/mutagenesis/af3_structures/Gpr3/V138R_tm.pdb \
+>    experiments/docking-repro/results/ifp_analysis_mutants/receptors/Gpr3_V138R_tm.pdb
+> # 2. 复制对接 pose（每个配体一个）
+> cp experiments/docking-repro/mutagenesis/Gpr3/V138R/docking/Gpr3_V138R_ascr18_poses.pdbqt \
+>    experiments/docking-repro/results/ifp_analysis_mutants/poses/
+> cp experiments/docking-repro/mutagenesis/Gpr3/V138R/docking/Gpr3_V138R_ascr3_poses.pdbqt \
+>    experiments/docking-repro/results/ifp_analysis_mutants/poses/
+> ```
+> 命名规范：受体 PDB 为 `{Rec}_{Label}_tm.pdb`，pose 为 `{Rec}_{Label}_{ligand}_poses.pdbqt`。
 ### 第 3 步：绘制热图
 ```bash
 python src/modeling/docking-repro/plot_ifp_heatmap.py

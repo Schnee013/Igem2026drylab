@@ -9,7 +9,7 @@ method_reference: "Hu et al. 2024 Nat Microbiol"
 # 路径配置（相对于 project_root）
 # ---------------------------------------------------------------------------
 paths:
-  project_root: "/Users/roy/Documents/drylab"
+  project_root: "."
   # 输入：共享 v2 的原始 PDB 和 SDF（不复制，通过 symlink 引用）
   receptor_dir: "experiments/docking/receptors"
   ligand_dir: "experiments/docking/ligands"
