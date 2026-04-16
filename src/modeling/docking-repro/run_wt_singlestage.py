@@ -25,7 +25,7 @@ from pathlib import Path
 _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 
-from dock import DockingResult, dock_pair_singlestage, get_tm_helix_ranges
+from dock import DockingResult, dock_pair_singlestage, get_box_center_offset, get_tm_helix_ranges
 from utils import (
     generate_run_id, get_project_root, get_results_subdir, load_config,
     preflight_check, save_results_json, setup_logging,
@@ -41,6 +41,8 @@ def parse_args() -> argparse.Namespace:
                         help="对接的受体列表（默认全部三个）")
     parser.add_argument("--ligands", nargs="+", default=["ascr1", "ascr18", "ascr3", "ascr7"],
                         help="对接的配体列表（默认 ascr1 + ascr18 + ascr3 + ascr7）")
+    parser.add_argument("--vina-bin", default=None,
+                        help="覆盖 config 中的 vina_bin 路径（跨平台使用）")
     return parser.parse_args()
 
 
@@ -67,6 +69,8 @@ def main() -> None:
     config = load_config(args.config)
     if args.project_root:
         config["paths"]["project_root"] = args.project_root
+    if args.vina_bin:
+        config["remote"]["vina_bin"] = args.vina_bin
 
     root = get_project_root(config)
     run_id = generate_run_id()
@@ -116,6 +120,7 @@ def main() -> None:
         rec_pdbqt = rec_dir / RECEPTOR_PDBQTS[rec_name]
         tm_pdb = rec_dir / RECEPTOR_TM_PDBS[rec_name]
         helix_ranges = get_tm_helix_ranges(config, rec_name)
+        box_offset = get_box_center_offset(config, rec_name)
 
         for lig_name in args.ligands:
             lig_pdbqt = lig_dir / LIGAND_PDBQTS[lig_name]
@@ -132,6 +137,7 @@ def main() -> None:
                 output_dir=pair_dir,
                 config=config,
                 tm_helix_ranges=helix_ranges,
+                box_center_offset=box_offset,
             )
             results.append(result)
             logger.info(

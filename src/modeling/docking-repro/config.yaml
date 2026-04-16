@@ -165,6 +165,16 @@ tm_topology:
   # ICL3 截断策略：保留 TM5_end 后 5aa 和 TM6_start 前 5aa 作为 linker
   linker_length: 5    # ICL3 两端保留的 linker 残基数
   flank: 5            # TM1 前 / TM7 后额外保留的残基数
+  # extracellular_z_offset (Å): 将 docking box center 向胞外侧偏移。
+  #   支持两种格式:
+  #     float  → (0, 0, z)  向 docking-frame Z 轴偏移（向后兼容）
+  #     [dx, dy, dz] → 3D 向量偏移（膜法线在 docking frame 中不沿 Z 轴时使用）
+  #   背景: TM-only 截断移除 ICL loop，暴露胞内面疏水腔，Vina 优先填充假口袋。
+  #   Gpr2: CHARMM-GUI 旋转导致 dock Z ≠ 膜法线（Kabsch R[2,2]=-0.785）。
+  #     膜法线在 dock frame = [0.617, 0.065, -0.785]，10Å 偏移 = [6.17, 0.65, -7.85]。
+  #   GprC/Gpr3 = 0（无需偏移）。默认 0.0。
+  #   → 根因: docs/logs/2026-04-16.md §Gpr2 Docking Pose 朝向验证
+  #   → 验算: ~/.claude/plans/sparkling-herding-dijkstra.md §偏移量验算
 
   GprC:
     # UniProt A0A437AGY2 — https://www.uniprot.org/uniprotkb/A0A437AGY2
@@ -178,6 +188,7 @@ tm_topology:
       TM6: [374, 394]
       TM7: [405, 427]
     icl3: [193, 373]    # 180 aa — 截断目标
+    extracellular_z_offset: 0.0   # Hu2024 ΔG Δ=0.05 已验证，不可更改
 
   Gpr2:
     # UniProt G1X9E2 — https://www.uniprot.org/uniprotkb/G1X9E2
@@ -191,6 +202,9 @@ tm_topology:
       TM6: [327, 347]
       TM7: [357, 377]
     icl3: [207, 326]    # 119 aa
+    extracellular_z_offset: [6.17, 0.65, -7.85]
+    # 3D 向量: 10Å × 膜法线在 dock frame 的方向 [0.617, 0.065, -0.785]
+    # → docs/logs/2026-04-16.md §Gpr2 Docking Pose 朝向验证 + 全 20 pose 分析
 
   Gpr3:
     # UniProt G1XJN1 — https://www.uniprot.org/uniprotkb/G1XJN1
@@ -204,6 +218,7 @@ tm_topology:
       TM6: [295, 315]
       TM7: [322, 342]
     icl3: [197, 294]    # 97 aa
+    extracellular_z_offset: 0.0   # pose 已在胞外侧，无需偏移
 
 # ---------------------------------------------------------------------------
 # Grid Box（与 v2 一致：受体质心为中心）

@@ -146,7 +146,15 @@ drylab/
 │   ├── md-simulation/           # MD 模拟体系（Pre-registered 8 holo）
 │   │   ├── README.md            #   体系清单 + 采样协议 + 判据（锁定文档）
 │   │   ├── systems/             #   每个体系一个目录（CHARMM-GUI 输出 + GROMACS 输入）
-│   │   ├── parameters/          #   配体参数化（CGenFF stream + penalty audit）
+│   │   │   ├── Gpr2_WT/         #     Gpr2 WT 蛋白+POPC 膜体系（Job 7628027774, 132k atoms）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（.gro/.top/.mdp/.ndx + toppar/）
+│   │   │   └── Gpr3_WT/         #     Gpr3 WT 蛋白+POPC 膜体系（Job 7628627163, ~139k atoms）
+│   │   │       └── gromacs/     #       GROMACS 输入文件（同上结构）
+│   │   ├── parameters/          #   配体参数化（CGenFF + penalty audit + GROMACS .itp）
+│   │   │   ├── ascr18/          #     penalty_summary.md + charmm-gui-7628908749/（完整输出含 gromacs/ASC18.itp）
+│   │   │   └── ascr3/           #     penalty_summary.md + charmm-gui-7628970666/（完整输出含 gromacs/ASC3.itp）
+│   │   ├── structures/          #   受体结构（PPM 2.0 对齐后）
+│   │   │   └── ppm2/            #     PPM 2.0 输出 PDB（膜对齐，z=0 为膜中心）
 │   │   ├── analysis/            #   跨体系分析脚本
 │   │   └── scripts/             #   Pipeline 通用脚本
 │   └── docking-repro/           # Hu2024 复现产出
@@ -155,6 +163,7 @@ drylab/
 │       │   ├── wt_singlestage/  # WT 单阶段对接结果（权威 WT 基线）
 │       │   ├── multiseed/       # 多 seed 方差评估统计
 │       │   └── ifp_analysis/    # ProLIF IFP 分析中间文件（contact_frequency.json 等）
+│       ├── slurm/               # Slurm sbatch 脚本 + 部署脚本
 │       ├── logs/                # 运行日志
 │       ├── analysis/            # 分析产出
 │       │   ├── deeptmhmm/       # DeepTMHMM TM 拓扑预测（UniProt 交叉验证）

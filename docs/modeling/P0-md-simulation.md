@@ -3,7 +3,7 @@ direction: P0-md-simulation
 status: learning
 priority: P0
 chassis_dependent: false
-last_updated: 2026-04-12
+last_updated: 2026-04-16
 ---
 
 # P0: MD 模拟（V138R 盐桥实证 + Top 6 稳定性 + 嵌合 Gpa1 验证）
@@ -129,16 +129,24 @@ last_updated: 2026-04-12
 
 ### 前置风险与强制动作
 
-排序按严重程度（含第二轮 §10 新增）：
+排序按严重程度（含第二轮 §10 新增 + 2026-04-16 provenance 审计新增 #9-#13）：
 
-1. ⭐⭐⭐ **ascaroside CGenFF 糖环 penalty 审计**：不审计 = V138R 盐桥占比数字不可信。阶段 1-2 = ParamChem + penalty 分级（1-2 天出数据），即可判断是否触发阶段 3 (QM 重拟 1-2 周)。重点：α-L-ascarylose 环 ⁴C₁/¹C₄ 椅式稳定性 + C7 末端羧基 charge。**重大红利**：CHARMM36 碳水已原生覆盖 fucose/rhamnose（ascarylose 最近类比），若阶段 2 全 <50 可直接锁定。
-2. ⭐⭐⭐ **AlphaFold3 结构必须过 PPM 2.0 对齐**：跳过会在 production 发现 TM 倾角 30°+ 灾难；顺带明确声明"基于 inactive-like 预测"。AF3 起始首 50 ns 必须从分析窗口扣除（不是晶体结构）。
+1. ~~⭐⭐⭐ **ascaroside CGenFF 糖环 penalty 审计**~~：**已完成（2026-04-16）**。ascr18 + ascr3 全部 penalty < 10，跳过 QM。详见 `parameters/{ascr18,ascr3}/protonated/penalty_summary.md`。
+2. ~~⭐⭐⭐ **AlphaFold3 结构必须过 PPM 2.0 对齐**~~：**已完成（2026-04-16）**。Gpr2（33.0Å/3°）+ Gpr3（30.6Å）正常；GprC（23.4Å）偏薄待观察。输出 `structures/ppm2/`。
 3. ~~⭐⭐⭐ **CHARMM-GUI 学术账号**~~：**已通过（2026-04-14）**。
-4. ⭐⭐ ~~**体系清单 pre-register**~~：**已完成**（2026-04-12）→ 8 holo 锁定到 [experiments/md-simulation/README.md](../../experiments/md-simulation/README.md)。
+4. ~~⭐⭐ **体系清单 pre-register**~~：**已完成**（2026-04-12）→ 8 holo 锁定到 [experiments/md-simulation/README.md](../../experiments/md-simulation/README.md)。
 5. ⭐⭐ **脂质力场引入 ionic lock 假信号**：β2AR+POPC 对比研究显示不同脂质力场让 R-E ionic lock 动力学完全不同。锁定 CHARMM36 lipid 不中途切换。
 6. ⭐⭐ **Single replica 审稿常识 = 不够**：≥3 independent seeds，每 ≥200 ns 用于 Welch t-test / Mann-Whitney U；effect size 接近阈值（0.4 vs 0.6）必须 5 seeds 做 bootstrap CI。
 7. ⭐ **水盒子 benchmark**：PI 服务器配置确认后跑一次，验证 `-update gpu -bonded gpu -pme gpu` + CPU ≥ 8 核是否开到位。80k-atom 体系 A100 ~265 ns/day 为基准（[NHR@FAU 2024](https://hpc.fau.de/2024/08/13/gromacs-2024-1-on-brand-new-gpgpus/)）。
 8. ⭐ **分阶段 equilibration schedule**：借鉴 mwSuMD 2→60→80→20 ns restraint release。
+9. ⭐⭐ **Docking pose 空间兼容性**：**Gpr3 可推进，Gpr2 未解决**。
+   Gpr3：需删 POPC resid 113（Phase 3 处理），其余就绪。
+   Gpr2：20/20 pose 仍在胞内侧，需沿膜法线在 docking frame 中的投影方向重新偏移 box center。
+   → 修复过程详见 `docs/logs/2026-04-16.md` §Gpr2 Docking Pose 朝向验证
+10. ~~⭐⭐ **Ascr18/ascr3 羧基质子化态确认**~~：**已完成（2026-04-16）**。ascr18 + ascr3 均已去质子化重新参数化。ASCR18.itp（54 atoms, qtot=-1.000）Job 7629292909 + ASCR3.itp（46 atoms, qtot=-1.000）Job 7629305001。penalty 全部 < 10。输出 `parameters/{ascr18,ascr3}/deprotonated/charmm-gui-{jobid}/gromacs/`。
+11. ⭐ **突变体引入方法未指定**（2026-04-16 provenance 审计新增）：Phase 4 "从 WT 膜体系引入点突变"未指定工具。推荐：PyMOL `mutagenesis wizard`（单点突变 + 最优 rotamer 选择）或 CHARMM-GUI PDB Manipulator；突变后需对突变残基做局部 EM 消除新侧链 clash，再跑完整 6 步 eq。
+12. ⭐ **mwSuMD restraint release 时间表来源待验证**（2026-04-16 provenance 审计新增）：#8 中 "2→60→80→20 ns" 的具体数字是否来自 [Deganutti eLife 2024](https://elifesciences.org/articles/96513) 原文需验证。CHARMM-GUI 标准 6 步渐进释放（step6.1-6.6）是 0.375 ns 级别，AF3 结构可能需延长至 ns 级但具体数值需文献背书。
+13. ⭐ **CHARMM-modified TIP3P 命名**（2026-04-16 provenance 审计新增）：CHARMM-GUI 输出的水模型实际是 CHARMM-modified TIP3P (TIPS3P，含 LJ on H)，与 standard TIP3P 有微小差异。当前 pipeline 使用 CHARMM-GUI 默认值是正确的，但论文/wiki 写作时需明确标注 "CHARMM-modified TIP3P" 而非 "TIP3P"。
 
 ## 待回答的科学问题
 
@@ -211,25 +219,76 @@ last_updated: 2026-04-12
 
 **禁止**：在技术栈调研完成前预先填入"GROMACS 教程"等条目 —— 这会污染选型独立性。
 
+## 执行 Phase 定义（唯一权威源）
+
+> 日志和 memory 中引用 "Phase N" 时，定义以本节为准。
+
+| Phase | 名称 | 输入 | 输出 | 状态 |
+|-------|------|------|------|------|
+| 0 | 调研 + 前置风险 | 文献 + 技术栈候选 | 生产栈选型 + 风险清单 | ✅ 完成 |
+| 1 | 膜体系构建 | PPM 2.0 对齐 PDB | CHARMM-GUI GROMACS 输出 (topol/gro/mdp) | Gpr2 ✅ Gpr3 ✅ GprC 暂缓 |
+| 2 | Docking pose 提取 + 坐标对齐 | Vina PDBQT + Phase 1 体系 | 膜坐标系下的配体 aligned PDB | Gpr3 ✅ / Gpr2 ❌ 偏移方向错误 |
+| 2.5 | 配体 CGenFF 参数化（去质子化） | 去质子化 SDF | .itp (qtot=-1) | ✅ ASCR18 + ASCR3 |
+| 3 | 拓扑合并 + EM + 平衡化 | Phase 1 体系 + Phase 2 配体 + Phase 2.5 itp | 可跑 production 的 WT holo 体系 | ❌ 未开始 |
+| 4 | 突变体引入 | Phase 3 WT holo 体系 + 突变定义 | 突变体体系 (local EM + 6 步 eq) | ❌ 未开始 |
+| 5 | Production MD | Phase 3/4 体系 | trajectories (.xtc/.trr) | ❌ 未开始 |
+| 6 | 分析 | trajectories | 盐桥占比 / RMSD / IFP / MM-PBSA | ❌ 未开始 |
+
+### Phase 3 详细步骤
+
+1. 将 Phase 2 对齐后的配体 PDB 插入 Phase 1 膜体系 GRO
+2. 删除与配体碰撞的 POPC（Gpr3: resid 113；Gpr2 无碰撞但 pose 待修正）
+3. 合并 `topol.top`：添加配体 `.itp`（Phase 2.5 去质子化版）+ `[ molecules ]` 条目
+4. Energy Minimization（`gmx grompp` + `gmx mdrun`，steep descent）
+5. 6 步平衡化（CHARMM-GUI 标准方案：BB 10→0.1 / SC 5→0 / 脂质约束递减）
+6. → 输出可直接跑 Production 的完整体系
+
+### Phase 4 详细步骤
+
+1. 从 Phase 3 WT holo 体系出发
+2. PyMOL `mutagenesis wizard`（单点突变 + 最优 rotamer 选择）或 CHARMM-GUI PDB Manipulator
+3. 突变残基局部 EM 消除新侧链 clash
+4. 完整 6 步 eq（同 Phase 3 step 5）
+
+### 当前阻塞关系
+
+```text
+Phase 3 (Gpr3) → 可立即推进（Phase 1 ✅ + Phase 2 ✅ + Phase 2.5 ✅）
+Phase 3 (Gpr2) → 阻塞于 Phase 2（pose 偏移方向修正）
+Phase 4 → 阻塞于 Phase 3
+Phase 5 → 阻塞于 Phase 3/4 + PI 服务器配置确认
+Phase 6 → 阻塞于 Phase 5
+```
+
 ## 产出定义
 
-### 阶段 0：调研（首要）
+### Phase 0 检查清单
 
-- [x] 前 3 维度技术栈调研（软件 / 力场 / 膜构建）：[P0-md-tech-stack-research.md](P0-md-tech-stack-research.md) v1.0（2026-04-12）
+- [x] 前 3 维度技术栈调研：[P0-md-tech-stack-research.md](P0-md-tech-stack-research.md) v1.0（2026-04-12）
 - [x] 回填本文档 §调研后的技术栈选型
-- [x] 剩余 4 维度调研（时间尺度 / 分析工具 / MM-PBSA / ascaroside 类比）：[P0-md-tech-stack-research.md §6-10](P0-md-tech-stack-research.md) v2.0（2026-04-12）
+- [x] 剩余 4 维度调研：[P0-md-tech-stack-research.md §6-10](P0-md-tech-stack-research.md) v2.0（2026-04-12）
 - [x] 回填采样协议 / 分析栈 / 自由能路径 / ascaroside 行动计划
 - [ ] PI 课题组服务器配置确认后，在本文档 §执行节点 回填并校核软件 CUDA 版本
 - [x] CHARMM-GUI 学术账号注册（已提交 2026-04-12，**审批通过 2026-04-14**）
 - [x] 体系清单 pre-register：8 holo（2 WT + Top 6），已锁定到 [experiments/md-simulation/README.md](../../experiments/md-simulation/README.md)（2026-04-12）
 
-### 阶段 1：执行（待调研完成后启动）
+### Phase 1–2.5 检查清单
+
+- [x] Phase 1: Gpr2 膜体系构建（CHARMM-GUI Job 7628027774）
+- [x] Phase 1: Gpr3 膜体系构建（CHARMM-GUI Job 7628627163）
+- [ ] Phase 1: GprC 膜体系构建（暂缓：蛋白 X extent 97.93 Å > box 90 Å，需 XY≥130）
+- [x] Phase 2: Gpr3 docking pose 提取 + Kabsch 对齐（RMSD=0.064 Å）
+- [ ] Phase 2: Gpr2 docking pose 对齐（偏移方向错误，待重新设计）
+- [x] Phase 2.5: ASCR18 去质子化 CGenFF（Job 7629292909, qtot=-1）
+- [x] Phase 2.5: ASCR3 去质子化 CGenFF（Job 7629305001, qtot=-1）
+
+### Phase 6 最终产出
 
 - [ ] V138R 盐桥占比时间序列图 + 统计（vs WT 对照）
 - [ ] F170E pose drift 分析 + GLU170 χ 角时间序列
 - [ ] Top 6 mutant 的 RMSD/RMSF 汇总表 + WT 对照
 - [ ] 嵌合 Gpa1 + Gpr 复合物界面稳定性报告（与 P3 联动）
-- [ ] 产出路径：`experiments/md-simulation/`（目录骨架已创建 2026-04-12，CHARMM-GUI 输出后填充）
+- [ ] 产出路径：`experiments/md-simulation/`
 
 ## 方法学局限性
 
@@ -249,7 +308,13 @@ last_updated: 2026-04-12
 | 2026-04-12 | 算力节点切换到 PI 课题组服务器 | 本地 AMD 卡退出 MD 选型约束；技术栈按 CUDA 主流生态调研 |
 | 2026-04-12 | 前 3 维度技术栈调研完成 | 生产栈确定：GROMACS + CHARMM36m + CGenFF + CHARMM36 lipid + CHARMM-GUI + 纯 POPC；详见 [P0-md-tech-stack-research.md](P0-md-tech-stack-research.md) |
 | 2026-04-12 | 后 4 维度调研完成 | 采样 MVP = 7 holo × 200 ns × 3 rep；分析栈 MDAnalysis + ProLIF (Cationic/Anionic) + GetContacts；自由能主路径 gmx_MMPBSA + per-residue + IFP 三角；ascaroside 路径 ParamChem → penalty 分级 → 条件 QM → Cremer-Pople；详见 [P0-md-tech-stack-research.md §6-10](P0-md-tech-stack-research.md) |
-| 2026-04-14 | CHARMM-GUI 学术账号审批通过 | 阶段 0 前置风险 §3 解除；可启动 ascaroside ParamChem 扫描 + 膜体系搭建规划 |
+| 2026-04-14 | CHARMM-GUI 学术账号审批通过 | Phase 0 前置风险 §3 解除 |
+| 2026-04-16 | Phase 1 完成（Gpr2 + Gpr3 膜体系）| CHARMM-GUI Membrane Builder，GprC 暂缓（box 不够大）|
+| 2026-04-16 | Phase 2 完成（Gpr3）/ Gpr2 未解决 | Gpr3 对齐 ✅；Gpr2 pose 仍胞内，待修正 → 日志 |
+| 2026-04-16 | Phase 2.5 完成 | ascr18 + ascr3 去质子化 CGenFF itp（qtot=-1）|
+| 2026-04-16 | 前置风险 #1 penalty 审计完成 | ascr18 + ascr3 全部 < 10，跳过 QM |
+| 2026-04-16 | 前置风险 #9 Gpr2 pose 未解决 | 待重新设计偏移方向 → 日志 |
+| 2026-04-16 | Phase 定义表新增 | 本文档 §执行 Phase 定义 为唯一权威源 |
 
 ## 版本记录
 

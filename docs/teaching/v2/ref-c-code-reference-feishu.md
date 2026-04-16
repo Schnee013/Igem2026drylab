@@ -27,7 +27,7 @@ src/modeling/docking-repro/
 ├── process_af3_structures.py    ← 处理 AF3 下载：选最优 model
 ├── cif_to_pdb.py                ← mmCIF → PDB 批量转换
 ├── extract_mutant_tm.py         ← 批量提取突变体 TM 域
-├── run_adfr_mutants.py          ← Windows 端批量 ADFR 准备
+├── run_adfr_mutants.py          ← 服务器端批量 ADFR 准备（通过 sbatch 提交）
 │
 │  ── 辅助 ──
 ├── fix_ascr18.py                ← 修复 ascr18 PDBQT 截断 bug

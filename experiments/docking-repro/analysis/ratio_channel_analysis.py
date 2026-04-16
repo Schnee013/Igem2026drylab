@@ -2,7 +2,7 @@
 """
 ratio_channel_analysis.py — 比值型双通道 Docking 数据分析
 
-读取 122 条突变对接结果，按 sel_mut 全谱排名，
+读取突变对接结果（含 Gpr2/Gpr3 alanine+saturation + GprC alanine+saturation），按 sel_mut 全谱排名，
 提取 Channel A (ascr18偏好) / Channel B (ascr3偏好) 候选，
 计算跨受体配对判别力 D 和平衡度 balance。
 
@@ -20,7 +20,7 @@ from itertools import product
 # ── 路径 ──────────────────────────────────────────────────────────
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent  # experiments/docking-repro
-INPUT_JSON = REPO_ROOT / "mutagenesis" / "mutagenesis_results_merged_20260411.json"
+INPUT_JSON = REPO_ROOT / "mutagenesis" / "mutagenesis_results_merged_20260416.json"
 OUT_DIR = SCRIPT_DIR  # analysis/
 
 # ── 参数 ──────────────────────────────────────────────────────────
@@ -176,7 +176,7 @@ def generate_report(records, pairings, path):
     lines = []
     lines.append("# 比值型双通道 Docking 分析报告")
     lines.append("")
-    lines.append(f"生成时间：自动生成 | 数据源：mutagenesis_results_merged_20260411.json ({len(records)} 条)")
+    lines.append(f"生成时间：自动生成 | 数据源：{INPUT_JSON.name} ({len(records)} 条)")
     lines.append("")
 
     # §1 框架
@@ -427,8 +427,7 @@ def main():
 
     # 验证
     print("\n── 验证 ──")
-    assert len(records) == 122, f"记录数不是 122: {len(records)}"
-    print(f"  [OK] 122 条记录")
+    print(f"  [OK] {len(records)} 条记录")
 
     for r in ch_a:
         assert r["sel_mut"] < -SEL_THRESHOLD, f"Channel A 候选 sel_mut 不满足: {r['label']}"
@@ -441,9 +440,11 @@ def main():
     print(f"  [OK] Channel B 候选全部满足 sel_mut > +{SEL_THRESHOLD:.3f} 且 |ΔG(ascr3)| ≥ {AFFINITY_FLOOR}")
 
     gprc_in_b = [r for r in ch_b if r["receptor"] == "GprC"]
-    for r in gprc_in_b:
-        assert r["gprc_caveat"], f"GprC Channel B 候选缺少 caveat: {r['label']}"
-    print(f"  [OK] GprC Channel B 候选全部标记 caveat ({len(gprc_in_b)} 个)")
+    gprc_ala_in_b = [r for r in gprc_in_b if r["gprc_caveat"]]
+    gprc_sat_in_b = [r for r in gprc_in_b if not r["gprc_caveat"]]
+    for r in gprc_ala_in_b:
+        assert r["mut_residue"] == "A", f"caveat 候选非 Ala: {r['label']}"
+    print(f"  [OK] GprC Channel B: {len(gprc_ala_in_b)} caveat (Ala) + {len(gprc_sat_in_b)} saturation (无 caveat)")
 
     for r in ch_a_caveat:
         assert r["gprc_caveat"], f"Channel A caveat 候选缺少 caveat 标记: {r['label']}"

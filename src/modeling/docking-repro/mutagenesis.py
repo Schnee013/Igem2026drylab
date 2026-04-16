@@ -319,10 +319,11 @@ def run_mutagenesis(
 
         # Step 4: Vina 对接（ascr18 + ascr3）
         if docking_mode == "singlestage":
-            from dock import dock_pair_singlestage, get_tm_helix_ranges
+            from dock import dock_pair_singlestage, get_box_center_offset, get_tm_helix_ranges
         else:
             from dock import dock_pair_twostage, get_tm_helix_ranges
         helix_ranges = get_tm_helix_ranges(config, rec_name)
+        box_offset = get_box_center_offset(config, rec_name) if docking_mode == "singlestage" else None
 
         ligand_dir = baseline_prepared_dir / "ligands"
         lig_pdbqts = {}
@@ -351,6 +352,7 @@ def run_mutagenesis(
                             output_dir=out_dir,
                             config=config,
                             tm_helix_ranges=helix_ranges,
+                            box_center_offset=box_offset,
                         )
                     else:
                         result = dock_pair_twostage(

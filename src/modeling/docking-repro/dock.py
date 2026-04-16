@@ -22,7 +22,7 @@ import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from grid_box import compute_box_center_of_mass
+from grid_box import GridBox, compute_box_center_of_mass
 
 from utils import get_logger, get_project_root
 
@@ -42,6 +42,34 @@ def get_tm_helix_ranges(config: dict, receptor_name: str) -> list[list[int]] | N
         return None
     helices = rec_topo.get("helices", {})
     return [helices[k] for k in sorted(helices.keys())]
+
+
+def get_box_center_offset(config: dict, receptor_name: str) -> tuple[float, float, float]:
+    """从 config["tm_topology"] 提取 docking box center 偏移向量。默认 (0,0,0)。
+
+    支持两种 config 格式:
+      float        → (0, 0, z)  — 向后兼容（GprC/Gpr3 的 0.0）
+      [dx, dy, dz] → (dx, dy, dz) — 3D 向量（Gpr2 膜法线方向偏移）
+
+    背景: TM-only 截断暴露胞内疏水腔，Gpr2 需沿膜法线 +10Å 排除胞内 pose。
+    CHARMM-GUI 旋转后膜法线不沿 dock Z，需用 3D 向量。
+    → docs/logs/2026-04-16.md §Gpr2 Docking Pose 朝向验证
+    → config.yaml tm_topology.{receptor}.extracellular_z_offset
+    """
+    tm_topo = config.get("tm_topology")
+    if tm_topo is None:
+        return (0.0, 0.0, 0.0)
+    rec_topo = tm_topo.get(receptor_name)
+    if rec_topo is None:
+        return (0.0, 0.0, 0.0)
+    raw = rec_topo.get("extracellular_z_offset", 0.0)
+    if isinstance(raw, (list, tuple)):
+        if len(raw) != 3:
+            raise ValueError(
+                f"extracellular_z_offset 列表长度必须为 3，得到 {len(raw)}: {raw}"
+            )
+        return (float(raw[0]), float(raw[1]), float(raw[2]))
+    return (0.0, 0.0, float(raw))
 
 
 @dataclass
@@ -300,6 +328,7 @@ def dock_pair_singlestage(
     config: dict,
     seed: int | None = None,
     tm_helix_ranges: list[list[int]] | None = None,
+    box_center_offset: tuple[float, float, float] = (0.0, 0.0, 0.0),
 ) -> DockingResult:
     """
     单阶段对接（精确复现 Hu2024 参数）。
@@ -316,6 +345,9 @@ def dock_pair_singlestage(
         seed: 随机种子（覆盖 config["vina"]["seed"]）
         tm_helix_ranges: 可选 TM 螺旋范围 [[start, end], ...]，
             提供时仅用 TM 螺旋原子计算质心（排除 ECL/ICL loop）
+        box_center_offset: 3D 偏移向量 (dx, dy, dz)（Å），叠加到 box center。
+            Gpr2 用 [6.17, 0.65, -7.85]（10Å 沿膜法线方向）排除胞内假口袋。
+            默认 (0,0,0)。
 
     Returns:
         DockingResult（stage2_box 为空 dict，box_type="singlestage"）
@@ -339,6 +371,22 @@ def dock_pair_singlestage(
     box = compute_box_center_of_mass(
         tm_pdb, box_size=ss_cfg["box_size"], tm_helix_ranges=tm_helix_ranges,
     )
+    if any(v != 0.0 for v in box_center_offset):
+        # 3D 偏移: 沿膜法线方向移动 box center，排除 ICL 截断暴露的胞内假口袋
+        # → docs/logs/2026-04-16.md §Gpr2 Docking Pose 朝向验证
+        box = GridBox(
+            center_x=box.center_x + box_center_offset[0],
+            center_y=box.center_y + box_center_offset[1],
+            center_z=box.center_z + box_center_offset[2],
+            size_x=box.size_x,
+            size_y=box.size_y,
+            size_z=box.size_z,
+        )
+        logger.info(
+            f"  box offset: [{box_center_offset[0]:+.2f}, {box_center_offset[1]:+.2f}, "
+            f"{box_center_offset[2]:+.2f}] → center=({box.center_x:.2f}, "
+            f"{box.center_y:.2f}, {box.center_z:.2f})"
+        )
     n_points = ((ss_cfg["box_size"] / ss_cfg["spacing"]) + 1) ** 3
     logger.info(
         f"[Singlestage] {pair_name}: box={ss_cfg['box_size']}A, "

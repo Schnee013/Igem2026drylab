@@ -14,7 +14,7 @@ head -30 experiments/docking-repro/analysis/ratio_channel_report.md
 ## 2. 生成突变体 FASTA
 ```bash
 conda activate docking
-cd ~/Igem2026drylab                   # 回到项目根目录，如果是Windows系统，根目录路径可能会不同
+cd ~/Igem2026drylab                   # 回到项目根目录（WSL 用户路径相同）
 python src/modeling/docking-repro/generate_mutant_fastas.py \
   --receptors Gpr3
 ```
@@ -80,24 +80,121 @@ python src/modeling/docking-repro/extract_mutant_tm.py
 > 输出：`experiments/docking-repro/mutagenesis/af3_structures/Gpr3/V138R_tm.pdb`
 ---
 ## 5. ADFR 准备 PDBQT
-⚠️ **ADFR 在服务器端运行**（Mac 上不装 ADFR）。
-有服务器访问权限后：
-把 `V138R_tm.pdb` 同步到服务器，在服务器上运行：
+
+⚠️ **从这一步开始需要用服务器。继续之前，必须先完整阅读 [REF-D：服务器使用规范](ref-d-remote-feishu.md)，完成 SSH 登录测试。**
+
+> REF-D 里有每条命令的详细解释。本节只列操作步骤，不重复解释命令含义。
+
+### 5a. 部署代码到服务器
+
+在本地终端执行：
+
 ```bash
-python src/modeling/docking-repro/run_adfr_mutants.py \
-  --project-root /path/to/drylab
+bash experiments/docking-repro/slurm/deploy_to_slurm.sh
 ```
-输出：`experiments/docking-repro/mutagenesis/af3_prepared/Gpr3/V138R_tm.pdbqt`
+
+如果部署脚本不包含你的突变体文件，手动传：
+
+```bash
+scp -P 10022 experiments/docking-repro/mutagenesis/af3_structures/Gpr3/V138R_tm.pdb \
+    guest@10.40.4.5:~/drylab-docking/experiments/docking-repro/mutagenesis/af3_structures/Gpr3/
+```
+
+### 5b. 在服务器上提交 ADFR 作业
+
+登录服务器：
+
+```bash
+ssh -p 10022 guest@10.40.4.5
+```
+
+创建 sbatch 脚本（REF-D §sbatch 脚本模板 有逐行解释）：
+
+```bash
+nano adfr_v138r.sh
+```
+
+粘贴以下内容（`Ctrl+O` 保存，`Ctrl+X` 退出）：
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=adfr_v138r
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks=4
+#SBATCH --mem=8G
+#SBATCH --time=1:00:00
+#SBATCH --output=adfr_%j.log
+#SBATCH --error=adfr_%j.err
+
+cd ~/drylab-docking
+
+python3 src/modeling/docking-repro/run_adfr_mutants.py \
+    --project-root ~/drylab-docking
+```
+
+提交并查看状态：
+
+```bash
+sbatch adfr_v138r.sh
+squeue -u $USER
+```
+
+输出：`~/drylab-docking/experiments/docking-repro/mutagenesis/af3_prepared/Gpr3/V138R_tm.pdbqt`
+
 ---
+
 ## 6. 跑对接
-突变体对接通过 mutagenesis runner 脚本执行，它会自动读取 WT 的 ΔG 基线来计算 ΔΔG_sel：
+
+在服务器上创建对接脚本：
+
 ```bash
-python src/modeling/docking-repro/run_mutagenesis_saturation.py \
-  --receptors Gpr3
+nano dock_gpr3_v138r.sh
 ```
-此命令会对 `af3_prepared/Gpr3/` 下**所有已有 PDBQT 的突变体**跑对接。如果目录下有多个 PDBQT，全部会被处理。想只跑 V138R，确保目录下只有它的 PDBQT。
-每个突变体约 3 分钟 × 3 配体 = ~10 分钟。脚本会自动读取 WT 的 ΔG 基线来计算 ΔΔG_sel。
-结果输出到：`experiments/docking-repro/mutagenesis/mutagenesis_results.json`
+
+粘贴以下内容：
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=dock_gpr3_v138r
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks=8
+#SBATCH --mem=16G
+#SBATCH --time=2:00:00
+#SBATCH --output=dock_v138r_%j.log
+#SBATCH --error=dock_v138r_%j.err
+
+cd ~/drylab-docking
+
+python3 src/modeling/docking-repro/run_mutagenesis_saturation.py \
+    --project-root ~/drylab-docking \
+    --vina-bin ~/bin/vina \
+    --receptors Gpr3
+```
+
+提交并查看进度：
+
+```bash
+sbatch dock_gpr3_v138r.sh
+squeue -u $USER
+tail -f dock_v138r_<job_id>.log
+```
+
+> 此脚本会对 `af3_prepared/Gpr3/` 下**所有已有 PDBQT 的突变体**跑对接。想只跑 V138R，确保目录下只有它的 PDBQT。
+>
+> 每个突变体约 3 分钟 × 3 配体 = ~10 分钟。脚本会自动读取 WT 的 ΔG 基线来计算 ΔΔG_sel。
+
+### 拉回结果
+
+作业完成后（`squeue -u $USER` 里不再显示），在本地终端执行：
+
+```bash
+scp -P 10022 guest@10.40.4.5:~/drylab-docking/experiments/docking-repro/mutagenesis/mutagenesis_results.json \
+    experiments/docking-repro/mutagenesis/
+```
+
+结果文件：`experiments/docking-repro/mutagenesis/mutagenesis_results.json`
 ---
 ## 7. 手动计算 ΔΔG_sel（验证理解）
 即使 pipeline 自动算了 ΔΔG_sel，你也要手动算一次来确认你理解了公式。
