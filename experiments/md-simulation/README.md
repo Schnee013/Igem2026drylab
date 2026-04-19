@@ -34,6 +34,68 @@
 - 扩展体系 X1–X3 需在 MVP 全部完成后单独决策
 - 任何修改须在本文件 §变更记录 中注明日期、原因、审批人
 
+## Chimeric Gpa1 体系 Pre-Registration（5 个复合物：4 core + 1 stretch）
+
+> **锁定日期**: 2026-04-16（初始 4 体系）; 2026-04-17 修订（+Ch-4, Ch-3 降为 stretch, Ch-ctrl 改用 AF3）
+> **目的**: 嵌合 Gpa1 + Gpr 复合物界面稳定性验证（问题 4，独立于突变体 MD）
+> **权威方向文档**: [P0-md-simulation.md](../../docs/modeling/P0-md-simulation.md) §问题 4（协议/指标/判定的唯一权威源）
+> **文献依据**: [P0-md-tech-stack-research.md §12](../../docs/modeling/P0-md-tech-stack-research.md)（Tawfeeq 2025 / Ramasamy 2025 / Ranganathan 2019 完整引用）
+> **候选选择来源**: [ranking_summary.md](../chimeric-gpa1/analysis/ranking_summary.md)
+> **执行计划**: `~/.claude/plans/chimeric-md-execution.md`
+
+### Core（4 个，必做）
+
+| ID | 受体 | Chimera | ipTM | iPAE | 起始结构 | 科学问题 | 目录 |
+|----|------|---------|------|------|---------|---------|------|
+| Ch-1 | Gpr3 | AoGpa2-C37 | 0.50 | 23.31 | AF3 `experiments/chimeric-gpa1/af3_predictions/downloads/gpr3_gpa1_aogpa2_c37_complex/` | 全数据集最低 iPAE；主工程路线 Channel B | `chimeric-gpr3-aogpa2-c37/` |
+| Ch-2 | Gpr3 | AoGpa2-C15 | 0.50 | 24.82 | AF3 `experiments/chimeric-gpa1/af3_predictions/downloads/gpr3_gpa1_aogpa2_c15_complex/` | C37 vs C15 嫁接长度对比 | `chimeric-gpr3-aogpa2-c15/` |
+| Ch-4 | Gpr2 | AoGpa2-C10 | 0.46 | 25.26 | AF3 `experiments/chimeric-gpa1/af3_predictions/downloads/gpr2_gpa1_aogpa2_c10_complex/` | Channel A 覆盖；ipTM 低为 AF3 假阴性（详见执行计划 §Gpr2 偶联评估） | `chimeric-gpr2-aogpa2-c10/` |
+| Ch-ctrl | Ste2 | Gpa1-WT | 0.60 | 23.44 | AF3 `experiments/chimeric-gpa1/af3_predictions/downloads/ste2_gpa1_wt_complex/`（PDB 7AD3 Gpa1 缺失 238 残基，改用 AF3 完整结构；7AD3 保留作分析阶段交叉验证） | 阳性对照（Velazhahan 2021 + Ramasamy 2025 交叉验证） | `chimeric-ste2-gpa1-wt/` |
+
+### Stretch（1 个，GPU 余量时做）
+
+| ID | 受体 | Chimera | ipTM | iPAE | 起始结构 | 科学问题 | 目录 |
+|----|------|---------|------|------|---------|---------|------|
+| Ch-3 | GprC | AfGasA-C25 | 0.38 | 26.47 | AF3 `experiments/chimeric-gpa1/af3_predictions/downloads/gprc_gpa1_afgasa_c25_complex/` | 唯一 cognate 特异性（Δ=+0.16）；XY≥130 Å box | `chimeric-gprc-afgasa-c25/` |
+
+### 体系组成
+
+- GPCR + Chimeric Gpa1（或 WT Gpa1），**不含** Gβγ / 核苷酸 / 配体
+- POPC 膜 + CHARMM-modified TIP3P + 0.15 M KCl
+- 估算规模：~200-250k atoms / system（比突变体 MD 的 ~130k atoms 大）
+
+### 采样协议
+
+> 以下为 2026-04-16 锁定快照；权威活文档 → [P0-md-simulation.md §4.3](../../docs/modeling/P0-md-simulation.md)
+
+| 参数 | 值 | 依据 |
+|------|-----|------|
+| 时长/rep | **500 ns** | Tawfeeq 2025（4×0.5 μs）→ 完整引用见 [§12.6](../../docs/modeling/P0-md-tech-stack-research.md) |
+| Reps | **3** (independent seeds) | 最小统计需求 |
+| 分析窗口起点 | **100 ns** | AF3 结构需更长松弛期 |
+| 总 ns | 4 × 500 × 3 = **6000 ns** | |
+| 估算 wall time | ~12-16 天（node3 3×RTX 5090 并行，~140-180 ns/day @200-250k atoms，4 批次 × 3-4 天） | |
+| 估算 GPU-days | ~33-43（单 GPU 口径：6000 ns ÷ 140-180 ns/day） | |
+| 温度 | 303.15 K | 酵母生长温度 |
+
+### 判定标准
+
+> 以下为 2026-04-16 锁定快照；权威活文档（含完整文献来源）→ [P0-md-simulation.md §4.4](../../docs/modeling/P0-md-simulation.md)
+
+| 指标 | 判定 | 文献来源 |
+|------|------|---------|
+| α5-helix iRMSD < 3 Å | 界面稳定 | Bauer 2022 |
+| α5-helix iRMSD > 5 Å | 界面解离 | Bauer 2022 |
+| BSA 下降 < 20% | 界面稳定 | Bauer 2022 |
+| 接触图 > 50% 保持 | 界面稳定 | GPCRsignal (Jakowiecki 2021) |
+| 嫁接连接区 RMSF ≈ WT | 嫁接区无异常 | 项目设计 |
+
+### 修改纪律
+
+- 上表 core 体系（Ch-1/2/4/ctrl）一��锁定，**禁止**在生产计算期间增删
+- Stretch 体系（Ch-3）在 core 全部完成后单独决策
+- 任何修改须在本文件 §变���记录 中注明日期、原因
+
 ## 采样协议
 
 | 参数 | 值 | 依据 |
@@ -96,6 +158,11 @@ experiments/md-simulation/
 │   ├── gpr3-V138R-ascr18/    # M4 ⭐
 │   ├── gpr3-F170E-ascr18/    # M5
 │   └── gpr3-I141A-ascr18/    # M6
+│   ├── chimeric-gpr3-aogpa2-c37/   # Ch-1 (core)
+│   ├── chimeric-gpr3-aogpa2-c15/   # Ch-2 (core)
+│   ├── chimeric-gpr2-aogpa2-c10/   # Ch-4 (core, Channel A)
+│   ├── chimeric-ste2-gpa1-wt/      # Ch-ctrl (core, 阳性对照)
+│   └── chimeric-gprc-afgasa-c25/    # Ch-3 (stretch)
 ├── parameters/               # 配体参数化
 │   └── ascr18/               # CGenFF stream + penalty audit
 ├── analysis/                 # 跨体系分析脚本
@@ -121,3 +188,5 @@ system/
 | 日期 | 变更 | 原因 |
 |------|------|------|
 | 2026-04-12 | 初始锁定 8 体系（修正自 7） | 2 个 WT 对照（Gpr2 + Gpr3） |
+| 2026-04-16 | 新增 chimeric Gpa1 体系 pre-registration（4 体系：Ch-1/2/3 + ctrl） | P3 Phase 4 完成（Top 3 选定）→ chimeric MD 路线具体化 |
+| 2026-04-17 | +Ch-4 (Gpr2+AoGpa2-C10) 为 core；Ch-3 降为 stretch；Ch-ctrl 起始结构改 AF3（PDB 7AD3 Gpa1 helical domain 缺 238 残基） | Gpr2-AoGpa2 偶联调研 + Channel A 覆盖需求；PDB gap 不适合 MD |

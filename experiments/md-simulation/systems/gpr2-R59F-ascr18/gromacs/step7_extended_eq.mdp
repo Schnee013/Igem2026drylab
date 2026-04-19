@@ -1,0 +1,46 @@
+; Extended equilibration (20 ns NPT, no restraints)
+; Based on CHARMM-GUI step7_production.mdp
+; Purpose: relax AlphaFold-predicted structure + mutation perturbation
+; before production MD. Monitor RMSD/membrane area for convergence.
+; Ref: GPCRmd 40 ns protocol [Rodriguez-Espigares 2025];
+;      Klauda 2022 best practices for lipid simulations.
+;
+integrator              = md
+dt                      = 0.002
+nsteps                  = 10000000  ; 20 ns
+nstxout-compressed      = 50000     ; save every 100 ps
+nstxout                 = 0
+nstvout                 = 0
+nstfout                 = 0
+nstcalcenergy           = 100
+nstenergy               = 5000      ; every 10 ps
+nstlog                  = 5000      ; every 10 ps
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 1.2
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+coulombtype             = PME
+rcoulomb                = 1.2
+;
+tcoupl                  = v-rescale
+tc_grps                 = SOLU MEMB SOLV
+tau_t                   = 1.0 1.0 1.0
+ref_t                   = 303.15 303.15 303.15
+;
+pcoupl                  = C-rescale
+pcoupltype              = semiisotropic
+tau_p                   = 5.0
+compressibility         = 4.5e-5  4.5e-5
+ref_p                   = 1.0     1.0
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = SOLU_MEMB SOLV

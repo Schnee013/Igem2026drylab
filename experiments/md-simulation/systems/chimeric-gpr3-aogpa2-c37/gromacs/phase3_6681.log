@@ -1,0 +1,376 @@
+=== Chimeric Phase C3: chimeric-gpr3-aogpa2-c37 ===
+Working dir: /home/guest/md-simulation/chimeric-gpr3-aogpa2-c37/gromacs
+Started: Sat Apr 18 08:55:21 PM CST 2026
+GROMACS:                     :-) GROMACS - gmx_mpi, 2025.2-spack (-:
+
+=== Step 1: Energy Minimization ===
+Setting the LD random seed to 998239998
+
+Generated 1767 of the 1770 non-bonded parameter combinations
+
+Generated 990 of the 1770 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PROB'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'POPC'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'POT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+The largest distance between excluded atoms is 0.742 nm between atom 70840 and 70842
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 120x120x160, spacing 0.117 0.117 0.112
+
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+This run will generate roughly 25 Mb of data
+EM final energy:
+Maximum force     =  9.4026654e+02 on atom 74103
+
+=== Step 2: 6-step Equilibration ===
+
+--- Equilibration step 1 ---
+Setting the LD random seed to 1710849010
+
+Generated 1767 of the 1770 non-bonded parameter combinations
+
+Generated 990 of the 1770 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PROB'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'POPC'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'POT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Setting gen_seed to -939605089
+
+Velocities were taken from a Maxwell distribution at 303.15 K
+
+The largest distance between excluded atoms is 0.450 nm between atom 73290 and 73307
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 303.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.232 nm, buffer size 0.032 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.200 nm, buffer size 0.000 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 120x120x160, spacing 0.117 0.117 0.112
+
+Estimate for the relative computational load of the PME mesh part: 0.18
+
+This run will generate roughly 66 Mb of data
+Step 1 done: Sat Apr 18 09:00:38 PM CST 2026
+
+--- Equilibration step 2 ---
+Setting the LD random seed to -1110736897
+
+Generated 1767 of the 1770 non-bonded parameter combinations
+
+Generated 990 of the 1770 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PROB'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'POPC'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'POT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Taking velocities from 'step6.1.gro'
+
+The largest distance between excluded atoms is 0.429 nm between atom 5597 and 5605
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 303.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.232 nm, buffer size 0.032 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.200 nm, buffer size 0.000 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 120x120x160, spacing 0.117 0.117 0.112
+
+Estimate for the relative computational load of the PME mesh part: 0.18
+
+This run will generate roughly 66 Mb of data
+Step 2 done: Sat Apr 18 09:04:58 PM CST 2026
+
+--- Equilibration step 3 ---
+Setting the LD random seed to 1450962399
+
+Generated 1767 of the 1770 non-bonded parameter combinations
+
+Generated 990 of the 1770 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PROB'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'POPC'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'POT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Taking velocities from 'step6.2.gro'
+
+The largest distance between excluded atoms is 0.437 nm between atom 11884 and 11891
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 303.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.232 nm, buffer size 0.032 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.200 nm, buffer size 0.000 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 120x120x160, spacing 0.117 0.117 0.112
+
+Estimate for the relative computational load of the PME mesh part: 0.18
+
+This run will generate roughly 66 Mb of data
+Step 3 done: Sat Apr 18 09:09:18 PM CST 2026
+
+--- Equilibration step 4 ---
+Setting the LD random seed to -365203469
+
+Generated 1767 of the 1770 non-bonded parameter combinations
+
+Generated 990 of the 1770 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PROB'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'POPC'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'POT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Taking velocities from 'step6.3.gro'
+
+The largest distance between excluded atoms is 0.428 nm between atom 1104 and 1112
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 303.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.287 nm, buffer size 0.087 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.213 nm, buffer size 0.013 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 112x112x160, spacing 0.120 0.120 0.112
+
+Estimate for the relative computational load of the PME mesh part: 0.16
+
+This run will generate roughly 106 Mb of data
+Step 4 done: Sat Apr 18 09:17:33 PM CST 2026
+
+--- Equilibration step 5 ---
+Setting the LD random seed to -35673243
+
+Generated 1767 of the 1770 non-bonded parameter combinations
+
+Generated 990 of the 1770 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PROB'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'POPC'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'POT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Taking velocities from 'step6.4.gro'
+
+The largest distance between excluded atoms is 0.435 nm between atom 6318 and 6326
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 303.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.287 nm, buffer size 0.087 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.213 nm, buffer size 0.013 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 112x112x160, spacing 0.120 0.120 0.112
+
+Estimate for the relative computational load of the PME mesh part: 0.16
+
+This run will generate roughly 106 Mb of data
+Step 5 done: Sat Apr 18 09:25:43 PM CST 2026
+
+--- Equilibration step 6 ---
+Setting the LD random seed to -25215281
+
+Generated 1767 of the 1770 non-bonded parameter combinations
+
+Generated 990 of the 1770 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'PROB'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'POPC'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'POT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Taking velocities from 'step6.5.gro'
+
+The largest distance between excluded atoms is 0.429 nm between atom 1104 and 1112
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 303.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.287 nm, buffer size 0.087 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.213 nm, buffer size 0.013 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+  SOLU_MEMB:  	 6.980  7.014  8.266
+  SOLV:       	 0.000  0.000  0.000
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 112x112x160, spacing 0.119 0.119 0.112
+
+Estimate for the relative computational load of the PME mesh part: 0.16
+
+This run will generate roughly 106 Mb of data
+Step 6 done: Sat Apr 18 09:33:45 PM CST 2026
+
+=== Verification ===
+step6.6.gro exists
+
+=== Chimeric Phase C3 complete: chimeric-gpr3-aogpa2-c37 ===
+Next: production MD (run_production.sh)
+Finished: Sat Apr 18 09:33:45 PM CST 2026
