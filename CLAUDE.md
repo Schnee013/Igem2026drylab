@@ -27,9 +27,10 @@ iGEM 2026 干实验（Dry Lab）计算建模仓库。涵盖分子对接（Vina �
 
 > 这条规则存在是因为：跨会话记忆依赖日志 + memory，不更新则下个会话看不到本次改动。
 
-## Windows 计算节点
+## Windows 计算节点（已弃用）
 
-**任何 SSH Windows 操作前必读**：[docs/ops/ssh-windows-compute.md](docs/ops/ssh-windows-compute.md)（含所有踩坑快查和正确模板）
+Windows 7500F 节点已停用，计算任务迁移至 Slurm 集群（见 [docs/ops/slurm-md-server.md](docs/ops/slurm-md-server.md)）。  
+部分 docking 结构文件仍存于 Windows 节点，需访问时参考历史存档：[docs/ops/archives/ssh-windows-compute.md](docs/ops/archives/ssh-windows-compute.md)。
 
 ## 目录约定
 

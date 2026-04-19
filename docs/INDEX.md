@@ -65,9 +65,8 @@
 
 ## 运维参考
 
-| 文档 | 内容 | 链接 |
-|------|------|------|
-| Windows SSH 操作指南 | Mac→Win SSH 正确调用方式、踩坑快查表、bat 模板 | [ssh-windows-compute.md](ops/ssh-windows-compute.md) |
+- **Slurm GPU 集群**（当前）：[slurm-md-server.md](ops/slurm-md-server.md)
+- **[已弃用] Windows SSH 操作指南**：[ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（Windows 7500F 节点停用；部分 docking 结构文件仍存于该节点，需访问时参考此文档）
 
 ## 文献
 

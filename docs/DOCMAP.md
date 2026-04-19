@@ -115,7 +115,7 @@ drylab/
 │   ├── decisions/               # 技术决策记录
 │   │   └── NNN-title.md
 │   ├── ops/                     # 操作规范（SSH、环境、工具链）
-│   │   ├── ssh-windows-compute.md
+│   │   ├── archives/ssh-windows-compute.md  # [已弃用] Windows SSH（历史存档）
 │   │   └── slurm-md-server.md   # Slurm GPU 集群（MD 模拟节点）
 │   ├── logs/                    # 每日工作日志
 │   │   └── YYYY-MM-DD.md
@@ -143,18 +143,32 @@ drylab/
 │   │   ├── chimeras/            #   6 个嵌合候选 FASTA
 │   │   ├── af3_predictions/     #   AF3 Server 结果
 │   │   └── scoring/             #   iPAE/pLDDT 评分矩阵
-│   ├── md-simulation/           # MD 模拟体系（Pre-registered 8 holo）
+│   ├── md-simulation/           # MD 模拟体系（Pre-registered 8 holo + 4 chimeric）
 │   │   ├── README.md            #   体系清单 + 采样协议 + 判据（锁定文档）
 │   │   ├── systems/             #   每个体系一个目录（CHARMM-GUI 输出 + GROMACS 输入）
 │   │   │   ├── Gpr2_WT/         #     Gpr2 WT 蛋白+POPC 膜体系（Job 7628027774, 132k atoms）
 │   │   │   │   └── gromacs/     #       GROMACS 输入文件（.gro/.top/.mdp/.ndx + toppar/）
-│   │   │   └── Gpr3_WT/         #     Gpr3 WT 蛋白+POPC 膜体系（Job 7628627163, ~139k atoms）
-│   │   │       └── gromacs/     #       GROMACS 输入文件（同上结构）
+│   │   │   ├── Gpr3_WT/         #     Gpr3 WT 蛋白+POPC 膜体系（Job 7628627163, ~139k atoms）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（同上结构）
+│   │   │   ├── chimeric-ste2-gpa1-wt/     #     Ch-ctrl: Ste2+Gpa1-WT（Job 7649276832, 263,906 atoms, 120×120×192 Å, POPC 389）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（C-M3 ✅，Phase C4 运行中）
+│   │   │   ├── chimeric-gpr3-aogpa2-c37/  #     Ch-1: Gpr3+AoGpa2-C37（Job 7650133176, 328,928 atoms, 140×140×179 Å, POPC 538）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（C-M3 ✅，Phase C4 运行中）
+│   │   │   ├── chimeric-gpr3-aogpa2-c15/  #     Ch-2: Gpr3+AoGpa2-C15（Job 7652252454, 366,017 atoms, 140×140×197 Å, POPC 537）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（C-M3 Phase C3 待运行，Job 6694 PD）
+│   │   │   └── chimeric-gpr2-aogpa2-c10/  #     Ch-4: Gpr2+AoGpa2-C10（Job 7652598711, 370,926 atoms, 140×140×200 Å, POPC 537）
+│   │   │       └── gromacs/     #       GROMACS 输入文件（C-M3 Phase C3 待运行，Job 6695 PD）
 │   │   ├── parameters/          #   配体参数化（CGenFF + penalty audit + GROMACS .itp）
 │   │   │   ├── ascr18/          #     penalty_summary.md + charmm-gui-7628908749/（完整输出含 gromacs/ASC18.itp）
 │   │   │   └── ascr3/           #     penalty_summary.md + charmm-gui-7628970666/（完整输出含 gromacs/ASC3.itp）
-│   │   ├── structures/          #   受体结构（PPM 2.0 对齐后）
-│   │   │   └── ppm2/            #     PPM 2.0 输出 PDB（膜对齐，z=0 为膜中心）
+│   │   ├── structures/          #   受体结构（PPM 对齐后）
+│   │   │   ├── ppm2/            #     PPM 2.0 输出 PDB（突变体 MD 线，膜对齐）
+│   │   │   ├── chimeric/        #     PPM 3.0 对齐后 clean PDB（chimeric MD 线）
+│   │   │   │   ├── *_clean.pdb  #       HIS→HSD 修复后的多链 PDB（AF3 输出）
+│   │   │   │   └── *_cleanout.pdb  #    PPM 3.0 对齐后（含 Gα 嵌入信息）
+│   │   │   └── pdb/             #     参考 PDB（7AD3 等，仅分析验证用）
+│   │   ├── mdp/                 #   MDP 模板（eq + production，chimeric 线共用）
+│   │   ├── slurm/               #   SLURM 脚本（deploy_chimeric.sh + run_*.sh）
 │   │   ├── analysis/            #   跨体系分析脚本
 │   │   └── scripts/             #   Pipeline 通用脚本
 │   └── docking-repro/           # Hu2024 复现产出
@@ -258,7 +272,7 @@ Mac 端所有 docking 阶段脚本（含 FASTA 生成等辅助脚本）默认在
 |--------|------|---------|
 | `docking-repro` | `D:\drylab-tools\envs\docking-repro` | `environments/win-docking-repro.lock` |
 
-操作规范详见 [docs/ops/ssh-windows-compute.md](ops/ssh-windows-compute.md)。
+~~操作规范详见 [docs/ops/ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（已弃用，Windows 节点停用，计算迁移至 Slurm）。~~
 
 ---
 
@@ -324,7 +338,7 @@ Day 3: 识别模式 → 提升为 docs/ops/ 操作规范
 ```
 会话启动 → CLAUDE.md（自动）→ SKILL.md（自动）→ INDEX.md
 用户问方向 A → 加载 modeling/P0-direction-a.md
-用户要跑 SSH → 加载 ops/ssh-windows-compute.md（hook 强制）
+用户要跑 SSH/Slurm → 加载 ops/slurm-md-server.md（Windows 节点已弃用）
 用户问文献 → 查矩阵 → 加载单篇 summary
 ```
 

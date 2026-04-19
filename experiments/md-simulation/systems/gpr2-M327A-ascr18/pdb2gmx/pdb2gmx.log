@@ -1,0 +1,206 @@
+               :-) GROMACS - gmx pdb2gmx, 2024.5-conda_forge (-:
+
+Executable:   /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/bin.ARM_NEON_ASIMD/gmx
+Data prefix:  /opt/homebrew/Caskroom/miniforge/base/envs/chimeric
+Working dir:  /Users/roy/Documents/drylab
+Command line:
+  gmx pdb2gmx -f /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/Gpr2_M327A_protein.pdb -o /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/processed.gro -p /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/topol.top -i /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/posre.itp -ff charmm36m -water tip3p -ignh -ter
+
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/aminoacids.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/carb.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/cgenff.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/ethers.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/lipid.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/metals.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/na.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/silicates.r2b
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/solvent.r2b
+there were 3151 atoms with zero occupancy and 0 atoms with          occupancy unequal to one (out of 3156 atoms). Check your pdb file.
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/atomtypes.atp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/aminoacids.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/carb.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/cgenff.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/ethers.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/lipid.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/metals.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/na.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/silicates.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/solvent.rtp
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/aminoacids.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/carb.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/cgenff.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/ethers.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/lipid.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/metals.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/na.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/silicates.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/solvent.hdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/aminoacids.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/carb.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/cgenff.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/ethers.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/lipid.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/metals.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/na.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/silicates.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/solvent.n.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/aminoacids.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/carb.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/cgenff.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/ethers.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/lipid.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/metals.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/na.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/silicates.c.tdb
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/solvent.c.tdb
+
+Back Off! I just backed up /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/topol.top to /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/#topol.top.1#
+9 out of 9 lines of specbond.dat converted successfully
+Special Atom Distance matrix:
+                    MET1   MET25   MET26   CYS51   MET73   MET78   CYS99
+                     SD7   SD185   SD193   SG378   SD557   SD598   SG749
+   MET25   SD185   1.975
+   MET26   SD193   2.508   0.643
+   CYS51   SG378   5.451   3.833   3.662
+   MET73   SD557   3.932   2.612   2.414   2.314
+   MET78   SD598   3.397   1.859   1.829   2.071   1.319
+   CYS99   SG749   2.596   2.183   2.356   3.645   1.701   1.900
+  CYS160  SG1244   3.858   3.206   3.128   3.608   1.432   2.475   1.385
+  CYS173  SG1341   2.605   1.936   2.072   3.397   1.478   1.590   0.339
+  MET180  SD1399   3.784   3.337   3.231   4.297   2.021   3.010   1.686
+  MET205  SD1617   6.834   5.392   4.896   4.101   3.343   4.417   4.756
+  MET226  SD1783   8.102   6.692   6.267   4.491   4.300   5.371   5.754
+  MET234  SD1840   8.204   6.734   6.327   4.186   4.318   5.294   5.837
+  MET271  SD2114   9.158   7.530   7.232   3.841   5.416   5.791   6.964
+  CYS287  SG2220  12.958  11.275  10.973   7.524   9.307   9.565  10.841
+  MET311  SD2396   7.966   6.417   6.060   3.319   4.044   4.795   5.627
+  MET328  SD2531   6.163   4.609   4.131   3.143   2.535   3.504   4.092
+  CYS340  SG2628   3.908   2.421   1.912   3.366   1.639   2.209   2.479
+  CYS366  SG2827   3.831   2.290   1.820   3.037   1.310   1.866   2.271
+                  CYS160  CYS173  MET180  MET205  MET226  MET234  MET271
+                  SG1244  SG1341  SD1399  SD1617  SD1783  SD1840  SD2114
+  CYS173  SG1341   1.455
+  MET180  SD1399   0.792   1.796
+  MET205  SD1617   3.674   4.609   3.787
+  MET226  SD1783   4.572   5.643   4.842   1.738
+  MET234  SD1840   4.728   5.711   5.089   2.119   0.641
+  MET271  SD2114   6.300   6.785   6.924   4.701   3.715   3.076
+  CYS287  SG2220  10.195  10.659  10.814   8.219   6.981   6.393   3.905
+  MET311  SD2396   4.716   5.473   5.232   2.785   1.818   1.223   2.018
+  MET328  SD2531   3.176   3.904   3.437   0.992   2.202   2.338   4.328
+  CYS340  SG2628   2.256   2.237   2.286   3.051   4.533   4.697   6.223
+  CYS366  SG2827   2.100   2.009   2.250   3.107   4.496   4.618   6.008
+                  CYS287  MET311  MET328  CYS340
+                  SG2220  SD2396  SD2531  SG2628
+  MET311  SD2396   5.697
+  MET328  SD2531   8.031   2.543
+  CYS340  SG2628  10.032   4.696   2.418
+  CYS366  SG2827   9.836   4.535   2.389   0.365
+Opening force field file /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/share/gromacs/top/charmm36m.ff/aminoacids.arn
+Before cleaning: 16875 pairs
+Before cleaning: 17035 dihedrals
+
+Back Off! I just backed up /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/posre.itp to /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/#posre.itp.1#
+
+Back Off! I just backed up /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/processed.gro to /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/pdb2gmx/#processed.gro.1#
+
+GROMACS reminds you: "An expert is a person who has made all the mistakes that can be made in a very narrow field." (Niels Bohr)
+
+Using the Charmm36m force field in directory charmm36m.ff
+
+going to rename charmm36m.ff/aminoacids.r2b
+
+going to rename charmm36m.ff/carb.r2b
+
+going to rename charmm36m.ff/cgenff.r2b
+
+going to rename charmm36m.ff/ethers.r2b
+
+going to rename charmm36m.ff/lipid.r2b
+
+going to rename charmm36m.ff/metals.r2b
+
+going to rename charmm36m.ff/na.r2b
+
+going to rename charmm36m.ff/silicates.r2b
+
+going to rename charmm36m.ff/solvent.r2b
+Reading /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/Gpr2_M327A_protein.pdb...
+Read '', 3156 atoms
+
+Analyzing pdb file
+Splitting chemical chains based on TER records or chain id changing.
+
+There are 1 chains and 0 blocks of water and 406 residues with 3156 atoms
+
+  chain  #res #atoms
+
+  1 'A'   406   3156  
+
+there were 3151 atoms with zero occupancy and 0 atoms with          occupancy unequal to one (out of 3156 atoms). Check your pdb file.
+
+Reading residue database... (Charmm36m)
+
+Processing chain 1 'A' (3156 atoms, 406 residues)
+
+Identified residue MET1 as a starting terminus.
+
+Identified residue GLY406 as a ending terminus.
+Select start terminus type for MET-1
+ 0: MET1
+ 1: NH3+
+ 2: NH2
+ 3: HYD1
+ 4: 5TER
+ 5: 5MET
+ 6: 5PHO
+ 7: 5POM
+ 8: None
+Start terminus MET-1: NH3+
+Select end terminus type for GLY-406
+ 0: COO-
+ 1: COOH
+ 2: CT2
+ 3: CT1
+ 4: HYD2
+ 5: MET2
+ 6: 3TER
+ 7: None
+End terminus GLY-406: COO-
+
+Checking for duplicate atoms....
+
+Now there are 3153 atoms. Deleted 1 duplicates.
+
+Generating any missing hydrogen atoms and/or adding termini.
+
+Now there are 406 residues with 6390 atoms
+
+Making bonds...
+
+Number of bonds was 6460, now 6460
+
+Generating angles, dihedrals and pairs...
+
+Making cmap torsions...
+
+There are  404 cmap torsion pairs
+
+There are 17035 dihedrals, 1045 impropers, 11670 angles
+          16758 pairs,     6460 bonds and     0 virtual sites
+
+Total mass 44841.900 a.m.u.
+
+Total charge 14.000 e
+
+Writing topology
+
+Writing coordinate file...
+
+		--------- PLEASE NOTE ------------
+
+You have successfully generated a topology from: /Users/roy/Documents/drylab/experiments/md-simulation/systems/gpr2-M327A-ascr18/Gpr2_M327A_protein.pdb.
+
+The Charmm36m force field and the tip3p water model are used.
+
+		--------- ETON ESAELP ------------

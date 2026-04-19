@@ -1,6 +1,6 @@
-# PyMOL Top 6 可视化素材
+# PyMOL 湿实验候选可视化素材
 
-Top 6 突变体的 WT vs Mutant 可视化对比（PI 交付）。
+湿实验优先候选突变体（Channel A + B 全局 top）的 WT vs Mutant 可视化对比（PI 交付）。
 
 ## 目录结构
 
@@ -11,8 +11,8 @@ pymol_top6/
 ├── style_overview.pml   # 全览版样式脚本（透明 surface + 整体姿态）
 ├── receptors/           # 8 个受体 PDB（AF3 预测，TM 截断）
 │   ├── Gpr2_WT.pdb,       Gpr3_WT.pdb
-│   ├── Gpr2_M327A.pdb,    Gpr2_M327D.pdb,   Gpr2_R59F.pdb
-│   └── Gpr3_V138R.pdb,    Gpr3_F170E.pdb,   Gpr3_I141A.pdb
+│   ├── Gpr2_M327A.pdb,    Gpr2_M327D.pdb,   Gpr2_R59F.pdb   # Ch A
+│   └── Gpr3_V138R.pdb,    Gpr3_V138T.pdb,   Gpr3_F170N.pdb  # Ch A / Ch B
 └── ligands/             # 16 个配体 PDB（Vina Top 1 pose）
     ├── Gpr2_WT_ascr18.pdb,   Gpr2_WT_ascr3.pdb
     ├── Gpr3_WT_ascr18.pdb,   Gpr3_WT_ascr3.pdb
@@ -20,8 +20,8 @@ pymol_top6/
     ├── Gpr2_M327D_ascr18.pdb, Gpr2_M327D_ascr3.pdb
     ├── Gpr2_R59F_ascr18.pdb,  Gpr2_R59F_ascr3.pdb
     ├── Gpr3_V138R_ascr18.pdb, Gpr3_V138R_ascr3.pdb
-    ├── Gpr3_F170E_ascr18.pdb, Gpr3_F170E_ascr3.pdb
-    └── Gpr3_I141A_ascr18.pdb, Gpr3_I141A_ascr3.pdb
+    ├── Gpr3_V138T_ascr18.pdb, Gpr3_V138T_ascr3.pdb
+    └── Gpr3_F170N_ascr18.pdb, Gpr3_F170N_ascr3.pdb
 ```
 
 **设计取舍**：受体和配体**分开存**（而非合并成 complex PDB）——这样在 PyMOL 里
@@ -35,22 +35,31 @@ pymol_top6/
 
 ## 选这 6 个突变体的理由
 
-全部来自 P0 分子对接 **Channel A**（sel_mut < −0.477，>3σ 噪声），覆盖**两条受体**、
-**两种机制路径**，直接对应 [wet-lab-handoff-P0-docking.md](../../../../docs/modeling/wet-lab-handoff-P0-docking.md)
-的湿实验推荐清单：
+覆盖双通道传感器设计所需的**全局 top**，对应
+[wet-lab-handoff-P0-docking-feishu.md §8.1 优先构建顺序](../../../../docs/modeling/wet-lab-handoff-P0-docking-feishu.md)：
 
-| 受体 | 突变 | abs sel | ΔΔG_sel | 机制 | 为什么选 |
-|------|------|---------|---------|------|---------|
-| Gpr2 | **M327A** | −1.39 | −0.987 | 丢失 ascr3 相互作用 | Channel A 最强，纯 Ala 机制最干净 |
-| Gpr2 | **M327D** | −1.09 | −0.685 | 主动引入负电 | 同位点两条路径对照（vs M327A）|
-| Gpr2 | **R59F**  | −0.96 | −0.552 | 芳香替换正电 | Gpr2 非 M327 的独立位点 |
-| Gpr3 | **V138R** ⭐ | −0.88 | **−1.070** | Arg 胍基几何 | ΔΔG_sel 全表最负；Gpr3 首次穿透噪声；盐桥假说（待 MD 证）|
-| Gpr3 | **F170E** | −0.50 | −0.696 | ECL2 酸性改造 | F170E 进入 Channel A，F170D 在 neutral 边缘 |
-| Gpr3 | **I141A** | −0.59 | −0.786 | 疏水口袋松弛 | Gpr3 非 V138 的独立位点 |
+**Channel A Top 4**（sel_mut < −0.477，ascr#18 偏好传感器）：
+
+| 受体 | 突变 | sel_mut | 机制 | 为什么选 |
+|------|------|---------|------|---------|
+| Gpr2 | **M327A** | −1.391 | 丢失 ascr3 疏水接触 | Channel A 全表最强 |
+| Gpr3 | **V138R** ⭐ | −0.875 | Arg 胍基几何富集 ascr18 | Gpr3 Ch A 最强；盐桥假说待 MD 实证 |
+| Gpr2 | **M327D** | −1.089 | 主动引入羧基 | M327 同位点第二路径（vs M327A 对照）|
+| Gpr2 | **R59F** | −0.956 | 芳香替换正电 | Gpr2 独立位点 |
+
+**Channel B Top 2**（sel_mut > +0.477，ascr#3 偏好传感器）：
+
+| 受体 | 突变 | sel_mut | 机制 | 为什么选 |
+|------|------|---------|------|---------|
+| Gpr3 | **V138T** | +1.042 | 小极性侧链保留 ascr3 | Channel B 全表最强；与 V138R 同位点双通道开关 |
+| Gpr3 | **F170N** | +0.616 | ECL2 极性替换 | Channel B Gpr3 非 V138 独立位点 |
 
 **不选**的候选：
-- R59A / F170D（Channel A #4/#8）——与 R59F/F170E 同位点同方向，机制冗余
-- Hu2024 实验对照：N60A (N2.57)、R395A (R6.45)、S44A (S2.41) 为真阳性对照，|ΔΔG_sel| 全部显著偏移；N56A (N2.53) 是 Hu2024 阴性对照（strain 13/14 "无影响"），但在本 pipeline 中 |ΔΔG_sel| 也显著偏移（假阳性）。均不作为湿实验候选，校验用途详见 [P0-molecular-docking.md §Pipeline 验证](../../../../docs/modeling/P0-molecular-docking.md#pipeline-验证)
+
+- F170E / I141A（Ch A 低优先级）——sel 弱于已选 4 条，机制未提供额外信息
+- R59A / F170D——与 R59F/F170N 同位点同方向，机制冗余
+- Hu2024 实验对照（N60A/R395A/S44A/N56A）：校验用途，不作湿实验候选，详见
+  [P0-molecular-docking.md §Pipeline 验证](../../../../docs/modeling/P0-molecular-docking.md#pipeline-验证)
 
 ## 使用方法
 

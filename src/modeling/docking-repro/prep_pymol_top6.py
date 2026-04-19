@@ -1,7 +1,8 @@
-"""Top 6 突变体 PyMOL 可视化素材生成器。
+"""Top 突变体 PyMOL 可视化素材生成器。
 
-为 Channel A Top 6 突变体（Gpr2 M327A/M327D/R59F, Gpr3 V138R/F170E/I141A）生成
-**分离的**受体 PDB 和配体 PDB 供 PyMOL 加载。
+为湿实验优先候选突变体生成**分离的**受体 PDB 和配体 PDB 供 PyMOL 加载：
+- Channel A Top 4: Gpr2 M327A/M327D/R59F, Gpr3 V138R
+- Channel B Top 2: Gpr3 V138T/F170N
 
 选择分离而非合并 complex 的原因：
     用户加载后需要分别操作受体和配体（独立着色、选择、隐藏等）。PyMOL 的
@@ -27,14 +28,17 @@ from utils import get_project_root, load_config
 # ---------------------------------------------------------------------------
 # 配置：Top 6 突变体清单
 # ---------------------------------------------------------------------------
-TOP6: list[tuple[str, str]] = [
-    ("Gpr2", "M327A"),
-    ("Gpr2", "M327D"),
-    ("Gpr2", "R59F"),
-    ("Gpr3", "V138R"),
-    ("Gpr3", "F170E"),
-    ("Gpr3", "I141A"),
+# Channel A Top 4 (sel_mut 最负) + Channel B Top 2 (sel_mut 最正)
+# 对应湿实验优先构建顺序：wet-lab-handoff-P0-docking-feishu.md §8.1
+TOP_MUTANTS: list[tuple[str, str]] = [
+    ("Gpr2", "M327A"),   # Ch A #1 sel=−1.391
+    ("Gpr3", "V138R"),   # Ch A #2 sel=−0.875
+    ("Gpr2", "M327D"),   # Ch A #3 sel=−1.089
+    ("Gpr2", "R59F"),    # Ch A #4 sel=−0.956
+    ("Gpr3", "V138T"),   # Ch B #1 sel=+1.042
+    ("Gpr3", "F170N"),   # Ch B #2 sel=+0.616
 ]
+TOP6 = TOP_MUTANTS  # backward compat alias
 LIGANDS = ["ascr18", "ascr3"]
 
 WT_RECEPTOR_FILES = {
@@ -112,7 +116,7 @@ def main() -> None:
     lig_done: list[str] = []
 
     # ---- WT 受体 + 配体 ----
-    wt_recs_needed = sorted({rec for rec, _ in TOP6})
+    wt_recs_needed = sorted({rec for rec, _ in TOP_MUTANTS})
     for rec in wt_recs_needed:
         src_rec = prepared_dir / WT_RECEPTOR_FILES[rec]
         if not src_rec.exists():
@@ -136,7 +140,7 @@ def main() -> None:
             print(f"[LIG] {dst_lig.name}")
 
     # ---- Mutant 受体 + 配体 ----
-    for rec, mut in TOP6:
+    for rec, mut in TOP_MUTANTS:
         src_rec = mut_rec_dir / f"{rec}_{mut}_tm.pdb"
         if not src_rec.exists():
             print(f"[SKIP] 缺突变体受体: {src_rec}")

@@ -20,7 +20,7 @@
 
 以下操作**全部禁止在登录节点运行**：
 
-- `gmx mdrun`、`vina`、任何对接/MD 程序
+- `gmx_mpi mdrun`（或 `gmx mdrun`）、`vina`、任何对接/MD 程序
 - `python xxx.py`（包括"只是跑个分析"——分析脚本也可能占大量内存）
 - 大文件解压（`tar`/`unzip` 大于 1 GB 的文件）
 
@@ -236,24 +236,34 @@ squeue -u $USER
 #SBATCH --job-name=gromacs_md          # 作业名
 #SBATCH --partition=gpu                # 分区
 #SBATCH --nodes=1                      # 1 个节点
-#SBATCH --ntasks=8                     # 8 个 CPU 核心
+#SBATCH --ntasks=1                     # 1 个 MPI 进程（⚠️ 不是 CPU 核数！见下方说明）
+#SBATCH --cpus-per-task=8              # 8 个 OpenMP 线程（这才是"用几个核"）
 #SBATCH --gres=gpu:rtx4090:1           # 申请 1 张 RTX 4090 GPU（MD 必须用 GPU）
 #SBATCH --mem=64G                      # 64 GB 内存
 #SBATCH --time=48:00:00               # 最长 48 小时
 #SBATCH --output=md_%j.log             # 标准输出日志
 #SBATCH --error=md_%j.err              # 错误日志
 
-# 加载 GROMACS 软件（spack 是服务器的软件管理工具，类似 conda）
-spack load gromacs@2025.2 target=zen2
+set -euo pipefail
+
+# 加载 GROMACS（⚠️ 计算节点无法用 spack load，必须直接 source）
+GMXPREFIX=/opt/softwares/spack/opt/spack/linux-zen2/gromacs-2025.2-3isv4kzjxtnsk32oq56gzceluac7k6uc
+set +u                                 # GMXRC.bash 引用未初始化变量，临时关闭 nounset
+source "${GMXPREFIX}/bin/GMXRC.bash"
+set -u                                 # 恢复 nounset
 
 # 运行 MD 模拟
+# ⚠️ 此集群的 GROMACS 是 MPI 编译，命令是 gmx_mpi（不是 gmx）
 # -v = 显示进度；-deffnm md = 输入输出文件都叫 md.*
-# -ntmpi 1 -ntomp 8 = 1 个 MPI 进程 × 8 个 OpenMP 线程
+# -ntomp 8 = 8 个 OpenMP 线程（对应上面 --cpus-per-task=8）
 # -gpu_id 0 = 用第 0 号 GPU
-gmx mdrun -v -deffnm md -ntmpi 1 -ntomp 8 -gpu_id 0
+# ⚠️ 禁止加 -ntmpi（MPI 编译不支持，MPI 进程数由 --ntasks 控制）
+gmx_mpi mdrun -v -deffnm md -ntomp 8 -gpu_id 0
 ```
 
-> 完整模板和 GPU 型号选择见 `docs/ops/slurm-md-server.md`。
+> `--ntasks` vs `--cpus-per-task` 的区别：`--ntasks` 控制 MPI 进程数（通常设 1），`--cpus-per-task` 控制每个进程的 OpenMP 线程数（这才是"用几个 CPU 核"）。写反会导致 GROMACS 报错或性能极差。
+>
+> 完整模板、GPU 型号选择和踩坑记录见 `docs/ops/slurm-md-server.md`。
 
 ### 用 AI 辅助写 sbatch 脚本
 
@@ -272,8 +282,13 @@ gmx mdrun -v -deffnm md -ntmpi 1 -ntomp 8 -gpu_id 0
 - 计算节点:
   - node1, node2: RTX 4090 × 2（每张 24 GB 显存），80 CPU 核，208 GB 内存
   - node3: RTX 5090 × 3 + RTX Pro 6000 × 1，384 CPU 核，1 TB 内存
-- 软件管理: spack（不是 conda/module）
-  - GROMACS 加载方式: `spack load gromacs@2025.2 target=zen2`
+- 软件管理: spack（不是 conda/module），但 sbatch 脚本中不能用 spack load（计算节点无网络会超时）
+  - GROMACS 加载方式: 直接 source 预装路径（见下方代码）
+    ```
+    GMXPREFIX=/opt/softwares/spack/opt/spack/linux-zen2/gromacs-2025.2-3isv4kzjxtnsk32oq56gzceluac7k6uc
+    set +u; source "${GMXPREFIX}/bin/GMXRC.bash"; set -u
+    ```
+  - GROMACS 命令是 `gmx_mpi`（MPI 编译），不是 `gmx`；禁止加 `-ntmpi` 参数
   - Python 3 可直接使用: `python3`
   - AutoDock Vina 路径: `~/bin/vina`
 - 工作目录: ~/drylab-docking
@@ -337,20 +352,26 @@ python3 src/modeling/docking-repro/run_mutagenesis_saturation.py \
 2. `--time` — 不要超过 72 小时（`72:00:00`），否则提交会报错
 3. `cd ~/drylab-docking` — 确认工作目录对不对
 4. 实际命令 — 和你手动在终端里输的应该完全一样
+5. 如果涉及 GROMACS：确认用了 `source GMXRC.bash`（不是 `spack load`），命令是 `gmx_mpi`（不是 `gmx`），没有 `-ntmpi` 参数
 
 ---
 
 ## 加载软件环境
 
-服务器用 **spack** 管理软件（不是 conda）。你不需要自己安装任何东西，只需要在 sbatch 脚本里"加载"已有的软件。
+服务器用 **spack** 管理软件（不是 conda）。你不需要自己安装任何东西，但 **sbatch 脚本里不能用 `spack load`**（计算节点无互联网，`spack load` 会超时失败）。必须直接 source GROMACS 的预装路径：
 
 ```bash
-# 加载 GROMACS（在 sbatch 脚本里写，不要在登录节点执行）
-spack load gromacs@2025.2 target=zen2
+# ⚠️ 在 sbatch 脚本里用这段加载 GROMACS（不要用 spack load！）
+GMXPREFIX=/opt/softwares/spack/opt/spack/linux-zen2/gromacs-2025.2-3isv4kzjxtnsk32oq56gzceluac7k6uc
+set +u                                 # GMXRC.bash 引用未初始化变量，必须临时关闭 nounset
+source "${GMXPREFIX}/bin/GMXRC.bash"
+set -u                                 # 恢复 nounset
 
-# 验证是否加载成功
-gmx --version
+# 验证是否加载成功（⚠️ 命令是 gmx_mpi，不是 gmx）
+gmx_mpi --version
 ```
+
+> **登录节点**仍可用 `spack load gromacs@2025.2 target=zen2` 做临时测试，但 sbatch 脚本中**禁止使用**。
 
 Vina 不在 spack 里，已手动装在 `~/bin/vina`：
 
@@ -387,8 +408,9 @@ ls -lt ~/drylab-docking/experiments/docking-repro/results/
 **Q: 作业状态是 FAILED？**
 看错误日志：`cat docking_<job_id>.err`。常见原因：路径写错、文件没传上来、内存不够。
 
-**Q: `spack load` 报错？**
-先运行 `spack find gromacs` 看服务器上装了哪些版本。
+**Q: `spack load` 报错 / 超时？**
+如果是在**登录节点**：运行 `spack find gromacs` 看服务器上装了哪些版本。
+如果是在 **sbatch 脚本**里：**不要用 `spack load`**！计算节点无互联网，`spack load` 会尝试下载包索引然后超时。改用 `source GMXRC.bash`（见上方"加载软件环境"）。
 
 **Q: Python 报 `ModuleNotFoundError`？**
 在 sbatch 脚本开头加一行：`export PATH=$HOME/.local/bin:$PATH`
@@ -400,4 +422,4 @@ ls -lt ~/drylab-docking/experiments/docking-repro/results/
 
 ## 已弃用：Windows 计算节点
 
-> 早期 docking 阶段的计算在 Windows 7500F 节点上完成，该节点**已弃用**。所有计算统一迁移到 Slurm 集群。历史操作手册归档在 `docs/ops/ssh-windows-compute.md`，仅供参考，不再使用。
+> 早期 docking 阶段的计算在 Windows 7500F 节点上完成，该节点**已弃用**。所有计算统一迁移到 Slurm 集群。历史操作手册归档在 [`docs/ops/archives/ssh-windows-compute.md`](../../ops/archives/ssh-windows-compute.md)，仅供参考，不再使用（部分 docking 结构文件仍在该节点，需访问时参考此文档）。
