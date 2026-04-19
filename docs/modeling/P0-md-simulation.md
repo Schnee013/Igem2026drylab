@@ -140,7 +140,7 @@ last_updated: 2026-06-02
 8. ⭐ **分阶段 equilibration schedule**：借鉴 mwSuMD 2→60→80→20 ns restraint release。
 9. ~~⭐⭐ **Docking pose 空间兼容性**~~：**已完成（2026-04-16）**。
    Gpr3：需删 POPC resid 514（Phase 3 已处理），其余就绪。
-   Gpr2：3D offset `[6.17, 0.65, -7.85]` 修复后 76/80 poses 胞外（历史 Slurm job 6535），best pose Z≈106。
+   Gpr2：3D offset `[6.17, 0.65, -7.85]` 修复后 76/80 poses 胞外（Slurm job 6535），best pose Z≈106。
    Gpr2 新 pose 需重新检查 POPC 碰撞（Phase 3 第一步）。
    → `docs/logs/2026-04-16.md` §Gpr2 Docking Pose 朝向验证
 10. ~~⭐⭐ **Ascr18/ascr3 羧基质子化态确认**~~：**已完成（2026-04-16）**。ascr18 + ascr3 均已去质子化重新参数化。ASCR18.itp（54 atoms, qtot=-1.000）Job 7629292909 + ASCR3.itp（46 atoms, qtot=-1.000）Job 7629305001。penalty 全部 < 10。输出 `parameters/{ascr18,ascr3}/deprotonated/charmm-gui-{jobid}/gromacs/`。
@@ -193,11 +193,11 @@ last_updated: 2026-06-02
 
 > **文献调研完整报告**：[P0-md-tech-stack-research.md §12](P0-md-tech-stack-research.md)
 >
-> **关键先例（2026-05-06 source audit 修订）**：Tawfeeq et al. 2025 (Biochemistry, DOI `10.1021/acs.biochem.4c00779`) — D1R/D2R + Gα C 端 18 aa 交换嵌合体，4 reps × 500 ns，是当前已核到的最直接 chimeric Gα MD 设计先例；但该文同时包含 GDP-bound 与 nucleotide-free/Empty 状态，且生产 MD 为 AMBER PMEMD，不是 GROMACS/CHARMM36m 模板。Mohanty et al. 2025 (eLife, DOI `10.7554/eLife.106397.3`) — Ste2p-Gpa1p interface allosteric/metabolite context，不再作为“唯一 Ste2-Gpa1 full-complex MD protocol”。
+> **关键先例**：Tawfeeq et al. 2025 (Biochemistry) — D1R/D2R + chimeric Gs18i/Gi18s，4 reps × 500 ns，与本项目设计（C 端交换 chimeric Gα + MD 验证）直接对应。Ramasamy et al. 2025 (eLife) — 唯一 Ste2-Gpa1 MD 研究，验证酵母 GPCR-Gα 体系可做 MD。
 >
-> **技术栈验证（修订）**：现有 GROMACS + CHARMM36m + CHARMM-GUI + POPC 栈仍可用，但来源需分层说明：Renault et al. 2019 (Sci Rep, DOI `10.1038/s41598-019-41980-x`) 支持 A2A–Mini-Gs/α5 + GROMACS + CHARMM36 + POPC 的协议类比；Memprot.GPCR-ModSim 2024 (DOI `10.1093/bioinformatics/btae662`) 支持自动化 membrane embedding/equilibration/GROMACS-ready setup，但不支持旧文档“CHARMM36m + 500 ns + 303.15 K 标准协议”。
+> **技术栈验证**：现有 GROMACS + CHARMM36m + CHARMM-GUI + POPC 栈完全适用于 GPCR-Gα 复合物 MD，无需更换（Ranganathan 2019: A2A + Mini-Gs 用 CHARMM36 + POPC + GROMACS；Memprot.GPCR-ModSim 2024: CHARMM36m + GROMACS 自动化管线）。
 >
-> **方法学声明纪律（2026-05-06 修订）**：旧版“真菌 GPCR-Gα MD 仅 2 篇 / chimeric Gα MD 仅 1 篇 / 首个”等 only-N 或首创类强断言，重新枚举完整文献集合前统一降级为 pending source audit。当前可写：在已核 exact-pointer 文献中，尚未找到非酿酒酵母真菌 chimeric Gα–GPCR complex MD 的直接先例。MD 只能评估结构/界面稳定性，不能完全表征 GDP/GTP exchange 或完整偶联动力学；Casiraghi et al. 2025 DOI `10.1126/sciadv.adq3971` 只作 G protein specificity 背景，不作 COM/时标阈值来源。
+> **方法学首创声明**（2026-04-17 经 4 维度系统搜索修订，矩阵 → `experiments/chimeric-gpa1/literature/chimeric_md_literature_matrix.md`）：(1) 真菌 GPCR-Gα MD 仅 2 篇（Velazhahan 2021 + Ramasamy 2025），均为酿酒酵母 Ste2-Gpa1 → 本项目首次扩展到非酿酒酵母真菌；(2) chimeric Gα MD 仅 1 篇人源（Tawfeeq 2025）→ 本项目首个真菌 chimeric Gα MD；(3) 零篇 ascaroside 结合态 GPCR-Gα MD → 初版不含配体可规避。MD 只能评估结构稳定性（界面是否解离），不能完全表征偶联动力学（ms 时标，Casiraghi/Kobilka 2025 警告）。
 
 #### 4.1 体系选择（与 P3 决策树对齐）
 
@@ -208,7 +208,7 @@ last_updated: 2026-06-02
 | **P1** | Ch-1 | Gpr3 | AoGpa2-C37 | 0.50 | 23.31 | 全数据集最低 iPAE；主工程路线 |
 | **P2** | Ch-2 | Gpr3 | AoGpa2-C15 | 0.50 | 24.82 | 最短有效嫁接；与 P1 对比 C37 vs C15 |
 | **P3** | Ch-3 | GprC | AfGasA-C25 | 0.38 | 26.47 | 唯一 cognate 特异性（Δ=+0.16）；备选路线 |
-| **ctrl** | Ch-ctrl | Ste2 | Gpa1-WT | 0.60 | 23.44 | **阳性对照**（PDB 7AD3 / Velazhahan 2021 提供 Ste2-Gpa1 结构锚点；Mohanty 2025 仅作 Ste2p-Gpa1p interface/allosteric context，不作 full-complex MD 交叉验证） |
+| **ctrl** | Ch-ctrl | Ste2 | Gpa1-WT | 0.60 | 23.44 | **阳性对照**（PDB 7AD3 实验结构，不依赖 AF3；Ramasamy 2025 提供 MD 交叉验证锚点） |
 
 > 候选选择权威源 → [ranking_summary.md](../../experiments/chimeric-gpa1/analysis/ranking_summary.md)；
 > AF3 起始结构 → `experiments/chimeric-gpa1/af3_predictions/downloads/{gpr3_gpa1_aogpa2_c37,gpr3_gpa1_aogpa2_c15,gprc_gpa1_afgasa_c25}_complex/`；
@@ -220,8 +220,8 @@ last_updated: 2026-06-02
 |------|--------|------|
 | GPCR（AF3 预测 / PDB 7AD3） | ✅ | 起始结构 |
 | Chimeric Gpa1（AF3 预测）/ WT Gpa1 | ✅ | 验证目标 |
-| Gβγ (Ste4/Ste18) | ❌ | 项目范围控制：本轮只评估 receptor–Gα 界面稳定性；不把 Tawfeeq 2025 写作 no-Gβγ 的权威来源，待需要时另查 |
-| 核苷酸 (GDP/GTP) | ❌ | 项目 operational simplification：AF3 起始与本轮问题聚焦 nucleotide-free/empty-like receptor–Gα interface；注意 Tawfeeq 2025 同时模拟 GDP-bound 与 Empty，**不支持** empty-only 作为文献必然选择 |
+| Gβγ (Ste4/Ste18) | ❌ | 增加 ~400 residues + 复杂度；Tawfeeq 2025 不含 Gβγ |
+| 核苷酸 (GDP/GTP) | ❌ | AF3 预测为 nucleotide-free 态（类似 cryo-EM）；Tawfeeq 2025 亦为 empty |
 | 配体 (ascr18) | ❌ 初版 | 问题是界面稳定性，不是配体结合；且配体不在 Gα 界面 |
 | POPC 膜 | ✅ | 与突变体 MD 一致 |
 | CHARMM-modified TIP3P + 0.15 M KCl | ✅ | 标准 |
@@ -232,30 +232,28 @@ last_updated: 2026-06-02
 
 | 参数 | 值 | 依据 |
 |------|-----|------|
-| 模拟时长 | **500 ns/replicate final；100-150 ns full-system early stability gate** | 500 ns 仍是最终 production 目标；100-150 ns 只作中途筛查和调度门禁，详见 [E2 Chimeric MD Restart Plan](../../codex/docs/plans/e2-chimeric-md-restart.md) |
+| 模拟时长 | **500 ns/replicate** | Tawfeeq 2025（4×0.5 μs） |
 | 独立 replicates | **3** | 最小统计需求；如效应量近阈值升到 5 |
 | 分析窗口起点 | 100 ns | AF3 结构需要更长松弛期（比 docking pose 更大的初始偏差） |
 | 约束释放 | 与突变体 MD 相同 6 步 CHARMM-GUI 平衡化 | 已验证可用 |
 | 时间步长 | 2 fs (no HMR) | 与突变体 MD 一致 |
 | 温度 | 303.15 K | 酵母生长温度 |
 | 压力耦合 | semi-isotropic, 1 bar | 膜体系标准 |
-| **GPU** | **E2 A100-SXM4-80GB primary；Slurm RTX 5090 validated secondary candidate** | 以各站点 preflight / smoke / benchmark 日志为准；旧 Slurm 2025.2-spack 估算只作历史参考，不迁移为当前 rerun 证据 |
+| **GPU** | **RTX 5090（node3）** | ~280 ns/day@80k → ~140-180 ns/day@200-250k atoms |
 
-**算力估算**：500 ns × 3 reps × 4 systems = 6000 ns。当前已验证 E2 A100 primary 路线；推荐 GROMACS 2025.4 MPI-CUDA 环境已通过 preflight，四体系输入同步和 rep1 smoke 已完成。2026-05-30 E2 same-GPU benchmark 显示最佳 2-job 总吞吐低于单 job，因此 E2 production cap 为一个 full GPU MD job。Slurm RTX 5090 只能在同 pin 环境、smoke、benchmark 通过后进入 production。默认 16-32 CPU threads；同一 GPU 同时只跑一个 full MD job。100-150 ns early gate 只决定是否继续同一 full-system replicate 到 500 ns，不改变最终证据等级。
+**算力估算**：500 ns × 3 reps × 4 systems = 6000 ns。RTX 5090 ~140-180 ns/day@200-250k atoms → 每个 rep ≈ 3-4 天。node3 有 3× RTX 5090 → 可同时跑 3 reps。总 wall time: ~12-16 天（4 批次 × 3-4 天/批次）。与突变体 MD Phase 5 可并行（独立体系）。
 
 #### 4.4 分析指标
 
 | 指标 | 工具 | 判定阈值 | 文献来源 |
 |------|------|---------|---------|
-| 1. α5-helix iRMSD | MDAnalysis | < 3 Å / > 5 Å 仅作 operational displacement band | **待查验**：原 “Bauer 2022” 无 DOI/title/exact pointer，暂降级为项目 heuristic；alpha5/eCT 选择的结构背景见 Hara 2012 DOI [`10.1271/bbb.110820`](https://doi.org/10.1271/bbb.110820) 与 Velazhahan 2021 DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1) |
-| 2. BSA 时间序列 | FreeSASA | 下降 < 20% 仅作 operational interface-retention heuristic | 方法源：FreeSASA/Mitternacht 2016 DOI [`10.12688/f1000research.7931.1`](https://doi.org/10.12688/f1000research.7931.1)；20% cutoff 待查验 |
-| 3. 接触图持续性 | heavy-atom contact map (4 Å project cutoff) | > 50% 初始接触保持 = majority-retention heuristic | GPCRsignal/Miszta et al. 2021 DOI [`10.1093/nar/gkab434`](https://doi.org/10.1093/nar/gkab434) 支持 interaction frequency 分析，但不支持 >50% universal pass cutoff；contact docs: [MDAnalysis contacts](https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html) |
-| 4. 界面 H-bond 占比 | MDAnalysis-style geometry | 几何 3.0 Å / 150°；>10% occupancy 仅作报告阈值 | [MDAnalysis HydrogenBondAnalysis docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/hydrogenbonds.html) 支持几何；10% cutoff 待查验 |
-| 5. COM 距离 (ICL2/3 ↔ Gα C-term) | MDAnalysis | 不单调递增；仅作 gross separation 描述指标 | Casiraghi et al. 2025 DOI `10.1126/sciadv.adq3971` 已核为 coupling specificity 背景，但不提供 COM 阈值；Ste2-Gpa1 结构背景见 Velazhahan 2021 DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1) |
+| 1. α5-helix iRMSD | MDAnalysis | < 3 Å → 稳定；> 5 Å → 解离 | Bauer 2022 |
+| 2. BSA 时间序列 | FreeSASA | 下降 < 20% → 稳定 | Bauer 2022 |
+| 3. 接触图持续性 | GetContacts (4 Å cutoff) | > 50% 初始接触保持 | GPCRsignal (Jakowiecki 2021) |
+| 4. 界面 H-bond 占比 | MDAnalysis | > 10% 占比 → 有效 | 文献通用 |
+| 5. COM 距离 (ICL2/3 ↔ Gα C-term) | MDAnalysis | 不单调递增 | Casiraghi/Kobilka 2025 |
 | 6. 嫁接连接区 RMSF | MDAnalysis | 与 WT backbone RMSF 相当 | 项目设计（chimeric 特有） |
 | 7. MM-PBSA (可选) | gmx_MMPBSA | 定性排名，不绝对 | 与突变体 MD 相同 |
-
-> 2026-04-29 / 2026-05-06 cutoff-source audit：所有无 DOI / title / 原文方法段落 / 官方工具文档 exact pointer 的 cutoff 不得作为权威文献阈值。chctrl audit 报告见 `experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/cutoff_source_audit.md`。
 
 **判定**：
 - P1/P2/P3 vs ctrl：chimeric 体系的 α5-helix iRMSD 与阳性对照（Gpa1-WT × Ste2）在同一量级 → 界面稳定
@@ -268,23 +266,22 @@ last_updated: 2026-06-02
 Phase C1: 结构准备
   AF3 CIF → 清理 PDB → PPM 2.0 膜对齐
   ctrl: PDB 7AD3 → 清理 PDB → PPM 2.0 膜对齐
-
+  
 Phase C2: 膜体系构建
   CHARMM-GUI Membrane Builder（多链蛋白 + POPC）
   → GROMACS topol/gro/mdp 输出
   注意：box Z 维度 ~220 Å（需容纳胞内侧 Gα，比突变体 MD 大 ~45 Å）
-
+  
 Phase C3: EM + 平衡化
   复用突变体 MD 的 run_phase3.sh 框架
   无需 ligand 合并步骤 → assemble_complex.py 的简化版本（prepare_chimeric_system.py）
-
+  
 Phase C4: Production MD
   500 ns × 3 reps × 4 systems = 6000 ns
-  E2 A100 primary: smoke completed; same-GPU benchmark 不支持同卡 full production 并发
-  Slurm RTX 5090 secondary: 先过 preflight / same-pin env / smoke / benchmark gate
-  初始策略：每张 GPU 最多 1 个 full GPU MD job，16-32 CPU threads
-  总 wall time: 以本轮 E2/Slurm benchmark 更新，不沿用旧 Slurm 2025.2-spack 估算
-
+  RTX 5090 (node3): ~140-180 ns/day @ 200-250k atoms → 每个 rep ≈ 3-4 天
+  node3 有 3× RTX 5090 → 可同时跑 3 reps
+  总 wall time: ~12-16 天（4 批次 × 3-4 天/批次）
+  
 Phase C5: 分析
   7 项指标（§4.4）+ 可选 MM-PBSA
   与突变体 MD 分析工具链复用（MDAnalysis + GetContacts）
@@ -296,8 +293,8 @@ Phase C5: 分析
 |------|------|------|
 | 技术栈 | ✅ GROMACS + CHARMM36m + CHARMM-GUI | — |
 | 力场文件 | ✅ toppar/ 基本相同 | 无 CGenFF 配体参数（不含配体） |
-| 服务器 | ✅ 同一生产 pin 与 clean-start 规则 | E2 primary；Slurm RTX 5090 只有通过 validated secondary gate 后可加入 |
-| 运行脚本 | 部分复用 | E2 使用 `e2_*` scripts；Slurm rerun 只能使用新的 `slurm_*` gate scripts，不复用旧 Slurm production 模板 |
+| 服务器 | ✅ 同一 SLURM 集群 | 可能需要更多内存（~250k atoms） |
+| SLURM 脚本 | 部分复用 | 需新的 chimeric 版本（`run_chimeric_phase3.sh`，无 ligand 合并） |
 | 分析脚本 | 部分复用 | 新增界面特异性分析（iRMSD, BSA, COM） |
 | 执行顺序 | — | 与突变体 Phase 4-5 并行（独立体系） |
 
@@ -305,11 +302,11 @@ Phase C5: 分析
 
 | Phase | 名称 | 输入 | 输出 | 状态 |
 |-------|------|------|------|------|
-| C1 | 结构准备 | AF3 CIF / PDB 7AD3 | 清理 PDB + PPM 对齐 | ✅ 完成（详见 04-18/04-26 日志） |
-| C2 | 膜体系构建 | PPM 对齐 PDB | CHARMM-GUI GROMACS 输出 | ✅ 完成（chctrl/Ch-1/Ch-2/Ch-4 已建系） |
-| C3 | EM + 平衡化 | Phase C2 体系 | 可跑 production 的体系 | ✅ chctrl/Ch-1/Ch-2/Ch-4 完成 step6.6 |
-| C4 | Production MD | Phase C3 体系 | trajectories (.xtc/.trr) | ⏳ E2 clean-start rerun smoke completed for chctrl + Ch-1/Ch-2/Ch-4; chctrl rep1 resumed single-job from `prod.cpt`; Slurm RTX 5090 added only as validated secondary candidate; old Slurm production is historical evidence only |
-| C5 | 分析 | trajectories | 7 项指标 + 可选 MM-PBSA | ⏳ 等待 unified rerun 产物；旧 chctrl 分析脚本/审计可作为方法参考 |
+| C1 | 结构准备 | AF3 CIF / PDB 7AD3 | 清理 PDB + PPM 2.0 对齐 | ❌ 未开始 |
+| C2 | 膜体系构建 | PPM 2.0 对齐 PDB | CHARMM-GUI GROMACS 输出 | ❌ 未开始 |
+| C3 | EM + 平衡化 | Phase C2 体系 | 可跑 production 的体系 | ❌ 未开始 |
+| C4 | Production MD | Phase C3 体系 | trajectories (.xtc/.trr) | ❌ 未开始 |
+| C5 | 分析 | trajectories | 7 项指标 + 可选 MM-PBSA | ❌ 未开始 |
 
 ## 算力资源
 
@@ -327,9 +324,7 @@ Phase C5: 分析
 - 本地节点仍用于 docking / AF3 下游分析 / 小体系快速 sanity check（如需）
 - 技术栈调研**无需考虑 AMD ROCm/HIP 兼容性**
 
-## 执行 Phase 定义
-
-下表定义 phase 语义和协议边界，不维护当前运行状态。当前状态以 [docs/INDEX.md](../INDEX.md) 和对应日志为准。
+## 执行 Phase 定义（唯一权威源）
 
 > 日志和 memory 中引用 "Phase N" 时，定义以本节为准。
 
@@ -343,11 +338,11 @@ Phase C5: 分析
 | 4 | 突变体引入 | Phase 3 WT holo 体系 + 突变定义 | 突变体体系 (local EM + 6 步 eq) | ⏳ 已解除阻塞 |
 | 5 | Production MD | Phase 3/4 体系 | trajectories (.xtc/.trr) | ❌ 未开始 |
 | 6 | 分析 | trajectories | 盐桥占比 / RMSD / IFP / MM-PBSA | ❌ 未开始 |
-| **C1** | **Chimeric 结构准备** | AF3 CIF / PDB 7AD3 | 清理 PDB + PPM 对齐 | ✅ 完成 |
-| **C2** | **Chimeric 膜体系构建** | PPM 对齐 PDB | CHARMM-GUI GROMACS 输出 | ✅ 完成 |
-| **C3** | **Chimeric EM + 平衡化** | Phase C2 体系 | 可跑 production 的体系 | ✅ step6.6 完成 |
-| **C4** | **Chimeric Production MD** | Phase C3 体系 | trajectories (.xtc/.trr) | ⏳ E2 rep1 smoke completed for chctrl + Ch-1/Ch-2/Ch-4; chctrl rep1 resumed single-job from checkpoint |
-| **C5** | **Chimeric 分析** | trajectories | 7 项指标 + 可选 MM-PBSA | ⏳ 等待 E2 rerun 产物 |
+| **C1** | **Chimeric 结构准备** | AF3 CIF / PDB 7AD3 | 清理 PDB + PPM 2.0 对齐 | ❌ 未开始 |
+| **C2** | **Chimeric 膜体系构建** | PPM 2.0 对齐 PDB | CHARMM-GUI GROMACS 输出 | ❌ 未开始 |
+| **C3** | **Chimeric EM + 平衡化** | Phase C2 体系 | 可跑 production 的体系 | ❌ 未开始 |
+| **C4** | **Chimeric Production MD** | Phase C3 体系 | trajectories (.xtc/.trr) | ❌ 未开始 |
+| **C5** | **Chimeric 分析** | trajectories | 7 项指标 + 可选 MM-PBSA | ❌ 未开始 |
 
 > Chimeric MD Phase（C1-C5）独立于突变体 MD Phase（0-6），可并行执行。详见 §问题 4。
 
@@ -433,12 +428,6 @@ Phase 6 → 阻塞于 Phase 5
 | 2026-04-16 | 前置风险 #9 Gpr2 pose 已解决 | 3D offset job 6535, 76/80 EC, Z≈106 → 日志 |
 | 2026-04-16 | Phase 定义表新增 | 本文档 §执行 Phase 定义 为唯一权威源 |
 | 2026-04-16 | 问题 4 扩展为完整 chimeric MD 子节 | 文献调研（6 篇）+ 体系选择（3+1 ctrl）+ 协议（500ns×3rep）+ 7 项分析指标 + Phase C1-C5 定义 |
-| 2026-04-27 | chimeric MD 历史状态校准 | 旧 Slurm chctrl production 完成；该状态已被 2026-05-29 E2 rerun 决策取代 |
-| 2026-05-06 | GPCR-Gα tech-stack citation source audit | Ramasamy→Mohanty；Ranganathan→Renault；Jakowiecki→Miszta；Tawfeeq/Memprot 方法迁移降级；only-N novelty claim 暂停使用 |
-| 2026-05-29 | E2 rerun 决策校准 | chctrl 纳入 E2 统一环境 clean-start rerun；环境矩阵归档到 `environments/e2-md-gromacs.md` |
-| 2026-05-30 | E2 rerun benchmark gate | chctrl rep1 checkpoint-gated interrupt completed; same-GPU 2-job benchmark lower than single-job baseline; rep1 resumed single-job from `prod.cpt` |
-| 2026-05-30 | unified sites route | Slurm RTX 5090 added as validated secondary candidate only; site matrix and `slurm_*` gate scripts added; old Slurm 2025.2-spack outputs remain historical pointers |
-| 2026-06-01 | tiered validation protocol | 100-150 ns defined as full-system early stability gate; 500 ns/replicate remains final target; local pocket/interface-only MD is not an equivalent rerun substitute |
 
 ## 版本记录
 
@@ -450,12 +439,6 @@ Phase 6 → 阻塞于 Phase 5
 | 2026-04-12 | v1.3 | 后 4 维度调研完成：采样协议 / 分析栈 / 自由能路径 / ascaroside 行动计划全量回填；方法学局限性重写；前置风险扩到 8 条（加 pre-register 体系、CHARMM-GUI 账号提前、seeds ≥ 3）；阶段 0 全勾选 | 第二轮 deep-research 3 并行子代理产出 [研究报告 v2.0](P0-md-tech-stack-research.md) |
 | 2026-04-14 | v1.4 | CHARMM-GUI 学术账号审批通过；前置风险 §3 标记已完成 | 外部审批到位 |
 | 2026-04-16 | v1.5 | 问题 4 从 3 行概述扩展为完整 chimeric MD 子节（§4.1-4.7）；新增 Phase C1-C5 定义；tech stack §12 GPCR-Gα 文献调研 | P3 Phase 4 完成（Top 3 选定）→ Phase 5 MD 验证需完整技术方案 |
-| 2026-04-27 | v1.6 | frontmatter 改为 in_progress；chimeric C1-C5 状态与 Slurm 资源状态校准 | 2026-04-26 chctrl 完成核查 |
-| 2026-05-06 | v1.7 | GPCR-Gα tech-stack source audit 回填；作者名/旧引用纠错；Tawfeeq、Memprot、Casiraghi、GPCRsignal 的可迁移范围重写 | operational cutoff 与技术栈来源必须有 DOI/title/method pointer |
-| 2026-05-29 | v1.8 | chimeric MD 改为 E2 统一环境 rerun 范围；旧 Slurm 细节改为历史指针；rep1 smoke gate 完成后启动 chctrl rep1 full production | `environments/e2-md-gromacs.md`, `codex/docs/plans/e2-chimeric-md-restart.md` |
-| 2026-05-30 | v1.9 | chctrl rep1 checkpoint-gated interrupt, benchmark outcome, and single-job resume routed; current production cap remains one full GPU MD job | `docs/logs/2026-05-30.md`, `codex/docs/plans/e2-chimeric-md-restart.md` |
-| 2026-05-30 | v2.0 | 把旧 Slurm RTX 5090 纳入新统一 rerun 体系，但只作为同 pin 验证后的 secondary site；新增站点矩阵和 Slurm gate scripts | `environments/md-production-sites.md`, `codex/docs/plans/chimeric-md-unified-rerun-sites.md` |
-| 2026-06-01 | v2.1 | 新增 tiered validation 摘要：100-150 ns 是 full-system early stability gate，不替代 500 ns final production，也不引入局部口袋 production rerun | `codex/docs/plans/e2-chimeric-md-restart.md` |
 
 ## 与其他方向的依赖关系
 

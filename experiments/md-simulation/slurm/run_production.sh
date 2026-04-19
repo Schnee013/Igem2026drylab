@@ -67,10 +67,6 @@ cd "$WORK" || exit 1
 PROD_DIR="prod_rep${REPLICA}"
 mkdir -p "$PROD_DIR"
 
-if [ -n "${SLURM_JOB_ID:-}" ]; then
-    scontrol update JobId=$SLURM_JOB_ID JobName="prod_${SYSTEM}_rep${REPLICA}" || true
-fi
-
 echo "=== Production MD: ${SYSTEM} ==="
 echo "  Length: ${LENGTH_NS} ns"
 echo "  Replica: ${REPLICA}"

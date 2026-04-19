@@ -47,25 +47,132 @@ drylab/
 ├── AGENTS.md              # Agent 启动 shim；只放加载规则和指针
 ├── CLAUDE.md              # Claude Code 兼容 shim
 ├── docs/
-│   ├── DOCMAP.md          # 本文件；治理规则和目录路由
-│   ├── INDEX.md           # 当前项目路由表；现状、阻塞项、活跃入口
-│   ├── prd/               # 项目策略、底盘/输出架构等决策背景
-│   ├── modeling/          # 各干实验建模方向的方法、边界和证据入口
-│   ├── decisions/         # 技术决策记录
-│   ├── ops/               # 当前操作规范；archives/ 只作历史追溯
-│   ├── logs/              # 每日工作日志和审查记录
-│   ├── papers/            # 文献矩阵、单篇总结、领域证据包
-│   ├── presentation/      # 汇报/PPT 资料、生成提示词和参考 deck；不承载科学事实权威
-│   ├── learning/          # 学习路线和工具准备
-│   └── archive/           # 旧 PRD、通用指南等不再活跃的历史材料
-├── codex/
-│   ├── docs/plans/        # repo-owned execution plans
-│   └── docs/memory/       # repo-scoped project memory；索引/警示/交接层
-├── src/                   # 源代码
-├── tests/                 # 自动化测试
-├── experiments/           # 结果、输入、分析产物和运行证据
-├── environments/          # 环境定义、生产站点矩阵和版本证据
-└── scripts/               # 环境和辅助脚本
+│   ├── INDEX.md                 # 路由表 —— "灵魂文件"
+│   ├── DOCMAP.md                # 本文件：文档元规则 + 项目文档规范
+│   ├── prd/                     # 需求与策略层
+│   │   ├── overview-v4.md       #   项目全貌（当前权威，2026-04-11 锁定酵母-STE2）
+│   │   ├── dry-lab-strategy.md  #   干实验总策略、痛点调研、防治决策
+│   │   ├── chassis-decision.md  #   底盘选择分析（含 §最终决策）
+│   │   └── archive/
+│   │       └── overview-v3.md   #   已归档（底盘待定阶段，2026-04-03 ~ 04-10）
+│   ├── modeling/                # 每个研究方向一个文件
+│   │   ├── P0-molecular-docking.md       #   分子对接（completed）
+│   │   ├── P0-md-simulation.md           #   MD 模拟（learning，技术栈调研中）
+│   │   ├── P0-md-tech-stack-research.md  #   MD 技术栈调研报告（软件/力场/膜构建）
+│   │   ├── P0-signal-pathway-ode.md      #   STE2 通路 ODE（in_progress）
+│   │   ├── P0-*.md / P3-chimeric-gprotein.md  #   嵌合 Gpa1（priority P0，文件名保留 P3 前缀）
+│   │   ├── P1-*.md              #   增强叙事完整性
+│   │   ├── P2-*.md              #   完成检测→预防闭环（biocontrol-lv 已 archived）
+│   │   └── wet-lab-handoff-*.md #   面向湿实验团队的交接文档
+│   ├── learning/
+│   │   └── roadmap.md           #   学习路线图、硬件需求、工具环境
+│   ├── teaching/                # 组内教学材料（docking 方向答辩准备）
+│   │   ├── v2/                  #   当前版本（DO/KNOW 双轨 + REF 参考手册，飞书导入格式）
+│   │   │   ├── README-feishu.md        #     学习者入口：开场信 + 阅读顺序
+│   │   │   ├── do-0-dev-setup-feishu.md #    Day 0 开发环境搭建（VS Code/Copilot/WSL2）
+│   │   │   ├── do-{1-4}-*-feishu.md    #     操作轨（逐命令可复制，GROMACS tutorial 风格）
+│   │   │   ├── know-{1-4}-*-feishu.md  #     理解+答辩轨（从湿实验知识搭桥到干实验）
+│   │   │   ├── ref-{a-d}-*-feishu.md   #     按需查阅手册（工具/坑/代码/SSH）
+│   │   │   └── ref-e-foundations-feishu.md #  终端命令详解 + 硬件 101
+│   │   ├── v1/                  #   已归档 v1（lesson-01~07 + appendix-A~F）
+│   │   └── _instructor/         #   讲师内部文档（题库/红队/验收/节奏，不发布）
+│   ├── decisions/               # 技术决策记录
+│   │   └── NNN-title.md
+│   ├── ops/                     # 操作规范（SSH、环境、工具链）
+│   │   ├── archives/ssh-windows-compute.md  # [已弃用] Windows SSH（历史存档）
+│   │   └── slurm-md-server.md   # Slurm GPU 集群（MD 模拟节点）
+│   ├── logs/                    # 每日工作日志
+│   │   └── YYYY-MM-DD.md
+│   ├── papers/                  # 文献（矩阵 + 按需加载的总结）
+│   │   ├── README.md                      #   组员使用说明（多维表格 + 云文档 + AI 读文献）
+│   │   ├── literature-matrix.md           #   本地权威矩阵（按 Tier 分层，稳定 ID）
+│   │   ├── literature-quick-ref.csv       #   扁平化 CSV，用于导入飞书多维表格
+│   │   ├── literature-review-feishu.md    #   详细总结汇编（贴入飞书云文档）
+│   │   ├── pdf/                           #   本地 PDF
+│   │   └── summaries/                     #   按 {Author}{Year}-{Topic} 命名的单篇总结
+│   └── archive/                 # 归档文件（原始 PRD、通用指南等）
+│
+├── src/modeling/                # 源代码（按研究方向）
+│   ├── docking/                 # v2 docking pipeline
+│   └── docking-repro/           # Hu2024 精确复现 pipeline
+│
+├── experiments/                 # 实验产出（按研究方向）
+│   ├── docking/                 # v2 pipeline 产出
+│   │   ├── receptors/           # 原始 PDB（共享，被 docking-repro 引用）
+│   │   └── ligands/             # 原始 SDF（共享）
+│   ├── chimeric-gpa1/           # 嵌合 Gpa1 设计（序列→比对→AF3→评分）
+│   │   ├── README.md            #   偶联关系 + 序列清单 + 目录说明
+│   │   ├── sequences/           #   源 Gα 序列 FASTA + MUSCLE 比对输入
+│   │   ├── alignment/           #   MUSCLE + ClustalΩ 比对结果
+│   │   ├── chimeras/            #   6 个嵌合候选 FASTA
+│   │   ├── af3_predictions/     #   AF3 Server 结果
+│   │   └── scoring/             #   iPAE/pLDDT 评分矩阵
+│   ├── md-simulation/           # MD 模拟体系（Pre-registered 8 holo + 4 chimeric）
+│   │   ├── README.md            #   体系清单 + 采样协议 + 判据（锁定文档）
+│   │   ├── systems/             #   每个体系一个目录（CHARMM-GUI 输出 + GROMACS 输入）
+│   │   │   ├── Gpr2_WT/         #     Gpr2 WT 蛋白+POPC 膜体系（Job 7628027774, 132k atoms）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（.gro/.top/.mdp/.ndx + toppar/）
+│   │   │   ├── Gpr3_WT/         #     Gpr3 WT 蛋白+POPC 膜体系（Job 7628627163, ~139k atoms）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（同上结构）
+│   │   │   ├── chimeric-ste2-gpa1-wt/     #     Ch-ctrl: Ste2+Gpa1-WT（Job 7649276832, 263,906 atoms, 120×120×192 Å, POPC 389）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（C-M3 ✅，Phase C4 运行中）
+│   │   │   ├── chimeric-gpr3-aogpa2-c37/  #     Ch-1: Gpr3+AoGpa2-C37（Job 7650133176, 328,928 atoms, 140×140×179 Å, POPC 538）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（C-M3 ✅，Phase C4 运行中）
+│   │   │   ├── chimeric-gpr3-aogpa2-c15/  #     Ch-2: Gpr3+AoGpa2-C15（Job 7652252454, 366,017 atoms, 140×140×197 Å, POPC 537）
+│   │   │   │   └── gromacs/     #       GROMACS 输入文件（C-M3 Phase C3 待运行，Job 6694 PD）
+│   │   │   └── chimeric-gpr2-aogpa2-c10/  #     Ch-4: Gpr2+AoGpa2-C10（Job 7652598711, 370,926 atoms, 140×140×200 Å, POPC 537）
+│   │   │       └── gromacs/     #       GROMACS 输入文件（C-M3 Phase C3 待运行，Job 6695 PD）
+│   │   ├── parameters/          #   配体参数化（CGenFF + penalty audit + GROMACS .itp）
+│   │   │   ├── ascr18/          #     penalty_summary.md + charmm-gui-7628908749/（完整输出含 gromacs/ASC18.itp）
+│   │   │   └── ascr3/           #     penalty_summary.md + charmm-gui-7628970666/（完整输出含 gromacs/ASC3.itp）
+│   │   ├── structures/          #   受体结构（PPM 对齐后）
+│   │   │   ├── ppm2/            #     PPM 2.0 输出 PDB（突变体 MD 线，膜对齐）
+│   │   │   ├── chimeric/        #     PPM 3.0 对齐后 clean PDB（chimeric MD 线）
+│   │   │   │   ├── *_clean.pdb  #       HIS→HSD 修复后的多链 PDB（AF3 输出）
+│   │   │   │   └── *_cleanout.pdb  #    PPM 3.0 对齐后（含 Gα 嵌入信息）
+│   │   │   └── pdb/             #     参考 PDB（7AD3 等，仅分析验证用）
+│   │   ├── mdp/                 #   MDP 模板（eq + production，chimeric 线共用）
+│   │   ├── slurm/               #   SLURM 脚本（deploy_chimeric.sh + run_*.sh）
+│   │   ├── analysis/            #   跨体系分析脚本
+│   │   └── scripts/             #   Pipeline 通用脚本
+│   └── docking-repro/           # Hu2024 复现产出
+│       ├── prepared/            # ADFR 准备的 PDBQT（单一来源）
+│       ├── results/             # 对接结果 JSON
+│       │   ├── wt_singlestage/  # WT 单阶段对接结果（权威 WT 基线）
+│       │   ├── multiseed/       # 多 seed 方差评估统计
+│       │   └── ifp_analysis/    # ProLIF IFP 分析中间文件（contact_frequency.json 等）
+│       ├── slurm/               # Slurm sbatch 脚本 + 部署脚本
+│       ├── logs/                # 运行日志
+│       ├── analysis/            # 分析产出
+│       │   ├── deeptmhmm/       # DeepTMHMM TM 拓扑预测（UniProt 交叉验证）
+│       │   ├── lignetwork/      # ProLIF LigNetwork 2D 交互示意图（HTML，交互式）
+│       │   ├── plip_3d/         # PLIP 3D 交互 viewer（3Dmol.js HTML）+ 文本报告
+│       │   ├── pymol_top6/      # Top 6 突变体 PyMOL 素材（complex PDB + compare_top6.pml）
+│       │   ├── ifp_heatmap_*.png  # IFP 热图（按受体 + 全量）
+│       │   └── ratio_channel_report.md  # 双通道全谱排名（权威源）
+│       └── mutagenesis/         # 突变体相关
+│           ├── fastas/          # AF3 输入 FASTA（按受体分子目录）
+│           │   ├── {Rec}/{Label}.fasta       # alanine scan 单突变
+│           │   └── {Rec}/saturation/         # 饱和扫描（Channel A 核心位点 × 18 AA）
+│           │   # AF3 batch JSON 格式（提交后已清理，需要时按此格式重新生成）：
+│           │   # [{"name":"gpr2_m327c","modelSeeds":["645910426"],
+│           │   #   "sequences":[{"proteinChain":{"sequence":"...","count":1,
+│           │   #   "useStructureTemplate":true}}],
+│           │   #   "dialect":"alphafoldserver","version":2}]
+│           ├── af3_downloads/   # AF3 原始下载（5 model × confidence JSON，冷存储）
+│           ├── af3_structures/  # 最优 model PDB/CIF + TM 截断版（_tm.pdb）
+│           ├── af3_prepared/    # ADFR 生成的突变体 PDBQT（Windows 端）
+│           ├── archive/         # 已作废/替换的结果和结构（MMFF-voided、旧 fasta JSON）
+│           ├── mutagenesis_results.json          # pipeline 实时写入（每次跑覆盖）
+│           ├── mutagenesis_results_{run_id}.json # 时间戳备份（pipeline 自动创建）
+│           └── mutagenesis_results_all_YYYYMMDD.json  # 手动合并全量（权威源）
+│
+├── environments/                # conda 环境定义和锁定
+│   ├── mac-docking.yml
+│   ├── mac-docking.lock.yml
+│   └── win-docking-repro.lock
+│
+└── scripts/                     # 环境配置脚本
 ```
 
 目录注释只说明“这里放什么”和“权威边界”。不要在 DOCMAP 的目录树中写方向状态、运行进度、候选编号、服务器 job id 或结果摘要。
@@ -113,7 +220,7 @@ Codex native/global memory 和 Claude 私有 memory 只能保存用户偏好、�
 
 ### docs/papers/
 
-文献采用稳定 ID。需要文献时，先查 [papers/literature-matrix.md](papers/literature-matrix.md)，再按需读取单篇 summary。不要批量读取 summaries 或直接把 PDF 当作默认入口。
+~~操作规范详见 [docs/ops/ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（已弃用，Windows 节点停用，计算迁移至 Slurm）。~~
 
 ### docs/presentation/
 
@@ -133,7 +240,62 @@ Codex native/global memory 和 Claude 私有 memory 只能保存用户偏好、�
 - 需要修改脚本、配置或流程时，先改 repo，再同步到服务器。
 - 任何例外路线必须有 repo 内计划、环境矩阵或 gate script 指针支撑。
 
-## 7. 文档生命周期
+位于 `~/.claude/projects/{project-hash}/memory/`。每个文件 10-20 行，存储行为指导，不复制 docs/ 的内容。如果信息在 docs/ 有完整版本，memory 只放指针。
+
+### 文献管理 — 三文件架构 + 稳定 ID
+
+文献采用 **Author-Year 稳定 ID**（如 `Hu2024`、`Huang2023a/b`、`FanC2023`、`iGEM-BITChina2017`），废弃全局序号——插入新文献不再触发下游重编号，跨文档引用永不失效。
+
+| 文件 | 角色 | 读者 |
+|------|------|------|
+| `literature-matrix.md` | 本地权威矩阵，按 Tier 分层 | AI 助手、dry lab |
+| `literature-quick-ref.csv` | 扁平 CSV，导入飞书多维表格 | 组员（通过多维表格） |
+| `literature-review-feishu.md` | 详细总结汇编，贴入飞书云文档 | 组员（通过云文档） |
+| `summaries/{ID}-{Topic}-summary.md` | 单篇按需加载总结 | AI 助手 |
+
+组员使用流程（多维表格新增、AI 读文献 prompt 模板、ID 命名规则）详见 **[papers/README.md](papers/README.md)**。
+
+### 当日日志 — 跨会话粘合剂
+
+日志（`docs/logs/YYYY-MM-DD.md`）捕获其他文件无法记录的内容：决策的叙事上下文。
+
+**踩坑记录是知识**："踩坑"章节是日志中对后续会话最有价值的部分。记录根因而非仅记修复方法。
+
+**日志 → 操作规范的晋升路径**：
+```
+Day 1: 遇到问题，记录在日志
+Day 2: 遇到类似问题，再次记录
+Day 3: 识别模式 → 提升为 docs/ops/ 操作规范
+       → 添加到 memory 作为行为规则
+       → 可选：创建 hook 自动提醒
+```
+
+---
+
+## 7. 上下文窗口经济学
+
+### 文献按需加载
+
+```
+绝不：批量读取 summaries/ 目录或直接读 PDF
+总是：先查 literature-matrix.md → 只读取具体某篇 summary
+限制：同时最多加载 2-3 篇总结
+```
+
+文献矩阵的一句话摘要足以回答多数问题，无需打开全文。
+
+### 按需加载策略
+
+```
+会话启动 → CLAUDE.md（自动）→ SKILL.md（自动）→ INDEX.md
+用户问方向 A → 加载 modeling/P0-direction-a.md
+用户要跑 SSH/Slurm → 加载 ops/slurm-md-server.md（Windows 节点已弃用）
+用户问文献 → 查矩阵 → 加载单篇 summary
+```
+
+---
+
+## 8. 文档生命周期
 
 ### 创建
 

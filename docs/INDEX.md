@@ -71,10 +71,7 @@
 
 ## 运维参考
 
-- **当前服务器入口**：新服务器/远程计算任务默认使用 [NKULiulab E2 共享云服务器](ops/nkuliulab-e2-cloud-server.md)；本轮 chimeric MD 允许旧 Slurm 作为已批准的 validated secondary candidate，但必须走 [md-production-sites.md](../environments/md-production-sites.md) 和新的 `slurm_*` gate scripts，不复用旧 Slurm production provenance。
-- **GROMACS / MD 操作踩坑索引**：[md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)（服务器中立；新任务仍先读 E2 手册）
-- **[已归档] Slurm GPU 集群**：[slurm-md-server.md](ops/archives/slurm-md-server.md)（仅用于追溯旧 MD/Slurm 运行记录；当前 chimeric rerun 的 Slurm secondary route 以 `environments/md-production-sites.md` 和 `experiments/md-simulation/scripts/slurm_*` 为准）
-- **[已归档] HBU SGE 集群**：[hbu-sge-cluster.md](ops/archives/hbu-sge-cluster.md)（仅用于追溯旧 HBU SGE 调研/投递记录）
+- **Slurm GPU 集群**（当前）：[slurm-md-server.md](ops/slurm-md-server.md)
 - **[已弃用] Windows SSH 操作指南**：[ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（Windows 7500F 节点停用；部分 docking 结构文件仍存于该节点，需访问时参考此文档）
 
 ## 文献
