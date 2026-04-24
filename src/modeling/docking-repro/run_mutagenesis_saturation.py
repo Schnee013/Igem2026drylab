@@ -39,6 +39,12 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Channel A 核心位点饱和突变扫描")
     parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
     parser.add_argument("--project-root", default=None)
+    parser.add_argument(
+        "--receptors", nargs="+", default=None,
+        help=f"子集（如 --receptors Gpr2），默认全部 {list(SATURATION_RESIDUES.keys())}",
+    )
+    parser.add_argument("--vina-bin", default=None,
+                        help="覆盖 config 中的 vina_bin 路径（跨平台使用）")
     return parser.parse_args()
 
 
@@ -59,6 +65,8 @@ def main() -> None:
     config = load_config(args.config)
     if args.project_root:
         config["paths"]["project_root"] = args.project_root
+    if args.vina_bin:
+        config["remote"]["vina_bin"] = args.vina_bin
 
     root = get_project_root(config)
     run_id = generate_run_id()
@@ -67,16 +75,25 @@ def main() -> None:
         f"mutagenesis_saturation_{run_id}",
     )
 
+    # --receptors 子集过滤（未指定则全量）
+    if args.receptors:
+        unknown = [r for r in args.receptors if r not in SATURATION_RESIDUES]
+        if unknown:
+            raise SystemExit(f"未知受体: {unknown}。可用: {list(SATURATION_RESIDUES.keys())}")
+        active_saturation = {r: SATURATION_RESIDUES[r] for r in args.receptors}
+    else:
+        active_saturation = dict(SATURATION_RESIDUES)
+
     # 配置：饱和扫描，排除 Ala（已在 alanine scan 中完成）
     config["mutagenesis"]["wt_baseline"] = "repro"
     config["mutagenesis"]["mutant_source"] = "af3"
     config["mutagenesis"]["docking_mode"] = "singlestage"
     config["mutagenesis"]["scan_type"] = "saturation"
     config["mutagenesis"]["exclude_aas"] = ["A"]
-    config["mutagenesis"]["target_receptors"] = list(SATURATION_RESIDUES.keys())
+    config["mutagenesis"]["target_receptors"] = list(active_saturation.keys())
 
     # 覆盖 scan_residues 为仅 Channel A 核心位点
-    config["mutagenesis"]["scan_residues"] = SATURATION_RESIDUES
+    config["mutagenesis"]["scan_residues"] = active_saturation
 
     prepared_root = root / config["paths"]["prepared_dir"]
     rec_dir = prepared_root / "receptors"
@@ -84,7 +101,7 @@ def main() -> None:
     mut_dir = root / config["paths"]["mutagenesis_dir"]
 
     # preflight 检查
-    receptors = list(SATURATION_RESIDUES.keys())
+    receptors = list(active_saturation)
     receptor_tm_pdbs = {
         rec: Path(config["receptors"][rec]["pdb_file"]).stem + "_tm.pdb"
         for rec in receptors
@@ -116,11 +133,12 @@ def main() -> None:
 
     total_muts = sum(
         len(residues) * 18  # 20 AA - WT - Ala = 18
-        for residues in SATURATION_RESIDUES.values()
+        for residues in active_saturation.values()
     )
     logger.info(
         f"Saturation Scan 启动 [run_id={run_id}]"
-        f"\n  位点: {SATURATION_RESIDUES}"
+        f"\n  受体: {receptors}"
+        f"\n  位点: {active_saturation}"
         f"\n  预计突变数: {total_muts}（每突变 × 2 配体）"
         f"\n  预计对接数: {total_muts * 2}"
         f"\n  预计用时: ~{total_muts * 4 // 60}-{total_muts * 6 // 60} 小时"

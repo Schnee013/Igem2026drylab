@@ -103,6 +103,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--project-root", default=None,
                         help="覆盖 config.yaml 中的 project_root")
     parser.add_argument("--config", default=str(Path(__file__).parent / "config.yaml"))
+    parser.add_argument("--pose-subdir", default=None,
+                        help="覆盖 pose 目录（相对 results_dir）。默认用 config.paths.wt_singlestage_subdir。"
+                             "例：wt_singlestage_gpr3_f_test 指向 Gpr3 方案 F 重跑 pose。")
+    parser.add_argument("--out-subdir", default=None,
+                        help="覆盖 IFP 输出目录。默认 ifp_analysis。")
     return parser.parse_args()
 
 
@@ -318,9 +323,18 @@ def main() -> None:
         config["paths"]["project_root"] = args.project_root
     root = get_project_root(config)
     rec_dir = root / config["paths"]["prepared_dir"] / "receptors"
-    wt_ss_dir = get_results_subdir(config, "wt_singlestage_subdir")
+    if args.pose_subdir:
+        wt_ss_dir = root / config["paths"]["results_dir"] / args.pose_subdir
+        print(f"[INFO] pose_subdir 覆盖: {wt_ss_dir}")
+    else:
+        wt_ss_dir = get_results_subdir(config, "wt_singlestage_subdir")
     pose_dir = wt_ss_dir / "poses"
-    out_dir = get_results_subdir(config, "ifp_subdir")
+    if args.out_subdir:
+        out_dir = root / config["paths"]["results_dir"] / args.out_subdir
+        out_dir.mkdir(parents=True, exist_ok=True)
+        print(f"[INFO] out_subdir 覆盖: {out_dir}")
+    else:
+        out_dir = get_results_subdir(config, "ifp_subdir")
 
     # 临时目录用于加氢 PDB 和 SDF 转换
     tmp_dir = out_dir / "tmp"

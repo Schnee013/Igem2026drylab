@@ -44,6 +44,49 @@ def get_tm_helix_ranges(config: dict, receptor_name: str) -> list[list[int]] | N
     return [helices[k] for k in sorted(helices.keys())]
 
 
+def get_manual_box_center(config: dict, receptor_name: str) -> tuple[float, float, float] | None:
+    """从 config["tm_topology"][rec].manual_box_center 读取 dock frame 手动指定 box center。
+
+    返回 (x, y, z) in Å（dock frame），None 则走 compute_box_center_of_mass 自动质心。
+    Gpr3（2026-04-23 方案 F 起）用 ECL2 质心 [0.42, 7.16, -17.11] 强制搜索胞外口袋。
+    当 manual_box_center 非 None 时，extracellular_z_offset 不再叠加（center 已直接指定）。
+    → plan ~/.claude/plans/gpr3-1-2-cozy-bengio.md
+    """
+    tm_topo = config.get("tm_topology")
+    if tm_topo is None:
+        return None
+    rec_topo = tm_topo.get(receptor_name)
+    if rec_topo is None:
+        return None
+    raw = rec_topo.get("manual_box_center")
+    if raw is None:
+        return None
+    if not isinstance(raw, (list, tuple)) or len(raw) != 3:
+        raise ValueError(
+            f"manual_box_center 必须为长度 3 列表，得到 {raw}"
+        )
+    return (float(raw[0]), float(raw[1]), float(raw[2]))
+
+
+def get_receptor_box_size(config: dict, receptor_name: str) -> float | None:
+    """从 config["tm_topology"][rec].box_size 读取 per-receptor docking box 边长（Å）。
+
+    None 表示走 config["vina"]["singlestage"]["box_size"] 默认值（40 Å）。
+    Gpr3（2026-04-23 起）用 25 Å 强制 TM 内部搜索，修复 pose 在 TM 束外侧 groove 的问题。
+    → plan ~/.claude/plans/gpr3-1-2-cozy-bengio.md
+    """
+    tm_topo = config.get("tm_topology")
+    if tm_topo is None:
+        return None
+    rec_topo = tm_topo.get(receptor_name)
+    if rec_topo is None:
+        return None
+    raw = rec_topo.get("box_size")
+    if raw is None:
+        return None
+    return float(raw)
+
+
 def get_box_center_offset(config: dict, receptor_name: str) -> tuple[float, float, float]:
     """从 config["tm_topology"] 提取 docking box center 偏移向量。默认 (0,0,0)。
 
@@ -329,6 +372,8 @@ def dock_pair_singlestage(
     seed: int | None = None,
     tm_helix_ranges: list[list[int]] | None = None,
     box_center_offset: tuple[float, float, float] = (0.0, 0.0, 0.0),
+    receptor_box_size: float | None = None,
+    manual_box_center: tuple[float, float, float] | None = None,
 ) -> DockingResult:
     """
     单阶段对接（精确复现 Hu2024 参数）。
@@ -348,6 +393,11 @@ def dock_pair_singlestage(
         box_center_offset: 3D 偏移向量 (dx, dy, dz)（Å），叠加到 box center。
             Gpr2 用 [6.17, 0.65, -7.85]（10Å 沿膜法线方向）排除胞内假口袋。
             默认 (0,0,0)。
+        receptor_box_size: 可选 box 边长（Å），None 则用 config["vina"]["singlestage"]["box_size"]。
+            Gpr3（2026-04-23 方案 F 起）用 20 Å 强制 ECL2 区搜索，排除 TM-POPC 界面 groove。
+        manual_box_center: 可选 dock frame 手动指定 box center (x,y,z)。
+            非 None 时完全跳过 compute_box_center_of_mass + box_center_offset，直接用此坐标。
+            Gpr3 方案 F 用 ECL2 (150-175) 质心 [0.42, 7.16, -17.11]。
 
     Returns:
         DockingResult（stage2_box 为空 dict，box_type="singlestage"）
@@ -364,14 +414,31 @@ def dock_pair_singlestage(
         "exhaustiveness": 200,
     })
 
+    effective_box_size = receptor_box_size if receptor_box_size is not None else ss_cfg["box_size"]
+
     effective_seed = seed if seed is not None else vina_cfg["seed"]
 
     t_start = time.time()
 
-    box = compute_box_center_of_mass(
-        tm_pdb, box_size=ss_cfg["box_size"], tm_helix_ranges=tm_helix_ranges,
-    )
-    if any(v != 0.0 for v in box_center_offset):
+    if manual_box_center is not None:
+        # 方案 F：手动指定 box center，跳过 TM-COM + z_offset
+        box = GridBox(
+            center_x=float(manual_box_center[0]),
+            center_y=float(manual_box_center[1]),
+            center_z=float(manual_box_center[2]),
+            size_x=effective_box_size,
+            size_y=effective_box_size,
+            size_z=effective_box_size,
+        )
+        logger.info(
+            f"  manual box center: ({box.center_x:.2f}, {box.center_y:.2f}, {box.center_z:.2f}) "
+            f"[dock frame]，跳过 COM+offset"
+        )
+    else:
+        box = compute_box_center_of_mass(
+            tm_pdb, box_size=effective_box_size, tm_helix_ranges=tm_helix_ranges,
+        )
+    if manual_box_center is None and any(v != 0.0 for v in box_center_offset):
         # 3D 偏移: 沿膜法线方向移动 box center，排除 ICL 截断暴露的胞内假口袋
         # → docs/logs/2026-04-16.md §Gpr2 Docking Pose 朝向验证
         box = GridBox(
@@ -387,9 +454,9 @@ def dock_pair_singlestage(
             f"{box_center_offset[2]:+.2f}] → center=({box.center_x:.2f}, "
             f"{box.center_y:.2f}, {box.center_z:.2f})"
         )
-    n_points = ((ss_cfg["box_size"] / ss_cfg["spacing"]) + 1) ** 3
+    n_points = ((effective_box_size / ss_cfg["spacing"]) + 1) ** 3
     logger.info(
-        f"[Singlestage] {pair_name}: box={ss_cfg['box_size']}A, "
+        f"[Singlestage] {pair_name}: box={effective_box_size}A, "
         f"spacing={ss_cfg['spacing']}, exh={ss_cfg['exhaustiveness']}, "
         f"grid={n_points/1e6:.1f}M, seed={effective_seed}"
     )
@@ -404,7 +471,7 @@ def dock_pair_singlestage(
         receptor=receptor_pdbqt,
         ligand=ligand_pdbqt,
         center=(box.center_x, box.center_y, box.center_z),
-        box_size=ss_cfg["box_size"],
+        box_size=effective_box_size,
         spacing=ss_cfg["spacing"],
         exhaustiveness=ss_cfg["exhaustiveness"],
         num_modes=vina_cfg["num_modes"],
@@ -427,7 +494,7 @@ def dock_pair_singlestage(
         all_affinities=affinities,
         poses_path=str(poses_out),
         stage1_box={"center": [box.center_x, box.center_y, box.center_z],
-                    "size": [ss_cfg["box_size"]] * 3},
+                    "size": [effective_box_size] * 3},
         stage2_box={},
         box_type="singlestage",
         exhaustiveness=ss_cfg["exhaustiveness"],

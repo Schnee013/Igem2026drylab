@@ -1,7 +1,10 @@
 # DO-2：突变体全流程 — 从突变设想到 ΔΔG_sel
 > **前置条件**：DO-1 完成 + KNOW-1 已读（理解 ΔΔG_sel 概念）
-> **预计耗时**：3-4 小时（含 AF3 等待时间）
+> **预计耗时**：1-2 小时（含 AF3 等待时间；AF3 约 5-30 分钟 + 本地对接 ~6 分钟）
+> **运行环境**：Mac / WSL2 本地全程（不需要服务器）
 > **学完能做**：从一个突变设想走到 ΔΔG_sel 数字，判断是否过 3σ 阈值
+
+> ⚠️ **Caveat（2026-04-23）**：本课示例 **Gpr3 V138R** 及 `ratio_channel_report.md` 中的全部 Gpr 突变排名，均基于 2026-04-16 修复 grid box 胞内/胞外偏移前的 **污染数据**。Gpr2 重跑已于 2026-04-23 在 Win 节点启动；Gpr3 重跑策略尚在 Phase 2a 审查（pose 仍落在 TM 束边缘，需另议修复方案）。候选突变的 ΔΔG_sel 绝对值与相对排名在修复后会变动。**学员请以掌握 pipeline 操作流程为目标**，不以复现具体候选为目标；若要对照真实阳性突变，请等待重跑完成后刷新的报告。
 ---
 本课用一个**已有结果的突变**（Gpr3 V138R）做验证性复走。这样你跑完之后可以对照已知结果，确认操作正确。独立做新突变的入口在 DO-4。
 ## 1. 选一个突变来做
@@ -78,123 +81,103 @@ python src/modeling/docking-repro/extract_mutant_tm.py
 > 输入：`af3_structures/Gpr3/V138R.pdb`（完整结构）
 > 处理：按 `config.yaml` 中的 `tm_topology` 截断 ICL3 等非 TM 区域，只保留 TM 螺旋和结合腔附近区域（和 WT 用同样的截断规则）
 > 输出：`experiments/docking-repro/mutagenesis/af3_structures/Gpr3/V138R_tm.pdb`
----
-## 5. ADFR 准备 PDBQT
-
-⚠️ **从这一步开始需要用服务器。继续之前，必须先完整阅读 [REF-D：服务器使用规范](ref-d-remote-feishu.md)，完成 SSH 登录测试。**
-
-> REF-D 里有每条命令的详细解释。本节只列操作步骤，不重复解释命令含义。
-
-### 5a. 部署代码到服务器
-
-在本地终端执行：
-
-```bash
-bash experiments/docking-repro/slurm/deploy_to_slurm.sh
-```
-
-如果部署脚本不包含你的突变体文件，手动传：
-
-```bash
-scp -P 10022 experiments/docking-repro/mutagenesis/af3_structures/Gpr3/V138R_tm.pdb \
-    guest@10.40.4.5:~/drylab-docking/experiments/docking-repro/mutagenesis/af3_structures/Gpr3/
-```
-
-### 5b. 在服务器上提交 ADFR 作业
-
-登录服务器：
-
-```bash
-ssh -p 10022 guest@10.40.4.5
-```
-
-创建 sbatch 脚本（REF-D §sbatch 脚本模板 有逐行解释）：
-
-```bash
-nano adfr_v138r.sh
-```
-
-粘贴以下内容（`Ctrl+O` 保存，`Ctrl+X` 退出）：
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=adfr_v138r
-#SBATCH --partition=gpu
-#SBATCH --nodes=1
-#SBATCH --ntasks=4
-#SBATCH --mem=8G
-#SBATCH --time=1:00:00
-#SBATCH --output=adfr_%j.log
-#SBATCH --error=adfr_%j.err
-
-cd ~/drylab-docking
-
-python3 src/modeling/docking-repro/run_adfr_mutants.py \
-    --project-root ~/drylab-docking
-```
-
-提交并查看状态：
-
-```bash
-sbatch adfr_v138r.sh
-squeue -u $USER
-```
-
-输出：`~/drylab-docking/experiments/docking-repro/mutagenesis/af3_prepared/Gpr3/V138R_tm.pdbqt`
 
 ---
 
-## 6. 跑对接
+## 5. 准备 PDBQT（下载预制文件）
 
-在服务器上创建对接脚本：
+AF3 给出的 PDB 要转成 Vina 能读的 PDBQT 格式——加 Gasteiger 电荷、清理非标准残基。标准工具是 ADFR Suite 的 `prepare_receptor`，但它在 Mac 上装起来比较痛苦，通常只在 Linux/Windows 上跑。
 
-```bash
-nano dock_gpr3_v138r.sh
+本课直接下载已用 ADFR 处理好的 `V138R_tm.pdbqt`，你只需要了解 ADFR 做了什么，不需要自己跑。
+
+### 5a. ADFR 在做什么（阅读即可，不用跑）
+
+脚本：[src/modeling/docking-repro/run_adfr_mutants.py](../../../src/modeling/docking-repro/run_adfr_mutants.py)
+
+关键调用（`prepare_one()` 函数，精简版）：
+
+```python
+cmd = [
+    adfr_bin / "prepare_receptor",
+    "-r", str(pdb_path),                  # 输入：AF3 输出的 PDB
+    "-o", str(out_pdbqt),                 # 输出：Vina 可读的 PDBQT
+    "-A", "hydrogens",                    # 按 pH 7.4 预测质子化状态 + 加氢
+    "-U", "nphs_lps_waters_nonstdres",    # 清除非极性氢 / 孤对电子 / 水 / 非标准残基
+]
 ```
 
-粘贴以下内容：
+两个关键选项的含义：
+
+- `-A hydrogens`：决定带电侧链（Asp/Glu/His/Lys/Arg）的质子化状态。pH 7.4 下 Arg 带 +1，Asp 带 −1——这直接影响 Vina 打分里的静电项和盐桥识别
+- `-U nphs_lps_waters_nonstdres`：Vina 打分函数只支持有限的原子类型，不支持的原子（比如水分子、糖链里的非标准残基）必须删掉，否则 Vina 会报错或打分偏差
+
+Gasteiger 电荷由 ADFR 用经验公式自动分配，写入 PDBQT 每行第 10 列（不涉及量子化学计算，这是对接规模下的标准做法）。
+
+### 5b. 下载预制 PDBQT
+
+下载链接：`<老师在飞书文档里贴>`
+
+下载后解压到项目目录：
 
 ```bash
-#!/bin/bash
-#SBATCH --job-name=dock_gpr3_v138r
-#SBATCH --partition=gpu
-#SBATCH --nodes=1
-#SBATCH --ntasks=8
-#SBATCH --mem=16G
-#SBATCH --time=2:00:00
-#SBATCH --output=dock_v138r_%j.log
-#SBATCH --error=dock_v138r_%j.err
+# 先确保你在项目根目录
+cd ~/Igem2026drylab                 # 或你的实际路径
 
-cd ~/drylab-docking
+# 创建目标目录并解压
+mkdir -p experiments/docking-repro/mutagenesis/af3_prepared
+unzip ~/Downloads/do2_prepared_pdbqt.zip \
+    -d experiments/docking-repro/mutagenesis/af3_prepared/
 
-python3 src/modeling/docking-repro/run_mutagenesis_saturation.py \
-    --project-root ~/drylab-docking \
-    --vina-bin ~/bin/vina \
+# 验证文件到位
+ls experiments/docking-repro/mutagenesis/af3_prepared/Gpr3/
+```
+
+预期输出：看到 `V138R_tm.pdbqt` 文件（~190 KB）。
+
+---
+
+## 6. 跑对接（Mac / WSL2 本地）
+
+在项目根目录执行：
+
+```bash
+conda activate docking
+cd ~/Igem2026drylab                 # 回到项目根目录
+
+# 先确认 af3_prepared/Gpr3/ 里只有 V138R.pdbqt（否则会多跑其他突变）
+ls experiments/docking-repro/mutagenesis/af3_prepared/Gpr3/
+# 预期输出：V138R_tm.pdbqt（仅此一个；如有其他 .pdbqt，请先挪走或删除）
+
+python src/modeling/docking-repro/run_mutagenesis_saturation.py \
+    --vina-bin $(which vina) \
     --receptors Gpr3
 ```
 
-提交并查看进度：
+几个参数的含义：
 
-```bash
-sbatch dock_gpr3_v138r.sh
-squeue -u $USER
-tail -f dock_v138r_<job_id>.log
+- `--vina-bin $(which vina)`：用 conda `docking` 环境里的 vina 可执行文件。`which vina` 会输出类似 `/opt/homebrew/Caskroom/miniforge/base/envs/docking/bin/vina`（Mac）或 `/home/<user>/miniconda3/envs/docking/bin/vina`（WSL2），`$(...)` 是 shell 的命令替换，把路径填回去
+- `--receptors Gpr3`：只扫 Gpr3，不扫 Gpr2（否则 preflight 会报 `Gpr2/` 目录缺失）
+
+> **耗时预估**：脚本会扫描 `af3_prepared/Gpr3/` 下所有 PDBQT × 2 配体（ascr18 + ascr3）。你只放了 V138R，所以是 2 次对接 × 3 分钟 ≈ **6 分钟**。
+
+### 查看结果
+
+作业跑完后，结果落在：
+
+```text
+experiments/docking-repro/mutagenesis/mutagenesis_results.json
+experiments/docking-repro/mutagenesis/mutagenesis_report.md
 ```
 
-> 此脚本会对 `af3_prepared/Gpr3/` 下**所有已有 PDBQT 的突变体**跑对接。想只跑 V138R，确保目录下只有它的 PDBQT。
->
-> 每个突变体约 3 分钟 × 3 配体 = ~10 分钟。脚本会自动读取 WT 的 ΔG 基线来计算 ΔΔG_sel。
-
-### 拉回结果
-
-作业完成后（`squeue -u $USER` 里不再显示），在本地终端执行：
+快速看一眼：
 
 ```bash
-scp -P 10022 guest@10.40.4.5:~/drylab-docking/experiments/docking-repro/mutagenesis/mutagenesis_results.json \
-    experiments/docking-repro/mutagenesis/
+cat experiments/docking-repro/mutagenesis/mutagenesis_report.md
 ```
 
-结果文件：`experiments/docking-repro/mutagenesis/mutagenesis_results.json`
+你应该看到 `Gpr3 V138R` 一行，带 `ΔΔG(ascr18)` / `ΔΔG(ascr3)` / `ΔΔG_sel` 三列数字。
+
+> **脚本在做什么**：自动读 `results/wt_singlestage/docking_results.json`（DO-1 §4 产出的 WT 基线），拿 V138R 的新 ΔG 减 WT 对应值得到 ΔΔG，最后 `ΔΔG(ascr18) − ΔΔG(ascr3) = ΔΔG_sel`。如果 DO-1 §4 没跑完整 3 × 3 矩阵，这一步会因缺 Gpr3 基线报错。
 ---
 ## 7. 手动计算 ΔΔG_sel（验证理解）
 即使 pipeline 自动算了 ΔΔG_sel，你也要手动算一次来确认你理解了公式。

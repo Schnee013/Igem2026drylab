@@ -25,7 +25,14 @@ from pathlib import Path
 _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 
-from dock import DockingResult, dock_pair_singlestage, get_box_center_offset, get_tm_helix_ranges
+from dock import (
+    DockingResult,
+    dock_pair_singlestage,
+    get_box_center_offset,
+    get_manual_box_center,
+    get_receptor_box_size,
+    get_tm_helix_ranges,
+)
 from utils import (
     generate_run_id, get_project_root, get_results_subdir, load_config,
     preflight_check, save_results_json, setup_logging,
@@ -43,6 +50,9 @@ def parse_args() -> argparse.Namespace:
                         help="对接的配体列表（默认 ascr1 + ascr18 + ascr3 + ascr7）")
     parser.add_argument("--vina-bin", default=None,
                         help="覆盖 config 中的 vina_bin 路径（跨平台使用）")
+    parser.add_argument("--out-subdir", default=None,
+                        help="覆盖输出目录相对路径（相对 results_dir），默认用 config.paths.wt_singlestage_subdir。"
+                             "用于试跑时不覆盖主 WT baseline，例如 'wt_singlestage_gpr3_box25_test'。")
     return parser.parse_args()
 
 
@@ -109,8 +119,13 @@ def main() -> None:
         })
     preflight_check(checks, logger)
 
-    # 输出目录
-    out_dir = get_results_subdir(config, "wt_singlestage_subdir")
+    # 输出目录（--out-subdir 覆盖时绕过 config 键，直接用相对路径）
+    if args.out_subdir:
+        out_dir = root / config["paths"]["results_dir"] / args.out_subdir
+        out_dir.mkdir(parents=True, exist_ok=True)
+        logger.info(f"输出子目录覆盖: {out_dir}（不覆盖主 WT baseline）")
+    else:
+        out_dir = get_results_subdir(config, "wt_singlestage_subdir")
 
     results: list[DockingResult] = []
     pairs_total = len(args.receptors) * len(args.ligands)
@@ -121,6 +136,8 @@ def main() -> None:
         tm_pdb = rec_dir / RECEPTOR_TM_PDBS[rec_name]
         helix_ranges = get_tm_helix_ranges(config, rec_name)
         box_offset = get_box_center_offset(config, rec_name)
+        rec_box_size = get_receptor_box_size(config, rec_name)
+        manual_center = get_manual_box_center(config, rec_name)
 
         for lig_name in args.ligands:
             lig_pdbqt = lig_dir / LIGAND_PDBQTS[lig_name]
@@ -138,6 +155,8 @@ def main() -> None:
                 config=config,
                 tm_helix_ranges=helix_ranges,
                 box_center_offset=box_offset,
+                receptor_box_size=rec_box_size,
+                manual_box_center=manual_center,
             )
             results.append(result)
             logger.info(

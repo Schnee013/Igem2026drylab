@@ -85,6 +85,8 @@ docs/papers/pdf/
 # Claude Code 私有配置
 # =====================================================================
 .claude/
+.claude.json
+.claude.json.backup
 
 # IDE
 .vscode/

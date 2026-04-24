@@ -32,7 +32,13 @@ from pathlib import Path
 _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 
-from dock import dock_pair_singlestage, get_box_center_offset, get_tm_helix_ranges
+from dock import (
+    dock_pair_singlestage,
+    get_box_center_offset,
+    get_manual_box_center,
+    get_receptor_box_size,
+    get_tm_helix_ranges,
+)
 from utils import (
     generate_run_id, get_project_root, get_results_subdir, load_config,
     preflight_check, save_results_json, setup_logging,
@@ -147,6 +153,8 @@ def main() -> None:
         lig_pdbqt = lig_dir / LIGAND_PDBQTS[lig_name]
         helix_ranges = get_tm_helix_ranges(config, rec_name)
         box_offset = get_box_center_offset(config, rec_name)
+        rec_box_size = get_receptor_box_size(config, rec_name)
+        manual_center = get_manual_box_center(config, rec_name)
 
         for seed in args.seeds:
             done += 1
@@ -162,6 +170,8 @@ def main() -> None:
                 seed=seed,
                 tm_helix_ranges=helix_ranges,
                 box_center_offset=box_offset,
+                receptor_box_size=rec_box_size,
+                manual_box_center=manual_center,
             )
             all_raw[pair_name].append(r.best_affinity)
             logger.info(f"  ΔG = {r.best_affinity:.3f} kcal/mol")
@@ -180,6 +190,8 @@ def main() -> None:
             tm_pdb = rec_dir / RECEPTOR_TM_PDBS[rec_name]
             helix_ranges = get_tm_helix_ranges(config, rec_name)
             box_offset = get_box_center_offset(config, rec_name)
+            rec_box_size = get_receptor_box_size(config, rec_name)
+            manual_center = get_manual_box_center(config, rec_name)
 
             for lig_name in active_ligands:
                 pair_name = f"{rec_name}_{mut_name}_{lig_name}"
@@ -200,6 +212,8 @@ def main() -> None:
                         seed=seed,
                         tm_helix_ranges=helix_ranges,
                         box_center_offset=box_offset,
+                        receptor_box_size=rec_box_size,
+                        manual_box_center=manual_center,
                     )
                     all_raw[pair_name].append(r.best_affinity)
 
