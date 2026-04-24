@@ -56,6 +56,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--top-n", type=int, default=20)
     parser.add_argument("--config", default=str(Path(__file__).parent / "config.yaml"))
     parser.add_argument("--project-root", default=None)
+    parser.add_argument("--top-mutants", nargs="+", default=None,
+                        help="覆盖默认 TOP_MUTANTS 列表，格式 Rec/Label（如 Gpr3/V138M Gpr3/F170L）")
+    parser.add_argument("--out-subdir", default=None,
+                        help="覆盖输出子目录（相对 results_dir），默认 ifp_analysis_mutants。"
+                             "用于 F 方案重跑时隔离输出：ifp_analysis_mutants_gpr3_f")
+    parser.add_argument("--wt-csv", default=None,
+                        help="覆盖 WT IFP CSV 路径（默认 ifp_analysis/ifp_all.csv）。"
+                             "F 方案 Gpr3 WT 在 ifp_analysis_gpr3_f/ifp_all.csv")
     return parser.parse_args()
 
 
@@ -83,19 +91,36 @@ def main() -> None:
         config["paths"]["project_root"] = args.project_root
     root = get_project_root(config)
 
-    work_dir = root / "experiments/docking-repro/results/ifp_analysis_mutants"
-    rec_dir = work_dir / "receptors"
-    pose_dir = work_dir / "poses"
+    # receptors/ 和 poses/ 始终从默认位置读（数据源）
+    src_dir = root / "experiments/docking-repro/results/ifp_analysis_mutants"
+    rec_dir = src_dir / "receptors"
+    pose_dir = src_dir / "poses"
+
+    # 输出目录：out-subdir 覆盖时隔离（F 方案不污染旧数据）
+    if args.out_subdir:
+        work_dir = root / "experiments/docking-repro/results" / args.out_subdir
+        work_dir.mkdir(parents=True, exist_ok=True)
+        print(f"[INFO] 输出子目录覆盖: {work_dir}")
+    else:
+        work_dir = src_dir
     tmp_dir = work_dir / "tmp"
     tmp_dir.mkdir(parents=True, exist_ok=True)
 
-    wt_csv = root / "experiments/docking-repro/results/ifp_analysis/ifp_all.csv"
+    wt_csv = Path(args.wt_csv) if args.wt_csv else root / "experiments/docking-repro/results/ifp_analysis/ifp_all.csv"
     wt_contacts = load_wt_contacts(wt_csv)
+
+    # 解析 --top-mutants
+    active_mutants = TOP_MUTANTS
+    if args.top_mutants:
+        active_mutants = []
+        for spec in args.top_mutants:
+            rec, label = spec.split("/", 1)
+            active_mutants.append((rec, label))
 
     # 聚合表：{(rec,label,lig): {residue: {itype: count}}}
     all_freq: dict[tuple, dict] = {}
 
-    for rec_name, label in TOP_MUTANTS:
+    for rec_name, label in active_mutants:
         pdb_path = rec_dir / f"{rec_name}_{label}_tm.pdb"
         if not pdb_path.exists():
             print(f"  [SKIP] {pdb_path} 不存在")

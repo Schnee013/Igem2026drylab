@@ -20,7 +20,7 @@ from itertools import product
 # ── 路径 ──────────────────────────────────────────────────────────
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent  # experiments/docking-repro
-INPUT_JSON = REPO_ROOT / "mutagenesis" / "mutagenesis_results_merged_20260416.json"
+INPUT_JSON = REPO_ROOT / "mutagenesis" / "mutagenesis_results_merged_3d_offset_20260423.json"
 OUT_DIR = SCRIPT_DIR  # analysis/
 
 # ── 参数 ──────────────────────────────────────────────────────────

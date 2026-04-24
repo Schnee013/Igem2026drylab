@@ -218,7 +218,19 @@ tm_topology:
       TM6: [295, 315]
       TM7: [322, 342]
     icl3: [197, 294]    # 97 aa
-    extracellular_z_offset: 0.0   # pose 已在胞外侧，无需偏移
+    # Phase 2-Stop 后方案 F（2026-04-23 启用）：
+    # D+ 证伪"Z 位置是唯一问题"的假设 — box 扩展到覆盖胞外水相（memb Z∈[79.2, 119.2]）
+    # 后 Vina 确实找到 2/80 胞外 pose（Z=110-111, dist=6-7 Å 达 Gpr2 基线），但 ΔG 比
+    # 膜内 groove 弱 0.3-0.7 kcal/mol，被排到 rank 13/19。根因：Gpr3 AF3 结构的胞外口袋
+    # VdW/H-bond 接触少于 TM-POPC 界面 groove，Vina 评分偏好 groove。
+    # 解法 F：手动锁定 ECL2 (150-175, Gpr2 Y168 同源区) 质心为 box center + 缩 box
+    # 到 20 Å 强制排除 TM-POPC 界面。
+    # ECL2 CA 质心 dock frame = [0.42, 7.16, -17.11]，memb frame Z=105.3（对齐 Gpr2
+    # 基线 105-106），box=20 覆盖 memb Z∈[95.3, 115.3]（跨 upper P 110.4 共 4.9 Å 胞外）。
+    # → plan ~/.claude/plans/gpr3-1-2-cozy-bengio.md
+    extracellular_z_offset: 0.0   # F 方案用 manual_box_center 直接指定，不再叠加 offset
+    manual_box_center: [0.42, 7.16, -17.11]
+    box_size: 20.0
 
 # ---------------------------------------------------------------------------
 # Grid Box（与 v2 一致：受体质心为中心）

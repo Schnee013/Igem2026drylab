@@ -36,6 +36,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="全量 Alanine Scan（3 受体 × 全部 scan_residues）")
     parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
     parser.add_argument("--project-root", default=None)
+    parser.add_argument("--vina-bin", default=None,
+                        help="覆盖 config 中的 vina_bin 路径（跨平台使用）")
     parser.add_argument(
         "--receptors", nargs="+", default=["GprC", "Gpr2", "Gpr3"],
         help="扫描的受体列表（默认全部）",
@@ -43,8 +45,13 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_wt_baseline(root: Path, config: dict) -> dict[str, float]:
-    """从 WT 单阶段结果加载基线，并校验预期键存在。"""
+def load_wt_baseline(
+    root: Path, config: dict, target_receptors: list[str] | None = None,
+) -> dict[str, float]:
+    """从 WT 单阶段结果加载基线，并校验 target_receptors 的键存在。
+
+    target_receptors=None 时回退检查全部 3 受体（向后兼容）。
+    """
     results_dir = root / config["paths"]["results_dir"]
     subdir = config["paths"]["wt_singlestage_subdir"]
     filename = config["paths"].get("results_filename", "docking_results.json")
@@ -56,11 +63,8 @@ def load_wt_baseline(root: Path, config: dict) -> dict[str, float]:
         )
     raw = json.loads(wt_json.read_text(encoding="utf-8"))
     baseline = {r["pair_name"]: r["best_affinity"] for r in raw}
-    expected = [
-        "GprC_ascr18", "GprC_ascr3",
-        "Gpr2_ascr18", "Gpr2_ascr3",
-        "Gpr3_ascr18", "Gpr3_ascr3",
-    ]
+    recs = target_receptors or ["GprC", "Gpr2", "Gpr3"]
+    expected = [f"{rec}_{lig}" for rec in recs for lig in ["ascr18", "ascr3"]]
     missing = [k for k in expected if k not in baseline]
     if missing:
         raise ValueError(
@@ -108,6 +112,8 @@ def main() -> None:
     config = load_config(args.config)
     if args.project_root:
         config["paths"]["project_root"] = args.project_root
+    if args.vina_bin:
+        config["remote"]["vina_bin"] = args.vina_bin
 
     root = get_project_root(config)
     run_id = generate_run_id()
@@ -158,8 +164,8 @@ def main() -> None:
     ]
     preflight_check(checks, logger)
 
-    # 加载 WT 单阶段基线
-    wt_baseline = load_wt_baseline(root, config)
+    # 加载 WT 单阶段基线（仅校验当前 target_receptors 的键）
+    wt_baseline = load_wt_baseline(root, config, target_receptors=args.receptors)
     logger.info(f"已加载 WT 单阶段基线（{len(wt_baseline)} 对）：")
     for k, v in sorted(wt_baseline.items()):
         logger.info(f"  {k}: {v:.3f} kcal/mol")
