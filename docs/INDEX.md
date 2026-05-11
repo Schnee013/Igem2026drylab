@@ -1,10 +1,12 @@
 # iGEM DryLab 干实验 — 项目索引
 
+> 最后校准：2026-04-27。本文是项目路由表，不承载详细结果数值；需要结论时请沿链接读取领域文档、日志和原始结果文件。
+
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
-- **当前阶段**: P0 对接 completed；底盘锁定酵母-STE2；**P0 执行顺序 = ① 嵌合 Gpa1（阻塞湿实验）→ ② ODE（并行）→ ③ MD（最后，等 CHARMM-GUI + PI 服务器）**
-- **主要卡点**: 显色级联方案 TBD（报告基因/整合位点/GAL4 放大）；嵌合 Gpa1 设计尚未启动（直接阻塞湿实验构建）
+- **当前阶段**: 底盘已锁定酵母-STE2；嵌合 Gpa1 已完成 AF3 全量筛选并进入 MD 验证；chctrl 阳性对照 3/3 production MD 已完成，Ch-1/2/4 暂停等待 chctrl 本地分析结论；docking-repro 因 Gpr2/Gpr3 grid/pose 修复进入结果重算与重新汇总阶段；ODE 继续并行但应等待刷新后的 docking Kd/候选输入。
+- **主要卡点**: chctrl MD 本地分析尚未产出；Gpr3 方案 F 重跑结果尚未合并进 ratio 报告；显色级联方案 TBD（报告基因/整合位点/GAL4 放大）；HP 经济效益模型需求未对齐。
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌 v4](prd/overview-v4.md)
 
@@ -12,12 +14,12 @@
 
 ## 建模方向状态
 
-| 优先级 | 方向 | 底盘相关 | 状态 | 文档 |
-|--------|------|---------|------|------|
-| **P0** | 受体-配体分子对接 | 否 | completed | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
-| **P0** | MD 模拟（V138R 盐桥实证 + Top 6 稳定性） | 否 | learning | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | in_progress | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
-| **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | in_progress | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
+| 优先级 | 方向 | 底盘相关 | 当前状态 | 文档 |
+|--------|------|---------|----------|------|
+| **P0** | 受体-配体分子对接 | 否 | **reanalysis**：Gpr2 3D offset 重跑完成；Gpr3 ECL2 manual box 方案 F 几何 PASS，Ala/Sat 产物已生成；ratio/IFP/湿实验 Top 推荐需刷新 | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
+| **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **in_progress**：WT holo Phase 3 已完成；chimeric chctrl 3/3 production 完成，当前转本地分析；Ch-1/2/4 暂停 | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | in_progress：模型框架与参数源继续整理，Kd/Top 候选需等待 docking 刷新 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；MD 验证进行中 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
 | **P2** | 早期检测经济效益模型 | 否 | not_started | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
@@ -30,19 +32,20 @@
 
 > 2026-04-11 底盘 4 项阻塞全部解除（PI 确认酵母-STE2 主线，详见 [决策 003](decisions/003-chassis-yeast-ste2-integration.md)）。
 
-- [ ] **[阻塞] 显色级联方案**：报告基因 / 整合位点 / 拷贝数目标 / 是否 GAL4 放大 → 与通路工程组讨论
-- [ ] **[阻塞] 嵌合 Gpa1 设计**：湿实验不知道用哪个嵌合方案，无法开始构建 → **立即启动**
-- [ ] **[重要] MD 算力方案**：PI 课题组服务器配置确认（CPU/GPU/RAM）；排在嵌合 Gpa1 之后
+- [ ] **[阻塞] chctrl MD 阳性对照分析**：下载/处理 chctrl 3 条轨迹，跑 RMSD、α5 iRMSD、H-bond、COM distance、RMSF 等第一批指标；结论决定 Ch-1/2/4 是否重启。
+- [ ] **[质量门] 预注册 operational cutoff 来源审查**：所有用于 go/no-go 的项目预注册阈值、技术栈选择、几何定义和数值判据必须补齐 DOI / 标题 / 原文方法段落 / 官方工具文档等 exact pointer；没有 exact pointer 的文献引用暂不承认，统一标记为待查验或项目 operational heuristic。
+- [ ] **[阻塞] docking Top 推荐刷新**：将 Gpr3 方案 F Ala/Sat 结果合并进全量 mutagenesis，重跑 ratio_channel_analysis；旧 `ratio_channel_report.md` 早于 Gpr3 F 全量结果，不能作为最终湿实验 Top 配对权威。
+- [ ] **[阻塞] 显色级联方案**：报告基因 / 整合位点 / 拷贝数目标 / 是否 GAL4 放大 → 与通路工程组讨论。
 - [ ] **[重要] HP 组沟通**: 经济效益模型需要哪些定量论据？
 
 ---
 
-## 立即可开始的工作（底盘无关）
+## 当前优先入口
 
-1. **§3.1 分子对接** — 受体-配体结合分析
-2. **§3.3 土壤扩散模型** — 检测有效距离预测
-3. **§3.5c 经济效益模型** — 早期检测的成本-收益分析
-4. **学习路线图阶段一** — ODE 建模基础 + 分子对接入门
+1. **chimeric MD 分析** — 从 [2026-04-26 日志](logs/2026-04-26.md) 接续 chctrl 本地分析与 Ch-1/2/4 重启决策。
+2. **docking-repro 结果刷新** — 从 [2026-04-23 日志](logs/2026-04-23.md) 与 Gpr3 F 产物接续，重建 ratio/IFP/湿实验候选。
+3. **ODE 并行推进** — 用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 维护通路结构，但候选/Kd 输入等待 docking 刷新。
+4. **湿实验/显色级联讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md) 与 ODE 需求。
 
 ---
 
@@ -58,10 +61,12 @@
 
 ## 湿实验交接
 
+> 注意：下列 P0 docking 交接文档可能仍含旧 Top 候选。最终湿实验推荐需等 Gpr3 方案 F 结果合并并刷新 ratio/IFP 后再定稿。
+
 | 文档 | 内容 | 链接 |
 |------|------|------|
-| P0 分子对接交接（权威源） | Top 6 候选、双通道全谱排名、底盘上下文、计算局限性 | [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md) |
-| P0 分子对接交接（飞书扁平版） | 同上内容，飞书云文档/多维表格粘贴版 | [wet-lab-handoff-P0-docking-feishu.md](modeling/wet-lab-handoff-P0-docking-feishu.md) |
+| P0 分子对接交接（权威源，待刷新） | Top 候选、双通道全谱排名、底盘上下文、计算局限性 | [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md) |
+| P0 分子对接交接（飞书扁平版，待刷新） | 同上内容，飞书云文档/多维表格粘贴版 | [wet-lab-handoff-P0-docking-feishu.md](modeling/wet-lab-handoff-P0-docking-feishu.md) |
 
 ## 运维参考
 
@@ -72,29 +77,9 @@
 
 > **读取策略**: 需要某篇文献时，先查矩阵确认编号，再只读取对应的 `summaries/` 文件。**不要批量读取所有总结，不要直接读 PDF**。
 
-**文献调研**: [文献矩阵](papers/literature-matrix.md) (47 条目, 6 Tiers) | [搜索日志](papers/search-log.md)
-
-### 已总结文献（17 篇）
-
-| # | 文献 | 主题 | 总结 |
-|---|------|------|------|
-| ★ | Kuo 2024 | Gpr2/Gpr3 对接 | [总结](papers/summaries/Kuo2024-Gpr2Gpr3-summary.md) |
-| ★ | Hu 2024 | GprC 对接 | [总结](papers/summaries/Hu2024-GprC-summary.md) |
-| 1 | Hsueh 2013 | NTF 感知 ascaroside（奠基） | [总结](papers/summaries/Hsueh2013-NTF-eavesdrop-pheromones-summary.md) |
-| 2 | Chen 2021 | MAPK 通路 | [总结](papers/summaries/Chen2021-MAPK-prey-sensing-summary.md) |
-| 3 | Chen 2022 | cAMP-PKA 通路 | [总结](papers/summaries/Chen2022-cAMP-PKA-trap-morphogenesis-summary.md) |
-| 11 | Park 2012 | C. elegans ascaroside 受体 | [总结](papers/summaries/Park2012-SRBC-DAF-receptors-summary.md) |
-| 14 | Ludewig 2013 | ascaroside 信号综述 | [总结](papers/summaries/Ludewig2013-ascaroside-signaling-review-summary.md) |
-| 17 | Choe 2012 | ascaroside 跨物种保守 | [总结](papers/summaries/Choe2012-ascaroside-conserved-summary.md) |
-| 18 | Manosalva 2015 | ascr#18 植物免疫 | [总结](papers/summaries/Manosalva2015-ascaroside-plant-defense-summary.md) |
-| 19 | Klessig 2019 | ascr#18 广谱抗性 | [总结](papers/summaries/Klessig2019-ascaroside-broad-spectrum-summary.md) |
-| 25 | Zhao 2016 | PPN 产 ascaroside 协调媒介甲虫 | [总结](papers/summaries/Zhao2016-ascaroside-PPN-dispersal-summary.md) |
-| 26 | Lengger 2020 | 酵母 GPCR 工程综述 | [总结](papers/summaries/Lengger2020-yeast-GPCR-engineering-summary.md) |
-| 27 | Mukherjee 2025 | 酵母底盘筛选真菌 GPCR | [总结](papers/summaries/Mukherjee2025-yeast-mating-fungal-GPCR-summary.md) |
-| 31 | Hara 2012 | 嵌合 Gpa1 C-末端设计 | [总结](papers/summaries/Hara2012-chimeric-Gpa1-yeast-summary.md) |
-| 32 | Medici 1997 | 嵌合 Gpa1-Gsα 融合 | [总结](papers/summaries/Medici1997-chimeric-Gpa1-Gs-summary.md) |
-| 33 | Miettinen 2022 | 酵母 cannabinoid biosensor | [总结](papers/summaries/Miettinen2022-GPCR-yeast-cannabinoid-summary.md) |
-| 30 | Ladds 2005 | 酵母 GPCR 异源表达综述 | 待总结 |
+- **文献调研入口**: [文献矩阵](papers/literature-matrix.md)（当前本地记录：58 篇 PDF / 59 篇已总结，详见矩阵头部）
+- **组员使用说明**: [papers/README.md](papers/README.md)
+- INDEX 不再维护完整已总结清单，避免与矩阵重复和漂移；请以 `papers/literature-matrix.md` 为文献路由权威。
 
 ## 归档
 
@@ -107,41 +92,38 @@
 
 ## 最近进展
 
-- **2026-04-12**: ① MD 技术栈 7 维度调研全部完成（生产栈 GROMACS+CHARMM36m+CGenFF+CHARMM-GUI+POPC）② 体系 pre-register 8 holo 锁定（修正 7→8：2 WT + Top 6）③ **P0 执行顺序重排：嵌合 Gpa1（阻塞湿实验）→ ODE（并行）→ MD（最后）**——MD 是"锦上添花"不是前置依赖
-- **2026-04-11**: ① 双通道全谱排名（122 条）② Top 6 确定 ③ V138R 盐桥假说待 MD 实证 ④ **底盘 = 酵母-STE2，P3→P0**
-- **2026-04-10**: GprC×14 + Gpr2×10 alanine scan；双通道分类 v1
-- **2026-04-09**: Gpr3 IFP alanine scan；BW 映射修正
-- **2026-04-08**: WT 单阶段 GprC_ascr18 复现 Hu2024（Δ=0.05）
+- **2026-04-27**: `True_Gpr2_or_not.md` 核查 Kuo2024 GPA2/GPA3 标签疑问：当前 `TGJ64397.1` 与 GPA2 primers 匹配，Gpr2/Gpr3→AoGpa2 设计暂不回滚；Ch-1/2/4 MD 不因该问题重跑。
+- **2026-04-26**: Slurm 队列清空；chctrl Phase C4 production MD 3/3 完成；Ch-1 rep1 中断在约 28 ns 且有 cpt，Ch-2/Ch-4 仅完成 step6.6；决策为先分析 chctrl，再决定是否重启 Ch-1/2/4。
+- **2026-04-23/24**: Gpr2 3D offset Ala/Sat 重跑完成并刷新旧 ratio；随后 Gpr3 pose 审查发现旧 groove 污染，方案 F（ECL2 manual box=20 Å）几何 PASS；Gpr3 F Ala/Sat 结果文件已生成，尚需合并刷新 ratio/IFP。
+- **2026-04-22**: Slurm 新增 QOS=1 导致排队不可接受；取消冲突/排队任务，保留 chctrl rep3；后续 docking/Ch-1 迁移策略调整。
+- **2026-04-21**: DO-2 教学改为 Mac/WSL2 本地流程，移除学员对 Slurm 的依赖；预制 PDBQT zip 打包完成但下载链接仍待替换。
 
 ---
 
 ## 待办
 
-### ① P0 嵌合 Gpa1 ⭐⭐⭐（立即启动，阻塞湿实验）
-- [x] MUSCLE 比对 Gpa1 vs Ao Gpa2 / Af GasA（+ gustducin/Gsα 对照）→ `experiments/chimeric-gpa1/alignment/`
-- [x] C 端 5/10/15 残基三档嫁接方案 + 6 个候选序列 → `experiments/chimeric-gpa1/chimeras/`
-- [ ] AlphaFold 3 预测嵌合复合物（18 组合 + WT 对照）
-- [ ] iPAE / 接触界面评分 → 推荐方案 → 湿实验交接
-- [ ] MD 稳定性验证（Top 2-3 候选，排在 MD 生产期间）
+### ① P0 嵌合 Gpa1 + chimeric MD ⭐⭐⭐（当前最高优先级）
+- [x] MUSCLE/ClustalΩ 比对 Gpa1 vs Ao Gpa2 / Af GasA（+ gustducin/Gsα 对照）→ `experiments/chimeric-gpa1/alignment/`
+- [x] C 端多档嫁接候选生成与 AF3 全量预测（42 jobs）→ `experiments/chimeric-gpa1/analysis/ranking_summary.md`
+- [x] Top 3 嵌合候选选定；AoGpa2 `TGJ64397.1` 身份核查通过 → [True_Gpr2_or_not.md](logs/True_Gpr2_or_not.md)
+- [ ] chctrl 3 条 production MD 轨迹本地下载、PBC 修正、第一批指标分析 → [2026-04-26 日志](logs/2026-04-26.md)
+- [x] chctrl selection audit：已核验 PROA/PROB、Gpa1 alpha5/eCT residue mapping、Ste2 interface geometry、fit/reference 路线；selection 定义可用于 caveated interpretation，但阈值来源审查仍未完成 → `experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/selection_audit_report.md`
+- [ ] 审阅 chctrl selection audit 报告后，决定是否接受 chctrl 为“usable with alpha5 caveat”并进入 Ch-1/2/4 续跑/重提决策
+- [ ] 根据 chctrl 阳性对照结果决定 Ch-1/2/4 是否续跑/重提，再更新湿实验嵌合方案置信度
 
-### ② P0 信号通路 ODE（与 ① 并行）
-- [ ] 完整酵母 STE2 ODE 模型（参数源 Shaw2019/Fan&Yuan2024/Ladds2005）
+### ② P0 docking-repro 结果刷新 ⭐⭐⭐
+- [x] Gpr2 3D offset WT/Ala/Sat 重跑完成；旧 Gpr2 污染结果不再作为权威
+- [x] Gpr3 方案 F pose 几何 PASS；Gpr3 F Ala/Sat 产物已生成
+- [ ] 合并 Gpr3 F Ala/Sat 到全量 mutagenesis JSON，重跑 `ratio_channel_analysis.py`
+- [ ] 对新 Gpr2/Gpr3 F Top 候选重跑/刷新 ProLIF IFP 与机制解释
+- [ ] 刷新 `wet-lab-handoff-P0-docking*.md`；刷新前不要把旧 Top 配对作为最终湿实验推荐
+
+### ③ P0 信号通路 ODE（并行）
+- [ ] 完整酵母 STE2 ODE 模型（参数源 Shaw2019/Fan&Yuan2024/Ladds2005 等）
 - [ ] 1/2/4 copy 拷贝数敏感性分析
-- [ ] 与 P0-docking 联动：Kd 参数从双通道排名获取
+- [ ] 与 docking 联动：待刷新后的 Top 候选/Kd 作为受体输入参数
 
-### ③ P0 MD 模拟（排在 ① 之后，等 CHARMM-GUI + PI 服务器）
-- [x] 技术栈调研 7 维度（GROMACS + CHARMM36m + CGenFF + CHARMM-GUI）
-- [x] 体系 pre-register（8 holo 锁定）
-- [~] CHARMM-GUI 学术账号（已提交注册）
-- [ ] ascaroside ParamChem penalty 扫描（CHARMM-GUI 通过后立即做）
-- [ ] V138R + ascr#18 体系 MD（盐桥实证）
-- [ ] F170E pose drift 分析
-- [ ] Top 6 RMSD/RMSF 汇总
-
-### P0 分子对接（计算完成，进入输出阶段）
-- [x] WT 单阶段；[x] Alanine scan；[x] 双通道全谱排名（122 条）；[x] Top 6 IFP
-- [ ] **Wiki 写作** + **湿实验交接**（[wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md)）
-
-### 其他待启动
-- [ ] 显色级联方案讨论（与通路工程组）
+### ④ 其他待启动
+- [ ] 显色级联方案讨论（报告基因 / 整合位点 / 拷贝数 / GAL4 放大）
 - [ ] 与 HP 组沟通经济效益模型需求
+- [ ] 土壤扩散、贝叶斯推断、经济效益、剂量-响应等 P1/P2 方向按 Wiki 叙事需要启动

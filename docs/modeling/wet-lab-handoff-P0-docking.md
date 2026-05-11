@@ -3,11 +3,14 @@ direction: P0-molecular-docking
 type: wet-lab-handoff
 target_audience: wet-lab-team
 last_updated: 2026-04-14
+reviewed_stale: 2026-04-27
 ---
 
 # 湿实验交接：受体突变候选位点
 
 ## 1. 摘要
+
+> **2026-04-27 状态警告**：本文仍是 2026-04-14 旧版交接草案，包含旧 Top 推荐（如 M327A/V138T）。Gpr2 已用 3D offset 重跑，Gpr3 已改用方案 F；最终湿实验候选需等 `ratio_channel_report.md` / IFP / 本文刷新后再定。当前不要把本文作为构建清单直接下发。
 
 对 3 个 ascaroside 受体（Gpr2 / Gpr3 / GprC）做了 122 条突变扫描（32 alanine + 90 saturation），按 PRD 的**双通道比值型传感器**设计目标分析：
 
@@ -28,7 +31,7 @@ last_updated: 2026-04-14
 
 **方法**：AlphaFold 3 Server 预测突变体结构 → AutoDock Vina 单阶段对接（spacing=0.1 Å, exhaustiveness=200, box=40 Å, seed=42, Hu2024 参数）→ ProLIF IFP 交叉验证 → 双通道 sel_mut 分级。
 
-**完整计算数据**：`experiments/docking-repro/analysis/ratio_channel_report.md`（双通道全谱）/ `ratio_pairings.csv`（配对排名）
+**历史计算数据**：`experiments/docking-repro/analysis/ratio_channel_report.md`（双通道全谱）/ `ratio_pairings.csv`（配对排名）；2026-04-27 起待刷新，不作最终构建依据
 
 ---
 
@@ -332,7 +335,7 @@ GprC 14 个 alanine 扫描残基中 **13/14 落入极端扰动区**（剩 1 个�
 
 ## 10. 饱和扫描关键发现
 
-5 个位点（Gpr2 M327/R59、Gpr3 I141/F170/V138）× 18 AA = 90 突变体，合并 32 alanine = **122 条**全谱。权威源 `experiments/docking-repro/analysis/ratio_channel_report.md`。
+5 个位点（Gpr2 M327/R59、Gpr3 I141/F170/V138）× 18 AA = 90 突变体，合并 32 alanine = **122 条**全谱。历史报告 `experiments/docking-repro/analysis/ratio_channel_report.md`（待 Gpr3 F 合并刷新）。
 
 ### V138 孤峰 vs 类别规律
 

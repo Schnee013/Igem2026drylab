@@ -1,9 +1,9 @@
 ---
 direction: P3-chimeric-gprotein
-status: in_progress
+status: MD_validation
 priority: P0
 chassis_dependent: true
-last_updated: 2026-04-13
+last_updated: 2026-04-27
 ---
 
 # P0: 嵌合 G 蛋白 (Gpa1) 设计的同源性建模
@@ -13,6 +13,8 @@ last_updated: 2026-04-13
 > **2026-04-11 priority P3 → P0**：底盘决策锁定酵母-STE2 后，嵌合 Gpa1 是异源 Gpr 与内源 Fus3 MAPK 之间唯一的功能桥梁，成败关键。详见 [决策 003](../decisions/003-chassis-yeast-ste2-integration.md) / [chassis-decision §最终决策](../prd/chassis-decision.md#最终决策2026-04-11)。
 >
 > 文件名仍保留 `P3-chimeric-gprotein.md`（不重命名以避免破坏 git 历史和外部引用），通过 frontmatter `priority: P0` 与本文件头注明实际优先级。
+>
+> **2026-04-27 校准**：AF3 全量筛选与 Top 3 选择已完成，本方向当前状态为 **MD_validation**。AoGpa2 `TGJ64397.1` 已经按 Kuo2024 primers/NCBI 序列核查，暂不需要回滚或重跑；MD 验证进度以 [P0-md-simulation.md](P0-md-simulation.md) 与 [2026-04-26 日志](../logs/2026-04-26.md) 为准。
 
 ## 解决什么问题
 
@@ -109,9 +111,9 @@ last_updated: 2026-04-13
 - [x] Batch 1（C5/C10/C15）: 26 jobs AF3 预测完成
 - [x] Batch 2（C25/C37）: 16 jobs AF3 预测完成，合并 Batch 1+2 排名 → `experiments/chimeric-gpa1/analysis/ranking_summary.md`
 - [x] 全量分析（42 jobs）：GprC×AfGasA 唯一 cognate 特异性配对 (Δ=+0.088)；β6 假设未被支持；Top 3 候选已选定
-- [ ] MD 稳定性验证（Top 2-3 候选，转 [P0-md-simulation](P0-md-simulation.md)）
+- [~] MD 稳定性验证（Top 2-3 候选，转 [P0-md-simulation](P0-md-simulation.md)）：chctrl 3/3 production 已完成，Ch-1/2/4 暂停等待 chctrl 分析
 - [ ] 与 Hara2012/Medici1997 模板的对比表
-- [ ] 嵌合 Gpa1 序列 FASTA + 注释 → 通路工程组（湿实验交接）
+- [ ] 嵌合 Gpa1 序列 FASTA + 注释 → 通路工程组（湿实验交接；需携带 MD/序列核查 caveat）
 
 ## 学习成本与依赖
 
@@ -133,6 +135,8 @@ last_updated: 2026-04-13
 | 2026-04-13 | Pipeline 清理：删除 6 个冗余脚本/manifest，parse_af3_results.py 改为 discover_jobs() 自动扫描 | 简化维护 |
 | 2026-04-14 | Batch 2 完成：42 jobs 全量解析 + 逐受体分析 + β6 假设验证 | GprC cognate Δ=+0.088；β6 未按预期生效；Top 3 候选选定 |
 | 2026-04-14 | Bug 修复：parse_af3_results.py 3 处 bug (chains→chimera, is_cognate 作用域, Ste2 路径) + downloads/ 命名统一 | Ste2 folder 重命名 → ste2_gpa1_wt_complex |
+| 2026-04-26 | chimeric MD 状态核查 | chctrl 3/3 production 完成；Ch-1 rep1 中断约 28 ns；Ch-2/Ch-4 仅 step6.6；先分析 chctrl 再决定是否重启 |
+| 2026-04-27 | AoGpa2 身份核查 | `TGJ64397.1` 与 Kuo2024 GPA2 primers 匹配，Gpr2/Gpr3→AoGpa2 设计暂不回滚 |
 
 ## 版本记录
 
@@ -144,6 +148,7 @@ last_updated: 2026-04-13
 | 2026-04-13 | **v3.0** | 文献模板重写：修正 Lengger2020 错误引用（无 5/10/13 比较），新增 Conklin1993/Ueda2003/Velazhahan2021；Step 2 三档方案归因修正；AF3 Phase 3+4 完成 | AF3 结果解读 + 文献调研 |
 | 2026-04-13 | **v3.1** | Step 2 扩展为五档（+C25/C37）；产出定义更新（10 候选 + Batch 1/2 分期）；进展记录补 C25/C37 条目 | Batch 1 cognate≈cross + Ueda2003 长度滴定驱动 |
 | 2026-04-14 | **v4.0** | Batch 2 完成 + 42 jobs 全量分析；产出定义更新（全量分析 + Top 3）；§4 逐受体分析 + β6 假设验证写入 ranking_summary.md | Batch 2 AF3 结果到位 |
+| 2026-04-27 | **v4.1** | 状态改为 MD_validation；补充 chctrl MD 与 AoGpa2 身份核查指针 | INDEX 审查发现原状态过旧 |
 
 ## 与其他方向的依赖关系
 
