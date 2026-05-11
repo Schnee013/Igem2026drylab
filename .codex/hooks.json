@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/roy/Documents/drylab/.codex/hooks/session-end-remind.sh'"
+          }
+        ]
+      }
+    ]
+  }
+}
