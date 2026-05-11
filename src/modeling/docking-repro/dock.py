@@ -15,6 +15,7 @@ AutoDock Vina 对接模块（Hu2024 复现）
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -184,6 +185,9 @@ def _run_vina(
         "--seed",           str(seed),
         "--out",      str(output),
     ]
+    vina_cpu = os.environ.get("VINA_CPU")
+    if vina_cpu:
+        cmd += ["--cpu", vina_cpu]
     logger.debug("vina cmd: " + " ".join(cmd))
 
     proc = subprocess.run(cmd, capture_output=True, text=True)
