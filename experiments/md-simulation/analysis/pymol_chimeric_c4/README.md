@@ -30,7 +30,7 @@ PPM2 2.0 膜取向（`_submit.pdb`）。即 MD 真正起始的坐标，不是 AF
 | Ch-1 | Gpr3 | AoGpa2-C37 | 0.50 | 23.31 | 全数据集最低 iPAE；主工程路线 Channel B |
 | Ch-2 | Gpr3 | AoGpa2-C15 | 0.50 | 24.82 | C37 vs C15 嫁接长度对比 |
 | Ch-4 | Gpr2 | AoGpa2-C10 | 0.46 | 25.26 | Channel A 覆盖；ipTM 低为 AF3 假阴性 |
-| Ch-ctrl | Ste2 | Gpa1-WT | 0.60 | 23.44 | 阳性对照（Velazhahan 2021 + Ramasamy 2025） |
+| Ch-ctrl | Ste2 | Gpa1-WT | 0.60 | 23.44 | 阳性对照（Velazhahan 2021 / PDB 7AD3 结构锚点；Mohanty 2025 仅作 interface context） |
 
 > 候选选择依据权威源：[../../../chimeric-gpa1/analysis/ranking_summary.md](../../../chimeric-gpa1/analysis/ranking_summary.md)
 
@@ -71,7 +71,7 @@ show sticks, alpha5 or icl_pocket
 zoom alpha5
 ```
 
-> α5-helix 边界参考：Bauer 2022（iRMSD 判据）和 [../../README.md §判定标准](../../README.md)。
+> α5-helix 边界参考：Gα C-terminal alpha5/eCT biology（见 Hara 2012 / Velazhahan 2021）；原 “Bauer 2022” iRMSD 判据无 DOI/title/exact pointer，2026-04-29 起仅作 pending source audit，不作为权威阈值。
 > 实际 Gα C 末端残基号以各体系 `chain B` 最后 ~20 残基为准（不同嵌合体长度不同）。
 
 ## 与 docking pymol_top6 的差异

@@ -241,7 +241,7 @@ iGEM 过去 3 年的 MD 使用以 **GROMACS 为压倒性主流**：NAU-CHINA 202
 10. [Characterizing GPCR Conformational States with AlphaFold (arXiv 2502.17628)](https://arxiv.org/html/2502.17628v1)
 11. [Dual Mechanisms of Cholesterol-GPCR Interactions (PMC10330489)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10330489/)
 12. [Human Class B1 GPCR Modulation by Plasma Membrane Lipids (PMC12936092)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12936092/)
-13. [Memprot.GPCR-ModSim (Bioinformatics 2024, btae662)](https://academic.oup.com/bioinformatics/article/40/11/btae662/7879340)
+13. [Memprot.GPCR-ModSim (Bioinformatics 2024, btae662, DOI 10.1093/bioinformatics/btae662)](https://doi.org/10.1093/bioinformatics/btae662)
 14. [Split Membrane model on A2A (JCIM 2024)](https://pubs.acs.org/doi/full/10.1021/acs.jcim.4c01664)
 15. [CHARMM-GUI Yeast Membranes (PMC2711372)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2711372/)
 16. [Ergosterol effect on fungal membrane (PubMed 29122611)](https://pubmed.ncbi.nlm.nih.gov/29122611/)
@@ -387,7 +387,7 @@ iGEM 过去 3 年的 MD 使用以 **GROMACS 为压倒性主流**：NAU-CHINA 202
 ### 6.7 警示
 
 - **Single replica 审稿/iGEM Judging 都会被质疑**：即便 1 μs 单 run 不如 3 × 200 ns 有说服力
-- **AF3 起始 ≠ 晶体**：侧链 rotamer 和 loop 比实验结构更需平衡；首 50 ns 必须从分析窗口扣除 ([Memprot.GPCR-ModSim 2024](https://academic.oup.com/bioinformatics/article/40/11/btae662/7879340))
+- **AF3 起始 ≠ 晶体**：侧链 rotamer 和 loop 比实验结构更需平衡；首 50 ns 扣除是项目 operational burn-in heuristic；Memprot.GPCR-ModSim 2024 仅支持自动化 membrane setup/equilibration 背景，不再作为该数值来源
 - **CGenFF ascr#18 糖环 penalty 必须先查**：>50 的参数必须 refine，否则盐桥占比数字不可信
 - **GaMD / metadynamics 在 iGEM 5 月窗口是"诱惑陷阱"**：学习曲线 + 重权重 + debug 吃 2–4 周
 - **HMR 4 fs 留给后期**：放大某些 CGenFF 数值不稳定性
@@ -603,93 +603,100 @@ anandamide = "长脂肪链 + 极性头"的 GPCR 配体，**距离 ascaroside 最
 1. ⭐⭐⭐ **ascaroside ParamChem penalty 扫描**（1–2 天）：立即做，决定是否触发 QM 重拟；不做 = V138R 盐桥占比数字不可信
 2. ⭐⭐⭐ **CHARMM-GUI 学术账号**：本周内注册（审批 0.5–1 天）
 3. ⭐⭐⭐ **AlphaFold3 结构 PPM 2.0 对齐**：生产前必做；跳过 → TM 倾角 30°+ 灾难
-4. ⭐⭐ **水盒子 benchmark**：PI 服务器配置确认后跑一次，验证 `-update gpu -bonded gpu -pme gpu` 是否开到位
+4. ⭐⭐ **水盒子 benchmark**：如后续更换 GPU/Slurm 节点，再跑一次，验证 `-update gpu -bonded gpu -pme gpu` 是否开到位
 5. ⭐⭐ **体系清单 pre-register**：在跑之前写死 7 或 14 个体系，防止中途增加导致统计比较不公
 6. ⭐ **分阶段 equilibration schedule**：借鉴 mwSuMD 2→60→80→20 ns restraint release，AF3 起始首 50 ns 扣除
 
 ---
 
-## 12. GPCR-Gα 蛋白复合物 MD 文献调研（第三轮）
+## 12. GPCR-Gα 蛋白复合物 MD 文献调研（第三轮；2026-05-06 source-audited）
 
 > **调研背景**：前两轮调研（§1–§10）覆盖 GPCR-配体 MD 体系的技术栈选型，但**未覆盖 GPCR-Gα 蛋白-蛋白复合物 MD**。P3 嵌合 Gpa1 设计已完成 Phase 4（Top 3 候选选定），Phase 5 MD 验证需要独立的文献支撑。
 >
-> **调研时间**：2026-04-16
+> **初始调研时间**：2026-04-16；**来源审查修订**：2026-05-06。
+>
+> **2026-05-06 审查规则**：没有 DOI / 标题 / 原文方法段落 / 官方工具文档 / exact data pointer 的文献引用，不作为权威依据。旧版“only/首篇/充分支撑”等强断言在完成完整重新枚举前降级为 **pending source audit**。本节只保留已核到 exact pointer 的事实。
 
-### 12.1 GPCR-Gα 复合物 MD 关键文献
+### 12.1 GPCR-Gα 复合物 MD 关键文献（source-audited status）
 
-| # | 文献 | 体系 | 方法 | 时长 | 与本项目相关性 |
-|---|------|------|------|------|---------------|
-| 1 | **Tawfeeq et al. 2025** (Biochemistry) | D1R/D2R + chimeric Gs18i/Gi18s | GPCR-chimeric Gα in lipid bilayer, 4 reps × 0.5 μs | 2 μs/complex | **最直接先例**：同样是 C 端交换的 chimeric Gα + MD 验证 |
-| 2 | **Velazhahan et al. 2021** (Nature 589:148) | Ste2 dimer + 2×(Gpa1-Ste4-Ste18) (PDB 7AD3) | cryo-EM + 显式 MD (CHARMM36m/GROMACS/POPC) | 未详述 | **首篇真菌 GPCR-Gα MD**；7AD3 来源论文；此前仅作为结构来源引用，MD 部分被遗漏 |
-| 3 | **Ramasamy et al. 2025** (eLife) | Ste2-Gpa1 (PDB 7AD3) | MD + deep learning cavity analysis | 未明确 | Ste2-Gpa1 MD + sterol allosteric modulator |
-| 4 | **Ranganathan et al. 2019** (Sci Rep) | A2A + Mini-Gs | CHARMM36 + POPC, GROMACS | 2.0 μs | 最接近的协议模板（GPCR + 工程化 Gα，CHARMM36 + GROMACS） |
-| 5 | **Casiraghi & Kobilka 2025** (Sci Adv) | β2AR + Gs/Gi | MD + biophysics | ns-μs | G 蛋白偶联特异性；ICL2 ↔ α5 距离作为指标；**警告**：完整偶联动力学在 ms 时标 |
-| 6 | **Memprot.GPCR-ModSim 2024** (Bioinformatics) | 自动化 GPCR MD | CHARMM36m + GROMACS 2021, 500 ns, 303.15 K | 500 ns | 可直接引用的协议模板（CHARMM36m + GROMACS + 500 ns + 303.15 K） |
-| 7 | **GPCRsignal 2021** (NAR, Jakowiecki et al.) | 任意 GPCR-effector | implicit membrane MD + 接触频率 | 快速 | 前置 sanity check 工具；接触图持续性指标来源 |
+| # | 文献 | exact pointer | 核验到的方法/体系 | 本项目可用性 | 审查状态 |
+|---|------|---------------|------------------|--------------|----------|
+| 1 | **Tawfeeq et al. 2025** | *Biochemistry* 64(11):2439–2454, DOI [`10.1021/acs.biochem.4c00779`](https://doi.org/10.1021/acs.biochem.4c00779) | D1R/D2R 与 Gαs/Gαi WT + Gα C 端 18 aa 交换嵌合体（G_i18s/G_s18i）；GDP-bound 与 nucleotide-free/Empty 两类 G 蛋白状态；CHARMM-GUI 建系，AMBER PMEMD；AMBER ff19SB/Lipid17/OPC/GAFF2；每个模型 4 × 500 ns | **直接支持“Gα C 端交换嵌合体可做 MD 验证”和 500 ns/rep 量级** | 已核验；但**不是** GROMACS/CHARMM36m 来源，也**不支持**本项目 empty-only 作为文献必然选择 |
+| 2 | **Velazhahan et al. 2021** | *Nature* 589:148–153, DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1), PDB [`7AD3`](https://www.rcsb.org/structure/7AD3) | Ste2 dimer coupled to two heterotrimeric G proteins；cryo-EM 结构来源；论文含 Ste2/G protein 相关 MD 背景 | **Ch-ctrl 结构/界面几何锚点**；Ste2-Gpa1 阳性对照的最强结构来源 | 已核验；本项目主要用作结构锚点，不把其所有 MD 参数直接迁移 |
+| 3 | **Mohanty et al. 2025**（旧文档误作 Ramasamy） | *eLife* 14:RP106397, DOI [`10.7554/eLife.106397.3`](https://doi.org/10.7554/eLife.106397.3) | Gcoupler；Ste2p-Gpa1p interface allosteric/metabolite study；Ste2p–metabolite MD + miniGpa1 docking/ΔG/Kd 分析；eLife assessment 标注证据强度为 incomplete | 可作为 **Ste2p-Gpa1p interface/allosteric context**，不是完整 Ste2-Gpa1 production MD protocol | 已核验并降级：不再称为“唯一 Ste2-Gpa1 MD 研究”或“MD 交叉验证锚点” |
+| 4 | **Renault et al. 2019**（旧文档误作 Ranganathan） | *Scientific Reports* 9:5495, DOI [`10.1038/s41598-019-41980-x`](https://doi.org/10.1038/s41598-019-41980-x) | A2A receptor + Mini-Gs / α5 helix；CHARMM-GUI；POPC；CHARMM36 + CGenFF；GROMACS 5.1.4；2 independent replicas × 600 ns，discard first 100 ns；selected systems extended to 2 μs | 支持 **GPCR + engineered Gα/α5、GROMACS、CHARMM36、POPC、500 ns 分析窗口** 的协议类比 | 已核验并替换旧错误引用 |
+| 5 | **Casiraghi et al. 2025** | *Science Advances* 11(12):eadq3971, DOI [`10.1126/sciadv.adq3971`](https://doi.org/10.1126/sciadv.adq3971) | β2AR coupling specificity；Gαs/Gαi；结构和生物物理证据指向 ICL2/TM6 构象差异 | 可作为 **G protein coupling specificity 背景** | 已核验；不作为 COM distance 阈值、ICL2↔α5 数值指标或 ms-timescale cutoff 的来源 |
+| 6 | **van den Broek et al. 2024**（Memprot.GPCR-ModSim） | *Bioinformatics* 40(11):btae662, DOI [`10.1093/bioinformatics/btae662`](https://doi.org/10.1093/bioinformatics/btae662) | Memprot.GPCR-ModSim web server；membrane-protein modelling、embedding、solvation、equilibration；GROMACS-based output ready for further simulations | 可支持 **自动化膜蛋白建系/平衡化工具链背景** | 已核验；**不支持**旧文档“CHARMM36m + 500 ns + 303.15 K 标准协议”表述 |
+| 7 | **Miszta et al. 2021**（GPCRsignal；旧文档误作 Jakowiecki 一作） | *Nucleic Acids Research* 49(W1):W247–W256, DOI [`10.1093/nar/gkab434`](https://doi.org/10.1093/nar/gkab434) | GPCR-effector interface webserver；implicit water-membrane MD；FlarePlots、interaction frequency heatmaps/difference analysis | 支持 **interaction frequency / interface-contact frequency 分析思想** | 已核验；不支持 `>0.50` 作为 universal pass/fail cutoff |
 
-### 12.2 Chimeric Gα MD 先例分析
+### 12.2 Chimeric Gα MD 先例分析：Tawfeeq et al. 2025
 
-**Tawfeeq et al. 2025** 是目前唯一发表的 chimeric Gα MD 研究：
+**Tawfeeq et al. 2025** 是本节目前已核到 exact pointer 的最直接 chimeric Gα MD 先例，但不是本项目协议的“一比一模板”。
 
-- **设计**：C 端 18 残基交换（Gs18i = Gs body + Gi α5 C-term；Gi18s = 反向）
-- **体系组成**：GPCR + chimeric Gα，**不含 Gβγ，不含核苷酸**（nucleotide-free 态）
-- **模拟协议**：4 independent replicates × 500 ns = 2 μs per complex
-- **分析重点**：α5-helix 界面 RMSD、BSA、接触持续性
-- **结论**：chimeric Gα 的 C 端嫁接不破坏界面整体稳定性，但局部 loop 灵活性增加
+- **设计**：Gαs 与 Gαi 的 α5/C 端 18 残基交换，构建 G_i18s 与 G_s18i。
+- **体系组成**：D1R/D2R + Gα 模型；同时包含 GDP-bound 与 nucleotide-free/Empty 状态；D1R/D2R 还带 dopamine ligand。旧版“与本项目一样不含核苷酸”是错误迁移，已撤回。
+- **模拟协议**：16 个 receptor–G protein 模型；每个模型 4 independent replicas × 500 ns；总计 64 条 500 ns trajectories。
+- **软件/力场**：CHARMM-GUI 用于建系；生产 MD 是 AMBER PMEMD，不是 GROMACS；力场为 AMBER ff19SB / Lipid17 / OPC / GAFF2，不是 CHARMM36m。
+- **分析重点**：MMPBSA/thermodynamic analysis、结构和接触/α5 相关比较。旧版“直接提供 α5 iRMSD、BSA、contact persistence 三阈值模板”的说法没有 exact method pointer，不能保留。
 
-**与本项目的对应关系**：
-| Tawfeeq 2025 | 本项目 | 匹配度 |
-|-----------|--------|--------|
-| C 端 18 残基交换 | C5/C10/C15/C25/C37 残基交换 | ✅ 同类设计（本项目跨度更广） |
-| D1R/D2R（人源 Class A GPCR） | Gpr2/Gpr3/GprC（真菌 GPCR） | ⚠️ 物种不同，但 7-TM 结构保守 |
-| Gs/Gi 嵌合 | AoGpa2/AfGasA 嵌合 | ✅ 同样是异源 Gα C 端供体 |
-| 4 reps × 500 ns | 3 reps × 500 ns（可升 5 reps） | ✅ 量级匹配 |
-| 不含 Gβγ / 不含核苷酸 | 同 | ✅ 完全一致 |
+**可迁移到本项目的只有两点**：
 
-### 12.3 技术栈兼容性确认
+1. “Gα C 端/α5 残基交换的 chimeric Gα 可以用 receptor–G protein complex MD 评价”这一研究设计逻辑。
+2. “500 ns × multiple independent replicas”这一采样量级。
 
-| 维度 | 现有选择 | 文献支撑 | 状态 |
-|------|---------|---------|------|
-| MD 引擎 | GROMACS 2025.2 | Ranganathan 2019, Memprot 2024 | ✅ 充分支撑 |
-| 蛋白力场 | CHARMM36m | Tawfeeq 2025（CHARMM 栈）, Ranganathan 2019 | ✅ 充分支撑 |
-| 膜组分 | POPC | Ranganathan 2019, Memprot 2024 | ✅ 标准选择 |
-| 膜构建 | CHARMM-GUI | 所有引用的 GPCR MD 研究 | ✅ 事实标准 |
-| 水/离子 | CHARMM-modified TIP3P + 0.15 M KCl | 与 CHARMM36m 匹配 | ✅ |
-| 多链蛋白支持 | CHARMM-GUI Membrane Builder | Ranganathan 2019（A2A + Mini-Gs 多链输入） | ✅ 已验证 |
+**不可迁移/不可引用为依据**：GROMACS/CHARMM36m 技术栈、empty-only 体系组成、BSA/α5 iRMSD/contact persistence 的数值阈值。
 
-**结论：现有技术栈完全适用于 chimeric MD，无需更换。**
+### 12.3 技术栈兼容性确认（修订版）
 
-### 12.4 模拟时长推荐
+| 维度 | 本项目选择 | source-audited 支撑 | 当前解释 |
+|------|------------|--------------------|----------|
+| MD 引擎 | GROMACS 2025.2 | Renault 2019 使用 GROMACS 5.1.4；Memprot.GPCR-ModSim 输出 GROMACS-ready membrane systems | 支持“GROMACS 可用于 GPCR/engineered Gα 或膜蛋白复合物”，不是版本等同 |
+| 蛋白/脂质力场 | CHARMM36m / CHARMM-GUI stack | Renault 2019 使用 CHARMM36/CGenFF + CHARMM-GUI；本项目 production 输入来自 CHARMM-GUI | 支持 CHARMM-family 技术栈合理；Tawfeeq 不再作为 CHARMM36m 依据 |
+| 膜组分 | POPC | Tawfeeq 2025、Renault 2019 均有 POPC bilayer；Velazhahan 结构背景与膜 GPCR 体系一致 | POPC 是合理简化，不等于所有 Ste2/Gpa1 生物膜组分 |
+| 膜构建 | CHARMM-GUI | Tawfeeq 2025 与 Renault 2019 均用 CHARMM-GUI；本项目 CHARMM-GUI 输出已实际运行 | 充分支持继续沿用 |
+| 多链/复合物支持 | GPCR + Gα / engineered Gα | Renault 2019 的 A2A–Mini-Gs；Tawfeeq 2025 的 D1R/D2R–Gα chimeras；Velazhahan 2021 的 Ste2–G protein 结构 | 支持本项目 receptor–Gα complex 建系，但物种/类别差异仍需在解释中声明 |
 
-| 来源 | 推荐时长 | 理由 |
-|------|---------|------|
-| Tawfeeq 2025 | 500 ns × 4 reps | Chimeric Gα 直接先例 |
-| Ranganathan 2019 | 2.0 μs（连续） | GPCR + 工程化 Gα |
-| Memprot 2024 | 500 ns | 自动化标准协议 |
-| Casiraghi/Kobilka 2025 | ns-μs | 界面稳定性可在 500 ns 观察；完整偶联需 ms |
+**结论（修订）**：现有 GROMACS + CHARMM36m + CHARMM-GUI + POPC 栈仍可继续使用；但旧版“所有引用共同充分支撑同一技术栈”的说法过强。正确说法是：**多个 exact-pointer 文献分别支撑建系、GROMACS/CHARMM-family、POPC、engineered Gα complex 这些子层；它们不是一个完全相同的协议模板。**
 
-**采纳**：500 ns × 3 reps（最小统计需求），与 Tawfeeq 2025 量级一致。分析窗口起点 100 ns（AF3 结构需要比 cryo-EM 更长松弛期）。
+### 12.4 模拟时长推荐（修订版）
 
-### 12.5 关键缺口（必须在论文/wiki 中声明）
+| 来源 | 核验到的时长 | 可迁移含义 |
+|------|--------------|------------|
+| Tawfeeq 2025 | 每个 receptor–G protein 模型 4 × 500 ns | chimeric Gα 直接先例支持 500 ns/rep 量级 |
+| Renault 2019 | 2 replicas × 600 ns，discard first 100 ns；selected systems extended to 2 μs | GPCR–Mini-Gs/α5 系统中 500 ns 分析窗口可观察 allosteric/contact-network effects；2 μs 可作为更深采样参考 |
+| Memprot.GPCR-ModSim 2024 | 提供 membrane embedding / equilibration / GROMACS-ready setup | 不再作为 500 ns production 时长来源 |
+| Casiraghi 2025 | coupling specificity 的结构/生物物理背景 | 不再作为本项目 ns–μs 时长判据来源 |
 
-> **2026-04-17 修订**：经 4 维度系统搜索验证（PubMed/Scholar + bioRxiv/chemRxiv + citation graph + 广义 chimeric Gα），修正原"零篇"声明。完整矩阵 → `experiments/chimeric-gpa1/literature/chimeric_md_literature_matrix.md`
+**采纳（项目 operational choice）**：500 ns × 3 reps 仍保留为最小可行采样方案；依据是 Tawfeeq 2025 和 Renault 2019 的同量级先例 + 项目 GPU/时间约束。它不是文献定义的 universal threshold。分析窗口起点 100 ns 继续标为项目 operational burn-in heuristic，不再归因于 Memprot 2024。
 
-1. 真菌 GPCR-Gα 复合物 MD **仅 2 篇**（Velazhahan 2021 Nature + Ramasamy 2025 eLife），均为酿酒酵母 Ste2-Gpa1 WT → 本项目首次扩展到非酿酒酵母真菌 GPCR（*A. oligospora* Gpr2/Gpr3, *A. flagrans* GprC）
-2. Chimeric Gα + GPCR MD **仅 1 篇**（Tawfeeq 2025 Biochemistry），人源 D1R/D2R → 本项目首次做真菌 chimeric Gα MD
-3. **零篇** ascaroside 结合态 GPCR-Gα MD → 初版 chimeric MD 不含配体可规避此问题
-4. MD 只能评估**结构稳定性**（界面是否解离），不能完全表征**偶联动力学**（ms 时标，Casiraghi/Kobilka 2025 警告）
-5. Tawfeeq 2025 用**人源** Class A GPCR，本项目用**真菌** GPCR——7-TM 结构保守但 ICL 序列差异可能影响界面几何
+### 12.5 关键缺口（2026-05-06 降级说明）
 
-### 12.6 引用来源
+旧版 §12.5 曾写“真菌 GPCR-Gα 复合物 MD 仅 2 篇”“Chimeric Gα + GPCR MD 仅 1 篇”。这些是 **only-N / 首创类强断言**，需要重新枚举完整文献集合后才能用于 wiki/paper。当前处理如下：
 
-1. Tawfeeq C, Hilibrand AS, Smith JS, Portillo J, Kruse AC, Abrol R (2025) G Protein Selectivity in Dopamine Receptors is Determined before GDP Release. *Biochemistry*. DOI: 10.1021/acs.biochem.4c00779 (**勘误**: 此前误标为 "Tsai et al.")
-2. Ramasamy S et al. (2025) MD and deep learning analysis of Ste2-Gpa1 complex. *eLife*.
-3. Ranganathan A et al. (2019) Allosteric coupling across the orthosteric binding site in the A2A-Mini-Gs complex. *Sci Rep* 9:11265.
-4. Casiraghi M, Bhatt T, Bhatt DL, Kobilka BK (2025) G protein coupling specificity of GPCRs. *Sci Adv*.
-5. Pandy-Szekeres G et al. (2024) Memprot.GPCR-ModSim: automated GPCR MD setup. *Bioinformatics*.
-6. Jakowiecki J et al. (2021) GPCRsignal: webserver for GPCR-effector signaling. *NAR* 49(W1):W357-W363.
+1. **保留可证实 anchor**：Velazhahan 2021 是 Ste2-Gpa1/G protein 结构与 chctrl 几何锚点；Tawfeeq 2025 是 chimeric Gα MD 设计先例；Renault 2019 是 engineered Gα/Mini-Gs + GROMACS/CHARMM/POPC 协议类比。
+2. **降级 Mohanty 2025**：其研究聚焦 Ste2p-Gpa1p interface allosteric modulators 和 Gcoupler，不再作为“完整 Ste2-Gpa1 complex MD protocol”。
+3. **暂停 only-N claim**：在完成系统检索矩阵重审前，不写“仅 2 篇”“仅 1 篇”“首个”等最终表述；可写成“在当前已核 exact-pointer 文献中，尚未找到非酿酒酵母真菌 chimeric Gα–GPCR complex MD 的直接先例”。
+4. **ascaroside-bound GPCR-Gα MD**：本轮未找到 exact-pointer 直接先例；继续标为 pending source audit，而不是绝对“零篇”。
+5. **MD 解释边界**：本项目 MD 评价的是结构/界面稳定性，不等价于完整 G protein activation 或 GDP/GTP exchange 机制；Tawfeeq 2025 也明确区分 early association 与 GDP release/activation。
 
----
+### 12.6 引用来源（source-audited）
+
+1. Tawfeeq C, Hilibrand AS, Smith JS, Portillo J, Kruse AC, Abrol R (2025). “G Protein Selectivity in Dopamine Receptors is Determined before GDP Release.” *Biochemistry* 64(11):2439–2454. DOI [`10.1021/acs.biochem.4c00779`](https://doi.org/10.1021/acs.biochem.4c00779). （旧文档已从 “Tsai et al.” 勘误为 Tawfeeq；本轮进一步纠正其方法栈和 nucleotide-state 迁移。）
+2. Velazhahan V, Ma N, Pándy-Szekeres G, Kooistra AJ, Lee Y, Gloriam DE, Vaidehi N, Tate CG (2021). “Structure of the class D GPCR Ste2 dimer coupled to two G proteins.” *Nature* 589:148–153. DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1); PDB [`7AD3`](https://www.rcsb.org/structure/7AD3).
+3. Mohanty SK, Mittal A, Farooqi N, Gaur A, et al. (2025). “Deep learning reveals endogenous sterols as allosteric modulators of the GPCR–Gα interface.” *eLife* 14:RP106397. DOI [`10.7554/eLife.106397.3`](https://doi.org/10.7554/eLife.106397.3). （旧文档误作 “Ramasamy et al.”。）
+4. Renault P, Louet M, Marie J, Labesse G, Floquet N (2019). “Molecular Dynamics Simulations of the Allosteric Modulation of the Adenosine A2a Receptor by a Mini-G Protein.” *Scientific Reports* 9:5495. DOI [`10.1038/s41598-019-41980-x`](https://doi.org/10.1038/s41598-019-41980-x). （旧文档 “Ranganathan et al. / Sci Rep 9:11265 / Allosteric coupling across...” 未找到 exact pointer，已替换。）
+5. Casiraghi M, Wang H, Brennan PC, Habrian C, Hübner H, Schmidt MF, Maul L, Pani B, Bahriz SMFM, Xu B, Staffen N, Assafa TE, Chen B, White E, Sunahara RK, Inoue A, Xiang YK, Lefkowitz RJ, Isacoff EY, Nucci N, Gmeiner P, Lerch MT, Kobilka BK (2025). “Structure and dynamics determine G protein coupling specificity at a class A GPCR.” *Science Advances* 11(12):eadq3971. DOI [`10.1126/sciadv.adq3971`](https://doi.org/10.1126/sciadv.adq3971).
+6. van den Broek RL, Bello X, Küpper RV, van Westen GJP, Jespers W, Gutiérrez-de-Terán H (2024). “Memprot.GPCR-ModSim: modelling and simulation of membrane proteins in a nutshell.” *Bioinformatics* 40(11):btae662. DOI [`10.1093/bioinformatics/btae662`](https://doi.org/10.1093/bioinformatics/btae662).
+7. Miszta P, Pasznik P, Niewieczerzał S, Jakowiecki J, Filipek S (2021). “GPCRsignal: webserver for analysis of the interface between G-protein–coupled receptors and their effector proteins by dynamics and mutations.” *Nucleic Acids Research* 49(W1):W247–W256. DOI [`10.1093/nar/gkab434`](https://doi.org/10.1093/nar/gkab434).
+
+### 12.7 本轮纠错摘要
+
+- `Ramasamy et al. 2025` → **Mohanty et al. 2025**；保留为 Ste2p-Gpa1p interface / allosteric-metabolite context，降级为非 full-complex MD protocol。
+- `Ranganathan et al. 2019 / Sci Rep 9:11265 / Allosteric coupling across...` → 未找到 exact pointer；替换为 **Renault et al. 2019 / Sci Rep 9:5495 / DOI 10.1038/s41598-019-41980-x**。
+- `Casiraghi & Kobilka 2025` → 作者列表与题名纠正为 **Casiraghi et al. 2025, “Structure and dynamics determine G protein coupling specificity at a class A GPCR”**；只作 specificity 背景，不作 COM/时标阈值来源。
+- `Pandy-Szekeres et al. 2024 Memprot` → 纠正为 **van den Broek et al. 2024**；不再声称其给出 CHARMM36m + 500 ns + 303.15 K 标准协议。
+- `Jakowiecki et al. 2021 GPCRsignal` → 一作纠正为 **Miszta et al. 2021**；页码纠正为 W247–W256。
+- Tawfeeq 2025：保留 C-terminal 18-aa chimeric Gα + 4×500 ns 直接先例；撤回“CHARMM/GROMACS 支撑”“empty-only 支撑”“BSA/iRMSD/contact-persistence 阈值模板”三类过度迁移。
 
 ## 11. Methodology
 
@@ -711,4 +718,5 @@ anandamide = "长脂肪链 + 极性头"的 GPCR 配体，**距离 ascaroside 最
 - **v1.0（2026-04-12）**：前 3 维度（§1–§5）落地
 - **v2.0（2026-04-12）**：第二轮 4 维度追加（§6–§10），含完整采样方案 + 分析栈 + 自由能决策 + ascaroside 行动计划；Methodology 更新至 §11
 - **v3.0（2026-04-16）**：第三轮新增 §12 GPCR-Gα 蛋白复合物 MD 文献调研，覆盖 chimeric Gα MD 先例（Tawfeeq 2025）+ 酵母 GPCR-Gα MD（Ramasamy 2025）+ 技术栈兼容性确认 + 模拟时长推荐 + 关键缺口声明
-- **v3.1（2026-04-17）**：§12 引用勘误（Tsai→Tawfeeq）+ §12.1 补充 Velazhahan 2021 MD（此前仅作结构来源引用）+ §12.5 "零篇"���明修正为"仅 2 篇 Ste2-Gpa1 + 仅 1 篇 chimeric Gα"（经 4 维度系统搜索验证）
+- **v3.1（2026-04-17）**：§12 引用勘误（Tsai→Tawfeeq）+ §12.1 补充 Velazhahan 2021 MD（此前仅作结构来源引用）+ §12.5 "零篇"声明修正为"仅 2 篇 Ste2-Gpa1 + 仅 1 篇 chimeric Gα"（后续 2026-05-06 已降级为 pending source audit）
+- **v3.2（2026-05-06）**：§12 source audit：Ramasamy→Mohanty，Ranganathan→Renault，Jakowiecki→Miszta，Memprot/Casiraghi/Tawfeeq 方法迁移降级；only-N novelty claim 暂停使用。
