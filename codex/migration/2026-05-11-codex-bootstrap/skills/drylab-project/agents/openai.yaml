@@ -1,0 +1,4 @@
+interface:
+  display_name: "Drylab Project"
+  short_description: "Load drylab project rules and routing"
+  default_prompt: "Use $drylab-project to start a non-trivial drylab repository task."
