@@ -1,0 +1,4 @@
+version: 1
+display_name: safe commit
+short_description: Migrated Claude command workflow for safe-commit.
+default_prompt: Use the safe-commit workflow.
