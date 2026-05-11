@@ -1,7 +1,9 @@
 # 湿实验交接：受体突变候选位点
-> 方向：P0-molecular-docking | 读者：湿实验团队 | 更新：2026-04-14
+> 方向：P0-molecular-docking | 读者：湿实验团队 | 更新：2026-04-14；2026-04-27 已标记为旧版待刷新
 ---
 ## 1. 摘要
+> **2026-04-27 状态警告**：本文仍是 2026-04-14 旧版交接草案，包含旧 Top 推荐（如 M327A/V138T）。Gpr2 已用 3D offset 重跑，Gpr3 已改用方案 F；最终湿实验候选需等 `ratio_channel_report.md` / IFP / 本文刷新后再定。当前不要把本文作为构建清单直接下发。
+
 对 3 个 ascaroside 受体（Gpr2 / Gpr3 / GprC）做了 122 条突变扫描（32 alanine + 90 saturation），按 PRD 的**双通道比值型传感器**设计目标分析：
 | 通道 | 候选数（无 caveat） | 含义 |
 |---|---|---|
@@ -15,7 +17,7 @@
 3. **天然跨受体分离**：Channel A 以 Gpr2 为主（11/14），Channel B 以 Gpr3 为主（9/11），与受体本身的配体偏好基线一致。
 4. **底盘已锁定酵母 STE2 + 嵌合 Gpa1 + 基因组单拷贝整合**（PI 2026-04-11 确认）→ 表达体系与读出方式见 §9。
 **方法**：AlphaFold 3 Server 预测突变体结构 → AutoDock Vina 单阶段对接（spacing=0.1 Å, exhaustiveness=200, box=40 Å, seed=42, Hu2024 参数）→ ProLIF IFP 交叉验证 → 双通道 sel_mut 分级。
-**完整计算数据**：`experiments/docking-repro/analysis/ratio_channel_report.md`（双通道全谱）/ `ratio_pairings.csv`（配对排名）
+**历史计算数据**：`experiments/docking-repro/analysis/ratio_channel_report.md`（双通道全谱）/ `ratio_pairings.csv`（配对排名）；2026-04-27 起待刷新，不作最终构建依据
 ---
 ## 2. 双通道分析框架
 ### 核心指标
