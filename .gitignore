@@ -94,12 +94,18 @@ experiments/md-simulation/results/**/analysis/**/snapshots/*.pdb
 # =====================================================================
 docs/papers/pdf/
 
+# 合作伙伴 / 赞助 / 外联材料含隐私信息，默认不入库
+docs/partners/
+
 # =====================================================================
 # Claude Code 私有配置
 # =====================================================================
 .claude/
 .claude.json
 .claude.json.backup
+
+# Codex repo-local private config. Keep `.codex/hooks*` tracked separately.
+.codex/config.toml
 
 # IDE
 .vscode/
@@ -108,6 +114,7 @@ docs/papers/pdf/
 *.swo
 
 # 临时文件
+temp/
 *.tmp
 *.bak
 *.orig

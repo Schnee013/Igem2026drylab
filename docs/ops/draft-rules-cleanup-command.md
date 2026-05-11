@@ -23,10 +23,9 @@
    - 建议 "是" 或 "部分" → 本命令正常启动
    - 建议 "否" → 命令警告并要求用户显式 confirm 才启动
 4. **命令启动前必须创建安全回滚点**
-   - 首选 `/checkpoint` 命名 `pre-cleanup-YYYY-MM-DD_HHmm`（UTC+8）
-   - 若 `/checkpoint` 不可用（命令不存在或执行失败），降级为 `git stash push -u -m pre-cleanup-YYYY-MM-DD_HHmm` 覆盖以下 scope：`memory/`、`~/.claude/rules/`、`CLAUDE.md`、`DOCMAP.md`、`MEMORY.md`、`docs/logs/meta-audits/example-archive.md`
-   - 两种方案都失败 → 终止。**scope 必须涵盖 example-archive.md**，否则 R5 归档无法回滚
-   - 回滚点 ID 与方案（checkpoint / stash）必须写入 cleanup-runs 报告
+   - 使用 `git stash push -u -m pre-cleanup-YYYY-MM-DD_HHmm` 覆盖以下 scope：`memory/`、`~/.claude/rules/`、`CLAUDE.md`、`DOCMAP.md`、`MEMORY.md`、`docs/logs/meta-audits/example-archive.md`
+   - 创建失败 → 终止。**scope 必须涵盖 example-archive.md**，否则 R5 归档无法回滚
+   - 回滚点 ID 必须写入 cleanup-runs 报告
 
 ---
 
@@ -68,7 +67,7 @@
 6. 对每条 finding 预分类 R1-R5
    - 无法分类的条目打标 SKIP 并在最终报告里列出
    - **meta-audit 已标注类别的直接沿用**，不重新分类
-7. 创建安全回滚点（按前置条件 4 的策略，首选 /checkpoint，降级 git stash）
+7. 创建安全回滚点（按前置条件 4 的 `git stash` 策略）
 8. 创建 `docs/logs/cleanup-runs/YYYY-MM-DD_HHmm.md`（UTC+8），记录输入报告路径 + 回滚点 ID + 使用的方案 + 续跑起点（若有）
 
 ### 阶段 2 — 逐条预览生成
@@ -155,10 +154,10 @@
 - 检查时各规则文件最后修改时间（全部 ≤ 报告时间）: ✓
 
 ## 安全回滚点
-- 方案: /checkpoint / git stash （二选一）
+- 方案: git stash
 - ID: pre-cleanup-YYYY-MM-DD_HHmm
 - Scope: memory/, ~/.claude/rules/, CLAUDE.md, DOCMAP.md, MEMORY.md, docs/logs/meta-audits/example-archive.md
-- 回滚命令: `/checkpoint restore pre-cleanup-YYYY-MM-DD_HHmm` 或 `git stash apply stash@{N}`
+- 回滚命令: `git stash apply stash@{N}`
 
 ## 处理汇总
 | # | 类别 | 目标文件 | 审批 | 应用状态 |
@@ -177,7 +176,7 @@
 - 无 / 列出中断位置
 
 ## 回滚历史
-- 无 / [时间] 回滚到 checkpoint，原因: ...
+- 无 / [时间] 回滚到 stash，原因: ...
 ```
 
 ---
@@ -187,7 +186,7 @@
 1. **不得删除任何有具体 Why 案例的 feedback 条目**。R1 判定时，如果副本的 Why 段比原件更具体，Why 内容必须先 append 到原件再删副本
 2. **不得合并触发条件不同的规则**，即使结论相同。触发条件不同 → 自动降级为 R3，加 see-also 不合并
 3. **合并前必须 Grep 全仓库找所有引用**。任何失效指针都是阻断信号，该条 finding 自动转为 SKIP
-4. **每次 cleanup 前必须创建回滚点**（/checkpoint 首选，git stash 降级）。两种方案都失败 → 终止
+4. **每次 cleanup 前必须创建 `git stash` 回滚点**。创建失败 → 终止
 5. **R3 不产生变更预览，不需要审批**。只在两条规则底部加 `**See also**: ...` 一行
 6. **R5 的旧 example 必须完整保留**到 example-archive.md，不得摘要或简化。追溯性高于文件大小
 7. **R5 找不到新 example 且用户未提供时不得编造**。Why 段标注 "案例待更新（来源: meta-audit YYYY-MM-DD #findN）" 即可
@@ -202,11 +201,11 @@
 如果应用阶段中断或用户中途放弃、或事后发现规则变差：
 
 ```bash
-# 查看 checkpoint 列表
-/checkpoint list
+# 查看 stash 列表
+git stash list
 
 # 回滚到 cleanup 前状态
-/checkpoint restore pre-cleanup-YYYY-MM-DD_HHmm
+git stash apply stash@{N}
 ```
 
 回滚后必须在 `docs/logs/cleanup-runs/YYYY-MM-DD_HHmm.md` 的"回滚历史"段追加记录（日期 UTC+8 + 原因）。
@@ -218,7 +217,7 @@
 ## Arguments
 
 - `/rules-cleanup` — 处理最新一份 meta-audit 报告的全部 D3/D4 + R5 findings
-- `/rules-cleanup dry-run` — 只生成全部预览表，不创建回滚点、不要求审批、不做任何 Edit。用于首次使用或不确定 findings 质量时先看一眼
+- `/rules-cleanup dry-run` — 只生成全部预览表，不创建 stash 回滚点、不要求审批、不做任何 Edit。用于首次使用或不确定 findings 质量时先看一眼
 - `/rules-cleanup filter:R1,R2` — 只处理指定类别（R3 不受 filter 影响，永远只加 see-also）
 - `/rules-cleanup report:<path>` — 指定 meta-audit 报告路径（默认用最新一份，仍需通过新鲜度检查）
 
@@ -237,7 +236,7 @@
 ## 中止路径（遇到以下情况直接终止并在 cleanup-runs 报告头部记录原因）
 
 - 新鲜度检查失败（规则文件在 meta-audit 报告生成后被修改）
-- 回滚点创建失败（/checkpoint 和 git stash 两种方案都失败）
+- 回滚点创建失败（git stash 创建失败）
 - meta-audit 报告中存在无法归入 R1-R5 的 finding 数量 > 50%（说明 meta-audit 质量问题）
 - 同一条 R 类别在 2 次重试预览后主 Claude 都无法自动处理（例如 R2 合并方向判据无法确定两条 Why 字符数 + originSessionId 全相等）
 - 用户在预览审批阶段连续 3 次选 DEFER（说明本次 cleanup 时机不合适）
