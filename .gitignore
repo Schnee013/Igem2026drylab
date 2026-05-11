@@ -57,6 +57,19 @@ experiments/chimeric-gpa1/af3_predictions/downloads/
 experiments/docking/logs/*.log
 experiments/docking-repro/logs/*.log
 
+# MD trajectory / large simulation outputs
+experiments/md-simulation/results/**/raw/
+experiments/md-simulation/results/**/processed/
+experiments/md-simulation/results/**/processed_*/
+experiments/md-simulation/results/**/analysis_mol_invalid/
+experiments/md-simulation/results/**/*.xtc
+experiments/md-simulation/results/**/*.trr
+experiments/md-simulation/results/**/*.tpr
+experiments/md-simulation/results/**/*.edr
+experiments/md-simulation/results/**/*.cpt
+experiments/md-simulation/results/**/toppar/
+experiments/md-simulation/results/**/analysis/**/snapshots/*.pdb
+
 # =====================================================================
 # 保留（明确 track 的内容）
 # =====================================================================
