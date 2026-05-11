@@ -1,0 +1,13 @@
+rep,label,time_ns,frame,pdb,full_protein_backbone_fit_alpha5_rmsd_A,ste2_backbone_fit_alpha5_rmsd_A,gpa1_core_backbone_fit_alpha5_rmsd_A,nearest_contact_time_ns,retained_contact_fraction
+rep1,baseline,0.0,0,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_baseline_0.0ns.pdb,0.0,0.0,0.0,0.0,1.0
+rep1,after100_start,100.0,1000,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_after100_start_100.0ns.pdb,3.2962899097071174,4.657421529121197,4.871240768508319,100.0,0.8214285714285714
+rep1,first_after100_gt5,252.4,2524,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_first_after100_gt5_252.4ns.pdb,5.241452907028767,8.376386338771223,6.944501131014789,250.0,0.5714285714285714
+rep1,max_alpha5,333.5,3335,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_max_alpha5_333.5ns.pdb,7.461329819266567,11.645025206671978,8.269709538351455,335.0,0.5714285714285714
+rep2,baseline,0.0,0,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_baseline_0.0ns.pdb,0.0,0.0,0.0,0.0,1.0
+rep2,after100_start,100.0,1000,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_after100_start_100.0ns.pdb,2.3333623215692727,2.6054441829304253,4.702356529062004,100.0,0.6428571428571429
+rep2,first_gt5,250.6,2506,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_first_gt5_250.6ns.pdb,5.054107003502595,5.212993885817313,6.735447538350775,250.0,0.5
+rep2,max_alpha5,484.6,4846,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_max_alpha5_484.6ns.pdb,6.39981712861939,7.7895693970556374,7.525146961129393,485.0,0.3928571428571428
+rep3,baseline,0.0,0,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_baseline_0.0ns.pdb,0.0,0.0,0.0,0.0,1.0
+rep3,early_max,32.6,326,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_early_max_32.6ns.pdb,6.719863255255672,11.239157490611845,12.812602902648026,35.0,0.7857142857142857
+rep3,after100_start,100.0,1000,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_after100_start_100.0ns.pdb,5.069894165250749,8.163407883442426,7.823253950025661,100.0,0.7142857142857143
+rep3,late_representative,450.0,4500,experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_late_representative_450.0ns.pdb,3.263109934149236,4.6684959630252525,4.22977330735222,450.0,0.5357142857142857
