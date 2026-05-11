@@ -5,7 +5,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash '/Users/roy/Documents/drylab/.codex/hooks/session-end-remind.sh'"
+            "command": "bash \"$(git rev-parse --show-toplevel)/.codex/hooks/session-end-remind.sh\"",
+            "timeout": 10,
+            "statusMessage": "Checking worktree reminder"
           }
         ]
       }
