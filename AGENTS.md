@@ -1,4 +1,4 @@
-# Drylab Codex project instructions
+# Drylab agent project instructions
 
 Use the global `drylab-project` skill for this repository.
 
@@ -15,9 +15,9 @@ Drylab loading rule:
 - Use `docs/DOCMAP.md` as the document-governance and source-routing rulebook.
 - Use `docs/INDEX.md` as the current project router for direction status, blockers, recent progress, and active todos.
 
-Codex project memory:
-- Codex project memory lives under `codex/docs/memory/`.
+Project memory:
+- Repo-scoped project memory lives under `codex/docs/memory/`.
 - For non-trivial drylab tasks, after `docs/DOCMAP.md` and `docs/INDEX.md`, read `codex/docs/memory/README.md`.
 - Then read only the memory files relevant to the task; do not bulk-load all memory files by default.
-- Treat Codex memory as a routing, handoff, warning, and workflow-discipline layer, not as final evidence.
+- Treat project memory as a routing, handoff, warning, and workflow-discipline layer, not as final evidence.
 - Keep memory concise and pointer-based; move authoritative facts into the appropriate `docs/` source.

@@ -19,9 +19,9 @@
 
 | 生命周期 | 示例 | 存储位置 |
 |---------|------|---------|
-| 永久规则 | "代码改动后必须更新日志" | `CLAUDE.md` |
+| 永久规则 | "代码改动后必须更新日志" | `AGENTS.md` / `CLAUDE.md` shim + `docs/DOCMAP.md` |
 | 项目路由 | "哪些建模方向在进行，状态如何" | `INDEX.md` |
-| 跨会话状态 | "Pipeline X 正在 Windows 节点运行" | Memory 文件 |
+| 跨会话状态 | "Pipeline X 正在 Slurm 节点运行" | `codex/docs/memory/` 指针文件 |
 | 当日叙事 | "今天发现 grid spacing 参数有误" | 当日日志 |
 | 原始结果 | ΔG 数值、benchmark 分数 | 结果文件 (JSON/CSV) |
 
@@ -33,15 +33,15 @@
 
 ```
 ┌──────────────────────────────────────────────────┐
-│  Layer 1: CLAUDE.md（每次会话自动加载）             │
-│  强制规则 + 指向权威文档的指针                       │
-│  目标：<50 行                                     │
+│  Layer 1: Agent entry shims                        │
+│  AGENTS.md / CLAUDE.md：仅放启动规则与指针            │
+│  目标：各自 <50 行                                  │
 └──────────────────────┬───────────────────────────┘
                        │ 指向
 ┌──────────────────────▼───────────────────────────┐
-│  Layer 2: .claude/SKILL.md（每次会话自动加载）      │
-│  启动序列 + 路径表 + 按需加载策略                    │
-│  目标：<80 行                                     │
+│  Layer 2: Agent skills / commands                  │
+│  Codex global skills + Claude commands：工作流入口    │
+│  只承载流程，不承载项目事实                           │
 └──────────────────────┬───────────────────────────┘
                        │ 首先读取
 ┌──────────────────────▼───────────────────────────┐
@@ -55,8 +55,8 @@
 └──────────────────────┬───────────────────────────┘
                        │ 补充
 ┌──────────────────────▼───────────────────────────┐
-│  Layer 5: Memory 文件（跨会话状态）                  │
-│  docs/ 未覆盖的行为规则、决策上下文、pipeline 状态    │
+│  Layer 5: Repo-scoped project memory                │
+│  codex/docs/memory：索引、警示、handoff、流程纪律       │
 │  目标：每个文件 10-20 行                            │
 └──────────────────────────────────────────────────┘
 ```
@@ -65,11 +65,11 @@
 
 | 层 | 文件 | 该放 | 不该放 |
 |----|------|------|--------|
-| 项目指令 | `CLAUDE.md` | 强制规则 + 指向权威文档的指针 | 可从其他文件推导的信息 |
-| 入口加载 | `.claude/SKILL.md` | 启动序列 + 路径表 + 按需加载策略 | 规则（放 CLAUDE.md）、内容（放 docs/） |
+| Agent 入口 | `AGENTS.md` / `CLAUDE.md` | 启动规则 + 指向权威文档的指针 | 可从其他文件推导的信息 |
+| 工作流入口 | Codex skills / Claude commands | 可复用流程、命令别名、提交/审查纪律 | 项目事实、当前状态 |
 | 路由表 | `INDEX.md` | 方向状态、阻塞项、最近 ≤5 条进展、活跃待办 | 已完成事项、详细结果数值 |
 | 领域文档 | `modeling/`, `ops/` 等 | 各领域完整内容 | 跨领域的状态 |
-| Memory | `~/.claude/.../memory/` | docs/ 里没有的行为指导和决策上下文 | 已在 docs/ 有权威版本的信息 |
+| Project memory | `codex/docs/memory/` | docs/ 里没有的行为指导、警示、交接索引 | 已在 docs/ 有权威版本的信息 |
 | 日志 | `docs/logs/YYYY-MM-DD.md` | 当日叙事（做了什么、为什么、踩坑） | 跨天状态（→ INDEX.md 或 memory） |
 
 ---
@@ -78,9 +78,10 @@
 
 ```
 drylab/
-├── CLAUDE.md                    # 项目指令（自动加载）
-├── .claude/
-│   └── SKILL.md                 # 启动序列 + 路径表
+├── AGENTS.md                    # Codex/通用 agent 入口 shim
+├── CLAUDE.md                    # Claude Code 兼容入口 shim
+├── .codex/                      # Codex 项目模板和 hooks
+├── .claude/                     # Claude Code 本地配置（git ignored）
 │
 ├── docs/
 │   ├── INDEX.md                 # 路由表 —— "灵魂文件"
@@ -127,6 +128,11 @@ drylab/
 │   │   ├── pdf/                           #   本地 PDF
 │   │   └── summaries/                     #   按 {Author}{Year}-{Topic} 命名的单篇总结
 │   └── archive/                 # 归档文件（原始 PRD、通用指南等）
+│
+├── codex/                       # Codex 迁移、项目记忆和 agent/tooling 资料
+│   ├── docs/
+│   │   └── memory/              #   repo-scoped project memory（索引/警示/交接，不作事实权威）
+│   └── migration/               #   Claude→Codex 迁移来源快照和 provenance，不作运行时配置
 │
 ├── src/modeling/                # 源代码（按研究方向）
 │   ├── docking/                 # v2 docking pipeline
@@ -287,9 +293,9 @@ AI 判断下一步加载什么的唯一入口。如果 AI 仅凭 INDEX.md 就能
 - **待办**：已完成的 `[x]` 项下次更新时移除
 - **当前阶段**：每次更新进展时同步审视
 
-### Memory 文件 — 跨会话行为规则
+### Project memory — 跨会话行为规则
 
-位于 `~/.claude/projects/{project-hash}/memory/`。每个文件 10-20 行，存储行为指导，不复制 docs/ 的内容。如果信息在 docs/ 有完整版本，memory 只放指针。
+位于 `codex/docs/memory/`。每个文件 10-20 行，存储行为指导、交接索引和警示，不复制 docs/ 的内容。如果信息在 docs/ 有完整版本，memory 只放指针。Codex native global memory 和 Claude 私有 memory 只能指向本 repo 的 project memory 与权威 docs，不承载 drylab 科学结论。
 
 ### 文献管理 — 三文件架构 + 稳定 ID
 
@@ -336,7 +342,7 @@ Day 3: 识别模式 → 提升为 docs/ops/ 操作规范
 ### 按需加载策略
 
 ```
-会话启动 → CLAUDE.md（自动）→ SKILL.md（自动）→ INDEX.md
+会话启动 → AGENTS.md 或 CLAUDE.md → docs/DOCMAP.md → docs/INDEX.md
 用户问方向 A → 加载 modeling/P0-direction-a.md
 用户要跑 SSH/Slurm → 加载 ops/slurm-md-server.md（Windows 节点已弃用）
 用户问文献 → 查矩阵 → 加载单篇 summary
@@ -367,8 +373,7 @@ Day 3: 识别模式 → 提升为 docs/ops/ 操作规范
 版本追踪依赖三层机制协同，不使用文档内版本记录表（会与 git 历史漂移）：
 
 1. **日志**（`docs/logs/YYYY-MM-DD.md`）：记录每次改动的语义（做了什么、为什么）——版本信息的主力
-2. **git commit**（内置 `/commit` 命令）：提供时间点快照和精确 diff。Stop hook 在 Claude 停止响应前检查未 commit 改动并提醒
-3. **`/checkpoint` skill**：重大任务前手动创建安全回滚点（wip 快照，非正式 commit）
+2. **git commit**（`/commit` / `safe-commit` 工作流）：提供时间点快照和精确 diff。Codex Stop reminder 只做未提交提醒；Claude 旧 reminder 已本地停用
 
 AI 署名已通过 `attribution` 配置在源头关闭。
 
@@ -386,7 +391,7 @@ AI 署名已通过 `attribution` 配置在源头关闭。
 
 使用 markdown 相对路径：
 ```markdown
-详见 [底盘决策分析](../prd/chassis-decision.md)
+详见 [底盘决策分析](prd/chassis-decision.md)
 ```
 
 ### 方向间依赖标注
@@ -407,7 +412,7 @@ AI 署名已通过 `attribution` 配置在源头关闭。
 
 ### 信息重复（头号敌人）
 
-**症状**：同一 SSH 连接信息出现在 CLAUDE.md、memory 文件和 ops 文档三处。
+**症状**：同一 SSH 连接信息出现在 agent 入口文件、memory 文件和 ops 文档三处。
 
 **修复**：指定一个权威源（ops 文档），其他地方只放一行指针。
 
@@ -437,9 +442,9 @@ AI 署名已通过 `attribution` 配置在源头关闭。
 
 ### 会话启动过度加载
 
-**症状**：CLAUDE.md + SKILL.md + INDEX.md + 最新日志 + memory 文件消耗 40% 上下文窗口。
+**症状**：agent 入口文件 + skills/commands + INDEX.md + 最新日志 + memory 文件消耗 40% 上下文窗口。
 
-**修复**：CLAUDE.md < 50 行，SKILL.md < 80 行，INDEX.md 只路由不解释，领域文档按需加载。
+**修复**：`AGENTS.md` / `CLAUDE.md` 各自 < 50 行，skills/commands 只放流程，INDEX.md 只路由不解释，领域文档按需加载。
 
 ---
 
