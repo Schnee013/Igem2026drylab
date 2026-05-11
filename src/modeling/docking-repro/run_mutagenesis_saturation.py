@@ -19,13 +19,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
+from typing import cast
 
 _this_dir = Path(__file__).parent
 sys.path.insert(0, str(_this_dir))
 
-from mutagenesis import run_mutagenesis
+from mutagenesis import make_saturation_scan_mutations, run_mutagenesis
 from utils import generate_run_id, get_project_root, load_config, preflight_check, setup_logging
 
 # Channel A 核心饱和扫描位点
@@ -45,6 +47,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--vina-bin", default=None,
                         help="覆盖 config 中的 vina_bin 路径（跨平台使用）")
+    parser.add_argument("--cpu", type=int, default=None,
+                        help="Vina 使用的 CPU 核心数（默认占满全部；Mac 长时间跑建议 4-6 避免过热）")
     return parser.parse_args()
 
 
@@ -67,6 +71,8 @@ def main() -> None:
         config["paths"]["project_root"] = args.project_root
     if args.vina_bin:
         config["remote"]["vina_bin"] = args.vina_bin
+    if args.cpu is not None:
+        os.environ["VINA_CPU"] = str(args.cpu)
 
     root = get_project_root(config)
     run_id = generate_run_id()
@@ -131,14 +137,20 @@ def main() -> None:
     wt_baseline = load_wt_baseline(root, config)
     logger.info(f"已加载 WT 基线（{len(wt_baseline)} 对）")
 
-    total_muts = sum(
-        len(residues) * 18  # 20 AA - WT - Ala = 18
-        for residues in active_saturation.values()
-    )
+    # 按实际 WT 残基 + exclude_aas 展开突变列表，避免硬编码
+    exclude_aas = cast(list[str], config["mutagenesis"].get("exclude_aas") or [])
+    total_muts = 0
+    for rec, residues in active_saturation.items():
+        tm_pdb = cast(Path, rec_dir / receptor_tm_pdbs[rec])
+        total_muts += len(make_saturation_scan_mutations(
+            tm_pdb, residues, exclude_aas=exclude_aas,
+        ))
+    cpu_note = f"，CPU={args.cpu}" if args.cpu is not None else "（默认全部核心）"
     logger.info(
-        f"Saturation Scan 启动 [run_id={run_id}]"
+        f"Saturation Scan 启动 [run_id={run_id}]{cpu_note}"
         f"\n  受体: {receptors}"
         f"\n  位点: {active_saturation}"
+        f"\n  排除氨基酸: {exclude_aas}"
         f"\n  预计突变数: {total_muts}（每突变 × 2 配体）"
         f"\n  预计对接数: {total_muts * 2}"
         f"\n  预计用时: ~{total_muts * 4 // 60}-{total_muts * 6 // 60} 小时"
