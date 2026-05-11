@@ -1,8 +1,16 @@
-# Codex project memory
+# Drylab project memory
 
-This directory stores Codex-specific project memory for `/Users/roy/Documents/drylab`.
+This directory stores repo-scoped project memory for `/Users/roy/Documents/drylab`.
+It is versioned with drylab and is separate from Codex native global memories
+under `~/.codex/memories/`.
 
 It is not an authority. Use it as a routing, handoff, warning, and workflow-discipline layer. Verify factual claims against source docs, logs, configs, code, result files, paper summaries, or data outputs before making strong claims.
+
+Codex native global memory and Claude Code private memory should only keep
+durable user preferences and entry rules such as "for non-trivial drylab tasks,
+read `docs/DOCMAP.md`, `docs/INDEX.md`, then this README." Do not duplicate
+scientific conclusions or project state into agent-native memory; point back to
+this repo-scoped layer and the authoritative `docs/` sources instead.
 
 ## Files
 
@@ -25,4 +33,4 @@ Keep memory concise and pointer-based. Move stable project facts into the approp
 
 ## Migration source
 
-This layer is distilled from selected Claude memory files under `/Users/roy/.claude/projects/-Users-roy-Documents-drylab/memory/`. Do not copy those files wholesale; many contain stale state. Preserve rules and source pointers, not historical conclusions.
+This layer is distilled from selected Claude memory files now archived under `/Users/roy/.claude/projects/-Users-roy-Documents-drylab/memory_legacy_2026-05-12/`. Do not copy those files wholesale; many contain stale state. Preserve rules and source pointers, not historical conclusions.
