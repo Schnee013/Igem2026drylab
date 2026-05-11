@@ -1,0 +1,3 @@
+source_clean_chain,processed_segid,intended,source_n_residues,processed_n_residues,sequence_exact_match,source_first10,processed_first10,source_last25,processed_last25
+A,PROA,Gpa1-WT,472,472,True,MGCTVSTQTI,MGCTVSTQTI,QTMKFVLSAVTDLIIQQNLKKIGII,QTMKFVLSAVTDLIIQQNLKKIGII
+B,PROB,Ste2,431,431,True,MSDAAPSLSN,MSDAAPSLSN,VDMYTPDTAADEEARKFWTEDNNNL,VDMYTPDTAADEEARKFWTEDNNNL

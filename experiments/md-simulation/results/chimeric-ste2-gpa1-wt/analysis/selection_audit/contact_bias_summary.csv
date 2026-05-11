@@ -1,0 +1,4 @@
+rep,initial_contacts,after100_mean_retained_fraction,after100_min_retained_fraction,after100_min_time_ns,contacts_occupancy_ge_0_5,contacts_occupancy_ge_0_2,median_initial_contact_occupancy
+rep1,28,0.6397707231040564,0.5,200.0,21,25,0.6782178217821782
+rep2,28,0.5462962962962963,0.25,425.0,17,24,0.6138613861386139
+rep3,28,0.6701940035273369,0.5357142857142857,235.0,21,25,0.7772277227722773
