@@ -20,6 +20,7 @@ In silico 突变扫描模块 — 预测增强 ascr#18/ascr#3 选择性的突变�
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Optional
@@ -155,6 +156,25 @@ def make_saturation_scan_mutations(
     return mutations
 
 
+def make_explicit_mutations(labels: list[str], pdb_path: Path, chain_id: str = "A") -> list[dict]:
+    """Build mutation records from labels like ``D100C`` and verify WT identity."""
+    mutations = []
+    for label in labels:
+        match = re.fullmatch(r"([A-Z])(\d+)([A-Z])", label.upper())
+        if not match:
+            raise ValueError(f"突变标签格式错误: {label}")
+        wt, resnum_raw, mut = match.groups()
+        resnum = int(resnum_raw)
+        actual_wt = _get_residue_wt(pdb_path, chain_id, resnum)
+        if actual_wt != wt:
+            raise ValueError(f"{label} 与结构 WT 不一致: 结构中 {resnum}={actual_wt}")
+        if wt == mut:
+            get_logger().info(f"  {label}: 与 WT 相同，跳过")
+            continue
+        mutations.append({"wt": wt, "chain": chain_id, "resnum": resnum, "mut": mut})
+    return mutations
+
+
 # ---------------------------------------------------------------------------
 # 主流程
 # ---------------------------------------------------------------------------
@@ -275,7 +295,10 @@ def run_mutagenesis(
             )
 
         # 生成突变列表（使用 TM PDB，确保残基在跨膜域内；域外残基会被 _get_residue_wt 跳过）
-        if scan_type == "alanine":
+        explicit_mutations = mut_cfg.get("explicit_mutations", {}).get(rec_name)
+        if explicit_mutations:
+            mutations = make_explicit_mutations(explicit_mutations, tm_pdb)
+        elif scan_type == "alanine":
             mutations = make_alanine_scan_mutations(tm_pdb, scan_residues)
         elif scan_type == "saturation":
             exclude_aas = mut_cfg.get("exclude_aas", None)
@@ -414,15 +437,30 @@ def run_mutagenesis(
     # 排序（ΔΔG_sel 升序，越小越好）
     all_results.sort(key=lambda r: r.ddg_selectivity)
 
-    # 保存 JSON（时间戳 + latest）
-    results_path = save_results_json(
-        [asdict(r) for r in all_results], mutant_dir, generate_run_id(), config,
-        filename="mutagenesis_results.json",
-    )
+    # 保存 JSON（默认保留历史副本 + latest；显式输出文件可关闭 latest 覆写）
+    save_run_id = str(mut_cfg.get("run_id") or generate_run_id())
+    output_filename = str(
+        mut_cfg.get("output_filename", "mutagenesis_results.json")
+    ).format(run_id=save_run_id)
+    output_payload = [asdict(r) for r in all_results]
+    if mut_cfg.get("timestamped_output", True):
+        results_path = save_results_json(
+            output_payload, mutant_dir, save_run_id, config,
+            filename=output_filename,
+        )
+    else:
+        results_path = mutant_dir / Path(output_filename).name
+        results_path.write_text(
+            json.dumps(output_payload, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
     logger.info(f"\n突变扫描完成，结果已保存: {results_path}")
 
     # 生成报告
-    report_path = mutant_dir / "mutagenesis_report.md"
+    report_filename = str(
+        mut_cfg.get("report_filename", "mutagenesis_report.md")
+    ).format(run_id=save_run_id)
+    report_path = mutant_dir / Path(report_filename).name
     _write_report(all_results, report_path, mutant_source=mutant_source, docking_mode=docking_mode)
     logger.info(f"报告已保存: {report_path}")
 

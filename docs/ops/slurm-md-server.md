@@ -319,6 +319,26 @@ chmod +x ~/bin/vina
 > **踩坑**：`wget -O` 下载 GitHub releases 会得到 ~1MB HTML 而非 ~4MB ELF binary。
 > 症状：`file ~/bin/vina` 显示 "missing section headers"，`Permission denied` 即使 chmod 后。
 
+### ADFR Suite / ADFR_BIN
+
+> 新增: 2026-05-19, docking-repro Gpr3 F supplemental refresh
+> 证据: `experiments/docking-repro/logs/install_adfr_suite_8850.log:4`、`:9`、`:11`; preflight 见 `experiments/docking-repro/logs/docking_preflight_8855.log:6`、`:15`。
+
+当前 Slurm 用户目录配置:
+
+```bash
+export ADFR_BIN="/home/guest/opt/bin"
+export PATH="$ADFR_BIN:$PATH"
+```
+
+项目部署后，环境文件位于:
+
+```bash
+/home/guest/drylab-docking/experiments/docking-repro/slurm/adfr_env.sh
+```
+
+安装入口为仓库脚本 `experiments/docking-repro/slurm/install_adfr_suite.sh`。登录节点只允许上传已校验 tarball、同步脚本和提交 `sbatch`；ADFR 解包安装、`prepare_receptor` 验证、批量 PDBQT preparation 都必须通过 Slurm 作业执行。
+
 ### sbatch 提交
 
 ```bash

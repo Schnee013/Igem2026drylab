@@ -185,10 +185,10 @@ def main() -> None:
     # ---- 每突变体 Top 接触表（Markdown） ----
     out_md = work_dir / "mutant_vs_wt_diff.md"
     lines = ["# Mutant IFP 差异分析", ""]
-    lines.append(f"**突变体数**: {len(TOP_MUTANTS)}  **配体**: {'+'.join(LIGANDS)}")
+    lines.append(f"**突变体数**: {len(active_mutants)}  **配体**: {'+'.join(LIGANDS)}")
     lines.append(f"**方法**: ProLIF Fingerprint, top-{args.top_n} poses, pocket=15Å\n")
 
-    for rec_name, label in TOP_MUTANTS:
+    for rec_name, label in active_mutants:
         key18 = (rec_name, label, "ascr18")
         key3 = (rec_name, label, "ascr3")
         if key18 not in all_freq or key3 not in all_freq:

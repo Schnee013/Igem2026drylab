@@ -1,182 +1,80 @@
 # 湿实验交接：受体突变候选位点
-> 方向：P0-molecular-docking | 读者：湿实验团队 | 更新：2026-04-14；2026-04-27 已标记为旧版待刷新
----
-## 1. 摘要
-> **2026-04-27 状态警告**：本文仍是 2026-04-14 旧版交接草案，包含旧 Top 推荐（如 M327A/V138T）。Gpr2 已用 3D offset 重跑，Gpr3 已改用方案 F；最终湿实验候选需等 `ratio_channel_report.md` / IFP / 本文刷新后再定。当前不要把本文作为构建清单直接下发。
+> 方向：P0-molecular-docking | 读者：湿实验团队 | 更新：2026-05-20
 
-对 3 个 ascaroside 受体（Gpr2 / Gpr3 / GprC）做了 122 条突变扫描（32 alanine + 90 saturation），按 PRD 的**双通道比值型传感器**设计目标分析：
-| 通道 | 候选数（无 caveat） | 含义 |
-|---|---|---|
-| **Channel A** | **14** | ascr#18 偏好——检测 PPN 信号的传感器 |
-| **Channel B** | **11** | ascr#3 偏好——检测背景信号的参比传感器 |
-| 中性 | 93 | 无显著通道偏好 |
-**Top 1 配对推荐**：**Gpr2\_M327A**（Channel A, sel=−1.391）+ **Gpr3\_V138T**（Channel B, sel=+1.042），判别力 D=−2.433，balance=0.572。
-**核心结论**：
-1. **Channel A 最强**：Gpr2\_M327A（sel=−1.391），ascr#18 亲和力几乎不变，ascr#3 大幅削弱。
-2. **Channel B 最强**：Gpr3\_V138T（sel=+1.042），ascr#3 亲和力保留，ascr#18 削弱。**V138 是 Gpr3 的通道偏好"开关位"**——V138R → Channel A，V138T → Channel B。
-3. **天然跨受体分离**：Channel A 以 Gpr2 为主（11/14），Channel B 以 Gpr3 为主（9/11），与受体本身的配体偏好基线一致。
-4. **底盘已锁定酵母 STE2 + 嵌合 Gpa1 + 基因组单拷贝整合**（PI 2026-04-11 确认）→ 表达体系与读出方式见 §9。
-**方法**：AlphaFold 3 Server 预测突变体结构 → AutoDock Vina 单阶段对接（spacing=0.1 Å, exhaustiveness=200, box=40 Å, seed=42, Hu2024 参数）→ ProLIF IFP 交叉验证 → 双通道 sel_mut 分级。
-**历史计算数据**：`experiments/docking-repro/analysis/ratio_channel_report.md`（双通道全谱）/ `ratio_pairings.csv`（配对排名）；2026-04-27 起待刷新，不作最终构建依据
----
-## 2. 双通道分析框架
-### 核心指标
-`sel_mut = ΔG(ascr18) − ΔG(ascr3)`：突变体本身的通道偏好方向。
+## 1. 当前结论
+本版已纳入 Gpr2 3D offset 重跑、Gpr3 方案 F、Gpr3 supplemental docking、refreshed ratio analysis 和 Top 候选 IFP。旧版 `Gpr2_M327A + Gpr3_V138T` 不再作为当前构建推荐。
+
+当前主推组合：
+| 优先级 | Channel A（ascr#18 偏好） | Channel B（ascr#3 偏好） | D | balance | 用途 |
+|---|---|---|---:|---:|---|
+| 1 | **Gpr2_R59C** | **Gpr3_R167Y** | -2.286 | 0.604 | 首选双通道组合 |
+| 2 | **Gpr2_R59C** | **Gpr3_V138M** | -2.218 | 0.622 | B 端备选 |
+| 3 | **Gpr2_R59C** | **Gpr3_R167P** | -2.192 | 0.630 | B 端备选 |
+| 4 | **Gpr2_R59C** | **GprC_Q411S** | -2.139 | 0.645 | 探索性备选，需保留 GprC caveat |
+| 5 | **Gpr2_R59C** | **Gpr3_R167C** | -2.092 | 0.660 | B 端备选 |
+
+数据源：`experiments/docking-repro/analysis/ratio_channel_report.md`、`ratio_pairings.csv`、`results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/`。
+
+## 2. 判据
+`sel_mut = ΔG(ascr18) - ΔG(ascr3)`。
+
 | 通道 | 条件 | 含义 |
 |---|---|---|
-| Channel A | sel_mut < −0.477 | 突变体偏好 ascr#18 |
+| Channel A | sel_mut < -0.477 | 突变体偏好 ascr#18 |
 | Channel B | sel_mut > +0.477 | 突变体偏好 ascr#3 |
-| 中性 | \|sel_mut\| ≤ 0.477 | 无显著偏好（3σ 噪声区内） |
-阈值 0.477 = 3 × σ，σ = 0.159 kcal/mol（Gpr2\_ascr18 体系 5-seed 重复方差）。
-### WT 基线
-| 受体 | sel_wt | 天然倾向 |
-|---|---|---|
-| GprC | −0.798 | 强 ascr#18 偏好 |
-| Gpr2 | −0.404 | 弱 ascr#18 偏好 |
-| Gpr3 | +0.195 | 弱 ascr#3 偏好 |
-### 验证状态
-| 证据层 | Channel A | Channel B |
-|---|---|---|
-| WT 协议级复现 | ✅ GprC ΔG = −8.235 vs Hu2024 −8.29，Δ = 0.05 | 同 |
-| 阳性对照 | ✅ 3 个 Hu2024 loss-of-function 对照方向一致 | ❌ 无已知 ascr#3 偏好增强突变株做外部检验 |
-| 3σ 噪声阈值 | ✅ 内部自洽 | ✅ 同一阈值 |
-**Channel B 候选的推荐可信度低于 Channel A**——Channel A 有 Hu2024 阳性对照背书，Channel B 仅有噪声阈值筛选。湿实验首批结果可反向提供 Channel B 验证数据。
----
-## 3. Channel A 候选（ascr#18 偏好传感器）
-14 条无 caveat 候选，按 sel_mut 排序。Gpr2 贡献 11 条，Gpr3 贡献 3 条。
-| # | 突变 | 受体 | sel_mut | ΔG(ascr18) | ΔG(ascr3) |
-|---|---|---|---|---|---|
-| 1 | **M327A** | Gpr2 | **−1.391** | −6.744 | −5.353 |
-| 2 | **M327D** | Gpr2 | −1.089 | −6.666 | −5.577 |
-| 3 | **R59F** | Gpr2 | −0.956 | −6.658 | −5.702 |
-| 4 | R59A | Gpr2 | −0.925 | −6.528 | −5.603 |
-| 5 | **V138R** ⭐ | Gpr3 | −0.875 | −6.136 | −5.261 |
-| 6 | M327F | Gpr2 | −0.620 | −5.518 | −4.898 |
-| 7 | R59E | Gpr2 | −0.616 | −6.401 | −5.785 |
-| 8 | **I141A** | Gpr3 | −0.591 | −5.192 | −4.601 |
-| 9 | M327Q | Gpr2 | −0.552 | −6.292 | −5.740 |
-| 10 | R59K | Gpr2 | −0.544 | −6.249 | −5.705 |
-| 11 | R59H | Gpr2 | −0.534 | −6.156 | −5.622 |
-| 12 | **F170E** | Gpr3 | −0.501 | −6.253 | −5.752 |
-| 13 | R59C | Gpr2 | −0.484 | −6.036 | −5.552 |
-| 14 | M327R | Gpr2 | −0.483 | −6.454 | −5.971 |
-GprC caveat（不进入推荐）：L377A（sel=−0.758），GprC alanine scan 整体缺乏残基分辨力。
-### Channel A 湿实验优先候选
-**A1：Gpr2 M327A** — Channel A 最强
-**位置**：TM6 第一个残基。**机制**：Met327 侧链与 ascr#3 形成强疏水接触，Ala 替换后 ascr#3 失去关键结合面，ascr#18 几乎不受影响（ΔΔG 仅 +0.09）。
-**A2：Gpr3 V138R** ⭐ — Gpr3 Channel A 最强
-**位置**：TM4。**机制（待实证）**：V138R 是孤峰（同位 V138K/V138H 与 Ala 基线等价）。ARG138 对 ascr#18 空间接触 9 次 vs ascr#3 仅 2 次，**全部为 VdWContact**，盐桥未实证（PDBQT 工作流下 ProLIF Anionic/Cationic 检测结构性失效——输入无形式电荷，通道本身从未关闭）。MD 实证已转交 P0-md-simulation。**不要默认用 Lys/His 替代 Arg。**
-**A3：Gpr2 M327D** — M327 互补路径
-与 M327A 互补——Ala "删除"vs Asp "主动引入羧基"。ASP327 直接形成 HBond。
-**A4：Gpr2 R59F**
-R59F 与 R59A 几乎等效（sel −0.956 vs −0.925），R59 作用主要是"失去正电荷侧链"。
-**A5：Gpr3 F170E** — ECL2 酸性替换
-F170D/F170E 双双进 Channel A。**反直觉**：GLU170 与 ascr#3 接触（23）比 ascr#18（14）多，但整体 ascr#3 亲和力仍下降。机制待 MD 实证。
-**A6：Gpr3 I141A**
-双配体亲和力均下降但 ascr#3 损失更大。Gpr3 整体亲和力偏弱，实验信号可能弱于 Gpr2 突变体。
----
-## 4. Channel B 候选（ascr#3 偏好传感器）
-11 条无 caveat 候选，按 sel_mut 排序。Gpr3 贡献 9 条，Gpr2 贡献 2 条。
-| # | 突变 | 受体 | sel_mut | ΔG(ascr3) | ΔG(ascr18) |
-|---|---|---|---|---|---|
-| 1 | **V138T** | Gpr3 | **+1.042** | −6.047 | −5.005 |
-| 2 | V138L | Gpr3 | +0.886 | −5.704 | −4.818 |
-| 3 | M327G | Gpr2 | +0.749 | −5.629 | −4.880 |
-| 4 | V138P | Gpr3 | +0.736 | −5.503 | −4.767 |
-| 5 | R175A | Gpr3 | +0.663 | −5.965 | −5.302 |
-| 6 | F170K | Gpr3 | +0.632 | −5.942 | −5.310 |
-| 7 | **F170N** | Gpr3 | +0.616 | −5.835 | −5.219 |
-| 8 | R59I | Gpr2 | +0.594 | −5.956 | −5.362 |
-| 9 | Q93A | Gpr3 | +0.580 | −6.111 | −5.531 |
-| 10 | I141V | Gpr3 | +0.490 | −5.991 | −5.501 |
-| 11 | F170H | Gpr3 | +0.484 | −5.808 | −5.324 |
-GprC caveat（不进入推荐）：V91A / Q411A / N378A。
-### Channel B 湿实验优先候选
-**B1：Gpr3 V138T** — Channel B 最强（sel=+1.042），ascr#3 亲和力保留良好（−6.047），与 V138R（Channel A）形成同位点双通道开关。
-**B2：Gpr3 V138L** — sel=+0.886，与 V138T 方向一致但稍弱。
-**B3：Gpr3 F170N** — sel=+0.616，与 Gpr2\_R59E 配对时 balance=0.500（理想对称）。
----
-## 5. V138 同位点双通道观察
-| 替换 | 通道 | sel_mut | 侧链性质 |
-|---|---|---|---|
-| V138R | A | −0.875 | 大、带正电、胍基 |
-| V138T | B | +1.042 | 小、极性、羟基 |
-| V138L | B | +0.886 | 中、疏水 |
-| V138K | 中性 | −0.080 | 碱性但短于 Arg |
-V138R 是孤峰（比第二名 V138Y 强 0.6 kcal/mol），V138K/V138H 无效。双通道传感器可用 V138R + V138T 作为 Gpr3 上的一对互补构建。
----
-## 6. 跨受体配对推荐
-| 排名 | Channel A | Channel B | D（判别力） | balance |
-|---|---|---|---|---|
-| **Top 1** | **Gpr2\_M327A** (−1.391) | **Gpr3\_V138T** (+1.042) | **−2.433** | 0.572 |
-| Top 2 | Gpr2\_M327A | Gpr3\_V138L (+0.886) | −2.277 | 0.611 |
-| Top 3 | Gpr2\_M327D (−1.089) | Gpr3\_V138T | −2.131 | 0.511 |
-| Top 4 | Gpr2\_M327A | Gpr3\_V138P (+0.736) | −2.127 | 0.654 |
-| Top 5 | Gpr2\_M327A | Gpr3\_R175A (+0.663) | −2.054 | 0.677 |
-| **Best balance** | **Gpr2\_R59E** (−0.616) | **Gpr3\_F170N** (+0.616) | −1.232 | **0.500** |
-D = sel_A − sel_B（越负 = 两通道分离越远）；balance = |sel_A| / (|sel_A| + |sel_B|)（0.5 = 理想对称）。
----
-## 7. 结构位置
-**Gpr2**（UniProt G1X9E2）
-| 螺旋 | 残基范围 | Channel A | Channel B |
-|---|---|---|---|
-| TM2 | 62–82 | R59 F/A/E/K/H/C | R59I |
-| TM6 | 327–347 | M327 A/D/F/Q/R | M327G |
-**Gpr3**（UniProt G1XJN1）
-| 螺旋 | 残基范围 | Channel A | Channel B |
-|---|---|---|---|
-| TM4 | 129–149 | V138R, I141A | V138T/L/P, I141V |
-| ECL2 | ~170 | F170E | F170N/K/H |
----
-## 8. 实验建议
-### 8.1 优先构建顺序
-**Channel A**：① Gpr2 M327A ② Gpr3 V138R ⭐ ③ Gpr2 M327D ④ Gpr2 R59F
-**Channel B**：⑤ Gpr3 V138T ⑥ Gpr3 F170N
-**密码子**（酵母偏好）：→Ala GCT/GCC | →Asp GAT/GAC | →Phe TTT/TTC | →Arg AGA/CGT | →Thr ACT/ACC | →Asn AAT/AAC
-### 8.2 功能验证
-| 构建体 | ascr#18 响应 | ascr#3 响应 | 预期 |
-|---|---|---|---|
-| WT Gpr2 | EC50 基线 | EC50 基线 | 两配体均响应 |
-| Gpr2 M327A（A） | EC50 ≈ WT | EC50 右移 ≫ WT | ascr#18 保留，ascr#3 减弱 |
-| Gpr2 M327D（A） | EC50 ≈ WT 或左移 | EC50 右移 | ascr#18 增强，ascr#3 削弱 |
-| Gpr2 R59F（A） | EC50 轻微右移 | EC50 明显右移 | 与 R59A 等效 |
-| WT Gpr3 | EC50 基线 | EC50 基线 | 略偏 ascr#3 |
-| Gpr3 V138R ⭐（A） | EC50 **左移** | EC50 右移 | 偏好翻转为 ascr#18 |
-| **Gpr3 V138T（B）** | **EC50 右移** | **EC50 ≈ WT 或左移** | **偏好保持/增强 ascr#3** |
-| **Gpr3 F170N（B）** | **EC50 右移** | **EC50 ≈ WT** | **ascr#18 削弱，ascr#3 保留** |
-**V138R 验证策略**：同时构建 V138R + V138K + V138H，只有 V138R 显著 → 印证孤峰；三者均强 → 推翻。
-### 8.3 对照实验
-| 对照 | 角色 | 湿实验预期 |
-|---|---|---|
-| WT 受体 | — | 正常基线 |
-| 空载体 | — | 无响应 |
-| GprC N60A | Hu2024 阳性 | ascr#18 削弱 |
-| GprC S44A | Hu2024 阳性 | ascr#18 削弱 |
-| GprC N56A | Hu2024 阴性 | ascr#18 保留 |
-Hu2024 对照用于**校准湿实验 assay 可信度**，不作为 docking pipeline 验证。GprC docking 对 N56A（阴性对照）扰动大于所有阳性对照 → pipeline 在 GprC 上无分辨力。候选推荐全部来自 Gpr2/Gpr3，不受影响。
----
-## 9. 计算局限性
-| 局限性 | 影响 | 缓解 |
-|---|---|---|
-| 单 seed Vina | 噪声 SD=0.159；\|sel_mut\| < 0.477 不可信 | 3σ 阈值筛选 |
-| 刚性受体 | 构象限于 AF3 单预测 | 单点突变骨架影响 < 0.1 Å |
-| Vina 评分精度 | 绝对 ΔG 误差 ±1 kcal/mol | 只用排名和通道归属 |
-| 静态对接无法证明盐桥 | V138R 仅空间富集证据 | 转交 MD |
-| GprC 无分辨力 | 13/14 ala 残基落极端区 | 推荐全来自 Gpr2/Gpr3 |
-| Channel B 无阳性对照 | 无已知 ascr#3 偏好突变株 | 湿实验反向验证 |
----
-## 10. 底盘与通路上下文（2026-04-11 锁定）
-| 项 | 决定 | 含义 |
-|---|---|---|
-| 底盘 | *S. cerevisiae* | 标准遗传工具 |
-| 通路 | STE2 pheromone pathway | 异源 Gpr 替换 Ste2 |
-| G 蛋白 | 嵌合 Gpa1（C 端嫁接真菌 Gα） | 5/10/15 残基三档 |
-| 拷贝数 | 基因组单拷贝整合 | 每变体一株独立菌株 |
-| 报告基因 | TBD | pFUS1-lacZ 作基线 |
-### EC50 解读注意
-单拷贝 EC50 绝对值可能比文献高 1-2 个数量级，但**突变体间的相对比较**不受影响。不要与 Hu2024/Kuo2024 的真菌原生体系直接对比。
-### 构建建议
-1. 所有突变体同一表达盒（同启动子、同信号肽、同 tag、同整合位点、同嵌合 Gpa1 版本）
-2. WT Gpr2 + WT Gpr3 各一株基线
-3. V138R 加做 V138K + V138H 对照
-4. Hu2024 对照校准 assay，不用于 pipeline 验证
+| neutral | abs(sel_mut) <= 0.477 | 3 sigma 噪声区 |
+
+不要把 Vina 分数换算成 Kd；ODE/Kd 校准仍需单独文献审查。
+
+本次刷新：266 条合并突变记录；Channel A 无 caveat 36 条；Channel B 无 caveat 13 条；无 caveat 跨受体配对 374 条；IFP 刷新 8 个突变体。
+
+## 3. Channel A
+| 排名 | 突变体 | sel_mut | ΔG(ascr18) | ΔG(ascr3) | 备注 |
+|---:|---|---:|---:|---:|---|
+| 1 | **Gpr2_R59C** | -1.380 | -6.227 | -4.847 | 当前首选 A 端 |
+| 2 | **Gpr2_R59F** | -0.940 | -6.695 | -5.755 | A 端备选 |
+| 3 | **Gpr2_R59T** | -0.940 | -5.798 | -4.858 | A 端备选 |
+
+建议首批至少构建 `Gpr2_R59C`；容量允许时加 `R59F/R59T` 验证 R59 同位点稳健性。
+
+## 4. Channel B
+| 排名 | 突变体 | sel_mut | ΔG(ascr3) | ΔG(ascr18) | 备注 |
+|---:|---|---:|---:|---:|---|
+| 1 | **Gpr3_R167Y** | +0.906 | -5.715 | -4.809 | 当前首选 B 端 |
+| 2 | **Gpr3_V138M** | +0.838 | -5.495 | -4.890 | B 端备选 |
+| 3 | **Gpr3_R167P** | +0.812 | -5.662 | -4.850 | B 端备选 |
+
+`Gpr3_R167C` 可作为扩展备选。`GprC_Q411S` 可探索，但不要替代 Gpr3 主线。
+
+## 5. 推荐构建
+首批最小集合：
+| 顺序 | 构建体 | 角色 | 目的 |
+|---:|---|---|---|
+| 1 | WT Gpr2 | baseline | Gpr2 背景响应 |
+| 2 | WT Gpr3 | baseline | Gpr3 背景响应 |
+| 3 | **Gpr2_R59C** | Channel A | 主推 ascr18 偏好端 |
+| 4 | **Gpr3_R167Y** | Channel B | 主推 ascr3 偏好端 |
+| 5 | **Gpr3_V138M** | Channel B backup | 检查 B 端稳健性 |
+| 6 | **Gpr3_R167P** | Channel B backup | 同位点备选 |
+
+容量允许时增加：`Gpr2_R59F`、`Gpr2_R59T`、`Gpr3_R167C`、探索性 `GprC_Q411S`。
+
+## 6. IFP 解释边界
+IFP 只用于解释和排查，不替代 ratio 排名。
+
+| 突变体 | IFP 提示 |
+|---|---|
+| Gpr2_R59C | ascr18 在 VAL119/ILE122 等局部接触高于 ascr3；总体接触数 ascr18 154、ascr3 139 |
+| Gpr3_R167Y | IFP 显示 PHE170/ASN171 等接触差异，但总接触数不能直接解释亲和力 |
+| Gpr3_V138M | ascr3 在 PHE170/ASN171/ALA97 等残基接触更高 |
+| Gpr3_R167P | ascr3 在 ASP100/PRO174/ALA97/ASN171 等接触更高 |
+| GprC_Q411S | ascr3 接触数明显高于 ascr18，ARG39/TYR32/ARG121/SER44 是主要差异残基；保留 GprC caveat |
+
+不要复用 pre-F Gpr3 groove IFP 来解释 V138/F170/D100/R164/R167。当前 Gpr3 机制只引用本次 F-pose WT 与 refreshed mutant IFP。
+
+## 7. 实验注意
+- 同一表达盒、同启动子、同 tag、同整合位点、同嵌合 Gpa1 版本。
+- 每个突变体分别测 ascr#18 与 ascr#3 剂量响应；优先看同一受体内相对变化。
+- 空载体、WT Gpr2、WT Gpr3 是必需对照。
+- Channel B 缺少文献阳性突变对照，首批湿实验结果会反向校准 Channel B 可信度。
+- ODE 暂停；不要把 docking ΔG 直接转换为 Kd。

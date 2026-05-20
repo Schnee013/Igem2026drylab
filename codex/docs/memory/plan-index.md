@@ -2,6 +2,8 @@
 
 Use this as a routing index for relevant historical Claude plans. Plans are not authorities; calibrate them against current docs and logs.
 
+Repo-owned current plans should live under `codex/docs/plans/`, not under private assistant paths. Start with `codex/docs/plans/README.md` for current project-local plans.
+
 ## Highest relevance
 
 - `/Users/roy/.claude/plans/mac-pbc-memory-memory-imperative-moon.md` — chctrl local MD analysis and memory pointerization.

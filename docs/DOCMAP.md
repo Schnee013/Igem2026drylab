@@ -21,6 +21,7 @@
 |---------|------|---------|
 | 永久规则 | "代码改动后必须更新日志" | `AGENTS.md` / `CLAUDE.md` shim + `docs/DOCMAP.md` |
 | 项目路由 | "哪些建模方向在进行，状态如何" | `INDEX.md` |
+| 执行计划 | "下一 session 如何完成 docking 刷新" | `codex/docs/plans/` 项目内计划 |
 | 跨会话状态 | "Pipeline X 正在 Slurm 节点运行" | `codex/docs/memory/` 指针文件 |
 | 当日叙事 | "今天发现 grid spacing 参数有误" | 当日日志 |
 | 原始结果 | ΔG 数值、benchmark 分数 | 结果文件 (JSON/CSV) |
@@ -69,6 +70,7 @@
 | 工作流入口 | Codex skills / Claude commands | 可复用流程、命令别名、提交/审查纪律 | 项目事实、当前状态 |
 | 路由表 | `INDEX.md` | 方向状态、阻塞项、最近 ≤5 条进展、活跃待办 | 已完成事项、详细结果数值 |
 | 领域文档 | `modeling/`, `ops/` 等 | 各领域完整内容 | 跨领域的状态 |
+| Project plans | `codex/docs/plans/` | 可跨工具使用的执行计划、next-session handoff、复杂工作分阶段方案 | 最终状态、原始结果、可由日志/领域文档承载的权威结论 |
 | Project memory | `codex/docs/memory/` | docs/ 里没有的行为指导、警示、交接索引 | 已在 docs/ 有权威版本的信息 |
 | 日志 | `docs/logs/YYYY-MM-DD.md` | 当日叙事（做了什么、为什么、踩坑） | 跨天状态（→ INDEX.md 或 memory） |
 
@@ -131,6 +133,7 @@ drylab/
 │
 ├── codex/                       # Codex 迁移、项目记忆和 agent/tooling 资料
 │   ├── docs/
+│   │   ├── plans/               #   repo-owned execution plans（跨工具、脱离私有 assistant 路径）
 │   │   └── memory/              #   repo-scoped project memory（索引/警示/交接，不作事实权威）
 │   └── migration/               #   Claude→Codex 迁移来源快照和 provenance，不作运行时配置
 │

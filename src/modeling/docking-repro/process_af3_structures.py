@@ -25,20 +25,7 @@ from pathlib import Path
 _this_dir = Path(__file__).resolve().parent
 sys.path.insert(0, str(_this_dir))
 
-from utils import get_project_root, load_config
-
-# job 目录名到 (RecName, Label) 的映射
-# 目录名格式: gprc_n83a → (GprC, N83A)
-REC_NAME_MAP = {"gprc": "GprC", "gpr2": "Gpr2", "gpr3": "Gpr3"}
-
-
-def parse_job_name(dirname: str) -> tuple[str, str]:
-    """gprc_n83a → (GprC, N83A)"""
-    parts = dirname.split("_", 1)
-    rec_key = parts[0]
-    label = parts[1].upper()
-    rec_name = REC_NAME_MAP.get(rec_key, rec_key)
-    return rec_name, label
+from utils import get_project_root, load_af3_job_filter, load_config, parse_af3_job_name
 
 
 def find_best_model(job_dir: Path) -> tuple[int, float, dict]:
@@ -65,6 +52,14 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="处理 AF3 Server 下载的突变体结构")
     parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
     parser.add_argument("--project-root", default=None)
+    parser.add_argument(
+        "--job-names-file", nargs="+", default=None,
+        help="只处理指定 AF3 batch JSON 中的 job name，可传多个 JSON 文件",
+    )
+    parser.add_argument(
+        "--overwrite", action="store_true",
+        help="允许覆盖已存在的 af3_structures 输出；默认跳过已存在文件",
+    )
     return parser.parse_args()
 
 
@@ -78,12 +73,22 @@ def main() -> None:
     mut_dir = root / config["paths"]["mutagenesis_dir"]
     downloads_dir = mut_dir / "af3_downloads"
     output_dir = mut_dir / "af3_structures"
+    job_filter = load_af3_job_filter(args.job_names_file)
 
     if not downloads_dir.exists():
         print(f"错误: {downloads_dir} 不存在")
         return
 
     job_dirs = sorted([d for d in downloads_dir.iterdir() if d.is_dir() and not d.name.startswith(".")])
+    if job_filter is not None:
+        filtered = []
+        for d in job_dirs:
+            try:
+                if parse_af3_job_name(d.name) in job_filter:
+                    filtered.append(d)
+            except ValueError:
+                continue
+        job_dirs = filtered
     print(f"找到 {len(job_dirs)} 个 AF3 job 目录\n")
 
     results = []
@@ -91,8 +96,8 @@ def main() -> None:
     for job_dir in job_dirs:
         dirname = job_dir.name
         try:
-            rec_name, label = parse_job_name(dirname)
-        except (IndexError, KeyError):
+            rec_name, label = parse_af3_job_name(dirname)
+        except (IndexError, KeyError, ValueError):
             print(f"  跳过: {dirname}（无法解析名称）")
             continue
 
@@ -108,6 +113,9 @@ def main() -> None:
         out_dir = output_dir / rec_name
         out_dir.mkdir(parents=True, exist_ok=True)
         out_cif = out_dir / f"{label}.cif"
+        if out_cif.exists() and not args.overwrite:
+            print(f"  {rec_name}/{label}: 已存在，跳过（加 --overwrite 可重写）")
+            continue
         shutil.copy2(cif_files[0], out_cif)
 
         ptm = best_conf.get("ptm", "n/a")

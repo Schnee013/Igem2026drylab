@@ -22,13 +22,21 @@ _this_dir = Path(__file__).resolve().parent
 sys.path.insert(0, str(_this_dir))
 
 from prepare_receptor import extract_tm_domain, extract_tm_domain_by_annotation
-from utils import get_project_root, load_config
+from utils import get_project_root, load_af3_job_filter, load_config
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="批量 TM 域提取")
     parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
     parser.add_argument("--project-root", default=None)
+    parser.add_argument(
+        "--job-names-file", nargs="+", default=None,
+        help="只提取指定 AF3 batch JSON 对应的结构，可传多个 JSON 文件",
+    )
+    parser.add_argument(
+        "--overwrite", action="store_true",
+        help="允许覆盖已存在的 _tm.pdb；默认跳过已存在文件",
+    )
     return parser.parse_args()
 
 
@@ -41,6 +49,7 @@ def main() -> None:
     root = get_project_root(config)
     structures_dir = root / config["paths"]["mutagenesis_dir"] / "af3_structures"
     tm_topology = config.get("tm_topology")
+    job_filter = load_af3_job_filter(args.job_names_file)
 
     method = "annotation-based（ICL3 截断）" if tm_topology else "pLDDT-based（旧方法）"
     print(f"TM 提取方法: {method}\n")
@@ -48,6 +57,11 @@ def main() -> None:
     pdb_files = sorted(structures_dir.glob("*/*.pdb"))
     # 排除已有的 _tm.pdb
     pdb_files = [p for p in pdb_files if not p.stem.endswith("_tm")]
+    if job_filter is not None:
+        pdb_files = [
+            p for p in pdb_files
+            if (p.parent.name, p.stem.upper()) in job_filter
+        ]
     print(f"找到 {len(pdb_files)} 个突变体 PDB\n")
 
     results = []
@@ -55,6 +69,10 @@ def main() -> None:
         rec = pdb.parent.name
         label = pdb.stem
         out = pdb.parent / f"{label}_tm.pdb"
+        if out.exists() and not args.overwrite:
+            results.append((rec, label, 0, 0, "SKIP existing"))
+            print(f"  {rec}/{label}: 已存在，跳过（加 --overwrite 可重写）")
+            continue
 
         try:
             if tm_topology and rec in tm_topology:

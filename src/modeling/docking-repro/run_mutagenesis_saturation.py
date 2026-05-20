@@ -37,6 +37,40 @@ SATURATION_RESIDUES = {
 }
 
 
+def parse_residue_overrides(values: list[str] | None) -> dict[str, list[int]] | None:
+    """Parse CLI overrides like ``Gpr3:100,164,167``."""
+    if not values:
+        return None
+
+    overrides: dict[str, list[int]] = {}
+    for item in values:
+        if ":" not in item:
+            raise SystemExit(f"--residues 格式应为 Rec:1,2,3，收到: {item}")
+        rec, raw_nums = item.split(":", 1)
+        nums = [int(x) for x in raw_nums.split(",") if x.strip()]
+        if not nums:
+            raise SystemExit(f"--residues 未提供残基编号: {item}")
+        overrides[rec] = nums
+    return overrides
+
+
+def parse_mutation_overrides(values: list[str] | None) -> dict[str, list[str]] | None:
+    """Parse CLI overrides like ``Gpr3:D100C`` or ``Gpr3:D100C,R164F``."""
+    if not values:
+        return None
+
+    overrides: dict[str, list[str]] = {}
+    for item in values:
+        if ":" not in item:
+            raise SystemExit(f"--mutations 格式应为 Rec:Label1,Label2，收到: {item}")
+        rec, raw_labels = item.split(":", 1)
+        labels = [x.strip().upper() for x in raw_labels.split(",") if x.strip()]
+        if not labels:
+            raise SystemExit(f"--mutations 未提供突变标签: {item}")
+        overrides.setdefault(rec, []).extend(labels)
+    return overrides
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Channel A 核心位点饱和突变扫描")
     parser.add_argument("--config", default=str(_this_dir / "config.yaml"))
@@ -45,8 +79,26 @@ def parse_args() -> argparse.Namespace:
         "--receptors", nargs="+", default=None,
         help=f"子集（如 --receptors Gpr2），默认全部 {list(SATURATION_RESIDUES.keys())}",
     )
+    parser.add_argument(
+        "--residues", nargs="+", default=None,
+        help="覆盖饱和扫描位点，例如 --residues Gpr3:100,164,167",
+    )
+    parser.add_argument(
+        "--mutations", nargs="+", default=None,
+        help="只跑指定突变，例如 --mutations Gpr3:D100C 或 Gpr3:D100C,R164F",
+    )
+    parser.add_argument(
+        "--out-json", default=None,
+        help="显式结果 JSON 文件名；支持 {run_id}，且不会覆写 mutagenesis_results.json",
+    )
+    parser.add_argument(
+        "--report-md", default=None,
+        help="显式 Markdown 报告文件名；支持 {run_id}",
+    )
     parser.add_argument("--vina-bin", default=None,
                         help="覆盖 config 中的 vina_bin 路径（跨平台使用）")
+    parser.add_argument("--wt-baseline-subdir", default=None,
+                        help="覆盖 WT singlestage 基线子目录，例如 wt_singlestage_gpr3_f_test")
     parser.add_argument("--cpu", type=int, default=None,
                         help="Vina 使用的 CPU 核心数（默认占满全部；Mac 长时间跑建议 4-6 避免过热）")
     return parser.parse_args()
@@ -71,6 +123,8 @@ def main() -> None:
         config["paths"]["project_root"] = args.project_root
     if args.vina_bin:
         config["remote"]["vina_bin"] = args.vina_bin
+    if args.wt_baseline_subdir:
+        config["paths"]["wt_singlestage_subdir"] = args.wt_baseline_subdir
     if args.cpu is not None:
         os.environ["VINA_CPU"] = str(args.cpu)
 
@@ -80,15 +134,32 @@ def main() -> None:
         root / config["paths"]["log_dir"],
         f"mutagenesis_saturation_{run_id}",
     )
+    config.setdefault("mutagenesis", {})["run_id"] = run_id
+    if args.out_json:
+        config["mutagenesis"]["output_filename"] = args.out_json
+        config["mutagenesis"]["timestamped_output"] = False
+    if args.report_md:
+        config["mutagenesis"]["report_filename"] = args.report_md
+
+    residue_overrides = parse_residue_overrides(args.residues)
+    mutation_overrides = parse_mutation_overrides(args.mutations)
+    if mutation_overrides:
+        config["mutagenesis"]["explicit_mutations"] = mutation_overrides
+        saturation_residues = {
+            rec: sorted({int(label[1:-1]) for label in labels})
+            for rec, labels in mutation_overrides.items()
+        }
+    else:
+        saturation_residues = residue_overrides or SATURATION_RESIDUES
 
     # --receptors 子集过滤（未指定则全量）
     if args.receptors:
-        unknown = [r for r in args.receptors if r not in SATURATION_RESIDUES]
+        unknown = [r for r in args.receptors if r not in saturation_residues]
         if unknown:
-            raise SystemExit(f"未知受体: {unknown}。可用: {list(SATURATION_RESIDUES.keys())}")
-        active_saturation = {r: SATURATION_RESIDUES[r] for r in args.receptors}
+            raise SystemExit(f"未知受体: {unknown}。可用: {list(saturation_residues.keys())}")
+        active_saturation = {r: saturation_residues[r] for r in args.receptors}
     else:
-        active_saturation = dict(SATURATION_RESIDUES)
+        active_saturation = dict(saturation_residues)
 
     # 配置：饱和扫描，排除 Ala（已在 alanine scan 中完成）
     config["mutagenesis"]["wt_baseline"] = "repro"
@@ -140,11 +211,17 @@ def main() -> None:
     # 按实际 WT 残基 + exclude_aas 展开突变列表，避免硬编码
     exclude_aas = cast(list[str], config["mutagenesis"].get("exclude_aas") or [])
     total_muts = 0
-    for rec, residues in active_saturation.items():
-        tm_pdb = cast(Path, rec_dir / receptor_tm_pdbs[rec])
-        total_muts += len(make_saturation_scan_mutations(
-            tm_pdb, residues, exclude_aas=exclude_aas,
-        ))
+    if mutation_overrides:
+        total_muts = sum(
+            len(mutation_overrides.get(rec, []))
+            for rec in active_saturation
+        )
+    else:
+        for rec, residues in active_saturation.items():
+            tm_pdb = cast(Path, rec_dir / receptor_tm_pdbs[rec])
+            total_muts += len(make_saturation_scan_mutations(
+                tm_pdb, residues, exclude_aas=exclude_aas,
+            ))
     cpu_note = f"，CPU={args.cpu}" if args.cpu is not None else "（默认全部核心）"
     logger.info(
         f"Saturation Scan 启动 [run_id={run_id}]{cpu_note}"

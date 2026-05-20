@@ -1,20 +1,20 @@
 ---
 direction: P0-molecular-docking
-status: reanalysis
+status: refreshed_handoff
 priority: P0
 chassis_dependent: false
-last_updated: 2026-04-27
+last_updated: 2026-05-20
 ---
 
 # P0: 受体-配体分子对接与 In Silico 突变扫描
 
 > 来源: PRD v3 §3.1 | iGEM 评审定位: 直接支撑湿实验设计
 >
-> **2026-04-27 校准**：本方向从“计算完成”退回 **reanalysis**。Gpr2 旧 Ala/Sat 数据存在 grid/offset 污染，已于 2026-04-23 用 3D offset 重跑；Gpr3 旧 pose 存在 TM-POPC groove 污染，方案 F（ECL2 manual box=20 Å）几何 PASS 且 Ala/Sat 结果已生成。旧 `ratio_channel_report.md` 早于 Gpr3 F 全量结果，不能作为最终湿实验 Top 配对权威；下一步是合并 Gpr3 F 结果、重跑 ratio/IFP 并刷新湿实验交接。详见 [2026-04-23 日志](../logs/2026-04-23.md) 与 [INDEX](../INDEX.md)。
+> **2026-05-20 校准**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、ratio refresh、Top 候选 IFP 和湿实验交接均已刷新。当前湿实验首选为 `Gpr2_R59C + Gpr3_R167Y`，备选见 [wet-lab-handoff-P0-docking.md](wet-lab-handoff-P0-docking.md)。证据指针见 [2026-05-19 日志](../logs/2026-05-19.md)。
 
 ## 解决什么问题
 
-核心问题：**如何改造 Gpr2/3/GprC 受体，使其对 ascr#18（PPN 富集标志物，Choe 2012 / Manosalva 2015）和 ascr#3（自由生活线虫标志物）具有差异化选择性？** 属于双通道比值型设计（`docs/prd/overview-v4.md` §双靶标判别逻辑）。突变按 sel_mut 双向分类为 Channel A（ascr#18 偏好）/ Channel B（ascr#3 偏好）/ neutral，跨受体配对形成传感器对。注意：2026-04-14 版完整分析 [`ratio_channel_report.md`](../../experiments/docking-repro/analysis/ratio_channel_report.md) 是历史基线，当前等待 Gpr3 方案 F 结果合并刷新。
+核心问题：**如何改造 Gpr2/3/GprC 受体，使其对 ascr#18（PPN 富集标志物，Choe 2012 / Manosalva 2015）和 ascr#3（自由生活线虫标志物）具有差异化选择性？** 属于双通道比值型设计（`docs/prd/overview-v4.md` §双靶标判别逻辑）。突变按 sel_mut 双向分类为 Channel A（ascr#18 偏好）/ Channel B（ascr#3 偏好）/ neutral，跨受体配对形成传感器对。当前完整分析见 [`ratio_channel_report.md`](../../experiments/docking-repro/analysis/ratio_channel_report.md)。
 
 文献（Hu2024、Kuo2024）已给出 WT 受体的结合亲和力排名。干实验的真正价值在于**预测增强选择性的突变位点**，为湿实验组的定点突变设计提供计算依据。
 
@@ -77,11 +77,11 @@ last_updated: 2026-04-27
 
 - [x] 受体-配体结合能排名表（3 受体 × 3 配体 = 9 组）—— WT 单阶段完成（2026-04-07）
 - [x] 结合口袋关键残基列表（ProLIF IFP 分析完成，Gpr2/3/GprC 各受体高频接触残基已确认）
-- [~] **双通道全谱排名**：2026-04-14 版 122 突变体已生成，但 Gpr2/Gpr3 修复后需刷新；旧 [ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md) 暂作历史基线，不作最终权威
-- [x] **Channel A 候选**（14 条无 caveat）+ **Channel B 候选**（11 条无 caveat）— 3σ 阈值 = ±0.477
-- [ ] **跨受体配对推荐刷新**：旧 Top 3（M327A/V138T 等）受 Gpr2/Gpr3 旧数据影响；待 Gpr3 F 合并后重算
+- [x] **双通道全谱排名刷新**：2026-05-20 版 266 条合并记录已生成；当前权威为 [ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md)
+- [x] **Channel A/B 候选刷新**：Channel A 无 caveat 36 条；Channel B 无 caveat 13 条；3σ 阈值 = ±0.477
+- [x] **跨受体配对推荐刷新**：当前 Top 1 为 Gpr2_R59C + Gpr3_R167Y，详见 [wet-lab-handoff-P0-docking.md](wet-lab-handoff-P0-docking.md)
 - [x] IFP 热图可视化（[ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)）
-- [x] Channel A Top 6 mutant IFP 分析（[ifp_analysis_mutants/](../../experiments/docking-repro/results/ifp_analysis_mutants/)）
+- [x] Refreshed Top mutant IFP 分析（[ifp_analysis_mutants_gpr3_f_full_20260520_0854/](../../experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/)）
 - [x] 可视化素材（Channel A Top 6 complex PDB + PyMOL scene 脚本；见 [analysis/pymol_top6/](../../experiments/docking-repro/analysis/pymol_top6/)）— 渲染交付 PI 的 PNG/PSE 待补
 - [ ] V138R 盐桥假说 MD 实证 → 转交 [P0-md-simulation](P0-md-simulation.md)
 
@@ -99,12 +99,12 @@ last_updated: 2026-04-27
 - **代码路径**: `src/modeling/docking-repro/`
 - **产出路径**: `experiments/docking-repro/`
 - **工具链**: ADFR Suite + Orca DFT B3LYP/def2-TZVP + **单阶段对接**（40Å/0.1/exh=200） + **AF3 突变体结构预测** + **ProLIF IFP 分析**
-- **计算节点**: Windows 7500F（通过 Tailscale SSH 远程调用）
+- **计算节点**: Slurm GPU 集群；Windows 7500F 仅作历史 artifact 参考
 - **关键技术修复**:
   - ICL3 截断 + TM 螺旋质心（修复 GprC grid box 偏移 18.1Å）
   - Annotation-based TM 域提取（UniProt + DeepTMHMM 交叉验证）
   - ascr18 PDBQT freeze_terminal_torsions bug 修复（15→26 原子）
-- **状态**: **reanalysis**（2026-04-27）。早期 32 alanine + 90 saturation 结果已形成历史基线；Gpr2 3D offset 与 Gpr3 方案 F 修复后需重算 ratio/IFP/湿实验推荐
+- **状态**: **refreshed_handoff**（2026-05-20）。Gpr2/Gpr3 修复后 ratio/IFP/湿实验交接已刷新；ODE Kd/calibration 仍按单独文献计划暂停
 
 **共享数据**: 两条线共用同一份原始 PDB/SDF（通过 symlink），不重复存储。
 
@@ -123,14 +123,15 @@ last_updated: 2026-04-27
 - **学习资源**: 见 [学习路线图 阶段二](../learning/roadmap.md)
 - **预计时间**: 1-2 周完成学习 + 首次对接
 
-## 当前 reanalysis 状态（2026-04-27）
+## 当前刷新状态（2026-05-20）
 
-- **Gpr2**：3D offset WT/Ala/Sat 重跑完成；旧 Gpr2 结果不再作为权威。2026-04-23 版 ratio 已纳入 Gpr2 修复，但仍混用旧 Gpr3/GprC 数据。
-- **Gpr3**：旧 pose 确认偏向 TM-POPC groove；方案 F 使用 ECL2 manual box center `[0.42, 7.16, -17.11]`、box=20 Å，WT pose 几何全线 PASS；Gpr3 F Ala/Sat 结果文件已生成。
-- **当前阻塞**：合并 Gpr3 F Ala/Sat 到全量 mutagenesis JSON，重跑 `ratio_channel_analysis.py`，再刷新 `ratio_channel_report.md` / `ratio_pairings.csv` / IFP 与湿实验交接。
-- **使用纪律**：本节以下 2026-04-14 “结果概览”是历史结果，不能直接作为最终推荐；如需候选优先级，先查 [INDEX](../INDEX.md) 与最新日志。
+- **Gpr2**：3D offset WT/Ala/Sat 结果作为当前 Gpr2 权威路线；旧污染结果不再作为候选依据。
+- **Gpr3**：方案 F 使用 ECL2 manual box center `[0.42, 7.16, -17.11]`、box=20 Å；Ala/Sat 与 D100/R164/R167 supplemental 结果已合并。
+- **当前权威输出**：merged JSON `mutagenesis_results_merged_gpr3_f_full_20260520_0854.json`、[ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md)、[wet-lab-handoff-P0-docking.md](wet-lab-handoff-P0-docking.md)。
+- **当前推荐**：首选 `Gpr2_R59C + Gpr3_R167Y`；备选 `Gpr3_V138M/R167P/R167C`，`GprC_Q411S` 仅作探索性备选。
+- **使用纪律**：本节以下 2026-04-14 “历史结果概览”只作历史记录，不能直接作为最终推荐。
 
-## 历史结果概览（2026-04-14，双通道分析；待刷新）
+## 历史结果概览（2026-04-14，双通道分析；已替换）
 
 历史双通道全谱排名见 [ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md)（2026-04-14 版历史报告，Alanine 32 + Saturation 90 = 122 条合并；待 Gpr3 F 合并后刷新）。IFP 热图见 [ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)。
 
