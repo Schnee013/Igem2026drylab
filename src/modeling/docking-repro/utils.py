@@ -11,6 +11,8 @@ from pathlib import Path
 
 import yaml
 
+AF3_REC_NAME_MAP = {"gprc": "GprC", "gpr2": "Gpr2", "gpr3": "Gpr3"}
+
 
 def load_config(config_path: str | Path) -> dict:
     config_path = Path(config_path)
@@ -38,6 +40,40 @@ def ensure_dirs(config: dict) -> None:
 
 def generate_run_id() -> str:
     return datetime.now().strftime("%Y%m%d_%H%M%S")
+
+
+def parse_af3_job_name(job_name: str) -> tuple[str, str]:
+    """Parse an AF3 Server job name like ``gpr3_d100p`` into ``(Gpr3, D100P)``."""
+    parts = job_name.split("_", 1)
+    if len(parts) != 2:
+        raise ValueError(f"无法解析 AF3 job 名称: {job_name}")
+    rec_key, label = parts
+    rec_name = AF3_REC_NAME_MAP.get(rec_key.lower(), rec_key)
+    return rec_name, label.upper()
+
+
+def load_af3_job_filter(job_name_files: list[str] | None = None) -> set[tuple[str, str]] | None:
+    """Load ``(receptor, label)`` filters from AF3 batch JSON files.
+
+    The AlphaFold Server batch format used in this repo is a JSON list where
+    each item has a ``name`` field such as ``gpr3_d100p``. Returning ``None``
+    means no filter was requested.
+    """
+    if not job_name_files:
+        return None
+
+    selected: set[tuple[str, str]] = set()
+    for file in job_name_files:
+        path = Path(file)
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(raw, list):
+            raise ValueError(f"AF3 batch JSON 必须是 list: {path}")
+        for item in raw:
+            if not isinstance(item, dict) or "name" not in item:
+                raise ValueError(f"AF3 batch JSON 缺少 name 字段: {path}")
+            selected.add(parse_af3_job_name(str(item["name"])))
+
+    return selected
 
 
 def setup_logging(log_dir: Path, run_id: str) -> logging.Logger:

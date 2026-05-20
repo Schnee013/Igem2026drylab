@@ -1,6 +1,6 @@
 # Current drylab state memory
 
-> 生成日期：2026-04-27
+> 生成日期：2026-05-20
 > Purpose: Codex project memory entry for current state. This file is pointer-based and does not replace `docs/INDEX.md`, domain docs, logs, or raw results.
 > Read rule: use this file to find the relevant source logs, modeling docs, plans, and result files; verify conclusions in those sources.
 
@@ -26,17 +26,18 @@
 - `/Users/roy/Documents/drylab/docs/modeling/P0-md-simulation.md` — MD phase 定义、chimeric C1-C5 状态、7 项分析指标。
 - `/Users/roy/Documents/drylab/docs/INDEX.md` — 当前优先入口与阻塞项。
 
-## 2. docking-repro：Gpr2/Gpr3 修复后的结果刷新仍阻塞湿实验 Top 推荐
+## 2. docking-repro：Gpr2/Gpr3 修复后的结果刷新已完成，进入湿实验交接执行
 
-**当前状态**：Gpr2 3D offset WT/Ala/Sat 重跑已完成；Gpr3 方案 F 已完成并通过几何约束，但结论不理想，旧 Top/ratio/IFP 不能直接作为最终湿实验推荐。下一步需要合并/刷新结果，并补充 IFP 更多位点所需的 AF3 预测。
+**当前状态**：2026-05-20 已完成 repo-owned full refresh plan 的 Phase 1-7：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、266 条 merged ratio、8 个 Top 候选 IFP 与湿实验 handoff 均已刷新。当前首选候选见 handoff；不要从本 memory 复制数值结论。
 
-**补充任务（用户 2026-04-27 指定）**：Gpr3 F 已完成但结论不理想，需要补充 IFP 更多位点的 AF3 预测；batch JSON 提交文件已生成：
+**已完成补充任务（用户 2026-04-27 指定）**：Gpr3 F 更多 IFP 相关位点的 supplemental AF3/docking 已纳入刷新。原 batch JSON 输入为：
 
 - `/Users/roy/Documents/drylab/experiments/docking-repro/mutagenesis/fastas/Gpr3/saturation/af3_batch_gpr3_f_01.json`
 - `/Users/roy/Documents/drylab/experiments/docking-repro/mutagenesis/fastas/Gpr3/saturation/af3_batch_gpr3_f_02.json`
 
 **Plan 指针**：
 
+- `/Users/roy/Documents/drylab/codex/docs/plans/docking-repro-full-refresh-slurm.md` — repo-owned full refresh plan；Phase 1-7 执行证据见 2026-05-19 日志和结果文件。
 - `/Users/roy/.claude/plans/gpr3-1-2-cozy-bengio.md` — Gpr3 pose 质量审查、方案 F、全量重跑与后续 ratio/IFP 刷新框架。
 - `/Users/roy/.claude/plans/charmmgui-membrane-builder-gpr2-icl-vin-whimsical-ripple.md` — Gpr2 grid/offset 污染核查与重跑决策。
 - `/Users/roy/.claude/plans/tidy-yawning-twilight.md` — 比值型双通道 docking 数据分析框架。
@@ -46,8 +47,11 @@
 
 - `/Users/roy/Documents/drylab/docs/logs/2026-04-23.md` — Gpr2 重跑完成、Gpr3 box/offset/F 方案审查与 PASS 记录。
 - `/Users/roy/Documents/drylab/docs/logs/2026-04-27.md` — INDEX 与 P0 docking 状态校准；明确旧 wet-lab handoff 不可直接下发。
-- `/Users/roy/Documents/drylab/docs/modeling/P0-molecular-docking.md` — docking-repro 当前 `reanalysis` 状态与使用纪律。
-- `/Users/roy/Documents/drylab/experiments/docking-repro/analysis/ratio_channel_report.md` — 历史 ratio 报告；刷新前仅作历史基线。
+- `/Users/roy/Documents/drylab/docs/logs/2026-05-19.md` — full refresh Phase 1-7 执行记录和校验指针。
+- `/Users/roy/Documents/drylab/docs/modeling/P0-molecular-docking.md` — docking-repro 当前 `refreshed_handoff` 状态与使用纪律。
+- `/Users/roy/Documents/drylab/docs/modeling/wet-lab-handoff-P0-docking.md` — 当前湿实验候选权威交接。
+- `/Users/roy/Documents/drylab/experiments/docking-repro/analysis/ratio_channel_report.md` — 当前 266 条 merged ratio 报告。
+- `/Users/roy/Documents/drylab/experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/` — 当前 refreshed Top 候选 IFP 输出。
 
 ## 3. 嵌合 Gpa1：AF3 全量筛选完成，当前进入 MD validation
 
@@ -68,7 +72,7 @@
 
 ## 4. ODE / 显色级联：并行推进，但关键输入等待 docking 与湿实验方案
 
-**当前状态**：底盘已锁定酵母 STE2 + 嵌合 Gpa1 + 基因组单拷贝整合；ODE 可继续整理模型框架和参数源，但 Top 候选/Kd 输入需等待 docking-repro 刷新。显色级联方案仍 TBD；HP 经济效益模型需求尚未对齐。
+**当前状态**：底盘已锁定酵母 STE2 + 嵌合 Gpa1 + 基因组单拷贝整合；ODE 可继续整理模型框架和参数源。Docking Top 候选标签已刷新，但 Kd/calibration 仍需等待单独文献审查，不能把 docking ΔG 直接转换为 Kd。显色级联方案仍 TBD；HP 经济效益模型需求尚未对齐。
 
 **Plan 指针**：
 

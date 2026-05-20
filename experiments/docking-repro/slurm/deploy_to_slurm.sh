@@ -1,48 +1,61 @@
 #!/bin/bash
-# Gpr2 重对接部署脚本 — Mac → Slurm 服务器
-# 用法: bash experiments/docking-repro/slurm/deploy_to_slurm.sh
-#
-# 前提: SSH 密钥已配置到 10.40.4.5:10022 (user=guest)
-# → docs/logs/2026-04-16.md §Gpr2 Docking Pose 朝向验证
+# Deploy docking-repro code and required inputs from Mac to the Slurm workspace.
+# Usage: bash experiments/docking-repro/slurm/deploy_to_slurm.sh
 
 set -euo pipefail
 
-SERVER="10.40.4.5"
-REMOTE_DIR="~/drylab-docking"
+SERVER="${SERVER:-guest@10.40.4.5}"
+REMOTE_DIR="${REMOTE_DIR:-/home/guest/drylab-docking}"
 LOCAL_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
+RSYNC_OPTS=(-az --exclude ".DS_Store")
 
-echo "=== Step 1: 创建远程目录结构 ==="
-ssh "$SERVER" "mkdir -p $REMOTE_DIR/{src/modeling/docking-repro,experiments/docking-repro/{prepared/{receptors,ligands},results,logs}} ~/bin"
+echo "=== Step 1: create remote directory structure ==="
+ssh "$SERVER" "mkdir -p \
+	  '$REMOTE_DIR/src/modeling/docking-repro' \
+	  '$REMOTE_DIR/experiments/docking-repro/prepared' \
+	  '$REMOTE_DIR/experiments/docking-repro/results/wt_singlestage' \
+	  '$REMOTE_DIR/experiments/docking-repro/results/wt_singlestage_gpr3_f_test' \
+	  '$REMOTE_DIR/experiments/docking-repro/mutagenesis/fastas/Gpr3/saturation' \
+  '$REMOTE_DIR/experiments/docking-repro/mutagenesis/af3_structures/Gpr3' \
+  '$REMOTE_DIR/experiments/docking-repro/mutagenesis/af3_prepared/Gpr3' \
+  '$REMOTE_DIR/experiments/docking-repro/logs' \
+  '$REMOTE_DIR/experiments/docking-repro/slurm'"
 
-echo "=== Step 2: 传输代码（6 文件） ==="
-CODE_DIR="$LOCAL_ROOT/src/modeling/docking-repro"
-for f in config.yaml dock.py run_wt_singlestage.py grid_box.py utils.py validate.py; do
-    scp "$CODE_DIR/$f" "$SERVER:$REMOTE_DIR/src/modeling/docking-repro/"
-    echo "  ✓ $f"
-done
+echo "=== Step 2: sync docking-repro source code ==="
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/src/modeling/docking-repro/" \
+  "$SERVER:$REMOTE_DIR/src/modeling/docking-repro/"
 
-echo "=== Step 3: 传输受体数据 ==="
-PREP_DIR="$LOCAL_ROOT/experiments/docking-repro/prepared"
-scp "$PREP_DIR/receptors/Gpr2_G1X9E2_tm.pdbqt" "$SERVER:$REMOTE_DIR/experiments/docking-repro/prepared/receptors/"
-scp "$PREP_DIR/receptors/Gpr2_G1X9E2_tm.pdb" "$SERVER:$REMOTE_DIR/experiments/docking-repro/prepared/receptors/"
-echo "  ✓ Gpr2 receptor (.pdbqt + .pdb)"
+echo "=== Step 3: sync prepared WT receptors and ligands ==="
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/experiments/docking-repro/prepared/" \
+  "$SERVER:$REMOTE_DIR/experiments/docking-repro/prepared/"
 
-echo "=== Step 4: 传输配体数据 ==="
-for lig in ascr18 ascr3 ascr7 ascr1; do
-    scp "$PREP_DIR/ligands/${lig}_optimized.pdbqt" "$SERVER:$REMOTE_DIR/experiments/docking-repro/prepared/ligands/"
-    echo "  ✓ ${lig}_optimized.pdbqt"
-done
+echo "=== Step 4: sync WT baseline results ==="
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/experiments/docking-repro/results/wt_singlestage/" \
+  "$SERVER:$REMOTE_DIR/experiments/docking-repro/results/wt_singlestage/"
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/experiments/docking-repro/results/wt_singlestage_gpr3_f_test/" \
+  "$SERVER:$REMOTE_DIR/experiments/docking-repro/results/wt_singlestage_gpr3_f_test/"
 
-echo "=== Step 5: 传输 sbatch 脚本 ==="
-scp "$LOCAL_ROOT/experiments/docking-repro/slurm/gpr2_redock.sh" "$SERVER:$REMOTE_DIR/"
+echo "=== Step 5: sync Gpr3 supplemental AF3 structures and batch JSONs ==="
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/experiments/docking-repro/mutagenesis/af3_structures/Gpr3/" \
+  "$SERVER:$REMOTE_DIR/experiments/docking-repro/mutagenesis/af3_structures/Gpr3/"
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/experiments/docking-repro/mutagenesis/fastas/Gpr3/saturation/af3_batch_gpr3_f_"*.json \
+  "$SERVER:$REMOTE_DIR/experiments/docking-repro/mutagenesis/fastas/Gpr3/saturation/"
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/experiments/docking-repro/mutagenesis/af3_import_manifest_20260519.md" \
+  "$SERVER:$REMOTE_DIR/experiments/docking-repro/mutagenesis/"
 
-echo ""
-echo "=== 部署完成 ==="
-echo "接下来在服务器上执行:"
-echo "  ssh $SERVER"
-echo "  # 检查/安装 Vina:"
-echo "  #   which vina || (下载 vina_1.2.7_linux_x86_64 到 ~/bin/vina && chmod +x ~/bin/vina)"
-echo "  ~/bin/vina --version"
-echo "  # 提交作业:"
-echo "  cd ~/drylab-docking && sbatch gpr2_redock.sh"
-echo "  squeue -u \$USER"
+echo "=== Step 6: sync Slurm scripts ==="
+rsync "${RSYNC_OPTS[@]}" \
+  "$LOCAL_ROOT/experiments/docking-repro/slurm/" \
+  "$SERVER:$REMOTE_DIR/experiments/docking-repro/slurm/"
+
+echo "=== Deploy complete ==="
+echo "Remote workspace: $SERVER:$REMOTE_DIR"
+echo "Next:"
+echo "  ssh $SERVER 'cd $REMOTE_DIR && sbatch experiments/docking-repro/slurm/docking_preflight.sh'"

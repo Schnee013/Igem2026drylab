@@ -14,6 +14,7 @@ ratio_channel_analysis.py — 比值型双通道 Docking 数据分析
 
 import json
 import csv
+import argparse
 from pathlib import Path
 from itertools import product
 
@@ -22,6 +23,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent  # experiments/docking-repro
 INPUT_JSON = REPO_ROOT / "mutagenesis" / "mutagenesis_results_merged_3d_offset_20260423.json"
 OUT_DIR = SCRIPT_DIR  # analysis/
+RUN_LABEL = None
 
 # ── 参数 ──────────────────────────────────────────────────────────
 NOISE_SD = 0.159          # Gpr2_ascr18 multiseed SD (最保守估计)
@@ -30,8 +32,8 @@ SEL_THRESHOLD = NOISE_SD * SIGMA_THRESHOLD   # 0.477 ≈ 0.48
 AFFINITY_FLOOR = 5.0      # |ΔG| 下限 (kcal/mol)
 
 
-def load_data():
-    with open(INPUT_JSON, encoding="utf-8") as f:
+def load_data(input_json):
+    with open(input_json, encoding="utf-8") as f:
         records = json.load(f)
     return records
 
@@ -83,7 +85,7 @@ def write_spectrum_csv(records, path):
         "channel", "strength", "gprc_caveat",
     ]
     with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
         w.writeheader()
         for i, rec in enumerate(sorted_recs, 1):
             row = {**rec, "rank": i}
@@ -154,14 +156,14 @@ def write_pairings_csv(pairings, path):
         "dg_a_ascr18", "dg_b_ascr3", "has_caveat",
     ]
     with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
         w.writeheader()
         for i, p in enumerate(pairings, 1):
             row = {**p, "rank": i}
             w.writerow(row)
 
 
-def generate_report(records, pairings, path):
+def generate_report(records, pairings, path, input_json, run_label=None):
     """生成 Markdown 报告"""
     sorted_recs = sorted(records, key=lambda r: r["sel_mut"])
     ch_a = [r for r in sorted_recs if r["channel"] == "A" and not r["gprc_caveat"]]
@@ -176,7 +178,10 @@ def generate_report(records, pairings, path):
     lines = []
     lines.append("# 比值型双通道 Docking 分析报告")
     lines.append("")
-    lines.append(f"生成时间：自动生成 | 数据源：{INPUT_JSON.name} ({len(records)} 条)")
+    source_line = f"生成时间：自动生成 | 数据源：{input_json.name} ({len(records)} 条)"
+    if run_label:
+        source_line += f" | run_label: {run_label}"
+    lines.append(source_line)
     lines.append("")
 
     # §1 框架
@@ -388,15 +393,44 @@ def generate_report(records, pairings, path):
         f.write("\n".join(lines))
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Analyze merged docking mutagenesis JSON for ratio-channel candidates."
+    )
+    parser.add_argument(
+        "--input-json",
+        type=Path,
+        default=INPUT_JSON,
+        help=f"Merged mutagenesis JSON (default: {INPUT_JSON})",
+    )
+    parser.add_argument(
+        "--out-dir",
+        type=Path,
+        default=OUT_DIR,
+        help=f"Output directory for ratio CSV/Markdown files (default: {OUT_DIR})",
+    )
+    parser.add_argument(
+        "--run-label",
+        default=RUN_LABEL,
+        help="Optional label written into the Markdown report for provenance.",
+    )
+    return parser.parse_args()
+
+
 def main():
-    print(f"读取 {INPUT_JSON} ...")
-    records = load_data()
+    args = parse_args()
+    input_json = args.input_json.resolve()
+    out_dir = args.out_dir.resolve()
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    print(f"读取 {input_json} ...")
+    records = load_data(input_json)
     print(f"  载入 {len(records)} 条记录")
 
     records = annotate(records)
 
     # 全谱排名 CSV
-    spectrum_csv = OUT_DIR / "ratio_spectrum.csv"
+    spectrum_csv = out_dir / "ratio_spectrum.csv"
     sorted_recs = write_spectrum_csv(records, spectrum_csv)
     print(f"  全谱 CSV → {spectrum_csv}")
 
@@ -413,7 +447,7 @@ def main():
 
     # 配对排名
     pairings = compute_pairings(records)
-    pairings_csv = OUT_DIR / "ratio_pairings.csv"
+    pairings_csv = out_dir / "ratio_pairings.csv"
     write_pairings_csv(pairings, pairings_csv)
     print(f"  配对 CSV → {pairings_csv}")
     clean_pairings = [p for p in pairings if not p["has_caveat"]]
@@ -421,8 +455,8 @@ def main():
     print(f"  配对数: 无 caveat {len(clean_pairings)} | 含 caveat {len(caveat_pairings)}")
 
     # Markdown 报告
-    report_md = OUT_DIR / "ratio_channel_report.md"
-    generate_report(records, pairings, report_md)
+    report_md = out_dir / "ratio_channel_report.md"
+    generate_report(records, pairings, report_md, input_json, args.run_label)
     print(f"  报告 → {report_md}")
 
     # 验证

@@ -23,6 +23,9 @@ this repo-scoped layer and the authoritative `docs/` sources instead.
 - `ifp-salt-bridge.md`: ProLIF/PDBQT salt-bridge limitation and current IFP caveats.
 - `references.md`: people / external-contact reference notes.
 
+Repo-owned execution plans live in `codex/docs/plans/`. Memory files may point
+to those plans but should not duplicate their content.
+
 ## Loading rule
 
 For non-trivial drylab tasks, after reading `docs/DOCMAP.md` and `docs/INDEX.md`, read this README and then only the memory files relevant to the task. Do not bulk-load all memory files by default.
