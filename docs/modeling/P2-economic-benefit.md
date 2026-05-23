@@ -1,6 +1,6 @@
 ---
 direction: P2-economic-benefit
-status: framework_mvp
+status: framework_mvp_validated_arithmetic + stage3_benchmarks_extracted
 priority: P2
 chassis_dependent: false
 last_updated: 2026-05-23
@@ -77,6 +77,8 @@ last_updated: 2026-05-23
 
 | 日期 | 版本 | 变更内容 | 触发原因 |
 |------|------|---------|---------|
+| 2026-05-23 | v1.4 | 新增 Stage 3 外部 benchmark 抽取：PCN/Koehler、USDA ERS VOI、cucumber-RKN Bragantia、Barker tomato-RKN | 把公式结构从自洽算术推进到外部方法/密度-产量证据支撑，同时保持 ROI guardrail |
+| 2026-05-23 | v1.3 | 新增 framework validation 文档与自动化测试，确认 UC IPM golden baseline 和成本核算公式可复现 | 防止把 smoke run 误读为最终 ROI；为 HP 参数回填前建立可靠性底线 |
 | 2026-05-23 | v1.2 | 将 P2 文献/参数矩阵从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`，并补充 HP 问卷路由与示例分析边界 | 长期留存与 DOCMAP 路由规范 |
 | 2026-04-03 | v1.0 | 从 PRD v3 §3.5c + §2B 提取初始内容 | 文档体系搭建 |
 
@@ -113,6 +115,39 @@ last_updated: 2026-05-23
 - `intervention_effect` 不是某个药剂的确定疗效，而是“早发现+及时干预避免晚发现损失的比例”扫参；正式值需要 HP/湿实验/文献全文回填。
 - tomato-RKN 是唯一可直接货币化的公开示例：UC IPM 表给出 500 spring J2/kg soil 对应 72% normal yield，示例产量 30 tons/acre，价格 54 USD/ton，所以晚发现毛损失为 `30 * 54 * 0.28 = 453.6 USD/acre`。
 - potato-PCN 目前只是归一化结构验证；soybean-SCN 目前只是阈值决策骨架，二者不能作为本地 ROI 结论。
+
+### 2026-05-23：框架全量检验
+
+- 验证文档：`docs/modeling/P2-economic-benefit-validation.md`
+- 自动化测试：`tests/modeling/test_economic_model.py`
+- 验证命令：
+
+```bash
+python3 -m unittest tests.modeling.test_economic_model -v
+```
+
+- 当前结果：14 个测试通过；重新生成 `public_mvp_framework_results.csv` 到临时文件后与仓库内 CSV 完全一致。
+- 已验证范围：
+  - UC IPM tomato-RKN `200 spring J2/kg soil` computed golden baseline：由 UC IPM 表格点位和示例产量/价格计算，`30 * 54 * 0.12 = 194.40 USD/acre`。
+  - 当前 tomato-RKN `500 spring J2/kg soil` public example：`30 * 54 * 0.28 = 453.60 USD/acre`。
+  - piecewise table 点位、线性插值、边界 clamp、PCN 归一化线性损失、SCN threshold-only 不货币化 guardrail，以及无效规则/零成本/干预效果越界等边界条件。
+- 解释边界：这证明 deterministic cost-accounting framework 和 UC IPM public example 的算术可靠；仍不能证明本项目传感器在目标地区的最终 ROI。
+
+### 2026-05-23：Stage 3 外部 benchmark 抽取
+
+- 新增长期证据文档：
+  - `docs/papers/p2-economic-benefit/stage3-benchmark-extraction.md`
+  - `docs/papers/p2-economic-benefit/stage3-benchmark-evidence.csv`
+- 原始工作区：
+  - `tmp_papers/p2_economic_benefit_20260523_stage3/`
+- 已抽取可用 benchmark：
+  - PCN：Koehler et al. `10.1163/15685411-bja10138` 支持 PCN decision-support 的方法结构与局部参数校验，但不是完整 NemaDecide worked example。
+  - VOI：USDA ERS soybean rust early-warning report 支持增强层公式 `E[cost_without_information] - E[cost_with_information]`，并提供信号质量/先验风险的数值例题。
+  - cucumber-RKN：Mukhtar and Kayani 2020 `10.1590/1678-4499.20190359` 提供合法 OA 全文表格，可作为新增密度-产量函数 benchmark，但不能直接换算为田间 J2/kg soil。
+  - tomato-RKN：Barker et al. 1976 PMID `19308228` 支持 UC IPM tomato-RKN 表格的外部合理性与环境敏感性，不替代 UC IPM golden baseline。
+- 仍然 pending：
+  - Contina 2019、Kayani 2017、Kayani/Mukhtar/Hussain 2018、Isik/Hudson/Coble 2005、Heydari/Tanha Maafi/Pourjam 2012、Been/Schomaker 1998 需要合法全文或补充表格。
+- 本轮未修改 `public_mvp_framework.json` 或 `tests/modeling/test_economic_model.py`：Stage 3 证据足以指导增强模型结构，但尚未形成可自动回放的新 golden benchmark。
 
 ## 与其他方向的依赖关系
 
