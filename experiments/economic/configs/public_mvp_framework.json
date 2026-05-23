@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "created": "2026-05-21",
+    "purpose": "Framework-only P2 economic-benefit MVP scenarios using Stage 2 public evidence and explicit placeholders.",
+    "stage2_parameters": "docs/papers/p2-economic-benefit/stage2-model-parameters.csv",
+    "boundary": "Sensor unit cost, deployment density, local prices, product prices, and field diagnostic performance remain HP/wet-lab variables."
+  },
+  "intervention_effect_sweep": [0.25, 0.5, 0.75],
+  "scenarios": [
+    {
+      "scenario_id": "tomato_rkn_ucipm_500j2_public_example",
+      "enabled": true,
+      "crop": "processing tomato",
+      "nematode": "Meloidogyne spp.",
+      "area_unit": "acre",
+      "yield_unit": "source ton/acre",
+      "currency": "USD",
+      "baseline_yield_per_area": 30.0,
+      "crop_price_per_yield_unit": 54.0,
+      "density_input": {
+        "value": 500,
+        "unit": "spring J2/kg soil"
+      },
+      "yield_loss_rule": {
+        "type": "piecewise_percent_normal_yield",
+        "source": "UC IPM tomato root-knot nematode spring J2/kg soil table",
+        "points": [
+          [0, 100],
+          [25, 100],
+          [50, 98],
+          [100, 95],
+          [150, 91],
+          [200, 88],
+          [250, 85],
+          [300, 82],
+          [350, 79],
+          [400, 77],
+          [450, 74],
+          [500, 72],
+          [550, 69],
+          [600, 67],
+          [650, 65],
+          [700, 63],
+          [750, 61],
+          [800, 60],
+          [850, 58],
+          [900, 56],
+          [950, 55],
+          [1000, 53]
+        ]
+      },
+      "early_program_costs_per_area": [50, 100, 200],
+      "evidence_status": "public extension numeric example",
+      "hp_status": "replace yield, price, intervention cost, and sensor cost with HP/local inputs before final ROI claims",
+      "notes": "Baseline yield 30 ton/acre and price $54/ton are UC IPM example values, not current market calibration."
+    },
+    {
+      "scenario_id": "potato_pcn_eppo_20egg_normalized",
+      "enabled": true,
+      "crop": "potato",
+      "nematode": "Globodera pallida",
+      "area_unit": "ha",
+      "yield_unit": "normalized tonne/ha",
+      "currency": "normalized",
+      "baseline_yield_per_area": 1.0,
+      "crop_price_per_yield_unit": 1.0,
+      "density_input": {
+        "value": 20,
+        "unit": "eggs/g soil"
+      },
+      "yield_loss_rule": {
+        "type": "linear_loss_per_density_increment",
+        "source": "EPPO Globodera pallida datasheet citing approximately 2 t/ha loss per 20 eggs/g soil",
+        "density_increment": 20,
+        "yield_loss_per_increment": 0.0444444444,
+        "max_loss_fraction": 0.8
+      },
+      "early_program_costs_per_area": [0.01, 0.03, 0.05],
+      "evidence_status": "regulatory datasheet parameter transformed to normalized yield-loss fraction",
+      "hp_status": "replace normalized baseline and price with selected region potato yield and farmgate price",
+      "notes": "Normalized scenario assumes 45 t/ha only for scaling 2/45 = 4.44% loss at 20 eggs/g; do not cite as calibrated local potato economics."
+    },
+    {
+      "scenario_id": "soybean_scn_threshold_skeleton",
+      "enabled": true,
+      "crop": "soybean",
+      "nematode": "Heterodera glycines",
+      "area_unit": "acre",
+      "yield_unit": "bu/acre",
+      "currency": "USD",
+      "baseline_yield_per_area": null,
+      "crop_price_per_yield_unit": null,
+      "density_input": {
+        "value": 10000,
+        "unit": "eggs/100 cc soil"
+      },
+      "yield_loss_rule": {
+        "type": "threshold_only",
+        "source": "UMN Extension SCN management bands"
+      },
+      "early_program_costs_per_area": [],
+      "evidence_status": "threshold band only; density-yield curve still requires full-text extraction",
+      "hp_status": "needs local soybean yield, price, resistant-seed premium, and SCN full-text yield function",
+      "notes": "Framework keeps SCN as a decision-rule skeleton until a model-ready density-yield function is extracted."
+    }
+  ]
+}

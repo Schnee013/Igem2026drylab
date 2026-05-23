@@ -1,9 +1,9 @@
 ---
 direction: P2-economic-benefit
-status: not_started
+status: framework_mvp
 priority: P2
 chassis_dependent: false
-last_updated: 2026-04-03
+last_updated: 2026-05-23
 ---
 
 # P2: 早期检测经济效益模型
@@ -77,11 +77,42 @@ last_updated: 2026-04-03
 
 | 日期 | 版本 | 变更内容 | 触发原因 |
 |------|------|---------|---------|
+| 2026-05-23 | v1.2 | 将 P2 文献/参数矩阵从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`，并补充 HP 问卷路由与示例分析边界 | 长期留存与 DOCMAP 路由规范 |
 | 2026-04-03 | v1.0 | 从 PRD v3 §3.5c + §2B 提取初始内容 | 文档体系搭建 |
 
 ## 进展记录
 
-（暂无）
+### 2026-05-21：Stage 1/2 文献参数矩阵 + MVP 框架
+
+- Stage 1/2 调研产物已提升为长期文档：
+  - `docs/papers/p2-economic-benefit/stage1-paper-data-matrix.md`
+  - `docs/papers/p2-economic-benefit/stage2-parameter-extraction.md`
+  - `docs/papers/p2-economic-benefit/stage2-model-parameters.csv`
+  - `docs/papers/p2-economic-benefit/stage2-source-evidence.csv`
+  - 原始 API/checkpoint 工作区仍保留在 `tmp_papers/p2_economic_benefit_20260521/`
+- 最小 deterministic cost-accounting 框架已落地：
+  - 代码：`src/modeling/economic/`
+  - 示例配置：`experiments/economic/configs/public_mvp_framework.json`
+  - 示例输出：`experiments/economic/results/public_mvp_framework_results.csv`
+  - 示例解读：`experiments/economic/results/public_mvp_framework_summary.md`
+- HP 参数回收材料：
+  - `docs/modeling/P2-economic-benefit-hp-questionnaire.md`
+- 当前可用公开参数：
+  - tomato-RKN：UC IPM J2/kg soil → % normal yield piecewise table，可直接做 MVP 示例。
+  - potato-PCN：EPPO/AHDB/APHIS 阈值与损失范围，可做归一化或占位场景。
+  - soybean-SCN：UMN/Iowa 阈值、采样误差和 lab cost 可用，但密度-产量损失函数仍需全文抽取。
+- 仍不可作为确定输入：
+  - biosensor 单次成本、部署密度、灵敏度/特异性；
+  - 当地作物价格、施药成本、人工/设备成本、抗性品种溢价、轮作机会成本；
+  - docking Delta G、ODE Kd 或未验证 wet-lab 假设。
+
+### 当前 MVP 示例分析边界
+
+- 基线不是“完全不损失”，而是“没有早期检测/晚发现时，在给定线虫密度下承受的产量收入损失”。
+- 早期检测情景暂不使用真实传感器成本；当前用 `early_program_costs_per_area` 做 50/100/200 USD/acre 等占位成本扫参。
+- `intervention_effect` 不是某个药剂的确定疗效，而是“早发现+及时干预避免晚发现损失的比例”扫参；正式值需要 HP/湿实验/文献全文回填。
+- tomato-RKN 是唯一可直接货币化的公开示例：UC IPM 表给出 500 spring J2/kg soil 对应 72% normal yield，示例产量 30 tons/acre，价格 54 USD/ton，所以晚发现毛损失为 `30 * 54 * 0.28 = 453.6 USD/acre`。
+- potato-PCN 目前只是归一化结构验证；soybean-SCN 目前只是阈值决策骨架，二者不能作为本地 ROI 结论。
 
 ## 与其他方向的依赖关系
 

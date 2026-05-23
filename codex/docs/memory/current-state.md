@@ -1,6 +1,6 @@
 # Current drylab state memory
 
-> 生成日期：2026-05-20
+> 生成日期：2026-05-23
 > Purpose: Codex project memory entry for current state. This file is pointer-based and does not replace `docs/INDEX.md`, domain docs, logs, or raw results.
 > Read rule: use this file to find the relevant source logs, modeling docs, plans, and result files; verify conclusions in those sources.
 
@@ -72,7 +72,7 @@
 
 ## 4. ODE / 显色级联：并行推进，但关键输入等待 docking 与湿实验方案
 
-**当前状态**：底盘已锁定酵母 STE2 + 嵌合 Gpa1 + 基因组单拷贝整合；ODE 可继续整理模型框架和参数源。Docking Top 候选标签已刷新，但 Kd/calibration 仍需等待单独文献审查，不能把 docking ΔG 直接转换为 Kd。显色级联方案仍 TBD；HP 经济效益模型需求尚未对齐。
+**当前状态**：底盘已锁定酵母 STE2 + 嵌合 Gpa1 + 基因组单拷贝整合；ODE 可继续整理模型框架和参数源。Docking Top 候选标签已刷新，但 Kd/calibration 仍需等待单独文献审查，不能把 docking ΔG 直接转换为 Kd。显色级联方案仍 TBD。P2 经济效益模型已进入 `framework_mvp`，但本地成本、部署密度、检测性能和支付意愿仍待 HP/湿实验回收。
 
 **Plan 指针**：
 
@@ -86,3 +86,15 @@
 - `/Users/roy/Documents/drylab/docs/prd/overview-v4.md` — 酵母-STE2 当前项目全貌与显色级联 TBD。
 - `/Users/roy/Documents/drylab/docs/decisions/003-chassis-yeast-ste2-integration.md` — 底盘决策权威记录。
 - `/Users/roy/Documents/drylab/docs/logs/2026-04-27.md` — 当前 INDEX 校准与待办。
+
+## 5. P2 经济效益模型：framework MVP 已有，最终 ROI 等 HP/本地参数
+
+**当前状态**：P2 早期检测经济效益模型已经有 Stage 1/2 文献/参数矩阵和 deterministic cost-accounting MVP。当前结果只能解释框架与 break-even 结构，不能作为最终 ROI。不要把 docking Delta G、ODE Kd 或未验证 wet-lab 假设当作经济确定输入。
+
+**Log / 文档指针**：
+
+- `/Users/roy/Documents/drylab/docs/modeling/P2-economic-benefit.md` — P2 方向权威状态、示例分析边界和依赖。
+- `/Users/roy/Documents/drylab/docs/papers/p2-economic-benefit/README.md` — P2 文献/数据源包入口。
+- `/Users/roy/Documents/drylab/docs/modeling/P2-economic-benefit-hp-questionnaire.md` — HP 参数回收问卷。
+- `/Users/roy/Documents/drylab/experiments/economic/README.md` — MVP 代码、配置和输出路径。
+- `/Users/roy/Documents/drylab/docs/logs/2026-05-23.md` — P2 长期资料迁移与路由更新记录。
