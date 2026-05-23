@@ -126,7 +126,7 @@
 | ID | 文献 | 内容 | 与项目关系 | 总结 |
 |----|------|------|----------|------|
 | Shaw2019 | Shaw et al. 2019 *Cell* 177:782–796 | 酵母 GPCR 信号通路模块化调控 | 底盘设计参考 | [已总结](summaries/Shaw2019-yeast-GPCR-tuning-summary.md) |
-| Fan2024 | Fan et al. 2024 *Biosens Bioelectron* 246:116020 | GPCR+GAL4 级联放大，LOD 0.25 pM | 底盘放大回路 | [已总结](summaries/Fan2024-GPCR-GAL4-biosensor-summary.md) |
+| Fan2024 | Fan et al. 2024 *Biosensors and Bioelectronics* 250:116058, DOI 10.1016/j.bios.2024.116058, "Cascaded amplifying circuit enables sensitive detection of fungal pathogens" | GPCR+GAL4 级联放大，LOD 0.25 pM | 底盘放大回路 | [已总结](summaries/Fan2024-GPCR-GAL4-biosensor-summary.md) |
 | Miettinen2022 | Miettinen et al. 2022 *Nat Commun* 13:3664 | 酵母 GPCR 大麻素生物传感器 | 底盘设计参考 | [已总结](summaries/Miettinen2022-GPCR-yeast-cannabinoid-summary.md) |
 | FanC2023 | Fan C & Yuan 2023 *Cell Rep Methods* 3:100647 | GPCR cascade 重塑 GAL 调控子，群体感应 | 下游信号放大策略 | [已总结](summaries/FanC2023-GAL-regulon-GPCR-cascade-summary.md) |
 
