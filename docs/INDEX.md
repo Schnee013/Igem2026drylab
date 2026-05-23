@@ -22,7 +22,7 @@
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；MD 验证进行中 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
-| **P2** | 早期检测经济效益模型 | 否 | **framework_mvp**：文献/参数矩阵已提升到 `docs/papers/p2-economic-benefit/`；deterministic cost-accounting MVP 框架和公开示例配置已落地，最终 ROI 仍待 HP/湿实验参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
+| **P2** | 早期检测经济效益模型 | 否 | **framework_mvp_validated_arithmetic + stage3_benchmarks_extracted**：UC IPM tomato-RKN 算术/guardrail 已自动化验证；Stage 3 新增 PCN/Koehler、USDA ERS VOI、cucumber-RKN Bragantia、Barker tomato-RKN 外部 benchmark 抽取；最终 ROI 仍待 HP/湿实验/本地参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
 | **P2** | 化学杀线虫剂剂量-响应 | 否 | not_started | [P2-dose-response.md](modeling/P2-dose-response.md) |
 | ~~P2~~ | ~~生物防治 Lotka-Volterra~~ | 仅丝状真菌 | **archived** | [P2-biocontrol-lv.md](modeling/P2-biocontrol-lv.md) |
 
@@ -79,7 +79,7 @@
 > **读取策略**: 需要某篇文献时，先查矩阵确认编号，再只读取对应的 `summaries/` 文件。**不要批量读取所有总结，不要直接读 PDF**。
 
 - **文献调研入口**: [文献矩阵](papers/literature-matrix.md)（当前本地记录：58 篇 PDF / 59 篇已总结，详见矩阵头部）
-- **P2 经济模型文献/数据源包**: [p2-economic-benefit](papers/p2-economic-benefit/README.md)（Stage 1/2 paper/data matrix、参数表、source evidence）
+- **P2 经济模型文献/数据源包**: [p2-economic-benefit](papers/p2-economic-benefit/README.md)（Stage 1/2 paper/data matrix、参数表、source evidence；Stage 3 external benchmark extraction）
 - **组员使用说明**: [papers/README.md](papers/README.md)
 - INDEX 不再维护完整已总结清单，避免与矩阵重复和漂移；请以 `papers/literature-matrix.md` 为文献路由权威。
 
@@ -94,13 +94,13 @@
 
 ## 最近进展
 
-- **2026-05-23**: P2 经济模型长期资料从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`，并补齐 HP 问卷、DOCMAP/INDEX 路由和日志；公开示例仍仅作为框架 smoke run，不是最终 ROI。
+- **2026-05-23**: P2 经济模型完成 Stage 3 外部 benchmark 抽取：Koehler/PCN 方法结构、USDA ERS value-of-information、Bragantia cucumber-RKN 密度-产量表、Barker tomato-RKN 合理性检查已进入 `docs/papers/p2-economic-benefit/`；代码/配置未扩展，最终 ROI 仍待 HP/湿实验/本地参数。
+- **2026-05-23**: P2 经济模型长期资料从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`，并补齐 HP 问卷、DOCMAP/INDEX 路由和日志；随后新增 `docs/modeling/P2-economic-benefit-validation.md` 与自动化测试，UC IPM public example 已作为 arithmetic baseline 通过检验，但仍不是最终 ROI。
 - **2026-05-21**: P2 early-detection economic benefit 启动 Stage 1/2 文献与数据源矩阵，并新增 deterministic cost-accounting MVP 框架；当前只能做公开示例和 break-even 结构，最终 ROI 待 HP/湿实验参数。
 - **2026-05-20**: docking-repro full refresh 完成 Phase 1-7：266 条 merged ratio、8 个 Top 候选 IFP、湿实验 handoff 刷新；当前首选 `Gpr2_R59C + Gpr3_R167Y`。
 - **2026-04-27**: `True_Gpr2_or_not.md` 核查 Kuo2024 GPA2/GPA3 标签疑问：当前 `TGJ64397.1` 与 GPA2 primers 匹配，Gpr2/Gpr3→AoGpa2 设计暂不回滚；Ch-1/2/4 MD 不因该问题重跑。
 - **2026-04-26**: Slurm 队列清空；chctrl Phase C4 production MD 3/3 完成；Ch-1 rep1 中断在约 28 ns 且有 cpt，Ch-2/Ch-4 仅完成 step6.6；决策为先分析 chctrl，再决定是否重启 Ch-1/2/4。
 - **2026-04-23/24**: Gpr2 3D offset Ala/Sat 重跑完成并刷新旧 ratio；随后 Gpr3 pose 审查发现旧 groove 污染，方案 F（ECL2 manual box=20 Å）几何 PASS；这些产物已纳入 2026-05-20 full refresh。
-- **2026-04-22**: Slurm 新增 QOS=1 导致排队不可接受；取消冲突/排队任务，保留 chctrl rep3；后续 docking/Ch-1 迁移策略调整。
 
 ---
 

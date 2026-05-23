@@ -42,3 +42,19 @@ python3 src/modeling/economic/run_mvp.py \
 
 - `experiments/economic/results/public_mvp_framework_results.csv`
 - `experiments/economic/results/public_mvp_framework_summary.md`
+
+## Validation
+
+The current framework validation is documented in:
+
+- `docs/modeling/P2-economic-benefit-validation.md`
+
+Run the automated arithmetic and guardrail checks with:
+
+```bash
+python3 -m unittest tests.modeling.test_economic_model -v
+```
+
+The tests validate UC IPM public tomato-RKN arithmetic, piecewise interpolation,
+PCN normalized structure, threshold-only SCN guardrails, and cost-accounting
+identities. They do not validate final biosensor ROI.

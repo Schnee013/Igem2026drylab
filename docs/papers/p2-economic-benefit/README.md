@@ -13,6 +13,9 @@ under `tmp_papers/`.
   readiness, remaining gaps, and MVP/enhanced/Wiki model boundaries.
 - `stage2-model-parameters.csv`: machine-readable candidate parameter table.
 - `stage2-source-evidence.csv`: source provenance and extracted evidence table.
+- `stage3-benchmark-extraction.md`: PCN/NemaDecide, value-of-information, and
+  density-yield benchmark extraction for the next reliability layer.
+- `stage3-benchmark-evidence.csv`: structured Stage 3 benchmark evidence table.
 
 ## Boundaries
 
@@ -23,4 +26,9 @@ under `tmp_papers/`.
 - Docking Delta G, ODE Kd, and unverified wet-lab assumptions are not economic
   constants. They can only enter later as scenario or interface variables.
 
-Raw run workspace: `tmp_papers/p2_economic_benefit_20260521/`.
+Raw run workspaces:
+
+- `tmp_papers/p2_economic_benefit_20260521/`: Stage 1/2 API and parameter
+  extraction workspace.
+- `tmp_papers/p2_economic_benefit_20260523_stage3/`: Stage 3 benchmark
+  full-text availability, extraction notes, and manual download queue.

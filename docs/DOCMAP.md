@@ -127,7 +127,7 @@ drylab/
 │   │   ├── literature-matrix.md           #   本地权威矩阵（按 Tier 分层，稳定 ID）
 │   │   ├── literature-quick-ref.csv       #   扁平化 CSV，用于导入飞书多维表格
 │   │   ├── literature-review-feishu.md    #   详细总结汇编（贴入飞书云文档）
-│   │   ├── p2-economic-benefit/           #   P2 早期检测经济模型文献/参数/数据源矩阵
+│   │   ├── p2-economic-benefit/           #   P2 早期检测经济模型文献/参数/数据源矩阵与外部 benchmark
 │   │   ├── pdf/                           #   本地 PDF
 │   │   └── summaries/                     #   按 {Author}{Year}-{Topic} 命名的单篇总结
 │   └── archive/                 # 归档文件（原始 PRD、通用指南等）
@@ -142,6 +142,8 @@ drylab/
 │   ├── docking/                 # v2 docking pipeline
 │   ├── docking-repro/           # Hu2024 精确复现 pipeline
 │   └── economic/                # P2 早期检测经济效益 deterministic MVP 框架
+├── tests/                       # 自动化验证测试
+│   └── modeling/                # 各建模方向的公式、配置和 guardrail 测试
 │
 ├── experiments/                 # 实验产出（按研究方向）
 │   ├── economic/                # P2 经济模型配置、公开示例结果和后续 HP 校准结果

@@ -23,7 +23,7 @@ The strongest MVP path is deterministic cost accounting with three crop scenario
 2. processing tomato or cucumber + root-knot nematode (RKN, mainly `Meloidogyne incognita`);
 3. potato + potato cyst nematode (PCN, `Globodera pallida` / `G. rostochiensis`).
 
-Among these, tomato-RKN and potato-PCN currently have the most directly numeric density-to-loss parameters from extension/regulatory sources. Soybean-SCN has strong threshold and diagnostic-cost evidence, but the density-to-yield-loss curve still needs full-text extraction from peer-reviewed papers such as Hajihassani et al. 2012.
+Among these, tomato-RKN and potato-PCN currently have the most directly numeric density-to-loss parameters from extension/regulatory sources. Soybean-SCN has strong threshold and diagnostic-cost evidence, but the density-to-yield-loss curve still needs full-text extraction from peer-reviewed papers such as Heydari, Tanha Maafi, and Pourjam 2012.
 
 ## Directly Model-Ready Parameters
 
@@ -113,7 +113,7 @@ Label rates can support cost formulas, but they are not prices. The model should
 
 | gap | why it matters | recommended next source |
 |---|---|---|
-| SCN density-to-yield function | needed to convert eggs/100 cc to soybean revenue loss | full text of Hajihassani et al. 2012; Acharya et al. 2022 for management effects |
+| SCN density-to-yield function | needed to convert eggs/100 cc to soybean revenue loss | full text of Heydari/Tanha Maafi/Pourjam 2012; Acharya et al. 2022 for management effects |
 | Cucumber RKN yield-loss percentages by plant age | needed for "early detection saves time" claim | full text of Kayani et al. 2017 and Mukhtar et al. 2018 |
 | PCN equations from risk/economic tools | needed for enhanced model beyond linear slope | Contina et al. 2019; Koehler et al. 2021; Been and Schomaker 1998 dissertation |
 | Local crop price/yield/cost | determines ROI magnitude | USDA/FAOSTAT pull for public scenario; HP/local market data for China-facing scenario |
@@ -185,7 +185,7 @@ Label all prototype inputs as assumptions: sensor cost, detection radius, sensor
 
 ## Source-Type Classification
 
-- Peer-reviewed / academic: Barker et al. 1976; Hajihassani et al. 2012; Kayani et al. 2017; Acharya et al. 2022; Sasanelli et al. 2020; Contina et al. 2019; Koehler et al. 2021; Isik et al. 2005; Welsh et al. 2021. Been and Schomaker 1998 is a verified dissertation, not a peer-reviewed article.
+- Peer-reviewed / academic: Barker et al. 1976; Heydari/Tanha Maafi/Pourjam 2012; Kayani et al. 2017; Acharya et al. 2022; Sasanelli et al. 2020; Contina et al. 2019; Koehler et al. 2021; Isik et al. 2005; Welsh et al. 2021. Been and Schomaker 1998 is a dissertation record and still needs metadata/full-text verification before parameter use.
 - Official government / regulatory / statistics: FAO, USDA APHIS, USDA ERS, USDA NASS QuickStats, FAOSTAT, EPPO, U.S. EPA label, NCDA.
 - Extension / university / levy-board: UMN Extension, Iowa State Extension/PIDC, UMN SROC, Penn State, UC IPM, AHDB, Cornell.
 - Industry or estimates: product/vendor pages and newsletter examples. Use only for qualitative precedent or temporary assumptions unless price data can be traced.
@@ -196,7 +196,7 @@ The Stage 2 extraction did not depend on Zotero full text. Searches through the 
 
 ## Next Stage
 
-1. Extract tables/equations from full texts for Hajihassani 2012, Barker 1976, Kayani 2017, Contina 2019, Koehler 2021, and Sasanelli 2020.
+1. Extract tables/equations from full texts for Heydari/Tanha Maafi/Pourjam 2012, Barker 1976, Kayani 2017, Contina 2019, Koehler 2021, and Sasanelli 2020.
 2. Ask HP to select target crop-region scenario and collect local prices, treatment costs, lab turnaround, and willingness-to-pay.
 3. Pull a small USDA NASS/ERS/FAOSTAT proof dataset for soybean, potato, and tomato/cucumber prices/yields after the target geography is chosen.
 4. Convert `stage2-model-parameters.csv` into a reviewed config only after HP fills the prototype and local-market gaps.
