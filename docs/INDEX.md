@@ -1,12 +1,12 @@
 # iGEM DryLab 干实验 — 项目索引
 
-> 最后校准：2026-05-20。本文是项目路由表，不承载详细结果数值；需要结论时请沿链接读取领域文档、日志和原始结果文件。
+> 最后校准：2026-05-23。本文是项目路由表，不承载详细结果数值；需要结论时请沿链接读取领域文档、日志和原始结果文件。
 
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
 - **当前阶段**: 底盘已锁定酵母-STE2；嵌合 Gpa1 已完成 AF3 全量筛选并进入 MD 验证；chctrl 阳性对照 3/3 production MD 已完成，Ch-1/2/4 暂停等待 chctrl 本地分析结论；docking-repro 已完成 Gpr2/Gpr3 修复后的 ratio/IFP/湿实验 handoff 刷新；ODE 继续并行但 Kd/calibration 仍等待单独文献审查。
-- **主要卡点**: chctrl MD 本地分析尚未产出；docking 首批构建容量/湿实验执行安排待确认；显色级联方案 TBD（报告基因/整合位点/GAL4 放大）；HP 经济效益模型需求未对齐。
+- **主要卡点**: chctrl MD 本地分析尚未产出；docking 首批构建容量/湿实验执行安排待确认；显色级联方案 TBD（报告基因/整合位点/GAL4 放大）；HP 经济模型的本地成本/部署/支付意愿参数仍待回收。
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌 v4](prd/overview-v4.md)
 
@@ -22,7 +22,7 @@
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；MD 验证进行中 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
-| **P2** | 早期检测经济效益模型 | 否 | not_started | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
+| **P2** | 早期检测经济效益模型 | 否 | **framework_mvp**：文献/参数矩阵已提升到 `docs/papers/p2-economic-benefit/`；deterministic cost-accounting MVP 框架和公开示例配置已落地，最终 ROI 仍待 HP/湿实验参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
 | **P2** | 化学杀线虫剂剂量-响应 | 否 | not_started | [P2-dose-response.md](modeling/P2-dose-response.md) |
 | ~~P2~~ | ~~生物防治 Lotka-Volterra~~ | 仅丝状真菌 | **archived** | [P2-biocontrol-lv.md](modeling/P2-biocontrol-lv.md) |
 
@@ -36,7 +36,7 @@
 - [ ] **[质量门] 预注册 operational cutoff 来源审查**：所有用于 go/no-go 的项目预注册阈值、技术栈选择、几何定义和数值判据必须补齐 DOI / 标题 / 原文方法段落 / 官方工具文档等 exact pointer；没有 exact pointer 的文献引用暂不承认，统一标记为待查验或项目 operational heuristic。
 - [ ] **[待确认] docking 首批构建容量/交接执行**：刷新后的 handoff 已落地，当前首选 `Gpr2_R59C + Gpr3_R167Y`；下一步需湿实验组确认首批构建容量和读出设计。
 - [ ] **[阻塞] 显色级联方案**：报告基因 / 整合位点 / 拷贝数目标 / 是否 GAL4 放大 → 与通路工程组讨论。
-- [ ] **[重要] HP 组沟通**: 经济效益模型需要哪些定量论据？
+- [ ] **[重要] HP 组沟通**: 回收经济模型的本地参数：传感器单次成本、部署密度、检测性能、当地 lab 成本/周期、施药/轮作/抗性品种成本、作物价格与农户支付意愿。
 
 ---
 
@@ -45,7 +45,8 @@
 1. **chimeric MD 分析** — 从 [2026-04-26 日志](logs/2026-04-26.md) 接续 chctrl 本地分析与 Ch-1/2/4 重启决策。
 2. **docking-repro 湿实验交接** — 当前权威候选见 [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md)；证据链从 [2026-05-19 日志](logs/2026-05-19.md) 与 [ratio_channel_report.md](../experiments/docking-repro/analysis/ratio_channel_report.md) 读取。
 3. **ODE 并行推进** — 用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 维护通路结构；候选标签可引用新版 docking handoff，但 Kd/calibration 仍等待单独文献审查。
-4. **湿实验/显色级联讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md) 与 ODE 需求。
+4. **P2 经济模型 HP 参数回收** — 文献/参数入口见 [p2-economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
+5. **湿实验/显色级联讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md) 与 ODE 需求。
 
 ---
 
@@ -78,6 +79,7 @@
 > **读取策略**: 需要某篇文献时，先查矩阵确认编号，再只读取对应的 `summaries/` 文件。**不要批量读取所有总结，不要直接读 PDF**。
 
 - **文献调研入口**: [文献矩阵](papers/literature-matrix.md)（当前本地记录：58 篇 PDF / 59 篇已总结，详见矩阵头部）
+- **P2 经济模型文献/数据源包**: [p2-economic-benefit](papers/p2-economic-benefit/README.md)（Stage 1/2 paper/data matrix、参数表、source evidence）
 - **组员使用说明**: [papers/README.md](papers/README.md)
 - INDEX 不再维护完整已总结清单，避免与矩阵重复和漂移；请以 `papers/literature-matrix.md` 为文献路由权威。
 
@@ -92,6 +94,8 @@
 
 ## 最近进展
 
+- **2026-05-23**: P2 经济模型长期资料从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`，并补齐 HP 问卷、DOCMAP/INDEX 路由和日志；公开示例仍仅作为框架 smoke run，不是最终 ROI。
+- **2026-05-21**: P2 early-detection economic benefit 启动 Stage 1/2 文献与数据源矩阵，并新增 deterministic cost-accounting MVP 框架；当前只能做公开示例和 break-even 结构，最终 ROI 待 HP/湿实验参数。
 - **2026-05-20**: docking-repro full refresh 完成 Phase 1-7：266 条 merged ratio、8 个 Top 候选 IFP、湿实验 handoff 刷新；当前首选 `Gpr2_R59C + Gpr3_R167Y`。
 - **2026-04-27**: `True_Gpr2_or_not.md` 核查 Kuo2024 GPA2/GPA3 标签疑问：当前 `TGJ64397.1` 与 GPA2 primers 匹配，Gpr2/Gpr3→AoGpa2 设计暂不回滚；Ch-1/2/4 MD 不因该问题重跑。
 - **2026-04-26**: Slurm 队列清空；chctrl Phase C4 production MD 3/3 完成；Ch-1 rep1 中断在约 28 ns 且有 cpt，Ch-2/Ch-4 仅完成 step6.6；决策为先分析 chctrl，再决定是否重启 Ch-1/2/4。
@@ -126,5 +130,5 @@
 
 ### ④ 其他待启动
 - [ ] 显色级联方案讨论（报告基因 / 整合位点 / 拷贝数 / GAL4 放大）
-- [ ] 与 HP 组沟通经济效益模型需求
+- [ ] 与 HP 组沟通经济效益模型参数，回填 `experiments/economic/configs/public_mvp_framework.json` 或后续正式 config
 - [ ] 土壤扩散、贝叶斯推断、经济效益、剂量-响应等 P1/P2 方向按 Wiki 叙事需要启动
