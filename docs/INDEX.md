@@ -71,6 +71,7 @@
 
 ## 运维参考
 
+- **Codex Desktop 会话列表恢复**：[codex-thread-list-provider-mismatch.md](ops/codex-thread-list-provider-mismatch.md)
 - **Slurm GPU 集群**（当前）：[slurm-md-server.md](ops/slurm-md-server.md)
 - **[已弃用] Windows SSH 操作指南**：[ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（Windows 7500F 节点停用；部分 docking 结构文件仍存于该节点，需访问时参考此文档）
 
