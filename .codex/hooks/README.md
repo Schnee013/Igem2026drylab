@@ -18,11 +18,9 @@ unexpected hook behavior.
 
 Current default:
 
-- `.codex/hooks.json` enables only `session-end-remind.sh` on `Stop`.
-- `session-end-remind.sh` is reminder-only. It returns a JSON `systemMessage`
-  and does not block the turn.
+- No Codex lifecycle hook is enabled by this repository.
 - `commit-msg.sh` is a Git hook template installed with `install.sh`; it is not
   a Codex lifecycle hook.
 
-If adding a new Stop hook, return valid JSON on stdout. Plain text stdout is not
-valid for Codex Stop hooks.
+If adding a Codex lifecycle hook that writes to stdout, follow the Codex hook
+JSON contract for that event.
