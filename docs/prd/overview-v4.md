@@ -1,10 +1,10 @@
 # 项目全貌（v4）
 
-> 来源: 在 v3（[archive/overview-v3.md](archive/overview-v3.md)）基础上，根据 2026-04-11 PI 确认底盘策略落地 | 最后更新: 2026-04-11
+> 来源: 在 v3（[archive/overview-v3.md](archive/overview-v3.md)）基础上，根据 2026-04-11 PI 确认底盘策略落地 | 最后更新: 2026-05-25
 
 ## 一句话描述
 
-构建一个**基于 GPCR 生物传感器**的植物寄生线虫田间早期检测系统：线虫分泌特征性蛔苷素（ascarosides）→ 捕食性真菌来源的 Gpr 受体异源表达于**酿酒酵母（*S. cerevisiae*）**膜上 → 经**改造的 STE2 通路 + 嵌合 Gpa1**接入内源 MAPK 级联 → 下游显色级联放大 → 肉眼可见的田间显色判读 → 防治建议闭环。
+构建一个**基于 GPCR 生物传感器**的植物寄生线虫田间早期检测系统：线虫分泌特征性蛔苷素（ascarosides）→ 捕食性真菌来源的 Gpr 受体异源表达于**酿酒酵母（*S. cerevisiae*）**膜上 → 经**改造的 STE2 通路 + 嵌合 Gpa1**接入内源 MAPK 级联 → sTF 接入 GAL 多拷贝放大 → 色素显色 → 肉眼可见的田间显色判读 → 防治建议闭环。
 
 > **底盘决策状态**: 已锁定 *S. cerevisiae* + STE2 通路（2026-04-11，PI 确认）。详见 [底盘决策 §最终决策](chassis-decision.md#最终决策2026-04-11) 与 [决策 003](../decisions/003-chassis-yeast-ste2-integration.md)。
 
@@ -27,10 +27,13 @@ Gpr2 / Gpr3 / GprC（来自 A. oligospora / A. flagrans）
     │ 激活
     ▼
 内源 STE2 通路：Ste11 → Ste7 → Fus3 (MAPK) → 转录因子 Ste12
-    │
+    │ 启动
     ▼
-下游显色级联（TBD：报告基因 + 整合位点 + 是否 GAL4 放大）
-    │ 基因组单拷贝整合（不使用 CEN/2μ 质粒，保证拷贝数稳定）
+sTF（Ste12 PRD-Gal4DBD 类融合转录因子）
+    │ 接入 GAL 多拷贝放大
+    ▼
+色素显色 reporter 输出
+    │ 上游底盘/受体/通路元件以基因组整合为基线；输出层实际拷贝数作为 ODE 变量校准
     ▼
 田间可视化判读（试纸 / 冻干酵母 / 其他形态待定）
     │
@@ -61,19 +64,35 @@ Gpr2 / Gpr3 / GprC（来自 A. oligospora / A. flagrans）
 | Gpr2 | G1X9E2 | *A. oligospora* | AlphaFold 预测，已验证 | [AF-G1X9E2-F1](https://alphafold.ebi.ac.uk/entry/AF-G1X9E2-F1) |
 | GprC | A0A437AGY2 | *A. flagrans* | AlphaFold 预测，已验证 | [AF-A0A437AGY2-F1](https://alphafold.ebi.ac.uk/entry/AF-A0A437AGY2-F1) |
 
-## 显色级联方案（TBD）
+## Reporter 输出架构（已确认，参数待校准）
 
-显色级联具体方案在 2026-04-11 时点尚未决定。待定子问题：
+2026-05-25 按用户确认和实验方案附件，reporter 输出架构更新为：
+
+```
+异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色
+```
+
+这只确认输出层拓扑，不等同于已经固定所有湿实验参数。仍待校准子问题：
 
 | 子问题 | 候选方向 | 决定时机 |
 |---|---|---|
-| 报告基因类型 | Lycopene / Betalain / amilCP / lacZ / GFP | 与通路工程组讨论后确定 |
-| 整合位点 | HO / URA3 / TRP1 / 多位点级联 | 取决于报告基因数量与拷贝数目标 |
-| 拷贝数目标 | 单拷贝（线性）/ 多拷贝（放大） | 由 Fus3-Ste12 通量预算决定 |
-| 是否 GAL4 放大 | 直接 pFUS1 → 报告 / Ste12-GAL4 间接放大（Fan&Yuan 2024） | 由 ODE 建模指导 |
+| 色素 reporter 类型 | Betaxanthin / Lycopene / amilCP / lacZ / GFP | 由表达量、显色时间、稳定性和底盘负担决定 |
+| 整合位点 | HO / URA3 / TRP1 / 多位点级联 | 取决于报告基因数量与实际 copy-number 目标 |
+| GAL 输出层实际拷贝数 | 1/2/4 copy 或其他湿实验实现 | 由 Fus3-Ste12/sTF 通量预算、背景泄漏和显色强度共同决定 |
+| 输出层参数 | reporter gain、basal leak、Kc/EC50-like、Hill、Emax、显色时间 | 由 dose-response、time-course 和无配体阴性对照校准 |
 | 读出形态 | 冻干酵母试纸 / 液体培养 / 琼脂板 | 与产品化路线一并决定 |
 
-> **干实验对显色级联的处理**：作为 P0 信号通路 ODE 建模的下游变量保留，在方案确定前不建模具体颜色蛋白动力学；ODE 输出"Fus3 通量 → 下游报告基因表达水平"通用接口，方案确定后回填参数。
+> **干实验对 reporter 输出层的处理**：P0 信号通路 ODE 建模应把 sTF -> GAL 多拷贝放大 -> 色素显色作为输出层结构，但具体数值仍是 `wet-lab required`。当前不应把 Fan 2024 的 CaSte2/GAL 参数、docking Delta G 或未验证湿实验假设直接写成本项目定论参数。
+
+## 总览图填充建议
+
+当前总览图中的空白应填“当前可交付物/缺口”，而不是暗示最终模型已经完成：
+
+| 图中位置 | 建议文案 | 含义 |
+|---|---|---|
+| ODE 中间空白框 | ODE Solver / 剂量响应 + 拷贝数 + 泄漏扫参 | 下一阶段要实现的动态预测组件 |
+| ODE 底部输出椭圆 | 检测限 / 动态范围 / 放大倍数建议 | ODE 完整后给湿实验的设计建议 |
+| 经济效益底部输出椭圆 | ROI / break-even 曲线 / HP 参数回收清单 | P2 当前 MVP 能输出的经济讨论材料，最终 ROI 仍待校准 |
 
 ## 核心参考文献
 
@@ -99,3 +118,4 @@ Gpr2 / Gpr3 / GprC（来自 A. oligospora / A. flagrans）
 |------|------|---------|---------|
 | v3 | 2026-04-03 | 初版，底盘待定（方案 A/B 并列） | PRD v3 §1 提取 |
 | v4 | 2026-04-11 | 锁定酵母-STE2 主线；明确嵌合 Gpa1 + 基因组整合；显色级联标 TBD；P3 升 P0；P2-biocontrol-lv 失效 | PI 确认底盘 |
+| v4.1 | 2026-05-25 | 更新 reporter 输出架构为 sTF -> GAL 多拷贝放大 -> 色素显色；补总览图填充建议 | 用户确认实验方案附件中的 reporter 路径 |

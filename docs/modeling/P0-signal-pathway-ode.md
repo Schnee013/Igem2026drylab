@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-05-24
+last_updated: 2026-05-25
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -17,6 +17,8 @@ last_updated: 2026-05-24
 > **2026-05-20 输入接口校准**：P0 docking 线已提供刷新后的候选标签、双通道方向和相对排序；ODE 不直接使用 Vina ΔG 换算 Kd。配体结合/激活参数先作为文献校准或参数扫描变量，待 Hu2024/Kuo2024/酵母 GPCR 文献与后续湿实验剂量响应确认后再固定。
 >
 > **2026-05-24 Stage 3 exact extraction**：抽取进展写入 `tmp_papers/ode_api_refresh_20260521/stage2_value_extraction_matrix.md` 的 Stage 3 addendum；它仍是证据包，不是最终参数表。Fan 2024 DOI/title 已与 `literature-matrix.md`、本地 summary、Zotero `WJVMJSNS` 和 API 记录一致；官方 Elsevier Supplementary Table 3-4 已解决 Fan 源上下文 Kc 冲突，但这些行只作为 CaSte2/GAL biosensor source-context `fixed from source`，项目 Gpr-ascr reporter gain/Kc/Hill/Emax 仍是 `wet-lab required`。Shaw/Kofahl 官方 BioModels SBML 已记录 species/reaction/parameter 指针，但速率值仍因单位/source-table 映射未完成而 `do-not-use`；Yi 速率表、Tehseen 全文仍在 full-text/Zotero queue。
+>
+> **2026-05-25 reporter 架构更新**：按用户确认和实验方案附件，输出层拓扑更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`。这确认的是架构，不固定具体色素、整合位点、实际 copy number、gain、Kc/Hill/Emax 或显色时间；这些仍是 `wet-lab required` 或 ODE 扫参变量。
 
 ## 解决什么问题
 
@@ -27,10 +29,36 @@ last_updated: 2026-05-24
 
 **iGEM 价值**: 预测放大回路参数范围 → 湿实验据此选择 GAL4 promoter 强度 → 测量实际输出 → 用数据校准模型 → 完成 DBTL cycle。
 
+## 当前形态、缺口与完整形态
+
+### 当前已完成
+
+- 文献证据与参数状态整理：`tmp_papers/ode_api_refresh_20260521/stage2_value_extraction_matrix.md` 作为证据包，`fixed from source` / `literature prior` / `scenario prior` / `wet-lab required` / `do-not-use` 标签已进入本文。
+- docking 输入接口整理：docking 只提供候选标签、Channel A/B 方向、相对排序和 IFP 线索；不把 docking ΔG 换算 Kd/EC50。
+- 湿实验校准需求整理：dose-response、time-course、basal leak、Emax、Hill、表达/膜定位、reporter dynamic range 和 chimeric Gpa1 coupling 都已列为替换条件。
+- reporter 输出层架构已确认：sTF -> GAL 多拷贝放大 -> 色素显色。
+
+### 当前缺口
+
+- 未写 ODE solver；当前仓库没有 `src/modeling/ode/` 下的 Python 求解器、模型模块或 runner。
+- 未生成 ODE 参数 config、模拟 CSV、剂量响应图、拷贝数敏感性图或泄漏/动态范围图。
+- 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
+- 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
+
+### 完整完成后的形态
+
+完整 ODE v0.1 不只是一个 `.py` 脚本，而应包含：
+
+- Python solver：用 SciPy/NumPy 实现 pathway ODE、dose-response sweep、copy-number sweep 和 leakage sweep。
+- 参数 config：分离文献先验、scenario prior 和 wet-lab calibrated 参数，避免把证据状态硬编码进 solver。
+- 输出数据：`experiments/ode-model/` 下保存模拟 CSV 和参数扫描结果。
+- 可视化：ascr 浓度 vs reporter 输出的剂量响应曲线、1/2/4 copy 拷贝数敏感性图、basal leak/动态范围图、检测限或可判读窗口图。
+- model-experiment feedback 表：把每个 `wet-lab required` 参数对应到实验 readout 和替换条件。
+
 ## 通路结构（已锁定酵母）
 
 ```
-异源 Gpr 受体（Gpr2/Gpr3/GprC，单拷贝整合，P0-docking 刷新候选之一）
+异源 Gpr 受体（Gpr2/Gpr3；GprC 仅作探索备选）
     │ ascr#18 / ascr#3 结合（Kd/EC50 为文献校准或参数扫描变量）
     ▼
 嵌合 Gpa1（C 端嫁接真菌 Gα C 端，由 P0-chimeric-gprotein 提供 5/10/15 三档候选）
@@ -40,14 +68,17 @@ Ste20 → Ste11 → Ste7 → Fus3 (MAPK 级联)
     │ 磷酸化
     ▼
 Ste12（转录因子）
-    │ 结合 pFUS1（或下游显色级联启动子，TBD）
+    │ 驱动 sTF 输出层
     ▼
-报告基因（lacZ / 颜色蛋白 / GAL4 间接放大，TBD）
+sTF（Ste12 PRD-Gal4DBD 类融合转录因子）
+    │ GAL 多拷贝放大
+    ▼
+色素显色 reporter
 ```
 
 **基线假设**：所有可调元件按**基因组单拷贝**整合于同一位点；不使用 CEN/2μ 质粒（避免拷贝数漂移破坏下游线性度）。
 
-> **GAL4 正反馈警告**：Fan et al. 2024 的 GAL4 级联放大方案与 Fan & Yuan 2023 的 GAL regulon 输出层均在不同构建背景下定量验证。在本项目单拷贝整合下，正反馈增益可能弱于文献值，需在 ODE 中作为**拷贝数变量**显式建模并做敏感性分析。
+> **GAL 输出层警告**：Fan et al. 2024 的 GAL4 级联放大方案与 Fan & Yuan 2023 的 GAL regulon 输出层均在不同构建背景下定量验证。在本项目单拷贝底盘下，GAL 多拷贝放大的实际增益、背景泄漏和显色时间必须重新校准；“多拷贝放大”是输出层设计变量，不等同于已经决定使用 2μ 质粒或某个固定拷贝数。
 
 ## 历史备选（已不激活）
 
@@ -62,12 +93,12 @@ Ste12（转录因子）
 
 ## 方法路线
 
-1. 将信号通路拆解为生化反应网络（Gpr → Gpa1 → MAPK → Ste12 → pFUS1 → 报告基因）
+1. 将信号通路拆解为生化反应网络（Gpr → Gpa1 → MAPK → Ste12 → sTF → GAL 输出层 → 色素 reporter）
 2. 用质量作用定律和 Hill 函数建立 ODE 模型，**显式包含拷贝数变量** N（基线 N=1）
 3. 参数从文献获取或设为先验（Shaw 2019 / Kofahl 2004 / Yi 2003 / Brown 2000 / Ladds 2005 / Lengger 2020-2022 / Fan 2024 / Fan & Yuan 2023）
 4. **拷贝数敏感性分析**：N=1（基线）/ N=2（异源单倍体复制）/ N=4（双 cassette 整合），评估线性度与动态范围
 5. 灵敏度分析：哪些参数对最终输出影响最大？
-6. 优化下游显色级联接口（参数 TBD，待报告基因方案确定后回填）
+6. 优化下游 reporter 输出层接口（sTF/GAL/色素架构已确认；具体 gain、copy number、leakage 和 time-course 待湿实验回填）
 7. **与 P0-docking 联动**：读取刷新后的候选标签、Channel A/B 方向、D/balance 和相对排序；不要把 Vina ΔG 直接换算成 Kd。ODE 中的配体结合/激活参数用文献校准范围、湿实验剂量响应或敏感性扫描定义。
 
 ## ODE 输入接口（2026-05-20）
@@ -189,7 +220,7 @@ ODE 当前应这样消费 docking 输出：
 | Gβγ 释放 / Sst2 RGS | Shaw 2019 / Kofahl 2004 / Yi 2003 | topology and source variable names `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 可先固定变量类别；速率等 SBML/补充表抽取后再决定 |
 | MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 / Kofahl 2004 | topology and Kofahl reaction ids `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 不在本轮写 solver 或最终 rate table |
 | Ste12 转录与 reporter 方程 | Shaw 2019 / Fan C & Yuan 2023 / Lengger 2020 | `literature prior` | 具体输出增益依赖 reporter 构型和单拷贝整合 |
-| pFUS1 / GAL / sTF 输出层 | Fan 2024 / Fan C & Yuan 2023 / Miettinen 2022 / Shaw 2019 | definitions and Fan source-context Table S4 rows `fixed from source`; project gains/Kc/Hill/Emax `wet-lab required` | Hill/LOD/LOQ 可用作方法定义；Fan S4 不迁移为项目 Gpr-ascr 参数 |
+| sTF / GAL / 色素输出层 | Fan 2024 / Fan C & Yuan 2023 / Miettinen 2022 / Shaw 2019；2026-05-25 用户确认实验方案附件 | topology and Fan source-context Table S4 rows `fixed from source`; project gains/Kc/Hill/Emax `wet-lab required` | sTF -> GAL 多拷贝放大 -> 色素显色作为结构进入模型；Fan S4 不迁移为项目 Gpr-ascr 参数 |
 | GAL4 正反馈参数（若使用） | Fan 2024 / Fan C & Yuan 2023 | `literature prior`; single-copy gain `wet-lab required` | **拷贝数敏感**：单拷贝下增益需重新评估 |
 | 拷贝数 N | 决策 003 / overview-v4 的单拷贝底盘背景；ODE 扫描 N=1/2/4 | baseline `fixed from source`; variants `scenario prior` | 基线 1 copy；2/4 copy 只做灵敏度情景 |
 
@@ -206,7 +237,7 @@ ODE 当前应这样消费 docking 输出：
 
 - [ ] 系统剂量-响应曲线（ascr 浓度 vs 报告基因输出，覆盖 refreshed docking handoff 候选场景）
 - [ ] 灵敏度极限预测（最低可检测浓度）
-- [ ] 放大倍数优化建议
+- [ ] 动态范围与放大倍数优化建议
 - [ ] **拷贝数敏感性分析（1/2/4 copy 对比）** —— 基线整合策略下的核心交付
 - [ ] 参数灵敏度分析报告（哪些参数的不确定性主导输出）
 - [ ] 与湿实验的 model-experiment feedback loop 对照表
@@ -214,7 +245,7 @@ ODE 当前应这样消费 docking 输出：
 
 ## 代码与实验关联
 
-- **代码路径**: `src/modeling/ode/`
+- **代码路径**: `src/modeling/ode/`（当前未创建/未实现）
 - **产出路径**: `experiments/ode-model/`
 - **湿实验对接**:
   - 本方向产出 → 通路工程组: 推荐 GAL4 promoter 强度、放大回路参数
@@ -235,10 +266,12 @@ ODE 当前应这样消费 docking 输出：
 | 2026-05-20 | **v2.1** | 修正 docking→ODE 输入接口：docking 只提供候选标签/方向/排序，Kd/EC50/efficacy 进入文献校准或参数扫描门控 | docking-repro full refresh 完成，但 Vina ΔG 不可直接换算 Kd |
 | 2026-05-23 | **v2.2** | 新增参数证据矩阵与校准计划；按 `fixed from source` / `literature prior` / `scenario prior` / `wet-lab required` / `do-not-use` 标注 ODE 参数状态 | API-first ODE 文献二阶段抽取完成，进入建模准备但不生成定论参数表 |
 | 2026-05-24 | **v2.3** | 同步 Stage 3 exact pointer checkpoint、湿实验需求拆分和状态化参数接口；继续保留 `Vina Delta G != Kd/EC50` gate | 文献抽取进入 exact pointer/manual queue 阶段；未写 ODE 代码，未生成定论参数表 |
+| 2026-05-25 | **v2.4** | 增补当前形态/缺口/完整形态说明；更新 reporter 输出架构为 sTF -> GAL 多拷贝放大 -> 色素显色；明确未写 ODE solver | 用户确认实验方案附件中的 reporter 路径，需同步总览图缺口说明 |
 
 ## 进展记录
 
 - 2026-05-24：Stage 3 exact extraction 已补入证据矩阵；P0 ODE 文档只同步证据状态、手动队列和湿实验需求，不输出 solver、rate table 或最终参数表。
+- 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
 
 ## 与其他方向的依赖关系
 
