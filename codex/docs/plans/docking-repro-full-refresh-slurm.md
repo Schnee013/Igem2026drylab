@@ -8,7 +8,7 @@
 
 - This plan advances docking-repro from the current `reanalysis` state to a refreshed, versioned docking release.
 - Include existing Gpr3 scheme F Ala/Sat results and the new batch01+batch02 AF3 predictions, then refresh ratio, IFP, and wet-lab candidate handoff.
-- Use Slurm for formal new compute. Windows 7500F remains historical context only unless a missing old artifact must be recovered.
+- Historical note: this 2026-05-19 refresh plan used Slurm. For new server/remote-compute work, first read `docs/ops/nkuliulab-e2-cloud-server.md`; Slurm and Windows 7500F remain historical context only unless a missing old artifact or old run log must be recovered.
 - Do not start ODE, do not export ODE parameter tables, and do not convert Vina scores to Kd in this plan.
 - Preserve enough provenance in docking outputs for a later ODE session to consume them after the literature review defines the Kd/calibration policy.
 

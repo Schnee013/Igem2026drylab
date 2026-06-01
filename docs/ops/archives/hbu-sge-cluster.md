@@ -1,5 +1,7 @@
 # HBU SGE 集群操作手册
 
+> ⚠️ **[已归档 — 2026-05-27]** 本文仅保留 HBU SGE 集群历史调研和旧任务投递记录。新服务器/远程计算任务统一使用 [NKULiulab E2 共享云服务器使用规范](../nkuliulab-e2-cloud-server.md)，操作前必须先阅读该规范。
+>
 > 适用环境: Mac → HBU 校内 SGE 集群 via EasyConnect VPN
 > 调度系统: **Sun Grid Engine (SGE) 8.1.9** — 与 Slurm 语法不同，提交/查询命令一套独立
 > 创建日期: 2026-04-22
