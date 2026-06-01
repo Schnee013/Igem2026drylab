@@ -10,6 +10,7 @@ These files are historical evidence, not active SOPs:
 - `draft-rules-cleanup-command.md`: legacy draft for a Claude-era `/rules-cleanup` command.
 - `quarterly-trigger-audit.md`: legacy quarterly trigger-audit manual.
 
-The original root paths now contain short pointer stubs so old logs and audit
-records continue to resolve without making the active ops root carry the full
-legacy SOP text.
+The original root paths briefly contained pointer stubs in commit `d339032`.
+They were then removed after historical logs were retargeted to this archive
+with explicit original-path notes. This keeps `docs/ops/` focused on active ops
+while preserving the provenance chain.

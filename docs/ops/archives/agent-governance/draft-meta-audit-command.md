@@ -51,7 +51,7 @@
 | **D6** | 自动加载预算超限 | CLAUDE.md + MEMORY.md + DOCMAP.md 跨文件总量 + 重复条款 + 最近 trigger-quarterly 的 ✗ 条目 |
 | **D7** | 历史 audit 未归因升级 | truth-audit 的"待修复"条目未升级为可 lint 的规则 |
 
-D6 的**行为证据**来源：最近一份 `docs/logs/meta-audits/trigger-quarterly-*.md`（见 `docs/ops/quarterly-trigger-audit.md` SOP）。没有 trigger audit 记录时 D6 只能做 token 统计和重复计数，证据强度 LOW，必须在输出中明示。
+D6 的**行为证据**来源：最近一份 `docs/logs/meta-audits/trigger-quarterly-*.md`（见 `docs/ops/archives/agent-governance/quarterly-trigger-audit.md`；original path at time of draft: `docs/ops/quarterly-trigger-audit.md`）。没有 trigger audit 记录时 D6 只能做 token 统计和重复计数，证据强度 LOW，必须在输出中明示。
 
 ---
 
@@ -272,7 +272,7 @@ D6 的**行为证据**来源：最近一份 `docs/logs/meta-audits/trigger-quart
 
 - 审查业务代码/数据 → 用 `/truth` 或 `/censor`
 - 一次性修复单个 memory 条目 → 手动 Edit
-- 规则变动后立即验证是否生效 → 用季度 trigger audit（`docs/ops/quarterly-trigger-audit.md`），不用 meta-audit
+- 规则变动后立即验证是否生效 → 用季度 trigger audit（`docs/ops/archives/agent-governance/quarterly-trigger-audit.md`；original path at time of draft: `docs/ops/quarterly-trigger-audit.md`），不用 meta-audit
 - 清理/合并冗余规则 → 用 `/rules-cleanup`（消费本命令的输出）
 
 ---
