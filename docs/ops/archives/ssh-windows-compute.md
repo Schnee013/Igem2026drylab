@@ -1,7 +1,7 @@
 # SSH 远程调用 Windows 计算节点操作指南
 
-> ⚠️ **[已弃用 — 2026-04-18]** Windows 7500F 计算节点已停用，所有计算任务已迁移至 Slurm GPU 集群。  
-> 本文档仅作历史参考，**不再维护**。当前操作规范见 [docs/ops/slurm-md-server.md](../slurm-md-server.md)。
+> ⚠️ **[已弃用 — 2026-04-18；归档校准 — 2026-05-27]** Windows 7500F 计算节点已停用。
+> 本文档仅作历史参考，**不再维护**。新服务器/远程计算任务统一使用 [NKULiulab E2 共享云服务器使用规范](../nkuliulab-e2-cloud-server.md)；旧 Slurm 指南已归档至 [slurm-md-server.md](slurm-md-server.md)。
 >
 > **例外**：部分 docking 阶段的结构文件（PDBQT、结果 JSON、AF3 预测）仍存于 Windows 节点 `D:\drylab-tools\workspace\`。  
 > 需要访问这些文件时，参考本文档的 SSH 调用规范（§标准模板）和 §环境信息。
@@ -10,7 +10,7 @@
 
 > 适用环境: Mac M1 → Windows 7500F (100.87.153.84) via Tailscale SSH  
 > 更新日期: 2026-04-06  
-> 教训来源: S1 WT 重对接启动过程中踩的坑（详见 [2026-04-06 日志](../logs/2026-04-06.md)）
+> 教训来源: S1 WT 重对接启动过程中踩的坑（详见 [2026-04-06 日志](../../logs/2026-04-06.md)）
 
 ---
 

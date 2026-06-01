@@ -99,7 +99,7 @@ last_updated: 2026-05-20
 - **代码路径**: `src/modeling/docking-repro/`
 - **产出路径**: `experiments/docking-repro/`
 - **工具链**: ADFR Suite + Orca DFT B3LYP/def2-TZVP + **单阶段对接**（40Å/0.1/exh=200） + **AF3 突变体结构预测** + **ProLIF IFP 分析**
-- **计算节点**: Slurm GPU 集群；Windows 7500F 仅作历史 artifact 参考
+- **远程计算入口**: 历史刷新曾使用 Slurm GPU 集群；新服务器/远程计算任务统一先读 [NKULiulab E2 共享云服务器使用规范](../ops/nkuliulab-e2-cloud-server.md)，Windows 7500F 和 Slurm 仅作历史 artifact / 旧运行记录参考
 - **关键技术修复**:
   - ICL3 截断 + TM 螺旋质心（修复 GprC grid box 偏移 18.1Å）
   - Annotation-based TM 域提取（UniProt + DeepTMHMM 交叉验证）

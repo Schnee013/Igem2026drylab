@@ -1,5 +1,7 @@
 # MD 模拟服务器操作指南（Slurm 集群）
 
+> ⚠️ **[已归档 — 2026-05-27]** 本文仅保留 10.40.4.5 Slurm 集群历史操作记录和既有 MD 运行证据。新服务器/远程计算任务默认使用 [NKULiulab E2 共享云服务器使用规范](../nkuliulab-e2-cloud-server.md)，操作前必须先阅读该规范。2026-05-30 起，chimeric MD 统一 rerun 可把旧 Slurm RTX 5090 作为 validated secondary candidate，但只能走 `environments/md-production-sites.md` 和新的 `experiments/md-simulation/scripts/slurm_*` gate scripts；不要复用本文的旧 production provenance。
+>
 > 适用环境: Mac → Ubuntu 22.04 login 节点 → Slurm GPU 计算节点  
 > 更新日期: 2026-04-16  
 

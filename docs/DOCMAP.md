@@ -22,7 +22,7 @@
 | 永久规则 | "代码改动后必须更新日志" | `AGENTS.md` / `CLAUDE.md` shim + `docs/DOCMAP.md` |
 | 项目路由 | "哪些建模方向在进行，状态如何" | `INDEX.md` |
 | 执行计划 | "下一 session 如何完成 docking 刷新" | `codex/docs/plans/` 项目内计划 |
-| 跨会话状态 | "Pipeline X 正在 Slurm 节点运行" | `codex/docs/memory/` 指针文件 |
+| 跨会话状态 | "Pipeline X 正在 E2 tmux 会话中运行" | `codex/docs/memory/` 指针文件 |
 | 当日叙事 | "今天发现 grid spacing 参数有误" | 当日日志 |
 | 原始结果 | ΔG 数值、benchmark 分数 | 结果文件 (JSON/CSV) |
 
@@ -118,8 +118,13 @@ drylab/
 │   ├── decisions/               # 技术决策记录
 │   │   └── NNN-title.md
 │   ├── ops/                     # 操作规范（SSH、环境、工具链）
-│   │   ├── archives/ssh-windows-compute.md  # [已弃用] Windows SSH（历史存档）
-│   │   └── slurm-md-server.md   # Slurm GPU 集群（MD 模拟节点）
+│   │   ├── nkuliulab-e2-cloud-server.md # 当前服务器入口；使用服务器前必须先读
+│   │   ├── md-gromacs-operational-pitfalls.md # GROMACS/MD 服务器中立踩坑索引
+│   │   └── archives/            # 历史服务器操作指南，不作为新任务入口
+│   │       ├── ssh-windows-compute.md  # [已弃用] Windows SSH（历史存档）
+│   │       ├── slurm-md-server.md      # [已归档] Slurm GPU 集群
+│   │       ├── hbu-sge-cluster.md      # [已归档] HBU SGE 集群
+│   │       └── sources/                # 原始外部来源，仅供追溯
 │   ├── logs/                    # 每日工作日志
 │   │   └── YYYY-MM-DD.md
 │   ├── papers/                  # 文献（矩阵 + 按需加载的总结）
@@ -218,6 +223,8 @@ drylab/
 │           └── mutagenesis_results_all_YYYYMMDD.json  # 手动合并全量（权威源）
 │
 ├── environments/                # conda 环境定义和锁定
+│   ├── md-production-sites.md   #   MD production site matrix（E2 primary + Slurm validated secondary）
+│   ├── e2-md-gromacs.md         #   E2 MD/GROMACS 生产与分析环境版本矩阵
 │   ├── mac-docking.yml
 │   ├── mac-docking.lock.yml
 │   └── win-docking-repro.lock
@@ -250,10 +257,10 @@ Get-Content $log.FullName -Tail 20
 
 ### 远程脚本部署
 
-- Mac `src/` 是唯一权威源，Windows `D:\drylab-tools\workspace\` 是一次性部署目标
-- 每次运行前从 Mac 同步全部 `.py` + `config.yaml`
-- 禁止在 Windows 端新建或修改 `.py` 脚本
-- 同步后检查并清理 Windows 上已不存在于 Mac src/ 的旧 `.py` 文件
+- Mac/repo `src/` 是唯一权威源；服务器工作目录只是部署目标。
+- 新服务器部署统一先读 `docs/ops/nkuliulab-e2-cloud-server.md`，再同步到个人目录（当前项目目录约定为 `/ifs1/User/dengwei/igem/`）。
+- 服务器端不得反向成为脚本权威源；需要修改 `.py`、配置或工作流时，先改 repo，再同步到服务器。
+- Windows 7500F 的旧部署细节仅保留在 `docs/ops/archives/ssh-windows-compute.md`，只用于追溯历史文件。
 
 ### 方法变体（同方向多 Pipeline）
 
@@ -280,13 +287,13 @@ Get-Content $log.FullName -Tail 20
 
 Mac 端所有 docking 阶段脚本（含 FASTA 生成等辅助脚本）默认在 `docking` 环境下运行。
 
-### Windows 端（计算节点）
+### 当前远程服务器
 
-| 环境名 | 路径 | 锁定文件 |
-|--------|------|---------|
-| `docking-repro` | `D:\drylab-tools\envs\docking-repro` | `environments/win-docking-repro.lock` |
+新服务器/远程计算任务默认使用 **NKULiulab E2 共享云服务器**。任何人或 AI 助手在登录服务器、上传数据、运行远程命令、配置远程 IDE、创建软件环境或启动长任务前，必须先阅读 `docs/ops/nkuliulab-e2-cloud-server.md`，并按其中的个人目录、资源上限、tmux、备份和凭据规则执行。例外：2026-05-30 起，本轮 chimeric MD 统一 rerun 允许旧 Slurm RTX 5090 作为 validated secondary candidate；该例外只由 `environments/md-production-sites.md` 和新的 `experiments/md-simulation/scripts/slurm_*` gate scripts 承载。
 
-~~操作规范详见 [docs/ops/ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（已弃用，Windows 节点停用，计算迁移至 Slurm）。~~
+MD / GROMACS 任务在确认 E2 入口后，再读取 `docs/ops/md-gromacs-operational-pitfalls.md` 作为服务器中立的操作踩坑索引；该文件只保存可迁移 guardrails，不承载旧 Slurm 节点、SBATCH 脚本或旧路径作为当前执行入口。
+
+Slurm、HBU SGE 和 Windows 7500F 指南均为历史归档，只能用于追溯旧结果、理解旧日志或访问仍滞留在旧节点上的历史文件；不得作为新任务的默认服务器入口。当前 chimeric rerun 的 Slurm 路线不得复用 archived Slurm 指南中的旧 production 脚本、旧路径或旧 GROMACS provenance。
 
 ---
 
@@ -352,7 +359,7 @@ Day 3: 识别模式 → 提升为 docs/ops/ 操作规范
 ```
 会话启动 → AGENTS.md 或 CLAUDE.md → docs/DOCMAP.md → docs/INDEX.md
 用户问方向 A → 加载 modeling/P0-direction-a.md
-用户要跑 SSH/Slurm → 加载 ops/slurm-md-server.md（Windows 节点已弃用）
+用户要用服务器/远程计算 → 先加载 ops/nkuliulab-e2-cloud-server.md；当前 chimeric MD 的 Slurm secondary 例外只走 environments/md-production-sites.md + 新 slurm_* gate scripts（旧 Slurm、HBU SGE、Windows 节点指南均已归档）
 用户问文献 → 查矩阵 → 加载单篇 summary
 ```
 
