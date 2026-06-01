@@ -1,12 +1,12 @@
 # iGEM DryLab 干实验 — 项目索引
 
-> 最后校准：2026-05-23。本文是项目路由表，不承载详细结果数值；需要结论时请沿链接读取领域文档、日志和原始结果文件。
+> 最后校准：2026-06-01。本文是项目路由表，不承载详细结果数值；需要结论时请沿链接读取领域文档、日志和原始结果文件。
 
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
-- **当前阶段**: 底盘已锁定酵母-STE2；嵌合 Gpa1 已完成 AF3 全量筛选并进入 MD 验证；chctrl 阳性对照 3/3 production MD 已完成，Ch-1/2/4 暂停等待 chctrl 本地分析结论；docking-repro 已完成 Gpr2/Gpr3 修复后的 ratio/IFP/湿实验 handoff 刷新；ODE 继续并行但 Kd/calibration 仍等待单独文献审查。
-- **主要卡点**: chctrl MD 本地分析尚未产出；docking 首批构建容量/湿实验执行安排待确认；显色级联方案 TBD（报告基因/整合位点/GAL4 放大）；HP 经济模型的本地成本/部署/支付意愿参数仍待回收。
+- **当前阶段**: 底盘已锁定酵母-STE2；嵌合 Gpa1 已完成 AF3 全量筛选并进入 MD 验证；当前决策为 E2 primary + Slurm RTX 5090 validated secondary 的统一 clean-start rerun 体系，范围为 chctrl + Ch-1/Ch-2/Ch-4；docking-repro 已完成 Gpr2/Gpr3 修复后的 ratio/IFP/湿实验 handoff 刷新；ODE 继续并行但当前仍是文献证据、参数状态和湿实验校准需求整理，尚未写 solver/config/plots；reporter 输出架构已确认为 sTF -> GAL 多拷贝放大 -> 色素显色。
+- **主要卡点**: E2 chimeric rerun 已通过推荐 GROMACS 2025.4 MPI-CUDA 环境安装/preflight、四体系输入同步与 rep1 smoke；chctrl rep1 full production 已在 2026-05-30 02:14 CST checkpoint 后按用户要求中断并完成 same-GPU benchmark，benchmark 显示最佳并发总吞吐低于单 job；rep1 已从 `prod.cpt` 以单 job 恢复运行；100-150 ns full-system early stability gate 已写入计划，但最终 production 目标仍为 500 ns/replicate；Slurm RTX 5090 read-only preflight 显示 node3/RTX5090 可调度、目标 env 无残留，但用户环境没有 conda/mamba/micromamba，因此 Slurm blocked before same-pin env validation，不进入 smoke/benchmark/production；docking 首批构建容量/湿实验执行安排待确认；reporter 架构已确认但具体色素、整合位点、实际拷贝数和输出层参数仍待湿实验/ODE 校准；HP 经济模型的本地成本/部署/支付意愿参数仍待回收。
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌 v4](prd/overview-v4.md)
 
@@ -17,12 +17,12 @@
 | 优先级 | 方向 | 底盘相关 | 当前状态 | 文档 |
 |--------|------|---------|----------|------|
 | **P0** | 受体-配体分子对接 | 否 | **refreshed_handoff**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、266 条 merged ratio、Top 候选 IFP 与湿实验交接均已刷新 | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
-| **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **in_progress**：WT holo Phase 3 已完成；chimeric chctrl 3/3 production 完成，当前转本地分析；Ch-1/2/4 暂停 | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | in_progress：模型框架与参数源继续整理；Top 候选标签已刷新，Kd/calibration 仍等待单独文献审查 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **in_progress**：WT holo Phase 3 已完成；chimeric 线转统一环境 clean-start rerun，E2 primary，Slurm RTX 5090 仅在验证后作为 secondary | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | in_progress：文献证据、参数状态、湿实验校准需求已整理；reporter 架构已确认；尚无 `src/modeling/ode/` solver、config 或 plots | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；MD 验证进行中 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
-| **P2** | 早期检测经济效益模型 | 否 | **framework_mvp_validated_arithmetic + stage3_benchmarks_extracted**：UC IPM tomato-RKN 算术/guardrail 已自动化验证；Stage 3 新增 PCN/Koehler、USDA ERS VOI、cucumber-RKN Bragantia、Barker tomato-RKN 外部 benchmark 抽取；最终 ROI 仍待 HP/湿实验/本地参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
+| **P2** | 早期检测经济效益模型 | 否 | **framework_mvp_validated_arithmetic + stage3_benchmarks_extracted**：deterministic cost-accounting MVP 已落地并验证公开示例算术；最终 ROI 仍待 HP/湿实验/本地参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
 | **P2** | 化学杀线虫剂剂量-响应 | 否 | not_started | [P2-dose-response.md](modeling/P2-dose-response.md) |
 | ~~P2~~ | ~~生物防治 Lotka-Volterra~~ | 仅丝状真菌 | **archived** | [P2-biocontrol-lv.md](modeling/P2-biocontrol-lv.md) |
 
@@ -32,21 +32,21 @@
 
 > 2026-04-11 底盘 4 项阻塞全部解除（PI 确认酵母-STE2 主线，详见 [决策 003](decisions/003-chassis-yeast-ste2-integration.md)）。
 
-- [ ] **[阻塞] chctrl MD 阳性对照分析**：下载/处理 chctrl 3 条轨迹，跑 RMSD、α5 iRMSD、H-bond、COM distance、RMSF 等第一批指标；结论决定 Ch-1/2/4 是否重启。
+- [ ] **[门禁] chimeric MD 统一重跑**：按 `environments/md-production-sites.md`、`environments/e2-md-gromacs.md`、`codex/docs/plans/e2-chimeric-md-restart.md` 和 `codex/docs/plans/chimeric-md-unified-rerun-sites.md`，E2 推荐 GROMACS 环境/preflight、输入同步、rep1 `grompp` + smoke `mdrun` 已完成；chctrl rep1 full production 已在 2026-05-30 02:14 CST checkpoint 后中断并保留 canonical `prod_rep1/prod.cpt`；同卡 2-job benchmark 结果低于单 job，当前不推荐 E2 同卡并行 production；rep1 已在 tmux `e2_chctrl_rep1_resume_20260530` 用 `-cpi prod.cpt -append` 单 job 恢复；100-150 ns 只作为 full-system early stability gate，不能替代 500 ns final production；Slurm RTX 5090 read-only preflight 通过 scheduler/resource gate，但因无 conda/mamba/micromamba，尚未进入 same-pin env validation、smoke、benchmark 或 production。
 - [ ] **[质量门] 预注册 operational cutoff 来源审查**：所有用于 go/no-go 的项目预注册阈值、技术栈选择、几何定义和数值判据必须补齐 DOI / 标题 / 原文方法段落 / 官方工具文档等 exact pointer；没有 exact pointer 的文献引用暂不承认，统一标记为待查验或项目 operational heuristic。
 - [ ] **[待确认] docking 首批构建容量/交接执行**：刷新后的 handoff 已落地，当前首选 `Gpr2_R59C + Gpr3_R167Y`；下一步需湿实验组确认首批构建容量和读出设计。
-- [ ] **[阻塞] 显色级联方案**：报告基因 / 整合位点 / 拷贝数目标 / 是否 GAL4 放大 → 与通路工程组讨论。
+- [ ] **[待确认] reporter 输出实现参数**：架构已确认（sTF -> GAL 多拷贝放大 -> 色素显色），但具体色素、整合位点、实际拷贝数、输出增益和 time-course 参数仍需通路工程组/湿实验校准。
 - [ ] **[重要] HP 组沟通**: 回收经济模型的本地参数：传感器单次成本、部署密度、检测性能、当地 lab 成本/周期、施药/轮作/抗性品种成本、作物价格与农户支付意愿。
 
 ---
 
 ## 当前优先入口
 
-1. **chimeric MD 分析** — 从 [2026-04-26 日志](logs/2026-04-26.md) 接续 chctrl 本地分析与 Ch-1/2/4 重启决策。
+1. **chimeric MD unified rerun** — 站点矩阵见 [md-production-sites.md](../environments/md-production-sites.md)，E2 环境证据见 [e2-md-gromacs.md](../environments/e2-md-gromacs.md)，E2 执行门禁见 [E2 Chimeric MD Restart Plan](../codex/docs/plans/e2-chimeric-md-restart.md)，Slurm secondary gate 见 [Chimeric MD Unified Rerun Sites Plan](../codex/docs/plans/chimeric-md-unified-rerun-sites.md)。
 2. **docking-repro 湿实验交接** — 当前权威候选见 [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md)；证据链从 [2026-05-19 日志](logs/2026-05-19.md) 与 [ratio_channel_report.md](../experiments/docking-repro/analysis/ratio_channel_report.md) 读取。
-3. **ODE 并行推进** — 用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 维护通路结构；候选标签可引用新版 docking handoff，但 Kd/calibration 仍等待单独文献审查。
+3. **ODE 并行推进** — 用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 维护通路结构、参数状态和 reporter 输出接口；候选标签可引用新版 docking handoff，但 Kd/calibration 仍等待文献/湿实验校准，尚未进入 solver 实现。
 4. **P2 经济模型 HP 参数回收** — 文献/参数入口见 [p2-economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
-5. **湿实验/显色级联讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md) 与 ODE 需求。
+5. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
 ---
 
@@ -71,8 +71,10 @@
 
 ## 运维参考
 
-- **Codex Desktop 会话列表恢复**：[codex-thread-list-provider-mismatch.md](ops/codex-thread-list-provider-mismatch.md)
-- **Slurm GPU 集群**（当前）：[slurm-md-server.md](ops/slurm-md-server.md)
+- **当前服务器入口**：新服务器/远程计算任务默认使用 [NKULiulab E2 共享云服务器](ops/nkuliulab-e2-cloud-server.md)；本轮 chimeric MD 允许旧 Slurm 作为已批准的 validated secondary candidate，但必须走 [md-production-sites.md](../environments/md-production-sites.md) 和新的 `slurm_*` gate scripts，不复用旧 Slurm production provenance。
+- **GROMACS / MD 操作踩坑索引**：[md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)（服务器中立；新任务仍先读 E2 手册）
+- **[已归档] Slurm GPU 集群**：[slurm-md-server.md](ops/archives/slurm-md-server.md)（仅用于追溯旧 MD/Slurm 运行记录；当前 chimeric rerun 的 Slurm secondary route 以 `environments/md-production-sites.md` 和 `experiments/md-simulation/scripts/slurm_*` 为准）
+- **[已归档] HBU SGE 集群**：[hbu-sge-cluster.md](ops/archives/hbu-sge-cluster.md)（仅用于追溯旧 HBU SGE 调研/投递记录）
 - **[已弃用] Windows SSH 操作指南**：[ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（Windows 7500F 节点停用；部分 docking 结构文件仍存于该节点，需访问时参考此文档）
 
 ## 文献
@@ -95,13 +97,11 @@
 
 ## 最近进展
 
-- **2026-05-23**: P2 经济模型完成 Stage 3 外部 benchmark 抽取：Koehler/PCN 方法结构、USDA ERS value-of-information、Bragantia cucumber-RKN 密度-产量表、Barker tomato-RKN 合理性检查已进入 `docs/papers/p2-economic-benefit/`；代码/配置未扩展，最终 ROI 仍待 HP/湿实验/本地参数。
-- **2026-05-23**: P2 经济模型长期资料从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`，并补齐 HP 问卷、DOCMAP/INDEX 路由和日志；随后新增 `docs/modeling/P2-economic-benefit-validation.md` 与自动化测试，UC IPM public example 已作为 arithmetic baseline 通过检验，但仍不是最终 ROI。
-- **2026-05-21**: P2 early-detection economic benefit 启动 Stage 1/2 文献与数据源矩阵，并新增 deterministic cost-accounting MVP 框架；当前只能做公开示例和 break-even 结构，最终 ROI 待 HP/湿实验参数。
+- **2026-06-01**: chimeric MD 新增 tiered validation protocol：100-150 ns 是 full-system early stability gate，默认 150 ns；通过后从同一 `prod.cpt` 继续到 500 ns final production，局部口袋/interface-only MD 不作为等价替代。
+- **2026-05-30**: chimeric MD chctrl rep1 按 checkpoint gate 在 02:14 CST 正常写入 `prod.cpt` 后中断；benchmark 输出显示最佳 same-GPU 2-job 总吞吐低于单 job（详细数值见 `docs/logs/2026-05-30.md` 和远端 `summary.tsv`）；rep1 已从 canonical `prod_rep1/prod.cpt` 单 job 恢复；同日新增 E2 primary + Slurm RTX 5090 validated secondary 的统一 rerun 站点矩阵和 Slurm 专用 gate scripts。
+- **2026-05-25**: reporter 输出架构按用户确认和实验方案附件更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`；ODE/P2 缺口说明和总览图填充文案已同步到路由文档，未新增 ODE solver 或经济模型代码。
+- **2026-05-23**: P2 经济模型长期资料从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`；Stage 3 外部 benchmark 抽取已进入 dossier，公开示例算术可验证，但最终 ROI 仍待 HP/湿实验/本地参数。
 - **2026-05-20**: docking-repro full refresh 完成 Phase 1-7：266 条 merged ratio、8 个 Top 候选 IFP、湿实验 handoff 刷新；当前首选 `Gpr2_R59C + Gpr3_R167Y`。
-- **2026-04-27**: `True_Gpr2_or_not.md` 核查 Kuo2024 GPA2/GPA3 标签疑问：当前 `TGJ64397.1` 与 GPA2 primers 匹配，Gpr2/Gpr3→AoGpa2 设计暂不回滚；Ch-1/2/4 MD 不因该问题重跑。
-- **2026-04-26**: Slurm 队列清空；chctrl Phase C4 production MD 3/3 完成；Ch-1 rep1 中断在约 28 ns 且有 cpt，Ch-2/Ch-4 仅完成 step6.6；决策为先分析 chctrl，再决定是否重启 Ch-1/2/4。
-- **2026-04-23/24**: Gpr2 3D offset Ala/Sat 重跑完成并刷新旧 ratio；随后 Gpr3 pose 审查发现旧 groove 污染，方案 F（ECL2 manual box=20 Å）几何 PASS；这些产物已纳入 2026-05-20 full refresh。
 
 ---
 
@@ -111,10 +111,12 @@
 - [x] MUSCLE/ClustalΩ 比对 Gpa1 vs Ao Gpa2 / Af GasA（+ gustducin/Gsα 对照）→ `experiments/chimeric-gpa1/alignment/`
 - [x] C 端多档嫁接候选生成与 AF3 全量预测（42 jobs）→ `experiments/chimeric-gpa1/analysis/ranking_summary.md`
 - [x] Top 3 嵌合候选选定；AoGpa2 `TGJ64397.1` 身份核查通过 → [True_Gpr2_or_not.md](logs/True_Gpr2_or_not.md)
-- [ ] chctrl 3 条 production MD 轨迹本地下载、PBC 修正、第一批指标分析 → [2026-04-26 日志](logs/2026-04-26.md)
+- [x] production site / environment matrix archived → [md-production-sites.md](../environments/md-production-sites.md), [e2-md-gromacs.md](../environments/e2-md-gromacs.md)
 - [x] chctrl selection audit：已核验 PROA/PROB、Gpa1 alpha5/eCT residue mapping、Ste2 interface geometry、fit/reference 路线；selection 定义可用于 caveated interpretation，但阈值来源审查仍未完成 → `experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/selection_audit_report.md`
-- [ ] 审阅 chctrl selection audit 报告后，决定是否接受 chctrl 为“usable with alpha5 caveat”并进入 Ch-1/2/4 续跑/重提决策
-- [ ] 根据 chctrl 阳性对照结果决定 Ch-1/2/4 是否续跑/重提，再更新湿实验嵌合方案置信度
+- [x] 按推荐 pin 创建/选择 E2 GROMACS 生产环境，并保存新的 preflight + conda snapshot
+- [x] 对 chctrl + Ch-1/Ch-2/Ch-4 做输入审计/恢复、MDP/index 检查、rep1 `grompp` 和 smoke `mdrun`
+- [x] 新增 Slurm RTX 5090 validated secondary 的环境矩阵、计划和专用 gate scripts；read-only preflight/resource gate 通过，但因无 conda-family package manager 阻塞在 same-pin env validation 前，不进入 smoke/benchmark/production
+- [ ] 监控 chctrl rep1 single-job production：当前在 E2 tmux `e2_chctrl_rep1_resume_20260530` 从 `/ifs1/User/dengwei/igem/md-simulation/chimeric-ste2-gpa1-wt/gromacs/prod_rep1/prod.cpt` 以 `-cpi prod.cpt -append` 恢复；完成后同步到 E2 rerun 结果子目录并做 `prod.log` 终止、`prod.cpt/gro/xtc/edr/tpr`、checksum 和 `gmx check` 校验；当前不要做同卡 full-production 并发。
 
 ### ② P0 docking-repro 结果刷新 ⭐⭐⭐
 - [x] Gpr2 3D offset WT/Ala/Sat 重跑完成；旧 Gpr2 污染结果不再作为权威
@@ -125,11 +127,12 @@
 - [ ] 视 PI/湿实验沟通需要补 PyMOL PNG/PSE 渲染交付物
 
 ### ③ P0 信号通路 ODE（并行）
-- [ ] 完整酵母 STE2 ODE 模型（参数源 Shaw2019/Fan&Yuan2024/Ladds2005 等）
+- [ ] ODE v0.1 solver：`src/modeling/ode/` Python 实现 + 参数 config + 模拟输出 CSV/plots
+- [ ] reporter 输出层：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参
 - [ ] 1/2/4 copy 拷贝数敏感性分析
 - [ ] 与 docking 联动：候选标签可引用新版 handoff；Kd/calibration 需等待单独文献审查
 
 ### ④ 其他待启动
-- [ ] 显色级联方案讨论（报告基因 / 整合位点 / 拷贝数 / GAL4 放大）
+- [ ] reporter 实现参数讨论（具体色素 / 整合位点 / 实际拷贝数 / 输出增益 / 显色时间）
 - [ ] 与 HP 组沟通经济效益模型参数，回填 `experiments/economic/configs/public_mvp_framework.json` 或后续正式 config
 - [ ] 土壤扩散、贝叶斯推断、经济效益、剂量-响应等 P1/P2 方向按 Wiki 叙事需要启动

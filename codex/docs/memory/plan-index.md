@@ -6,6 +6,8 @@ Repo-owned current plans should live under `codex/docs/plans/`, not under privat
 
 ## Highest relevance
 
+- `codex/docs/plans/e2-chimeric-md-restart.md` — repo-owned E2 restart route for the unified chimeric clean-start rerun; now paired with `codex/docs/plans/chimeric-md-unified-rerun-sites.md` for the Slurm RTX 5090 validated secondary gate.
+- `codex/docs/plans/chimeric-md-unified-rerun-sites.md` — repo-owned site integration plan for E2 primary + Slurm RTX 5090 validated secondary; Slurm enters production only after same-pin preflight, smoke, benchmark, and early production gates.
 - `/Users/roy/.claude/plans/mac-pbc-memory-memory-imperative-moon.md` — chctrl local MD analysis and memory pointerization.
 - `/Users/roy/.claude/plans/gpr3-1-2-cozy-bengio.md` — Gpr3 pose repair / scheme F / ratio and IFP refresh framework.
 - `/Users/roy/.claude/plans/charmmgui-membrane-builder-gpr2-icl-vin-whimsical-ripple.md` — Gpr2 grid/offset contamination and rerun decision.

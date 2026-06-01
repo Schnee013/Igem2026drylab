@@ -3,7 +3,7 @@ direction: P0-md-simulation
 doc_type: research-report
 scope: tech-stack (software + force field + membrane builder)
 status: draft
-last_updated: 2026-04-16
+last_updated: 2026-05-29
 ---
 
 # P0-MD 技术栈调研报告（软件 / 力场 / 膜构建）
@@ -603,7 +603,7 @@ anandamide = "长脂肪链 + 极性头"的 GPCR 配体，**距离 ascaroside 最
 1. ⭐⭐⭐ **ascaroside ParamChem penalty 扫描**（1–2 天）：立即做，决定是否触发 QM 重拟；不做 = V138R 盐桥占比数字不可信
 2. ⭐⭐⭐ **CHARMM-GUI 学术账号**：本周内注册（审批 0.5–1 天）
 3. ⭐⭐⭐ **AlphaFold3 结构 PPM 2.0 对齐**：生产前必做；跳过 → TM 倾角 30°+ 灾难
-4. ⭐⭐ **水盒子 benchmark**：如后续更换 GPU/Slurm 节点，再跑一次，验证 `-update gpu -bonded gpu -pme gpu` 是否开到位
+4. ⭐⭐ **水盒子 / smoke benchmark**：如后续更换服务器、GPU 或 GROMACS 二进制，再跑一次，验证 `-update gpu -bonded gpu -pme gpu` 是否开到位；当前 E2 生产环境 pin 见 `environments/e2-md-gromacs.md`
 5. ⭐⭐ **体系清单 pre-register**：在跑之前写死 7 或 14 个体系，防止中途增加导致统计比较不公
 6. ⭐ **分阶段 equilibration schedule**：借鉴 mwSuMD 2→60→80→20 ns restraint release，AF3 起始首 50 ns 扣除
 
@@ -650,7 +650,7 @@ anandamide = "长脂肪链 + 极性头"的 GPCR 配体，**距离 ascaroside 最
 
 | 维度 | 本项目选择 | source-audited 支撑 | 当前解释 |
 |------|------------|--------------------|----------|
-| MD 引擎 | GROMACS 2025.2 | Renault 2019 使用 GROMACS 5.1.4；Memprot.GPCR-ModSim 输出 GROMACS-ready membrane systems | 支持“GROMACS 可用于 GPCR/engineered Gα 或膜蛋白复合物”，不是版本等同 |
+| MD 引擎 | GROMACS；当前 E2 生产 pin 以 `environments/e2-md-gromacs.md` 为准 | Renault 2019 使用 GROMACS 5.1.4；Memprot.GPCR-ModSim 输出 GROMACS-ready membrane systems | 支持“GROMACS 可用于 GPCR/engineered Gα 或膜蛋白复合物”，不是版本等同；具体 rerun 版本不由本文维护 |
 | 蛋白/脂质力场 | CHARMM36m / CHARMM-GUI stack | Renault 2019 使用 CHARMM36/CGenFF + CHARMM-GUI；本项目 production 输入来自 CHARMM-GUI | 支持 CHARMM-family 技术栈合理；Tawfeeq 不再作为 CHARMM36m 依据 |
 | 膜组分 | POPC | Tawfeeq 2025、Renault 2019 均有 POPC bilayer；Velazhahan 结构背景与膜 GPCR 体系一致 | POPC 是合理简化，不等于所有 Ste2/Gpa1 生物膜组分 |
 | 膜构建 | CHARMM-GUI | Tawfeeq 2025 与 Renault 2019 均用 CHARMM-GUI；本项目 CHARMM-GUI 输出已实际运行 | 充分支持继续沿用 |

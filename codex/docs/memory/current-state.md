@@ -1,14 +1,16 @@
 # Current drylab state memory
 
-> 生成日期：2026-05-23
+> 生成日期：2026-06-01
 > Purpose: Codex project memory entry for current state. This file is pointer-based and does not replace `docs/INDEX.md`, domain docs, logs, or raw results.
 > Read rule: use this file to find the relevant source logs, modeling docs, plans, and result files; verify conclusions in those sources.
 
-## 1. chimeric MD：chctrl 阳性对照本地分析是当前最高优先级
+## 1. chimeric MD：统一环境 clean-start rerun 是当前最高优先级
 
-**当前状态**：`chimeric-ste2-gpa1-wt` / chctrl 的 3 条 production MD 已完成；Ch-1/Ch-2/Ch-4 暂停，等待 chctrl 本地下载、PBC 修正和第一批指标分析后，再决定是否重启或续跑。
+**当前状态（2026-06-01）**：chimeric MD 决策已更新为用统一 GROMACS 2025.4 MPI-CUDA 环境 clean-start 重跑 chctrl + Ch-1/Ch-2/Ch-4。E2 是 primary；旧 Slurm RTX 5090 仅作为 validated secondary candidate。E2 推荐环境/preflight、四体系输入同步和 rep1 smoke gate 已完成；`chimeric-ste2-gpa1-wt` rep1 full production 已在 2026-05-30 02:14 CST checkpoint 后按用户要求中断并保留 canonical `prod_rep1/prod.cpt`。same-GPU 2-job benchmark 显示最佳并发总吞吐低于单 job，当前不推荐 E2 同卡并行 production；rep1 已在 tmux `e2_chctrl_rep1_resume_20260530` 用 `-cpi prod.cpt -append` 单 job 恢复。2026-06-01 新增 100-150 ns full-system early stability gate，500 ns/replicate 仍是最终目标，局部口袋/interface-only MD 不替代当前 rerun。Slurm read-only preflight/resource gate 已通过，但用户环境没有 conda/mamba/micromamba，当前 blocked before same-pin env validation。以 `docs/logs/2026-05-30.md`、`docs/logs/2026-06-01.md`、`docs/INDEX.md`、`docs/modeling/P0-md-simulation.md`、`environments/md-production-sites.md`、`codex/docs/plans/e2-chimeric-md-restart.md` 和 `codex/docs/plans/chimeric-md-unified-rerun-sites.md` 为当前路由。
 
-**新增待办（2026-04-29）**：chctrl C5 selection audit 已执行，报告：`/Users/roy/Documents/drylab/experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/selection_audit_report.md`。结果支持 selection 定义可用于 caveated interpretation，但 chctrl 仍是 “usable with alpha5 caveat”，不是 clean all-metric pass；Ch-1/Ch-2/Ch-4 不自动重启。所有用于 go/no-go 的 operational cutoff 仍必须补齐 DOI / 标题 / 原文方法段落 / 官方工具文档等 exact pointer；没有 exact pointer 的文献引用暂不承认，先标为待查验或 project operational heuristic。
+**历史状态指针**：旧 Slurm/chctrl production 和 selection audit 只作历史证据/方法参考，不再作为当前 baseline 接受状态。旧 selection audit 报告仍在 `/Users/roy/Documents/drylab/experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/selection_audit_report.md`；old Slurm production logs 在 `/Users/roy/Documents/drylab/experiments/md-simulation/results/chimeric-ste2-gpa1-wt/raw/rep{1,2,3}/prod.log`。
+
+**当前待办（2026-06-01）**：监控 E2 tmux `e2_chctrl_rep1_resume_20260530` 中的 chctrl rep1 single-job production；到 100-150 ns early gate 时按 `codex/docs/plans/e2-chimeric-md-restart.md` 暂停/同步/分析/决定继续或归档；完成后用 `RESULTS_RUN_ID=20260529_e2_rerun` 同步回本地并做 `prod.log` 正常终止、`prod.cpt/gro/xtc/edr/tpr`、checksum 和 `gmx check` 校验。Slurm 下一步需要先解决用户目录 conda-family package manager 或另行批准异路径构建；未完成 same-pin env validation 前不启动 smoke、benchmark 或 production。当前不要再做 E2 同卡 full-production 并发。
 
 **cutoff-source audit（2026-04-29）**：报告 `.../analysis/cutoff_source_audit.md`。Ste2 interface ranges 已改为 7AD3-derived project structural selection；“Bauer 2022” 未通过 exact-pointer 审查，α5 iRMSD 3/5 Å 与 BSA 20% 均降级为 project operational heuristic；GPCRsignal 支持 interaction frequency 但不支持 >0.50 universal pass；MDAnalysis 支持 H-bond 3.0 Å / 150° 几何但不支持 occupancy >10%。
 
@@ -22,7 +24,9 @@
 
 **Log / 文档指针**：
 
-- `/Users/roy/Documents/drylab/docs/logs/2026-04-26.md` — chctrl 3/3 完成、Ch-1/2/4 暂停、下一步本地分析。
+- `/Users/roy/Documents/drylab/docs/logs/2026-04-26.md` — 旧 Slurm/chctrl 状态核查的历史指针，不作为当前 rerun 状态。
+- `/Users/roy/Documents/drylab/docs/logs/2026-05-30.md` — E2 checkpoint-gated benchmark、single-job resume、Slurm RTX 5090 secondary candidate preflight。
+- `/Users/roy/Documents/drylab/docs/logs/2026-06-01.md` — full-system early stability gate 方法学决策。
 - `/Users/roy/Documents/drylab/docs/modeling/P0-md-simulation.md` — MD phase 定义、chimeric C1-C5 状态、7 项分析指标。
 - `/Users/roy/Documents/drylab/docs/INDEX.md` — 当前优先入口与阻塞项。
 
@@ -66,7 +70,8 @@
 **Log / 文档指针**：
 
 - `/Users/roy/Documents/drylab/docs/logs/True_Gpr2_or_not.md` — AoGpa2 `TGJ64397.1` / GPA2 身份核查。
-- `/Users/roy/Documents/drylab/docs/logs/2026-04-26.md` — chimeric MD 当前运行状态。
+- `/Users/roy/Documents/drylab/docs/logs/2026-04-26.md` — 旧 Slurm/chimeric MD 状态核查的历史指针。
+- `/Users/roy/Documents/drylab/docs/logs/2026-05-30.md` 与 `/Users/roy/Documents/drylab/docs/logs/2026-06-01.md` — 当前统一 rerun 路线和 early stability gate。
 - `/Users/roy/Documents/drylab/docs/modeling/P3-chimeric-gprotein.md` — 嵌合 Gpa1 方向权威文档，当前 `MD_validation`。
 - `/Users/roy/Documents/drylab/experiments/chimeric-gpa1/analysis/ranking_summary.md` — AF3 Top 候选选择结果。
 
