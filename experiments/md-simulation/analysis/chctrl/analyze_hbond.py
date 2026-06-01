@@ -2,15 +2,17 @@
 from pathlib import Path
 import argparse, sys, numpy as np, pandas as pd
 sys.path.insert(0, str(Path('src/modeling/md-analysis').resolve()))
-import MDAnalysis as mda
 from MDAnalysis.lib.distances import distance_array
-from common import replicates, analysis_base, ensure_dir, GPA1, STE2_INTERFACE, write_judgement
+import MDAnalysis as mda
+from common import add_system_argument, analysis_context, ensure_dir, write_judgement
 from plotting import barplot
 
 parser=argparse.ArgumentParser()
+add_system_argument(parser)
 parser.add_argument('--step', type=int, default=5, help='Frame stride for H-bond analysis')
 args=parser.parse_args()
-out=ensure_dir(analysis_base()/'hbond')
+ctx = analysis_context(args.system)
+out=ensure_dir(ctx.analysis_base/'hbond')
 
 DONOR_HEAVY = {'N','O','S'}
 ACCEPTOR_HEAVY = {'N','O','S'}
@@ -73,17 +75,24 @@ def scan_direction(u, donor_sel, acceptor_sel, rep, tag):
     return events, n
 
 all_events=[]; frame_counts={}
-for rep in replicates():
+for rep in ctx.replicates():
     u=mda.Universe(str(rep.topology), str(rep.trajectory))
-    gpa=u.select_atoms(GPA1)
-    iface=u.select_atoms(STE2_INTERFACE)
-    ev,n=scan_direction(u, iface, gpa, rep.rep, 'Ste2_iface_to_Gpa1')
-    all_events.extend(ev); frame_counts[(rep.rep,'Ste2_iface_to_Gpa1')]=n
+    galpha=u.select_atoms(ctx.galpha_selection)
+    iface=u.select_atoms(ctx.receptor_interface_selection)
+    if len(galpha) == 0 or len(iface) == 0:
+        raise RuntimeError(
+            f'empty H-bond selection for {ctx.system} {rep.rep}: '
+            f'{ctx.galpha_name}={len(galpha)} {ctx.receptor_name}_interface={len(iface)}'
+        )
+    receptor_to_galpha=f'{ctx.receptor_name}_iface_to_{ctx.galpha_name}'
+    galpha_to_receptor=f'{ctx.galpha_name}_to_{ctx.receptor_name}_iface'
+    ev,n=scan_direction(u, iface, galpha, rep.rep, receptor_to_galpha)
+    all_events.extend(ev); frame_counts[(rep.rep,receptor_to_galpha)]=n
     u=mda.Universe(str(rep.topology), str(rep.trajectory))
-    gpa=u.select_atoms(GPA1)
-    iface=u.select_atoms(STE2_INTERFACE)
-    ev,n=scan_direction(u, gpa, iface, rep.rep, 'Gpa1_to_Ste2_iface')
-    all_events.extend(ev); frame_counts[(rep.rep,'Gpa1_to_Ste2_iface')]=n
+    galpha=u.select_atoms(ctx.galpha_selection)
+    iface=u.select_atoms(ctx.receptor_interface_selection)
+    ev,n=scan_direction(u, galpha, iface, rep.rep, galpha_to_receptor)
+    all_events.extend(ev); frame_counts[(rep.rep,galpha_to_receptor)]=n
 
 if all_events:
     raw=pd.DataFrame(all_events); raw.to_csv(out/'hbond_events.csv', index=False)
@@ -96,10 +105,10 @@ else:
 summary.to_csv(out/'hbond_summary.csv', index=False)
 if len(summary):
     agg=summary.groupby('pair').agg(occupancy=('occupancy','mean'), reps=('rep','nunique')).reset_index().sort_values('occupancy', ascending=False)
-    barplot(agg, 'pair', 'occupancy', out/'occupancy_top10.png', 'chctrl interface H-bond occupancy (top)', 'Mean occupancy', limit=10)
+    barplot(agg, 'pair', 'occupancy', out/'occupancy_top10.png', f'{ctx.label} interface H-bond occupancy (top)', 'Mean occupancy', limit=10)
 lines=[]
 for rep, sub in summary.groupby('rep'):
     top=sub.occupancy.max() if len(sub) else 0
     lines.append(f"{rep}: top pair occupancy={top:.3f}; reporting threshold >0.10 is project heuristic; manual geometry 3.0 A / 150 deg is MDAnalysis-style, stride={args.step}")
 if not lines: lines=['No H-bonds detected with manual 3.0 A / 150 deg geometry under current stride/selection.']
-write_judgement(out/'judgement.md', 'chctrl H-bond judgement', lines)
+write_judgement(out/'judgement.md', f'{ctx.label} H-bond judgement', lines)
