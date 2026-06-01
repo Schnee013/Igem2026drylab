@@ -1,0 +1,63 @@
+== E2 chimeric MD preflight ==
+run_id=20260528_review_preflight
+timestamp=2026-05-28T03:29:41+08:00
+hostname=almalinux10
+user=dengwei
+pwd=/ifs1/User/dengwei
+e2_base=/ifs1/User/dengwei/igem
+remote_md_base=/ifs1/User/dengwei/igem/md-simulation
+
+== Directory and quota ==
+E2_BASE exists: /ifs1/User/dengwei/igem
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda         50T   12T   39T  23% /ifs1
+Disk quotas for user dengwei (uid 1005):
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+       /dev/sda  19924K   5000G   5072G            2567       0       0
+
+== GPU and CUDA ==
+GPU 0: NVIDIA A100-SXM4-80GB (UUID: GPU-d14a551f-c3c4-e2f1-a8d5-124ab04c90f9)
+Thu May 28 03:29:44 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:03:00.0 Off |                    0 |
+| N/A   53C    P0             60W /  400W |       0MiB /  81920MiB |     22%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Tue_Dec_16_07:23:41_PM_PST_2025
+Cuda compilation tools, release 13.1, V13.1.115
+Build cuda_13.1.r13.1/compiler.37061995_0
+CUDA_VISIBLE_DEVICES=unset
+
+== Environment tools ==
+conda=/share/Software/miniforge3/bin/conda
+conda 26.1.0
+mamba=/share/Software/miniforge3/bin/mamba
+2.5.0
+micromamba=not_found
+apptainer=/usr/bin/apptainer
+apptainer version 1.4.4-1.el10_0
+singularity=/usr/bin/singularity
+apptainer version 1.4.4-1.el10_0
+
+== GROMACS discovery ==
+No gmx/gmx_mpi command found in PATH.
+chosen_gmx=none
+gmx_env=not_written
+
+remote_log=/ifs1/User/dengwei/igem/logs/chimeric_preflight_20260528_review_preflight.log
