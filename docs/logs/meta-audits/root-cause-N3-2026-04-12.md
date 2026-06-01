@@ -4,8 +4,8 @@
 
 **日期**：2026-04-12
 **目的**：把 N56 + 2 条新 HIGH 案例的根因对齐，判别"防止 Claude 读到过时信息"防御体系的下一步行动（写 feedback memory / 实施 meta-audit draft / 作废）。
-**决策范围**：`docs/ops/draft-meta-audit-command.md`、`docs/ops/draft-rules-cleanup-command.md` 的命运；feedback memory 的补丁。
-**不在范围内**：`docs/ops/quarterly-trigger-audit.md`（手册，不是 SOP，留给用户）。
+**决策范围**：`docs/ops/archives/agent-governance/draft-meta-audit-command.md`（original path at time of audit: `docs/ops/draft-meta-audit-command.md`）、`docs/ops/archives/agent-governance/draft-rules-cleanup-command.md`（original path at time of audit: `docs/ops/draft-rules-cleanup-command.md`）的命运；feedback memory 的补丁。
+**不在范围内**：`docs/ops/archives/agent-governance/quarterly-trigger-audit.md`（original path at time of audit: `docs/ops/quarterly-trigger-audit.md`；手册，不是 SOP，留给用户）。
 
 ---
 
@@ -101,7 +101,7 @@
 **理由**：
 - 三条根因分属独立族，说明元层审查工具确实能抓到**被现有 memory 覆盖不全的**问题。若三条都归到同一族，结论会反过来（只补一条 memory 即可）；但事实是三族正交，单靠 feedback memory 会陷入"每出一条写一条"的被动状态。
 - 但前一轮 18 条 HIGH/MEDIUM/LOW 改动中只有 ~2 条真对着 N56 族。剩余 16 条是"假设 command 会跑之后的运行时健壮性"——这是 over-engineering，N=3 证据不支持。
-- quarterly-trigger-audit.md 是手册不是 SOP，不在判决范围内。
+- `docs/ops/archives/agent-governance/quarterly-trigger-audit.md`（original path at time of audit: `docs/ops/quarterly-trigger-audit.md`）是手册不是 SOP，不在判决范围内。
 
 ### 保留的维度（真必要）
 
@@ -133,7 +133,9 @@ meta-audit 若实施，**只需覆盖 3 个维度**，每个对应一个根因�
 
 这些是假设 command 会跑之后的细节，N=3 证据没触及任何一条，delete 无损。
 
-### `draft-rules-cleanup-command.md`
+### `docs/ops/archives/agent-governance/draft-rules-cleanup-command.md`
+
+Original path at time of audit: `docs/ops/draft-rules-cleanup-command.md`.
 
 **作废**。理由：N=3 没有一条根因指向"memory 规则过多/过时"。如果 memory 规则的问题是"不对口"（A/B/C 都存在），清理不治本——补写才治本。此 draft 解决的是虚构的问题。
 
@@ -340,7 +342,7 @@ meta-audit 若实施，**只需覆盖 3 个维度**，每个对应一个根因�
 1. "**关键不变量**"成立：每条新 L1 规则必须绑定一次 retroactive sweep
 2. **2026-04-12 之前的所有"修正"操作都需要补做 sweep**——不只是 D1，所有已做修正的事件（如盐桥实证降级）都可能有同类残留
 3. 批次 2（D2 机制断言词）启动前，**先跑批次 2 的 sweep 来 catch 04-11 盐桥事件的 V138R 残留**（已知 `memory/project_docking_pipeline.md:L28` 注释带"盐桥未实证"，但需扫全部 D2 关键词确认无遗漏）
-4. `draft-rules-cleanup-command.md` 的真实价值已被 D1 sweep 证明：**它就是把这种 sweep 形式化为可重复操作**，不是"删旧规则"而是"对已有规则做一次完整性扫描"。原报告把它降级为"待验证"过于保守，应升级为"必要"
+4. `docs/ops/archives/agent-governance/draft-rules-cleanup-command.md`（original path at time of audit: `docs/ops/draft-rules-cleanup-command.md`）的真实价值已被 D1 sweep 证明：**它就是把这种 sweep 形式化为可重复操作**，不是"删旧规则"而是"对已有规则做一次完整性扫描"。原报告把它降级为"待验证"过于保守，应升级为"必要"
 
 ### 下一步
 - 批次 2：D2 机制断言词（写规则 + sweep + 修，同一批次）
@@ -365,8 +367,8 @@ meta-audit 若实施，**只需覆盖 3 个维度**，每个对应一个根因�
 - [ ] 把本报告路径追加到 `docs/logs/2026-04-12.md`
 - [ ] 等待用户确认"反转后的实施顺序"成立，再开始建最小 L1 scanner
 - [ ] scanner 建成后，以"批次 1"为单位执行：写 D2 规则 + 跑 scanner + 修全部匹配项（含 `project_docking_pipeline.md:L59` 的 V138R 残留）
-- [ ] `draft-meta-audit-command.md` 的头注改写推迟到 scanner 首版跑过之后——避免又在 draft 上改抽象的东西
-- [ ] `draft-rules-cleanup-command.md` 的头注改写同上理由推迟
+- [ ] `docs/ops/archives/agent-governance/draft-meta-audit-command.md`（original path at time of audit: `docs/ops/draft-meta-audit-command.md`）的头注改写推迟到 scanner 首版跑过之后——避免又在 draft 上改抽象的东西
+- [ ] `docs/ops/archives/agent-governance/draft-rules-cleanup-command.md`（original path at time of audit: `docs/ops/draft-rules-cleanup-command.md`）的头注改写同上理由推迟
 
 **关键不变量重申**：任何新 L1 规则的写入必须与该规则的 retroactive 扫描 + 逐条修复作为同一批次完成；不允许拆分。
 
