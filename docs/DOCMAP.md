@@ -124,6 +124,7 @@ drylab/
 │   │       ├── ssh-windows-compute.md  # [已弃用] Windows SSH（历史存档）
 │   │       ├── slurm-md-server.md      # [已归档] Slurm GPU 集群
 │   │       ├── hbu-sge-cluster.md      # [已归档] HBU SGE 集群
+│   │       ├── agent-governance/        # [已归档] 旧 agent 治理草案和诊断记录
 │   │       └── sources/                # 原始外部来源，仅供追溯
 │   ├── logs/                    # 每日工作日志
 │   │   └── YYYY-MM-DD.md
