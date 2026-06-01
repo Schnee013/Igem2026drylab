@@ -3,7 +3,7 @@ direction: P2-economic-benefit
 status: framework_mvp_validated_arithmetic + stage3_benchmarks_extracted
 priority: P2
 chassis_dependent: false
-last_updated: 2026-05-23
+last_updated: 2026-05-25
 ---
 
 # P2: 早期检测经济效益模型
@@ -17,6 +17,14 @@ last_updated: 2026-05-23
 量化"早期检测省了多少钱"。建立"无检测 vs 早期检测+干预"两种情景的成本-收益对比，为项目叙事提供经济论证。
 
 **为什么是最高优先**: 数据可获取性极好、建模难度极低（纯算术）、对 HP 叙事价值最高、与检测系统耦合度最高。是完成"检测→预防"闭环叙事的最短路径。
+
+## 与 ODE 建模的区别
+
+P2 经济效益模型和 P0 ODE 的建模原理不同：
+
+- ODE 是动态反应网络模型：输入 ascr 浓度、配体-受体激活、G protein/MAPK/reporter 参数，求解随时间变化的 pathway/reporter 输出。
+- P2 是 deterministic cost-accounting 模型：输入作物、线虫密度、损失函数、作物价格、早期检测/干预成本和干预效果，直接计算 gross loss、break-even early-program cost、net benefit 和 ROI。
+- P2 当前已有 `src/modeling/economic/` MVP、公开示例 config、CSV 输出和自动化算术测试；但 P2 ROI 未最终校准，不能把 docking Delta G、ODE Kd 或未验证 wet-lab 假设当作经济确定输入。
 
 ## 方法路线
 
@@ -77,6 +85,7 @@ last_updated: 2026-05-23
 
 | 日期 | 版本 | 变更内容 | 触发原因 |
 |------|------|---------|---------|
+| 2026-05-25 | v1.5 | 增补 P2 与 ODE 的模型性质区别：P2 是 fixed-input deterministic cost-accounting，不是动态反应网络；保留最终 ROI guardrail | 缺口更新与总览图填充说明 |
 | 2026-05-23 | v1.4 | 新增 Stage 3 外部 benchmark 抽取：PCN/Koehler、USDA ERS VOI、cucumber-RKN Bragantia、Barker tomato-RKN | 把公式结构从自洽算术推进到外部方法/密度-产量证据支撑，同时保持 ROI guardrail |
 | 2026-05-23 | v1.3 | 新增 framework validation 文档与自动化测试，确认 UC IPM golden baseline 和成本核算公式可复现 | 防止把 smoke run 误读为最终 ROI；为 HP 参数回填前建立可靠性底线 |
 | 2026-05-23 | v1.2 | 将 P2 文献/参数矩阵从 `tmp_papers/` 提升到 `docs/papers/p2-economic-benefit/`，并补充 HP 问卷路由与示例分析边界 | 长期留存与 DOCMAP 路由规范 |
@@ -113,6 +122,7 @@ last_updated: 2026-05-23
 - 基线不是“完全不损失”，而是“没有早期检测/晚发现时，在给定线虫密度下承受的产量收入损失”。
 - 早期检测情景暂不使用真实传感器成本；当前用 `early_program_costs_per_area` 做 50/100/200 USD/acre 等占位成本扫参。
 - `intervention_effect` 不是某个药剂的确定疗效，而是“早发现+及时干预避免晚发现损失的比例”扫参；正式值需要 HP/湿实验/文献全文回填。
+- P2 ROI 未最终校准；当前 MVP 只能支撑公开示例算术、break-even 结构和 HP 参数回收，不代表本项目 biosensor 的目标地区商业回报。
 - tomato-RKN 是唯一可直接货币化的公开示例：UC IPM 表给出 500 spring J2/kg soil 对应 72% normal yield，示例产量 30 tons/acre，价格 54 USD/ton，所以晚发现毛损失为 `30 * 54 * 0.28 = 453.6 USD/acre`。
 - potato-PCN 目前只是归一化结构验证；soybean-SCN 目前只是阈值决策骨架，二者不能作为本地 ROI 结论。
 

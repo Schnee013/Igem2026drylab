@@ -2,6 +2,7 @@
 
 - **日期**: 2026-04-11
 - **状态**: 已决定
+- **后续更新**: reporter 输出架构已在 [决策 004](004-reporter-output-architecture.md) 中确认；本记录仍只作为底盘/STE2/嵌合 Gpa1/基因组整合决策的历史权威。
 - **关联方向**:
   - [overview-v4](../prd/overview-v4.md)
   - [chassis-decision §最终决策](../prd/chassis-decision.md#最终决策2026-04-11)
