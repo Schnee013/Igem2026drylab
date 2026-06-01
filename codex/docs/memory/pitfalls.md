@@ -28,7 +28,7 @@
 
 ## Active project guardrails
 
-- Do not treat the 2026-04 historical docking Top set as wet-lab recommendations. Use the refreshed handoff and current ratio release.
+- Do not treat stale docking Top candidates as wet-lab recommendations until Gpr3 F follow-up, ratio refresh, and IFP refresh are complete.
 - Current chimeric MD rerun is an approved clean-start scope for chctrl + Ch-1/Ch-2/Ch-4. Do not launch a site or replicate from memory alone; follow `environments/md-production-sites.md`, current logs, and the gate scripts.
 - New server/remote-compute work defaults to NKULiulab E2 and must read `docs/ops/nkuliulab-e2-cloud-server.md` first. The approved exception is the current chimeric MD Slurm RTX 5090 validated secondary route, which must use `environments/md-production-sites.md` and new `slurm_*` gate scripts. Windows 7500F, HBU SGE, and archived Slurm guides remain historical unless explicitly used as pointers.
 - For GROMACS / MD operational pitfalls that are not server-specific, use `docs/ops/md-gromacs-operational-pitfalls.md`; do not use the archived Slurm guide as the default execution entry.

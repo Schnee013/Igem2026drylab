@@ -43,7 +43,7 @@
 > **权威方向文档**: [P0-md-simulation.md](../../docs/modeling/P0-md-simulation.md) §问题 4（协议/指标/判定的唯一权威源）
 > **文献依据**: [P0-md-tech-stack-research.md §12](../../docs/modeling/P0-md-tech-stack-research.md)（Tawfeeq 2025 / Ramasamy 2025 / Ranganathan 2019 完整引用）
 > **候选选择来源**: [ranking_summary.md](../chimeric-gpa1/analysis/ranking_summary.md)
-> **执行计划**: `~/.claude/plans/chimeric-md-execution.md`
+> **执行计划**: [E2 Chimeric MD Restart Plan](../../codex/docs/plans/e2-chimeric-md-restart.md)
 
 ### Core（4 个，必做）
 
@@ -76,8 +76,8 @@
 | Reps | **3** (independent seeds) | 最小统计需求 |
 | 分析窗口起点 | **100 ns** | AF3 结构需更长松弛期 |
 | 总 ns | 4 × 500 × 3 = **6000 ns** | |
-| 估算 wall time | ~12-16 天（node3 3×RTX 5090 并行，~140-180 ns/day @200-250k atoms，4 批次 × 3-4 天） | |
-| 估算 GPU-days | ~33-43（单 GPU 口径：6000 ns ÷ 140-180 ns/day） | |
+| 估算 wall time | 待 E2 A100 smoke / benchmark 后更新；不沿用旧 Slurm node3 估算 | |
+| 估算 GPU-days | 待 E2 A100 smoke / benchmark 后更新 | |
 | 温度 | 303.15 K | 酵母生长温度 |
 
 ### 判定标准
