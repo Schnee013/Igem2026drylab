@@ -1,0 +1,99 @@
+{
+  "default": "chimeric-ste2-gpa1-wt",
+  "systems": {
+    "chimeric-ste2-gpa1-wt": {
+      "label": "chctrl",
+      "result_dir": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt",
+      "plot_segids": ["PROA", "PROB"],
+      "receptor": {
+        "name": "Ste2",
+        "selection": "segid PROB",
+        "interface_selection": "(segid PROB) and (resid 69:84 or resid 145:160 or resid 222:251 or resid 288:304)",
+        "interface_clusters": {
+          "ste2_cluster_A_222_251": "(segid PROB) and (resid 222:251)",
+          "ste2_cluster_B_288_304": "(segid PROB) and (resid 288:304)"
+        }
+      },
+      "galpha": {
+        "name": "Gpa1-WT",
+        "selection": "segid PROA",
+        "alpha5_selection": "(segid PROA) and resid 448:472 and backbone",
+        "ect_selection": "(segid PROA) and resid 468:472",
+        "core_backbone_selection": "(segid PROA) and backbone and not resid 448:472"
+      },
+      "junction_rmsf_regions": {}
+    },
+    "chimeric-gpr3-aogpa2-c37": {
+      "label": "Ch-1 Gpr3-AoGpa2-C37",
+      "result_dir": "experiments/md-simulation/results/chimeric-gpr3-aogpa2-c37",
+      "plot_segids": ["PROA", "PROB"],
+      "receptor": {
+        "name": "Gpr3",
+        "selection": "segid PROA",
+        "interface_selection": "byres ((segid PROA) and around 5 ((segid PROB) and resid 453:472))",
+        "interface_clusters": {
+          "gpr3_alpha5_pocket_initial": "byres ((segid PROA) and around 5 ((segid PROB) and resid 453:472))"
+        }
+      },
+      "galpha": {
+        "name": "AoGpa2-C37 chimera",
+        "selection": "segid PROB",
+        "alpha5_selection": "(segid PROB) and resid 453:472 and backbone",
+        "ect_selection": "(segid PROB) and resid 468:472",
+        "core_backbone_selection": "(segid PROB) and backbone and not resid 453:472"
+      },
+      "junction_rmsf_regions": {
+        "graft_436_472": "(segid PROB) and resid 436:472",
+        "junction_window_426_445": "(segid PROB) and resid 426:445"
+      }
+    },
+    "chimeric-gpr3-aogpa2-c15": {
+      "label": "Ch-2 Gpr3-AoGpa2-C15",
+      "result_dir": "experiments/md-simulation/results/chimeric-gpr3-aogpa2-c15",
+      "plot_segids": ["PROA", "PROB"],
+      "receptor": {
+        "name": "Gpr3",
+        "selection": "segid PROA",
+        "interface_selection": "byres ((segid PROA) and around 5 ((segid PROB) and resid 453:472))",
+        "interface_clusters": {
+          "gpr3_alpha5_pocket_initial": "byres ((segid PROA) and around 5 ((segid PROB) and resid 453:472))"
+        }
+      },
+      "galpha": {
+        "name": "AoGpa2-C15 chimera",
+        "selection": "segid PROB",
+        "alpha5_selection": "(segid PROB) and resid 453:472 and backbone",
+        "ect_selection": "(segid PROB) and resid 468:472",
+        "core_backbone_selection": "(segid PROB) and backbone and not resid 453:472"
+      },
+      "junction_rmsf_regions": {
+        "graft_458_472": "(segid PROB) and resid 458:472",
+        "junction_window_448_467": "(segid PROB) and resid 448:467"
+      }
+    },
+    "chimeric-gpr2-aogpa2-c10": {
+      "label": "Ch-4 Gpr2-AoGpa2-C10",
+      "result_dir": "experiments/md-simulation/results/chimeric-gpr2-aogpa2-c10",
+      "plot_segids": ["PROA", "PROB"],
+      "receptor": {
+        "name": "Gpr2",
+        "selection": "segid PROA",
+        "interface_selection": "byres ((segid PROA) and around 5 ((segid PROB) and resid 453:472))",
+        "interface_clusters": {
+          "gpr2_alpha5_pocket_initial": "byres ((segid PROA) and around 5 ((segid PROB) and resid 453:472))"
+        }
+      },
+      "galpha": {
+        "name": "AoGpa2-C10 chimera",
+        "selection": "segid PROB",
+        "alpha5_selection": "(segid PROB) and resid 453:472 and backbone",
+        "ect_selection": "(segid PROB) and resid 468:472",
+        "core_backbone_selection": "(segid PROB) and backbone and not resid 453:472"
+      },
+      "junction_rmsf_regions": {
+        "graft_463_472": "(segid PROB) and resid 463:472",
+        "junction_window_453_472": "(segid PROB) and resid 453:472"
+      }
+    }
+  }
+}
