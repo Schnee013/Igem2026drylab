@@ -16,6 +16,10 @@
 - Project architecture claims involving chassis, heterologous expression, signal chain, engineered organism, or “expressed in/on” must be checked against `docs/prd/overview-v4.md` and `docs/prd/chassis-decision.md`.
 - Paper summaries must stay faithful to the paper. Do not add project pipeline results, IFP comparisons, or ΔG comparisons to `docs/papers/summaries/`.
 - Saturation-scan outliers are not class rules. Before saying “basic residues”, “acidic residues”, etc. drive an effect, check same-class consistency across the saturation set.
+- A positive static IFP salt-bridge geometry is not thermodynamic proof. It means the pose satisfies contact criteria, not that electrostatics drive binding.
+- ProLIF Anionic/Cationic channels were not disabled in the old PDBQT workflow; formal charges were missing after PDBQT-to-SDF conversion, so SMARTS matching failed on charged atoms.
+- After Gpr3 scheme F changed pose geometry, old Gpr3 V138R/groove IFP outputs are historical mechanism context only. Use refreshed F-pose IFP/AF3/ratio outputs for current Gpr3 mechanism claims.
+- AoGpa2 `TGJ64397.1` identity and chimeric donor choices should not be rolled back from memory alone; use `docs/logs/True_Gpr2_or_not.md`, `docs/modeling/P3-chimeric-gprotein.md`, and current MD docs.
 
 ## External-communication pitfalls
 
@@ -24,7 +28,7 @@
 
 ## Active project guardrails
 
-- Do not treat stale docking Top candidates as wet-lab recommendations until Gpr3 F follow-up, ratio refresh, and IFP refresh are complete.
+- Do not treat the 2026-04 historical docking Top set as wet-lab recommendations. Use the refreshed handoff and current ratio release.
 - Current chimeric MD rerun is an approved clean-start scope for chctrl + Ch-1/Ch-2/Ch-4. Do not launch a site or replicate from memory alone; follow `environments/md-production-sites.md`, current logs, and the gate scripts.
 - New server/remote-compute work defaults to NKULiulab E2 and must read `docs/ops/nkuliulab-e2-cloud-server.md` first. The approved exception is the current chimeric MD Slurm RTX 5090 validated secondary route, which must use `environments/md-production-sites.md` and new `slurm_*` gate scripts. Windows 7500F, HBU SGE, and archived Slurm guides remain historical unless explicitly used as pointers.
 - For GROMACS / MD operational pitfalls that are not server-specific, use `docs/ops/md-gromacs-operational-pitfalls.md`; do not use the archived Slurm guide as the default execution entry.

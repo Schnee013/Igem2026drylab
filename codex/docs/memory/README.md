@@ -1,26 +1,24 @@
 # Drylab project memory
 
 This directory stores repo-scoped project memory for `/Users/roy/Documents/drylab`.
-It is versioned with drylab and is separate from Codex native global memories
-under `~/.codex/memories/`.
+It is a timestamped routing, warning, and handoff layer. It is not an authority
+for scientific facts, project status, methods, results, or decisions.
 
-It is not an authority. Use it as a routing, handoff, warning, and workflow-discipline layer. Verify factual claims against source docs, logs, configs, code, result files, paper summaries, or data outputs before making strong claims.
+Authoritative facts live in `docs/INDEX.md`, `docs/logs/`, domain docs, code,
+configs, result files, paper summaries, and data outputs. Verify factual claims
+there before making strong claims.
 
 Codex native global memory and Claude Code private memory should only keep
 durable user preferences and entry rules such as "for non-trivial drylab tasks,
 read `docs/DOCMAP.md`, `docs/INDEX.md`, then this README." Do not duplicate
-scientific conclusions or project state into agent-native memory; point back to
-this repo-scoped layer and the authoritative `docs/` sources instead.
+drylab scientific conclusions or project state into agent-native memory.
 
 ## Files
 
-- `current-state.md`: current blockers, active next steps, and source pointers.
+- `current-state.md`: timestamped latest snapshot, historical timeline, and source pointers.
 - `execution-discipline.md`: reusable workflow, evidence, claim, and code-change discipline.
 - `pitfalls.md`: drylab-specific scientific/documentation traps and guardrails.
 - `plan-index.md`: relevant Claude plan files and their current interpretation.
-- `docking-pipeline.md`: docking-repro source pointers and active caveats.
-- `chimeric-gpa1.md`: stable chimeric Gpa1 decisions and source pointers.
-- `ifp-salt-bridge.md`: ProLIF/PDBQT salt-bridge limitation and current IFP caveats.
 - `references.md`: people / external-contact reference notes.
 
 Repo-owned execution plans live in `codex/docs/plans/`. Memory files may point
@@ -32,7 +30,24 @@ For non-trivial drylab tasks, after reading `docs/DOCMAP.md` and `docs/INDEX.md`
 
 ## Maintenance rule
 
-Keep memory concise and pointer-based. Move stable project facts into the appropriate `docs/` source when they become authoritative; keep memory as an index and warning layer.
+Update memory only for durable state changes or recurring guardrails that affect
+future sessions. Ordinary tasks should update the daily log, not force a memory
+rewrite.
+
+`current-state.md` must keep this fixed structure:
+
+- `last_reviewed`
+- `latest_snapshot`
+- `state_timeline`
+- `source_pointers`
+
+`latest_snapshot` should contain only 5-8 current summary bullets, each with a
+log or domain-doc pointer. Timeline entries older than the latest snapshot must
+be marked historical and must not be read as current state.
+
+Keep memory concise and pointer-based. Move stable project facts into the
+appropriate `docs/` source when they become authoritative; keep memory as an
+index and warning layer.
 
 ## Migration source
 
