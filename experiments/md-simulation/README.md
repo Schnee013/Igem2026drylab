@@ -4,10 +4,12 @@
 > **目的**: 在生产计算启动前写死体系清单，防止中途增减导致统计比较不公
 > **权威方向文档**: [P0-md-simulation.md](../../docs/modeling/P0-md-simulation.md) v1.3
 > **对接数据来源**: [ratio_channel_report.md](../docking-repro/analysis/ratio_channel_report.md)
+>
+> **2026-06-02 边界**：下方 mutant-holo 8 体系是 2026-04 历史 pre-registration，保留作方法和 provenance 记录，不代表当前生产队列或湿实验推荐。当前 MD 状态看 [docs/INDEX.md](../../docs/INDEX.md) 和 [P0-md-simulation.md](../../docs/modeling/P0-md-simulation.md)。
 
 ## 体系清单（8 个 holo）
 
-原 MVP 方案写"7 holo (WT + Top 6)"，**修正为 8**：Top 6 横跨 Gpr2（3 个）和 Gpr3（3 个），各需独立 WT 对照。
+原 MVP 方案写"7 holo (WT + historical candidate set)"，**修正为 8**：历史候选横跨 Gpr2（3 个）和 Gpr3（3 个），各需独立 WT 对照。
 
 | ID | 受体 | 突变 | 配体 | ΔG(18) | abs sel | 科学问题 | 目录 |
 |----|------|------|------|--------|---------|---------|------|
@@ -139,7 +141,7 @@
 - GLU170 侧链 χ1/χ2 角度时间序列
 - 如有 X1 扩展：ascr#18 vs ascr#3 双配体对比
 
-### Q3: Top 6 pose 稳定性（M1–M6 vs C1/C2）
+### Q3: 历史候选 pose 稳定性（M1–M6 vs C1/C2）
 
 - 配体 heavy-atom RMSD（相对 docking pose）
 - 结合口袋残基 RMSF

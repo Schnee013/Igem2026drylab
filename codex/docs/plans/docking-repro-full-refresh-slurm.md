@@ -17,7 +17,8 @@
 - Project routing and status:
   - `docs/INDEX.md`
   - `docs/modeling/P0-molecular-docking.md`
-  - `codex/docs/memory/docking-pipeline.md`
+  - `codex/docs/memory/current-state.md`
+  - `codex/docs/memory/pitfalls.md`
 - Historical private-plan lookup, if needed:
   - `codex/docs/memory/plan-index.md`
   - Use this only as a repo-local index to old assistant plans; do not treat private plan files as execution authorities.
@@ -138,7 +139,7 @@
    - ODE is parked.
    - Kd/calibration depends on the separate literature review.
    - Do not present docking-derived Kd as available.
-4. If a cross-session pointer is needed, update `codex/docs/memory/docking-pipeline.md` with a pointer to this plan, not a duplicate of the plan.
+4. If a cross-session pointer is needed, update `codex/docs/memory/current-state.md` or `codex/docs/memory/pitfalls.md` with a pointer to this plan, not a duplicate of the plan.
 
 ## Validation Checklist
 

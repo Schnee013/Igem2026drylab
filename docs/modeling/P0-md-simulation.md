@@ -3,30 +3,29 @@ direction: P0-md-simulation
 status: in_progress
 priority: P0
 chassis_dependent: false
-last_updated: 2026-06-01
+last_updated: 2026-06-02
 ---
 
-# P0: MD 模拟（V138R 盐桥实证 + Top 6 稳定性 + 嵌合 Gpa1 验证）
+# P0: MD 模拟（机制验证 + 嵌合 Gpa1 稳定性）
 
 > 来源: 2026-04-11 新建 | iGEM 评审定位: 直接支撑湿实验设计的机制实证
 >
-> **新方向背景**：[P0-molecular-docking](P0-molecular-docking.md) 已完成 122 突变体对接 + Top 6 IFP 验证，但发现两个**静态对接 + IFP 无法回答的机制问题**：
+> **范围边界**：本文维护 MD 方法、protocol、gate、分析指标和证据边界。当前执行状态、阻塞项和优先级只看 [docs/INDEX.md](../INDEX.md)；具体经过看 [docs/logs/](../logs/)。
 >
-> 1. **V138R 盐桥假说未实证**：mutant IFP 显示 ARG138 对 ascr18 接触 9 次（vs ascr3 仅 2 次）但**全部为 VdWContact**；PDBQT 工作流下 ProLIF 的 Anionic/Cationic 检测结构性失效（输入无形式电荷，通道本身从未关闭），盐桥需 MD 时间序列实证。
-> 2. **F170E 反直觉**：GLU170 与 ascr3 接触反而比 ascr18 多，但整体 ΔG(ascr3) 上升 —— 静态 pose 无法解释，需 MD 检查 pose drift。
+> **历史突变体 MD 背景**：2026-04 的 docking/IFP 阶段提出了 ARG138 盐桥、F170E/ECL2 pose drift 和候选 pose 稳定性等静态方法无法回答的问题。这些问题保留为 mutant-holo 方法背景；若未来重启，必须基于当前 refreshed docking handoff 重新定义候选集合，不沿用旧清单。
 >
 > 同时 [P3-chimeric-gprotein](P3-chimeric-gprotein.md)（已升 P0）的嵌合 Gpa1 设计也需要 MD 稳定性验证。
 >
 > **本方向的边界**：是 docking 与嵌合 Gpa1 的**实证补充**，**不再做新对接**（用户决策：算力全部投入 MD）。
 >
-> **2026-06-01 当前状态**：本方向已从 learning 进入 **in_progress**。技术栈、CHARMM-GUI、ascaroside 参数化、Gpr2/Gpr3 WT holo Phase 3 均已完成；chimeric MD 决策改为用统一环境 clean-start 重跑 chctrl + Ch-1/Ch-2/Ch-4，E2 为 primary，旧 Slurm RTX 5090 仅在同 pin 验证后作为 secondary。推荐 GROMACS 2025.4 MPI-CUDA 环境、四体系输入同步和 E2 rep1 smoke 已完成；首个 E2 full production job（chctrl rep1）已在 checkpoint 后中断以完成 same-GPU benchmark，benchmark 结果不支持 E2 同卡并行 production；rep1 已从 canonical `prod.cpt` 单 job 恢复。方法学上新增 100-150 ns full-system early stability gate，但 500 ns/replicate 仍是最终 production 目标；局部口袋/interface-only MD 不作为当前 rerun 的等价替代。站点矩阵见 [md-production-sites.md](../../environments/md-production-sites.md)，E2 环境证据见 [e2-md-gromacs.md](../../environments/e2-md-gromacs.md)，执行门禁见 [E2 Chimeric MD Restart Plan](../../codex/docs/plans/e2-chimeric-md-restart.md) 和 [Unified Rerun Sites Plan](../../codex/docs/plans/chimeric-md-unified-rerun-sites.md)。
+> **当前权威指针**：站点矩阵见 [md-production-sites.md](../../environments/md-production-sites.md)，E2 环境证据见 [e2-md-gromacs.md](../../environments/e2-md-gromacs.md)，执行门禁见 [E2 Chimeric MD Restart Plan](../../codex/docs/plans/e2-chimeric-md-restart.md) 和 [Unified Rerun Sites Plan](../../codex/docs/plans/chimeric-md-unified-rerun-sites.md)。最新运行状态见 [docs/INDEX.md](../INDEX.md) 和最新日志。
 
 ## 解决什么问题
 
 对接 + IFP 给出**静态 pose 与平均接触频率**，无法回答：
 
 1. **相互作用类型**：ARG138-羧基 9 次 VdWContact 在 PDBQT 工作流下是否掩盖了真正的盐桥？（PDBQT→SDF 不含形式电荷，ProLIF 盐桥检测结构性失效；MD 力场自动分配电荷态，能正确检测离子型相互作用）
-2. **pose 稳定性**：Top 6 mutant 的 pose 在 ns 时间尺度是否保持？还是只是 Vina 全局搜索找到的局部最小值？
+2. **pose 稳定性**：候选 mutant 的 pose 在 ns 时间尺度是否保持？还是只是 Vina 全局搜索找到的局部最小值？
 3. **动态相互作用持续性**：氢键 / 盐桥 / 疏水 / π-π 在时间序列中的占比？
 4. **入口路径与构象选择**：F170E 的 ECL2 取向是否使 ascr3 进入路径偏移？
 5. **嵌合 Gpa1 + Gpr 复合物界面稳定性**：AF3 一次性预测的 iPAE 评分是否在 MD 中保持？
@@ -79,11 +78,11 @@ last_updated: 2026-06-01
 
 | 方案 | 体系数 | 时长/rep | Reps | 总 ns | A100 天数 | 用途 |
 |---|---|---|---|---|---|---|
-| **最小 MVP** | **8 holo** (2 WT + Top 6) | **200 ns** | **3** | 4800 | ~28 | t-test 可做，首 50 ns eq |
+| 历史 mutant-holo MVP | 8 holo (2 WT + 2026-04 历史候选集合) | 200 ns | 3 | 4800 | ~28 | 历史方案；若重启必须按 refreshed handoff 重新定义 |
 | **标准** | 8 holo + 2 WT-apo | 300 ns | 3 | 9000 | ~51 | p 值稳定 + bootstrap CI |
 | **理想** | 14 (holo + apo) | 500 ns | 3 | 21000 | ~120 | 匹配 GPCRmd-2 |
 
-**推荐执行路径**：先跑 MVP 出初稿 → 剩余时间把 V138R、F170E 升级到 500 ns × 5 seeds 做 publication-grade。AF3 起始需分阶段 restraint release（2→60→80→20 ns schedule），生产前额外损耗 50–100 ns。**不用 HMR 4 fs**（对 CGenFF 数值不稳定，留后期优化）。**不跑 GaMD / metadynamics / LiGaMD**（5 月窗口内学习曲线吃不下）。
+**历史 mutant-holo 执行路径**：先跑 MVP 出初稿，再视结果升级关键机制问题到更长时长和更多 seeds。该路径不是当前 chimeric rerun 的执行状态；当前 chimeric production 必须按上方计划和日志指针执行。AF3 起始需分阶段 restraint release（2→60→80→20 ns schedule），生产前额外损耗 50–100 ns。**不用 HMR 4 fs**（对 CGenFF 数值不稳定，留后期优化）。**不跑 GaMD / metadynamics / LiGaMD**（5 月窗口内学习曲线吃不下）。
 
 ### 分析栈（第二轮 §7）
 
@@ -151,6 +150,8 @@ last_updated: 2026-06-01
 
 ## 待回答的科学问题
 
+本节的突变体问题来自 2026-04 历史 mutant-holo 分支，不代表当前生产队列。若未来恢复突变体 MD，应从 current docking handoff 重新定义体系、候选和证据目标。
+
 ### 问题 1：V138R 盐桥实证（最高优先级）⭐⭐⭐
 
 **体系**：Gpr3 V138R + ascr#18 单复合物（POPC 膜 + 水盒 + 离子）。WT Gpr3 + ascr#18 作为对照。
@@ -177,16 +178,16 @@ last_updated: 2026-06-01
 
 **判定**：能否解释"GLU170 与 ascr3 接触更多但 ΔG(ascr3) 反而上升"。
 
-### 问题 3：Top 6 mutant binding pose 稳定性
+### 问题 3：历史候选 binding pose 稳定性
 
-**体系**：历史 Top 6 突变体方案（Gpr2 M327A/M327D/R59F + Gpr3 V138R/F170E/I141A）需等待 docking-repro reanalysis 后刷新；不要在 Gpr3 方案 F ratio/IFP 刷新前锁定突变体 MD 清单。
+**体系**：2026-04 历史候选集合只作方法背景。2026-05 refresh 后若要重启突变体 MD，必须从 [wet-lab-handoff-P0-docking.md](wet-lab-handoff-P0-docking.md) 和当前 ratio/IFP release 重新定义清单。
 
 **核心测量**：
 - 配体 RMSD（相对初始 docking pose）
 - 受体 backbone RMSF（特别是结合口袋残基）
 - 关键 HBond 时间序列
 
-**判定**：哪些 Top 6 候选的 docking pose 在 MD 中稳定（→ 湿实验高置信度）；哪些发生大幅 drift（→ 降低优先级或重新解读）。
+**判定**：哪些候选 pose 在 MD 中稳定（→ 湿实验高置信度）；哪些发生大幅 drift（→ 降低优先级或重新解读）。
 
 ### 问题 4：嵌合 Gpa1 + Gpr 复合物界面稳定性（与 [P3-chimeric-gprotein](P3-chimeric-gprotein.md) 联动）
 
@@ -326,7 +327,9 @@ Phase C5: 分析
 - 本地节点仍用于 docking / AF3 下游分析 / 小体系快速 sanity check（如需）
 - 技术栈调研**无需考虑 AMD ROCm/HIP 兼容性**
 
-## 执行 Phase 定义（唯一权威源）
+## 执行 Phase 定义
+
+下表定义 phase 语义和协议边界，不维护当前运行状态。当前状态以 [docs/INDEX.md](../INDEX.md) 和对应日志为准。
 
 > 日志和 memory 中引用 "Phase N" 时，定义以本节为准。
 
@@ -364,7 +367,7 @@ Phase C5: 分析
 3. 突变残基局部 EM 消除新侧链 clash
 4. 完整 6 步 eq（同 Phase 3 step 5）
 
-### 当前阻塞关系
+### 历史突变体 MD 阻塞关系（2026-04 snapshot，不作当前状态）
 
 ```text
 Phase 3 (Gpr2) → ✅ 完成 (EM Fmax=983.5, 6步eq完成 19:26 CST)
@@ -384,7 +387,7 @@ Phase 6 → 阻塞于 Phase 5
 - [x] 回填采样协议 / 分析栈 / 自由能路径 / ascaroside 行动计划
 - [ ] PI 课题组服务器配置确认后，在本文档 §执行节点 回填并校核软件 CUDA 版本
 - [x] CHARMM-GUI 学术账号注册（已提交 2026-04-12，**审批通过 2026-04-14**）
-- [x] 体系清单 pre-register：8 holo（2 WT + Top 6），已锁定到 [experiments/md-simulation/README.md](../../experiments/md-simulation/README.md)（2026-04-12）
+- [x] 体系清单 pre-register：历史 mutant-holo 8 体系，已锁定到 [experiments/md-simulation/README.md](../../experiments/md-simulation/README.md)（2026-04-12）
 
 ### Phase 1–2.5 检查清单
 
@@ -400,7 +403,7 @@ Phase 6 → 阻塞于 Phase 5
 
 - [ ] V138R 盐桥占比时间序列图 + 统计（vs WT 对照）
 - [ ] F170E pose drift 分析 + GLU170 χ 角时间序列
-- [ ] Top 6 mutant 的 RMSD/RMSF 汇总表 + WT 对照
+- [ ] 历史候选或未来 refreshed 候选的 RMSD/RMSF 汇总表 + WT 对照
 - [ ] 嵌合 Gpa1 + Gpr 复合物界面稳定性报告（与 P3 联动）
 - [ ] 产出路径：`experiments/md-simulation/`
 
@@ -457,10 +460,10 @@ Phase 6 → 阻塞于 Phase 5
 ## 与其他方向的依赖关系
 
 - **输出到**:
-  - [P0-molecular-docking](P0-molecular-docking.md): V138R 盐桥实证 / F170E 机制 / Top 6 pose 稳定性 → 回填机制结论与置信度
+  - [P0-molecular-docking](P0-molecular-docking.md): 机制验证与候选 pose 稳定性 → 回填机制结论与置信度
   - [P3-chimeric-gprotein](P3-chimeric-gprotein.md): 嵌合 Gpa1 + Gpr 复合物 MD 验证 → 选定首选嵌合方案
-  - [wet-lab-handoff-P0-docking](wet-lab-handoff-P0-docking.md): V138R 盐桥实证为湿实验提供机制背书
+  - [wet-lab-handoff-P0-docking](wet-lab-handoff-P0-docking.md): MD 机制证据可作为湿实验交接的补充材料
 - **依赖于**:
-  - [P0-molecular-docking](P0-molecular-docking.md): Top 6 mutant pose 作为 MD 初始构象
+  - [P0-molecular-docking](P0-molecular-docking.md): 若重启突变体 MD，候选 pose 必须来自 current refreshed handoff/ratio/IFP release
   - [P3-chimeric-gprotein](P3-chimeric-gprotein.md): 提供嵌合 Gpa1 + Gpr 复合物 AF3 结构作为 MD 初始构象
   - [决策 003](../decisions/003-chassis-yeast-ste2-integration.md): 底盘锁定酵母触发嵌合 Gpa1 验证需求
