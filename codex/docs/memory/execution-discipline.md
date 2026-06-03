@@ -23,6 +23,12 @@
 - “I previously confirmed this” is not evidence across sessions. Re-read the source when the claim matters.
 - Scientific cutoffs, thresholds, geometry definitions, and go/no-go criteria must carry explicit source pointers. If a value is literature-derived, cite the paper/tool documentation and the exact method context. If it is project-derived, label it as an operational heuristic and record who/what decision introduced it. Do not present heuristic thresholds as authoritative literature cutoffs.
 
+## Log writing discipline
+
+- Human-maintained drylab logs under `docs/logs/` are process authority and should be written in Chinese by default, with professional, rigorous, and auditable wording.
+- Preserve commands, paths, code symbols, error messages, tool output, paper titles, and other literal evidence in their original form; explain their context in Chinese instead of translating literals.
+- If an old log is language-normalized, treat it as an expression-only edit: do not change facts, timestamps, numeric values, paths, or source pointers.
+
 ## Claim discipline
 
 - Completion/status claims such as “done”, “fixed”, “verified”, “passed”, “confirmed”, or “unresolved” require source-backed verification.
