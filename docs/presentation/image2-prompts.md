@@ -35,6 +35,8 @@ The final product must look like a low-cost paper strip or paper card containing
 
 Include visual hints of the engineering mechanism in small side icons: ascaroside signal, engineered yeast cell, color reporter.
 
+Draw the ascaroside signal as an abstract small-molecule / glycolipid-like cue unless a verified chemical structure is provided. The chemical icon must not look like a final validated compound structure.
+
 Leave blank dashed label boxes near each stage for later text insertion.
 
 Strict negative constraints:
@@ -42,6 +44,7 @@ Strict negative constraints:
 - Do not draw a calculator-like analyzer.
 - Do not draw a benchtop laboratory instrument.
 - Do not make a test tube or orange liquid vial the final product.
+- Do not overemphasize a specific management method such as traps; use generic targeted management / re-scouting / rotation planning language.
 - Do not imply the system fully replaces pest management.
 - Do not show final ROI or numeric performance claims.
 ```
@@ -57,8 +60,8 @@ ascaroside molecules -> heterologous fungal GPCR receptors Gpr2/Gpr3 in yeast me
 Make the pathway scientifically clear:
 - The receptor should be embedded in a yeast membrane.
 - Label the receptor module as "Gpr2/Gpr3".
-- Label the G protein module as "chimeric Gpa1 + G beta/gamma".
-- Label the kinase cascade as "Ste20 / Ste11 / Ste7 / Fus3-Kss1".
+- Label the G protein module as "activated chimeric Gpa1 (GTP) + G beta/gamma release".
+- Label the kinase cascade as "Ste20 / Ste11 / Ste7 / Fus3/Kss1".
 - Label the output module as "sTF -> GAL -> pigment".
 - The final readout should be a colorimetric paper strip, not a detection instrument and not a test tube-only assay.
 
@@ -71,6 +74,7 @@ Add small blank dashed callout boxes for:
 
 Strict negative constraints:
 - Do not include uncalibrated numerical values.
+- Do not label activated Gpa1 as GDP-bound; use GTP-bound activation or omit the nucleotide label.
 - Do not show docking score becoming Kd or EC50.
 - Do not draw a professional analyzer or electronic detector as the product.
 - Do not make the diagram look like a medical diagnostic device.
@@ -99,12 +103,15 @@ Show a red blocked arrow from "docking Delta G / docking score" to "Kd / EC50 / 
 
 Also show a safe green arrow from "docking candidate labels + relative ranking" to "ODE scenario set".
 
+Represent scenario scans as relative bins such as low / mid / high or "log-scale scan, values TBD". Do not draw numeric tick labels that could be mistaken for final calibrated parameter values.
+
 Include blank dashed label boxes at top and bottom for slide annotations.
 
 Strict negative constraints:
 - Do not place Kd or EC50 under "literature prior" as if final for this project.
 - Do not show docking values converting to affinity constants.
 - Do not include any final calibrated parameter table.
+- Do not include numeric axis tick labels unless they are explicitly marked as relative / TBD.
 - Do not imply the ODE solver is already complete.
 ```
 
@@ -135,6 +142,8 @@ Right output modules:
 - HP parameter recovery checklist.
 
 Add a small icon of the actual product as a lyophilized yeast paper strip with color readout near the sensor-cost input. Make clear that this paper strip is the product, while the central model is only an analysis framework.
+
+If showing a red warning or blocked arrow, point it to "unvalidated biological affinity / wet-lab performance assumptions" and not to legitimate scenario inputs such as intervention cost or intervention effect.
 
 Use a professional technical style with blank dashed label boxes for later editing.
 
