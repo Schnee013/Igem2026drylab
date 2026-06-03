@@ -1,0 +1,5 @@
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/energy_sanity/box_density.xvg\t121787\t2026-06-02 07:47:50.675542747 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/energy_sanity/gmx_energy_box_density.log\t5618\t2026-06-02 07:47:50.678542747 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/energy_sanity/gmx_energy_temp_pressure_potential.log\t5420\t2026-06-02 07:47:24.133541944 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/energy_sanity/SHA256SUMS_energy_sanity.txt\t374\t2026-06-02 07:47:50.690542747 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/energy_sanity/temp_pressure_potential.xvg\t106325\t2026-06-02 07:47:24.130541944 +0800

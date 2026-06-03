@@ -8,14 +8,21 @@
 
 ## 1. 入口链
 
-非平凡 drylab 任务按以下顺序加载：
+非平凡 drylab 任务先按以下顺序建立入口：
 
 1. [AGENTS.md](../AGENTS.md)
 2. [docs/DOCMAP.md](DOCMAP.md)
-3. [docs/INDEX.md](INDEX.md)
-4. [codex/docs/memory/README.md](../codex/docs/memory/README.md)
 
-然后只按任务需要读取领域文档、日志、计划、代码或结果文件。不要批量加载整个仓库。
+然后按任务画像读取最小必要上下文。不要批量加载整个仓库，不要把 Codex native/global memory 或 `codex/docs/memory/` 当作事实源。
+
+| 任务画像 | 默认读取 | 继续读取条件 |
+|---|---|---|
+| 进度汇报 / PPT / 对外说明 | [docs/INDEX.md](INDEX.md)，再按主题读取 `docs/modeling/`、`docs/decisions/`、`docs/logs/` 或结果文件 | 只有需要跨会话警示或 handoff 时才读 `codex/docs/memory/README.md` 和相关 memory |
+| 审查 / truth / censor / 路由治理 | 本文件、被审查文件、必要的权威指针 | 需要当前状态时读 INDEX；需要历史经过时读对应日志 |
+| 机械编辑 / 指定文件修复 | 本文件和指定文件 | 只有编辑影响路由、状态或权威边界时读 INDEX 或 memory README |
+| MD / 远程计算 / 运行状态 | INDEX 当前优先入口，再读 `docs/ops/`、`environments/`、`codex/docs/plans/`、对应结果和日志 | 不从 memory 推断服务器、job、checkpoint 或运行完成状态 |
+| 文献 / 论文证据 | [papers/literature-matrix.md](papers/literature-matrix.md)，再读指定 summary 或数据源 | 不批量读取 summaries，不直接把 PDF 当默认入口 |
+| memory / handoff / 踩坑复盘 | [codex/docs/memory/README.md](../codex/docs/memory/README.md)，再读相关 memory 文件 | memory 只给路由、警示和交接；事实仍回权威源验证 |
 
 ## 2. 单一权威源
 
@@ -48,6 +55,7 @@ drylab/
 │   ├── ops/               # 当前操作规范；archives/ 只作历史追溯
 │   ├── logs/              # 每日工作日志和审查记录
 │   ├── papers/            # 文献矩阵、单篇总结、领域证据包
+│   ├── presentation/      # 汇报/PPT 资料、生成提示词和参考 deck；不承载科学事实权威
 │   ├── learning/          # 学习路线和工具准备
 │   └── archive/           # 旧 PRD、通用指南等不再活跃的历史材料
 ├── codex/
@@ -104,6 +112,10 @@ Codex native/global memory 和 Claude 私有 memory 只能保存用户偏好、�
 ### docs/papers/
 
 文献采用稳定 ID。需要文献时，先查 [papers/literature-matrix.md](papers/literature-matrix.md)，再按需读取单篇 summary。不要批量读取 summaries 或直接把 PDF 当作默认入口。
+
+### docs/presentation/
+
+汇报资料、NotebookLM 提示词、image-generation prompts、旧 deck 和参考材料放在 `docs/presentation/`。该目录服务于表达、排版和材料组织，不是 ODE、P2、reporter、MD 或 docking 的事实权威；涉及事实、状态、数值或边界时必须回到 `docs/INDEX.md`、`docs/modeling/`、`docs/decisions/`、`docs/logs/`、代码和结果文件。不要把 presentation prompt 或 NotebookLM 输出当作项目现状、完成度或结果证据。
 
 ## 5. 代码、结果与文档联动
 

@@ -1,0 +1,7 @@
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed_candidates/cluster/rep1/bsa_gmx_sasa_cluster/chainA_isolated.log\t5030\t2026-06-02 07:45:46.881539002 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed_candidates/cluster/rep1/bsa_gmx_sasa_cluster/chainA_isolated.xvg\t11700\t2026-06-02 07:45:46.880539002 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed_candidates/cluster/rep1/bsa_gmx_sasa_cluster/chainB_isolated.log\t4900\t2026-06-02 07:46:28.960540275 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed_candidates/cluster/rep1/bsa_gmx_sasa_cluster/chainB_isolated.xvg\t11700\t2026-06-02 07:46:28.960540275 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed_candidates/cluster/rep1/bsa_gmx_sasa_cluster/complex.log\t4879\t2026-06-02 07:44:57.969537523 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed_candidates/cluster/rep1/bsa_gmx_sasa_cluster/complex.xvg\t11700\t2026-06-02 07:44:57.969537523 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed_candidates/cluster/rep1/bsa_gmx_sasa_cluster/SHA256SUMS_bsa_gmx_sasa_cluster.txt\t500\t2026-06-02 07:46:28.978540276 +0800

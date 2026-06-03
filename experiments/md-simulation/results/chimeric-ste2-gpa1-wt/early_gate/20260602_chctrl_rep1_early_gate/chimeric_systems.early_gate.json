@@ -1,0 +1,27 @@
+{
+  "default": "chimeric-ste2-gpa1-wt",
+  "systems": {
+    "chimeric-ste2-gpa1-wt": {
+      "label": "chctrl early gate rep1",
+      "result_dir": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt/early_gate/20260602_chctrl_rep1_early_gate",
+      "plot_segids": ["A", "B"],
+      "receptor": {
+        "name": "Ste2",
+        "selection": "segid B",
+        "interface_selection": "(segid B) and (resid 69:84 or resid 145:160 or resid 222:251 or resid 288:304)",
+        "interface_clusters": {
+          "ste2_cluster_A_222_251": "(segid B) and (resid 222:251)",
+          "ste2_cluster_B_288_304": "(segid B) and (resid 288:304)"
+        }
+      },
+      "galpha": {
+        "name": "Gpa1-WT",
+        "selection": "segid A",
+        "alpha5_selection": "(segid A) and resid 448:472 and backbone",
+        "ect_selection": "(segid A) and resid 468:472",
+        "core_backbone_selection": "(segid A) and backbone and not resid 448:472"
+      },
+      "junction_rmsf_regions": {}
+    }
+  }
+}

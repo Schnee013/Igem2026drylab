@@ -1,0 +1,60 @@
+metric,key,value,unit,note
+raw_xtc,frames,1949,frames,gmx check
+raw_xtc,timestep_ps,100.0,ps,gmx check
+protein_xtc,frames,1949,frames,gmx check
+protein_xtc,timestep_ps,100.0,ps,gmx check
+global_backbone_rmsd,after100_mean,7.9792,A,project trend
+global_backbone_rmsd,after100_min,7.2049,A,project trend
+global_backbone_rmsd,after100_max,9.2178,A,project trend
+global_backbone_rmsd,final,8.4504,A,last frame
+protein_ca_rg,after100_mean,40.607,A,project trend
+protein_ca_rg,after100_min,39.9372,A,project trend
+protein_ca_rg,after100_max,41.2417,A,project trend
+protein_ca_rg,final,40.6005,A,last frame
+alpha5_irmsd,after100_mean,2.724,A,project operational 3/5 A band
+alpha5_irmsd,after100_min,1.5389,A,
+alpha5_irmsd,after100_max,4.2553,A,
+alpha5_irmsd,final_194_8ns,3.38,A,last frame
+bsa,after100_mean_fraction,1.0747,fraction,project operational >=0.80 heuristic
+bsa,after100_min_fraction,0.946,fraction,
+bsa,final_194_5ns_fraction,1.0908,fraction,last sampled BSA point
+contact_persistence,initial_contacts,34,residue-pairs,4 A heavy atom
+contact_persistence,after100_mean_retained,0.6314,fraction,project majority-retention heuristic >0.50
+contact_persistence,after100_min_retained,0.4118,fraction,
+contact_persistence,final_194_5ns_retained,0.5882,fraction,last sampled contact point
+hbond,top_pair_occupancy,0.6077,fraction,manual 3.0 A / 150 deg geometry
+hbond,pairs_ge_0.10,7,pairs,project reporting threshold
+hbond,top_pair,B:ARG233:NE-H:HE -> A:ASP459:OD1,,
+com_distance,ste2_cluster_A_222_251_after100_mean,15.5614,A,eCT to receptor cluster COM
+com_distance,ste2_cluster_A_222_251_after100_max,16.9292,A,
+com_distance,ste2_cluster_A_222_251_after100_slope,-0.000686,A/ns,non-monotonic/near-zero preferred
+com_distance,ste2_cluster_B_288_304_after100_mean,11.5005,A,eCT to receptor cluster COM
+com_distance,ste2_cluster_B_288_304_after100_max,12.5699,A,
+com_distance,ste2_cluster_B_288_304_after100_slope,0.00247,A/ns,non-monotonic/near-zero preferred
+global_rmsf,mean_ca_rmsf,3.1644,A,CA RMSF over protein
+global_rmsf,max_ca_rmsf,18.356,A,CA RMSF over protein
+global_rmsf,A_mean_ca_rmsf,2.9865,A,
+global_rmsf,A_max_ca_rmsf,14.3732,A,
+global_rmsf,B_mean_ca_rmsf,3.3591,A,
+global_rmsf,B_max_ca_rmsf,18.356,A,
+system_sanity,Potential_average,-2891080.0,,gmx energy
+system_sanity,Potential_rmsd,2344.8,,gmx energy
+system_sanity,Potential_tot_drift,-953.834,,gmx energy
+system_sanity,Temperature_average,303.192,,gmx energy
+system_sanity,Temperature_rmsd,0.71768,,gmx energy
+system_sanity,Temperature_tot_drift,0.0264259,,gmx energy
+system_sanity,Pressure_average,0.782106,,gmx energy
+system_sanity,Pressure_rmsd,65.7446,,gmx energy
+system_sanity,Pressure_tot_drift,0.0774435,,gmx energy
+system_sanity,Box-X_average,11.543,,gmx energy
+system_sanity,Box-X_rmsd,0.0647574,,gmx energy
+system_sanity,Box-X_tot_drift,-0.0585032,,gmx energy
+system_sanity,Box-Y_average,11.543,,gmx energy
+system_sanity,Box-Y_rmsd,0.0647574,,gmx energy
+system_sanity,Box-Y_tot_drift,-0.0585032,,gmx energy
+system_sanity,Box-Z_average,19.3096,,gmx energy
+system_sanity,Box-Z_rmsd,0.214292,,gmx energy
+system_sanity,Box-Z_tot_drift,0.186371,,gmx energy
+system_sanity,Density_average,1029.0,,gmx energy
+system_sanity,Density_rmsd,1.05112,,gmx energy
+system_sanity,Density_tot_drift,0.421649,,gmx energy

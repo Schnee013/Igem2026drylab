@@ -9,9 +9,9 @@ configs, result files, paper summaries, and data outputs. Verify factual claims
 there before making strong claims.
 
 Codex native global memory and Claude Code private memory should only keep
-durable user preferences and entry rules such as "for non-trivial drylab tasks,
-read `docs/DOCMAP.md`, `docs/INDEX.md`, then this README." Do not duplicate
-drylab scientific conclusions or project state into agent-native memory.
+durable user preferences and a pointer back to `docs/DOCMAP.md`. Do not
+duplicate drylab scientific conclusions or project state into agent-native
+memory.
 
 ## Files
 
@@ -26,7 +26,10 @@ to those plans but should not duplicate their content.
 
 ## Loading rule
 
-For non-trivial drylab tasks, after reading `docs/DOCMAP.md` and `docs/INDEX.md`, read this README and then only the memory files relevant to the task. Do not bulk-load all memory files by default.
+Use this README only when the `docs/DOCMAP.md` task profile or the user's
+request specifically needs repo-scoped memory, handoff context, or recurring
+pitfall routing. Then read only the memory files relevant to the task. Do not
+bulk-load all memory files by default.
 
 ## Maintenance rule
 

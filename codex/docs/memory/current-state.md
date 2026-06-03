@@ -7,26 +7,28 @@ plans, code, and result files.
 
 ## last_reviewed
 
-- Reviewed at: 2026-06-02
+- Reviewed at: 2026-06-03
 - Current-state authority: [docs/INDEX.md](../../../docs/INDEX.md)
 - Detailed chronology authority: [docs/logs/](../../../docs/logs/)
 
 ## latest_snapshot
 
-- Chimeric MD is the highest-priority active route. `chimeric-ste2-gpa1-wt` rep1 passed the 194.8 ns full-system early stability gate on 2026-06-02 and should continue the same live `mdrun` to the 500 ns final target unless later evidence changes that route. Pointers: [docs/INDEX.md](../../../docs/INDEX.md), [docs/logs/2026-06-02.md](../../../docs/logs/2026-06-02.md), [docs/modeling/P0-md-simulation.md](../../../docs/modeling/P0-md-simulation.md).
-- E2 remains the primary route for the current chimeric rerun; Slurm RTX 5090 is only a gated secondary candidate, not a fallback to old Slurm production provenance. Pointers: [environments/md-production-sites.md](../../../environments/md-production-sites.md), [environments/e2-md-gromacs.md](../../../environments/e2-md-gromacs.md), [codex/docs/plans/chimeric-md-unified-rerun-sites.md](../plans/chimeric-md-unified-rerun-sites.md), [docs/logs/2026-05-30.md](../../../docs/logs/2026-05-30.md).
-- Docking-repro has a refreshed 2026-05-20 handoff. Use the current wet-lab handoff and ratio release for candidates; do not revive the 2026-04-14 historical Top set as a recommendation. Pointers: [docs/modeling/P0-molecular-docking.md](../../../docs/modeling/P0-molecular-docking.md), [docs/modeling/wet-lab-handoff-P0-docking.md](../../../docs/modeling/wet-lab-handoff-P0-docking.md), [docs/logs/2026-05-19.md](../../../docs/logs/2026-05-19.md).
-- ODE remains a parameter/evidence and reporter-interface track until a solver/config/plot implementation exists. Do not convert docking scores into `Kd` or calibrated ODE inputs. Pointers: [docs/modeling/P0-signal-pathway-ode.md](../../../docs/modeling/P0-signal-pathway-ode.md), [docs/INDEX.md](../../../docs/INDEX.md).
-- Reporter output architecture is sTF to GAL multi-copy amplification to color output; specific pigment, integration site, actual copy number, gain, and time-course parameters still require wet-lab/ODE calibration. Pointers: [docs/decisions/004-reporter-output-architecture.md](../../../docs/decisions/004-reporter-output-architecture.md), [docs/INDEX.md](../../../docs/INDEX.md).
-- P2 economic modeling can explain deterministic cost-accounting and break-even structure, but final ROI depends on HP/wet-lab/local parameter recovery. Pointers: [docs/modeling/P2-economic-benefit.md](../../../docs/modeling/P2-economic-benefit.md), [docs/papers/p2-economic-benefit/README.md](../../../docs/papers/p2-economic-benefit/README.md), [docs/logs/2026-05-23.md](../../../docs/logs/2026-05-23.md).
+- Chimeric MD current status is routed through INDEX, the MD direction doc, the active execution plans, and recent logs. Do not infer run state, targets, or continue/stop advice from memory alone. Pointers: [docs/INDEX.md](../../../docs/INDEX.md), [docs/modeling/P0-md-simulation.md](../../../docs/modeling/P0-md-simulation.md), [codex/docs/plans/e2-chimeric-md-restart.md](../plans/e2-chimeric-md-restart.md), [docs/logs/](../../../docs/logs/).
+- Remote-compute and MD site policy is indexed in the environment docs and site plans. Do not infer server, job, checkpoint, or scheduler state from memory alone. Pointers: [environments/md-production-sites.md](../../../environments/md-production-sites.md), [environments/e2-md-gromacs.md](../../../environments/e2-md-gromacs.md), [codex/docs/plans/chimeric-md-unified-rerun-sites.md](../plans/chimeric-md-unified-rerun-sites.md), [docs/ops/](../../../docs/ops/).
+- Docking candidate and wet-lab handoff status must be read from the current docking direction doc, handoff, ratio outputs, and logs. Do not use historical Top sets or memory summaries as recommendations. Pointers: [docs/modeling/P0-molecular-docking.md](../../../docs/modeling/P0-molecular-docking.md), [docs/modeling/wet-lab-handoff-P0-docking.md](../../../docs/modeling/wet-lab-handoff-P0-docking.md), [docs/logs/](../../../docs/logs/).
+- ODE and reporter claims route through the ODE direction doc, reporter decision, and current INDEX/log pointers. Do not convert docking scores into calibrated ODE inputs from memory. Pointers: [docs/modeling/P0-signal-pathway-ode.md](../../../docs/modeling/P0-signal-pathway-ode.md), [docs/decisions/004-reporter-output-architecture.md](../../../docs/decisions/004-reporter-output-architecture.md), [docs/INDEX.md](../../../docs/INDEX.md).
+- P2 economic-model status and parameter readiness route through the P2 direction doc, evidence dossier, validation notes, and HP/local-parameter logs. Do not state final ROI or calibrated local economics from memory. Pointers: [docs/modeling/P2-economic-benefit.md](../../../docs/modeling/P2-economic-benefit.md), [docs/papers/p2-economic-benefit/README.md](../../../docs/papers/p2-economic-benefit/README.md), [docs/logs/](../../../docs/logs/).
 
 ## state_timeline
 
-- 2026-06-02 current snapshot: chctrl rep1 early stability gate passed at the isolated 194.8 ns snapshot; same trajectory should continue to 500 ns final production target. Source: [docs/logs/2026-06-02.md](../../../docs/logs/2026-06-02.md).
-- 2026-06-01 historical: tiered validation protocol introduced; 100-150 ns is an early full-system gate, not a replacement for final production. Source: [docs/logs/2026-06-01.md](../../../docs/logs/2026-06-01.md).
-- 2026-05-30 historical: checkpoint-gated interruption, same-GPU benchmark, single-job resume route, and Slurm secondary-site gate were recorded. Source: [docs/logs/2026-05-30.md](../../../docs/logs/2026-05-30.md).
-- 2026-05-20 historical: docking-repro handoff refresh became the current candidate route; older ratio/Top materials became historical context. Sources: [docs/logs/2026-05-19.md](../../../docs/logs/2026-05-19.md), [docs/modeling/P0-molecular-docking.md](../../../docs/modeling/P0-molecular-docking.md).
-- 2026-04-11 historical: yeast-STE2 chassis decision set the strategic baseline; later implementation status must be read from INDEX/logs/domain docs, not from the decision analysis itself. Sources: [docs/decisions/003-chassis-yeast-ste2-integration.md](../../../docs/decisions/003-chassis-yeast-ste2-integration.md), [docs/prd/chassis-decision.md](../../../docs/prd/chassis-decision.md).
+Do not read this timeline as current state. It only preserves dated routing
+pointers for cross-session recovery.
+
+- 2026-06-02: chimeric MD gate/status evidence was logged; read the log and INDEX before making any run-state claim. Source: [docs/logs/2026-06-02.md](../../../docs/logs/2026-06-02.md).
+- 2026-06-01: validation protocol and gate semantics were recorded; read the log and active plans before applying criteria. Source: [docs/logs/2026-06-01.md](../../../docs/logs/2026-06-01.md).
+- 2026-05-30: E2/secondary-site routing and interruption evidence were recorded; read environment docs, plans, and logs before giving execution advice. Source: [docs/logs/2026-05-30.md](../../../docs/logs/2026-05-30.md).
+- 2026-05-19/20: docking-repro handoff refresh became the current candidate route; read the handoff and docking direction doc for candidate claims. Sources: [docs/logs/2026-05-19.md](../../../docs/logs/2026-05-19.md), [docs/modeling/P0-molecular-docking.md](../../../docs/modeling/P0-molecular-docking.md).
+- 2026-04-11: yeast-STE2 chassis decision set the strategic baseline; later implementation status must be read from INDEX/logs/domain docs. Sources: [docs/decisions/003-chassis-yeast-ste2-integration.md](../../../docs/decisions/003-chassis-yeast-ste2-integration.md), [docs/prd/chassis-decision.md](../../../docs/prd/chassis-decision.md).
 
 ## source_pointers
 
