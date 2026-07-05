@@ -53,6 +53,15 @@ experiments/docking-repro/mutagenesis/af3_prepared/
 # chimeric-gpa1 AF3 产出（2.9 GB，可从 AF3 Server 重新下载）
 experiments/chimeric-gpa1/af3_predictions/downloads/
 
+# literature-research API/run state; curated matrices, summaries, and
+# explicitly referenced source attachments stay trackable.
+experiments/chimeric-gpa1/literature/research_runs/
+
+# Local literature source binaries stay outside git; keep checksums and
+# pointer README files trackable.
+experiments/chimeric-gpa1/literature/source_attachments/*.pdf
+experiments/chimeric-gpa1/literature/source_attachments/*.zip
+
 # 日志（运行日志不入库，但保留目录）
 experiments/docking/logs/*.log
 experiments/docking-repro/logs/*.log
@@ -70,6 +79,28 @@ experiments/md-simulation/results/**/*.edr
 experiments/md-simulation/results/**/*.cpt
 experiments/md-simulation/results/**/toppar/
 experiments/md-simulation/results/**/analysis/**/snapshots/*.pdb
+experiments/md-simulation/results/**/work/
+experiments/md-simulation/results/**/production_smoke/
+experiments/md-simulation/results/**/input/gromacs/
+experiments/md-simulation/results/**/*.log
+
+# MD system build/runtime byproducts under gromacs/. Canonical builder inputs
+# such as README, topologies, MDPs, index files, and step5_input.* remain visible.
+experiments/md-simulation/systems/**/gromacs/*.tpr
+experiments/md-simulation/systems/**/gromacs/*.edr
+experiments/md-simulation/systems/**/gromacs/*.cpt
+experiments/md-simulation/systems/**/gromacs/*.xtc
+experiments/md-simulation/systems/**/gromacs/*.trr
+experiments/md-simulation/systems/**/gromacs/*_out.mdp
+experiments/md-simulation/systems/**/gromacs/em.gro
+experiments/md-simulation/systems/**/gromacs/step6.[0-9]*.gro
+experiments/md-simulation/systems/**/gromacs/*.log
+experiments/md-simulation/systems/**/gromacs/*.sha256
+experiments/md-simulation/systems/**/source_archives/
+
+# R1 chctrl prototype payload policy: keep route/build notes/checksums/static
+# validation, but do not commit the copied CHARMM-GUI GROMACS input package.
+experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/gromacs/**
 
 # =====================================================================
 # 保留（明确 track 的内容）
@@ -95,6 +126,13 @@ experiments/md-simulation/results/**/analysis/**/snapshots/*.pdb
 # =====================================================================
 docs/papers/pdf/
 
+# Presentation reference binaries are local source material; keep text
+# manifests/notes tracked separately.
+docs/presentation/reference-materials/*.pdf
+docs/presentation/reference-materials/*.pptx
+docs/presentation/reference-materials/*.png
+docs/presentation/reference-materials/*.svg
+
 # 合作伙伴 / 赞助 / 外联材料含隐私信息，默认不入库
 docs/partners/
 
@@ -116,9 +154,11 @@ docs/partners/
 
 # 临时文件
 temp/
+tmp_papers/
 *.tmp
 *.bak
 *.orig
+/*.zip
 
 # =====================================================================
 # 凭证与敏感文件（安全审计 2026-04-06 新增）
