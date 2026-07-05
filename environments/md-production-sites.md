@@ -1,12 +1,14 @@
 # MD Production Sites Matrix
 
-> Last verified: 2026-05-30
-> Scope: unified chimeric MD clean-start rerun for chctrl + Ch-1 + Ch-2 + Ch-4.
+> Last verified: 2026-06-26
+> Scope: historical site matrix for the paused unified chimeric MD clean-start rerun; future MD work must follow [决策 005](../docs/decisions/005-md-compute-triage-after-chctrl.md) and pass fresh resource/benchmark gates.
 > Authority: this file records site-level environment targets and provenance gates. Runtime evidence remains in preflight logs, conda snapshots, Slurm logs, GROMACS logs, checksums, and synced result directories.
 
 ## Current Decision
 
-Use E2 as the primary production site and add the old Slurm RTX 5090 server only as a validated secondary site. Both sites must use the same clean-start inputs, the same GROMACS conda-forge production pin, the same production MDP generator, and the same smoke/benchmark/completion gates.
+2026-06-26: chimeric candidate full-production is paused after clarifying that control/chctrl 3 completed replicates belong to the old Slurm route, while E2 has chctrl rep1 evidence only. E2 is the only practical current compute route and prior A100 usage was too disruptive for a shared server. Do not launch new Ch-1/Ch-2/Ch-4 full-production jobs from this matrix without a new decision.
+
+Historical 2026-05-30 route: use E2 as the primary production site and add the old Slurm RTX 5090 server only as a validated secondary site. Both sites must use the same clean-start inputs, the same GROMACS conda-forge production pin, the same production MDP generator, and the same smoke/benchmark/completion gates.
 
 Old Slurm `2025.2-spack` production logs remain historical evidence pointers only. They are not part of the new rerun provenance and must not be merged with the new `2025.4` rerun outputs.
 
@@ -14,7 +16,7 @@ Old Slurm `2025.2-spack` production logs remain historical evidence pointers onl
 
 | Site | Role | Remote base | Production env target | Command | Status | Evidence pointers |
 |---|---|---|---|---|---|---|
-| NKULiulab E2 A100 | Primary production site | `/ifs1/User/dengwei/igem/md-simulation` | `/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda`; `gromacs=2025.4=mpi_openmpi_cuda_h56f47eb_0` | `/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi` | Installed, preflight passed, four-system rep1 smoke passed, chctrl rep1 running as single full MD job | `environments/e2-md-gromacs.md`; `experiments/md-simulation/results/e2_preflight/`; `docs/logs/2026-05-29.md`; `docs/logs/2026-05-30.md` |
+| NKULiulab E2 A100 | Historical primary production site; current shared-resource MD test site | `/ifs1/User/dengwei/igem/md-simulation` | `/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda`; `gromacs=2025.4=mpi_openmpi_cuda_h56f47eb_0` | `/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi` | Chimeric candidate full-production paused 2026-06-26; E2 has chctrl rep1 evidence only; future mutant GPR or optimized chimeric tests require resource estimate and short benchmark first | `environments/e2-md-gromacs.md`; `experiments/md-simulation/results/e2_preflight/`; `docs/logs/2026-05-29.md`; `docs/logs/2026-05-30.md`; `docs/logs/2026-06-02.md`; `docs/logs/2026-06-26.md` |
 | Old Slurm RTX 5090 | Validated secondary candidate | default target `/home/guest/igem/md-simulation` | `/home/guest/igem/envs/gromacs-2025.4-mpi-cuda`; target pin `gromacs=2025.4=mpi_openmpi_cuda_h56f47eb_0` | `/home/guest/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi` after validation | Read-only preflight found node3 RTX5090 schedulable and target env absent/clean, but `conda`/`mamba`/`micromamba` are not available; blocked before same-pin env validation, smoke, benchmark, or production | `experiments/md-simulation/results/slurm_preflight/slurm_chimeric_preflight_20260530_slurm5090_readonly.log`; `docs/logs/2026-05-30.md`; `docs/ops/archives/slurm-md-server.md` for historical-only hardware and pitfall pointers |
 
 ## Uniform Production Pin
@@ -26,8 +28,8 @@ Old Slurm `2025.2-spack` production logs remain historical evidence pointers onl
 | Command contract | `gmx_mpi`, not `gmx` |
 | Key solved dependency family | CUDA runtime/toolkit 12.9, OpenMPI 5.0.8, FFTW 3.3.11, hwloc 2.12.x |
 | MDP generator | `experiments/md-simulation/scripts/e2_make_chimeric_prod_mdp.py` |
-| Full production length | 500 ns per replicate unless a later gate changes it |
-| Replicates | chctrl + Ch-1 + Ch-2 + Ch-4, 3 reps each |
+| Full production length | Historical rerun plan: 500 ns per replicate unless a later gate changes it |
+| Replicates | Historical rerun plan: chctrl + Ch-1 + Ch-2 + Ch-4, 3 reps each; E2 evidence currently covers chctrl rep1 only |
 
 If Slurm cannot run this exact pin on RTX 5090 without CUDA/PTX errors, Slurm stays out of production unless a separate異環境 batch is explicitly approved.
 
@@ -53,7 +55,7 @@ The old chctrl Slurm outputs remain at `experiments/md-simulation/results/chimer
 
 ## Production Scheduling Rule
 
-- Do not interrupt the current E2 chctrl rep1.
+- 2026-06-26 后不要从本历史矩阵直接启动新的 chimeric full-production；任何新 MD 先做资源估算和短程 benchmark。
 - Slurm may run only replicates that have not started on E2.
 - Do not place all replicates of one system on the same hardware when avoidable; interleave E2 and Slurm so site effects are not perfectly confounded with system effects.
 - Run at most one full MD job per GPU.
