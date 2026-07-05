@@ -1,6 +1,6 @@
 # 文献矩阵
 
-> 58 篇本地 PDF | 59 篇已总结 | 更新: 2026-04-13
+> 59 篇本地 PDF | 62 篇已总结 | 更新: 2026-07-05
 >
 > **ID 规则**: `作者姓+年份`（如 `Hu2024`）；同姓同年加后缀（`Huang2023a/b`）；iGEM 用 `iGEM-团队名+年份`。
 
@@ -120,6 +120,7 @@
 | Conklin1993 | Conklin et al. 1993 *Nature* 363:274–276 | 3 个 C-terminal aa 切换 Gαq→Gαi 受体特异性，NMR 证实 β-turn | **奠基性：最小替换单元** | [已总结](summaries/Conklin1993-Galpha-Cterminal-specificity-summary.md) |
 | Ueda2003 | Ueda et al. 2003 *J Neurosci* 23:7376–7380 | G16/gust 5/11/23/37/44 aa 长度滴定，仅 37+44 功能化 | **唯一系统性长度对比** | [已总结](summaries/Ueda2003-Galpha16-gustducin-length-summary.md) |
 | Velazhahan2021 | Velazhahan et al. 2021 *Nature* 589:148–153 | Ste2 二聚体 + mini-Gpa1 cryo-EM 3.3 Å (PDB 7AD3)，首个 Class D GPCR 结构 | **AF3 基准：Ste2-Gpa1 实验结构** | [已总结](summaries/Velazhahan2021-Ste2-Gpa1-cryoEM-summary.md) |
+| Cevheroglu2017 | Cevheroglu et al. 2017 *BBA Biomembranes* 1859:2435–2446 | BRET/BiFC 支持 Ste2p-Gpa1p ligand-independent precoupling；Gpa1 N 端与 Ste2 C-tail 近距离 | Ste2-Gpa1 control/interface 弱背景；不直接迁移到 Gpr2/Gpr3/GprC chimera candidates | [已总结](summaries/Cevheroglu2017-Ste2-Gpa1-precoupling-summary.md) |
 
 ### Tier 4b: 下游通路改造
 
@@ -175,6 +176,13 @@
 | Vass2016 | Vass et al. 2016 (GPCR IFP review) | GPCR 交互指纹（IFP）综述 | IFP 分析方法学背景 | [已总结](summaries/Vass2016-GPCR-IFP-review-summary.md) |
 | Bouysset2021 | Bouysset et al. 2021 *J Cheminform* | ProLIF：蛋白-配体交互指纹工具 | IFP 分析工具论文，**必须引用** | [已总结](summaries/Bouysset2021-ProLIF-summary.md) |
 
+### Coarse-Grained / Martini MD 方法
+
+| ID | 文献 | 内容 | 与项目关系 | 总结 |
+|----|------|------|----------|------|
+| Yang2024 | Yang & Song 2024 *J Chem Theory Comput* 20:2618-2629 | Switching Go-Martini；Martini 3 + Go-like structure bias；explicit water/lipid conformational-transition examples | R4 source-gate 方法源；不支持直接 GPCR-Galpha/chctrl replacement | [已总结](summaries/Yang2024-Switching-Go-Martini-summary.md) |
+| Sahoo2023 | Sahoo et al. 2023 *Structure* 31:735-745.e2 | Martini 3 type 1 receptor TM dimer simulations；alternate quaternary configurations；backmapping/comparison | R4 quaternary-bias 风险和 validation analog；不是 GPCR-Galpha 证据 | [已总结](summaries/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer-summary.md) |
+
 ---
 
 ## 对接数据现状
@@ -211,3 +219,4 @@
 | 2026-04-10 | v2.1 | Tier 4 分三层（偶联/通路/输出），新增 4 篇（Brown2000/Lengger2022/FanC2023/Lind2024） |
 | 2026-04-11 | v3.0 | **全局序号 → Author-Year 稳定 ID**；废弃顺序编号，防止跨文档引用断裂；飞书侧迁移至多维表格 |
 | 2026-04-13 | v3.1 | 新增 3 篇嵌合 Gα 文献（Conklin1993/Ueda2003/Velazhahan2021），支撑 AF3 嵌合 Gpa1 结果解读 |
+| 2026-07-05 | v3.2 | 新增 2 篇 R4 CG/Martini 方法文献（Yang2024/Sahoo2023），用于 system-reduction source gate |

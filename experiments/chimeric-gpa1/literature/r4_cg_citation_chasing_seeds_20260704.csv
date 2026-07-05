@@ -1,0 +1,7 @@
+doi,title,reason
+10.1021/acs.jctc.3c01222,Switching Go-Martini for Investigating Protein Conformational Transitions and Associated Protein-Lipid Interactions,Primary pending structure-bias / protein-lipid method source for R4.
+10.1016/j.str.2023.03.014,Transmembrane dimers of type 1 receptors sample alternate configurations: MD simulations using coarse grain Martini 3 versus AlphaFold2 Multimer,Pending membrane receptor Martini 3 quaternary-organization method source.
+10.1038/s41467-025-59842-8,Lipids modulate the dynamics of GPCR:beta-arrestin interaction,Closest current GPCR-effector Martini 3 membrane analog; not Galpha.
+10.1038/s41467-020-17437-5,Protein-ligand binding with the coarse-grained Martini model,General Martini protein-ligand source with GPCR-family examples and backmapping context.
+10.1101/2024.12.19.629375,Human class B1 GPCR modulation by plasma membrane lipids,GPCR lipid CG screen source; useful for receptor/lipid context only.
+10.1039/d5cp02918j,Vibrational energy landscapes and energy flow in GPCRs: comparison between class A and class B GPCRs using all atom and coarse-grained models,GPCR all-atom/coarse-grained comparison source.

@@ -1,0 +1,11 @@
+doi,title,reason
+"10.7554/eLife.106397","Deep learning reveals endogenous sterols as allosteric modulators of the GPCR-Galpha interface","Ste2p-Gpa1p GPCR-Galpha interface seed already bounded as non-CG route context"
+"10.1016/j.bbamem.2017.09.022","GPCR-Galpha protein precoupling: Interaction between Ste2p a yeast GPCR and Gpa1p its Galpha protein is formed before ligand binding via the Ste2p C-terminal domain and the Gpa1p N-terminal domain","Direct Ste2p-Gpa1p interface/precoupling seed found in targeted metadata search"
+"10.1038/s41586-020-2994-1","Structure of the class D GPCR Ste2 dimer coupled to two G proteins","Ste2-Gpa1 structural anchor for receptor-Galpha object definition"
+"10.1038/s41467-025-59842-8","Lipids modulate the dynamics of GPCR:beta-arrestin interaction","Close GPCR-effector Martini membrane analog but not Galpha"
+"10.1021/acs.jctc.3c01222","Switching Go-Martini for Investigating Protein Conformational Transitions and Associated Protein-Lipid Interactions","High-priority Go-Martini structure-bias method candidate pending full-method extraction"
+"10.1016/j.str.2023.03.014","Transmembrane dimers of type 1 receptors sample alternate configurations: MD simulations using coarse grain Martini 3 versus AlphaFold2 Multimer","Membrane receptor Martini 3 method candidate pending full-method extraction"
+"10.1038/s41467-020-17437-5","Protein-ligand binding with the coarse-grained Martini model","General Martini protein-ligand/backmapping boundary source with GPCR examples"
+"10.1038/s42003-025-09445-2","Human class B1 GPCR modulation by plasma membrane lipids","Final article for GPCR-lipid CG context source"
+"10.1126/sciadv.adq3971","Structure and dynamics determine G protein coupling specificity at a class A GPCR","Direct GPCR-G protein dynamics context but not currently CG route support"
+"10.1038/s41598-019-41980-x","Molecular dynamics of engineered G protein mimetics: implications for signal transduction and drug discovery","Mini-Gs engineered Galpha atomistic context seed"
