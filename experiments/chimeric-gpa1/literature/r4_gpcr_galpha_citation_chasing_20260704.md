@@ -166,6 +166,24 @@ This pass found one useful update and one useful reminder:
 
 This pass did not find a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coarse-grained route source. R4 therefore remains a `screening_only` source gate. The next useful work is continued direct GPCR-Galpha / Ste2-Gpa1 CG citation chasing and, only if source support appears, drafting a `chctrl` object-contract gate with explicit receptor-Galpha interchain-bias, backmapping, and atomistic-comparison requirements.
 
+## 2026-07-05 New-Source Acquisition Pass
+
+The next source-chase pass is now recorded separately:
+
+```text
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv
+```
+
+The pass keeps direct GPCR-Galpha / Ste2-Gpa1 CG as the target, but converts the immediate next action into a method-source extraction queue:
+
+- direct GPCR-Galpha metadata search: no usable direct CG workflow retained;
+- Ste2/Gpa1 CG search: empty with provider failures, so it should be retried manually only if needed;
+- interface/contact-bias seed direction: GoMartini3, OLIVES, and OliGoMers;
+- backmapping/revalidation seed direction: Lopez2022 CG-AA coupling and Aydin2025 multiscale workflow.
+
+Practical next step: extract those method seeds and then write an R4 decision package. Do not start a `chctrl` build plan from citation chasing alone.
+
 ## References / 所引
 
 - `experiments/chimeric-gpa1/literature/r4_cg_source_screen_20260704.tsv`
@@ -194,6 +212,8 @@ This pass did not find a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coars
 - `experiments/chimeric-gpa1/literature/fulltext_md/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.md`
 - `docs/papers/summaries/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer-summary.md`
 - PubMed E-utilities metadata for PMIDs `41507501`, `41090227`, `30940903`, and `41359750`.
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv`
 
 ## Referenced by / 被引
 
@@ -204,3 +224,4 @@ This pass did not find a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coars
 - `experiments/md-simulation/analysis/chimeric_system_reduction_protocol_matrix.md`
 - `docs/logs/2026-07-05.md`
 - `docs/logs/2026-07-04.md`
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`
