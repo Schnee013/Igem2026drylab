@@ -1,12 +1,15 @@
 # Chimeric MD Unified Rerun Sites Plan
 
+> **2026-06-26 execution status**: paused/superseded for new chimeric candidate production by [决策 005](../../../docs/decisions/005-md-compute-triage-after-chctrl.md). Do not use this plan to launch additional Ch-1/Ch-2/Ch-4 full-production jobs unless a new decision reopens this route.
+
 > Status: implemented as repo-owned environment matrix and Slurm wrapper scripts on 2026-05-30. This plan is execution guidance, not final scientific evidence. Verify current status against logs, preflight outputs, Slurm scheduler state, and result files before acting.
 
 ## Decision Position
 
-- Run the clean-start chimeric MD rerun as one provenance family: chctrl + Ch-1 + Ch-2 + Ch-4, 3 replicates each, under the same GROMACS `2025.4` MPI-CUDA conda-forge pin.
+- 2026-06-26 update: the clean-start candidate-production route is paused after clarifying that control/chctrl 3 completed replicates belong to the old Slurm route, while E2 has chctrl rep1 evidence only; the next chimeric step is compute-reduction protocol research, not direct site expansion.
+- Historical route: run the clean-start chimeric MD rerun as one provenance family: chctrl + Ch-1 + Ch-2 + Ch-4, 3 replicates each, under the same GROMACS `2025.4` MPI-CUDA conda-forge pin.
 - E2 A100 remains the primary production site. The old Slurm RTX 5090 server is admitted only as a validated secondary site after it passes preflight, same-pin environment validation, smoke, benchmark, and early production checks.
-- Do not interrupt the currently running E2 chctrl rep1.
+- Do not launch new full-production jobs from this historical route without a new decision.
 - Do not mix old Slurm `2025.2-spack` chctrl production outputs into the new rerun. Those logs remain historical performance/provenance pointers only.
 - If Slurm cannot run `gromacs=2025.4=mpi_openmpi_cuda_h56f47eb_0` on RTX 5090 without CUDA/PTX errors, it does not enter production unless a separate異環境 batch is explicitly approved.
 
@@ -60,7 +63,7 @@
 
 ## Scheduling Rule
 
-- Keep E2 chctrl rep1 on E2 until completion.
+- Historical 2026-05-30 scheduling rule was to keep E2 chctrl rep1 on E2 until completion; do not treat this as evidence for E2 rep2/rep3 completion.
 - Use Slurm for not-yet-started replicates only after gates pass.
 - Interleave systems and sites where possible so one system's replicates are not all assigned to one hardware site.
 - Sync outputs with explicit run ids:

@@ -1,10 +1,13 @@
 # E2 Chimeric MD Restart Plan
 
+> **2026-06-26 execution status**: paused/superseded for new chimeric candidate production by [决策 005](../../../docs/decisions/005-md-compute-triage-after-chctrl.md). Do not use this plan to launch Ch-1/Ch-2/Ch-4 full-production MD without a new decision. Keep it as historical execution guidance, script inventory, and provenance reference for the partial E2 route; E2 has chctrl rep1 evidence only, not 3 completed control replicates.
+
 > Status: reviewed E2 primary-site restart plan implemented as repo-owned scripts/config on 2026-05-28. As of 2026-05-30, the recommended E2 GROMACS 2025.4 MPI-CUDA environment has passed preflight, four-system inputs have been synced, rep1 smoke runs have completed, and chctrl rep1 full production was checkpoint-gated interrupted at 2026-05-30 02:14 CST for a same-GPU benchmark. The benchmark showed lower best 2-job aggregate throughput than the single-job baseline. Site-level integration with old Slurm RTX 5090 is tracked separately in `codex/docs/plans/chimeric-md-unified-rerun-sites.md`. This plan is execution guidance, not final scientific evidence.
 
 ## Decision Position
 
-- Rerun `chimeric-ste2-gpa1-wt` chctrl together with Ch-1/Ch-2/Ch-4 under a unified clean-start provenance. E2 remains the primary site under `/ifs1/User/dengwei/igem/md-simulation/`; Slurm RTX 5090 is only a validated secondary candidate, with gates tracked in `codex/docs/plans/chimeric-md-unified-rerun-sites.md`.
+- 2026-06-26 update: the former unified rerun route is paused after clarifying that control/chctrl 3 completed replicates belong to the old Slurm route, while E2 has chctrl rep1 evidence only. The next chimeric action is protocol optimization to reduce compute load, not direct continuation of Ch-1/Ch-2/Ch-4 full production.
+- Historical route: rerun `chimeric-ste2-gpa1-wt` chctrl together with Ch-1/Ch-2/Ch-4 under a unified clean-start provenance. E2 remains the primary site under `/ifs1/User/dengwei/igem/md-simulation/`; Slurm RTX 5090 is only a validated secondary candidate, with gates tracked in `codex/docs/plans/chimeric-md-unified-rerun-sites.md`.
 - Use one production GROMACS environment family for all rerun systems: see `environments/e2-md-gromacs.md` for the E2 package evidence and `environments/md-production-sites.md` for site-level targets. The current required pin is `gromacs=2025.4=mpi_openmpi_cuda_h56f47eb_0`.
 - Do not resume Ch-1 rep1 from the old ~28 ns production checkpoint, and do not treat old chctrl production as the accepted baseline. Start all 12 replicates cleanly from audited C3 outputs so server/software provenance is consistent.
 - Treat old Slurm `2025.2-spack` paths, jobs, and scripts as historical evidence only. New Slurm work must use the new `slurm_*` wrapper scripts and pass the same-pin gates before production.

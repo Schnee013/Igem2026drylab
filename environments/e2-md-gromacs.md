@@ -25,6 +25,14 @@ Rationale:
 - conda-forge has an exact `linux-64` CUDA/OpenMPI build for `2025.4`, and local dry-run resolution against E2-like virtual packages succeeded.
 - `mpi_openmpi_cuda` preserves the current repo script contract around `gmx_mpi`, MPI provenance, and future multi-rank compatibility.
 
+## E2 Output Analysis Rule
+
+Hard rule: GROMACS binary outputs generated on E2 must be checked, converted, preprocessed, and evidence-analyzed with the recorded E2 GROMACS environment for that run. This applies to `.tpr`, `.cpt`, `.edr`, `.trr`, `.xtc`, and any `gmx`-processed trajectory or energy output used as evidence.
+
+For the current E2 route, the authoritative command is the recorded E2 `gmx_mpi` command for the run, currently `/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi` unless a later run-specific provenance file records a different command.
+
+Do not use local conda/Homebrew GROMACS environments, including `chimeric`, `chimeric-md-2025`, local `gmx`, or local `gmx_mpi`, as evidence generators for E2-produced GROMACS binary outputs. Local environments may only be used for non-authoritative inspection, or for Python-only analysis after E2-side preprocessing has produced documented, synced, checksummed analysis inputs.
+
 ## Production Candidate Matrix
 
 | Candidate | Status | Exact build / command | Resolved key deps from dry-run | Decision notes |
@@ -71,6 +79,8 @@ Conclusion: CUDA 12.x conda runtime/toolkit under E2 driver `590.48.01` is reaso
 ## Analysis Environments
 
 Keep analysis environments separate from the production GROMACS environment.
+
+These environments are for Python-side analysis only. They do not override the E2 output analysis rule above: E2-produced GROMACS binary outputs must first be processed with the recorded E2 GROMACS environment before local or separate Python environments consume derived, checksummed inputs.
 
 | Env | Purpose | Recommended specs | Dry-run resolved key packages |
 |---|---|---|---|

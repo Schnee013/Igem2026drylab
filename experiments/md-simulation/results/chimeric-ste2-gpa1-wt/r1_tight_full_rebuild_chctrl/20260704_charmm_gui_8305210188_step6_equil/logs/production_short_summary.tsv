@@ -1,0 +1,6 @@
+key	value
+finished	2026-07-04T18:20:18+08:00
+nsteps_override	50000
+nominal_ps	100
+performance_line	Performance:       74.362        0.323
+gpu_utilization_avg_percent	84.36

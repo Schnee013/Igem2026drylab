@@ -1,0 +1,70 @@
+started=2026-07-03T11:54:37+08:00
+host=almalinux10
+user=dengwei
+pwd=/ifs1/User/dengwei/igem/md-simulation/r1_tight_full_rebuild_chctrl_20260703/preflight_20260703_gmx_env
+gmx_cmd=/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi
+                 :-) GROMACS - gmx_mpi, 2025.4-conda_forge (-:
+
+Executable:   /ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi
+Data prefix:  /ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda
+Working dir:  /ifs1/User/dengwei/igem/md-simulation/r1_tight_full_rebuild_chctrl_20260703/preflight_20260703_gmx_env
+Command line:
+  gmx_mpi --version
+
+GROMACS version:     2025.4-conda_forge
+Precision:           mixed
+Memory model:        64 bit
+MPI library:         MPI
+MPI library version: Open MPI v5.0.8, package: Open MPI conda@e2c916615969 Distribution, ident: 5.0.8, repo rev: v5.0.8, May 30, 2025
+OpenMP support:      enabled (GMX_OPENMP_MAX_THREADS = 128)
+GPU support:         CUDA
+NBNxM GPU setup:     super-cluster 2x2x2 / cluster 8 (cluster-pair splitting on)
+SIMD instructions:   AVX2_256
+CPU FFT library:     fftw-3.3.11-sse2-avx
+GPU FFT library:     cuFFT
+Multi-GPU FFT:       none
+RDTSCP usage:        disabled
+TNG support:         enabled
+Hwloc support:       disabled
+Tracing support:     disabled
+C compiler:          /home/conda/feedstock_root/build_artifacts/gromacs_1764344589150/_build_env/bin/x86_64-conda-linux-gnu-cc GNU 14.3.0
+C compiler flags:    -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wno-missing-field-initializers -pthread -O3 -DNDEBUG
+C++ compiler:        /home/conda/feedstock_root/build_artifacts/gromacs_1764344589150/_build_env/bin/x86_64-conda-linux-gnu-c++ GNU 14.3.0
+C++ compiler flags:  -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wno-missing-field-initializers -pthread -Wno-old-style-cast -Wno-cast-qual -Wno-suggest-override -Wno-suggest-destructor-override -Wno-zero-as-null-pointer-constant -Wno-cast-function-type-strict SHELL:-fopenmp -O3 -DNDEBUG
+BLAS library:        Internal
+LAPACK library:      Internal
+CUDA compiler:       /ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/nvcc nvcc: NVIDIA (R) Cuda compiler driver;Copyright (c) 2005-2025 NVIDIA Corporation;Built on Tue_May_27_02:21:03_PDT_2025;Cuda compilation tools, release 12.9, V12.9.86;Build cuda_12.9.r12.9/compiler.36037853_0
+CUDA compiler flags: -O3 -DNDEBUG
+CUDA driver:         13.10
+CUDA runtime:        12.90
+
+
+Fri Jul  3 11:54:42 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:03:00.0 Off |                    0 |
+| N/A   60C    P0             59W /  400W |       0MiB /  81920MiB |     24%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Disk quotas for user dengwei (uid 1005):
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+       /dev/sdb  47357M   5000G   5072G            132k       0       0
+       /dev/sdc      0K      0K      0K               0       0       0
+
+b1b4dd35df1fe0b57a5b32098a7762ecddf812943b3aa39ddf12f376fb0290e4  prototype_metadata/source_files.sha256
+9a4cb43cd935e75b099729755366253bb2e69a34cef2d6b6fad9836dc04dc663  prototype_metadata/route.json
+684b69893f8b3fd4b04118786f8469b3aba18ef90f6a4290500aea605bbcc632  prototype_metadata/build_notes.md

@@ -27,6 +27,7 @@ The answer after this pass is: **not yet as a buildable route**. The sources sup
 - Nature Communications article pages for DOI `10.1038/s41467-025-59842-8` and DOI `10.1038/s41467-020-17437-5`
 - Crossref DOI metadata for the records listed below
 - User-supplied full-text PDFs for DOI `10.1021/acs.jctc.3c01222` and DOI `10.1016/j.str.2023.03.014`, archived under `docs/papers/pdf/`
+- User-supplied Yang and Song 2024 supplementary PDF and tutorial zip, archived under `experiments/chimeric-gpa1/literature/source_attachments/`; method-relevant details from the SI PDF and tutorial archive were extracted on 2026-07-05.
 - Markdown transcriptions and paper summaries for Yang and Song 2024 and Sahoo et al. 2023
 
 ## Extracted Support
@@ -85,7 +86,30 @@ Project implication:
 - It does not support a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha replacement route.
 - A future R4 `chctrl` object contract would need to define the two state structures, the receptor-Galpha quaternary contact-bias policy, backmapping or atomistic comparison, and failure criteria for interface drift.
 - The authors state important limitations: switching manually controls state residence time, so the method cannot quantify free-energy landscapes or kinetics; high-energy switching can allow improper pathways; large surrounding molecules may lag behind protein transitions.
-- The main article points to supplementary simulation parameters and a tutorial, but those supplementary files have not yet been archived locally in this pass.
+
+Supplementary PDF and tutorial archive extraction on 2026-07-05:
+
+Source-faithful details:
+
+- The Supporting Information PDF has 11 pages. Table S1 records common CG settings: Verlet cutoff scheme, reaction-field electrostatics, `epsilon_r = 15`, electrostatic and van der Waals cutoffs of 11 A, V-rescale temperature coupling with `tau_t = 1.0 ps` and `ref_t = 310.15 K`, Parrinello-Rahman pressure coupling with `tau_p = 12.0 ps`, and transition relaxation of `1000` steps at `0.002 ps`.
+- Table S1 records system schedules: minimization steps of 5000/5000/15000/15000 for GlnBP/AdK/beta2AR/ATP8A1-CDC50a; equilibration of 1/1/2/10 ns; production of `300 x 3 ns`, `100 x 2 ns`, `500 x 2 ns`, and `200, 800 ns`; repeats of 50/70/40/50.
+- Table S2 records pathway outcomes: GlnBP open-closed pathway 50/50; AdK NMP-closing 48, LID-closing 7, middle 15; beta2AR normal 39 and abnormal 1; ATP8A1-CDC50a main 36, middle 5, incomplete 9.
+- The tutorial uses beta2AR active/inactive structures (`3SN6`, `2RH1`) as the worked GPCR example. It instructs removal of water and small molecules, Modeller repair for the 3SN6 missing loop and M96T/M98T mutations, missing-side-chain addition for 2RH1, and trimming both proteins to residues 30-230 and 265-341.
+- The tutorial generates state-specific Martini/Go models with `martinize2`, using `-ff martini3001`, `-govs-include`, state-specific `-govs-moltype` values (`Active`/`Inactive`), `-p backbone`, DSSP assignment, automatic cysteine handling, and `-scfix`.
+- The tutorial sends each atomistic state to the OV/rCSU contact-map server and then runs the modified `create_goVirt_for_multimer.py` with `--go_eps 12` and `--Natoms 681`. The script defaults record a lower/upper contact distance cutoff of 0.3/1.1 nm, a sequence-distance exclusion of 4, and symmetric OV+rCSU contact retention. It writes virtual-site bead definitions, Go LJ tables, Go exclusions, and VMD-only harmonic Go-bond files.
+- The prepared beta2AR CG PDB contains 681 Martini beads plus CA-like virtual Go sites through atom 959. The prepared state topologies define `GO_VIRT`, include state-specific Martini 3 force-field and protein ITP files, and include `Active_exclusions_VirtGoSites.itp` or `Inactive_exclusions_VirtGoSites.itp`.
+- The tutorial inserts active beta2AR into a POPC membrane with `python2 insane.py -f Protein_Active_cg.pdb -box 8,8,10 -l POPC -o ions.gro -salt 0.15 -charge auto -center -sol W`. The tutorial explicitly warns that ion names and counts require manual correction because virtual atoms without charges are also counted by `insane.py`.
+- The prepared topology records one receptor molecule, 77 + 79 POPC lipids, 2970 Martini waters, 31 `NA`, and 33 `CL`, with index groups for Protein, Membrane, and Solvent.
+- The tutorial MDP files differ from the compact SI schedule in one operational detail: `npt.mdp` in the archive uses `nsteps = 1000000` at `dt = 0.020 ps` (20 ns), while SI Table S1 lists beta2AR equilibration as 2 ns. This memo preserves that as a source discrepancy instead of reconciling it silently.
+- Tutorial MDP details: `em.mdp` uses steepest descent with `nsteps = 15000`; `npt.mdp` uses `define = -DPOSRES`, `dt = 0.020 ps`, Berendsen semi-isotropic pressure coupling, and topology position restraints of 1000/1000/1000; `md_relax.mdp` uses `dt = 0.002 ps`, `nsteps = 1000`, Parrinello-Rahman semi-isotropic pressure coupling, and no velocity generation; `md.mdp` uses `dt = 0.020 ps`, `nsteps = 25000000` (500 ns), Parrinello-Rahman semi-isotropic pressure coupling, and no velocity generation.
+- The tutorial run order is active-state minimization, active-state NPT equilibration, active-state production, short inactive-topology relaxation from `md1.gro`, then inactive-topology production appended after relaxation. Trajectory post-processing concatenates `md1`/`md2`, fixes periodicity, centers the protein, removes rotation/translation, and uses VMD for viewing/analysis.
+
+Project interpretation:
+
+- The SI/tutorial extraction refines R4 vocabulary for a future object contract: state-pair provenance and trimming, exact martinize/Go contact generation choices, state-specific topology switching, membrane/ion setup, manual ion/topology repair checks, MDP schedule, and trajectory post-processing.
+- The extraction does **not** define a transferable GPCR-Galpha object. The worked example is beta2AR receptor-only deactivation, and the tutorial does not include a Galpha chain, Ste2-Gpa1 complex, chimeric Galpha, interchain receptor-Galpha Go-contact policy, backmapping, or atomistic comparison gate.
+- Any future R4 `chctrl` object contract would still need to specify whether receptor-Galpha quaternary contacts are included in the Go map, excluded, weakly biased, or left free, and how interface drift is rejected against existing atomistic `chctrl` evidence.
+- The source limitations remain active: two known states are required; default contact-map construction may be non-optimal; high-energy switching can produce improper pathways; switching residence time prevents quantitative free-energy/kinetics claims; slow surrounding molecules may lag protein transitions; Martini 3 coverage gaps can matter for missing chemical groups.
 
 ### P0040: Martini 3 TM-dimer quaternary-bias analog
 
@@ -147,7 +171,7 @@ R4 may continue only as a `chctrl`-first source-gate/design workstream. A future
 
 Until those are source-backed, R4 cannot move to build, E2, or candidate application.
 
-After extracting P0047 and P0040, the remaining source-gate gap is narrower but still material: no direct GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG workflow has been extracted, Yang and Song 2024 points to supplementary files that are not yet archived locally, and neither paper defines a validated receptor-Galpha interface preservation gate for `chctrl`.
+After extracting P0047, its SI/tutorial archive, and P0040, the remaining source-gate gap is narrower but still material: no direct GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG workflow has been extracted, and neither paper defines a validated receptor-Galpha interface preservation gate or buildable `chctrl` object contract.
 
 ## Decision
 
@@ -167,6 +191,8 @@ After extracting P0047 and P0040, the remaining source-gate gap is narrower but 
 - `experiments/chimeric-gpa1/literature/r4_gpcr_galpha_citation_chasing_20260704.md`
 - `docs/papers/pdf/Yang2024-Switching-Go-Martini.pdf`
 - `experiments/chimeric-gpa1/literature/fulltext_md/Yang2024-Switching-Go-Martini.md`
+- `experiments/chimeric-gpa1/literature/source_attachments/Yang2024-Switching-Go-Martini-supporting-information.pdf`
+- `experiments/chimeric-gpa1/literature/source_attachments/Yang2024-Switching-Go-Martini-tutorial.zip`
 - `docs/papers/summaries/Yang2024-Switching-Go-Martini-summary.md`
 - `docs/papers/pdf/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.pdf`
 - `experiments/chimeric-gpa1/literature/fulltext_md/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.md`

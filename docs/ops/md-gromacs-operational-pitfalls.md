@@ -16,6 +16,7 @@
 - 严格 shell 模式下，第三方环境脚本可能不兼容 `set -u`。需要 source `GMXRC.bash`、conda activate 等脚本时，优先使用局部 `set +u` / source / 恢复 `set -u`，不要逐个猜测未初始化变量。
 - 不要把 MPI/GROMACS 命令 stdout 直接接到 `tail`、`head`、`grep` 这类可能提前关闭管道的过滤器；需要截取输出时先重定向到日志，再对日志做文本处理。
 - `.tpr` 和 trajectory 处理要匹配 GROMACS 版本。旧记录中，本地 GROMACS 2024.5 无法读取远端 GROMACS 2025.2 生成的 production `prod.tpr`；正式处理应使用同版本或兼容版本验证。
+- 远程站点产出的 GROMACS binary outputs 必须使用该站点/该 run 记录的 GROMACS 环境处理，除非另有单独兼容性验证文件。E2 产出的 `.tpr`、`.cpt`、`.edr`、`.trr`、`.xtc` 和用于证据的 `gmx` 预处理输出，权威规则见 `environments/e2-md-gromacs.md`；本地 `chimeric*`、Homebrew 或其他本地 `gmx` 环境不能作为 E2 输出的证据生成环境。
 
 ## 2. topology / index / solvation
 

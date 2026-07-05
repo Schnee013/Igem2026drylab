@@ -1,9 +1,9 @@
 ---
 direction: P3-chimeric-gprotein
-status: MD_validation
+status: MD_validation_paused_compute_triage
 priority: P0
 chassis_dependent: true
-last_updated: 2026-06-01
+last_updated: 2026-07-04
 ---
 
 # P0: 嵌合 G 蛋白 (Gpa1) 设计的同源性建模
@@ -14,7 +14,7 @@ last_updated: 2026-06-01
 >
 > 文件名仍保留 `P3-chimeric-gprotein.md`（不重命名以避免破坏 git 历史和外部引用），通过 frontmatter `priority: P0` 与本文件头注明实际优先级。
 >
-> **2026-06-01 校准**：AF3 全量筛选与 Top 3 选择已完成，本方向当前状态为 **MD_validation**。AoGpa2 `TGJ64397.1` 已经按 Kuo2024 primers/NCBI 序列核查，暂不需要回滚或重跑；MD 验证进度以 [P0-md-simulation.md](P0-md-simulation.md)、[E2 Chimeric MD Restart Plan](../../codex/docs/plans/e2-chimeric-md-restart.md) 和 [2026-06-01 日志](../logs/2026-06-01.md) 为准。
+> **2026-07-04 校准**：AF3 全量筛选与 Top 3 选择已完成；AoGpa2 `TGJ64397.1` 已经按 Kuo2024 primers/NCBI 序列核查，暂不需要回滚或重跑。旧 Slurm 上 chimeric control/chctrl 组 3 reps MD 已完成；E2 路线有 chctrl rep1 early-gate 与 R1 reduced-`chctrl` exploratory short-run 证据，但 R1-Z atom-count 降幅过小，不能写成省算力成功或候选迁移规则。Ch-1/Ch-2/Ch-4 candidate full-production 继续暂停。当前下一 route family 是 R4 coarse-grained/multiscale source gate；首轮方法提取尚未找到直接 GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG source，因此不进入 build/E2/candidate。执行优先级以 [决策 005](../decisions/005-md-compute-triage-after-chctrl.md)、[P0-md-simulation.md](P0-md-simulation.md)、[2026-07-04 日志](../logs/2026-07-04.md)、`experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md` 和 `experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md` 为准。
 
 ## 解决什么问题
 
@@ -111,7 +111,7 @@ last_updated: 2026-06-01
 - [x] Batch 1（C5/C10/C15）: 26 jobs AF3 预测完成
 - [x] Batch 2（C25/C37）: 16 jobs AF3 预测完成，合并 Batch 1+2 排名 → `experiments/chimeric-gpa1/analysis/ranking_summary.md`
 - [x] 全量分析（42 jobs）：GprC×AfGasA 唯一 cognate 特异性配对 (Δ=+0.088)；β6 假设未被支持；Top 3 候选已选定
-- [~] MD 稳定性验证（Top 2-3 候选，转 [P0-md-simulation](P0-md-simulation.md)）：当前采用统一 GROMACS 2025.4 MPI-CUDA clean-start rerun，范围为 chctrl + Ch-1/Ch-2/Ch-4；旧 Slurm chctrl production 只作历史指针，不作为当前 baseline。
+- [~] MD 稳定性验证（Top 2-3 候选，转 [P0-md-simulation](P0-md-simulation.md)）：旧 Slurm control/chctrl 组 3 reps 已完成；E2 有 chctrl rep1 early-gate 与 R1 reduced-`chctrl` exploratory short-run 证据；R1-Z 不作为候选迁移规则。Ch-1/Ch-2/Ch-4 candidate full-production 因算力不足暂停，当前只推进 R4 coarse-grained/multiscale source gate 与 `chctrl`-first route design。
 - [ ] 与 Hara2012/Medici1997 模板的对比表
 - [ ] 嵌合 Gpa1 序列 FASTA + 注释 → 通路工程组（湿实验交接；需携带 MD/序列核查 caveat）
 
@@ -135,10 +135,13 @@ last_updated: 2026-06-01
 | 2026-04-13 | Pipeline 清理：删除 6 个冗余脚本/manifest，parse_af3_results.py 改为 discover_jobs() 自动扫描 | 简化维护 |
 | 2026-04-14 | Batch 2 完成：42 jobs 全量解析 + 逐受体分析 + β6 假设验证 | GprC cognate Δ=+0.088；β6 未按预期生效；Top 3 候选选定 |
 | 2026-04-14 | Bug 修复：parse_af3_results.py 3 处 bug (chains→chimera, is_cognate 作用域, Ste2 路径) + downloads/ 命名统一 | Ste2 folder 重命名 → ste2_gpa1_wt_complex |
-| 2026-04-26 | chimeric MD 状态核查 | chctrl 3/3 production 完成；Ch-1 rep1 中断约 28 ns；Ch-2/Ch-4 仅 step6.6；先分析 chctrl 再决定是否重启 |
+| 2026-04-26 | chimeric MD 状态核查 | 旧 Slurm chctrl 3/3 production 完成；Ch-1 rep1 中断约 28 ns；Ch-2/Ch-4 仅 step6.6；先分析 chctrl 再决定是否重启 |
 | 2026-04-27 | AoGpa2 身份核查 | `TGJ64397.1` 与 Kuo2024 GPA2 primers 匹配，Gpr2/Gpr3→AoGpa2 设计暂不回滚 |
 | 2026-05-30 | chimeric MD rerun 路线更新 | 当前 MD 验证转统一 clean-start rerun：E2 primary，旧 Slurm RTX 5090 只在同 pin gate 通过后作为 secondary |
 | 2026-06-01 | tiered validation protocol | 100-150 ns 仅作为 full-system early stability gate；最终 production 目标仍为 500 ns/replicate |
+| 2026-06-26 | MD 算力收缩决策 | 旧 Slurm control/chctrl 组 3 reps 已完成；E2 只有 chctrl rep1 证据；candidate full-production 暂停，先调研 chimeric 省算力 protocol |
+| 2026-07-04 | R1-Z 降级与 route-family selection | R1 reduced `chctrl` 可 build/short-run 但仅 `-2.57%` atom-count delta；下一 route family 记录为 R4 coarse-grained/multiscale source gate |
+| 2026-07-04 | R4 方法提取 | 首轮 R4 source-gate 方法提取未找到 direct GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG source；candidate full-production 仍暂停 |
 
 ## 版本记录
 
@@ -150,8 +153,11 @@ last_updated: 2026-06-01
 | 2026-04-13 | **v3.0** | 文献模板重写：修正 Lengger2020 错误引用（无 5/10/13 比较），新增 Conklin1993/Ueda2003/Velazhahan2021；Step 2 三档方案归因修正；AF3 Phase 3+4 完成 | AF3 结果解读 + 文献调研 |
 | 2026-04-13 | **v3.1** | Step 2 扩展为五档（+C25/C37）；产出定义更新（10 候选 + Batch 1/2 分期）；进展记录补 C25/C37 条目 | Batch 1 cognate≈cross + Ueda2003 长度滴定驱动 |
 | 2026-04-14 | **v4.0** | Batch 2 完成 + 42 jobs 全量分析；产出定义更新（全量分析 + Top 3）；§4 逐受体分析 + β6 假设验证写入 ranking_summary.md | Batch 2 AF3 结果到位 |
-| 2026-06-01 | **v4.2** | MD_validation 状态改为指向当前统一 clean-start rerun 和 tiered gate；旧 Slurm chctrl production 改为历史指针 | chctrl 纳入统一 rerun，避免 P3 文档继续暴露旧 baseline 状态 |
 | 2026-04-27 | **v4.1** | 状态改为 MD_validation；补充 chctrl MD 与 AoGpa2 身份核查指针 | INDEX 审查发现原状态过旧 |
+| 2026-06-01 | **v4.2** | MD_validation 状态改为指向当前统一 clean-start rerun 和 tiered gate；旧 Slurm chctrl production 改为历史指针 | chctrl 纳入统一 rerun，避免 P3 文档继续暴露旧 baseline 状态 |
+| 2026-06-26 | **v4.3** | frontmatter 改为 MD_validation_paused_compute_triage；区分旧 Slurm control/chctrl 3 reps 与 E2 chctrl rep1 证据，记录 candidate full-production 暂停和省算力 protocol 路线 | [决策 005](../decisions/005-md-compute-triage-after-chctrl.md) |
+| 2026-07-04 | **v4.4** | 记录 R1-Z 降级和下一 route family：R4 coarse-grained/multiscale source gate；candidate full-production 仍暂停 | [2026-07-04 日志](../logs/2026-07-04.md), `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md` |
+| 2026-07-04 | **v4.5** | 补充 R4 首轮方法提取结果：未找到 direct GPCR-Galpha CG source，build/E2/candidate 仍阻塞 | [2026-07-04 日志](../logs/2026-07-04.md), `experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md` |
 
 ## 与其他方向的依赖关系
 

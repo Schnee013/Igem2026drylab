@@ -20,7 +20,7 @@ Extraction status:
 - Yang and Song 2024 is archived at `docs/papers/pdf/Yang2024-Switching-Go-Martini.pdf`, transcribed at `experiments/chimeric-gpa1/literature/fulltext_md/Yang2024-Switching-Go-Martini.md`, and summarized at `docs/papers/summaries/Yang2024-Switching-Go-Martini-summary.md`.
 - Sahoo et al. 2023 is archived at `docs/papers/pdf/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.pdf`, transcribed at `experiments/chimeric-gpa1/literature/fulltext_md/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.md`, and summarized at `docs/papers/summaries/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer-summary.md`.
 - The extraction is incorporated into `experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md` and `experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md`.
-- Yang and Song 2024 reports separate supplementary simulation parameters and tutorial files; those supplementary files are not yet locally archived in this pass.
+- Yang and Song 2024 reports separate supplementary simulation parameters and tutorial files; those files are locally archived under `experiments/chimeric-gpa1/literature/source_attachments/`, and method-relevant details were extracted into `experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md` on 2026-07-05.
 
 Optional lower-priority papers if accessible:
 
@@ -127,6 +127,22 @@ Extraction notes:
 - Sahoo et al. 2023 supports Martini 3 TM-dimer validation vocabulary, including elastic-network secondary-structure stabilization, `insane.py` DMPC setup, 4 x 4 us replicates, Backward/atomistic comparison, and convergence/state-transition checks.
 - Neither paper is a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha CG route source. They do not support `chctrl` build, candidate replacement, Ch-1/Ch-2/Ch-4 action, E2 execution, or compute-saving success claims.
 
+## Yang 2024 Supplementary PDF / Tutorial Extraction
+
+The archived Yang and Song 2024 Supporting Information PDF and tutorial zip were extracted on 2026-07-05 and incorporated into:
+
+```text
+experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md
+docs/papers/summaries/Yang2024-Switching-Go-Martini-summary.md
+```
+
+Pointer summary:
+
+- The Supporting Information PDF adds exact CG schedule and outcome tables, including minimization/equilibration/production durations, repeat counts, transition-relaxation settings, and pathway counts.
+- The tutorial zip adds the worked beta2AR active-to-inactive setup: `3SN6`/`2RH1` preprocessing, `martinize2` flags, OV/rCSU contact-map generation, `create_goVirt_for_multimer.py` with `--go_eps 12` and `--Natoms 681`, Martini 3 force-field include edits, POPC/150 mM salt setup via `insane.py`, manual ion/topology correction warnings, state-specific topologies, and tutorial MDP files.
+- The tutorial remains receptor-only beta2AR. It does not contain GPCR-Galpha, Ste2-Gpa1, chimeric Galpha, receptor-effector interchain Go-contact policy, backmapping, or atomistic comparison gates.
+- This closes the "Yang supplementary methods pending" item but does not close the R4 source gate.
+
 ## PubMed E-utilities Probes
 
 Because Crossref/OpenAlex were rate-limited, PubMed E-utilities was used as a supplemental metadata probe. The Python urllib attempt failed with an SSL EOF error, so `curl` was used for the same query class.
@@ -146,9 +162,9 @@ This pass found one useful update and one useful reminder:
 - The GPCR-lipid record P0038 has a final article DOI, `10.1038/s42003-025-09445-2`; it remains receptor/lipid CG context only.
 - Mohanty et al. 2025 is a direct Ste2p-Gpa1p / GPCR-Galpha interface citation seed, but it is already known in the repo and does not support a Martini/CG replacement route.
 - Cevheroglu et al. 2017 has now been full-text screened from the user-supplied PDF. It strengthens Ste2p-Gpa1p precoupling/interface context, but transfer to Gpr2/Gpr3/GprC candidates is weak; it remains non-support for R4 buildability.
-- Yang and Song 2024 and Sahoo et al. 2023 are now full-text screened. They move P0047/P0040 out of the unread queue, but the extraction still does not define a buildable R4 `chctrl` object contract.
+- Yang and Song 2024, its SI/tutorial archive, and Sahoo et al. 2023 are now screened. They move P0047/P0040/Yang supplementary methods out of the unread queue, but the extraction still does not define a buildable R4 `chctrl` object contract.
 
-This pass did not find a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coarse-grained route source. R4 therefore remains a `screening_only` source gate. The next useful inputs are Yang and Song 2024 supplementary files, if accessible, plus continued direct GPCR-Galpha / Ste2-Gpa1 CG citation chasing.
+This pass did not find a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coarse-grained route source. R4 therefore remains a `screening_only` source gate. The next useful work is continued direct GPCR-Galpha / Ste2-Gpa1 CG citation chasing and, only if source support appears, drafting a `chctrl` object-contract gate with explicit receptor-Galpha interchain-bias, backmapping, and atomistic-comparison requirements.
 
 ## References / 所引
 
@@ -171,6 +187,8 @@ This pass did not find a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coars
 - `experiments/chimeric-gpa1/literature/source_files.sha256`
 - `docs/papers/pdf/Yang2024-Switching-Go-Martini.pdf`
 - `experiments/chimeric-gpa1/literature/fulltext_md/Yang2024-Switching-Go-Martini.md`
+- `experiments/chimeric-gpa1/literature/source_attachments/Yang2024-Switching-Go-Martini-supporting-information.pdf`
+- `experiments/chimeric-gpa1/literature/source_attachments/Yang2024-Switching-Go-Martini-tutorial.zip`
 - `docs/papers/summaries/Yang2024-Switching-Go-Martini-summary.md`
 - `docs/papers/pdf/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.pdf`
 - `experiments/chimeric-gpa1/literature/fulltext_md/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.md`
