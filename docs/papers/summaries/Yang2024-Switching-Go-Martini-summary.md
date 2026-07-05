@@ -44,6 +44,7 @@ Project interpretation:
 - The SI/tutorial closes the previous "Yang supplementary method extraction pending" gap.
 - It refines R4 object-contract vocabulary around state-pair preprocessing, Go-contact generation, topology switching, membrane/ion setup, MDP schedule, and trajectory post-processing.
 - It remains beta2AR receptor-only tutorial evidence, not receptor-Galpha, not Ste2-Gpa1, and not chimeric Galpha.
+- The follow-up R4 new-source plan uses Yang2024 as vocabulary for what to extract next: interface/contact policy, structure-bias choice, and CG-to-AA revalidation.
 
 ## 与项目的关系
 
@@ -65,6 +66,7 @@ Project interpretation:
 - `../../../experiments/chimeric-gpa1/literature/source_attachments/Yang2024-Switching-Go-Martini-supporting-information.pdf`
 - `../../../experiments/chimeric-gpa1/literature/source_attachments/Yang2024-Switching-Go-Martini-tutorial.zip`
 - `../../../experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md`
+- `../../../experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`
 
 ## Referenced by / 被引
 
@@ -72,3 +74,4 @@ Project interpretation:
 - `../../../experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md`
 - `../../../experiments/chimeric-gpa1/literature/r4_cg_source_screen_20260704.tsv`
 - `../../../experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md`
+- `../../../experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`

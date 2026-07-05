@@ -173,6 +173,24 @@ Until those are source-backed, R4 cannot move to build, E2, or candidate applica
 
 After extracting P0047, its SI/tutorial archive, and P0040, the remaining source-gate gap is narrower but still material: no direct GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG workflow has been extracted, and neither paper defines a validated receptor-Galpha interface preservation gate or buildable `chctrl` object contract.
 
+## 2026-07-05 New-Source Chase
+
+The follow-up source-acquisition pass is recorded in:
+
+```text
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv
+```
+
+Action summary:
+
+- direct GPCR-Galpha / GPCR-G protein CG metadata search did not retain a usable direct workflow;
+- Ste2/Gpa1 CG search returned no records with provider failures, so it remains a retry/manual-search item;
+- interface/contact-bias searches made OLIVES the clearest immediate method seed and put GoMartini3 and OliGoMers into the next full-text queue;
+- backmapping/revalidation searches need manual DOI seed extraction, with Lopez2022 and Aydin2025 queued as workflow-bridge sources.
+
+Project action lane after this pass: **R4-B focused extraction**. The next useful task is to extract GoMartini3, OLIVES, OliGoMers, and a minimal CG-to-AA validation bridge, then decide whether to draft an R4 object contract or park R4 for the 2026 timeline.
+
 ## Decision
 
 - R4 remains the selected next route family for source-gate investigation because it is the only current route family with plausible large compute-reduction upside.
@@ -197,6 +215,8 @@ After extracting P0047, its SI/tutorial archive, and P0040, the remaining source
 - `docs/papers/pdf/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.pdf`
 - `experiments/chimeric-gpa1/literature/fulltext_md/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer.md`
 - `docs/papers/summaries/Sahoo2023-Type1-Receptor-Dimers-Martini3-AF2Multimer-summary.md`
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv`
 
 ## Referenced by / 被引
 
@@ -209,3 +229,4 @@ After extracting P0047, its SI/tutorial archive, and P0040, the remaining source
 - `docs/logs/2026-07-05.md`
 - `docs/logs/2026-07-04.md`
 - `experiments/chimeric-gpa1/literature/r4_gpcr_galpha_citation_chasing_20260704.md`
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`

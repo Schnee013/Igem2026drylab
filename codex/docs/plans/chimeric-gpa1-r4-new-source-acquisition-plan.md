@@ -26,6 +26,26 @@ At the end of this plan, write one short decision package that chooses one of th
 - **Prepare local dry-build plan**: enough material exists to design local files and checks for `chctrl`, still without E2 launch.
 - **Park R4 for 2026**: direct sources are too weak for the project timeline; keep Yang2024/Sahoo2023 as background and move MD effort toward mutant GPR pretests or other drylab outputs.
 
+## Status Update: 2026-07-05 Pass 1
+
+Pass 1 metadata/source-chasing has produced its first memo and seed table:
+
+```text
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv
+```
+
+Current action lane: **R4-B focused extraction**.
+
+Meaning for the drylab workflow: keep R4 alive for one short method-source extraction pass, but spend that pass on the exact missing object-contract fields:
+
+- receptor-Galpha or protein-complex interchain/contact-bias policy;
+- GoMartini3 / OLIVES / OliGoMers structure-bias choice;
+- CG-to-AA backmapping or atomistic revalidation path;
+- final decision on object-contract draft versus parking R4 for 2026.
+
+The next useful work is not another broad Martini search. It is method extraction from the seed table above, then a one-page R4 decision package.
+
 ## Source Targets
 
 ### A. Direct GPCR-Galpha / Ste2-Gpa1 CG Sources
@@ -180,7 +200,7 @@ Write a one-page decision package:
 Use this as the next working instruction:
 
 ```text
-Continue /Users/roy/Documents/drylab iGEM2026 drylab goal. Use drylab-project, read AGENTS.md and docs/DOCMAP.md, then follow codex/docs/plans/chimeric-gpa1-r4-new-source-acquisition-plan.md. Do not SSH, do not run E2, do not build chctrl or candidates. Start with Pass 1 metadata/seed search for direct GPCR-Galpha / Ste2-Gpa1 coarse-grained or multiscale sources. Write results to experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md and a TSV seed table if useful. The purpose is to decide the next drylab action for iGEM2026, not to produce another generic literature summary.
+Continue /Users/roy/Documents/drylab iGEM2026 drylab goal. Use drylab-project, read AGENTS.md and docs/DOCMAP.md, then follow codex/docs/plans/chimeric-gpa1-r4-new-source-acquisition-plan.md plus experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md. Do not SSH, do not run E2, do not build chctrl or candidates. Start from experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv and extract GoMartini3, OLIVES, OliGoMers, then Lopez2022/Aydin2025 validation bridge. The output should be an R4 decision package: draft object contract, keep design-only, park R4 for 2026, or write a manual acquisition queue.
 ```
 
 ## References / 所引
@@ -190,6 +210,8 @@ Continue /Users/roy/Documents/drylab iGEM2026 drylab goal. Use drylab-project, r
 - `experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md`
 - `experiments/chimeric-gpa1/literature/r4_gpcr_galpha_citation_chasing_20260704.md`
 - `experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md`
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`
+- `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv`
 - `docs/papers/summaries/Yang2024-Switching-Go-Martini-summary.md`
 - `docs/logs/2026-07-05.md`
 
