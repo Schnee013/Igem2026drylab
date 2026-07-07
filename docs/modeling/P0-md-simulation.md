@@ -3,7 +3,7 @@ direction: P0-md-simulation
 status: compute_triage
 priority: P0
 chassis_dependent: false
-last_updated: 2026-07-04
+last_updated: 2026-07-06
 ---
 
 # P0: MD 模拟（机制验证 + 嵌合 Gpa1 稳定性）
@@ -22,7 +22,15 @@ last_updated: 2026-07-04
 >
 > **2026-06-26 校准**：旧 Slurm 上 chimeric control/chctrl 组 3 reps MD 已完成；E2 路线只有 chctrl rep1 及其 smoke / benchmark / early-gate 证据，不能写成 E2 完成 3 reps。候选体系 full MD 因算力不足暂停。当前 MD 主线改为两步并行：调研 chimeric Gpa1 省算力 protocol（减少体系大小或更强物理限制），并从 `Gpr2_R59C` / `Gpr3_R167Y` 启动 mutant GPR MD 的体系大小核查和短程算力测试。
 >
-> **2026-07-04 校准**：R1 `chctrl` tight full-system rebuild 已完成 E2 step6 和 100 ps short production，但 `120 A` XY / `20 A` water 的实例是 Z-only 缩减，atom-count delta 只有 `-2.57%`。公开 atom-count 对照未显示该体系蛋白/总原子占比异常，因此 R1 Z-only 保留为 build/run evidence point，不作为省算力成功或候选迁移规则。用户同意降级后，当前 chimeric 下一 route family 记录为 R4 coarse-grained/multiscale source gate；R4 首轮方法提取支持继续 source gate，但没有直接 GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG source，不能进入 build/E2/candidate；full-object throughput baseline 只作配套排程/性能规划，不是体系缩减路线。见 `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md` 和 `experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md`。
+> **2026-07-05 校准**：R1 `chctrl` tight full-system rebuild 已完成 E2 step6 和 100 ps short production，但 `120 A` XY / `20 A` water 的实例是 Z-only 缩减，atom-count delta 只有 `-2.57%`。公开 atom-count 对照未显示该体系蛋白/总原子占比异常，因此 R1 Z-only 保留为 build/run evidence point，不作为省算力成功或候选迁移规则。full-object throughput baseline 只作配套排程/性能规划，不是体系缩减路线。
+>
+> **2026-07-06 校准**：`Gpr2_WT + ASCR18` 已完成 E2 100 ps short benchmark，作为 Decision 005 后 mutant GPR 前测的 WT holo 资源基线；该结果只回答 GPU 占用和短程生产速率，不支持突变体稳定性、配体稳定性或 full-production 收敛结论。`Gpr2_WT + ASCR18` 200 ns rep1 目前只有 launch-gate/started 证据，尚无 completion archive。
+>
+> 当前 mutant GPR 主线仍是 local input gate：按 `../../codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md`、`../../experiments/md-simulation/analysis/mutant_gpr_input_gate_20260705/material_matrix.tsv` 和 `../../experiments/md-simulation/analysis/mutant_gpr_input_gate_20260705/decision_package.md` 把 `Gpr2_R59C + ASCR18` / `Gpr3_R167Y + ASCR3` 推进到可审计 MD input package。两个 system 已有 PPM output、CHARMM-GUI manual submission package、return-intake 模板、submission preflight、return validator、Gpr3 ASCR3 46-atom coordinate layer 和后续 metric preregistration；仍需按 `../../experiments/md-simulation/analysis/mutant_gpr_input_gate_20260705/charmm_gui_output_work_order_20260706.md` 回收 CHARMM-GUI output，填 intake/manifest，再做 final ligand insertion/alignment、topology、index 和 warning review。
+>
+> **2026-07-06 operator packet**：当前 CHARMM-GUI 操作员上传/校验/回传清单已集中到 `../../experiments/md-simulation/analysis/mutant_gpr_input_gate_20260705/charmm_gui_operator_packet_20260706.md` 和 `.tsv`；该包给出两个体系的 upload PDB、SHA256、counts、settings/manifest checksum、return target 和 validator command，是下一步人工提交/回收 CHARMM-GUI output 的执行入口。
+>
+> **2026-07-06 采样队列决策**：为节省 E2 共享 A100 算力，GPR MD 不按 `Gpr2/Gpr3 WT x ASCR3/ASCR18` 全矩阵或 Channel A/B top3 mutant 全量 3 reps 铺开。当前队列为：先完成并归档 `Gpr2_WT + ASCR18` 200 ns rep1；随后推进 `Gpr2_R59C + ASCR18` package gate、smoke/benchmark 和 200 ns rep1；先做 Gpr2 WT/mut matched analysis；再启动 Gpr3 matched ASCR3 pair（`Gpr3_WT + ASCR3` 与 `Gpr3_R167Y + ASCR3`）。rep1 稳定时可暂停 rep2/3，待最终 candidate 保留后再补；rep1 只作为 triage evidence，不作为最终 3-rep 统计结论。
 
 ## 解决什么问题
 
@@ -284,7 +292,6 @@ Phase C4: Production MD
   旧计划：500 ns × 3 reps × 4 systems = 6000 ns
   2026-06-26 决策：旧 Slurm control/chctrl 组 3 reps 已完成；E2 只有 chctrl rep1 证据；候选体系 full-production 暂停
   2026-07-04 R1-Z 校准：R1 reduced chctrl 可 build/short-run，但 Z-only atom-count 降幅不足；不迁移候选
-  下一步：R4 coarse-grained/multiscale source gate；full-object throughput baseline 仅作配套排程/性能规划
   E2 是共享服务器；新的 MD 前测必须先做资源估算和短程 benchmark，不长期独占 A100
 
 Phase C5: 分析
@@ -310,7 +317,7 @@ Phase C5: 分析
 | C1 | 结构准备 | AF3 CIF / PDB 7AD3 | 清理 PDB + PPM 对齐 | ✅ 完成（详见 04-18/04-26 日志） |
 | C2 | 膜体系构建 | PPM 对齐 PDB | CHARMM-GUI GROMACS 输出 | ✅ 完成（chctrl/Ch-1/Ch-2/Ch-4 已建系） |
 | C3 | EM + 平衡化 | Phase C2 体系 | 可跑 production 的体系 | ✅ chctrl/Ch-1/Ch-2/Ch-4 完成 step6.6 |
-| C4 | Production MD | Phase C3 体系 | trajectories (.xtc/.trr) | ⏸ 旧 Slurm control/chctrl 组 3 reps 已完成；E2 只有 chctrl rep1 证据；R1-Z 已降级为省算力不足；Ch-1/Ch-2/Ch-4 candidate full-production 因算力不足暂停；当前只推进 R4 source gate 与 chctrl-first route design |
+| C4 | Production MD | Phase C3 体系 | trajectories (.xtc/.trr) | ⏸ 旧 Slurm control/chctrl 组 3 reps 已完成；E2 只有 chctrl rep1 证据；R1-Z 已降级为省算力不足；Ch-1/Ch-2/Ch-4 candidate full-production 因算力不足暂停 |
 | C5 | 分析 | trajectories | 7 项指标 + 可选 MM-PBSA | ⏳ chctrl 结果待 source audit 与分析；candidate 体系等待新 protocol |
 
 ## 算力资源
@@ -321,7 +328,7 @@ Phase C5: 分析
 - 2026-06-26 后 chimeric candidate full-production 暂停；旧 Slurm RTX 5090 validated secondary route 仅保留为历史/未来备选指针，不能直接启动新的 production。
 - 旧 Slurm 操作指南 [slurm-md-server.md](../ops/archives/slurm-md-server.md) 仅保留历史执行记录、硬件和坑位追溯；2026-04-26 Slurm 历史核查和旧 production 日志只用于追溯，不作为当前 rerun 结果。
 - E2 MD/GROMACS 环境证据矩阵见 [e2-md-gromacs.md](../../environments/e2-md-gromacs.md)；站点环境细节不在本文重复维护。
-- chimeric rerun 旧范围为 chctrl + Ch-1/Ch-2/Ch-4；截至 2026-07-04，旧 Slurm control/chctrl 组 3 reps 已完成，E2 路线有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据，但 R1-Z atom-count 降幅不足，candidate full-production 继续暂停。当前 chimeric 下一 route family 为 R4 coarse-grained/multiscale source gate；full-object throughput baseline 只作配套排程/性能规划。同时从 `Gpr2_R59C` / `Gpr3_R167Y` 做 mutant GPR 体系大小核查和短程算力测试。
+- chimeric rerun 旧范围为 chctrl + Ch-1/Ch-2/Ch-4；截至 2026-07-06，旧 Slurm control/chctrl 组 3 reps 已完成，E2 路线有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据，但 R1-Z atom-count 降幅不足，candidate full-production 继续暂停。mutant GPR 当前状态回 [docs/INDEX.md](../INDEX.md) 和 `../../codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md`；未完成门禁是 WT rep1 completion archive、两个 mutant system 的 CHARMM-GUI returned output，以及 final coordinate/topology/index/warning review。
 
 ### 本地 Windows 节点：不用于 MD
 
@@ -340,13 +347,13 @@ Phase C5: 分析
 | 2 | Docking pose 提取 + 坐标对齐 | Vina PDBQT + Phase 1 体系 | 膜坐标系下的配体 aligned PDB | Gpr3 ✅ / Gpr2 ✅ (3D offset) |
 | 2.5 | 配体 CGenFF 参数化（去质子化） | 去质子化 SDF | .itp (qtot=-1) | ✅ ASCR18 + ASCR3 |
 | 3 | 拓扑合并 + EM + 平衡化 | Phase 1 体系 + Phase 2 配体 + Phase 2.5 itp | 可跑 production 的 WT holo 体系 | ✅ 完成 (Gpr2 job 6595 + Gpr3 job 6596) |
-| 4 | 突变体引入 | Phase 3 WT holo 体系 + 突变定义 | 突变体体系 (local EM + 6 步 eq) | ⏳ 2026-06-26 后从 `Gpr2_R59C` / `Gpr3_R167Y` 做体系大小核查和算力测试准备 |
-| 5 | Production MD | Phase 3/4 体系 | trajectories (.xtc/.trr) | ❌ full production 未开始；需先通过资源估算和短程 benchmark |
+| 4 | 突变体引入 | Phase 3 WT holo 体系 + 突变定义 | 突变体体系 (local EM + 6 步 eq) | ⏳ `Gpr2_R59C` / `Gpr3_R167Y` 已到 CHARMM-GUI manual submission + return-intake gate；仍缺 returned output、final coordinates、topology、index 和 warning review |
+| 5 | Production MD | Phase 3/4 体系 | trajectories (.xtc/.trr) | baseline：`Gpr2_WT + ASCR18` 100 ps E2 short benchmark 已完成；WT 200 ns rep1 只有 launch/started 证据；mutant/full production 未开始，需另过输入门禁与排程决策 |
 | 6 | 分析 | trajectories | 盐桥占比 / RMSD / IFP / MM-PBSA | ❌ 未开始 |
 | **C1** | **Chimeric 结构准备** | AF3 CIF / PDB 7AD3 | 清理 PDB + PPM 对齐 | ✅ 完成 |
 | **C2** | **Chimeric 膜体系构建** | PPM 对齐 PDB | CHARMM-GUI GROMACS 输出 | ✅ 完成 |
 | **C3** | **Chimeric EM + 平衡化** | Phase C2 体系 | 可跑 production 的体系 | ✅ step6.6 完成 |
-| **C4** | **Chimeric Production MD** | Phase C3 体系 | trajectories (.xtc/.trr) | ⏸ 旧 Slurm control/chctrl 组 3 reps 已完成；E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1-Z 降级，candidate full-production 暂停；当前只推进 R4 source gate 与 chctrl-first route design |
+| **C4** | **Chimeric Production MD** | Phase C3 体系 | trajectories (.xtc/.trr) | ⏸ 旧 Slurm control/chctrl 组 3 reps 已完成；E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1-Z 降级，candidate full-production 暂停 |
 | **C5** | **Chimeric 分析** | trajectories | 7 项指标 + 可选 MM-PBSA | ⏳ chctrl 结果待 source audit 与分析；candidate 体系等待新 protocol |
 
 > Chimeric MD Phase（C1-C5）独立于突变体 MD Phase（0-6），可并行执行。详见 §问题 4。
@@ -441,8 +448,10 @@ Phase 6 → 阻塞于 Phase 5
 | 2026-06-01 | tiered validation protocol | 100-150 ns defined as full-system early stability gate; 500 ns/replicate remains final target; local pocket/interface-only MD is not an equivalent rerun substitute |
 | 2026-06-26 | MD 算力收缩决策 | 旧 Slurm chimeric control/chctrl 组 3 reps 已完成；E2 只有 chctrl rep1 证据；candidate full-production 暂停；转为 chimeric 省算力 protocol 调研 + `Gpr2_R59C` / `Gpr3_R167Y` mutant GPR 前测 |
 | 2026-07-04 | R1-Z 公开 atom-count 对照 | R1 reduced `chctrl` 可 build/short-run，但 Z-only atom-count delta 仅 `-2.57%`；该实例保留为 evidence point，不作为省算力成功或候选迁移规则；下一步为 route family 选择 |
-| 2026-07-04 | route-family selection | 用户同意 R1-Z 降级后，下一 chimeric route family 记录为 R4 coarse-grained/multiscale source gate；full-object throughput baseline 仅作配套排程/性能规划 |
-| 2026-07-04 | R4 method extraction | 首轮 R4 source-gate 方法提取支持继续设计，但未找到直接 GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG source；不进入 build/E2/candidate |
+| 2026-07-05 | WT holo E2 short benchmark | `Gpr2_WT + ASCR18` 100 ps 短时 MD benchmark 完成，作为 mutant GPR 前测资源基线；不作为突变体稳定性或 full-production 收敛结论 |
+| 2026-07-05/06 | Mutant GPR local input gate | 两个 mutant system 已从 AF3/package design 推进到 ligand topology scaffold、clean receptor、PPM output、CHARMM-GUI manual submission package；仍不是 runnable package |
+| 2026-07-06 | Mutant GPR return workflow | CHARMM-GUI operator packet、return intake、submission preflight、return validator、material-return board 和 outbound request pack 已形成；下一步是 output acquisition + final package review |
+| 2026-07-06 | GPR sampling queue and WT rep1 launch | 队列收缩为先完成 `Gpr2_WT + ASCR18` rep1，再做 Gpr2 WT/mut matched analysis；当前只有 rep1 launch-gate/started 证据，尚无 completion archive |
 
 ## 版本记录
 
@@ -461,8 +470,9 @@ Phase 6 → 阻塞于 Phase 5
 | 2026-05-30 | v2.0 | 把旧 Slurm RTX 5090 纳入新统一 rerun 体系，但只作为同 pin 验证后的 secondary site；新增站点矩阵和 Slurm gate scripts | `environments/md-production-sites.md`, `codex/docs/plans/chimeric-md-unified-rerun-sites.md` |
 | 2026-06-01 | v2.1 | 新增 tiered validation 摘要：100-150 ns 是 full-system early stability gate，不替代 500 ns final production，也不引入局部口袋 production rerun | `codex/docs/plans/e2-chimeric-md-restart.md` |
 | 2026-06-26 | v2.2 | frontmatter 改为 compute_triage；chimeric candidate full-production 标记暂停；新增 mutant GPR 前测起点和 E2 共享资源边界 | [决策 005](../decisions/005-md-compute-triage-after-chctrl.md), [2026-06-26 日志](../logs/2026-06-26.md) |
-| 2026-07-04 | v2.3 | 记录 R1-Z 降级后的 route-family selection：R4 coarse-grained/multiscale 进入 source gate，full-object throughput baseline 仅作配套规划 | `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md`, [2026-07-04 日志](../logs/2026-07-04.md) |
-| 2026-07-04 | v2.4 | 补充 R4 首轮方法提取结果：继续 source gate，但 direct GPCR-Galpha CG source 未找到，build/E2/candidate 仍阻塞 | `experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md`, [2026-07-04 日志](../logs/2026-07-04.md) |
+| 2026-07-05 | v2.7-v3.4 | 补充 WT short benchmark 与 mutant GPR local input-gate 指针；详细材料清单回日志、plan 和 analysis package | [2026-07-05 日志](../logs/2026-07-05.md), `../../codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md` |
+| 2026-07-06 | v3.5-v3.8 | 补充两个 mutant system 的 PPM/CHARMM-GUI handoff、Gpr3 ASCR3 coordinate layer 和 CHARMM-GUI output work order 指针 | [2026-07-06 日志](../logs/2026-07-06.md), `../../experiments/md-simulation/analysis/mutant_gpr_input_gate_20260705/charmm_gui_output_work_order_20260706.md` |
+| 2026-07-06 | v3.9-v3.12 | 补充 return intake/validator/submission-preflight 指针；当前下一步为人工提交、returned-output intake、final package review | `../../experiments/md-simulation/analysis/mutant_gpr_input_gate_20260705/charmm_gui_submission_preflight_20260706.tsv`, `../logs/2026-07-06.md` |
 
 ## 与其他方向的依赖关系
 
