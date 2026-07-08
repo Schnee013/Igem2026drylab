@@ -1,17 +1,17 @@
 check	status	value	evidence	caveat
 source_archive	present	charmm_gui_8305210188_xy120_w20_download.tgz	source_archives/charmm_gui_8305210188_xy120_w20_download.tgz	Original CHARMM-GUI archive retained under prototype root.
-source_archive_sha256	pass	486963899f9522767492e87aead931ddd8398755d08d950bf1d1d9913918745e	source_files.sha256	Archive checksum only; not a build or smoke result.
+source_archive_sha256	pass	486963899f9522767492e87aead931ddd8398755d08d950bf1d1d9913918745e	source_files.sha256	Archive checksum evidence; build and smoke evidence require separate gates.
 archive_gromacs_package	extracted	22_files_total_7_toppar_files	gromacs/	Includes existing README.md plus CHARMM-GUI extracted files.
-local_gmx	check_failed_no_path	command_-v_gmx_returned_no_path	local shell 2026-07-04	Local grompp not available.
+local_gmx	check_failed_no_path	command_-v_gmx_returned_no_path	local shell 2026-07-04	Local grompp unavailable in this shell.
 prototype_initial_atoms	pass	257130	gromacs/step5_input.gro	line 2 atom count.
 baseline_atoms_reference	pass	263906	experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/gromacs/step6.6.gro	Reference is historical post-equilibration chctrl count.
-atom_count_delta	pass	-6776_atoms_minus_2.57_percent	computed from prototype step5_input.gro vs baseline step6.6.gro	Not benchmark evidence.
+atom_count_delta	pass	-6776_atoms_minus_2.57_percent	computed from prototype step5_input.gro vs baseline step6.6.gro	Atom-count evidence only; benchmark evidence is separate.
 component_delta	pass	PROA_1_PROB_1_POPC_389_unchanged_TIP3_minus_2254_POT_minus_7_CLA_minus_7	gromacs/topol.top vs baseline topol.top	Z-only water/ion reduction; no XY membrane reduction.
-prototype_initial_box	pass	12.02529x12.02529x18.78350_nm	gromacs/step5_input.gro	Initial CHARMM-GUI box; not equilibrated.
+prototype_initial_box	pass	12.02529x12.02529x18.78350_nm	gromacs/step5_input.gro	Initial CHARMM-GUI box before equilibration.
 historical_initial_box_reference	pass	12.02529x12.02529x19.28350_nm	baseline gromacs/step5_input.gro	Shows 20 A water job reduced initial Z by 0.5 nm relative to historical 22.5 A setup.
 topology_atom_sum	pass	257130	gromacs/topol.top plus gromacs/toppar/*.itp	Matches step5_input.gro atom count.
 required_index_groups	pass	SOLU_14365_MEMB_52126_SOLV_190639_SOLU_MEMB_66491_SYSTEM_257130	gromacs/index.ndx	Counts parse successfully.
 production_mdp_core	pass	identical_core_to_current_chctrl_step7	gromacs/step7_production.mdp; baseline gromacs/step7_production.mdp	tc_grps, comm_grps, C-rescale semiisotropic, constraints, dt, nsteps match.
 step6_mdp_schedule	present	minimization_plus_6_equilibration_steps	gromacs/step6.*.mdp	Requires E2 or local GROMACS to generate step6.6_equilibration outputs.
 build_gate	partial_static_only	files_extracted_checksums_static_counts_ok	local_static_validation.tsv	No grompp, mdrun, benchmark, or physical sanity gate yet.
-candidate_transfer	blocked	padding_rule_exploratory_and_no_smoke_or_benchmark	padding_rule.md; command_plan.md	This Z-only exploratory prototype is not a candidate replacement rule.
+candidate_transfer	blocked	padding_rule_exploratory_and_no_smoke_or_benchmark	padding_rule.md; command_plan.md	Candidate replacement rule requires accepted padding, smoke, benchmark, and physical sanity gates.

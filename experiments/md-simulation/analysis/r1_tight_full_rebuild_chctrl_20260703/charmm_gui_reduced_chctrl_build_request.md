@@ -4,11 +4,11 @@
 >
 > Scope: R1 `tight-full-rebuild` exploratory prototype for `chimeric-ste2-gpa1-wt` / `chctrl` only.
 >
-> Status: human/manual CHARMM-GUI Membrane Builder checklist. This file is not an accepted candidate-transfer rule and is not E2 approval.
+> Status: human/manual CHARMM-GUI Membrane Builder checklist. Candidate-transfer rule status and E2 approval require separate gates.
 
 ## Purpose
 
-Generate one reduced full-system `chctrl` GROMACS package with CHARMM-GUI Membrane Builder while preserving the complete receptor-Galpha protein complex, POPC membrane, explicit water, ions, and membrane-compatible full-system evidence.
+Generate one reduced full-system `chctrl` GROMACS package with CHARMM-GUI Membrane Builder while preserving the full receptor-Galpha protein complex, POPC membrane, explicit water, ions, and membrane-compatible full-system evidence.
 
 The only intended reduction is avoidable XY membrane/box padding, and optionally avoidable Z solvent padding if recorded as a separate exploratory attempt. No protein atom, receptor scaffold, Galpha region, POPC class, explicit-solvent model, or ions may be removed manually.
 
@@ -26,7 +26,7 @@ References / 所引:
 Referenced by / 被引:
 
 - `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/source_pointers.md`
-- Expected downstream: future `build_notes.md`, `source_files.sha256`, atom-count delta, and Package B E2 approval after a reduced build exists.
+- Expected next records: future `build_notes.md`, `source_files.sha256`, atom-count delta, and Package B E2 approval after a reduced build exists.
 
 ## Input Choice
 
@@ -38,7 +38,7 @@ experiments/md-simulation/structures/chimeric/Chctrl_Ste2_Gpa1_WT_submit.pdb
 
 This is the correct web-upload class for Membrane Builder because the existing ops guide records the chimeric upload file as `*_submit.pdb`: pure `ATOM`, no `DUM` `HETATM`, filename without hyphens.
 
-Do not upload the current historical system file:
+Upload source excludes the current historical system file:
 
 ```text
 experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/gromacs/step5_input.pdb
@@ -63,7 +63,7 @@ The copied upload file must remain byte-identical except for filename unless a s
    ```
 
 2. Turn off network proxy before submitting if possible; the existing drylab guide records lower reliability with proxy enabled.
-3. Create or use a CHARMM-GUI account normally. Do not write account credentials, email tokens, or passwords into this repo.
+3. Create or use a CHARMM-GUI account normally. Keep account credentials, email tokens, and passwords outside this repo.
 4. Use a job note/name such as:
 
    ```text
@@ -78,7 +78,7 @@ The copied upload file must remain byte-identical except for filename unless a s
 4. `Check pKa`: unchecked.
 5. Chain selection: keep both chains selected.
 6. Terminal patching for both protein chains: keep default `NTER/CTER`.
-7. Disulfide bonds: if CHARMM-GUI auto-detects a GPCR disulfide, confirm it; if no prompt appears, do not manually invent one.
+7. Disulfide bonds: if CHARMM-GUI auto-detects a GPCR disulfide, confirm it; otherwise keep the site default.
 8. Keep remaining options at default and continue with `Generate PDB and Orient Molecule`.
 
 Record:
@@ -113,13 +113,13 @@ Live manual-build observation from 2026-07-03:
 
 - `110 Å` produced CHARMM-GUI warning: `The system is smaller than the protein extent. If there are errors on the next page, the XY system size may need to be increased.`
 - `115 Å` produced the same warning.
-- `120 Å` did not produce that warning, matching the historical drylab chctrl guide.
+- `120 Å` produced no protein-extent warning, matching the historical drylab chctrl guide.
 - Z-only exploratory attempt `120 Å XY + 20.0 Å water` was started as CHARMM-GUI Job ID `8305210188`.
 - Job `8305210188` Step 4 penetration checks reported no protein surface penetration and no lipid ring penetration. The job reached the `Building Ion and Waterbox` prompt.
 - Job `8305210188` was later downloaded as `charmm_gui_8305210188_xy120_w20_download.tgz`, moved into the R1 prototype `source_archives/` directory, and extracted only into the R1 prototype `gromacs/` directory.
 - The downloaded archive SHA256 is `486963899f9522767492e87aead931ddd8398755d08d950bf1d1d9913918745e`.
 
-Interpretation for this R1 pass: `110 Å` and `115 Å` are abandoned XY-reduction attempts. The current minimum no-warning XY value is `120 Å`. Do not carry a warned `110 Å` or `115 Å` job forward to Step 4/5 as the R1 prototype.
+Interpretation for this R1 pass: `110 Å` and `115 Å` are abandoned XY-reduction attempts. The current minimum no-warning XY value is `120 Å`; carry-forward R1 prototypes use no-warning jobs.
 
 Recommended exploratory strategy:
 
@@ -128,10 +128,10 @@ Recommended exploratory strategy:
 3. Set `Length of X and Y = 120 Å` for the carried-forward no-warning build.
 4. Keep `Water thickness = 22.5 Å` for the first carried-forward build to preserve the historical hydration setting and avoid mixing XY and Z changes.
 5. Click `Show the system info`.
-6. If `120 Å` unexpectedly produces a protein-extent warning, protein-image warning, or later Step 4 hard error in a fresh job, stop and record the discrepancy instead of carrying forward a warned job.
-7. If an actual atom-count reduction is still required after the no-warning XY floor is established, make any Z-water reduction a separate exploratory job with `Length of X and Y = 120 Å`; do not combine it with the abandoned `110 Å` or `115 Å` XY attempts.
-8. Do not go below the smallest no-warning XY value without a separate written justification and a new attempt record.
-9. Do not reduce water thickness in the same first carried-forward attempt. If Z reduction is later explored, run it as a second job, for example `120 Å XY + 20.0 Å water`, and label it separately from the `120 Å / 22.5 Å` no-warning reference rebuild.
+6. If `120 Å` unexpectedly produces a protein-extent warning, protein-image warning, or later Step 4 hard error in a fresh job, stop and record the discrepancy; carry-forward status requires a no-warning job.
+7. If an actual atom-count reduction is still required after the no-warning XY floor is established, make any Z-water reduction a separate exploratory job with `Length of X and Y = 120 Å`; keep it separate from the abandoned `110 Å` or `115 Å` XY attempts.
+8. Values below the smallest no-warning XY value require a separate written justification and a new attempt record.
+9. The first carried-forward attempt should preserve water thickness. If Z reduction is later explored, run it as a second job, for example `120 Å XY + 20.0 Å water`, and label it separately from the `120 Å / 22.5 Å` no-warning reference rebuild.
 
 Record for every attempted job:
 
@@ -167,13 +167,13 @@ If penetration or size errors occur, retry with a larger XY value and record the
 
 ## Step 5: Assembly
 
-1. Wait for the system assembly page to complete.
+1. Wait for the system assembly page to finish.
 2. Record the CHARMM-GUI Job ID.
 3. Record the total atom count and molecule counts shown by CHARMM-GUI.
 4. Check that the job still contains both protein chains, POPC, water, K+, and Cl-.
-5. Continue only if the assembled system is complete.
+5. Continue only if the assembled system contains the required protein chains, POPC, water, K+, and Cl-.
 
-Do not interpret atom-count reduction as success yet. It is only an input to later `grompp`, smoke, benchmark, and physical sanity gates.
+Atom-count reduction is an input to later `grompp`, smoke, benchmark, and physical sanity gates.
 
 ## Step 6: Generate Inputs
 
@@ -181,7 +181,7 @@ Do not interpret atom-count reduction as success yet. It is only an input to lat
 2. Leave WYF, HMR, and multi-site calcium options unchecked.
 3. Input generation: select `GROMACS` only.
 4. `More CHARMM minimization`: unchecked.
-5. Equilibration: select `NPT`; do not select unrelated ensembles unless CHARMM-GUI forces a change.
+5. Equilibration: select `NPT`; other ensembles require a CHARMM-GUI-forced change and a recorded reason.
 6. Temperature: `303.15 K`.
 7. Generate grid info for PME FFT automatically: checked.
 8. Generate and download `download.tgz`.
@@ -196,7 +196,7 @@ Record:
 
 ## Local Placement After Download
 
-Unpack the downloaded CHARMM-GUI archive in a temporary location first. Do not overwrite the historical system directory:
+Unpack the downloaded CHARMM-GUI archive in a temporary location first. Preserve the historical system directory:
 
 ```text
 experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/gromacs/
@@ -245,7 +245,7 @@ After the download is placed under the R1 prototype `gromacs/` directory, the ne
 4. inspect `index.ndx`, especially `SOLU`, `MEMB`, `SOLV`, `SOLU_MEMB`, and `SYSTEM`;
 5. compare MDP settings against the current production MDP;
 6. update `build_notes.md`, `route.json`, `source_files.sha256`, and source pointers;
-7. prepare Package B E2 approval only if the reduced system is complete.
+7. prepare Package B E2 approval only if the reduced system contains the required files and components.
 
 Any E2 `grompp`, smoke `mdrun`, output preprocessing, or binary-output evidence analysis must use:
 
@@ -253,7 +253,7 @@ Any E2 `grompp`, smoke `mdrun`, output preprocessing, or binary-output evidence 
 /ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi
 ```
 
-No E2 command is approved by this checklist.
+E2 command approval requires a separate package.
 
 ## Stop Conditions
 
@@ -265,5 +265,5 @@ Stop and report the issue before continuing if any of the following occurs:
 - the smallest attempted reduced XY value gives protein-extent warnings or Step 4 hard errors;
 - packing reports unresolved penetration;
 - generated GROMACS package lacks `topol.top`, `index.ndx`, `toppar/`, or coordinate/MDP files;
-- CHARMM-GUI forces force-field, water/ion, ensemble, or temperature changes not recorded in this checklist;
+- CHARMM-GUI forces force-field, water/ion, ensemble, or temperature changes outside this checklist;
 - any candidate system or Ch-1/Ch-2/Ch-4 file is accidentally selected.

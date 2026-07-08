@@ -8,7 +8,7 @@
 | `codex/docs/plans/chimeric-gpa1-r1-tight-full-rebuild-chctrl-plan.md` | Route 1 chctrl tight full-system rebuild plan. |
 | `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/command_plan.md` | E2 Package B/C approval package and command record. |
 | `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/padding_rule.md` | Current `exploratory` padding rule boundary. |
-| `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` | Public/local atom-count comparison and post-run decision that the current Z-only R1 instantiation is not a compute-saving solution. |
+| `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` | Public/local atom-count comparison and post-run decision that the current Z-only R1 instantiation is below the reduction needed for compute-saving route status. |
 | `experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/route.json` | Prototype metadata and current gate status. |
 | `experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/build_notes.md` | Human-readable prototype build notes and caveats. |
 | `experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/source_files.sha256` | Checksums for prototype inputs, metadata, and selected result pointers. |
@@ -48,4 +48,4 @@
 
 ## Interpretation Boundary
 
-This result root is chctrl-only. It records build/equilibration and short-production evidence for the exploratory reduced `chctrl` prototype. It is not a compute-saving success claim, not a candidate action, and does not approve Ch-1, Ch-2, or Ch-4 rebuilding, benchmarking, or production.
+This result root is chctrl-only. It records build/equilibration and short-production evidence for the exploratory reduced `chctrl` prototype. Compute-saving success, candidate action, and Ch-1/Ch-2/Ch-4 rebuilding, benchmarking, or production require separate approval and evidence gates.
