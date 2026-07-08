@@ -6,11 +6,11 @@
 
 ## 1. chimeric MD：统一环境 clean-start rerun 是当前最高优先级
 
-**当前状态（2026-06-01）**：chimeric MD 决策已更新为用统一 GROMACS 2025.4 MPI-CUDA 环境 clean-start 重跑 chctrl + Ch-1/Ch-2/Ch-4。E2 是 primary；旧 Slurm RTX 5090 仅作为 validated secondary candidate。E2 推荐环境/preflight、四体系输入同步和 rep1 smoke gate 已完成；`chimeric-ste2-gpa1-wt` rep1 full production 已在 2026-05-30 02:14 CST checkpoint 后按用户要求中断并保留 canonical `prod_rep1/prod.cpt`。same-GPU 2-job benchmark 显示最佳并发总吞吐低于单 job，当前不推荐 E2 同卡并行 production；rep1 已在 tmux `e2_chctrl_rep1_resume_20260530` 用 `-cpi prod.cpt -append` 单 job 恢复。2026-06-01 新增 100-150 ns full-system early stability gate，500 ns/replicate 仍是最终目标，局部口袋/interface-only MD 不替代当前 rerun。Slurm read-only preflight/resource gate 已通过，但用户环境没有 conda/mamba/micromamba，当前 blocked before same-pin env validation。以 `docs/logs/2026-05-30.md`、`docs/logs/2026-06-01.md`、`docs/INDEX.md`、`docs/modeling/P0-md-simulation.md`、`environments/md-production-sites.md`、`codex/docs/plans/e2-chimeric-md-restart.md` 和 `codex/docs/plans/chimeric-md-unified-rerun-sites.md` 为当前路由。
+- Reviewed at: 2026-06-03
+- Current-state authority: [docs/INDEX.md](../../../docs/INDEX.md)
+- Detailed chronology authority: [docs/logs/](../../../docs/logs/)
 
 **历史状态指针**：旧 Slurm/chctrl production 和 selection audit 只作历史证据/方法参考，不再作为当前 baseline 接受状态。旧 selection audit 报告仍在 `/Users/roy/Documents/drylab/experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/selection_audit_report.md`；old Slurm production logs 在 `/Users/roy/Documents/drylab/experiments/md-simulation/results/chimeric-ste2-gpa1-wt/raw/rep{1,2,3}/prod.log`。
-
-**当前待办（2026-06-01）**：监控 E2 tmux `e2_chctrl_rep1_resume_20260530` 中的 chctrl rep1 single-job production；到 100-150 ns early gate 时按 `codex/docs/plans/e2-chimeric-md-restart.md` 暂停/同步/分析/决定继续或归档；完成后用 `RESULTS_RUN_ID=20260529_e2_rerun` 同步回本地并做 `prod.log` 正常终止、`prod.cpt/gro/xtc/edr/tpr`、checksum 和 `gmx check` 校验。Slurm 下一步需要先解决用户目录 conda-family package manager 或另行批准异路径构建；未完成 same-pin env validation 前不启动 smoke、benchmark 或 production。当前不要再做 E2 同卡 full-production 并发。
 
 - Chimeric MD current status is routed through INDEX, the MD direction doc, the active execution plans, and recent logs. Do not infer run state, targets, or continue/stop advice from memory alone. Pointers: [docs/INDEX.md](../../../docs/INDEX.md), [docs/modeling/P0-md-simulation.md](../../../docs/modeling/P0-md-simulation.md), [codex/docs/plans/e2-chimeric-md-restart.md](../plans/e2-chimeric-md-restart.md), [docs/logs/](../../../docs/logs/).
 - Remote-compute and MD site policy is indexed in the environment docs and site plans. Do not infer server, job, checkpoint, or scheduler state from memory alone. Pointers: [environments/md-production-sites.md](../../../environments/md-production-sites.md), [environments/e2-md-gromacs.md](../../../environments/e2-md-gromacs.md), [codex/docs/plans/chimeric-md-unified-rerun-sites.md](../plans/chimeric-md-unified-rerun-sites.md), [docs/ops/](../../../docs/ops/).
