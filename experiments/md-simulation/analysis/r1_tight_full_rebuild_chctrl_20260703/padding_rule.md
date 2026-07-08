@@ -2,7 +2,7 @@
 
 > Status: `exploratory`
 >
-> Current decision: no source-backed numeric padding rule is accepted. Route 1 job `8305210188` remains a chctrl exploratory build/run evidence point, but its Z-only atom-count reduction is too small to serve as the main compute-saving route or a candidate-transferable replacement protocol.
+> Current decision: accepted numeric padding rule is still pending source support. Route 1 job `8305210188` remains a chctrl exploratory build/run evidence point; its Z-only atom-count reduction is too small to serve as the main compute-saving route or a candidate-transferable replacement protocol.
 
 ## Rule Requirement
 
@@ -46,15 +46,15 @@ Disallowed in Route 1:
 
 ## Source Gate Verdict
 
-The current source matrix supports Route 1 as a plausible complete full-system rebuild route, but no source has been extracted that gives a project-specific minimum box or padding rule for this exact Ste2/Gpa1 or chimeric GPCR-Galpha object.
+The current source matrix supports Route 1 as a plausible full-system rebuild route. A project-specific minimum box or padding rule for this exact Ste2/Gpa1 or chimeric GPCR-Galpha object still requires source extraction.
 
 Therefore:
 
 - `accepted`: no.
-- `exploratory`: yes, for a chctrl-only prototype design using a complete membrane-protein builder workflow.
+- `exploratory`: yes, for a chctrl-only prototype design using a full membrane-protein builder workflow.
 - `rejected`: no, because the workflow itself remains physically plausible and source-supported at the builder-behavior level.
 
-Any future reduced `chctrl` build must record the actual builder inputs/outputs, atom-count delta, topology/index/MDP checks, and full-system sanity evidence before it can be benchmarked. It must not be called `candidate_replacement` until it passes build, smoke, short benchmark, and physical sanity gates.
+Any future reduced `chctrl` build must record the actual builder inputs/outputs, atom-count delta, topology/index/MDP checks, and full-system sanity evidence before it can be benchmarked. `candidate_replacement` status requires build, smoke, short benchmark, and physical sanity gates.
 
 ## Current Exploratory Instantiation
 
@@ -70,11 +70,11 @@ Interpretation:
 
 - The job is a Z-only water/ion reduction attempt because `120 A` XY matches the no-warning historical chctrl XY value and POPC remains `389`.
 - The atom-count delta is `-6776` atoms (`257130` vs `263906`), driven by lower `TIP3`, `POT`, and `CLA` counts.
-- The job remains `exploratory`; it is not a source-backed numeric padding rule and cannot be transferred to Ch-1/Ch-2/Ch-4.
+- The job remains `exploratory`; source-backed numeric padding and Ch-1/Ch-2/Ch-4 transfer remain pending gates.
 
 ## Current E2 Result Boundary
 
-User-approved E2 Packages B/C for job `8305210188` completed chctrl-only step6 minimization/equilibration and a 100 ps short production test. Evidence is stored at:
+User-approved E2 Packages B/C for job `8305210188` produced chctrl-only step6 minimization/equilibration outputs and a 100 ps short production test. Evidence is stored at:
 
 ```text
 experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil/
@@ -82,7 +82,7 @@ experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_ch
 
 This upgrades the prototype build/run conclusion for `chctrl`: the exploratory reduced system can be built through step6 and can run a short production test on E2.
 
-This does not upgrade the padding rule itself. The numeric `120 A` XY / `20.0 A` water setup is still a project exploratory instantiation, not a source-backed minimum, not an accepted padding rule, and not a candidate-transferable replacement protocol.
+The padding rule remains at `exploratory` status. The numeric `120 A` XY / `20.0 A` water setup is a project exploratory instantiation; source-backed minimum padding, accepted-rule status, and candidate-transferable replacement status remain pending.
 
 ## Post-Comparison Compute-Saving Verdict
 
@@ -94,8 +94,8 @@ experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_on
 
 Verdict:
 
-- The reduced `chctrl` protein atom fraction is not abnormal for an explicit-solvent membrane-protein complex.
+- The reduced `chctrl` protein atom fraction is within the public comparison range for explicit-solvent membrane-protein complexes.
 - R1 job `8305210188` is a Z-only water/ion reduction because XY and POPC count are unchanged.
-- The observed `-6776` atom delta (`-2.57%`) is not enough to solve the current E2 compute constraint.
+- The observed `-6776` atom delta (`-2.57%`) is below the reduction needed for the current E2 compute constraint.
 - Further Z-only water-thickness shaving is paused as the primary route unless a new source-backed physical rationale is added.
-- Candidate transfer remains blocked; Ch-1/Ch-2/Ch-4 must not inherit this rule.
+- Candidate transfer remains blocked; Ch-1/Ch-2/Ch-4 require a new accepted rule before migration.

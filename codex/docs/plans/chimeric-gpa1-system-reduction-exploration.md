@@ -2,9 +2,13 @@
 
 > Date: 2026-07-03
 >
-> Status: exploration plan, not an execution approval for candidate full-production MD.
+> Status: historical exploration plan.
 >
-> Current decision boundary: [Decision 005](../../../docs/decisions/005-md-compute-triage-after-chctrl.md) paused chimeric Gpa1 candidate full-production MD because the available E2 server is shared and the previous full system occupied the A100 too heavily. The next step is protocol research for reduced-compute chimeric MD, not direct continuation of Ch-1/Ch-2/Ch-4 production.
+> Original decision boundary: [Decision 005](../../../docs/decisions/005-md-compute-triage-after-chctrl.md) paused chimeric Gpa1 candidate full-production MD because the available E2 server is shared and the previous full system occupied the A100 too heavily. At creation time, the next step was protocol research for reduced-compute chimeric MD.
+>
+> Later R4 source/material records and the local material decision are
+> supporting evidence. Current launch or next-task instructions start from
+> `docs/INDEX.md`.
 
 ## Purpose
 
@@ -20,17 +24,17 @@ The plan must answer three questions before any new candidate production route i
 
 - Current MD priority and stop rule are in [Decision 005](../../../docs/decisions/005-md-compute-triage-after-chctrl.md) and [2026-06-26 log](../../../docs/logs/2026-06-26.md).
 - The MD direction document states that old Slurm control/chctrl 3 reps are historical completion evidence, while E2 has only chctrl rep1 evidence; candidate full MD is paused pending a compute-saving protocol. See [P0-md-simulation](../../../docs/modeling/P0-md-simulation.md).
-- The chimeric Gpa1 direction document states that AF3 screening and Top 3 selection are complete, but Ch-1/Ch-2/Ch-4 production is paused for compute triage. See [P3-chimeric-gprotein](../../../docs/modeling/P3-chimeric-gprotein.md).
+- The chimeric Gpa1 direction document records AF3 screening and Top 3 selection, while Ch-1/Ch-2/Ch-4 production is paused for compute triage. See [P3-chimeric-gprotein](../../../docs/modeling/P3-chimeric-gprotein.md).
 - Old E2 and unified rerun plans are historical execution/provenance references only: [e2-chimeric-md-restart](e2-chimeric-md-restart.md) and [chimeric-md-unified-rerun-sites](chimeric-md-unified-rerun-sites.md).
 - E2 use must follow the shared-server rule in [NKULiulab E2 shared server guide](../../../docs/ops/nkuliulab-e2-cloud-server.md): no long A100 occupation without explicit gate approval, and every test must record threads, GPU use, run directory, and logs.
-- The 2026-06-27 E2 chctrl rep1 analysis is a one-replicate early-gate snapshot only; it is useful as a control benchmark target but is not E2 3-rep or final-production evidence. See [2026-06-27 log](../../../docs/logs/2026-06-27.md).
+- The 2026-06-27 E2 chctrl rep1 analysis is a one-replicate early-gate snapshot only; it is useful as a control benchmark target. E2 3-rep or final-production evidence requires the corresponding replicated/final archive. See [2026-06-27 log](../../../docs/logs/2026-06-27.md).
 
-## Non-Goals
+## Scope And Gates
 
-- Do not launch Ch-1/Ch-2/Ch-4 full-production MD from this plan.
-- Do not treat local pocket/interface-only MD as a full-system replacement unless a later source-backed decision explicitly reclassifies its evidence role.
-- Do not introduce universal pass/fail cutoffs without exact source pointers. Existing bands such as alpha5 iRMSD, BSA retention, contact retention, and H-bond occupancy remain project operational heuristics unless source-audited.
-- Do not use `freezegrps` or hard freezing as a default membrane-production shortcut. If considered at all, it must be justified by official GROMACS behavior and a membrane-specific source audit.
+- This plan supports reduced-compute protocol exploration only. Ch-1/Ch-2/Ch-4 full-production MD requires a new current work order and approval.
+- Local pocket/interface-only MD is valid as local triage evidence. Full-system replacement status requires a later source-backed decision that explicitly reclassifies its evidence role.
+- Universal pass/fail cutoffs require exact source pointers. Existing bands such as alpha5 iRMSD, BSA retention, contact retention, and H-bond occupancy remain project operational heuristics unless source-audited.
+- `freezegrps` or hard freezing can be considered only with official GROMACS behavior evidence and a membrane-specific source audit.
 
 ## Workstream A: Professional Material Search
 
@@ -83,7 +87,7 @@ Create or update `experiments/chimeric-gpa1/literature/chimeric_system_reduction
 - production length, replicate count, discarded equilibration window
 - interface metrics and cutoff definitions
 - what the paper supports for this project
-- what must not be transferred to this project
+- transfer limits for this project
 - exact method-section pointer or official-doc section
 
 ## Workstream B: Existing System Inventory
@@ -141,7 +145,7 @@ Draft layer model:
 - moderate restraints: receptor transmembrane scaffold and Galpha Ras-like scaffold regions outside the immediate interface
 - stronger temporary restraints only during equilibration: distal flexible regions that otherwise dominate relaxation without answering the interface question
 
-Evidence role if it passes: useful as an early screening or stabilization protocol. It may reduce required sampling time, but it will not reduce per-ns cost because atom count remains similar.
+Evidence role if it passes: useful as an early screening or stabilization protocol. It may reduce required sampling time; per-ns cost remains similar because atom count remains full-system scale.
 
 Main risks:
 
@@ -153,38 +157,37 @@ Main risks:
 
 Extract receptor intracellular interface elements and Galpha alpha5/eCT with geometry restraints or capping, then run short atomistic simulations.
 
-Evidence role: supporting mechanism/refinement only unless a later decision upgrades it after literature review. It cannot currently replace full-system MD.
+Evidence role: supporting mechanism/refinement only unless a later decision upgrades it after literature review. Full-system MD replacement requires a separate evidence upgrade.
 
 Main risks:
 
 - Removing membrane, receptor scaffold, and Galpha domain context changes the coupling geometry.
 - Good behavior in an extracted subsystem can be an artifact of restraints.
-- Negative results may still be informative for local clashes but not for full-complex instability.
+- Negative results may still be informative for local clashes; full-complex instability requires full-system context.
 
 ### Route 4: Coarse-Grained or Multiscale Screening
 
 Evaluate Martini or another coarse-grained/multiscale approach for low-cost screening, then backmap promising systems to atomistic MD if justified.
 
-Evidence role: possible triage layer, not final atomistic interface evidence unless the workflow includes validated atomistic backmapping and comparison.
+Evidence role: possible triage layer. Final atomistic interface evidence requires validated atomistic backmapping and comparison.
 
 Main risks:
 
-- Galpha alpha5/interface contacts and chimeric junction details may not survive coarse graining.
+- Coarse graining may lose Galpha alpha5/interface contacts and chimeric junction detail.
 - Backmapping adds another uncontrolled source of structural drift.
-- Literature support must be GPCR-G protein relevant, not generic membrane-protein-only.
+- Literature support must be GPCR-G protein relevant; generic membrane-protein-only sources serve as background.
 
 ### Retired Route 5: Metric/Input Dependency Triage
 
 Plan-only note: a fifth workstream was briefly considered to inventory which
 existing chimeric MD metrics depend on protein-only processed trajectories and
-which require full-system evidence. It is not a simulation-reduction route, not
-a build or benchmark gate, and not candidate-validation evidence.
+which require full-system evidence. Its role is metric-dependency context only;
+simulation reduction, build/benchmark gating, and candidate validation require
+separate current work orders and evidence.
 
-Status: inactive. R5-derived output files were removed because they should not
-be reused as an authoritative analysis contract. If metric/input dependencies
-are needed later, recreate them from the current analysis scripts, selection
-config, preprocessing logs, and run evidence in a new explicitly approved
-analysis task.
+Status: inactive. Current metric/input dependency work should be recreated from
+the current analysis scripts, selection config, preprocessing logs, and run
+evidence in a new explicitly approved analysis task.
 
 ## Workstream D: Gates
 
@@ -194,17 +197,17 @@ Each candidate route must have at least:
 
 - one direct or close-analog literature source for the physical idea, or an explicit statement that it is project-only exploratory;
 - official documentation for any tool behavior being relied on;
-- a written "supports / does not support" note in the literature matrix.
+- a written support/gap note in the literature matrix.
 
 ### Gate 2: Build Gate
 
 Before any E2 benchmark:
 
-- local input files must be complete and checksummed;
+- local input files must be present and checksummed;
 - `grompp` must pass with warnings justified in a log;
 - index groups must match analysis selections;
 - route-specific MDP and restraint files must be versioned or generated by a script;
-- no result directory may overwrite historical Slurm or E2 evidence.
+- result directories must use new paths that preserve historical Slurm and E2 evidence.
 
 ### Gate 3: Benchmark Gate
 
@@ -222,7 +225,7 @@ Default benchmark order:
 
 1. chctrl reduced or restrained prototype smoke test
 2. chctrl short benchmark
-3. one candidate short smoke test only if chctrl behavior is acceptable
+3. one candidate short smoke test only after chctrl behavior is acceptable
 
 ### Gate 4: Physical Sanity Gate
 
@@ -230,7 +233,7 @@ Minimum checks for any prototype:
 
 - no fatal GROMACS errors, LINCS explosions, or unreadable trajectories
 - membrane remains intact and protein remains properly embedded
-- receptor-Galpha interface does not separate immediately unless the route is rejected
+- receptor-Galpha interface remains interpretable through the accepted route window
 - global RMSD/Rg/box/temperature/pressure are interpretable
 - alpha5/eCT iRMSD, BSA, contact persistence, H-bond occupancy, COM distance, and junction RMSF can still be computed from the reduced system or are explicitly marked unavailable
 
@@ -240,14 +243,14 @@ Classify each route:
 
 - `candidate_replacement`: may replace full-system candidate production after a new decision
 - `screening_only`: may rank or reject candidates before full-system confirmation
-- `supporting_mechanism_only`: may explain local interface behavior but not validate chimeric coupling
-- `reject`: physically unstable, not cheaper, or not interpretable
+- `supporting_mechanism_only`: may explain local interface behavior; chimeric coupling validation requires full-system or upgraded evidence
+- `reject`: physically unstable, insufficiently cheaper, or uninterpretable
 
 ## Sequence
 
 ### Phase 0: Setup and No-Launch Lock
 
-- Confirm no old plan is being used as a current launch instruction.
+- Confirm the current launch authority before generating prototype files.
 - Create the literature matrix and inventory output paths.
 - Define route IDs before generating any prototype files.
 
@@ -288,7 +291,7 @@ For each route, define:
 Only after chctrl passes the build and sanity gates:
 
 - run a short smoke/benchmark on one candidate prototype;
-- do not start long production;
+- keep long production behind a new decision record;
 - classify whether the route deserves a new decision record.
 
 ### Phase 6: Decision Package
@@ -303,16 +306,18 @@ Write:
 
 If a route is accepted, create a new decision file under `docs/decisions/` and update `docs/INDEX.md`, `P0-md-simulation.md`, and `P3-chimeric-gprotein.md` only after the decision is source-backed.
 
-## Immediate Next Tasks
+## Original Immediate Tasks
 
 1. Create `experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md`.
 2. Create the current-system inventory table from local `step6.6` and topology files.
 3. Fill a first protocol matrix with at least Route 1 and Route 2.
 4. Stop before any E2 run and ask for explicit approval with a concrete command, run directory, expected duration, and resource profile.
 
-## Completion Definition
+This section records the original 2026-07-03 plan sequence. Any renewed execution requires `docs/INDEX.md` routing and a new dated work order.
 
-This exploration is complete when the project has either:
+## Exit Criteria
 
-- a source-backed, benchmarked reduced-compute protocol ready for a new decision record; or
-- a documented rejection showing that reduced or restrained protocols are not currently defensible, leaving mutant GPR MD pretesting or other lower-cost MD work as the active path.
+This exploration reaches its exit criteria when the project has either:
+
+- a source-backed, benchmarked reduced-compute protocol suitable for a new decision record; or
+- a documented rejection that records reduced/restrained protocols as unsupported for current chimeric action and returns active routing to `docs/INDEX.md`.

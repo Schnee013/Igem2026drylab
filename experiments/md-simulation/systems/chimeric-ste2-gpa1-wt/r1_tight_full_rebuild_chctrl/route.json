@@ -4,14 +4,14 @@
   "prototype_label": "r1_tight_full_rebuild_chctrl",
   "prototype_root": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl",
   "created": "2026-07-03",
-  "last_updated": "2026-07-04",
-  "status": "exploratory_chctrl_step6_and_short_production_completed_on_e2_z_only_compute_saving_downgraded",
+  "last_updated": "2026-07-06",
+  "status": "exploratory_chctrl_step6_and_short_production_evidence_archived_on_e2_z_only_compute_saving_downgraded",
   "padding_rule_status": "exploratory",
   "first_test_object": "chctrl_only",
-  "candidate_action": "blocked_current_z_only_rule_not_candidate_transferable",
+  "candidate_action": "blocked_candidate_transfer_requires_accepted_rule",
   "input_system_root": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/gromacs",
   "retained_components": [
-    "complete receptor-Galpha protein complex",
+    "full receptor-Galpha protein complex",
     "POPC membrane",
     "explicit water",
     "ions",
@@ -35,7 +35,7 @@
   ],
   "preferred_builder": {
     "name": "CHARMM-GUI Membrane Builder",
-    "source_support": "workflow-level support for complete membrane system rebuild; no project-specific numeric padding rule extracted",
+    "source_support": "workflow-level support for full membrane system rebuild; project-specific numeric padding rule requires source extraction",
     "required_future_record": "actual builder job inputs, selected dimensions, water/ion settings, generated files, checksums, build evidence, short-run sanity evidence, and interpretation boundary"
   },
   "charmm_gui_job": {
@@ -50,7 +50,7 @@
     "source_archive": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/source_archives/charmm_gui_8305210188_xy120_w20_download.tgz",
     "source_archive_sha256": "486963899f9522767492e87aead931ddd8398755d08d950bf1d1d9913918745e",
     "extracted_gromacs_package": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/gromacs",
-    "interpretation": "not an XY membrane reduction; not an accepted candidate-transfer padding rule"
+    "interpretation": "z-only water/ion reduction with unchanged XY membrane footprint; candidate-transfer padding rule status pending"
   },
   "compute_saving_review": {
     "summary_file": "experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md",
@@ -60,7 +60,7 @@
     "local_protein_fraction_percent": 5.59,
     "atom_count_delta_vs_baseline": -6776,
     "atom_count_delta_percent_vs_baseline": -2.57,
-    "interpretation": "protein_fraction_not_abnormal_for_explicit_membrane_system; compute burden is explicit solvent and membrane; further z_only_shaving_paused_as_primary_route",
+    "interpretation": "protein_fraction_within_explicit_membrane_system_range; compute burden is explicit solvent and membrane; further z_only_shaving_paused_as_primary_route",
     "candidate_transfer": "blocked"
   },
   "prototype_static_validation": {
@@ -118,8 +118,8 @@
     "local_gromacs_evidence_use": "not_allowed_for_E2_binary_outputs"
   },
   "e2_package_a_preflight": {
-    "status": "completed",
-    "completed_at": "2026-07-03T11:54:37+08:00",
+    "status": "evidence_archived",
+    "archived_at": "2026-07-03T11:54:37+08:00",
     "remote_host": "nkuliulab-e2",
     "remote_run_directory": "/ifs1/User/dengwei/igem/md-simulation/r1_tight_full_rebuild_chctrl_20260703/preflight_20260703_gmx_env",
     "local_log": "experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/run_logs/e2_preflight_20260703_gmx_env/e2_preflight_20260703_gmx_env.log",
@@ -133,7 +133,7 @@
     "candidate_action": "none"
   },
   "e2_package_b_step6": {
-    "status": "completed",
+    "status": "evidence_archived",
     "remote_host": "nkuliulab-e2",
     "remote_run_directory": "/ifs1/User/dengwei/igem/md-simulation/r1_tight_full_rebuild_chctrl_20260703/charmm_gui_8305210188_step6_20260704",
     "local_result_root": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil",
@@ -142,7 +142,7 @@
     "mpi_library": "Open MPI 5.0.8",
     "gpu": "NVIDIA A100-SXM4-80GB",
     "thread_settings": "one gmx_mpi process, OMP_NUM_THREADS=24, -ntomp 24",
-    "completed_outputs": [
+    "archived_outputs": [
       "work/step6.6_equilibration.gro",
       "work/step6.6_equilibration.cpt",
       "work/step6.6_equilibration.tpr",
@@ -170,11 +170,11 @@
     }
   },
   "e2_package_c_short_production": {
-    "status": "completed",
+    "status": "evidence_archived",
     "output_prefix": "production_smoke/r1_chctrl_short_prod",
     "nsteps_override": 50000,
     "nominal_ps": 100,
-    "completed_outputs": [
+    "archived_outputs": [
       "production_smoke/r1_chctrl_short_prod.gro",
       "production_smoke/r1_chctrl_short_prod.cpt",
       "production_smoke/r1_chctrl_short_prod.tpr",
@@ -218,8 +218,10 @@
     "candidate_replacement_available": false
   },
     "next_gate": {
-        "status": "requires_new_explicit_user_approval_before_any_more_e2_or_candidate_work",
-        "recommended_focus": "r4_coarse_grained_multiscale_source_gate_plus_optional_full_object_throughput_baseline_planning",
+        "status": "closed_historical_prototype_requires_new_explicit_user_approval_before_any_more_e2_or_candidate_work",
+        "historical_disposition": "2026-07-04 R4 source-gate selection is superseded by later R4 material-boundary records; current R4 focus comes from the active router",
+        "routing_authority": "docs/INDEX.md",
+        "r4_material_boundary": "experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md",
         "selection_memo": "experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md",
         "r4_source_screen": "experiments/chimeric-gpa1/literature/r4_cg_source_screen_20260704.tsv",
         "candidate_action": "blocked"

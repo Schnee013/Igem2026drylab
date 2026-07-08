@@ -8,7 +8,7 @@
 
 This prototype root is only for `chimeric-ste2-gpa1-wt` / `chctrl`.
 
-Route 1 retains the complete receptor-Galpha protein complex, POPC membrane, explicit water, ions, and full-system box/energy evidence. The only allowed reduction is avoidable box, membrane, and solvent padding produced by a reproducible full-system rebuild.
+Route 1 retains the full receptor-Galpha protein complex, POPC membrane, explicit water, ions, and full-system box/energy evidence. Allowed reduction is limited to avoidable box, membrane, and solvent padding produced by a reproducible full-system rebuild.
 
 ## Builder Input Now Present
 
@@ -27,7 +27,7 @@ Archive checksum:
 
 The archive root is `charmm-gui-8305210188/`. The extracted GROMACS package contains `topol.top`, `index.ndx`, `toppar/`, `step5_input.gro`, `step5_input.pdb`, `step5_input.psf`, `step6.0_minimization.mdp`, `step6.1` through `step6.6` equilibration MDPs, and `step7_production.mdp`.
 
-This is a CHARMM-GUI generated input package. Equilibration and short-production outputs are not stored inside this prototype input root; they are stored under the separate result root:
+This is a CHARMM-GUI generated input package. Equilibration and short-production outputs are stored under the separate result root:
 
 ```text
 experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil/
@@ -44,9 +44,9 @@ Recorded manual settings and observations:
 - `110 A` and `115 A` XY attempts produced CHARMM-GUI protein-extent warnings and were abandoned.
 - `120 A` avoided the protein-extent warning in this manual pass.
 - User-reported Step 4 checks: no protein surface penetration and no lipid ring penetration.
-- The package is therefore a Z-only exploratory water/ion reduction attempt. It is not an XY membrane reduction.
+- The package is therefore a Z-only exploratory water/ion reduction attempt; XY membrane reduction remains a separate, unproven route.
 
-Because `padding_rule.md` remains `exploratory`, this job is not an accepted candidate-transfer rule and is not a `candidate_replacement`.
+Because `padding_rule.md` remains `exploratory`, candidate transfer and `candidate_replacement` status require a new source-backed rule.
 
 ## Public Atom-Count Comparison And Compute-Saving Interpretation
 
@@ -58,9 +58,9 @@ experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_on
 
 Conclusion:
 
-- The reduced `chctrl` protein fraction is not abnormal for an explicit-solvent membrane-protein complex.
+- The reduced `chctrl` protein fraction remains within the expected range for an explicit-solvent membrane-protein complex.
 - This job is Z-only because XY remains `120 A` and POPC remains `389`.
-- The atom-count delta is only `-6776` atoms (`-2.57%`), so it should not be presented as a compute-saving success.
+- The atom-count delta is only `-6776` atoms (`-2.57%`); compute-saving success requires a stronger source-backed reduction.
 - Further Z-only water-thickness shaving is paused as the primary route unless a new source-backed rationale is added.
 - Candidate transfer remains blocked.
 
@@ -89,7 +89,7 @@ Initial-box comparison must be interpreted carefully:
 - Prototype `step5_input.gro`: `12.02529 x 12.02529 x 18.78350 nm`.
 - Historical current `step6.6.gro`: `11.74841 x 11.74841 x 18.63860 nm`.
 
-The prototype's initial box should not be compared to historical post-equilibration `step6.6.gro` as if both were pressure-relaxed states.
+Compare initial boxes only against initial boxes; the historical post-equilibration `step6.6.gro` is a pressure-relaxed state.
 
 ## E2 Step6 And Short Production Evidence
 
@@ -123,17 +123,17 @@ User-approved Package C ran a short production test from Package B outputs:
 
 ## Current Build Conclusion
 
-The chctrl-only exploratory prototype can be built through CHARMM-GUI step6 and can complete a short 100 ps production test on E2.
+The chctrl-only exploratory prototype can be built through CHARMM-GUI step6 and reached the 100 ps short-production endpoint on E2.
 
 The current conclusion is limited:
 
 - Generated reduced GROMACS input files exist under the prototype root.
 - Static file/topology/index/MDP checks are internally consistent.
 - Authoritative E2 build/equilibration and short-production evidence exists in the result root.
-- Local GROMACS remains absent, so local `grompp` was not run and local GROMACS is not used as an evidence generator.
-- The padding rule remains `exploratory`; this is not a source-backed numeric padding rule.
+- E2/result-root evidence is the authority for `grompp`/run behavior; local GROMACS was unavailable for evidence generation.
+- The padding rule remains `exploratory`; source-backed numeric padding requires a separate rule.
 - Post-comparison interpretation downgrades this Z-only instance as insufficient for the compute-saving goal.
-- Post-agreement route-family selection moves the next local workstream to R4 coarse-grained / multiscale source gate; full-object throughput baseline is only companion scheduling/performance planning.
+- The historical post-agreement route-family selection is superseded as a current instruction by later R4 material-boundary records; current R4 and next local-workstream ownership starts from those records and `docs/INDEX.md`.
 - Long-run physical sanity, metric comparability, and candidate transfer remain blocked.
 
 ## E2 Output Analysis Boundary
@@ -148,7 +148,7 @@ Current authoritative E2 command unless run-specific provenance says otherwise:
 /ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi
 ```
 
-Local GROMACS environments are not valid evidence generators for E2-produced binary outputs. Local or Python analysis is only acceptable after E2-side preprocessing produces documented, synced, checksummed analysis inputs.
+Evidence generation for E2-produced binary outputs uses the recorded E2 GROMACS environment for that run. Local or Python analysis is acceptable after E2-side preprocessing produces documented, synced, checksummed analysis inputs.
 
 ## Inputs And Evidence
 
@@ -181,4 +181,4 @@ Referenced by / 被引:
 - `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/source_pointers.md`
 - `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/command_plan.md`
 - `experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil/README.md`
-- Expected downstream: reduced `chctrl` physical-sanity and metric-comparability review before any candidate transfer.
+- Next consumer: reduced `chctrl` physical-sanity and metric-comparability review before any candidate transfer.

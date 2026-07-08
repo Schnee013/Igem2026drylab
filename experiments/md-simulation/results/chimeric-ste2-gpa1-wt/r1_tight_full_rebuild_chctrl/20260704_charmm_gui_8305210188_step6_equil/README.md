@@ -8,15 +8,15 @@
 >
 > CHARMM-GUI job: `8305210188`
 >
-> Status: E2 step6 minimization/equilibration and a 100 ps short production test completed for the exploratory reduced `chctrl` prototype.
+> Status: E2 step6 minimization/equilibration outputs and a 100 ps short production test are archived for the exploratory reduced `chctrl` prototype.
 
 ## Scope
 
-This result root records only the reduced `chctrl` exploratory prototype generated from CHARMM-GUI job `8305210188` with `120 A` XY and `20.0 A` water thickness.
+This result root records the reduced `chctrl` exploratory prototype generated from CHARMM-GUI job `8305210188` with `120 A` XY and `20.0 A` water thickness.
 
-It does not contain Ch-1, Ch-2, Ch-4, candidate smoke tests, candidate benchmarks, or candidate production.
+Candidate smoke tests, candidate benchmarks, and candidate production belong to separate result roots after transfer gates pass.
 
-The padding rule remains `exploratory`: this run is evidence that the chctrl prototype can be built and run briefly on E2, not evidence that the rule is source-backed or candidate-transferable.
+The padding rule remains `exploratory`: this run is evidence that the chctrl prototype can be built and run briefly on E2. Source-backed rule status and candidate transfer require separate gates.
 
 ## Provenance
 
@@ -81,15 +81,15 @@ Manifest line counts after adding result-root README/source pointers and refresh
 
 ## Interpretation Boundary
 
-This run supports the narrow conclusion that the exploratory reduced `chctrl` prototype can be built through CHARMM-GUI step6 and can complete a short 100 ps production test on E2 with recorded performance and GPU utilization.
+This run supports the narrow conclusion that the exploratory reduced `chctrl` prototype can be built through CHARMM-GUI step6 and can produce a short 100 ps production test on E2 with recorded performance and GPU utilization.
 
-It does not establish a source-backed numeric padding rule, a compute-saving success claim, a candidate-transfer rule, or full physical sanity. Candidate systems remain blocked, and this current Z-only rule is not a candidate-transfer route.
+Source-backed numeric padding, compute-saving success, candidate-transfer status, and full physical sanity remain pending gates. Candidate systems remain blocked.
 
 Post-comparison update:
 
 - `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` records the public/local atom-count comparison.
 - The current `120 A` XY / `20 A` water instantiation is Z-only and saves only `-6776` atoms (`-2.57%`) versus the baseline chctrl atom count.
-- This result root remains useful as chctrl build/run evidence, but it must not be cited as a solution to the current compute constraint or as a candidate-transferable rule.
+- This result root remains useful as chctrl build/run evidence. Current compute-constraint resolution and candidate-transferable rule status require separate evidence.
 
 ## References / 所引
 

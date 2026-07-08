@@ -2,19 +2,21 @@
 
 > Created: 2026-07-03
 >
-> Status: Route 1 planning artifact. This file is not E2 execution approval.
+> Status: historical Route 1 planning artifact for 2026-07-03 prototype provenance.
+> Current routing starts from `docs/INDEX.md`; E2 execution requires a new dated
+> approval package.
 >
 > Parent plan: `codex/docs/plans/chimeric-gpa1-system-reduction-exploration.md`.
 >
 > Protocol matrix: `experiments/md-simulation/analysis/chimeric_system_reduction_protocol_matrix.md`.
 
-## Decision For This Session
+## Historical Decision At Creation
 
-Route 1 is the active planning route because it keeps the complete receptor-Galpha complex, POPC membrane, explicit water, and ions. The reduction target is avoidable box, membrane, and solvent padding, not deletion of protein domains or conversion to a local subsystem.
+At creation, Route 1 was the selected planning route because it kept the intact receptor-Galpha complex, POPC membrane, explicit water, and ions. The reduction target was avoidable box, membrane, and solvent padding while retaining all protein domains and the full receptor-Galpha system.
 
-The first prototype and benchmark object is reduced `chctrl`. Ch-1/Ch-2/Ch-4 must not be rebuilt or benchmarked until the `chctrl` Route 1 prototype passes build, smoke, short benchmark, and physical sanity gates. Candidate application must reuse the same padding/build rule; candidate-specific tuning is a different route.
+The first prototype and benchmark object was reduced `chctrl`. Any future Ch-1/Ch-2/Ch-4 candidate application requires a new current work order and a source-backed padding/build rule before rebuild or benchmark.
 
-## Current Evidence Snapshot
+## Evidence Snapshot At Creation
 
 Inventory shows the cost driver is mainly solvent and membrane size rather than protein atoms:
 
@@ -27,7 +29,7 @@ Inventory shows the cost driver is mainly solvent and membrane size rather than 
 
 Source: `experiments/md-simulation/analysis/chimeric_system_reduction_inventory.tsv`.
 
-Caveat: raw `.gro` z coordinates cross PBC/box bounds, so z padding must not be interpreted until molecule-centered unwrapping or an equivalent structure check is done.
+Caveat: raw `.gro` z coordinates cross PBC/box bounds; z padding interpretation starts only after molecule-centered unwrapping or an equivalent structure check.
 
 ## Route 1 Hypothesis
 
@@ -43,7 +45,7 @@ Immediate downgrade triggers:
 
 ## Storage Contract
 
-Do not overwrite current prepared systems or early-gate results.
+Preserve current prepared systems and early-gate results; write any R1 prototype under its dedicated root.
 
 Route 1 planning and source extraction:
 
@@ -92,8 +94,8 @@ Before choosing any numeric padding rule:
 1. Extract exact setup defaults or recommendations from CHARMM-GUI or the chosen builder for membrane protein complexes, including XY membrane margin, z water thickness, ion placement, and any warnings about protein image contacts.
 2. Reconfirm GROMACS pressure-coupling constraints relevant to a semi-isotropic membrane system.
 3. Record whether the source supports a project-specific minimum, a builder default, or only a general warning.
-4. Update `experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md` with "supports / does not support" language.
-5. Write the selected padding/build rule to `padding_rule.md`; do not encode it only in commands.
+4. Update `experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md` with explicit support-status language.
+5. Write the selected padding/build rule to `padding_rule.md`; keep commands as secondary execution evidence.
 
 If no source-backed numeric rule is available, the first R1 prototype may still be project-exploratory, but it must be labeled `hypothesis` and cannot be promoted to `candidate_replacement`.
 
@@ -111,7 +113,7 @@ The accepted rule must specify:
 - output groups and whether production XTC is protein-only or full-system;
 - MDP settings that must remain unchanged from current production unless explicitly justified.
 
-The rule transfers by logic, not by absolute box dimensions. Candidate systems should use the same rule on their own full receptor-Galpha geometry after the reduced `chctrl` benchmark passes.
+The rule transfers by receptor-Galpha geometry logic. Candidate systems should apply the same rule to their own full receptor-Galpha geometry after the reduced `chctrl` benchmark passes.
 
 ## Chctrl Prototype Gate Sequence
 
@@ -146,7 +148,7 @@ Create only metadata first:
 
 ### Gate C: Local Build Checks
 
-Run local checks only if required tools exist. Previous local pass did not find `gmx`, so absence of GROMACS should be recorded instead of worked around silently.
+Run local checks only if required tools exist. A previous local pass found no `gmx`; record tool absence explicitly before any further local check.
 
 Minimum local checks:
 
@@ -171,7 +173,7 @@ Stop before E2. The approval package must include:
 - stop condition;
 - cleanup rule.
 
-No remote command is approved by this plan.
+Remote commands require a separate approval package.
 
 Any future E2-produced `.tpr`, `.cpt`, `.edr`, `.trr`, `.xtc`, or `gmx`-processed evidence output must be checked, converted, preprocessed, and evidence-analyzed with the recorded E2 GROMACS environment for that run. The current E2 authority is `environments/e2-md-gromacs.md`, with `/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi` as the current authoritative command unless run-specific provenance says otherwise.
 
@@ -185,7 +187,7 @@ Compare reduced `chctrl` only against sources with the correct evidence boundary
   `experiments/md-simulation/results/chimeric-ste2-gpa1-wt/early_gate/20260602_chctrl_rep1_early_gate/analysis/early_gate_metrics_summary.csv`
 - Historical Slurm control evidence only if separately audited from source logs/results.
 
-Do not present reduced `chctrl` as 3-replicate validation unless that evidence exists.
+Any 3-replicate validation claim for reduced `chctrl` requires separate source evidence.
 
 ## Candidate Transfer Rule
 
@@ -199,10 +201,13 @@ Only after reduced `chctrl` passes:
 
 Candidate-specific box tuning, restraint insertion, topology simplification, or protein deletion invalidates direct transfer and becomes a new route.
 
-## Immediate Next Actions
+## Historical Next Actions
 
-1. Done: create `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/`.
+These were the next actions at creation time. Current execution starts by
+checking `docs/INDEX.md` and writing a new dated work order.
+
+1. Recorded: `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/`.
 2. Extract CHARMM-GUI or chosen-builder padding/setup defaults into `source_pointers.md` and the literature matrix.
 3. Write `padding_rule.md` with an explicit "accepted / exploratory / rejected" status.
-4. Done: run the initial current geometry audit locally without changing system files.
-5. Draft the E2 approval package only after the local metadata and padding rule are complete.
+4. Recorded: initial current geometry audit ran locally without changing system files.
+5. Draft the E2 approval package only after the local metadata and padding rule are recorded.

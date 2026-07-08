@@ -25,11 +25,11 @@ Source evidence:
 - `experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/gromacs/toppar/PROB.itp`
 - `experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/gromacs/toppar/POPC.itp`
 
-R1 job `8305210188` reduced the baseline atom count from `263906` to `257130`, a delta of `-6776` atoms (`-2.57%`). The molecule-count delta is driven by `TIP3`, `POT`, and `CLA`; `PROA`, `PROB`, and `POPC=389` are unchanged. Therefore this instance is a Z-only water/ion reduction, not an XY/membrane-footprint reduction.
+R1 job `8305210188` reduced the baseline atom count from `263906` to `257130`, a delta of `-6776` atoms (`-2.57%`). The molecule-count delta is driven by `TIP3`, `POT`, and `CLA`; `PROA`, `PROB`, and `POPC=389` are unchanged. Therefore this instance is a Z-only water/ion reduction with unchanged XY/membrane footprint.
 
 ## Public Case Check
 
-The public comparison does not suggest that the reduced `chctrl` protein fraction is abnormal for explicit-solvent membrane systems.
+The reduced `chctrl` protein fraction falls within the public comparison range for explicit-solvent membrane systems.
 
 | Case | System class | Public / parsed size | Protein or core fraction interpretation |
 |---|---|---:|---|
@@ -50,17 +50,17 @@ External source pointers:
 
 ## Interpretation
 
-The reduced `chctrl` system is not unusually solvent-heavy for its biological object. It is large because it retains a complete GPCR-Galpha complex, POPC membrane, explicit water, ions, and full-system physical sanity evidence.
+The reduced `chctrl` system has a protein fraction consistent with comparable explicit-solvent membrane systems. It is large because it retains a full GPCR-Galpha complex, POPC membrane, explicit water, ions, and full-system physical sanity evidence.
 
-The current R1 instantiation is still useful as evidence that the `120 A` XY / `20 A` water package can build and run briefly on E2. It is not useful enough as the main compute-saving route because it only removed `2.57%` of atoms.
+The current R1 instantiation is still useful as evidence that the `120 A` XY / `20 A` water package can build and run briefly on E2. As a compute-saving route, it only removed `2.57%` of atoms, below the reduction needed for the current E2 constraint.
 
-Do not continue chasing smaller Z water thickness as the primary solution without a new source-backed physical rationale. Further Z shaving is likely to create hydration, pressure, or periodic-image risk before it creates meaningful compute savings.
+Further Z water-thickness reduction as the primary solution requires a new source-backed physical rationale. Additional Z shaving is likely to create hydration, pressure, or periodic-image risk before it creates meaningful compute savings.
 
 ## Routing Decision
 
 - Keep R1 job `8305210188` as an exploratory chctrl build/run evidence point.
-- Do not call R1 Z-only a compute-saving success or candidate-transferable replacement.
-- Do not migrate this rule to Ch-1, Ch-2, Ch-4.
+- R1 Z-only remains exploratory evidence rather than a compute-saving success or candidate-transferable replacement.
+- Ch-1, Ch-2, and Ch-4 migration requires a new accepted rule.
 - Pause further Z-only reduction as the primary route.
 - Next route selection should move to either performance/throughput optimization of the full physical object or a clearly re-scoped lower-fidelity model route with its own evidence class.
 

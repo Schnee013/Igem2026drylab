@@ -22,7 +22,7 @@ experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_ch
 
 ## E2 Approval Package Required Before Remote Execution
 
-Before any SSH/E2 action, write a complete package with:
+Before any SSH/E2 action, write a fully specified package with:
 
 | Field | Required before approval |
 |---|---|
@@ -55,11 +55,11 @@ unless a future run-specific provenance file records a different command. Local 
 
 The previous stop condition for Package B was lifted by explicit user approval on 2026-07-04. Package B produced final step6.6 `.gro`, `.cpt`, `.tpr`, `.edr`, and `.xtc` files. Package C was also explicitly approved/requested by the user and completed as a 100 ps short production test.
 
-Current stop: do not run any additional E2 command, candidate build, candidate benchmark, long production, cleanup, or transfer to Ch-1/Ch-2/Ch-4 without a new approval package.
+Current stop: any additional E2 command, candidate build, candidate benchmark, long production, cleanup, or transfer to Ch-1/Ch-2/Ch-4 requires a new approval package.
 
-Post-comparison routing update: `r1_z_only_public_atom_count_comparison.md` downgrades the current `120 A` XY / `20 A` water R1 instantiation as a compute-saving route. It can remain as chctrl exploratory build/run evidence, but further Z-only water-thickness shaving is paused as the primary path because the recorded atom-count delta is only `-6776` atoms (`-2.57%`) and the public membrane-system comparison does not indicate an abnormal protein/total atom fraction.
+Post-comparison routing update: `r1_z_only_public_atom_count_comparison.md` downgrades the current `120 A` XY / `20 A` water R1 instantiation as a compute-saving route. It remains chctrl exploratory build/run evidence. Further Z-only water-thickness shaving is paused as the primary path because the recorded atom-count delta is only `-6776` atoms (`-2.57%`) and the public membrane-system comparison supports normal protein/total atom fractions.
 
-Post-agreement route-family update: `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md` records the current next local workstream as R4 coarse-grained / multiscale source gate, with full-object throughput baseline planning kept as a companion scheduling/performance item rather than a system-reduction route. This command plan does not approve any R4 build, E2 command, candidate action, or further R1-Z run.
+Post-agreement route-family update: `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md` recorded a historical R4 source-gate selection. Later R4 material-boundary records supersede that as a current instruction. R4 builds, E2 commands, candidate actions, source-acquisition queues, and further R1-Z runs each require separate routed approval.
 
 As of 2026-07-04:
 
@@ -67,9 +67,9 @@ As of 2026-07-04:
 - CHARMM-GUI job `8305210188` has produced an exploratory `chctrl` GROMACS input package under `experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/gromacs/`.
 - Static checks found `257130` atoms in the prototype `step5_input.gro`, a `-6776` atom delta versus the current chctrl `263906` atom reference, matching topology atom sums, required index groups, and matching core production MDP settings.
 - Package B/C result outputs are stored at `experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil/`.
-- `padding_rule.md` is `exploratory`, not accepted as a candidate-transferable numeric padding rule.
+- `padding_rule.md` is `exploratory`; candidate-transferable numeric padding requires a separate source-backed rule.
 - The E2 GROMACS environment is the authoritative GROMACS evidence generator for this route because local `gmx` is absent and E2-produced binary outputs must be handled under `environments/e2-md-gromacs.md`.
-- The next work item is R4 coarse-grained / multiscale source-gate work plus optional full-object throughput baseline planning, not another unapproved R1-Z-only E2 run.
+- This R1 command plan has no current next work item. Any future R1, R4, or candidate action needs a new routed approval package.
 
 Any next package must be newly written and approved before execution.
 
@@ -243,11 +243,11 @@ Package B execution evidence:
 - `mdrun_step6.0_minimization.log` contains `86` `LINCS WARNING` matches but minimization converged to `Fmax < 1000` in `4523` steps.
 - Local text scan found no LINCS/fatal/CUDA/nan matches in `mdrun_step6.1_equilibration.log` through `mdrun_step6.6_equilibration.log`.
 
-Package B is not a candidate action. Ch-1/Ch-2/Ch-4 remain blocked.
+Package B is a chctrl-only action. Ch-1/Ch-2/Ch-4 remain blocked pending a separate candidate action.
 
 ## Approval Package C: Reduced Chctrl Short Production Test
 
-Status: explicitly requested/approved by the user on 2026-07-04 after Package B and completed. This package ran only a short reduced-`chctrl` production test from Package B outputs. It is not candidate production and did not touch Ch-1, Ch-2, or Ch-4.
+Status: explicitly requested/approved by the user on 2026-07-04 after Package B and completed. This package ran only a short reduced-`chctrl` production test from Package B outputs. Candidate production and any Ch-1/Ch-2/Ch-4 action require a separate approval path.
 
 | Field | Value |
 |---|---|
@@ -339,6 +339,6 @@ Package C execution evidence:
 
 Result interpretation:
 
-- `chctrl` exploratory prototype can be built through step6 and can complete a short 100 ps production test on E2.
-- This does not prove long-run physical sanity, source-backed numeric padding, compute-saving success, or candidate-transferability.
+- `chctrl` exploratory prototype can be built through step6 and reached the 100 ps short-production endpoint on E2.
+- Long-run physical sanity, source-backed numeric padding, compute-saving success, and candidate-transferability remain separate gates.
 - Candidate systems remain blocked until reduced `chctrl` passes the remaining physical sanity and interpretation gates under the unchanged rule.

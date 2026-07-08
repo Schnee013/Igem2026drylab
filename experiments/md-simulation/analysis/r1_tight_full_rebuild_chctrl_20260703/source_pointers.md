@@ -5,10 +5,10 @@
 | Path | Role |
 |---|---|
 | `codex/docs/plans/chimeric-gpa1-system-reduction-exploration.md` | Parent exploration plan and route/gate definitions. |
-| `codex/docs/plans/chimeric-gpa1-r1-tight-full-rebuild-chctrl-plan.md` | Active Route 1 chctrl-first plan. |
+| `codex/docs/plans/chimeric-gpa1-r1-tight-full-rebuild-chctrl-plan.md` | Historical Route 1 chctrl-first plan retained for prototype provenance; current start instructions require a new work order from the active router. |
 | `experiments/md-simulation/analysis/chimeric_system_reduction_protocol_matrix.md` | Route matrix, universal prototype rule, and R1 evidence boundary. |
-| `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md` | Post-R1-Z route-family selection memo; selects R4 source-gate work and keeps full-object throughput baseline as companion planning, not a reduction route. |
-| `experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md` | Source matrix for R1 support, current no-go warnings, and pending extraction queue. |
+| `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md` | Historical post-R1-Z route-family selection memo; records that R4 source-gate work was selected on 2026-07-04, but later R4 material-boundary records supersede it as a current instruction. |
+| `experiments/chimeric-gpa1/literature/chimeric_system_reduction_literature_matrix.md` | Source matrix for R1 support, no-go warnings, and pending extraction queue. |
 | `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/charmm_gui_reduced_chctrl_build_request.md` | Manual CHARMM-GUI Membrane Builder checklist for the exploratory reduced `chctrl` rebuild. |
 | `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` | Local/public atom-count comparison and routing decision that downgrades the current Z-only R1 instantiation as insufficient for compute saving. |
 | `docs/logs/2026-07-03.md` | Work log for system-reduction exploration and R1 planning. |
