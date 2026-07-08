@@ -13,15 +13,16 @@
 1. [AGENTS.md](../AGENTS.md)
 2. [docs/DOCMAP.md](DOCMAP.md)
 
-然后按任务画像读取最小必要上下文。不要批量加载整个仓库，不要把 Codex native/global memory 或 `codex/docs/memory/` 当作事实源。
+然后按任务画像读取最小必要上下文。事实源来自仓库权威文件、代码、结果或日志；Codex native/global memory 与 `codex/docs/memory/` 只提供路由和警示线索。
 
 | 任务画像 | 默认读取 | 继续读取条件 |
 |---|---|---|
 | 进度汇报 / PPT / 对外说明 | [docs/INDEX.md](INDEX.md)，再按主题读取 `docs/modeling/`、`docs/decisions/`、`docs/logs/` 或结果文件 | 只有需要跨会话警示或 handoff 时才读 `codex/docs/memory/README.md` 和相关 memory |
 | 审查 / truth / censor / 路由治理 | 本文件、被审查文件、必要的权威指针 | 需要当前状态时读 INDEX；需要历史经过时读对应日志 |
+| payload / manifest / Git tracking / commit 分类 | 本文件、`.gitignore`、[ops/payload-tracking-policy.md](ops/payload-tracking-policy.md)、被分类的 changed files | 只有需要当前项目状态时读 INDEX；只有需要具体经过时读对应日志；普通 MD/文献/状态任务沿各自任务画像加载上下文 |
 | 机械编辑 / 指定文件修复 | 本文件和指定文件 | 只有编辑影响路由、状态或权威边界时读 INDEX 或 memory README |
-| MD / 远程计算 / 运行状态 | INDEX 当前优先入口，再读 `docs/ops/`、`environments/`、`codex/docs/plans/`、对应结果和日志 | 不从 memory 推断服务器、job、checkpoint 或运行完成状态 |
-| 文献 / 论文证据 | [papers/literature-matrix.md](papers/literature-matrix.md)，再读指定 summary 或数据源 | 不批量读取 summaries，不直接把 PDF 当默认入口 |
+| MD / 远程计算 / 运行状态 | INDEX 当前优先入口，再读 `docs/ops/`、`environments/`、`codex/docs/plans/`、对应结果和日志 | 服务器、job、checkpoint 或运行完成状态由当前结果、日志或 ops 文档确认 |
+| 文献 / 论文证据 | [papers/literature-matrix.md](papers/literature-matrix.md)，再读指定 summary 或数据源 | 先用矩阵缩小范围，再读取指定 summary、数据源或必要 PDF |
 | memory / handoff / 踩坑复盘 | [codex/docs/memory/README.md](../codex/docs/memory/README.md)，再读相关 memory 文件 | memory 只给路由、警示和交接；事实仍回权威源验证 |
 
 ## 2. 单一权威源
@@ -88,7 +89,7 @@ repo-scoped project memory 是时间戳索引、警示和 handoff 层，不是�
 
 - `current-state.md` 只写 `last_reviewed`、`latest_snapshot`、`state_timeline`、`source_pointers`。
 - `latest_snapshot` 只保留 5-8 条现状摘要，每条必须带日志或领域文档指针。
-- 旧时间线条目标为 historical，不作为当前状态。
+- 旧时间线条目标为 historical；当前状态回 `latest_snapshot` 和对应 source pointers。
 - 普通任务只写日志；只有 durable 状态变更才更新 memory。
 
 Codex native/global memory 和 Claude 私有 memory 只能保存用户偏好、入口规则或指向本仓库的路由，不复制 drylab 科学结论。
@@ -107,17 +108,15 @@ Codex native/global memory 和 Claude 私有 memory 只能保存用户偏好、�
 
 ### docs/ops/
 
-当前操作规范留在 `docs/ops/` 根目录；旧服务器、旧工具链、旧事故复盘放入 `docs/ops/archives/`。归档材料只能用于追溯旧结果、理解旧日志或访问历史文件，不作为新任务默认入口。
+当前操作规范留在 `docs/ops/` 根目录；旧服务器、旧工具链、旧事故复盘放入 `docs/ops/archives/`。归档材料只用于追溯旧结果、理解旧日志或访问历史文件；新任务默认入口使用当前 `docs/ops/` 规范。
 
 新服务器/远程计算任务先读 [ops/nkuliulab-e2-cloud-server.md](ops/nkuliulab-e2-cloud-server.md)。MD/GROMACS 的服务器中立踩坑见 [ops/md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)。
 
+Payload / manifest / Git tracking 规则见 [ops/payload-tracking-policy.md](ops/payload-tracking-policy.md)。该文件是条件加载的 commit/tracking 分类规则，用于 payload、manifest、checksum、ignore 或 staging 风险审查；普通 MD 状态或科学解释入口仍按本 DOCMAP 的任务画像选择。
+
 ### docs/papers/
 
-~~操作规范详见 [docs/ops/ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（已弃用，Windows 节点停用，计算迁移至 Slurm）。~~
-
-### docs/presentation/
-
-汇报资料、NotebookLM 提示词、image-generation prompts、旧 deck 和参考材料放在 `docs/presentation/`。该目录服务于表达、排版和材料组织，不是 ODE、P2、reporter、MD 或 docking 的事实权威；涉及事实、状态、数值或边界时必须回到 `docs/INDEX.md`、`docs/modeling/`、`docs/decisions/`、`docs/logs/`、代码和结果文件。不要把 presentation prompt 或 NotebookLM 输出当作项目现状、完成度或结果证据。
+文献采用稳定 ID。需要文献时，先查 [papers/literature-matrix.md](papers/literature-matrix.md)，再按需读取单篇 summary、数据源或必要 PDF。
 
 ### docs/presentation/
 

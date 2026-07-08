@@ -83,6 +83,11 @@ experiments/md-simulation/results/**/work/
 experiments/md-simulation/results/**/production_smoke/
 experiments/md-simulation/results/**/input/gromacs/
 experiments/md-simulation/results/**/*.log
+experiments/md-simulation/results/**/hostname.txt
+experiments/md-simulation/results/**/whoami.txt
+experiments/md-simulation/results/**/pwd.txt
+experiments/md-simulation/results/**/run_*_time.txt
+experiments/md-simulation/results/**/mdrun_start_time.txt
 
 # MD system build/runtime byproducts under gromacs/. Canonical builder inputs
 # such as README, topologies, MDPs, index files, and step5_input.* remain visible.
@@ -95,8 +100,23 @@ experiments/md-simulation/systems/**/gromacs/*_out.mdp
 experiments/md-simulation/systems/**/gromacs/em.gro
 experiments/md-simulation/systems/**/gromacs/step6.[0-9]*.gro
 experiments/md-simulation/systems/**/gromacs/*.log
-experiments/md-simulation/systems/**/gromacs/*.sha256
+experiments/md-simulation/systems/**/gromacs/phase3_*.sha256
 experiments/md-simulation/systems/**/source_archives/
+experiments/md-simulation/systems/**/gromacs/source_archives/
+experiments/md-simulation/systems/**/gromacs/charmm_gui_returned/
+experiments/md-simulation/systems/**/gromacs/returned_package/
+experiments/md-simulation/systems/**/gromacs/charmm-gui-*.tgz
+experiments/md-simulation/systems/**/gromacs/charmm_gui_*.tgz
+
+# Package-local repair and operation payload bodies. Track route/checksum/status
+# records instead. Manual CHARMM-GUI upload PDB/settings stay visible under
+# receptor/charmm_gui_submission/.
+experiments/md-simulation/**/index.fixed.ndx
+experiments/md-simulation/systems/**/receptor/clean_receptor.pdb
+experiments/md-simulation/systems/**/receptor/ppm_submission/*.pdb
+experiments/md-simulation/systems/**/receptor/ppm_submission/output/*.pdb
+experiments/md-simulation/systems/**/gromacs/*_coordinate_completion/*.gro
+experiments/md-simulation/systems/**/gromacs/*_coordinate_completion/*.pdb
 
 # R1 chctrl prototype payload policy: keep route/build notes/checksums/static
 # validation, but do not commit the copied CHARMM-GUI GROMACS input package.
@@ -126,12 +146,11 @@ experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_ch
 # =====================================================================
 docs/papers/pdf/
 
-# Presentation reference binaries are local source material; keep text
-# manifests/notes tracked separately.
-docs/presentation/reference-materials/*.pdf
-docs/presentation/reference-materials/*.pptx
-docs/presentation/reference-materials/*.png
-docs/presentation/reference-materials/*.svg
+# Presentation working drafts/deck bodies stay local. Reference materials are
+# explicitly trackable as source inputs for presentation work.
+docs/presentation/*
+!docs/presentation/reference-materials/
+!docs/presentation/reference-materials/**
 
 # 合作伙伴 / 赞助 / 外联材料含隐私信息，默认不入库
 docs/partners/
