@@ -6,7 +6,8 @@
 >
 > Scope: targeted metadata and citation-chasing pass for direct GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha coarse-grained or Martini sources.
 >
-> Status: `screening_only`; this memo is not a build protocol, not an E2 approval package, and not a candidate-transfer rule.
+> Status: `screening_only`; build, E2 approval, and candidate-transfer actions
+> require later routed approval.
 
 ## Full Text / Supplementary Methods Requested
 
@@ -27,17 +28,17 @@ Optional lower-priority papers if accessible:
 3. `10.3906/kim-1208-16` — "Exploring Distinct Binding Site Regions of beta2 Adrenergic Receptor via Coarse-Grained Molecular Dynamics Simulations".
 4. `10.1080/00268976.2016.1234652` — "A simple coarse-grained model for interacting protein complex".
 
-The first two are still the useful full-method bottlenecks for R4. The optional papers are receptor-only or generic protein-complex CG background; they should not be treated as direct GPCR-Galpha support unless their methods unexpectedly contain transferable checks.
+The first two are still the useful full-method bottlenecks for R4. The optional papers are receptor-only or generic protein-complex CG background; direct GPCR-Galpha support would require transferable checks in their methods.
 
 For manual retrieval, prioritize the full article plus supplementary methods / supplementary information, especially tool versions, structure-bias settings, equilibration schedule, backmapping/atomistic comparison, and any membrane-protein complex setup notes.
 
 ## Existing Runs Rechecked
 
-- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_query_gpcr_gprotein_cg_crossref/`: validated previously with 60 verified Crossref records; manual screening did not surface a direct GPCR-Galpha CG source.
-- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_query_heterotrimeric_gprotein_martini_crossref/`: validated previously with 60 verified Crossref records; no direct heterotrimeric G-protein Martini route was extracted.
+- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_query_gpcr_gprotein_cg_crossref/`: validated previously with 60 verified Crossref records; manual screening retained no direct GPCR-Galpha CG source.
+- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_query_heterotrimeric_gprotein_martini_crossref/`: validated previously with 60 verified Crossref records; direct heterotrimeric G-protein Martini route support remains unextracted.
 - `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_query_receptor_gprotein_complex_martini_crossref/`: validated previously with 60 verified Crossref records; found the beta2AR receptor-only CG paper and a generic protein-complex CG background record.
-- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_query_galpha_cg_crossref/`: structurally valid run with 0 records and a recorded Crossref SSL/network failure. This is a caveat, not absence evidence.
-- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_seed_expansion_crossref/`: incomplete interrupted seed expansion; only `request.json` and `search_plan.md` exist, so it is not usable evidence.
+- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_query_galpha_cg_crossref/`: structurally valid run with 0 records and a recorded Crossref SSL/network failure. Evidence status: search caveat.
+- `experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_seed_expansion_crossref/`: incomplete interrupted seed expansion; only `request.json` and `search_plan.md` exist, so current evidence use is limited to provenance.
 
 ## New Targeted Runs
 
@@ -52,7 +53,7 @@ Outcomes:
 
 - `r4_targeted_gpcr_gprotein_martini_openalex/` passed structural validation with 0 records, but both Crossref and OpenAlex recorded HTTP 429 failures.
 - The other three directories generated 25 records each, but `validate-run` failed because many usable-tier records lacked a year. They also recorded OpenAlex rate-limit failures.
-- Manual inspection of their summaries showed mostly generic Martini/coarse-grained supplementary records and non-GPCR/non-Galpha records. These runs are not usable evidence for an R4 route.
+- Manual inspection of their summaries retained mostly generic Martini/coarse-grained supplementary records and non-GPCR/non-Galpha records. R4 route support requires a later direct or approved close-analog source.
 
 ## Additional Targeted Runs After User Request
 
@@ -66,7 +67,7 @@ Manual screening of the top metadata again showed mostly generic Martini/coarse-
 
 - `10.1016/j.bbamem.2017.09.022` — "GPCR-Galpha protein precoupling: Interaction between Ste2p, a yeast GPCR, and Gpa1p, its Galpha protein, is formed before ligand binding via the Ste2p C-terminal domain and the Gpa1p N-terminal domain".
 
-This is direct Ste2p-Gpa1p / GPCR-Galpha interface context, not a Martini/CG route source. It should be read later for biology/interface grounding, not used to justify an R4 build.
+Allowed use: direct Ste2p-Gpa1p / GPCR-Galpha interface context for biology/interface grounding. R4 build justification requires a Martini/CG route source.
 
 ## Cevheroglu 2017 Full-Text Extraction
 
@@ -82,14 +83,14 @@ Extraction notes:
 
 - The paper tests proximity between Gpa1p N-terminal residues and Ste2p C-terminal residues using BRET, with BiFC/confocal localization as a complementary in vivo interaction readout.
 - The BRET constructs place RLuc at Ste2p position 304 and EGFP at Gpa1p N-terminal positions 10, 36, and 67; the BiFC construct uses Gpa1p position 10.
-- Reported result: constitutive, position-dependent BRET occurs without alpha-factor; alpha-factor stimulation does not produce a significant BRET increase or decrease. BiFC detects the Ste2p-Gpa1p heterodimer on ER during biosynthesis and on plasma membrane.
-- Interpretation for this project: the source supports Ste2p-Gpa1p interface biology and ligand-independent precoupling. It does not contradict C-terminal Galpha chimera logic because the paper itself frames Galpha C-terminus/alpha5 and other regions as known GPCR contact surfaces, and later notes that molecular rearrangement may occur near the Galpha C-terminus.
+- Reported result: constitutive, position-dependent BRET occurs without alpha-factor; alpha-factor stimulation produces no significant BRET increase or decrease. BiFC detects the Ste2p-Gpa1p heterodimer on ER during biosynthesis and on plasma membrane.
+- Interpretation for this project: the source supports Ste2p-Gpa1p interface biology and ligand-independent precoupling. It is compatible with C-terminal Galpha chimera logic because the paper itself frames Galpha C-terminus/alpha5 and other regions as known GPCR contact surfaces, and later notes that molecular rearrangement may occur near the Galpha C-terminus.
 - Transfer caveat: this is weak background for actual chimeric candidates because those targets use Gpr2/Gpr3/GprC rather than Ste2.
-- Project boundary: this is not a Martini/coarse-grained route source, not an MD setup source, not an atom-selection or restraint source, and not a candidate-replacement source.
+- Project boundary: Martini/coarse-grained route use, MD setup use, atom-selection/restraint use, and candidate-replacement use require separate method evidence.
 
 Design implication:
 
-- Our C-terminal chimera route keeps the yeast Gpa1 N-terminus intact while changing the C-terminal/eCT-alpha5-beta6 region used for receptor-coupling specificity. For Gpr2/Gpr3/GprC candidates, Cevheroglu 2017 should be treated only as a Ste2-Gpa1 control/background note and a reminder not to remove native yeast Gpa1 N-terminal architecture.
+- Our C-terminal chimera route keeps the yeast Gpa1 N-terminus intact while changing the C-terminal/eCT-alpha5-beta6 region used for receptor-coupling specificity. For Gpr2/Gpr3/GprC candidates, Cevheroglu 2017 should be treated only as a Ste2-Gpa1 control/background note and a reminder to preserve native yeast Gpa1 N-terminal architecture.
 
 A seed list was written at:
 
@@ -103,9 +104,9 @@ The seed expansion run was attempted at:
 experiments/chimeric-gpa1/literature/research_runs/system_reduction_20260704/r4_gpcr_galpha_cg_seed_expansion_20260704/
 ```
 
-It was interrupted after a long Crossref HTTPS relation lookup stall. Only `request.json` and `search_plan.md` exist, so this directory is not usable evidence.
+It was interrupted after a long Crossref HTTPS relation lookup stall. Only `request.json` and `search_plan.md` exist; evidence status for this directory is unusable.
 
-Two subsequent PubMed E-utilities exact-query attempts were not executed because the sandbox escalation auto-review timed out. This is an operational limitation, not a literature result.
+Two subsequent PubMed E-utilities exact-query attempts were blocked by sandbox escalation auto-review timeouts. This records an operational limitation only.
 
 ## P0047 / P0040 Full-Text Extraction
 
@@ -125,7 +126,7 @@ Extraction notes:
 
 - Yang and Song 2024 supports Martini 3 plus switching Go-like structure-bias vocabulary in explicit water/lipid systems. It records `martinize2.py`, OV/rCSU Go contacts, `create_goVirt.py`, `insane.py`, replicate schedules, and explicit limitations around non-quantitative free energy/kinetics and manually controlled switching.
 - Sahoo et al. 2023 supports Martini 3 TM-dimer validation vocabulary, including elastic-network secondary-structure stabilization, `insane.py` DMPC setup, 4 x 4 us replicates, Backward/atomistic comparison, and convergence/state-transition checks.
-- Neither paper is a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha CG route source. They do not support `chctrl` build, candidate replacement, Ch-1/Ch-2/Ch-4 action, E2 execution, or compute-saving success claims.
+- These papers provide receptor-only and TM-dimer Martini method vocabulary. Direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha CG routing, `chctrl` build, candidate replacement, Ch-1/Ch-2/Ch-4 action, E2 execution, and compute-saving success claims require separate evidence.
 
 ## Yang 2024 Supplementary PDF / Tutorial Extraction
 
@@ -140,8 +141,8 @@ Pointer summary:
 
 - The Supporting Information PDF adds exact CG schedule and outcome tables, including minimization/equilibration/production durations, repeat counts, transition-relaxation settings, and pathway counts.
 - The tutorial zip adds the worked beta2AR active-to-inactive setup: `3SN6`/`2RH1` preprocessing, `martinize2` flags, OV/rCSU contact-map generation, `create_goVirt_for_multimer.py` with `--go_eps 12` and `--Natoms 681`, Martini 3 force-field include edits, POPC/150 mM salt setup via `insane.py`, manual ion/topology correction warnings, state-specific topologies, and tutorial MDP files.
-- The tutorial remains receptor-only beta2AR. It does not contain GPCR-Galpha, Ste2-Gpa1, chimeric Galpha, receptor-effector interchain Go-contact policy, backmapping, or atomistic comparison gates.
-- This closes the "Yang supplementary methods pending" item but does not close the R4 source gate.
+- The tutorial remains receptor-only beta2AR. GPCR-Galpha, Ste2-Gpa1, chimeric Galpha, receptor-effector interchain Go-contact policy, backmapping, and atomistic comparison gates require separate evidence.
+- This closes the "Yang supplementary methods pending" item; the R4 source gate still requires direct route or validation evidence.
 
 ## PubMed E-utilities Probes
 
@@ -152,37 +153,60 @@ Query outcomes:
 - Broad query for `(GPCR OR G protein-coupled receptor) AND (Galpha OR G alpha OR G protein OR mini-Gs) AND (Martini OR coarse-grained) AND molecular dynamics`: 54 PubMed records. The top returned records were mostly GPCR lipid, activation, ligand, or receptor-only MD/CG papers. Notable entries include the final article for "Human class B1 GPCR modulation by plasma membrane lipids" with DOI `10.1038/s42003-025-09445-2`, and P0057 with DOI `10.1039/d5cp02918j`.
 - Exact Galpha/GPCR/Martini-or-CG/MD query: 0 PubMed records.
 - Exact heterotrimeric G-protein/Martini-or-CG/MD query: 0 PubMed records.
-- `mini-Gs` plus Martini/CG/MD query: 4 PubMed records, including Renault et al. 2019 Mini-G protein MD and A2A/A3 receptor-lipid or receptor-state records. These are not CG-Galpha route sources.
-- Ste2/Gpa1 plus Martini/CG/MD query: 1 PubMed record, Mohanty et al. 2025, "Deep learning reveals endogenous sterols as allosteric modulators of the GPCR-Galpha interface" (`10.7554/eLife.106397`). PubMed abstract metadata explicitly mentions Ste2p-Gpa1p and molecular simulations. The repo already downgraded this source to Ste2p-Gpa1p interface/allosteric context, not a full-complex MD protocol and not a CG route source.
+- `mini-Gs` plus Martini/CG/MD query: 4 PubMed records, including Renault et al. 2019 Mini-G protein MD and A2A/A3 receptor-lipid or receptor-state records. CG-Galpha route use would require additional source evidence.
+- Ste2/Gpa1 plus Martini/CG/MD query: 1 PubMed record, Mohanty et al. 2025, "Deep learning reveals endogenous sterols as allosteric modulators of the GPCR-Galpha interface" (`10.7554/eLife.106397`). PubMed abstract metadata explicitly mentions Ste2p-Gpa1p and molecular simulations. The repo boundary keeps this as Ste2p-Gpa1p interface/allosteric context; full-complex MD protocol or CG route use requires separate method evidence.
 
 ## Current Interpretation
 
 This pass found one useful update and one useful reminder:
 
 - The GPCR-lipid record P0038 has a final article DOI, `10.1038/s42003-025-09445-2`; it remains receptor/lipid CG context only.
-- Mohanty et al. 2025 is a direct Ste2p-Gpa1p / GPCR-Galpha interface citation seed, but it is already known in the repo and does not support a Martini/CG replacement route.
-- Cevheroglu et al. 2017 has now been full-text screened from the user-supplied PDF. It strengthens Ste2p-Gpa1p precoupling/interface context, but transfer to Gpr2/Gpr3/GprC candidates is weak; it remains non-support for R4 buildability.
-- Yang and Song 2024, its SI/tutorial archive, and Sahoo et al. 2023 are now screened. They move P0047/P0040/Yang supplementary methods out of the unread queue, but the extraction still does not define a buildable R4 `chctrl` object contract.
+- Mohanty et al. 2025 is a direct Ste2p-Gpa1p / GPCR-Galpha interface citation seed already known in the repo. Martini/CG replacement routing requires separate route evidence.
+- Cevheroglu et al. 2017 has now been full-text screened from the user-supplied PDF. It strengthens Ste2p-Gpa1p precoupling/interface context; transfer to Gpr2/Gpr3/GprC candidates remains weak and R4 buildability still requires separate method evidence.
+- Yang and Song 2024, its SI/tutorial archive, and Sahoo et al. 2023 are now screened. They move P0047/P0040/Yang supplementary methods out of the unread queue; a buildable R4 `chctrl` object contract still requires direct route or validation evidence.
 
-This pass did not find a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coarse-grained route source. R4 therefore remains a `screening_only` source gate. The next useful work is continued direct GPCR-Galpha / Ste2-Gpa1 CG citation chasing and, only if source support appears, drafting a `chctrl` object-contract gate with explicit receptor-Galpha interchain-bias, backmapping, and atomistic-comparison requirements.
+This pass supported a `screening_only` source gate for R4 at this point in the record because it lacked a direct GPCR-Galpha, Ste2-Gpa1, or chimeric Galpha coarse-grained route source. The later 2026-07-05 focused seed pass below superseded the "continued citation chasing" action with `R4-B design_only_object_contract_draft`; the design-only `chctrl` object contract and local material decision have now been written. Current routing starts from `../../../docs/INDEX.md` and the R4 material-boundary records.
 
 ## 2026-07-05 New-Source Acquisition Pass
 
-The next source-chase pass is now recorded separately:
+The later source-chase pass is recorded separately:
 
 ```text
 experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md
 experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv
 ```
 
-The pass keeps direct GPCR-Galpha / Ste2-Gpa1 CG as the target, but converts the immediate next action into a method-source extraction queue:
+That pass kept direct GPCR-Galpha / Ste2-Gpa1 CG as the target, but converted the historical handoff into a method-source extraction queue:
 
 - direct GPCR-Galpha metadata search: no usable direct CG workflow retained;
 - Ste2/Gpa1 CG search: empty with provider failures, so it should be retried manually only if needed;
 - interface/contact-bias seed direction: GoMartini3, OLIVES, and OliGoMers;
 - backmapping/revalidation seed direction: Lopez2022 CG-AA coupling and Aydin2025 multiscale workflow.
 
-Practical next step: extract those method seeds and then write an R4 decision package. Do not start a `chctrl` build plan from citation chasing alone.
+Historical next step at that time: extract those method seeds and then write an R4 decision package. A `chctrl` build plan requires method extraction plus a separate material-boundary approval.
+
+## 2026-07-05 Focused Method-Seed Follow-Up
+
+The method-seed queue from `r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv` was continued on 2026-07-05 and incorporated into:
+
+```text
+experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md
+experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.tsv
+```
+
+Update:
+
+- `OLIVES_2024` remains `manual_acquisition` because ACS final article and ChemRxiv preprint pages returned HTTP 403 Cloudflare challenge responses in this pass; only Crossref metadata was accessible.
+- `OliGoMers_2024` was extracted and now supplies the practical R4 interchain-contact vocabulary: split intra/intermolecular Go contacts, separately tuned `epsilon_intra` / `epsilon_inter`, AA RMSF/RMSD/native-contact comparison, and explicit risk from overstrong interchain bias.
+- `Lopez2022_CG_AA_Coupling` was extracted and now supplies the practical CG-to-AA bridge vocabulary: selected CG snapshots, automated conversion, stereochemistry failure handling, AA relaxation/short production, and loss-of-intermolecular-contact warnings.
+- `Aydin2025_UCG_Multiscale` was extracted as optional workflow language for cheap UCG conformer generation followed by Martini validation; immediate R4 routing remains with the source-pin / tool-validation gaps.
+
+Action translation:
+
+- Direct GPCR-Galpha / Ste2-Gpa1 / chimeric Galpha CG workflow support remains unextracted.
+- The method vocabulary is sufficient for the design-only `chctrl`-first object-contract draft after the one-page decision package.
+- Broad citation chasing is closed for the current route. This file is historical/supporting evidence; the R4 material boundary is recorded in `r4_material_decision_addendum_20260706.md`.
 
 ## References / 所引
 
@@ -225,3 +249,4 @@ Practical next step: extract those method seeds and then write an R4 decision pa
 - `docs/logs/2026-07-05.md`
 - `docs/logs/2026-07-04.md`
 - `experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`
+- `experiments/chimeric-gpa1/literature/r4_chctrl_object_contract_20260705.md`

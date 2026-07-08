@@ -43,15 +43,17 @@ Project interpretation:
 
 - The SI/tutorial closes the previous "Yang supplementary method extraction pending" gap.
 - It refines R4 object-contract vocabulary around state-pair preprocessing, Go-contact generation, topology switching, membrane/ion setup, MDP schedule, and trajectory post-processing.
-- It remains beta2AR receptor-only tutorial evidence, not receptor-Galpha, not Ste2-Gpa1, and not chimeric Galpha.
-- The follow-up R4 new-source plan uses Yang2024 as vocabulary for what to extract next: interface/contact policy, structure-bias choice, and CG-to-AA revalidation.
+- It is beta2AR receptor-only tutorial evidence for Martini 3 / Go-like workflow vocabulary. Receptor-Galpha, Ste2-Gpa1, and chimeric Galpha support require separate sources.
+- The follow-up R4 source pass used Yang2024 as receptor-only workflow
+  vocabulary. Later R4 records moved the current material boundary to
+  `../../../experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md`.
 
 ## 与项目的关系
 
-- **支持 R4 继续 source-gate**：这是当前已读来源中最明确的 Martini 3 + Go-like structure-bias + explicit lipid/water membrane conformational-transition 方法源。
+- **支持 R4 历史/设计证据**：这是本轮已读来源中最明确的 Martini 3 + Go-like structure-bias + explicit lipid/water membrane conformational-transition 方法源；当前 R4 路由从 `../../../docs/INDEX.md` 和 `../../../experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md` 进入。
 - **支持需要写入 R4 object contract 的字段**：两端构象来源、protein trimming/missing-loop policy、Go-like contact generator、bias energy、contact cutoff、membrane/ion setup、switching schedule、replicate count、comparison metrics。
-- **不能直接支持 chctrl build**：该文没有 GPCR-Galpha、Ste2-Gpa1 或 chimeric Galpha complex；beta2AR 是 receptor-only conformational transition benchmark，不是 receptor-effector interface preservation source。
-- **不能作为 candidate replacement 依据**：Switching Go-Martini 会人为驱动两态转换；它适合探索路径和后续 atomistic/free-energy 工作的初筛，不等价于 full atomistic receptor-Galpha-in-membrane evidence。
+- **当前允许用途**：该文支持 beta2AR receptor-only conformational transition benchmark 与 workflow vocabulary；chctrl build 仍需要 GPCR-Galpha、Ste2-Gpa1 或 chimeric Galpha complex 的独立来源。
+- **candidate replacement 门禁**：Switching Go-Martini 会人为驱动两态转换；它适合探索路径和后续 atomistic/free-energy 工作的初筛。替代候选结论需要 full atomistic receptor-Galpha-in-membrane evidence。
 
 ## 边界
 
@@ -67,6 +69,7 @@ Project interpretation:
 - `../../../experiments/chimeric-gpa1/literature/source_attachments/Yang2024-Switching-Go-Martini-tutorial.zip`
 - `../../../experiments/chimeric-gpa1/literature/r4_cg_method_extraction_20260704.md`
 - `../../../experiments/chimeric-gpa1/literature/r4_direct_gpcr_galpha_cg_source_chase_20260705.md`
+- `../../../experiments/chimeric-gpa1/literature/r4_decision_package_20260705.md`
 
 ## Referenced by / 被引
 
