@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="第 1 页" id="I5Y-zm4LAoE4J4LkYtSV">
+    <mxGraphModel dx="914" dy="681" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qW8Isrv7DGpw5TctLySy-11" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qW8Isrv7DGpw5TctLySy-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-23" connectable="0" parent="qW8Isrv7DGpw5TctLySy-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="验证" vertex="1">
+          <mxGeometry relative="1" x="-0.2222" y="3" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="GPR-ASCR Docking" vertex="1">
+          <mxGeometry height="60" width="140" x="20" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-12" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-24" connectable="0" parent="qW8Isrv7DGpw5TctLySy-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="验证" vertex="1">
+          <mxGeometry relative="1" x="-0.0222" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Chimeric Gpa1" vertex="1">
+          <mxGeometry height="60" width="140" x="240" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-13" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qW8Isrv7DGpw5TctLySy-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-16" connectable="0" parent="qW8Isrv7DGpw5TctLySy-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="产出" vertex="1">
+          <mxGeometry relative="1" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-14" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qW8Isrv7DGpw5TctLySy-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-17" connectable="0" parent="qW8Isrv7DGpw5TctLySy-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="产出" vertex="1">
+          <mxGeometry relative="1" x="0.0625" y="2" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Molecular Dynamics&lt;br&gt;分子动力学模拟" vertex="1">
+          <mxGeometry height="60" width="140" x="130" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="GPR突变位点" vertex="1">
+          <mxGeometry height="80" width="140" x="20" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Gpa1嵌合改造方案" vertex="1">
+          <mxGeometry height="80" width="140" x="240" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-18" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="qW8Isrv7DGpw5TctLySy-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(26, 28, 31); font-family: ui-monospace, SFMono-Regular, &amp;quot;SF Mono&amp;quot;, Menlo, Consolas, &amp;quot;Liberation Mono&amp;quot;, monospace; font-size: 13px; text-align: start; background-color: oklab(0.22559 -0.00131416 -0.00642684 / 0.0329412);&quot;&gt;信号通路ODE/&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(26, 28, 31); font-family: ui-monospace, SFMono-Regular, &amp;quot;SF Mono&amp;quot;, Menlo, Consolas, &amp;quot;Liberation Mono&amp;quot;, monospace; font-size: 13px; text-align: start; background-color: oklab(0.22559 -0.00131416 -0.00642684 / 0.0329412);&quot;&gt;显色接口建模&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="460" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-20" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qW8Isrv7DGpw5TctLySy-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="经济效益建模" vertex="1">
+          <mxGeometry height="60" width="140" x="680" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;span class=&quot;font-semibold&quot; style=&quot;box-sizing: border-box; border: 0px solid; margin: 0px; padding: 0px; --tw-font-weight: 600; color: rgb(26, 28, 31); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, sans-serif; font-size: 14px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;检测限与放大方案&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="140" x="460" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;span class=&quot;font-semibold&quot; style=&quot;box-sizing: border-box; border: 0px solid; margin: 0px; padding: 0px; --tw-font-weight: 600; color: rgb(26, 28, 31); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, sans-serif; font-size: 14px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;ROI 与部署阈值&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="140" x="680" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-21" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qW8Isrv7DGpw5TctLySy-9" value="产出">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(26, 28, 31); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, sans-serif; font-size: 14px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;晚发现/无早期检测&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(26, 28, 31); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, sans-serif; font-size: 14px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;vs&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(26, 28, 31); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, sans-serif; font-size: 14px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;早期检测+及时干预&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="680" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-19" edge="1" parent="1" source="qW8Isrv7DGpw5TctLySy-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qW8Isrv7DGpw5TctLySy-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-22" connectable="0" parent="qW8Isrv7DGpw5TctLySy-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="产出" vertex="1">
+          <mxGeometry relative="1" x="-0.18" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qW8Isrv7DGpw5TctLySy-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(26, 28, 31); font-family: ui-monospace, SFMono-Regular, &amp;quot;SF Mono&amp;quot;, Menlo, Consolas, &amp;quot;Liberation Mono&amp;quot;, monospace; font-size: 13px; text-align: start; background-color: oklab(0.22559 -0.00131416 -0.00642684 / 0.0329412);&quot;&gt;STE2-MAPK-报告基因通路模型&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="460" y="270" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

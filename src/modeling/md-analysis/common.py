@@ -93,10 +93,31 @@ class AnalysisContext:
 
     def replicates(self) -> list[Replicate]:
         out = []
-        for i in (1, 2, 3):
+        for i in configured_replicate_numbers():
             d = self.base / "processed" / f"rep{i}"
             out.append(Replicate(f"rep{i}", d / "protein_ref.pdb", d / "prod_protein.xtc"))
         return out
+
+
+def configured_replicate_numbers() -> list[int]:
+    raw = os.environ.get("CHIMERIC_MD_REPS")
+    if not raw:
+        return [1, 2, 3]
+    reps: list[int] = []
+    for item in raw.replace(",", " ").split():
+        token = item.strip().lower()
+        if token.startswith("rep"):
+            token = token[3:]
+        try:
+            rep = int(token)
+        except ValueError as exc:
+            raise ValueError(f"invalid CHIMERIC_MD_REPS token: {item!r}") from exc
+        if rep <= 0:
+            raise ValueError(f"CHIMERIC_MD_REPS entries must be positive: {item!r}")
+        reps.append(rep)
+    if not reps:
+        raise ValueError("CHIMERIC_MD_REPS is set but no replicate numbers were parsed")
+    return reps
 
 
 def load_config(path: Path | None = None) -> dict:

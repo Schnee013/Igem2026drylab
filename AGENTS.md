@@ -9,15 +9,4 @@ Slash aliases:
 
 Core rule: project memory is an index, not an authority. Verify facts against source docs, logs, configs, code, paper summaries, or data outputs before making strong claims.
 
-Drylab loading rule:
-- For any non-trivial drylab task, read `docs/DOCMAP.md` first.
-- Then read `docs/INDEX.md` unless the task is purely local/mechanical and the exact file/scope is already specified.
-- Use `docs/DOCMAP.md` as the document-governance and source-routing rulebook.
-- Use `docs/INDEX.md` as the current project router for direction status, blockers, recent progress, and active todos.
-
-Project memory:
-- Repo-scoped project memory lives under `codex/docs/memory/`.
-- For non-trivial drylab tasks, after `docs/DOCMAP.md` and `docs/INDEX.md`, read `codex/docs/memory/README.md`.
-- Then read only the memory files relevant to the task; do not bulk-load all memory files by default.
-- Treat project memory as a routing, handoff, warning, and workflow-discipline layer, not as final evidence.
-- Keep memory concise and pointer-based; move authoritative facts into the appropriate `docs/` source.
+For non-trivial drylab work, use `docs/DOCMAP.md` as the entry and context-loading authority. `docs/INDEX.md` is the current-state router; `codex/docs/memory/` is a pointer, warning, and handoff layer only.
