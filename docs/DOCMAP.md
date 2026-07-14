@@ -21,7 +21,7 @@
 | 审查 / truth / censor / 路由治理 | 本文件、被审查文件、必要的权威指针 | 需要当前状态时读 INDEX；需要历史经过时读对应日志 |
 | payload / manifest / Git tracking / commit 分类 | 本文件、`.gitignore`、[ops/payload-tracking-policy.md](ops/payload-tracking-policy.md)、被分类的 changed files | 只有需要当前项目状态时读 INDEX；只有需要具体经过时读对应日志；普通 MD/文献/状态任务沿各自任务画像加载上下文 |
 | 机械编辑 / 指定文件修复 | 本文件和指定文件 | 只有编辑影响路由、状态或权威边界时读 INDEX 或 memory README |
-| MD / 远程计算 / 运行状态 | INDEX 当前优先入口，再读 `docs/ops/`、`environments/`、`codex/docs/plans/`、对应结果和日志 | 服务器、job、checkpoint 或运行完成状态由当前结果、日志或 ops 文档确认 |
+| MD / 远程计算 / 运行状态 | INDEX 当前优先入口；任何 MD / GROMACS 任务必须读取 [ops/md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)，再按需读 `environments/`、`codex/docs/plans/`、对应结果和日志 | 新服务器或远程计算任务同时读取 [ops/nkuliulab-e2-cloud-server.md](ops/nkuliulab-e2-cloud-server.md)；服务器、job、checkpoint 或运行完成状态由当前结果、日志或 ops 文档确认 |
 | 文献 / 论文证据 | [papers/literature-matrix.md](papers/literature-matrix.md)，再读指定 summary 或数据源 | 先用矩阵缩小范围，再读取指定 summary、数据源或必要 PDF |
 | memory / handoff / 踩坑复盘 | [codex/docs/memory/README.md](../codex/docs/memory/README.md)，再读相关 memory 文件 | memory 只给路由、警示和交接；事实仍回权威源验证 |
 
@@ -110,7 +110,7 @@ Codex native/global memory 和 Claude 私有 memory 只能保存用户偏好、�
 
 当前操作规范留在 `docs/ops/` 根目录；旧服务器、旧工具链、旧事故复盘放入 `docs/ops/archives/`。归档材料只用于追溯旧结果、理解旧日志或访问历史文件；新任务默认入口使用当前 `docs/ops/` 规范。
 
-新服务器/远程计算任务先读 [ops/nkuliulab-e2-cloud-server.md](ops/nkuliulab-e2-cloud-server.md)。MD/GROMACS 的服务器中立踩坑见 [ops/md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)。
+任何 MD/GROMACS 任务必须先读 [ops/md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)。新服务器/远程计算任务还要读 [ops/nkuliulab-e2-cloud-server.md](ops/nkuliulab-e2-cloud-server.md)。
 
 Payload / manifest / Git tracking 规则见 [ops/payload-tracking-policy.md](ops/payload-tracking-policy.md)。该文件是条件加载的 commit/tracking 分类规则，用于 payload、manifest、checksum、ignore 或 staging 风险审查；普通 MD 状态或科学解释入口仍按本 DOCMAP 的任务画像选择。
 
