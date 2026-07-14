@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import os
 from pathlib import Path
 import sys
@@ -18,7 +19,7 @@ COMMON_DIR = ROOT / "src/modeling/md-analysis"
 if str(COMMON_DIR) not in sys.path:
     sys.path.insert(0, str(COMMON_DIR))
 
-from common import configured_replicate_numbers
+from common import analysis_context, configured_replicate_numbers
 
 
 def load_hbond_module():
@@ -35,6 +36,80 @@ HBOND = load_hbond_module()
 
 
 class MdAnalysisContractTests(unittest.TestCase):
+    def test_external_payload_root_keeps_analysis_outputs_in_repo_tree(self) -> None:
+        config = {
+            "default": "test-system",
+            "systems": {
+                "test-system": {
+                    "label": "test",
+                    "result_dir": "experiments/md-simulation/results/test-system",
+                    "receptor": {
+                        "name": "receptor",
+                        "selection": "segid A",
+                        "interface_selection": "segid A",
+                    },
+                    "galpha": {
+                        "name": "partner",
+                        "selection": "segid B",
+                        "alpha5_selection": "segid B",
+                        "ect_selection": "segid B",
+                        "core_backbone_selection": "segid B",
+                    },
+                }
+            },
+        }
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary = Path(temporary_directory)
+            config_path = temporary / "config.json"
+            config_path.write_text(json.dumps(config), encoding="utf-8")
+            payload_root = temporary / "payloads"
+            with patch.dict(
+                os.environ,
+                {
+                    "DRYLAB_PAYLOAD_ROOT": str(payload_root),
+                    "CHIMERIC_MD_REPS": "1",
+                },
+                clear=False,
+            ):
+                context = analysis_context(config_path=config_path)
+
+            self.assertEqual(
+                context.analysis_base,
+                Path("experiments/md-simulation/results/test-system/analysis"),
+            )
+            self.assertEqual(
+                context.payload_base,
+                payload_root / "experiments/md-simulation/results/test-system",
+            )
+            self.assertEqual(
+                context.replicates()[0].trajectory,
+                payload_root
+                / "experiments/md-simulation/results/test-system/processed/rep1/prod_protein.xtc",
+            )
+
+    def test_direct_payload_root_overrides_shared_payload_root(self) -> None:
+        direct = Path("/external/package")
+        with patch.dict(
+            os.environ,
+            {
+                "CHIMERIC_MD_PAYLOAD_ROOT": str(direct),
+                "DRYLAB_PAYLOAD_ROOT": "/external/shared",
+                "CHIMERIC_MD_REPS": "1",
+            },
+            clear=False,
+        ):
+            context = analysis_context(
+                "gpr2-wt-ascr18-rep1",
+                config_path=ROOT
+                / "experiments/md-simulation/results/gpr2-wt-ascr18/chimeric_systems.gpr2_wt_ascr18_rep1.json",
+            )
+
+        self.assertEqual(context.payload_base, direct)
+        self.assertEqual(
+            context.replicates()[0].topology,
+            direct / "processed/rep1/protein_ref.pdb",
+        )
+
     def test_duplicate_replicate_numbers_are_rejected(self) -> None:
         with patch.dict(os.environ, {"CHIMERIC_MD_REPS": "1,1"}):
             with self.assertRaisesRegex(ValueError, "duplicate replicate numbers: 1"):

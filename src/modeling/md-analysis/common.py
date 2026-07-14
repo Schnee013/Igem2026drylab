@@ -29,6 +29,7 @@ class AnalysisContext:
     label: str
     config: dict
     base: Path
+    payload_base: Path
 
     @property
     def receptor_name(self) -> str:
@@ -130,7 +131,7 @@ class AnalysisContext:
     def replicates(self) -> list[Replicate]:
         out = []
         for i in configured_replicate_numbers():
-            d = self.base / "processed" / f"rep{i}"
+            d = self.payload_base / "processed" / f"rep{i}"
             out.append(Replicate(f"rep{i}", d / "protein_ref.pdb", d / "prod_protein.xtc"))
         return out
 
@@ -199,14 +200,35 @@ def system_config(
 def analysis_context(
     system: str | None = None,
     base: Path | None = None,
+    payload_base: Path | None = None,
     config_path: Path | None = None,
 ) -> AnalysisContext:
     system, cfg = system_config(system, config_path=config_path)
+    result_base = base or Path(cfg["result_dir"])
+    if payload_base is None:
+        direct_payload_root = os.environ.get("CHIMERIC_MD_PAYLOAD_ROOT")
+        shared_payload_root = os.environ.get("DRYLAB_PAYLOAD_ROOT")
+        if direct_payload_root:
+            payload_base = Path(direct_payload_root)
+        elif shared_payload_root:
+            configured_result_dir = Path(cfg["result_dir"])
+            if configured_result_dir.is_absolute():
+                try:
+                    configured_result_dir = configured_result_dir.relative_to(REPO_ROOT)
+                except ValueError as exc:
+                    raise ValueError(
+                        "DRYLAB_PAYLOAD_ROOT requires result_dir to be repo-relative "
+                        "or located under the repository root"
+                    ) from exc
+            payload_base = Path(shared_payload_root) / configured_result_dir
+        else:
+            payload_base = result_base
     return AnalysisContext(
         system=system,
         label=cfg.get("label", system),
         config=cfg,
-        base=base or Path(cfg["result_dir"]),
+        base=result_base,
+        payload_base=payload_base,
     )
 
 
@@ -219,7 +241,7 @@ def analysis_base(system: str | None = None) -> Path:
 
 
 def replicates(base: Path | None = None, system: str | None = None) -> list[Replicate]:
-    ctx = analysis_context(system, base=base)
+    ctx = analysis_context(system, base=base, payload_base=base if base is not None else None)
     return ctx.replicates()
 
 

@@ -93,7 +93,7 @@ def canonical_replicates() -> list[Replicate]:
     """Build the fixed chctrl rep1/rep2/rep3 inputs without rereading env state."""
     reps = []
     for number in CANONICAL_REPLICATE_NUMBERS:
-        directory = CTX.base / "processed" / f"rep{number}"
+        directory = CTX.payload_base / "processed" / f"rep{number}"
         reps.append(
             Replicate(
                 rep=f"rep{number}",
@@ -359,10 +359,10 @@ def load_canonical_rmsd(rmsd_path: Path, reps) -> pd.DataFrame:
 
 
 def main() -> None:
-    base = CTX.base
+    payload_base = CTX.payload_base
     reps = canonical_replicates()
     source_clean = Path("experiments/md-simulation/structures/chimeric/Chctrl_Ste2_Gpa1_WT_clean.pdb")
-    step5 = base / "raw/shared/step5_input.pdb"
+    step5 = payload_base / "raw/shared/step5_input.pdb"
     rmsd_path = CTX.analysis_base / "selection_rmsd/selection_rmsd.csv"
     contact_persistence_path = CTX.analysis_base / "contacts/contact_persistence.csv"
     contact_occupancy_path = CTX.analysis_base / "contacts/initial_contact_occupancy.csv"
@@ -401,7 +401,9 @@ def main() -> None:
 
     # Sequence carry-through from clean chain A/B to CHARMM-GUI PROA/PROB.
     clean = parse_pdb_residues(source_clean, "chain")
-    processed = parse_pdb_residues(base / "processed/rep1/protein_ref.pdb", "segid")
+    processed = parse_pdb_residues(
+        payload_base / "processed/rep1/protein_ref.pdb", "segid"
+    )
     mapping_rows = []
     for clean_key, segid, intended in [("A", "PROA", "Gpa1-WT"), ("B", "PROB", "Ste2")]:
         clean_res = clean.get(clean_key, [])
