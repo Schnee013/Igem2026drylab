@@ -1,0 +1,21 @@
+setting	value
+route	Membrane Builder -> Bilayer Builder
+input	PPM-oriented clean PDB, no DUM HETATM
+step1_membrane_only_system	unchecked
+step1_check_pka	unchecked
+step2_orientation	Use PDB Orientation
+step3_box	Rectangular
+step3_water_thickness	22.5 A
+step3_xy_length	90 A
+step3_lipid	POPC
+step3_upper_lower_ratio	1 / 1
+step4_building_method	Replacement method
+step4_lipid_ring_penetration	checked
+step4_ions	KCl 0.15 M, neutralizing ions enabled
+step4_ion_placing_method	Distance
+step6_force_field	CHARMM36m
+step6_output	GROMACS only
+step6_more_charmm_minimization	unchecked
+step6_ensemble	NPT
+step6_temperature	303.15 K
+step6_pme_fft_grid	automatic

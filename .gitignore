@@ -89,6 +89,13 @@ experiments/md-simulation/results/**/pwd.txt
 experiments/md-simulation/results/**/run_*_time.txt
 experiments/md-simulation/results/**/mdrun_start_time.txt
 
+# Gpr2 WT rep1 raw machine/validator outputs. Keep reviewed summaries,
+# warning gates, manifests, and recovery pointers visible instead.
+experiments/md-simulation/results/gpr2-wt-ascr18/**/nvidia_smi_*.csv
+experiments/md-simulation/results/gpr2-wt-ascr18/**/nvidia_smi_*.tsv
+experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/sanity/*.xvg
+experiments/md-simulation/results/gpr2-wt-ascr18/gates/20260705_rep1_preproduction/*_out.mdp
+
 # MD system build/runtime byproducts under gromacs/. Canonical builder inputs
 # such as README, topologies, MDPs, index files, and step5_input.* remain visible.
 experiments/md-simulation/systems/**/gromacs/*.tpr
@@ -117,6 +124,7 @@ experiments/md-simulation/systems/**/receptor/ppm_submission/*.pdb
 experiments/md-simulation/systems/**/receptor/ppm_submission/output/*.pdb
 experiments/md-simulation/systems/**/gromacs/*_coordinate_completion/*.gro
 experiments/md-simulation/systems/**/gromacs/*_coordinate_completion/*.pdb
+!experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.gro
 
 # R1 chctrl prototype payload policy: keep route/build notes/checksums/static
 # validation, but do not commit the copied CHARMM-GUI GROMACS input package.
