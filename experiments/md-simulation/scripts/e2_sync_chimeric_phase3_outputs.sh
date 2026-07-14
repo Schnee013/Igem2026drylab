@@ -5,7 +5,8 @@ usage() {
   cat <<'EOF'
 Usage: e2_sync_chimeric_phase3_outputs.sh RUN_ID SYSTEM...
 
-Pull E2 rebuilt Phase C3 terminal outputs back into local canonical inputs:
+Pull E2 rebuilt Phase C3 terminal outputs into an external payload store.
+Repo-owned topology, MDP, index, and step5 inputs remain under:
   experiments/md-simulation/systems/<system>/gromacs/
 
 The script intentionally pulls logs/checkpoints/final structures/checksums,
@@ -16,6 +17,8 @@ Environment:
   E2_BASE=/ifs1/User/dengwei/igem
   REMOTE_MD_BASE=$E2_BASE/md-simulation
   SYSTEM_ROOT=experiments/md-simulation/systems
+  DRYLAB_PAYLOAD_ROOT=/absolute/path/outside/repo
+  SYSTEM_PAYLOAD_ROOT=$DRYLAB_PAYLOAD_ROOT/experiments/md-simulation/systems
   E2_SSH_OPTS="-p 40042"   # optional when REMOTE is not an ssh-config alias
 EOF
 }
@@ -32,9 +35,25 @@ REMOTE=${REMOTE:-nkuliulab-e2}
 E2_BASE=${E2_BASE:-/ifs1/User/dengwei/igem}
 REMOTE_MD_BASE=${REMOTE_MD_BASE:-$E2_BASE/md-simulation}
 SYSTEM_ROOT=${SYSTEM_ROOT:-experiments/md-simulation/systems}
+if [[ -z "${SYSTEM_PAYLOAD_ROOT:-}" ]]; then
+  if [[ -z "${DRYLAB_PAYLOAD_ROOT:-}" ]]; then
+    echo "ERROR: set DRYLAB_PAYLOAD_ROOT or SYSTEM_PAYLOAD_ROOT to an external payload store." >&2
+    exit 2
+  fi
+  SYSTEM_PAYLOAD_ROOT="$DRYLAB_PAYLOAD_ROOT/experiments/md-simulation/systems"
+fi
 RSYNC_RSH=${RSYNC_RSH:-ssh ${E2_SSH_OPTS:-}}
 LOCAL_PULL_ID=${LOCAL_PULL_ID:-$(date +%Y%m%d_%H%M%S)}
 E2_IO_RETRIES=${E2_IO_RETRIES:-3}
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+SYSTEM_PAYLOAD_ROOT=$(python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).expanduser().resolve())' "$SYSTEM_PAYLOAD_ROOT")
+case "$SYSTEM_PAYLOAD_ROOT/" in
+  "$REPO_ROOT/"*)
+    echo "ERROR: SYSTEM_PAYLOAD_ROOT must be outside the Git worktree: $SYSTEM_PAYLOAD_ROOT" >&2
+    exit 2
+    ;;
+esac
 
 SSH_OPTS_ARR=()
 if [[ -n "${E2_SSH_OPTS:-}" ]]; then
@@ -95,13 +114,15 @@ pull_pattern() {
 
 for system in "$@"; do
   remote_dir="$REMOTE_MD_BASE/$system/gromacs"
-  local_dir="$SYSTEM_ROOT/$system/gromacs"
+  canonical_dir="$SYSTEM_ROOT/$system/gromacs"
+  local_dir="$SYSTEM_PAYLOAD_ROOT/$system/gromacs"
   echo "[phase3-sync] auditing remote Phase C3 outputs: $system"
 
-  if [[ ! -d "$local_dir" ]]; then
-    echo "ERROR: missing local canonical gromacs directory: $local_dir" >&2
+  if [[ ! -d "$canonical_dir" ]]; then
+    echo "ERROR: missing repo-owned canonical gromacs directory: $canonical_dir" >&2
     exit 1
   fi
+  mkdir -p "$local_dir"
 
   required_remote=(
     "step6.6.gro"
