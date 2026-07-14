@@ -41,6 +41,21 @@ FORBIDDEN_TRACKED = [
     ("docs/papers/pdf/**", "local paper PDF body"),
 ]
 
+CANONICAL_PAYLOAD_ALLOWLIST = {
+    "experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/"
+    "ascr3_coordinate_completion/ASCR3_pose_completed.gro",
+}
+
+# These tables contain the word ``manifest`` but are not row-per-payload
+# manifests: one is a mixed remote/source pin ledger and one is a future gate
+# field template. Applying the payload-body schema would invent path, size, and
+# recovery semantics that the tables do not claim.
+NON_PAYLOAD_MANIFEST_TABLES = {
+    "experiments/chimeric-gpa1/literature/r4_tool_source_pin_manifest_20260706.tsv",
+    "experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/"
+    "prototype_manifest_template.tsv",
+}
+
 RECOMMENDED_MANIFEST_COLUMNS = {
     "path",
     "role",
@@ -75,6 +90,8 @@ def matches(path: str, pattern: str) -> bool:
 def check_forbidden_tracked(tracked: list[str]) -> list[str]:
     errors: list[str] = []
     for path in tracked:
+        if path in CANONICAL_PAYLOAD_ALLOWLIST:
+            continue
         for pattern, reason in FORBIDDEN_TRACKED:
             if matches(path, pattern):
                 errors.append(f"{path}\t{reason}\tpattern={pattern}")
@@ -91,6 +108,8 @@ def check_tracked_ignored() -> list[str]:
 def candidate_manifests(paths: list[str]) -> list[str]:
     selected = []
     for path in paths:
+        if path in NON_PAYLOAD_MANIFEST_TABLES:
+            continue
         name = Path(path).name
         if name.endswith(".tsv") and "manifest" in name:
             selected.append(path)
