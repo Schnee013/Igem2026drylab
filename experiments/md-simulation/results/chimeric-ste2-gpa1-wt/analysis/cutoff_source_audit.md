@@ -1,7 +1,7 @@
 # chctrl operational cutoff + Ste2 interface source audit
 
 > Scope: `chimeric-ste2-gpa1-wt` Phase C5 only.
-> Status: executed source audit on 2026-04-29; DOI/URL pointer supplement added on 2026-05-06.
+> Status: executed source audit on 2026-04-29; DOI/URL pointer supplement added on 2026-05-06; current BSA implementation pointer corrected on 2026-07-12.
 > Rule applied: no DOI / exact title / method section / official tool documentation / exact data pointer = not accepted as authoritative literature evidence.
 > Related selection audit: `selection_audit/selection_audit_report.md`
 
@@ -14,7 +14,7 @@ The chctrl selections are now source-audited enough for **caveated interpretatio
   - exact project derivation: continuous Ste2 residue ranges covering the 7AD3 Ste2 residues within 8 Å of Gpa1 alpha5/eCT residues 450–472, then confirmed in the project `step5_input.pdb`.
   - therefore these ranges are **not quoted from the paper as exact ranges**; they are a reproducible structural derivation from PDB 7AD3 plus project geometry.
 - **Alpha5 iRMSD <3 Å / >5 Å**: the local “Bauer 2022” citation could not be verified from current local files or web search. Treat as **project operational heuristic / pending source**, not literature cutoff.
-- **BSA fraction ≥0.80 / drop <20%**: FreeSASA as a SASA/BSA method is supported, but the 20% pass/fail threshold is **project operational heuristic / pending source**.
+- **BSA fraction ≥0.80 / drop <20%**: the current driver computes SASA with MDTraj Shrake–Rupley, but the 20% pass/fail threshold is **project operational heuristic / pending source**.
 - **Contact persistence >0.50**: GPCRsignal supports interaction-frequency analysis and explicitly defines frequency 0.5 as present in 50% of frames, but it does **not** make >0.50 a universal stability pass threshold. Treat as **project majority-retention heuristic**.
 - **H-bond geometry 3.0 Å / 150°**: supported by MDAnalysis HydrogenBondAnalysis documentation. **H-bond occupancy >10%** remains a **project heuristic / pending source**.
 
@@ -26,13 +26,13 @@ Decision implication: current chctrl can still be summarized as **usable with al
 |---|---:|---|---|---|
 | Alpha5/eCT selection | Gpa1 `PROA resid 448:472 backbone` | **Supported as structure/sequence region**, not as a numeric cutoff | Hara et al. 2012 DOI [`10.1271/bbb.110820`](https://doi.org/10.1271/bbb.110820) for Gpa1 C-terminal/eCT coupling importance; Velazhahan et al. 2021 DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1) / PDB [`7AD3`](https://www.rcsb.org/structure/7AD3) for Ste2-Gpa1 structural interface | “Biologically motivated Gpa1 C-terminal alpha5/eCT selection” |
 | Alpha5 iRMSD stable/warn/fail bands | mean <3 Å stable, >5 Å severe/dissociation | **Not verified** | Local files cite “Bauer 2022”, but no exact title/DOI/method passage was found in local grep or web queries | “Project operational alpha5 displacement bands; pending source audit” |
-| BSA method | BSA = SASA(Gpa1)+SASA(Ste2)-SASA(complex) | **Method supported** | Mitternacht 2016 FreeSASA DOI [`10.12688/f1000research.7931.1`](https://doi.org/10.12688/f1000research.7931.1); FreeSASA implements Lee-Richards and Shrake-Rupley approximations | “FreeSASA-derived BSA time series” |
+| BSA method | BSA = SASA(Gpa1)+SASA(Ste2)-SASA(complex) | **Current implementation documented** | [`analyze_bsa.py`](../../../analysis/chctrl/analyze_bsa.py) calls the [MDTraj `shrake_rupley` API](https://mdtraj.readthedocs.io/en/latest/api/generated/mdtraj.shrake_rupley.html) | “MDTraj Shrake–Rupley-derived BSA time series” |
 | BSA cutoff | after100 mean fraction ≥0.80 / drop <20% | **Not verified** | No accepted exact pointer found | “Project operational interface-retention heuristic” |
 | Contact definition | heavy-atom residue pair distance ≤4.0 Å | **Tool-style geometry supported only generically; exact 4.0 Å is project-defined** | [MDAnalysis contacts docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html) define fraction of native contacts and mention all-atom cutoff 4.5 Å; our implementation uses 4.0 Å as a stricter project choice | “Project heavy-atom residue-contact definition, 4.0 Å” |
 | Contact persistence cutoff | retained initial contacts >0.50 | **Not literature-authoritative** | GPCRsignal DOI [`10.1093/nar/gkab434`](https://doi.org/10.1093/nar/gkab434) defines interaction frequency 0–1 and Freq=0.5 as present in 50% frames; does not define >0.50 as pass/fail | “Project majority-retention heuristic” |
 | H-bond geometry | donor-acceptor 3.0 Å, D-H-A 150° | **Tool-doc supported** | [MDAnalysis HydrogenBondAnalysis docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/hydrogenbonds.html): `d_a_cutoff` default 3.0 Å; `d_h_a_angle_cutoff` default 150° | “MDAnalysis-style H-bond geometry” |
 | H-bond occupancy cutoff | >10% notable/effective | **Not verified** | No accepted exact pointer found | “Project reporting threshold; pending source audit” |
-| COM distance trend | not monotonically increasing | **Descriptive metric** | No numeric pass/fail source needed if not used as hard cutoff. If citing GPCR/G-protein interface biology, use explicit structural sources such as Velazhahan 2021 DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1), not a numeric COM cutoff paper. | “Qualitative rule-out of gross separation” |
+| COM distance trend | sustained monotonic increase warrants inspection | **Descriptive metric** | No numeric pass/fail source is used. If citing GPCR/G-protein interface biology, use explicit structural sources such as Velazhahan 2021 DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1), not a numeric COM cutoff paper. | “Descriptive gross-separation context; no categorical cutoff” |
 | RMSF baseline | comparable to WT/chctrl baseline | **Comparative project metric** | Project design; no universal cutoff | “Baseline comparison only” |
 | MM-PBSA | optional qualitative ranking | **Not used in chctrl C5** | Existing MD tech-stack docs cite MM-PBSA limitations; Slurm dependency unavailable | “Deferred / not go-no-go required here” |
 
@@ -120,7 +120,7 @@ Not allowed:
 
 - Velazhahan et al. 2021, *Nature*, “Structure of the class D GPCR Ste2 dimer coupled to two G proteins”, DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1), PDB [`7AD3`](https://www.rcsb.org/structure/7AD3).
 - Hara et al. 2012, *Bioscience, Biotechnology, and Biochemistry*, “Chimeric Yeast G-Protein alpha Subunit Harboring a 37-Residue C-Terminal Gustducin-Specific Sequence Is Functional in Saccharomyces cerevisiae”, DOI [`10.1271/bbb.110820`](https://doi.org/10.1271/bbb.110820).
-- Mitternacht 2016, *F1000Research*, “FreeSASA: An open source C library for solvent accessible surface area calculations”, DOI [`10.12688/f1000research.7931.1`](https://doi.org/10.12688/f1000research.7931.1).
+- [MDTraj `shrake_rupley` API](https://mdtraj.readthedocs.io/en/latest/api/generated/mdtraj.shrake_rupley.html), official documentation for the current BSA driver implementation.
 - [MDAnalysis HydrogenBondAnalysis documentation](https://docs.mdanalysis.org/stable/documentation_pages/analysis/hydrogenbonds.html), official docs page for `d_a_cutoff=3.0` and `d_h_a_angle_cutoff=150`.
 - [MDAnalysis contacts documentation](https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html), official docs page for native-contact fraction and all-atom radius examples.
 - Miszta et al. 2021, *Nucleic Acids Research* 49(W1):W247–W256, “GPCRsignal: webserver for analysis of the interface between G-protein–coupled receptors and their effector proteins by dynamics and mutations”, DOI [`10.1093/nar/gkab434`](https://doi.org/10.1093/nar/gkab434).
