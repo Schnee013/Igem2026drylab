@@ -1,0 +1,3 @@
+status	accepted
+warning_count	11
+warning_source	cgenff_ASCR18.itp duplicate type-9 dihedral parameters

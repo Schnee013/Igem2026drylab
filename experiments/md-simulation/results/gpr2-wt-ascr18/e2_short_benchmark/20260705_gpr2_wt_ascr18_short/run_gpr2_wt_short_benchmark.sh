@@ -9,6 +9,7 @@ SANITY_DIR="$RUN_ROOT/sanity"
 GMX_CMD="/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi"
 PREFIX="gpr2_wt_ascr18_short"
 NTHREADS=24
+GROMPP_MAXWARN=11
 
 mkdir -p "$LOG_DIR" "$PROD_DIR" "$SANITY_DIR"
 cd "$RUN_ROOT"
@@ -81,8 +82,38 @@ PY
     -p "$INPUT_DIR/topol_phase3.top" \
     -n "$INPUT_DIR/index.ndx" \
     -po "$PROD_DIR/${PREFIX}_out.mdp" \
-    -maxwarn 0
+    -maxwarn "$GROMPP_MAXWARN"
 ) > "$LOG_DIR/grompp_${PREFIX}.log" 2>&1
+
+python3 - <<'PY'
+from pathlib import Path
+import sys
+
+expected = 11
+log_path = Path("logs/grompp_gpr2_wt_ascr18_short.log")
+log = log_path.read_text(errors="replace")
+if "Fatal error" in log:
+    sys.exit("grompp fatal error after maxwarn")
+
+lines = log.splitlines()
+warning_lines = [i for i, line in enumerate(lines) if line.startswith("WARNING ")]
+if len(warning_lines) != expected:
+    sys.exit(f"unexpected grompp warning count: {len(warning_lines)}")
+
+for i in warning_lines:
+    header = lines[i]
+    body = "\n".join(lines[i:i + 6])
+    if "[file cgenff_ASCR18.itp," not in header:
+        sys.exit(f"unexpected warning source: {header}")
+    if "Encountered a second line of parameters for dihedral type 9" not in body:
+        sys.exit(f"unexpected warning body: {header}")
+
+Path("logs/grompp_warning_gate.txt").write_text(
+    "status\taccepted\n"
+    "warning_count\t11\n"
+    "warning_source\tcgenff_ASCR18.itp duplicate type-9 dihedral parameters\n"
+)
+PY
 
 ACTIVE_GPU_PROCS="$(nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv,noheader,nounits 2>/dev/null || true)"
 if [ -n "$ACTIVE_GPU_PROCS" ]; then
@@ -195,4 +226,10 @@ text = text.replace("finished\t\n", f"finished\t{end_time}\n")
 summary.write_text(text)
 PY
 
-find input production_smoke logs sanity -type f -print0 | sort -z | xargs -0 sha256sum > "$LOG_DIR/manifest_sha256_after_short_benchmark.txt"
+find input production_smoke logs sanity \
+  -type f \
+  ! -path 'logs/manifest_sha256_after_short_benchmark.txt' \
+  -print0 \
+  | LC_ALL=C sort -z \
+  | xargs -0 sha256sum \
+  > "$LOG_DIR/manifest_sha256_after_short_benchmark.txt"
