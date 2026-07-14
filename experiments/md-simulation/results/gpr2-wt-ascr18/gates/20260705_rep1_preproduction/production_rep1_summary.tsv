@@ -1,0 +1,4 @@
+key	value
+status	gpu_busy_before_mdrun
+nsteps	100000000
+nominal_ns	200

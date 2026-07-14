@@ -1,0 +1,19 @@
+metric,stat,value,note
+convergence_backbone_rmsd,after100_mean_A,12.6186,Gpr2 backbone RMSD; chctrl convergence family
+convergence_backbone_rmsd,after100_final_A,13.1302,Gpr2 backbone RMSD at 200 ns
+convergence_rg,after100_mean_A,27.711,Gpr2 CA radius of gyration
+ligand_pose_rmsd,after100_mean_A,5.63561,ASCR18 heavy-atom RMSD after Gpr2/SOLU backbone fit; descriptive only; no ligand-specific cutoff configured
+ligand_pose_rmsd,after100_max_A,11.7193,ASCR18 heavy-atom RMSD maximum after 100 ns; descriptive only; no ligand-specific cutoff configured
+com_distance_gpr2_all_readout,after100_mean_A,35.4901,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM
+com_distance_gpr2_all_readout,after100_final_A,36.0808,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM at 200 ns
+com_distance_gpr2_primary_59_119_122_138,after100_mean_A,38.9451,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM
+com_distance_gpr2_primary_59_119_122_138,after100_final_A,39.1817,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM at 200 ns
+com_distance_gpr2_secondary_115_134_143_144_145_146_147_148_150_151,after100_mean_A,34.6327,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM
+com_distance_gpr2_secondary_115_134_143_144_145_146_147_148_150_151,after100_final_A,35.4026,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM at 200 ns
+hbond,top_pair_occupancy,0.399002,A:ARG345:NH2-H:HH21 -> B:ASCR407:O6; geometry 3.0 A / 150 deg; stride 5
+rmsf,ca_rows,406,Gpr2 CA RMSF residue rows
+bsa,after100_mean_A2,639.593,Gpr2-ASCR18 buried SASA using chctrl BSA driver
+bsa,after100_mean_fraction_initial,0.745909,"BSA / initial, stride 5, 240 sphere points; descriptive only; no GPR-specific retention cutoff configured"
+contacts,initial_residue_contacts,16,Initial Gpr2-ASCR18 residue contacts at 4.0 A
+contacts,after100_mean_retained_fraction,0.425062,Retained fraction of initial residue contacts; stride 5; descriptive only; no GPR-specific retention cutoff configured
+contacts,top_initial_contact_occupancy,0.977556,ARG345-ASCR407; cutoff 4.0 A

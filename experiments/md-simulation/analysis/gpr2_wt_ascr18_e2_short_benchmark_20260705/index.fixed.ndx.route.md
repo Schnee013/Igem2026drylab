@@ -8,8 +8,8 @@ Git tracks this route record instead of the generated 2.4 MB `index.fixed.ndx`
 file. The benchmark result package records the derived group sizes and
 interpretation boundary.
 
-The local repository tracks this route record, the benchmark command plan, and
-the result README instead.
+The local repository tracks this route record and the result package README /
+command plan instead.
 
 ## Checksum
 
@@ -46,7 +46,7 @@ The retained benchmark README records:
 
 ## References / 所引
 
-- `experiments/md-simulation/analysis/gpr2_wt_ascr18_e2_short_benchmark_20260705/command_plan.md`
+- `experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/command_plan.md`
 - `experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/README.md`
 - `experiments/md-simulation/scripts/assemble_complex.py`
 

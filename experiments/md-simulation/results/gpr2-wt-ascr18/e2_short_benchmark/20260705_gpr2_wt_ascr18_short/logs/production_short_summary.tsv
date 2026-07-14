@@ -1,0 +1,14 @@
+key	value
+finished	2026-07-05T17:24:36+08:00
+nsteps_override	50000
+nominal_ps	100
+performance_ns_per_day	139.222
+performance_hour_per_ns	0.172
+gpu_samples	14
+gpu_utilization_avg_percent	80.50
+gpu_utilization_nonzero_avg_percent	86.69
+gpu_utilization_max_percent	97
+gpu_memory_max_mib	509
+gpu_memory_total_mib	81920
+gpu_power_avg_w	209.31
+gpu_temperature_max_c	86
