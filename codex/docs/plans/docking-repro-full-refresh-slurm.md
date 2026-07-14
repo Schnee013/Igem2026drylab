@@ -128,13 +128,12 @@
 
 ## Phase 7: Wet-lab Handoff And Docs
 
-1. Refresh the P0 docking wet-lab handoff only after ratio and IFP validation pass.
+1. Historical note: this plan originally targeted the old P0 docking wet-lab handoff after ratio and IFP validation passed. The old handoff body has since been retired; current candidate routing uses `docs/modeling/P0-docking-md-candidate-shortlist.md`.
 2. Update:
    - `docs/logs/2026-05-19.md`
    - `docs/modeling/P0-molecular-docking.md`
    - `docs/INDEX.md`
-   - `docs/modeling/wet-lab-handoff-P0-docking.md`
-   - `docs/modeling/wet-lab-handoff-P0-docking-feishu.md`
+   - `docs/modeling/P0-docking-md-candidate-shortlist.md`
 3. Keep ODE status explicit:
    - ODE is parked.
    - Kd/calibration depends on the separate literature review.

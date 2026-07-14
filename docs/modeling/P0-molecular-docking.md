@@ -1,28 +1,28 @@
 ---
 direction: P0-molecular-docking
-status: refreshed_handoff
+status: refreshed_shortlist
 priority: P0
 chassis_dependent: false
-last_updated: 2026-05-20
+last_updated: 2026-07-09
 ---
 
 # P0: 受体-配体分子对接与 In Silico 突变扫描
 
-> 来源: PRD v3 §3.1 | iGEM 评审定位: 直接支撑湿实验设计
+> 来源: PRD v3 §3.1 | iGEM 评审定位: 候选体系生成与 MD 验证前证据
 >
-> **2026-05-20 校准**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、ratio refresh、Top 候选 IFP 和湿实验交接均已刷新。当前湿实验首选为 `Gpr2_R59C + Gpr3_R167Y`，备选见 [wet-lab-handoff-P0-docking.md](wet-lab-handoff-P0-docking.md)。证据指针见 [2026-05-19 日志](../logs/2026-05-19.md)。
+> **2026-07-09 口径校准**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、ratio refresh、Top 候选 IFP 和 MD 前候选体系清单均已刷新。当前 MD 输入主线为 `Gpr2_R59C + ASCR18` 与 `Gpr3_R167Y + ASCR3`，候选组合与备选见 [MD 前候选体系清单](P0-docking-md-candidate-shortlist.md)。证据指针见 [2026-05-19 日志](../logs/2026-05-19.md)。
 
 ## 解决什么问题
 
 核心问题：**如何改造 Gpr2/3/GprC 受体，使其对 ascr#18（PPN 富集标志物，Choe 2012 / Manosalva 2015）和 ascr#3（自由生活线虫标志物）具有差异化选择性？** 属于双通道比值型设计（`docs/prd/overview-v4.md` §双靶标判别逻辑）。突变按 sel_mut 双向分类为 Channel A（ascr#18 偏好）/ Channel B（ascr#3 偏好）/ neutral，跨受体配对形成传感器对。当前完整分析见 [`ratio_channel_report.md`](../../experiments/docking-repro/analysis/ratio_channel_report.md)。
 
-文献（Hu2024、Kuo2024）已给出 WT 受体的结合亲和力排名。干实验的真正价值在于**预测增强选择性的突变位点**，为湿实验组的定点突变设计提供计算依据。
+文献（Hu2024、Kuo2024）已给出 WT 受体的结合亲和力排名。本方向的直接产出是**MD candidate-system shortlist**：候选标签、Channel A/B 方向、相对排序、关键结合残基和 IFP 机制线索。下一道 gate 由 MD 验证结合姿态稳定性、关键接触持续性和受体局部构象合理性。
 
 **iGEM 价值（DBTL cycle）**:
-- **Design**: 本方向产出 → 推荐突变位点（ΔΔG_selectivity < -0.5 kcal/mol）
-- **Build**: 湿实验组据此设计定点突变实验
-- **Test**: 湿实验实测突变体结合活性
-- **Learn**: 实验结果反馈回模型，校准对接预测准确度
+- **Design**: 本方向产出候选体系清单、双通道方向、相对排序和机制线索。
+- **Build**: MD input gate 将 shortlist 转成可审计 receptor-ligand package。
+- **Test**: MD 验证 pose stability、contact occupancy/lifetime 和 receptor local conformation。
+- **Learn**: MD 证据与后续 dose-response 数据共同更新候选置信度。
 
 ## 方法路线
 
@@ -32,7 +32,7 @@ last_updated: 2026-05-20
 4. **In silico 突变扫描（核心新增）**：
    - **AlphaFold 3 Server** 预测突变体全长结构 → annotation-based TM 域提取 → ADFR 准备 PDBQT
    - 重对接计算 ΔΔG_selectivity = ΔΔG(ascr18) − ΔΔG(ascr3)
-   - Channel A/B 双通道分类 + 跨受体配对推荐 → 供湿实验组验证
+   - Channel A/B 双通道分类 + 跨受体配对优先级 → 形成 MD 验证候选体系清单
 
 ## 工具栈
 
@@ -79,10 +79,10 @@ last_updated: 2026-05-20
 - [x] 结合口袋关键残基列表（ProLIF IFP 分析完成，Gpr2/3/GprC 各受体高频接触残基已确认）
 - [x] **双通道全谱排名刷新**：2026-05-20 版 266 条合并记录已生成；当前权威为 [ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md)
 - [x] **Channel A/B 候选刷新**：Channel A 无 caveat 36 条；Channel B 无 caveat 13 条；3σ 阈值 = ±0.477
-- [x] **跨受体配对推荐刷新**：当前 Top 1 为 Gpr2_R59C + Gpr3_R167Y，详见 [wet-lab-handoff-P0-docking.md](wet-lab-handoff-P0-docking.md)
+- [x] **MD candidate-system shortlist 刷新**：当前 Top 1 组合为 Gpr2_R59C + Gpr3_R167Y；对应 MD 输入主线为 `Gpr2_R59C + ASCR18` 与 `Gpr3_R167Y + ASCR3`，详见 [MD 前候选体系清单](P0-docking-md-candidate-shortlist.md)
 - [x] IFP 热图可视化（[ifp_heatmap_all_receptors.png](../../experiments/docking-repro/analysis/ifp_heatmap_all_receptors.png)）
 - [x] Refreshed Top mutant IFP 分析（[ifp_analysis_mutants_gpr3_f_full_20260520_0854/](../../experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/)）
-- [x] 可视化素材（历史 Channel A complex PDB + PyMOL scene 脚本；见 [analysis/pymol_top6/](../../experiments/docking-repro/analysis/pymol_top6/)）— 若 PI/湿实验沟通需要，按当前 handoff 另行渲染 PNG/PSE
+- [x] 可视化素材（历史 Channel A complex PDB + PyMOL scene 脚本；见 [analysis/pymol_top6/](../../experiments/docking-repro/analysis/pymol_top6/)）— 若候选讨论需要，按当前 shortlist 另行渲染 PNG/PSE
 - [ ] V138R 盐桥假说 MD 实证 → 转交 [P0-md-simulation](P0-md-simulation.md)
 
 ## 方法变体
@@ -104,7 +104,7 @@ last_updated: 2026-05-20
   - ICL3 截断 + TM 螺旋质心（修复 GprC grid box 偏移 18.1Å）
   - Annotation-based TM 域提取（UniProt + DeepTMHMM 交叉验证）
   - ascr18 PDBQT freeze_terminal_torsions bug 修复（15→26 原子）
-- **状态**: **refreshed_handoff**（2026-05-20）。Gpr2/Gpr3 修复后 ratio/IFP/湿实验交接已刷新；ODE Kd/calibration 仍按单独文献计划暂停
+- **状态**: **refreshed_shortlist**（2026-07-09 口径校准）。Gpr2/Gpr3 修复后 ratio/IFP/MD 前候选体系清单已刷新；ODE Kd/calibration 仍按单独文献计划暂停
 
 **共享数据**: 两条线共用同一份原始 PDB/SDF（通过 symlink），不重复存储。
 
@@ -112,9 +112,10 @@ last_updated: 2026-05-20
 
 - **受体 PDB**: `experiments/docking/receptors/` （Gpr2_G1X9E2.pdb, Gpr3_G1XJN1.pdb, GprC_A0A437AGY2.pdb）
 - **配体 SDF**: `experiments/docking/ligands/` （ascr18_CID71514784.sdf, ascr3_CID16066476.sdf, ascr7_CID86289656.sdf）
-- **湿实验对接**:
-  - 本方向产出 → 核心感应组：推荐突变位点，指导定点突变实验设计
-  - 湿实验反馈 → 本方向：实际结合实验数据，用于校准/验证对接预测
+- **下游 gate**:
+  - 本方向产出 → MD input gate：候选标签、Channel A/B 方向、相对排序、关键结合残基和 IFP 机制线索。
+  - MD gate → 本方向：pose stability、关键接触持续性和 receptor local conformation 证据，用于更新候选置信度。
+  - 后续 dose-response 数据 → 本方向：binding / activation calibration 证据，用于校准对接排序和 ODE 参数。
 
 ## 学习成本与依赖
 
@@ -125,29 +126,29 @@ last_updated: 2026-05-20
 
 ## 当前权威指针（2026-05-20 refresh）
 
-- **当前候选交接**：[wet-lab-handoff-P0-docking.md](wet-lab-handoff-P0-docking.md) 和 [wet-lab-handoff-P0-docking-feishu.md](wet-lab-handoff-P0-docking-feishu.md)。
+- **当前候选清单**：[MD 前候选体系清单](P0-docking-md-candidate-shortlist.md)。
 - **当前分析报告**：[ratio_channel_report.md](../../experiments/docking-repro/analysis/ratio_channel_report.md)；versioned release 见 `experiments/docking-repro/analysis/releases/gpr3_f_full_20260520_0854/`。
 - **执行证据**：[2026-05-19 日志](../logs/2026-05-19.md)；路线校准见 [2026-05-20 日志](../logs/2026-05-20.md)。
-- **当前使用边界**：候选标签和相对排序可进入湿实验讨论；Vina score 不得直接转换为 `Kd`、`EC50` 或 ODE 校准参数。
+- **当前使用边界**：候选标签、Channel A/B 方向、相对排序、关键结合残基和 IFP 机制线索可进入 MD candidate-system shortlist；Vina score 只支持排序，`Kd`、`EC50` 和 ODE 校准参数需要独立 binding/calibration 证据。
 
 ## 历史结果边界（2026-04 阶段）
 
-2026-04-11 至 2026-04-14 的饱和扫描、双通道重读、静态 IFP 和候选集合是历史阶段结果，详见 [2026-04-11 日志](../logs/2026-04-11.md)、[2026-04-13 日志](../logs/2026-04-13.md) 和 [2026-04-14 日志](../logs/2026-04-14.md)。这些材料保留为方法演化和错误修正证据，不作为当前湿实验推荐。
+2026-04-11 至 2026-04-14 的饱和扫描、双通道重读、静态 IFP 和候选集合是历史阶段结果，详见 [2026-04-11 日志](../logs/2026-04-11.md)、[2026-04-13 日志](../logs/2026-04-13.md) 和 [2026-04-14 日志](../logs/2026-04-14.md)。当前候选清单使用 2026-05-20 refreshed ratio/IFP 结果。
 
 历史阶段留下的稳定教训：
 
-- GprC alanine scan 的阴性对照假阳性说明“WT 基线重现”和“突变扫描残基分辨力”是两个问题；GprC 单点候选不能仅凭该阶段进入湿实验。
-- Saturation outlier 不能升级为氨基酸类别规律；做机制解释前必须检查同类替换的一致性。
-- ProLIF Anionic/Cationic 通道没有被关闭；旧失败模式来自 PDBQT-to-SDF 缺形式电荷。静态 IFP 的盐桥几何接触不是热力学驱动证明。
+- GprC alanine scan 的阴性对照假阳性说明“WT 基线重现”和“突变扫描残基分辨力”是两个问题；GprC 单点候选需要 refreshed ranking、IFP 和后续 gate 证据共同支持优先级。
+- Saturation outlier 保留为单点异常证据；氨基酸类别规律需要同类替换一致性检查后再写入机制解释。
+- ProLIF Anionic/Cationic 通道保持启用；旧失败模式来自 PDBQT-to-SDF 缺形式电荷。静态 IFP 的盐桥几何接触属于机制线索，热力学驱动需要 MD 或独立 binding evidence 支撑。
 - Gpr3 pose geometry 后续改为方案 F，因此旧 Gpr3 groove-pose IFP 只能作为历史机制背景。
 
 ## 机制与 MD 边界
 
-静态 docking/IFP 可以提出机制假说，但不能证明动态稳定性、盐桥持续性、配体驻留或构象选择。需要 MD 或湿实验验证的内容统一转到 [P0-md-simulation.md](P0-md-simulation.md) 或湿实验验证设计：
+静态 docking/IFP 可以提出机制假说；动态稳定性、盐桥持续性、配体驻留和构象选择由 [P0-md-simulation.md](P0-md-simulation.md) 维护。当前 MD gate 聚焦：
 
 - ARG138-羧基距离、盐桥占比和 contact lifetime。
 - F170E/ECL2 相关 pose drift 与入口路径。
-- 当前 refreshed 候选如需做 MD，必须基于新的候选集合重新定义体系，不沿用 2026-04 历史集合。
+- 当前 refreshed 候选进入 MD 时，体系定义使用 2026-05-20 refreshed 候选集合；通过 MD gate 后，再进入更高置信度的湿实验候选构建讨论。
 
 ## 方法学局限性
 
@@ -157,7 +158,7 @@ last_updated: 2026-05-20
 | 刚性受体 | 构象选择限于 AF3 单预测 | 单点突变对骨架影响 <0.1Å（TM helix 域内） |
 | AF3 预测精度 | pLDDT>90 区域可信，loop 区不确定 | 仅在 TM helix 域内对接；annotation-based TM 提取 |
 | Vina 评分精度（±1 kcal/mol） | 绝对值不精确 | 仅用排名，不用绝对值；Channel A/B 全部 >3σ |
-| 静态对接无法证明动态相互作用类型（如盐桥） | V138R / F170E 机制仅有空间富集证据 | 转交 [P0-md-simulation](P0-md-simulation.md)：MD 时间序列测距 + 盐桥占比 |
+| 静态对接提供空间富集证据 | V138R / F170E 机制需要动态证据 | 转交 [P0-md-simulation](P0-md-simulation.md)：MD 时间序列测距 + 盐桥占比 |
 | ~~仅 Ala 扫描，无饱和扫描~~ | ~~04-10 之前局限~~ | **2026-04-11 解除**：5 个 Channel A 核心位点已完成 18 AA 全谱扫描（90 突变） |
 
 ## 方法学迭代记录
@@ -179,21 +180,21 @@ P0 对接方法经历三次重大迭代，每次修正了前一阶段的系统�
 | 时间 | 方法节点 | 当前解释 |
 |------|---------|---------|
 | 2026-04-03 ~ 2026-04-07 | 从早期探索转向 Hu2024 复现路线；改用 ADFR/Orca/单阶段 Vina、ICL3 截断、TM 螺旋质心 | 早期 v2 production 只作方法背景 |
-| 2026-04-08 ~ 2026-04-14 | ProLIF/BW 映射、PDBQT 截断、双通道框架和 GprC 阴性对照问题被逐步修正 | 该阶段结果是历史基线，不能直接下发 |
-| 2026-04-23 ~ 2026-05-20 | Gpr2 3D offset、Gpr3 方案 F、supplemental docking、ratio/IFP/handoff 刷新 | 当前湿实验讨论使用这一阶段的 handoff 和结果文件 |
+| 2026-04-08 ~ 2026-04-14 | ProLIF/BW 映射、PDBQT 截断、双通道框架和 GprC 阴性对照问题被逐步修正 | 该阶段结果保留为历史基线；当前候选清单使用 2026-05-20 refreshed 结果 |
+| 2026-04-23 ~ 2026-05-20 | Gpr2 3D offset、Gpr3 方案 F、supplemental docking、ratio/IFP/shortlist 刷新 | 当前 MD 前候选体系清单使用这一阶段的 shortlist 和结果文件 |
 
 日志入口：
 
 - [2026-04-11](../logs/2026-04-11.md) / [2026-04-13](../logs/2026-04-13.md) / [2026-04-14](../logs/2026-04-14.md)：历史双通道阶段和错误修正。
 - [2026-04-23](../logs/2026-04-23.md)：Gpr2/Gpr3 repair route。
 - [2026-05-19](../logs/2026-05-19.md)：full refresh execution evidence。
-- [2026-05-20](../logs/2026-05-20.md)：handoff 使用边界校准。
+- [2026-05-20](../logs/2026-05-20.md)：shortlist 使用边界校准。
 
 ## 与其他方向的依赖关系
 
 - **输出到**:
-  - [P0-signal-pathway-ode](P0-signal-pathway-ode.md): 候选标签、通道方向、相对排序和校准需求；不得把 Vina score 直接转成 `Kd`/`EC50`。
-  - [P0-md-simulation](P0-md-simulation.md): 静态 docking/IFP 无法证明的机制问题和候选构象；若要进入 MD，必须按当前 refreshed 候选重新定义体系。
+  - [P0-signal-pathway-ode](P0-signal-pathway-ode.md): 候选标签、通道方向、相对排序和校准需求；Vina score 只支持排序，`Kd`/`EC50` 需要独立 calibration 证据。
+  - [P0-md-simulation](P0-md-simulation.md): MD 候选体系、机制线索和初始 pose；进入 MD 时按当前 refreshed 候选重新定义体系。
   - [P3-chimeric-gprotein](P3-chimeric-gprotein.md): 受体/口袋背景和候选标签，供工程路线解释。
-  - [wet-lab-handoff-P0-docking](wet-lab-handoff-P0-docking.md): 当前湿实验交接入口和计算边界。
-- **依赖于**: 无（本方向可独立维护；湿实验反馈用于后续校准）。
+  - [MD 前候选体系清单](P0-docking-md-candidate-shortlist.md): 当前 MD 前候选体系清单和计算边界。
+- **依赖于**: 无（本方向可独立维护；MD 与后续 dose-response 证据用于后续校准）。

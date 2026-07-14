@@ -35,8 +35,8 @@ pymol_top6/
 
 ## 选这 6 个突变体的理由
 
-覆盖双通道传感器设计所需的**全局 top**，对应
-[wet-lab-handoff-P0-docking-feishu.md §8.1 优先构建顺序](../../../../docs/modeling/wet-lab-handoff-P0-docking-feishu.md)：
+覆盖 2026-04/05 双通道传感器设计阶段的历史 **Top6** 可视化集合。当前 docking-derived MD 候选与湿实验讨论入口以
+[MD 前候选体系清单](../../../../docs/modeling/P0-docking-md-candidate-shortlist.md) 为准；本目录保留为旧 Top6 PyMOL 素材证据。
 
 **Channel A Top 4**（sel_mut < −0.477，ascr#18 偏好传感器）：
 
