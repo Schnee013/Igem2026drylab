@@ -2,7 +2,7 @@
 
 ## 结论
 
-本目录保存 `Gpr2_WT + ASCR18` 在 E2 A100 上的 100 ps 短时 MD benchmark 证据包。允许用途：Decision 005 后 mutant GPR MD 前测的 WT holo 资源基线。突变体稳定性和 full-production 排程需要后续 production 轨迹、completion archive 和 matched analysis。
+本目录保存 `Gpr2_WT + ASCR18` 在 E2 A100 上的 100 ps 短时 MD benchmark 结论与运行合同。完整 40-file payload 留在 E2，Git 仅保留当前文档、运行入口和 [archive router](../../../../archive-router/README.md)。允许用途：Decision 005 后 mutant GPR MD 前测的 WT holo 资源基线。突变体稳定性和 full-production 排程需要后续 production 轨迹、completion archive 和 matched analysis。
 
 核心结果：
 
@@ -44,7 +44,7 @@ The repaired index validation before upload:
 | SYSTEM | 132,478 |
 | TIP3 | 99,300 |
 
-`grompp` was allowed `-maxwarn 11` only after review of the known `cgenff_ASCR18.itp` duplicate type-9 dihedral parameter warnings. `logs/grompp_warning_gate.txt` confirms exactly 11 accepted warnings from that source and no fatal error.
+`grompp` was allowed `-maxwarn 11` only after review of the known `cgenff_ASCR18.itp` duplicate type-9 dihedral parameter warnings. The archived `logs/grompp_warning_gate.txt` confirms exactly 11 accepted warnings from that source and no fatal error; its checksum is covered by the Git-visible archive manifest.
 
 ## Sanity Checks
 
@@ -55,35 +55,29 @@ The repaired index validation before upload:
 
 ## Key Files
 
-- `command_plan.md`: benchmark command plan and interpretation boundary.
-- `run_gpr2_wt_short_benchmark.sh`: script used on E2.
-- `logs/production_short_summary.tsv`: parsed endpoint metrics.
-- `logs/nvidia_smi_production_short.csv`: 14 GPU samples at 5 s spacing.
-- `logs/grompp_gpr2_wt_ascr18_short.log`: preprocessing evidence.
-- `logs/grompp_warning_gate.txt`: warning acceptance gate.
-- `logs/mdrun_gpr2_wt_ascr18_short.log`: mdrun stdout/stderr with `Performance:` line.
-- `production_smoke/gpr2_wt_ascr18_short.{tpr,xtc,edr,cpt,gro,log}`: short benchmark binary and trajectory outputs.
-- `logs/manifest_sha256_after_short_benchmark.txt`: checksum manifest for copied evidence files.
+- `command_plan.md`: Git-tracked benchmark command plan and interpretation boundary.
+- `run_gpr2_wt_short_benchmark.sh`: Git-tracked script used on E2.
+- `../../../../archive-router/gpr2-wt-ascr18_100ps-benchmark_20260705_archive.sha256`: Git-visible corrected expected list for all 40 E2 payload files.
+- E2 archive: parsed summary, warning gate, GPU samples, preprocessing/runtime logs, copied inputs, sanity outputs, and short-production bodies.
 
 ## Checksum And Recovery
 
-The checksum manifest intentionally excludes itself. The original producer used
-an unrestricted `find` over `logs/`, which created an impossible self-checksum.
-The runner now excludes
-`logs/manifest_sha256_after_short_benchmark.txt`, and the repaired manifest
-validates all 40 listed files.
+The Git-visible corrected manifest intentionally excludes itself and validates
+all 40 listed E2 files. The manifest resident on E2 is stale and
+self-referential, so it is not the expected-list authority.
 
-The recorded E2 recovery root is
+The E2 recovery root is
 `/ifs1/User/dengwei/igem/md-simulation/gpr2_wt_ascr18_short_benchmark_20260705`.
-Its current availability was not checked during the local-only 2026-07-12
-repair. After restoring a copy, validate it from the benchmark root with:
+After restoring a copy outside the Git worktree, validate it from the benchmark
+root with the router manifest:
 
 ```bash
-sha256sum -c logs/manifest_sha256_after_short_benchmark.txt
+sha256sum -c /absolute/path/to/drylab/experiments/md-simulation/archive-router/gpr2-wt-ascr18_100ps-benchmark_20260705_archive.sha256
 ```
 
-The copied `input/gromacs/` and `production_smoke/` bodies remain operation
-payloads and are not promoted to repo-owned canonical inputs by this manifest.
+The copied `input/gromacs/`, logs, sanity files, and `production_smoke/` bodies
+remain operation payloads and are not promoted to repo-owned canonical inputs
+by this manifest.
 
 ## Interpretation Boundary
 
@@ -99,6 +93,7 @@ This result answers the operational benchmark endpoint for the WT holo system on
 - `environments/e2-md-gromacs.md`
 - `docs/logs/2026-04-16.md`
 - `experiments/md-simulation/scripts/assemble_complex.py`
+- `experiments/md-simulation/archive-router/README.md`
 - `experiments/md-simulation/systems/Gpr2_WT/gromacs/step6.6.gro`
 - `experiments/md-simulation/systems/Gpr2_WT/gromacs/topol_phase3.top`
 - `experiments/md-simulation/systems/Gpr2_WT/gromacs/step7_production.mdp`
