@@ -58,7 +58,7 @@
 4. **新增 P0-md-simulation**：饱和扫描产出的 V138R 盐桥假说与 F170E 反直觉现象需 MD 实证；嵌合 Gpa1 + Gpr 复合物的稳定性也需 MD 验证。技术栈未预设，首要任务是文献调研。
 5. **所有下游模型默认基线**："基因组单拷贝整合"，下游 EC50 / 报告基因表达量等指标均按此假设解读。
 6. **显色级联具体方案 TBD**：作为 P0-ODE 的下游接口变量保留，方案确定后回填参数；本次决策不为其建文档。
-7. **湿实验交接更新**：[wet-lab-handoff-P0-docking](../modeling/wet-lab-handoff-P0-docking.md) 新增 §7 底盘与通路上下文，明确表达体系与读出方式。
+7. **湿实验交接更新（历史事件）**：当时更新了 `wet-lab-handoff-P0-docking` 以加入底盘与通路上下文。该旧交接本体后续已退役；当前 docking-derived 候选入口见 [MD 前候选体系清单](../modeling/P0-docking-md-candidate-shortlist.md)。
 
 ## 不在本决策范围
 

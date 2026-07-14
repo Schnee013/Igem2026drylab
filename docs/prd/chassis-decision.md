@@ -32,11 +32,11 @@
 - P3 嵌合 Gpa1 同源建模升为核心干实验路线；当前进展和 MD 验证状态看 [P3-chimeric-gprotein.md](../modeling/P3-chimeric-gprotein.md)、[P0-md-simulation.md](../modeling/P0-md-simulation.md) 和 [docs/INDEX.md](../INDEX.md)。
 - P0 ODE 走酵母 STE2/MAPK/reporter 输出接口；参数状态和实现边界看 [P0-signal-pathway-ode.md](../modeling/P0-signal-pathway-ode.md)。
 - P2 生物防治 LV 只属于丝状真菌路线下的历史备选；当前 P2 经济模型看 [P2-economic-benefit.md](../modeling/P2-economic-benefit.md)。
-- docking 候选、MD 运行状态和 reporter 参数不要从本文件读取；分别回到 docking handoff、MD 文档、ODE 文档和最新日志。
+- docking 候选、MD 运行状态和 reporter 参数的当前入口分别是 [P0 docking MD candidate-system shortlist](../modeling/P0-docking-md-candidate-shortlist.md)、[P0-md-simulation.md](../modeling/P0-md-simulation.md)、[P0-signal-pathway-ode.md](../modeling/P0-signal-pathway-ode.md)、[docs/INDEX.md](../INDEX.md) 和最新日志。
 
 ## 历史分析边界
 
-以下内容是 2026-04-03 至 2026-04-10 阶段的方案比较摘要，只用于解释为什么选择酵母路线；不作为当前状态或行动清单。
+以下内容是 2026-04-03 至 2026-04-10 阶段的方案比较摘要，用于解释酵母路线选择。当前状态和行动清单入口为 [docs/INDEX.md](../INDEX.md)、领域文档和最新日志。
 
 ### 当时的核心问题
 
@@ -52,14 +52,14 @@
 
 - 优势：Gpr 受体在原生或近缘底盘中表达时，折叠和偶联风险较低。
 - 风险：遗传操作、定量通路参数、响应启动子和产品化路径都更不确定。
-- 结论：在 2026-04-11 PI 确认后，丝状真菌路线不再作为主线。
+- 结论：2026-04-11 PI 确认后，酵母-STE2 为当前主线，丝状真菌路线保留为历史备选。
 
 ## 历史阻塞项结论
 
 | 历史问题 | 2026-04-11 后结论 |
 |---|---|
-| 实验室真菌物种是否决定底盘 | 不再作为主线选择阻塞；酵母主线已定 |
-| 真菌遗传操作工具是否足够成熟 | 不作为当前默认路线 |
+| 实验室真菌物种是否决定底盘 | 酵母主线已定 |
+| 真菌遗传操作工具是否足够成熟 | 历史备选判断；酵母主线已定 |
 | PI 底盘倾向 | 已确认酵母-STE2 |
 | 转录组数据是否用于丝状真菌启动子选择 | 丝状真菌路线停用后失效 |
 

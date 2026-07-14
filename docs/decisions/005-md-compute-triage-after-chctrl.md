@@ -5,7 +5,7 @@
 - **关联方向**:
   - [P0-md-simulation](../modeling/P0-md-simulation.md)
   - [P3-chimeric-gprotein](../modeling/P3-chimeric-gprotein.md)
-  - [wet-lab-handoff-P0-docking](../modeling/wet-lab-handoff-P0-docking.md)
+  - [P0 docking MD candidate-system shortlist](../modeling/P0-docking-md-candidate-shortlist.md)
   - [NKULiulab E2 共享云服务器使用规范](../ops/nkuliulab-e2-cloud-server.md)
 
 ## 背景
@@ -20,7 +20,7 @@
 2. chimeric Gpa1 线下一步先做体系优化方案调研，重点考察：
    - 减少体系大小，只保留回答 receptor-Gpa1 interface 稳定性所需的必要原子、膜/水/离子范围；
    - 或加入更强物理限制、分层 restraint、局部区域约束等算法，降低算力占用并保持可解释边界。
-3. 在 chimeric 体系优化方案调研期间，先启动突变 GPR MD 的前置工作。起点为当前 refreshed docking handoff 中 Channel A/B 的最佳推荐位点：
+3. 在 chimeric 体系优化方案调研期间，先启动突变 GPR MD 的前置工作。起点为当前 refreshed docking shortlist 中 Channel A/B 的优先候选位点：
    - Channel A: `Gpr2_R59C`
    - Channel B: `Gpr3_R167Y`
 4. 突变 GPR MD 不直接进入 full production。第一步只做体系大小核查、资源估算和短程算力测试；通过共享资源门禁后，再单独决定 production 长度、rep 数和排程。
@@ -36,6 +36,6 @@
 ## 后果
 
 1. **执行优先级**：MD 主线从“继续 chimeric unified rerun”切换为“chimeric 省算力方案调研 + mutant GPR MD 前置算力测试”。
-2. **计划边界**：旧 E2 chimeric restart plan 和 unified rerun sites plan 保留为历史执行路线、脚本和 provenance 参考，不再作为当前启动 full-production 的直接指令。
-3. **候选来源**：突变 GPR MD 的初始候选必须来自 refreshed docking handoff 和 release report，不复用 2026-04 历史 mutant-holo 清单作为当前生产队列。
+2. **计划边界**：旧 E2 chimeric restart plan 和 unified rerun sites plan 保留为历史执行路线、脚本和 provenance 参考；当前 full-production 启动需要新的 work order 和审批。
+3. **候选来源**：突变 GPR MD 的初始候选来自 refreshed docking shortlist 和 release report，当前生产队列以 2026-05 refreshed candidate source 为准。
 4. **证据边界**：减少体系或强约束会改变物理解释范围；未来写作必须明确它们是省算力 protocol，而不是无条件等同于原 full-system production MD。
