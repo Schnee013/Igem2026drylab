@@ -88,7 +88,7 @@
 |------|------|---------|
 | α5-helix iRMSD < 3 Å | operational stable band（待查验） | 原 “Bauer 2022” 无 exact pointer；alpha5/eCT 结构背景见 Hara 2012 DOI [`10.1271/bbb.110820`](https://doi.org/10.1271/bbb.110820) 与 Velazhahan 2021 DOI [`10.1038/s41586-020-2994-1`](https://doi.org/10.1038/s41586-020-2994-1) |
 | α5-helix iRMSD > 5 Å | operational severe-displacement band（待查验） | 原 “Bauer 2022” 无 exact pointer，暂不承认为权威阈值 |
-| BSA 下降 < 20% | operational interface-retention heuristic（待查验） | FreeSASA 方法源：Mitternacht 2016 DOI [`10.12688/f1000research.7931.1`](https://doi.org/10.12688/f1000research.7931.1)；20% cutoff 未获权威来源 |
+| BSA 下降 < 20% | operational interface-retention heuristic（待查验） | 当前 driver 使用 [MDTraj `shrake_rupley`](https://mdtraj.readthedocs.io/en/latest/api/generated/mdtraj.shrake_rupley.html)，实现见 [`analyze_bsa.py`](analysis/chctrl/analyze_bsa.py)；20% cutoff 未获权威来源 |
 | 接触图 > 50% 保持 | majority-retention heuristic | GPCRsignal/Miszta et al. 2021 DOI [`10.1093/nar/gkab434`](https://doi.org/10.1093/nar/gkab434) 支持 interaction frequency 分析；>50% 非 universal pass cutoff |
 | 嫁接连接区 RMSF ≈ WT | 嫁接区无异常 | 项目设计 |
 

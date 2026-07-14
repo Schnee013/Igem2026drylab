@@ -4,6 +4,23 @@
     "chimeric-ste2-gpa1-wt": {
       "label": "chctrl",
       "result_dir": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt",
+      "selection_rmsd_label": "alpha5/eCT iRMSD",
+      "selection_rmsd_selection_label": "alpha5/eCT selection",
+      "selection_rmsd_selection": "(segid PROA) and resid 448:472 and backbone",
+      "selection_rmsd_mean_heuristic": {
+        "pass_like_below_A": 3.0,
+        "severe_at_or_above_A": 5.0
+      },
+      "bsa_mean_fraction_heuristic": {
+        "supports_retention_at_or_above": 0.8
+      },
+      "contact_mean_fraction_heuristic": {
+        "supports_retention_above": 0.5
+      },
+      "hbond_occupancy_reporting_heuristic": {
+        "occupancy_above": 0.1
+      },
+      "com_distance_context_note": "project gross-separation context: sustained monotonic COM increase warrants inspection; no categorical cutoff",
       "plot_segids": ["PROA", "PROB"],
       "receptor": {
         "name": "Ste2",
@@ -26,6 +43,23 @@
     "chimeric-gpr3-aogpa2-c37": {
       "label": "Ch-1 Gpr3-AoGpa2-C37",
       "result_dir": "experiments/md-simulation/results/chimeric-gpr3-aogpa2-c37",
+      "selection_rmsd_label": "alpha5/eCT iRMSD",
+      "selection_rmsd_selection_label": "alpha5/eCT selection",
+      "selection_rmsd_selection": "(segid PROB) and resid 453:472 and backbone",
+      "selection_rmsd_mean_heuristic": {
+        "pass_like_below_A": 3.0,
+        "severe_at_or_above_A": 5.0
+      },
+      "bsa_mean_fraction_heuristic": {
+        "supports_retention_at_or_above": 0.8
+      },
+      "contact_mean_fraction_heuristic": {
+        "supports_retention_above": 0.5
+      },
+      "hbond_occupancy_reporting_heuristic": {
+        "occupancy_above": 0.1
+      },
+      "com_distance_context_note": "project gross-separation context: sustained monotonic COM increase warrants inspection; no categorical cutoff",
       "plot_segids": ["PROA", "PROB"],
       "receptor": {
         "name": "Gpr3",
@@ -50,6 +84,23 @@
     "chimeric-gpr3-aogpa2-c15": {
       "label": "Ch-2 Gpr3-AoGpa2-C15",
       "result_dir": "experiments/md-simulation/results/chimeric-gpr3-aogpa2-c15",
+      "selection_rmsd_label": "alpha5/eCT iRMSD",
+      "selection_rmsd_selection_label": "alpha5/eCT selection",
+      "selection_rmsd_selection": "(segid PROB) and resid 453:472 and backbone",
+      "selection_rmsd_mean_heuristic": {
+        "pass_like_below_A": 3.0,
+        "severe_at_or_above_A": 5.0
+      },
+      "bsa_mean_fraction_heuristic": {
+        "supports_retention_at_or_above": 0.8
+      },
+      "contact_mean_fraction_heuristic": {
+        "supports_retention_above": 0.5
+      },
+      "hbond_occupancy_reporting_heuristic": {
+        "occupancy_above": 0.1
+      },
+      "com_distance_context_note": "project gross-separation context: sustained monotonic COM increase warrants inspection; no categorical cutoff",
       "plot_segids": ["PROA", "PROB"],
       "receptor": {
         "name": "Gpr3",
@@ -74,6 +125,23 @@
     "chimeric-gpr2-aogpa2-c10": {
       "label": "Ch-4 Gpr2-AoGpa2-C10",
       "result_dir": "experiments/md-simulation/results/chimeric-gpr2-aogpa2-c10",
+      "selection_rmsd_label": "alpha5/eCT iRMSD",
+      "selection_rmsd_selection_label": "alpha5/eCT selection",
+      "selection_rmsd_selection": "(segid PROB) and resid 453:472 and backbone",
+      "selection_rmsd_mean_heuristic": {
+        "pass_like_below_A": 3.0,
+        "severe_at_or_above_A": 5.0
+      },
+      "bsa_mean_fraction_heuristic": {
+        "supports_retention_at_or_above": 0.8
+      },
+      "contact_mean_fraction_heuristic": {
+        "supports_retention_above": 0.5
+      },
+      "hbond_occupancy_reporting_heuristic": {
+        "occupancy_above": 0.1
+      },
+      "com_distance_context_note": "project gross-separation context: sustained monotonic COM increase warrants inspection; no categorical cutoff",
       "plot_segids": ["PROA", "PROB"],
       "receptor": {
         "name": "Gpr2",
