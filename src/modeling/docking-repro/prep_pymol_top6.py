@@ -29,7 +29,7 @@ from utils import get_project_root, load_config
 # 配置：Top 6 突变体清单
 # ---------------------------------------------------------------------------
 # Channel A Top 4 (sel_mut 最负) + Channel B Top 2 (sel_mut 最正)
-# 对应湿实验优先构建顺序：wet-lab-handoff-P0-docking-feishu.md §8.1
+# Historical Top6 visualization set; current shortlist lives in P0-docking-md-candidate-shortlist.md.
 TOP_MUTANTS: list[tuple[str, str]] = [
     ("Gpr2", "M327A"),   # Ch A #1 sel=−1.391
     ("Gpr3", "V138R"),   # Ch A #2 sel=−0.875
