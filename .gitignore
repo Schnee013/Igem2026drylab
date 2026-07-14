@@ -95,6 +95,9 @@ experiments/md-simulation/results/gpr2-wt-ascr18/**/nvidia_smi_*.csv
 experiments/md-simulation/results/gpr2-wt-ascr18/**/nvidia_smi_*.tsv
 experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/sanity/*.xvg
 experiments/md-simulation/results/gpr2-wt-ascr18/gates/20260705_rep1_preproduction/*_out.mdp
+experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/logs/grompp_warning_gate.txt
+experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/logs/production_short_summary.tsv
+experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/logs/manifest_sha256_after_short_benchmark.txt
 
 # MD system build/runtime byproducts under gromacs/. Canonical builder inputs
 # such as README, topologies, MDPs, index files, and step5_input.* remain visible.
