@@ -31,5 +31,5 @@ if ctx.junction_rmsf_regions:
     regions=', '.join(ctx.junction_rmsf_regions)
     lines=[f'RMSF baseline generated; configured junction/graft regions for follow-up comparison: {regions}.']
 else:
-    lines=['RMSF baseline generated; no chimeric junction threshold is configured for this system.']
+    lines=['RMSF baseline generated; no region-specific RMSF interpretation threshold is configured for this system.']
 write_judgement(out/'judgement.md', f'{ctx.label} RMSF baseline', lines)

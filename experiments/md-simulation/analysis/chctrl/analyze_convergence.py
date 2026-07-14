@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path('src/modeling/md-analysis').resolve()))
 import MDAnalysis as mda
 from MDAnalysis.analysis import rms
 import pandas as pd
-from common import add_system_argument, analysis_context, ensure_dir, time_ns, linear_slope, save_csv, write_judgement
+from common import add_system_argument, analysis_context, ensure_dir, time_ns, linear_slope, replicate_plot_path, save_csv, write_judgement
 from plotting import lineplot_by_rep
 
 parser = argparse.ArgumentParser()
@@ -29,8 +29,8 @@ for rep in ctx.replicates():
 df = save_csv(out / 'rmsd_summary.csv', rows)
 rg_df = pd.DataFrame(rg_rows)
 rg_df.to_csv(out / 'rg_summary.csv', index=False)
-lineplot_by_rep(df, 'time_ns', 'backbone_rmsd_A', out / 'rmsd_3rep.png', f'{ctx.label} backbone RMSD', 'Backbone RMSD (A)')
-lineplot_by_rep(rg_df, 'time_ns', 'rg_A', out / 'rg_3rep.png', f'{ctx.label} protein CA Rg', 'Rg (A)')
+lineplot_by_rep(df, 'time_ns', 'backbone_rmsd_A', replicate_plot_path(out, 'rmsd'), f'{ctx.label} backbone RMSD', 'Backbone RMSD (A)')
+lineplot_by_rep(rg_df, 'time_ns', 'rg_A', replicate_plot_path(out, 'rg'), f'{ctx.label} protein CA Rg', 'Rg (A)')
 lines=[]
 for rep, sub in df.groupby('rep'):
     tail=sub[sub.time_ns >= max(100, sub.time_ns.max()-100)]

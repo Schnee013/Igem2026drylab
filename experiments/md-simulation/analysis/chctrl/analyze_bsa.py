@@ -15,7 +15,7 @@ import mdtraj as md
 import MDAnalysis as mda
 import pandas as pd
 
-from common import add_system_argument, analysis_context, ensure_dir, write_judgement
+from common import add_system_argument, analysis_context, ensure_dir, replicate_plot_path, write_judgement
 from plotting import lineplot_by_rep
 
 parser = argparse.ArgumentParser()
@@ -59,15 +59,34 @@ for rep in ctx.replicates():
 
 df = pd.DataFrame(rows)
 df.to_csv(out / 'bsa.csv', index=False)
-lineplot_by_rep(df, 'time_ns', 'bsa_A2', out / 'bsa_3rep.png', f'{ctx.label} {ctx.receptor_name}-{ctx.galpha_name} BSA', 'BSA (A^2)')
-lineplot_by_rep(df, 'time_ns', 'bsa_fraction_of_initial', out / 'bsa_fraction_3rep.png', f'{ctx.label} BSA fraction of initial', 'BSA / initial')
+lineplot_by_rep(df, 'time_ns', 'bsa_A2', replicate_plot_path(out, 'bsa'), f'{ctx.label} {ctx.receptor_name}-{ctx.galpha_name} BSA', 'BSA (A^2)')
+lineplot_by_rep(df, 'time_ns', 'bsa_fraction_of_initial', replicate_plot_path(out, 'bsa_fraction'), f'{ctx.label} BSA fraction of initial', 'BSA / initial')
 
+heuristic = ctx.bsa_mean_fraction_heuristic
+if heuristic is not None:
+    retention_at_or_above = float(heuristic['supports_retention_at_or_above'])
+    if not 0.0 <= retention_at_or_above <= 1.0:
+        raise ValueError(
+            'bsa_mean_fraction_heuristic.supports_retention_at_or_above '
+            'must be between 0 and 1'
+        )
 lines = []
 for rep, sub in df.groupby('rep'):
     tail = sub[sub.time_ns >= 100] if sub.time_ns.max() >= 100 else sub
     mean_frac = tail.bsa_fraction_of_initial.mean()
     min_frac = tail.bsa_fraction_of_initial.min()
-    status = 'supports retention under project operational >=0.80 heuristic' if mean_frac >= 0.80 else 'caveat under project operational >=0.80 heuristic'
+    if heuristic is None:
+        lines.append(
+            f'{rep}: after100 mean fraction={mean_frac:.3f}, min fraction={min_frac:.3f}; '
+            'descriptive only (no configured retention threshold)'
+        )
+        continue
+    status = (
+        f'supports retention under configured project operational >={retention_at_or_above:g} heuristic'
+        if mean_frac >= retention_at_or_above
+        else f'caveat under configured project operational >={retention_at_or_above:g} heuristic'
+    )
     lines.append(f'{rep}: after100 mean fraction={mean_frac:.3f}, min fraction={min_frac:.3f}; {status}')
-write_judgement(out / 'judgement.md', f'{ctx.label} BSA judgement', lines)
+title_suffix = 'judgement' if heuristic is not None else 'descriptive summary'
+write_judgement(out / 'judgement.md', f'{ctx.label} BSA {title_suffix}', lines)
 print('[bsa] done', flush=True)
