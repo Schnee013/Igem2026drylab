@@ -27,10 +27,10 @@ hbond,pairs_ge_0.10,7,pairs,project reporting threshold
 hbond,top_pair,B:ARG233:NE-H:HE -> A:ASP459:OD1,,
 com_distance,ste2_cluster_A_222_251_after100_mean,15.5614,A,eCT to receptor cluster COM
 com_distance,ste2_cluster_A_222_251_after100_max,16.9292,A,
-com_distance,ste2_cluster_A_222_251_after100_slope,-0.000686,A/ns,non-monotonic/near-zero preferred
+com_distance,ste2_cluster_A_222_251_after100_slope,-0.000686,A/ns,single-rep descriptive context; no categorical COM-slope cutoff
 com_distance,ste2_cluster_B_288_304_after100_mean,11.5005,A,eCT to receptor cluster COM
 com_distance,ste2_cluster_B_288_304_after100_max,12.5699,A,
-com_distance,ste2_cluster_B_288_304_after100_slope,0.00247,A/ns,non-monotonic/near-zero preferred
+com_distance,ste2_cluster_B_288_304_after100_slope,0.00247,A/ns,single-rep descriptive context; no categorical COM-slope cutoff
 global_rmsf,mean_ca_rmsf,3.1644,A,CA RMSF over protein
 global_rmsf,max_ca_rmsf,18.356,A,CA RMSF over protein
 global_rmsf,A_mean_ca_rmsf,2.9865,A,

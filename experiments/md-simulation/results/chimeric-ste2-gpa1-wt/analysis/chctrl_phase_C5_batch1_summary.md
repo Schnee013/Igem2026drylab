@@ -35,12 +35,12 @@
 
 ### com_distance
 
-- rep1 ste2_cluster_A_222_251: after100 slope=-0.001351 A/ns; mean=14.82 A (non-monotonic/near-zero slope preferred)
-- rep1 ste2_cluster_B_288_304: after100 slope=0.001162 A/ns; mean=11.29 A (non-monotonic/near-zero slope preferred)
-- rep2 ste2_cluster_A_222_251: after100 slope=0.0008752 A/ns; mean=15.76 A (non-monotonic/near-zero slope preferred)
-- rep2 ste2_cluster_B_288_304: after100 slope=-0.002787 A/ns; mean=11.39 A (non-monotonic/near-zero slope preferred)
-- rep3 ste2_cluster_A_222_251: after100 slope=0.0006395 A/ns; mean=15.29 A (non-monotonic/near-zero slope preferred)
-- rep3 ste2_cluster_B_288_304: after100 slope=0.001297 A/ns; mean=11.36 A (non-monotonic/near-zero slope preferred)
+- rep1 ste2_cluster_A_222_251: after100 slope=-0.001351 A/ns; mean=14.82 A (descriptive; sustained monotonic increase warrants inspection; no categorical cutoff)
+- rep1 ste2_cluster_B_288_304: after100 slope=0.001162 A/ns; mean=11.29 A (descriptive; sustained monotonic increase warrants inspection; no categorical cutoff)
+- rep2 ste2_cluster_A_222_251: after100 slope=0.0008752 A/ns; mean=15.76 A (descriptive; sustained monotonic increase warrants inspection; no categorical cutoff)
+- rep2 ste2_cluster_B_288_304: after100 slope=-0.002787 A/ns; mean=11.39 A (descriptive; sustained monotonic increase warrants inspection; no categorical cutoff)
+- rep3 ste2_cluster_A_222_251: after100 slope=0.0006395 A/ns; mean=15.29 A (descriptive; sustained monotonic increase warrants inspection; no categorical cutoff)
+- rep3 ste2_cluster_B_288_304: after100 slope=0.001297 A/ns; mean=11.36 A (descriptive; sustained monotonic increase warrants inspection; no categorical cutoff)
 
 ### rmsf
 
@@ -48,7 +48,7 @@
 
 ## Current interpretation
 
-- COM distance slopes are near zero across three replicates, arguing against monotonic receptor-Gpa1 separation after 100 ns.
+- The signed COM slopes are descriptive context only. Sustained monotonic increase would warrant inspection; no categorical COM cutoff is configured.
 - H-bond analysis finds top interface H-bond occupancy above 10% in all three replicates. This script uses manual donor-H/acceptor geometry because the PDB topology lacks charge data required by MDAnalysis HBA auto-guessing.
 - Alpha5 iRMSD is borderline under project operational bands: rep3 is just under the <3 A band, while rep1/rep2 are in the 3-5 A warning band. This is not a clean positive-control failure by the project >5 A mean heuristic, but it should be interpreted together with batch 2 BSA/contact persistence before restarting Ch-1/2/4.
 - The first attempted `-pbc mol` processing produced artificial large separations and has been quarantined as `analysis_mol_invalid/`; do not use it for decisions.
