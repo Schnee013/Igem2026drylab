@@ -119,8 +119,8 @@ Primary summary table:
 | BSA fraction | after100 mean 1.0747, min 0.9460, final sampled 1.0908 | `analysis/bsa/bsa.csv` | Interface retained by project operational >=0.80 heuristic |
 | Contact persistence | 34 initial contacts; after100 mean 0.6314, min 0.4118, final sampled 0.5882 | `analysis/contacts/contact_persistence.csv` | Mostly retained; transient low min is a caveat |
 | Interface H-bond occupancy | top pair occupancy 0.6077; 7 pairs >=0.10 | `analysis/hbond/hbond_summary.csv` | Supports persistent interface contacts by reporting heuristic |
-| COM distance cluster A | after100 mean 15.561 A, slope -0.000686 A/ns | `analysis/com_distance/com.csv` | No monotonic separation |
-| COM distance cluster B | after100 mean 11.501 A, slope 0.002470 A/ns | `analysis/com_distance/com.csv` | No monotonic separation |
+| COM distance cluster A | after100 mean 15.561 A, slope -0.000686 A/ns | `analysis/com_distance/com.csv` | Descriptive; sustained monotonic increase warrants inspection; no categorical cutoff |
+| COM distance cluster B | after100 mean 11.501 A, slope 0.002470 A/ns | `analysis/com_distance/com.csv` | Descriptive; sustained monotonic increase warrants inspection; no categorical cutoff |
 | Global RMSF | mean CA RMSF 3.164 A, max CA RMSF 18.356 A | `analysis/rmsf/rmsf.csv` | Baseline generated; no chctrl junction threshold configured |
 | Energy sanity | temperature average 303.192 K; pressure average 0.782 bar; potential drift -953.834 kJ/mol | `analysis/system_sanity/energy_sanity/` | Coarse sanity acceptable |
 | Box/density sanity | Box X/Y/Z averages 11.543/11.543/19.3096 nm; density average 1029 kg/m3 | `analysis/system_sanity/energy_sanity/` | Coarse sanity acceptable |

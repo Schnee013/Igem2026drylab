@@ -5,13 +5,14 @@ usage() {
   cat <<'EOF'
 Usage: e2_sync_chimeric_results.sh SYSTEM...
 
-Pull E2 chimeric production outputs into:
-  experiments/md-simulation/results/<system>/raw/repN/
+Pull E2 chimeric production outputs into an external payload store.
 
 Environment:
   REMOTE=nkuliulab-e2
   E2_BASE=/ifs1/User/dengwei/igem
   REMOTE_MD_BASE=$E2_BASE/md-simulation
+  DRYLAB_PAYLOAD_ROOT=/absolute/path/outside/repo
+  RESULT_PAYLOAD_ROOT=$DRYLAB_PAYLOAD_ROOT/experiments/md-simulation/results
   REPS="1 2 3"
   RESULTS_RUN_ID=       # optional: store under raw/$RESULTS_RUN_ID/repN
   E2_ALLOW_LOCAL_OVERWRITE=0
@@ -28,12 +29,27 @@ REMOTE=${REMOTE:-nkuliulab-e2}
 E2_BASE=${E2_BASE:-/ifs1/User/dengwei/igem}
 REMOTE_MD_BASE=${REMOTE_MD_BASE:-$E2_BASE/md-simulation}
 RSYNC_RSH=${RSYNC_RSH:-ssh ${E2_SSH_OPTS:-}}
-RESULTS_ROOT=${RESULTS_ROOT:-experiments/md-simulation/results}
+if [[ -z "${RESULT_PAYLOAD_ROOT:-}" ]]; then
+  if [[ -z "${DRYLAB_PAYLOAD_ROOT:-}" ]]; then
+    echo "ERROR: set DRYLAB_PAYLOAD_ROOT or RESULT_PAYLOAD_ROOT to an external payload store." >&2
+    exit 2
+  fi
+  RESULT_PAYLOAD_ROOT="$DRYLAB_PAYLOAD_ROOT/experiments/md-simulation/results"
+fi
 REPS=${REPS:-1 2 3}
 RUN_ID=${RUN_ID:-$(date +%Y%m%d_%H%M%S)}
 RESULTS_RUN_ID=${RESULTS_RUN_ID:-}
 E2_ALLOW_LOCAL_OVERWRITE=${E2_ALLOW_LOCAL_OVERWRITE:-0}
 E2_IO_RETRIES=${E2_IO_RETRIES:-3}
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+RESULT_PAYLOAD_ROOT=$(python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).expanduser().resolve())' "$RESULT_PAYLOAD_ROOT")
+case "$RESULT_PAYLOAD_ROOT/" in
+  "$REPO_ROOT/"*)
+    echo "ERROR: RESULT_PAYLOAD_ROOT must be outside the Git worktree: $RESULT_PAYLOAD_ROOT" >&2
+    exit 2
+    ;;
+esac
 
 SSH_OPTS_ARR=()
 if [[ -n "${E2_SSH_OPTS:-}" ]]; then
@@ -96,9 +112,9 @@ for system in "$@"; do
   for rep in $REPS; do
     remote_dir="$REMOTE_MD_BASE/$system/gromacs/prod_rep${rep}"
     if [[ -n "$RESULTS_RUN_ID" ]]; then
-      local_dir="$RESULTS_ROOT/$system/raw/$RESULTS_RUN_ID/rep${rep}"
+      local_dir="$RESULT_PAYLOAD_ROOT/$system/raw/$RESULTS_RUN_ID/rep${rep}"
     else
-      local_dir="$RESULTS_ROOT/$system/raw/rep${rep}"
+      local_dir="$RESULT_PAYLOAD_ROOT/$system/raw/rep${rep}"
       if [[ "$E2_ALLOW_LOCAL_OVERWRITE" != "1" ]] && compgen -G "$local_dir/prod.*" >/dev/null; then
         echo "ERROR: existing local production files found in $local_dir." >&2
         echo "Set RESULTS_RUN_ID for E2 rerun outputs, or set E2_ALLOW_LOCAL_OVERWRITE=1 after archiving/auditing." >&2

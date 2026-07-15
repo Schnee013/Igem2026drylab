@@ -78,7 +78,7 @@ The following table deliberately separates **method/tool geometry definitions** 
 | BSA after100 mean fraction ≥0.80 | Interface retention judgement | **Unverified project operational cutoff** until original source is rechecked | Re-check claimed source and method context; otherwise relabel as heuristic |
 | Contact persistence >0.50 | Retained initial residue contacts | **Project majority-retention heuristic** unless exact source is found | Keep as operational heuristic or replace with literature-backed persistence definition |
 | Heavy-atom residue contact cutoff 4.0 Å | Contact map simplification | **Audited as project-defined stricter contact geometry**, not GetContacts exact criteria | Describe as project heavy-atom residue-contact definition |
-| COM distance slope “near zero preferred” | Rule-out gross dissociation trend | Qualitative stability screen, not a formal literature cutoff | Record as descriptive trend metric, not pass/fail threshold |
+| Sustained monotonic COM-distance increase | Gross-separation inspection trigger | Descriptive context, not a formal literature cutoff | Inspect sustained increase; do not apply a categorical pass/fail threshold |
 | RMSD/Rg convergence slope windows | Convergence screen | Needs project protocol pointer or literature/tool-method pointer | Re-audit before using for hard pass/fail decisions |
 
 ## 6. New project-wide TODO: operational cutoff source audit

@@ -1,0 +1,7 @@
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed/rep1/bsa_gmx_sasa_nopbc/chainA_isolated.log\t5014\t2026-06-02 07:39:53.220528305 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed/rep1/bsa_gmx_sasa_nopbc/chainA_isolated.xvg\t11700\t2026-06-02 07:39:53.220528305 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed/rep1/bsa_gmx_sasa_nopbc/chainB_isolated.log\t4912\t2026-06-02 07:40:35.564529586 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed/rep1/bsa_gmx_sasa_nopbc/chainB_isolated.xvg\t11700\t2026-06-02 07:40:35.564529586 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed/rep1/bsa_gmx_sasa_nopbc/complex.log\t4924\t2026-06-02 07:39:04.485526831 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed/rep1/bsa_gmx_sasa_nopbc/complex.xvg\t11700\t2026-06-02 07:39:04.485526831 +0800
+/ifs1/User/dengwei/igem/md-simulation/early_gate_snapshots/20260602_chctrl_rep1_early_gate/processed/rep1/bsa_gmx_sasa_nopbc/SHA256SUMS_bsa_gmx_sasa_nopbc.txt\t500\t2026-06-02 07:40:35.581529587 +0800

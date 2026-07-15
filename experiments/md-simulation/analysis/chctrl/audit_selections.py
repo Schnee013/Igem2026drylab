@@ -24,16 +24,11 @@ from MDAnalysis.coordinates.PDB import PDBWriter
 from MDAnalysis.lib.distances import distance_array
 
 from common import (
-    ALPHA5,
-    BACKBONE,
-    GPA1,
-    GPA1_LAST5,
-    STE2,
-    STE2_INTERFACE,
-    analysis_base,
-    default_base,
+    CONFIG_PATH,
+    Replicate,
+    analysis_context,
+    configured_replicate_numbers,
     ensure_dir,
-    replicates,
     time_ns,
 )
 
@@ -65,8 +60,54 @@ AA3 = {
 }
 
 
-OUT = ensure_dir(analysis_base() / "selection_audit")
-SNAP = ensure_dir(OUT / "snapshots")
+CHCTRL_SYSTEM = "chimeric-ste2-gpa1-wt"
+EXPECTED_REP_LABELS = ("rep1", "rep2", "rep3")
+
+
+def require_canonical_replicates() -> tuple[int, ...]:
+    """Reject environment overrides that would make this fixed audit partial."""
+    numbers = tuple(configured_replicate_numbers())
+    labels = tuple(f"rep{number}" for number in numbers)
+    if labels != EXPECTED_REP_LABELS:
+        raise RuntimeError(
+            "chctrl selection audit requires canonical replicates "
+            f"{list(EXPECTED_REP_LABELS)}; CHIMERIC_MD_REPS resolved to {list(labels)}"
+        )
+    return numbers
+
+
+# Validate the replicate contract before loading any config or audit input file.
+CANONICAL_REPLICATE_NUMBERS = require_canonical_replicates()
+CTX = analysis_context(CHCTRL_SYSTEM, config_path=CONFIG_PATH)
+GPA1 = CTX.galpha_selection
+STE2 = CTX.receptor_selection
+BACKBONE = CTX.backbone_selection
+ALPHA5 = CTX.alpha5_selection
+GPA1_LAST5 = CTX.galpha_ect_selection
+STE2_INTERFACE = CTX.receptor_interface_selection
+OUT = CTX.analysis_base / "selection_audit"
+SNAP = OUT / "snapshots"
+
+
+def canonical_replicates() -> list[Replicate]:
+    """Build the fixed chctrl rep1/rep2/rep3 inputs without rereading env state."""
+    reps = []
+    for number in CANONICAL_REPLICATE_NUMBERS:
+        directory = CTX.payload_base / "processed" / f"rep{number}"
+        reps.append(
+            Replicate(
+                rep=f"rep{number}",
+                topology=directory / "protein_ref.pdb",
+                trajectory=directory / "prod_protein.xtc",
+            )
+        )
+    labels = tuple(rep.rep for rep in reps)
+    if labels != EXPECTED_REP_LABELS:
+        raise RuntimeError(
+            f"internal canonical replicate mismatch: expected={EXPECTED_REP_LABELS}, "
+            f"observed={labels}"
+        )
+    return reps
 
 
 def heavy(sel):
@@ -275,15 +316,81 @@ def interface_geometry_rows(step5: Path) -> list[dict]:
     return rows
 
 
+def load_canonical_rmsd(rmsd_path: Path, reps) -> pd.DataFrame:
+    """Validate the canonical alpha5/eCT RMSD table before audit side effects."""
+    if CTX.selection_rmsd_selection != ALPHA5:
+        raise ValueError(
+            "chctrl selection audit requires selection_rmsd_selection to match "
+            f"alpha5_selection; got {CTX.selection_rmsd_selection!r} vs {ALPHA5!r}"
+        )
+
+    prior = pd.read_csv(rmsd_path)
+    required_columns = {"rep", "time_ns", "selection_rmsd_A"}
+    missing_columns = required_columns.difference(prior.columns)
+    if missing_columns:
+        raise ValueError(f"{rmsd_path} missing required columns: {sorted(missing_columns)}")
+    if prior[list(required_columns)].isna().any().any():
+        raise ValueError(f"{rmsd_path} has null canonical RMSD keys or values")
+    duplicate_keys = prior.duplicated(["rep", "time_ns"], keep=False)
+    if duplicate_keys.any():
+        raise ValueError(
+            f"{rmsd_path} has {int(duplicate_keys.sum())} duplicate rep/time_ns rows"
+        )
+
+    expected_reps = [rep.rep for rep in reps]
+    observed_reps = list(prior.rep.drop_duplicates())
+    if set(observed_reps) != set(expected_reps):
+        raise ValueError(
+            f"{rmsd_path} rep coverage mismatch: expected={expected_reps}, "
+            f"observed={observed_reps}"
+        )
+
+    reference_times = None
+    for rep in expected_reps:
+        times = prior.loc[prior.rep == rep, "time_ns"].to_numpy()
+        if not len(times) or np.any(np.diff(times) <= 0):
+            raise ValueError(f"{rmsd_path} time grid for {rep} is empty or not strictly increasing")
+        if reference_times is None:
+            reference_times = times
+        elif not np.array_equal(times, reference_times):
+            raise ValueError(f"{rmsd_path} time grid for {rep} differs from the first rep")
+
+    return prior.rename(columns={"selection_rmsd_A": "alpha5_irmsd_A"})
+
+
 def main() -> None:
-    base = default_base()
+    payload_base = CTX.payload_base
+    reps = canonical_replicates()
     source_clean = Path("experiments/md-simulation/structures/chimeric/Chctrl_Ste2_Gpa1_WT_clean.pdb")
-    step5 = base / "raw/shared/step5_input.pdb"
+    step5 = payload_base / "raw/shared/step5_input.pdb"
+    rmsd_path = CTX.analysis_base / "selection_rmsd/selection_rmsd.csv"
+    contact_persistence_path = CTX.analysis_base / "contacts/contact_persistence.csv"
+    contact_occupancy_path = CTX.analysis_base / "contacts/initial_contact_occupancy.csv"
+
+    required_inputs = [
+        source_clean,
+        step5,
+        rmsd_path,
+        contact_persistence_path,
+        contact_occupancy_path,
+    ]
+    for rep in reps:
+        required_inputs.extend([rep.topology, rep.trajectory])
+    missing_inputs = [str(path) for path in required_inputs if not path.is_file()]
+    if missing_inputs:
+        raise FileNotFoundError(
+            "selection audit missing required inputs before execution: "
+            + ", ".join(missing_inputs)
+        )
+
+    prior = load_canonical_rmsd(rmsd_path, reps)
+    ensure_dir(OUT)
+    ensure_dir(SNAP)
 
     # Chain/segment and selection counts.
     chain_rows = []
     count_rows = []
-    for rep in replicates():
+    for rep in reps:
         u = mda.Universe(str(rep.topology), str(rep.trajectory))
         chain_rows.extend(residue_summary(u, rep.rep))
         count_rows.extend(selection_counts(u, rep.rep))
@@ -294,7 +401,9 @@ def main() -> None:
 
     # Sequence carry-through from clean chain A/B to CHARMM-GUI PROA/PROB.
     clean = parse_pdb_residues(source_clean, "chain")
-    processed = parse_pdb_residues(base / "processed/rep1/protein_ref.pdb", "segid")
+    processed = parse_pdb_residues(
+        payload_base / "processed/rep1/protein_ref.pdb", "segid"
+    )
     mapping_rows = []
     for clean_key, segid, intended in [("A", "PROA", "Gpa1-WT"), ("B", "PROB", "Ste2")]:
         clean_res = clean.get(clean_key, [])
@@ -321,16 +430,21 @@ def main() -> None:
     pd.DataFrame(interface_geometry_rows(step5)).to_csv(OUT / "ste2_interface_geometry_step5.csv", index=False)
 
     # Alternative alpha5 RMSD fits.
-    alt = pd.concat([scan_alt_alpha5_rmsd(rep) for rep in replicates()], ignore_index=True)
+    alt = pd.concat([scan_alt_alpha5_rmsd(rep) for rep in reps], ignore_index=True)
     alt.to_csv(OUT / "alpha5_alt_fit_rmsd.csv", index=False)
 
-    # Compare with prior alpha5 CSV to verify the full-protein fit reproduces the existing metric.
-    prior = pd.read_csv(analysis_base() / "alpha5_irmsd/a5_irmsd.csv")
+    # Compare with the prevalidated canonical generic driver output.
     cmp = prior.merge(
         alt[["rep", "time_ns", "full_protein_backbone_fit_alpha5_rmsd_A"]],
         on=["rep", "time_ns"],
-        how="inner",
+        how="outer",
+        validate="one_to_one",
+        indicator=True,
     )
+    if not (cmp["_merge"] == "both").all():
+        coverage = cmp["_merge"].value_counts().to_dict()
+        raise ValueError(f"canonical/independent RMSD coverage mismatch: {coverage}")
+    cmp = cmp.drop(columns="_merge")
     cmp["abs_diff_A"] = (cmp["alpha5_irmsd_A"] - cmp["full_protein_backbone_fit_alpha5_rmsd_A"]).abs()
     cmp_summary = (
         cmp.groupby("rep")
@@ -342,17 +456,17 @@ def main() -> None:
     # Event timing and snapshots.
     event_rows = []
     snapshot_requests = {
-        "rep1": [(0.0, "baseline"), (100.0, "after100_start"), (252.4, "first_after100_gt5"), (333.5, "max_alpha5")],
-        "rep2": [(0.0, "baseline"), (100.0, "after100_start"), (250.6, "first_gt5"), (484.6, "max_alpha5")],
+        "rep1": [(0.0, "baseline"), (100.0, "after100_start"), (252.4, "first_after100_ge5"), (333.5, "max_alpha5")],
+        "rep2": [(0.0, "baseline"), (100.0, "after100_start"), (250.6, "first_ge5"), (484.6, "max_alpha5")],
         "rep3": [(0.0, "baseline"), (32.6, "early_max"), (100.0, "after100_start"), (450.0, "late_representative")],
     }
-    for rep in replicates():
+    for rep in reps:
         sub = prior[prior.rep == rep.rep].copy()
         after = sub[sub.time_ns >= 100]
         for name, sdf in [
-            ("first_gt3", sub[sub.alpha5_irmsd_A > 3.0]),
-            ("first_gt5", sub[sub.alpha5_irmsd_A > 5.0]),
-            ("first_after100_gt5", after[after.alpha5_irmsd_A > 5.0]),
+            ("first_ge3", sub[sub.alpha5_irmsd_A >= 3.0]),
+            ("first_ge5", sub[sub.alpha5_irmsd_A >= 5.0]),
+            ("first_after100_ge5", after[after.alpha5_irmsd_A >= 5.0]),
         ]:
             if len(sdf):
                 row = sdf.iloc[0]
@@ -364,14 +478,14 @@ def main() -> None:
     pd.DataFrame(event_rows).to_csv(OUT / "alpha5_event_timing.csv", index=False)
 
     snap_rows = []
-    for rep in replicates():
+    for rep in reps:
         for t, label in snapshot_requests[rep.rep]:
             snap_rows.append(export_nearest_frame(rep, t, label))
     snap_df = pd.DataFrame(snap_rows)
     snap_df.to_csv(OUT / "exported_snapshots.csv", index=False)
 
     # Per-snapshot alpha5/contact metrics from alt fit and contact persistence.
-    contact = pd.read_csv(analysis_base() / "contacts/contact_persistence.csv")
+    contact = pd.read_csv(contact_persistence_path)
     metric_rows = []
     for _, s in snap_df.iterrows():
         rep = s["rep"]
@@ -392,8 +506,8 @@ def main() -> None:
     metrics.to_csv(OUT / "snapshot_metrics.csv", index=False)
 
     # Contact bias summary.
-    contacts = pd.read_csv(analysis_base() / "contacts/initial_contact_occupancy.csv")
-    cp = pd.read_csv(analysis_base() / "contacts/contact_persistence.csv")
+    contacts = pd.read_csv(contact_occupancy_path)
+    cp = pd.read_csv(contact_persistence_path)
     contact_summary = []
     for rep, sub in cp.groupby("rep"):
         after = sub[sub.time_ns >= 100]
@@ -438,12 +552,16 @@ def main() -> None:
 
     report = []
     report.append("# chctrl selection audit report\n")
-    report.append("> Status: executed diagnostic audit. This report does not restart Ch-1/Ch-2/Ch-4 and does not by itself validate all operational cutoffs.\n")
+    report.append(
+        "> Status: executed diagnostic audit. This report does not restart Ch-1/Ch-2/Ch-4 and does not by itself validate all operational cutoffs.\n"
+        ">\n"
+        "> Source-audit update: operational cutoff and Ste2 interface provenance were audited separately in `../cutoff_source_audit.md`.\n"
+    )
     report.append("## Bottom line\n")
     report.append(f"- Chain/segment identity check: {'PASS' if chain_ok else 'CHECK REQUIRED'} — PROA maps to clean Chain A / intended Gpa1-WT; PROB maps to clean Chain B / intended Ste2.\n")
     report.append("- Alpha5 selection exists in all three processed replicates and maps to PROA residues 448–472; no missing-residue evidence was found in topology-level checks.\n")
-    report.append("- Ste2 interface ranges are geometrically close to Gpa1/alpha5 in `step5_input.pdb`; this supports them as interface-proximal selections, but literature/structural provenance for the exact residue ranges still needs a separate source audit.\n")
-    report.append("- Alpha5 warning is reproduced exactly by an independent full-protein-backbone-fit calculation; it is unlikely to be a CSV/script transcription error.\n")
+    report.append("- Ste2 interface ranges are geometrically close to Gpa1/alpha5 in `step5_input.pdb`; a follow-up source audit traced them to project-derived 7AD3 alpha5/eCT contact clusters, not paper-quoted exact residue ranges.\n")
+    report.append("- Alpha5 warning is reproduced to floating-point precision by an independent full-protein-backbone-fit calculation; it is unlikely to be a CSV/script transcription error.\n")
     report.append("- Under Ste2-backbone and Gpa1-core alternative fits, alpha5 displacement remains visible, so the rep1/rep2 warning is not explained away by whole-complex translation/rotation alone.\n")
     report.append("- Contact persistence remains partly sensitive to the frame-0 initial contact set; rep2 low minimum should stay as a caveat.\n")
     report.append("\n## Evidence files\n")
@@ -481,14 +599,17 @@ def main() -> None:
     report.append(md_table(pd.DataFrame(contact_summary)))
     report.append("\n\nInterpretation: rep2 has a pronounced retained-fraction dip after 100 ns. Because the metric is defined relative to frame-0 contacts, it is useful for interface-retention screening but should not be over-interpreted as a literature-grade persistence cutoff.\n")
     report.append("\n## Cutoff/source status\n")
-    report.append("- This audit checks selections and metric implementation, not the full literature provenance of every cutoff.\n")
-    report.append("- Current decision cutoffs (`alpha5 iRMSD <3/>5 Å`, `BSA fraction >=0.80`, `contact persistence >0.50`, `H-bond occupancy >10%`) remain pending exact-source audit unless separately verified with DOI/title/method passage/tool-documentation pointer.\n")
+    report.append("- This audit checks selections and metric implementation; the separate source audit is `../cutoff_source_audit.md`.\n")
+    report.append("- Current decision bands (`alpha5 iRMSD <3/>=5 Å`, `BSA fraction >=0.80`, `contact persistence >0.50`, `H-bond occupancy >10%`) were audited there and remain project operational heuristics; only H-bond geometry 3.0 Å / 150° is supported as an MDAnalysis-style tool geometry.\n")
     report.append("- Therefore, the audit supports selection validity, but does not convert operational heuristics into authoritative literature thresholds.\n")
     report.append("\n## Decision implication\n")
     report.append("- Selection definitions are usable for chctrl caveated interpretation.\n")
     report.append("- chctrl remains `usable with alpha5 caveat`, not clean all-metric pass.\n")
     report.append("- Recommended pause gate: review this report before deciding whether to resume Ch-1/Ch-2/Ch-4.\n")
-    (OUT / "selection_audit_report.md").write_text("\n".join(report) + "\n", encoding="utf-8")
+    (OUT / "selection_audit_report.md").write_text(
+        "\n".join(report).rstrip() + "\n",
+        encoding="utf-8",
+    )
 
     print(f"[selection-audit] wrote {OUT / 'selection_audit_report.md'}")
 

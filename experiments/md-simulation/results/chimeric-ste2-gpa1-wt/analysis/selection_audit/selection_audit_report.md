@@ -12,7 +12,7 @@
 
 - Ste2 interface ranges are geometrically close to Gpa1/alpha5 in `step5_input.pdb`; a follow-up source audit traced them to project-derived 7AD3 alpha5/eCT contact clusters, not paper-quoted exact residue ranges.
 
-- Alpha5 warning is reproduced exactly by an independent full-protein-backbone-fit calculation; it is unlikely to be a CSV/script transcription error.
+- Alpha5 warning is reproduced to floating-point precision by an independent full-protein-backbone-fit calculation; it is unlikely to be a CSV/script transcription error.
 
 - Under Ste2-backbone and Gpa1-core alternative fits, alpha5 displacement remains visible, so the rep1/rep2 warning is not explained away by whole-complex translation/rotation alone.
 
@@ -109,17 +109,17 @@ Interpretation: full-protein fit reproduces the prior metric; Ste2-frame values 
 
 | rep | event | time_ns | alpha5_irmsd_A |
 | --- | --- | --- | --- |
-| rep1 | first_gt3 | 2.700 | 3.095 |
-| rep1 | first_gt5 | 41.500 | 5.027 |
-| rep1 | first_after100_gt5 | 252.400 | 5.241 |
+| rep1 | first_ge3 | 2.700 | 3.095 |
+| rep1 | first_ge5 | 41.500 | 5.027 |
+| rep1 | first_after100_ge5 | 252.400 | 5.241 |
 | rep1 | max | 333.500 | 7.461 |
-| rep2 | first_gt3 | 1.700 | 3.013 |
-| rep2 | first_gt5 | 250.600 | 5.054 |
-| rep2 | first_after100_gt5 | 250.600 | 5.054 |
+| rep2 | first_ge3 | 1.700 | 3.013 |
+| rep2 | first_ge5 | 250.600 | 5.054 |
+| rep2 | first_after100_ge5 | 250.600 | 5.054 |
 | rep2 | max | 484.600 | 6.400 |
-| rep3 | first_gt3 | 1.400 | 3.124 |
-| rep3 | first_gt5 | 5.600 | 5.012 |
-| rep3 | first_after100_gt5 | 100.000 | 5.070 |
+| rep3 | first_ge3 | 1.400 | 3.124 |
+| rep3 | first_ge5 | 5.600 | 5.012 |
+| rep3 | first_after100_ge5 | 100.000 | 5.070 |
 | rep3 | max | 32.600 | 6.720 |
 
 
@@ -129,11 +129,11 @@ Interpretation: full-protein fit reproduces the prior metric; Ste2-frame values 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | rep1 | baseline | 0.000 | 0 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_baseline_0.0ns.pdb | 0.000 | 0.000 | 0.000 | 0.000 | 1.000 |
 | rep1 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_after100_start_100.0ns.pdb | 3.296 | 4.657 | 4.871 | 100.000 | 0.821 |
-| rep1 | first_after100_gt5 | 252.400 | 2524 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_first_after100_gt5_252.4ns.pdb | 5.241 | 8.376 | 6.945 | 250.000 | 0.571 |
+| rep1 | first_after100_ge5 | 252.400 | 2524 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_first_after100_ge5_252.4ns.pdb | 5.241 | 8.376 | 6.945 | 250.000 | 0.571 |
 | rep1 | max_alpha5 | 333.500 | 3335 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_max_alpha5_333.5ns.pdb | 7.461 | 11.645 | 8.270 | 335.000 | 0.571 |
 | rep2 | baseline | 0.000 | 0 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_baseline_0.0ns.pdb | 0.000 | 0.000 | 0.000 | 0.000 | 1.000 |
 | rep2 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_after100_start_100.0ns.pdb | 2.333 | 2.605 | 4.702 | 100.000 | 0.643 |
-| rep2 | first_gt5 | 250.600 | 2506 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_first_gt5_250.6ns.pdb | 5.054 | 5.213 | 6.735 | 250.000 | 0.500 |
+| rep2 | first_ge5 | 250.600 | 2506 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_first_ge5_250.6ns.pdb | 5.054 | 5.213 | 6.735 | 250.000 | 0.500 |
 | rep2 | max_alpha5 | 484.600 | 4846 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_max_alpha5_484.6ns.pdb | 6.400 | 7.790 | 7.525 | 485.000 | 0.393 |
 | rep3 | baseline | 0.000 | 0 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_baseline_0.0ns.pdb | 0.000 | 0.000 | 0.000 | 0.000 | 1.000 |
 | rep3 | early_max | 32.600 | 326 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_early_max_32.6ns.pdb | 6.720 | 11.239 | 12.813 | 35.000 | 0.786 |
@@ -155,9 +155,9 @@ Interpretation: rep2 has a pronounced retained-fraction dip after 100 ns. Becaus
 
 ## Cutoff/source status
 
-- This audit checks selections and metric implementation, not the full literature provenance of every cutoff.
+- This audit checks selections and metric implementation; the separate source audit is `../cutoff_source_audit.md`.
 
-- Current decision cutoffs (`alpha5 iRMSD <3/>5 Å`, `BSA fraction >=0.80`, `contact persistence >0.50`, `H-bond occupancy >10%`) were audited in `../cutoff_source_audit.md`; all remain project operational heuristics except H-bond geometry 3.0 Å / 150° as a tool-supported MDAnalysis-style geometry.
+- Current decision bands (`alpha5 iRMSD <3/>=5 Å`, `BSA fraction >=0.80`, `contact persistence >0.50`, `H-bond occupancy >10%`) were audited there and remain project operational heuristics; only H-bond geometry 3.0 Å / 150° is supported as an MDAnalysis-style tool geometry.
 
 - Therefore, the audit supports selection validity, but does not convert operational heuristics into authoritative literature thresholds.
 

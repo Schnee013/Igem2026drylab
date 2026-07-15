@@ -1,0 +1,21 @@
+field	required_value_or_status	sha256	note
+route_id	R1-tight-full-rebuild	not_applicable_template_field	Must match protocol matrix.
+system_id	chimeric-ste2-gpa1-wt	not_applicable_template_field	Prototype target is chctrl only.
+prototype_label	r1_tight_full_rebuild_chctrl	not_applicable_template_field	Use consistent label in directories and logs.
+prototype_status	exploratory_design	not_applicable_template_field	Source gate now supports workflow-level design only; no accepted numeric padding rule.
+input_structure	step5_input.pdb_or_documented_centered_derivative	pending_for_derivative	Current source file is checksummed; any derivative must be generated and checksummed separately.
+builder_or_workflow	exploratory_CHARMM-GUI_or_scripted_equivalent	pending_for_builder_output	Actual builder job or equivalent scripted log still required before reduced files are trusted.
+force_field_family	CHARMM-family_fixed_draft	not_applicable_template_field	Must remain compatible with current project stack unless a new decision changes it.
+membrane_composition	POPC	not_applicable_template_field	Unless a later decision changes it.
+retained_components	protein_POPC_explicit_water_ions	not_applicable_template_field	No protein-domain deletion in R1.
+deleted_components	avoidable_padding_only	not_applicable_template_field	Must be produced by rebuild, not manual unsafe deletion.
+xy_padding_rule	exploratory	not_applicable_template_field	No source-backed fixed numeric margin accepted; see padding_rule.md.
+z_padding_rule	exploratory	not_applicable_template_field	No source-backed fixed numeric water thickness accepted; see padding_rule.md.
+expected_atom_count	unavailable_until_build	pending_for_builder_output	Do not estimate as accepted before build.
+topology_output	pending	pending_for_output_file	Must not overwrite current topol.top.
+index_output	pending	pending_for_output_file	Must preserve required analysis groups or define replacements.
+mdp_output	pending	pending_for_output_file	Must document any difference from current step7_production.mdp.
+grompp_status	not_started	pending_for_grompp_output	No grompp has been run.
+smoke_status	not_started	pending_for_smoke_output	No smoke test has been run.
+benchmark_status	not_started	pending_for_benchmark_output	No benchmark has been run.
+candidate_transfer_status	blocked_until_chctrl_passes	not_applicable_template_field	Same rule only after chctrl gates pass.

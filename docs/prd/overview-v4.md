@@ -46,7 +46,7 @@ sTF（Ste12 PRD-Gal4DBD 类融合转录因子）
 - **ascr#18**: 在植物寄生线虫（PPNs）中占绝对优势
 - **ascr#3**: 在自由生活线虫中占主导
 - 通过改造 Gpr 受体获得对 ascr#3 / ascr#18 的差异化特异性，由两个传感器（不同 Gpr 突变体）输出的显色比例判别有害线虫
-- 04-11 干实验产出 6 个 Top 候选位点（[wet-lab-handoff-P0-docking](../modeling/wet-lab-handoff-P0-docking.md)）
+- 04-11 干实验曾产出 6 个 Top 候选位点；当前 docking-derived MD 候选以刷新后的 [MD 前候选体系清单](../modeling/P0-docking-md-candidate-shortlist.md) 为准。
 
 ## 团队组织
 

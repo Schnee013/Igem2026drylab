@@ -1,8 +1,8 @@
-"""Common helpers for chimeric GPCR-Galpha MD analysis.
+"""Common helpers for config-driven GPCR-complex MD analysis.
 
-The default configuration is chctrl for backward compatibility. Ch-1/Ch-2/Ch-4
-must pass a system id so receptor/Galpha chain roles and residue selections come
-from ``experiments/md-simulation/analysis/chimeric_systems.json``.
+The default configuration is chctrl for backward compatibility. Other systems
+must pass a system id/config so molecular roles, selections, and optional
+interpretation heuristics stay system-scoped.
 """
 from __future__ import annotations
 
@@ -29,6 +29,7 @@ class AnalysisContext:
     label: str
     config: dict
     base: Path
+    payload_base: Path
 
     @property
     def receptor_name(self) -> str:
@@ -63,6 +64,42 @@ class AnalysisContext:
         return self.config["galpha"]["alpha5_selection"]
 
     @property
+    def selection_rmsd_selection(self) -> str:
+        selection = self.config.get("selection_rmsd_selection")
+        if selection:
+            return selection
+        return self.alpha5_selection
+
+    @property
+    def selection_rmsd_mean_heuristic(self) -> dict | None:
+        return self.config.get("selection_rmsd_mean_heuristic")
+
+    @property
+    def bsa_mean_fraction_heuristic(self) -> dict | None:
+        return self.config.get("bsa_mean_fraction_heuristic")
+
+    @property
+    def contact_mean_fraction_heuristic(self) -> dict | None:
+        return self.config.get("contact_mean_fraction_heuristic")
+
+    @property
+    def hbond_occupancy_reporting_heuristic(self) -> dict | None:
+        return self.config.get("hbond_occupancy_reporting_heuristic")
+
+    @property
+    def interaction_partner_role(self) -> str:
+        """Return the scientific role of the legacy ``galpha`` config slot."""
+        return self.config.get("interaction_partner_role", "galpha")
+
+    @property
+    def com_target_label(self) -> str:
+        return self.config.get("com_target_label") or f"{self.galpha_name} eCT"
+
+    @property
+    def com_distance_context_note(self) -> str | None:
+        return self.config.get("com_distance_context_note")
+
+    @property
     def galpha_ect_selection(self) -> str:
         return self.config["galpha"]["ect_selection"]
 
@@ -94,7 +131,7 @@ class AnalysisContext:
     def replicates(self) -> list[Replicate]:
         out = []
         for i in configured_replicate_numbers():
-            d = self.base / "processed" / f"rep{i}"
+            d = self.payload_base / "processed" / f"rep{i}"
             out.append(Replicate(f"rep{i}", d / "protein_ref.pdb", d / "prod_protein.xtc"))
         return out
 
@@ -117,7 +154,25 @@ def configured_replicate_numbers() -> list[int]:
         reps.append(rep)
     if not reps:
         raise ValueError("CHIMERIC_MD_REPS is set but no replicate numbers were parsed")
+    duplicates = sorted({rep for rep in reps if reps.count(rep) > 1})
+    if duplicates:
+        raise ValueError(
+            "CHIMERIC_MD_REPS contains duplicate replicate numbers: "
+            + ", ".join(map(str, duplicates))
+        )
     return reps
+
+
+def replicate_output_tag() -> str:
+    """Return a filename tag that does not imply three reps for a single-rep run."""
+    reps = configured_replicate_numbers()
+    if len(reps) == 1:
+        return f"rep{reps[0]}"
+    return f"{len(reps)}rep"
+
+
+def replicate_plot_path(directory: Path, stem: str) -> Path:
+    return directory / f"{stem}_{replicate_output_tag()}.png"
 
 
 def load_config(path: Path | None = None) -> dict:
@@ -129,23 +184,51 @@ def available_systems() -> list[str]:
     return sorted(load_config()["systems"])
 
 
-def system_config(system: str | None = None) -> tuple[str, dict]:
-    root = load_config()
+def system_config(
+    system: str | None = None,
+    config_path: Path | None = None,
+) -> tuple[str, dict]:
+    root = load_config(config_path)
     system = system or os.environ.get("CHIMERIC_MD_SYSTEM") or root["default"]
     try:
         return system, root["systems"][system]
     except KeyError as exc:
         choices = ", ".join(sorted(root["systems"]))
-        raise KeyError(f"unknown chimeric MD system '{system}'. Available: {choices}") from exc
+        raise KeyError(f"unknown MD analysis system '{system}'. Available: {choices}") from exc
 
 
-def analysis_context(system: str | None = None, base: Path | None = None) -> AnalysisContext:
-    system, cfg = system_config(system)
+def analysis_context(
+    system: str | None = None,
+    base: Path | None = None,
+    payload_base: Path | None = None,
+    config_path: Path | None = None,
+) -> AnalysisContext:
+    system, cfg = system_config(system, config_path=config_path)
+    result_base = base or Path(cfg["result_dir"])
+    if payload_base is None:
+        direct_payload_root = os.environ.get("CHIMERIC_MD_PAYLOAD_ROOT")
+        shared_payload_root = os.environ.get("DRYLAB_PAYLOAD_ROOT")
+        if direct_payload_root:
+            payload_base = Path(direct_payload_root)
+        elif shared_payload_root:
+            configured_result_dir = Path(cfg["result_dir"])
+            if configured_result_dir.is_absolute():
+                try:
+                    configured_result_dir = configured_result_dir.relative_to(REPO_ROOT)
+                except ValueError as exc:
+                    raise ValueError(
+                        "DRYLAB_PAYLOAD_ROOT requires result_dir to be repo-relative "
+                        "or located under the repository root"
+                    ) from exc
+            payload_base = Path(shared_payload_root) / configured_result_dir
+        else:
+            payload_base = result_base
     return AnalysisContext(
         system=system,
         label=cfg.get("label", system),
         config=cfg,
-        base=base or Path(cfg["result_dir"]),
+        base=result_base,
+        payload_base=payload_base,
     )
 
 
@@ -158,7 +241,7 @@ def analysis_base(system: str | None = None) -> Path:
 
 
 def replicates(base: Path | None = None, system: str | None = None) -> list[Replicate]:
-    ctx = analysis_context(system, base=base)
+    ctx = analysis_context(system, base=base, payload_base=base if base is not None else None)
     return ctx.replicates()
 
 
@@ -167,7 +250,7 @@ def add_system_argument(parser) -> None:
         "--system",
         default=None,
         choices=available_systems(),
-        help="Chimeric MD system id; defaults to CHIMERIC_MD_SYSTEM or chctrl.",
+        help="Configured MD system id; defaults to CHIMERIC_MD_SYSTEM or chctrl.",
     )
 
 
@@ -199,16 +282,3 @@ def save_csv(path: Path, rows: list[dict]) -> pd.DataFrame:
     df = pd.DataFrame(rows)
     df.to_csv(path, index=False)
     return df
-
-
-_CHCTRL_CONTEXT = analysis_context("chimeric-ste2-gpa1-wt")
-GPA1 = _CHCTRL_CONTEXT.galpha_selection
-STE2 = _CHCTRL_CONTEXT.receptor_selection
-PROTEIN = _CHCTRL_CONTEXT.protein_selection
-BACKBONE = _CHCTRL_CONTEXT.backbone_selection
-CA = _CHCTRL_CONTEXT.ca_selection
-ALPHA5 = _CHCTRL_CONTEXT.alpha5_selection
-GPA1_LAST5 = _CHCTRL_CONTEXT.galpha_ect_selection
-STE2_INTERFACE = _CHCTRL_CONTEXT.receptor_interface_selection
-STE2_CLUSTER_A = _CHCTRL_CONTEXT.receptor_interface_clusters["ste2_cluster_A_222_251"]
-STE2_CLUSTER_B = _CHCTRL_CONTEXT.receptor_interface_clusters["ste2_cluster_B_288_304"]

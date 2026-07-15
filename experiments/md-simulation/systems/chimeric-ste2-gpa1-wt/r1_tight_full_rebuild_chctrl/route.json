@@ -1,0 +1,229 @@
+{
+  "route_id": "R1-tight-full-rebuild",
+  "system_id": "chimeric-ste2-gpa1-wt",
+  "prototype_label": "r1_tight_full_rebuild_chctrl",
+  "prototype_root": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl",
+  "created": "2026-07-03",
+  "last_updated": "2026-07-06",
+  "status": "exploratory_chctrl_step6_and_short_production_evidence_archived_on_e2_z_only_compute_saving_downgraded",
+  "padding_rule_status": "exploratory",
+  "first_test_object": "chctrl_only",
+  "candidate_action": "blocked_candidate_transfer_requires_accepted_rule",
+  "input_system_root": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/gromacs",
+  "retained_components": [
+    "full receptor-Galpha protein complex",
+    "POPC membrane",
+    "explicit water",
+    "ions",
+    "box_energy_full_system_evidence_for_physical_sanity"
+  ],
+  "allowed_reduction": [
+    "avoidable XY membrane and box padding",
+    "avoidable Z solvent padding produced by a reproducible full-system rebuild"
+  ],
+  "disallowed_changes": [
+    "protein-domain deletion",
+    "receptor scaffold deletion",
+    "Galpha domain deletion",
+    "membrane deletion",
+    "explicit solvent deletion",
+    "ion deletion",
+    "interface-only subsystem conversion",
+    "route-specific restraints",
+    "hard freezing as production shortcut",
+    "candidate-specific tuning before chctrl passes"
+  ],
+  "preferred_builder": {
+    "name": "CHARMM-GUI Membrane Builder",
+    "source_support": "workflow-level support for full membrane system rebuild; project-specific numeric padding rule requires source extraction",
+    "required_future_record": "actual builder job inputs, selected dimensions, water/ion settings, generated files, checksums, build evidence, short-run sanity evidence, and interpretation boundary"
+  },
+  "charmm_gui_job": {
+    "job_id": "8305210188",
+    "build_class": "exploratory_z_only_water_reduction",
+    "requested_xy_angstrom": 120,
+    "requested_water_thickness_angstrom": 20.0,
+    "reported_penetration_check": {
+      "protein_surface_penetration": "none_reported_by_user",
+      "lipid_ring_penetration": "none_reported_by_user"
+    },
+    "source_archive": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/source_archives/charmm_gui_8305210188_xy120_w20_download.tgz",
+    "source_archive_sha256": "486963899f9522767492e87aead931ddd8398755d08d950bf1d1d9913918745e",
+    "extracted_gromacs_package": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/gromacs",
+    "interpretation": "z-only water/ion reduction with unchanged XY membrane footprint; candidate-transfer padding rule status pending"
+  },
+  "compute_saving_review": {
+    "summary_file": "experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md",
+    "verdict": "z_only_instantiation_is_buildable_but_insufficient_for_compute_saving",
+    "local_protein_atoms": 14365,
+    "local_total_atoms": 257130,
+    "local_protein_fraction_percent": 5.59,
+    "atom_count_delta_vs_baseline": -6776,
+    "atom_count_delta_percent_vs_baseline": -2.57,
+    "interpretation": "protein_fraction_within_explicit_membrane_system_range; compute burden is explicit solvent and membrane; further z_only_shaving_paused_as_primary_route",
+    "candidate_transfer": "blocked"
+  },
+  "prototype_static_validation": {
+    "summary_file": "experiments/md-simulation/systems/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/local_static_validation.tsv",
+    "prototype_initial_atoms": 257130,
+    "baseline_chctrl_atoms": 263906,
+    "atom_count_delta": -6776,
+    "atom_count_delta_percent": -2.57,
+    "topology_atom_sum": 257130,
+    "molecule_counts": {
+      "PROA": 1,
+      "PROB": 1,
+      "POPC": 389,
+      "POT": 170,
+      "CLA": 170,
+      "TIP3": 63433
+    },
+    "index_group_counts": {
+      "SOLU": 14365,
+      "MEMB": 52126,
+      "SOLV": 190639,
+      "SOLU_MEMB": 66491,
+      "SYSTEM": 257130
+    },
+    "production_mdp_core": {
+      "integrator": "md",
+      "dt": "0.002",
+      "nsteps": "500000",
+      "tc_grps": "SOLU MEMB SOLV",
+      "pcoupl": "C-rescale",
+      "pcoupltype": "semiisotropic",
+      "constraints": "h-bonds",
+      "comm_grps": "SOLU_MEMB SOLV"
+    }
+  },
+  "local_checks": {
+    "gmx_command_checked": "command -v gmx",
+    "gmx_available": false,
+    "local_grompp_status": "not_run",
+    "local_mdrun_status": "not_run",
+    "reason": "local GROMACS unavailable; E2 was used only after explicit approval"
+  },
+  "e2_output_analysis_rule": {
+    "authority_file": "environments/e2-md-gromacs.md",
+    "current_authoritative_gmx_command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi",
+    "applies_to": [
+      ".tpr",
+      ".cpt",
+      ".edr",
+      ".trr",
+      ".xtc",
+      "gmx-processed trajectory or energy outputs used as evidence"
+    ],
+    "rule": "E2-produced GROMACS binary outputs must be checked, converted, preprocessed, and evidence-analyzed with the recorded E2 GROMACS environment for that run.",
+    "local_gromacs_evidence_use": "not_allowed_for_E2_binary_outputs"
+  },
+  "e2_package_a_preflight": {
+    "status": "evidence_archived",
+    "archived_at": "2026-07-03T11:54:37+08:00",
+    "remote_host": "nkuliulab-e2",
+    "remote_run_directory": "/ifs1/User/dengwei/igem/md-simulation/r1_tight_full_rebuild_chctrl_20260703/preflight_20260703_gmx_env",
+    "local_log": "experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/run_logs/e2_preflight_20260703_gmx_env/e2_preflight_20260703_gmx_env.log",
+    "remote_gmx_command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi",
+    "gromacs_version": "2025.4-conda_forge",
+    "mpi_library": "Open MPI 5.0.8",
+    "gpu_support": "CUDA",
+    "gpu_observed": "NVIDIA A100-SXM4-80GB",
+    "grompp_status": "not_run",
+    "mdrun_status": "not_run",
+    "candidate_action": "none"
+  },
+  "e2_package_b_step6": {
+    "status": "evidence_archived",
+    "remote_host": "nkuliulab-e2",
+    "remote_run_directory": "/ifs1/User/dengwei/igem/md-simulation/r1_tight_full_rebuild_chctrl_20260703/charmm_gui_8305210188_step6_20260704",
+    "local_result_root": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil",
+    "remote_gmx_command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi",
+    "gromacs_version": "2025.4-conda_forge",
+    "mpi_library": "Open MPI 5.0.8",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "thread_settings": "one gmx_mpi process, OMP_NUM_THREADS=24, -ntomp 24",
+    "archived_outputs": [
+      "work/step6.6_equilibration.gro",
+      "work/step6.6_equilibration.cpt",
+      "work/step6.6_equilibration.tpr",
+      "work/step6.6_equilibration.edr",
+      "work/step6.6_equilibration.xtc"
+    ],
+    "final_atoms": 257130,
+    "step6_6_performance_ns_per_day": 39.92,
+    "step6_6_hours_per_ns": 0.601,
+    "step6_6_energy_summary": {
+      "temperature_K": 303.201,
+      "pressure_bar": 0.704,
+      "density_kg_m3": 1028.91
+    },
+    "warnings": {
+      "step6_0_minimization_lincs_warning_matches": 86,
+      "step6_0_minimization_conclusion": "converged_to_Fmax_below_1000_in_4523_steps",
+      "step6_1_to_step6_6_lincs_fatal_cuda_nan_scan": "no_matches_found_in_local_text_scan"
+    },
+    "sanity_commands": {
+      "tpr": "gmx_mpi dump -s",
+      "xtc": "gmx_mpi check -f",
+      "edr": "gmx_mpi check -e",
+      "gro": "existence_and_checksum"
+    }
+  },
+  "e2_package_c_short_production": {
+    "status": "evidence_archived",
+    "output_prefix": "production_smoke/r1_chctrl_short_prod",
+    "nsteps_override": 50000,
+    "nominal_ps": 100,
+    "archived_outputs": [
+      "production_smoke/r1_chctrl_short_prod.gro",
+      "production_smoke/r1_chctrl_short_prod.cpt",
+      "production_smoke/r1_chctrl_short_prod.tpr",
+      "production_smoke/r1_chctrl_short_prod.edr",
+      "production_smoke/r1_chctrl_short_prod.xtc",
+      "production_smoke/r1_chctrl_short_prod.log",
+      "production_smoke/r1_chctrl_short_prod_out.mdp"
+    ],
+    "final_atoms": 257130,
+    "performance_ns_per_day": 74.362,
+    "hours_per_ns": 0.323,
+    "gpu_sampling": {
+      "samples": 25,
+      "avg_all_percent": 84.36,
+      "nonzero_samples": 23,
+      "avg_nonzero_percent": 91.7,
+      "max_gpu_percent": 99,
+      "max_memory_mib": 575
+    },
+    "energy_summary": {
+      "temperature_K": 303.192,
+      "pressure_bar": 7.549,
+      "density_kg_m3": 1029.21
+    },
+    "log_scan": "no LINCS/fatal/CUDA/nan matches found in short production mdrun log"
+  },
+  "checksums": {
+    "local_download_manifest": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil/local_download.sha256",
+    "package_b_remote_manifest": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil/logs/manifest_sha256.txt",
+    "package_c_remote_manifest": "experiments/md-simulation/results/chimeric-ste2-gpa1-wt/r1_tight_full_rebuild_chctrl/20260704_charmm_gui_8305210188_step6_equil/logs/manifest_sha256_after_production_short.txt"
+  },
+  "prototype_outputs": {
+    "reduced_gromacs_files_generated": true,
+    "step6_equilibration_completed": true,
+    "short_production_completed": true,
+    "atom_count_delta_available": true,
+    "topology_index_mdp_validation_available": true,
+    "short_benchmark_available": true,
+    "compute_saving_success_available": false,
+    "physical_sanity_gate_available": "partial_short_run_only",
+    "candidate_replacement_available": false
+  },
+    "next_gate": {
+        "status": "closed_historical_prototype_requires_new_explicit_user_approval_before_any_more_e2_or_candidate_work",
+        "historical_disposition": "2026-07-04 R4 source-gate selection is superseded by later R4 material-boundary records; current R4 focus comes from the active router",
+        "routing_authority": "docs/INDEX.md",
+        "r4_material_boundary": "experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md",
+        "selection_memo": "experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md",
+        "r4_source_screen": "experiments/chimeric-gpa1/literature/r4_cg_source_screen_20260704.tsv",
+        "candidate_action": "blocked"
+    }
+}

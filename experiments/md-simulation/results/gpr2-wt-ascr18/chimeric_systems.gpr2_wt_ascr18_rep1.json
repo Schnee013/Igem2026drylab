@@ -1,0 +1,32 @@
+{
+  "default": "gpr2-wt-ascr18-rep1",
+  "systems": {
+    "gpr2-wt-ascr18-rep1": {
+      "label": "Gpr2 WT + ASCR18 rep1",
+      "result_dir": "experiments/md-simulation/results/gpr2-wt-ascr18",
+      "selection_rmsd_label": "ASCR18 heavy-atom RMSD",
+      "selection_rmsd_selection_label": "ASCR18 heavy atoms",
+      "selection_rmsd_selection": "((segid B) and resname ASCR) and not name H*",
+      "interaction_partner_role": "ligand",
+      "com_target_label": "ASCR18",
+      "plot_segids": ["A", "B"],
+      "receptor": {
+        "name": "Gpr2",
+        "selection": "segid A",
+        "interface_selection": "segid A",
+        "interface_clusters": {
+          "gpr2_primary_59_119_122_138": "(segid A) and resid 59 119 122 138",
+          "gpr2_secondary_115_134_143_144_145_146_147_148_150_151": "(segid A) and resid 115 134 143 144 145 146 147 148 150 151",
+          "gpr2_all_readout": "(segid A) and resid 59 115 119 122 134 138 143 144 145 146 147 148 150 151"
+        }
+      },
+      "galpha": {
+        "name": "ASCR18",
+        "selection": "(segid B) and resname ASCR",
+        "ect_selection": "((segid B) and resname ASCR) and not name H*",
+        "core_backbone_selection": "((segid B) and resname ASCR) and not name H*"
+      },
+      "junction_rmsf_regions": {}
+    }
+  }
+}

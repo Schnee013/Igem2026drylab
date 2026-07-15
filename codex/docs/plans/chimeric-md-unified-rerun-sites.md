@@ -1,14 +1,17 @@
 # Chimeric MD Unified Rerun Sites Plan
 
-> Status: implemented as repo-owned environment matrix and Slurm wrapper scripts on 2026-05-30. This plan is execution guidance, not final scientific evidence. Verify current status against logs, preflight outputs, Slurm scheduler state, and result files before acting.
+> **2026-06-26 execution status**: paused/superseded for new chimeric candidate production by [决策 005](../../../docs/decisions/005-md-compute-triage-after-chctrl.md). Current use: historical site plan, gate checklist, and script provenance. Additional Ch-1/Ch-2/Ch-4 full-production jobs require a new decision.
+
+> Status: implemented as repo-owned environment matrix and Slurm wrapper scripts on 2026-05-30. Scientific interpretation requires logs, preflight outputs, Slurm scheduler state, result files, and analysis outputs.
 
 ## Decision Position
 
-- Run the clean-start chimeric MD rerun as one provenance family: chctrl + Ch-1 + Ch-2 + Ch-4, 3 replicates each, under the same GROMACS `2025.4` MPI-CUDA conda-forge pin.
-- E2 A100 remains the primary production site. The old Slurm RTX 5090 server is admitted only as a validated secondary site after it passes preflight, same-pin environment validation, smoke, benchmark, and early production checks.
-- Do not interrupt the currently running E2 chctrl rep1.
-- Do not mix old Slurm `2025.2-spack` chctrl production outputs into the new rerun. Those logs remain historical performance/provenance pointers only.
-- If Slurm cannot run `gromacs=2025.4=mpi_openmpi_cuda_h56f47eb_0` on RTX 5090 without CUDA/PTX errors, it does not enter production unless a separate異環境 batch is explicitly approved.
+- 2026-06-26 update: the clean-start candidate-production route is paused after clarifying that control/chctrl 3 completed replicates belong to the old Slurm route, while E2 has chctrl rep1 evidence only; the next chimeric step is compute-reduction protocol research, and site expansion requires a new work order.
+- Historical route: run the clean-start chimeric MD rerun as one provenance family: chctrl + Ch-1 + Ch-2 + Ch-4, 3 replicates each, under the same GROMACS `2025.4` MPI-CUDA conda-forge pin.
+- E2 A100 remains the primary production site. The old Slurm RTX 5090 server is admitted as a validated secondary site after it passes preflight, same-pin environment validation, smoke, benchmark, and early production checks.
+- New full-production jobs from this historical route require a new decision.
+- Old Slurm `2025.2-spack` chctrl production outputs remain historical performance/provenance pointers for this route.
+- Slurm RTX 5090 production admission requires `gromacs=2025.4=mpi_openmpi_cuda_h56f47eb_0` without CUDA/PTX errors, or an explicitly approved separate environment batch.
 
 ## Implemented Artifacts
 
@@ -17,7 +20,7 @@
   - Records exact env targets, command contracts, result layout rules, and admission gates.
 - `experiments/md-simulation/scripts/slurm_chimeric_preflight.sh`
   - Read-only Slurm login preflight: host, storage, scheduler, node3 state, environment tools, and any existing GROMACS command.
-  - Does not submit jobs.
+  - Collects login/resource evidence only.
 - `experiments/md-simulation/scripts/slurm_sync_chimeric_inputs.sh`
   - Audits the same clean-start C3 inputs as the E2 route and syncs to `/home/guest/igem/md-simulation/<system>/gromacs/`.
   - Uses SHA256 manifests and refuses missing C3/phase3 evidence.
@@ -42,8 +45,8 @@
    - Save `gmx_mpi --version`, conda package snapshot, and preflight log before any smoke/benchmark production gate.
 
 3. Input sync
-   - Use only audited local C3 inputs: `step6.6.gro`, `step6.6.cpt`, `topol.top`, `index.ndx`, `toppar/`, and `step7_production.mdp`.
-   - Do not reuse old Slurm working directories or old `prod_repN` outputs.
+   - Use audited local C3 inputs: `step6.6.gro`, `step6.6.cpt`, `topol.top`, `index.ndx`, `toppar/`, and `step7_production.mdp`.
+   - Create fresh Slurm working directories and `prod_repN` outputs for this route.
 
 4. Smoke and benchmark
    - Smoke chctrl, Ch-1, Ch-2, and Ch-4 rep1 before any Slurm full production.
@@ -51,7 +54,7 @@
    - Benchmark evidence must include a comparable `summary.tsv` with system, atoms, GPU, threads, GROMACS build, job id, and ns/day.
 
 5. Production admission
-   - First Slurm production replicate should be one not already running on E2, default Ch-1 rep1.
+   - First Slurm production replicate should use a replicate with no active E2 run, default Ch-1 rep1.
    - Check 10-30 minutes after launch for step progression, GPU utilization, checkpoint/log updates, and no fatal/error lines.
    - Run at most one full MD job per GPU.
 
@@ -60,9 +63,9 @@
 
 ## Scheduling Rule
 
-- Keep E2 chctrl rep1 on E2 until completion.
-- Use Slurm for not-yet-started replicates only after gates pass.
-- Interleave systems and sites where possible so one system's replicates are not all assigned to one hardware site.
+- Historical 2026-05-30 scheduling rule kept E2 chctrl rep1 on E2 until completion; E2 rep2/rep3 completion requires separate result evidence.
+- Use Slurm for pending replicates after gates pass.
+- Interleave systems and sites where possible so one system's replicates are distributed across available hardware sites.
 - Sync outputs with explicit run ids:
   - E2: `20260529_e2_rerun`
   - Slurm: `YYYYMMDD_slurm5090_rerun`
