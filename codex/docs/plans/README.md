@@ -29,3 +29,9 @@ human reader without depending on tool-private storage.
 - [docking-repro-full-refresh-slurm.md](docking-repro-full-refresh-slurm.md) —
   historical 2026-05-19 docking-repro full refresh plan that used old Slurm;
   read as executed provenance only, not as a current server entry.
+- [ode-v01-task-outline-2026-07-13.md](ode-v01-task-outline-2026-07-13.md) —
+  proposed ODE v0.1 staged plan through Wiki-freeze preparation; personal
+  assignees must be supplied by the team before execution begins.
+- [ode-weekly-plan-2026-07-13.md](ode-weekly-plan-2026-07-13.md) —
+  proposed 2026-07-13 to 2026-07-19 ODE understanding-and-minimum-solver plan,
+  assigned to named first-week owners.

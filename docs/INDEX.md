@@ -18,7 +18,7 @@
 |--------|------|---------|----------|------|
 | **P0** | 受体-配体分子对接 | 否 | **refreshed_handoff**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、266 条 merged ratio、Top 候选 IFP 与湿实验交接均已刷新 | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **in_progress**：WT holo Phase 3 已完成；chimeric 线转统一环境 clean-start rerun，E2 primary，Slurm RTX 5090 仅在验证后作为 secondary | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | in_progress：文献证据、参数状态、湿实验校准需求已整理；reporter 架构已确认；尚无 `src/modeling/ode/` solver、config 或 plots | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase0_minimum_solver**：单输入归一化 solver、显式 `scenario_prior` config 与 smoke test 已落地；尚未进入剂量/copy/leak 扫描、项目结果图或 wet-lab calibration | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；MD 验证进行中 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
@@ -44,7 +44,7 @@
 
 1. **chimeric MD unified rerun** — 站点矩阵见 [md-production-sites.md](../environments/md-production-sites.md)，E2 环境证据见 [e2-md-gromacs.md](../environments/e2-md-gromacs.md)，E2 执行门禁见 [E2 Chimeric MD Restart Plan](../codex/docs/plans/e2-chimeric-md-restart.md)，Slurm secondary gate 见 [Chimeric MD Unified Rerun Sites Plan](../codex/docs/plans/chimeric-md-unified-rerun-sites.md)。
 2. **docking-repro 湿实验交接** — 当前权威候选见 [wet-lab-handoff-P0-docking.md](modeling/wet-lab-handoff-P0-docking.md)；证据链从 [2026-05-19 日志](logs/2026-05-19.md) 与 [ratio_channel_report.md](../experiments/docking-repro/analysis/ratio_channel_report.md) 读取。
-3. **ODE 并行推进** — 用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 维护通路结构、参数状态和 reporter 输出接口；候选标签可引用新版 docking handoff，但 Kd/calibration 仍等待文献/湿实验校准，尚未进入 solver 实现。
+3. **ODE 并行推进** — Phase 0 最小 solver 已按 [ODE 第一周计划](../codex/docs/plans/ode-weekly-plan-2026-07-13.md) 落地；继续维护通路结构、参数状态和 reporter 输出接口。候选标签可引用新版 docking handoff，但 Kd/calibration 仍等待文献/湿实验校准；剂量、copy 和 leak 扫描尚未开始。
 4. **P2 经济模型 HP 参数回收** — 文献/参数入口见 [p2-economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
 5. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
@@ -127,7 +127,8 @@
 - [ ] 视 PI/湿实验沟通需要补 PyMOL PNG/PSE 渲染交付物
 
 ### ③ P0 信号通路 ODE（并行）
-- [ ] ODE v0.1 solver：`src/modeling/ode/` Python 实现 + 参数 config + 模拟输出 CSV/plots
+- [x] Phase 0 最小 solver：`src/modeling/ode/` 的单输入归一化 Python 实现 + `scenario_prior` config + 可重复 smoke test；不产生项目结论
+- [ ] 阶段 1 情景结果包：剂量、1/2/4 copy、leak/动态范围扫描，附 CSV/plots 与参数边界
 - [ ] reporter 输出层：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参
 - [ ] 1/2/4 copy 拷贝数敏感性分析
 - [ ] 与 docking 联动：候选标签可引用新版 handoff；Kd/calibration 需等待单独文献审查

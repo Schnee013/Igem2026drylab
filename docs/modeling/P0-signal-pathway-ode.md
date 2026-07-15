@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-05-25
+last_updated: 2026-07-15
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -19,6 +19,8 @@ last_updated: 2026-05-25
 > **2026-05-24 Stage 3 exact extraction**：抽取进展写入 `tmp_papers/ode_api_refresh_20260521/stage2_value_extraction_matrix.md` 的 Stage 3 addendum；它仍是证据包，不是最终参数表。Fan 2024 DOI/title 已与 `literature-matrix.md`、本地 summary、Zotero `WJVMJSNS` 和 API 记录一致；官方 Elsevier Supplementary Table 3-4 已解决 Fan 源上下文 Kc 冲突，但这些行只作为 CaSte2/GAL biosensor source-context `fixed from source`，项目 Gpr-ascr reporter gain/Kc/Hill/Emax 仍是 `wet-lab required`。Shaw/Kofahl 官方 BioModels SBML 已记录 species/reaction/parameter 指针，但速率值仍因单位/source-table 映射未完成而 `do-not-use`；Yi 速率表、Tehseen 全文仍在 full-text/Zotero queue。
 >
 > **2026-05-25 reporter 架构更新**：按用户确认和实验方案附件，输出层拓扑更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`。这确认的是架构，不固定具体色素、整合位点、实际 copy number、gain、Kc/Hill/Emax 或显色时间；这些仍是 `wet-lab required` 或 ODE 扫参变量。
+>
+> **2026-07-15 Phase 0 最小 solver**：已实现单一归一化 `scenario_prior` 的可运行链路骨架：`R_active -> G_on -> M -> TF -> GAL product rate -> C`。它只验证通路接口、time-course 和 CSV 导出；不接受 docking `ΔG` 作为动力学输入，不输出检测限、真实浓度、最优 copy number 或校准结论。
 
 ## 解决什么问题
 
@@ -37,11 +39,14 @@ last_updated: 2026-05-25
 - docking 输入接口整理：docking 只提供候选标签、Channel A/B 方向、相对排序和 IFP 线索；不把 docking ΔG 换算 Kd/EC50。
 - 湿实验校准需求整理：dose-response、time-course、basal leak、Emax、Hill、表达/膜定位、reporter dynamic range 和 chimeric Gpa1 coupling 都已列为替换条件。
 - reporter 输出层架构已确认：sTF -> GAL 多拷贝放大 -> 色素显色。
+- Phase 0 最小 solver 已实现：`src/modeling/ode/minimal_solver.py` 以 SciPy 求解归一化 `G_on`、lumped MAPK `M` 与色素 `C`，并显式导出受体、sTF 与 GAL 接口；`run_minimal_solver.py` 可生成单一情景 CSV。
+- 单一归一化场景 config 已建立：`experiments/ode-model/configs/minimal_normalized_scenario.json`。所有数值均标注为 `scenario_prior` 或 `wet-lab required`，不是项目校准参数。
+- Phase 0 `lumped` 方程、18 个内部可配置参数、外部控制量和湿实验替换条件已登记在 [参数状态/缺口表](P0-ode-lumped-parameter-register.md)；该表把当前示意数值来源与未来证据来源分开记录。
 
 ### 当前缺口
 
-- 未写 ODE solver；当前仓库没有 `src/modeling/ode/` 下的 Python 求解器、模型模块或 runner。
-- 未生成 ODE 参数 config、模拟 CSV、剂量响应图、拷贝数敏感性图或泄漏/动态范围图。
+- 当前只实现了 Phase 0 的单输入归一化 time-course；尚未展开 Ste20/Ste11/Ste7/Fus3 的逐反应动力学，也没有接入真实 ascr 浓度、受体-配体场景或 wet-lab 数据。
+- 尚未完成剂量响应、1/2/4 copy、leak/动态范围和灵敏度扫描，也未提交任何可解释为项目结果的模拟 CSV 或图。
 - 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
 - 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
 
@@ -218,7 +223,7 @@ ODE 当前应这样消费 docking 输出：
 | 异源 Gpr 配体结合/激活参数 | [P0-molecular-docking](P0-molecular-docking.md) 提供候选标签与相对排序；Kuo 2024 / Hu 2024 支持受体身份和 docking 边界 | `wet-lab required`; docking constants `do-not-use` | 不直接由 Vina/SwissDock Delta G 换算；先做参数范围/敏感性扫描 |
 | 嵌合 Gpa1/G protein cycle 速率 | Shaw 2019 / Kofahl 2004 / Yi 2003 | source candidacy `literature prior`; numeric rates `do-not-use` until full-text/SBML unit mapping | C 端嫁接对 GTPase 域速率的影响不能从文献直接固定；coupling 效率需湿实验 |
 | Gβγ 释放 / Sst2 RGS | Shaw 2019 / Kofahl 2004 / Yi 2003 | topology and source variable names `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 可先固定变量类别；速率等 SBML/补充表抽取后再决定 |
-| MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 / Kofahl 2004 | topology and Kofahl reaction ids `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 不在本轮写 solver 或最终 rate table |
+| MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 / Kofahl 2004 | topology and Kofahl reaction ids `fixed from source`; rates `do-not-use` until SBML/full-text mapping | Phase 0 仅用一个 lumped `M` 接口；不写逐反应 solver 或最终 rate table |
 | Ste12 转录与 reporter 方程 | Shaw 2019 / Fan C & Yuan 2023 / Lengger 2020 | `literature prior` | 具体输出增益依赖 reporter 构型和单拷贝整合 |
 | sTF / GAL / 色素输出层 | Fan 2024 / Fan C & Yuan 2023 / Miettinen 2022 / Shaw 2019；2026-05-25 用户确认实验方案附件 | topology and Fan source-context Table S4 rows `fixed from source`; project gains/Kc/Hill/Emax `wet-lab required` | sTF -> GAL 多拷贝放大 -> 色素显色作为结构进入模型；Fan S4 不迁移为项目 Gpr-ascr 参数 |
 | GAL4 正反馈参数（若使用） | Fan 2024 / Fan C & Yuan 2023 | `literature prior`; single-copy gain `wet-lab required` | **拷贝数敏感**：单拷贝下增益需重新评估 |
@@ -245,8 +250,10 @@ ODE 当前应这样消费 docking 输出：
 
 ## 代码与实验关联
 
-- **代码路径**: `src/modeling/ode/`（当前未创建/未实现）
-- **产出路径**: `experiments/ode-model/`
+- **代码路径**: `src/modeling/ode/minimal_solver.py`（Phase 0 lumped solver）与 `src/modeling/ode/run_minimal_solver.py`（单情景 CSV runner）
+- **场景配置**: `experiments/ode-model/configs/minimal_normalized_scenario.json`（仅 `scenario_prior`）
+- **参数登记**: [P0-ode-lumped-parameter-register.md](P0-ode-lumped-parameter-register.md)（方程逐项解释、18 个内部参数、数值/证据状态与替换条件）
+- **产出路径**: `experiments/ode-model/`；未校准前，输出只能标记为情景模拟。
 - **湿实验对接**:
   - 本方向产出 → 通路工程组: 推荐 GAL4 promoter 强度、放大回路参数
   - 湿实验反馈 → 本方向: 实际剂量-响应数据，校准模型参数
@@ -267,11 +274,14 @@ ODE 当前应这样消费 docking 输出：
 | 2026-05-23 | **v2.2** | 新增参数证据矩阵与校准计划；按 `fixed from source` / `literature prior` / `scenario prior` / `wet-lab required` / `do-not-use` 标注 ODE 参数状态 | API-first ODE 文献二阶段抽取完成，进入建模准备但不生成定论参数表 |
 | 2026-05-24 | **v2.3** | 同步 Stage 3 exact pointer checkpoint、湿实验需求拆分和状态化参数接口；继续保留 `Vina Delta G != Kd/EC50` gate | 文献抽取进入 exact pointer/manual queue 阶段；未写 ODE 代码，未生成定论参数表 |
 | 2026-05-25 | **v2.4** | 增补当前形态/缺口/完整形态说明；更新 reporter 输出架构为 sTF -> GAL 多拷贝放大 -> 色素显色；明确未写 ODE solver | 用户确认实验方案附件中的 reporter 路径，需同步总览图缺口说明 |
+| 2026-07-15 | **v2.5** | 落地 Phase 0 单输入归一化 solver、显式 `scenario_prior` config、CSV runner 与 smoke tests；状态变量为 `G_on`、lumped `M`、`C` | 按 ODE 第一周计划进入最小 solver 实现；不推进剂量/copy/leak 扫描或项目校准 |
+| 2026-07-15 | **v2.6** | 新增 Phase 0 `lumped` 方程与参数状态/缺口登记表；逐项列出 18 个内部参数、3 个外部控制量、初始条件、来源状态和湿实验替换条件 | 完成 ODE 第一周“读懂方程骨架、建立参数表”的可审计交付物；未改变任何项目数值或校准状态 |
 
 ## 进展记录
 
 - 2026-05-24：Stage 3 exact extraction 已补入证据矩阵；P0 ODE 文档只同步证据状态、手动队列和湿实验需求，不输出 solver、rate table 或最终参数表。
 - 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
+- 2026-07-15：Phase 0 最小 solver 通过单一归一化情景 smoke test。代码和 config 仅证明链路接口与导出可运行；数值仍是 `scenario_prior`/`wet-lab required`，后续需在阶段 1 执行受控扫描。
 
 ## 与其他方向的依赖关系
 

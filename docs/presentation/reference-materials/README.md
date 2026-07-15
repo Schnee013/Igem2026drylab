@@ -24,3 +24,9 @@ Moved from `temp/`:
 - `drylab-ppt.pptx`
 - `drylab项目总览.drawio`
 - `ode_modeling_final_form_explainer.md`
+
+Added as a derived group-meeting aid:
+
+- `ode-four-stage-workbook.md` — four-stage ODE learning deliverables; verify
+  all scientific facts and parameter-status claims against the authority files
+  listed above.
