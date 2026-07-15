@@ -4,13 +4,13 @@ Purpose: timestamped project-state index for new sessions. This file summarizes
 where the current state is. Authoritative facts come from the linked logs,
 domain docs, plans, code, and result files.
 
-## 1. chimeric MD：统一环境 clean-start rerun 是当前最高优先级
+## last_reviewed
 
 - Reviewed at: 2026-07-12
 - Current-state authority: [docs/INDEX.md](../../../docs/INDEX.md)
 - Detailed chronology authority: [docs/logs/](../../../docs/logs/)
 
-**历史状态指针**：旧 Slurm/chctrl production 和 selection audit 只作历史证据/方法参考，不再作为当前 baseline 接受状态。旧 selection audit 报告仍在 `/Users/roy/Documents/drylab/experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/selection_audit_report.md`；old Slurm production logs 在 `/Users/roy/Documents/drylab/experiments/md-simulation/results/chimeric-ste2-gpa1-wt/raw/rep{1,2,3}/prod.log`。
+## latest_snapshot
 
 - MD current status is routed through INDEX, the MD direction doc, decision 005, and recent logs. Old Slurm retains the chimeric control/chctrl 3-replicate completion record and chimeric candidate full-production remains paused for compute triage. `Gpr2_WT + ASCR18` now has a completed short benchmark and 200 ns rep1; the latter is single-replicate triage evidence with high receptor RMSD and descriptive ligand displacement, not a ligand-threshold pass/fail result. Both mutant systems have upload materials but remain on checksum-provenance HOLD until the historical-to-current PPM/input migrations are resolved or superseded by versioned reruns. Pointers: [docs/INDEX.md](../../../docs/INDEX.md), [docs/decisions/005-md-compute-triage-after-chctrl.md](../../../docs/decisions/005-md-compute-triage-after-chctrl.md), [docs/modeling/P0-md-simulation.md](../../../docs/modeling/P0-md-simulation.md), [docs/logs/2026-07-12.md](../../../docs/logs/2026-07-12.md).
 - Remote-compute and MD site policy is indexed in the environment docs and site plans. The old chimeric E2/unified rerun route is now a paused/historical execution route unless reopened by a new decision; server, job, checkpoint, and scheduler state require current source verification. Pointers: [environments/md-production-sites.md](../../../environments/md-production-sites.md), [environments/e2-md-gromacs.md](../../../environments/e2-md-gromacs.md), [codex/docs/plans/e2-chimeric-md-restart.md](../plans/e2-chimeric-md-restart.md), [codex/docs/plans/chimeric-md-unified-rerun-sites.md](../plans/chimeric-md-unified-rerun-sites.md), [docs/ops/](../../../docs/ops/).

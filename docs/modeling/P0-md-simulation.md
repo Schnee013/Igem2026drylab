@@ -272,6 +272,8 @@ last_updated: 2026-07-12
 | 6. 嫁接连接区 RMSF | MDAnalysis | 与 WT backbone RMSF 相当 | 项目设计（chimeric 特有） |
 | 7. MM-PBSA (可选) | gmx_MMPBSA | 定性排名，不绝对 | 与突变体 MD 相同 |
 
+> 2026-04-29 / 2026-05-06 cutoff-source audit：所有无 DOI / title / 原文方法段落 / 官方工具文档 exact pointer 的 cutoff 不得作为权威文献阈值。chctrl audit 报告见 `experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/cutoff_source_audit.md`。
+
 **判定**：
 - Core Ch-1/Ch-2/Ch-4 vs Ch-ctrl：chimeric 体系的 α5-helix iRMSD 与阳性对照（Gpa1-WT × Ste2）在同一量级 → 界面稳定
 - Ch-1 vs Ch-2：C37 vs C15 嫁接长度对界面稳定性的影响（iPAE 差异 23.31 vs 24.82 是否在 MD 中放大）

@@ -17,6 +17,8 @@ last_updated: 2026-07-09
 > **2026-07-09 输入接口校准**：P0 docking 线已提供刷新后的候选标签、双通道方向、相对排序和 IFP 线索；ODE 用这些字段定义 receptor-ligand 场景集合与优先级。配体结合/激活参数先作为文献校准或参数扫描变量，待 Hu2024/Kuo2024/酵母 GPCR 文献与后续湿实验剂量响应确认后再固定。
 >
 > **2026-05-24 Stage 3 exact extraction**：抽取进展写入 `tmp_papers/ode_api_refresh_20260521/stage2_value_extraction_matrix.md` 的 Stage 3 addendum；它仍是证据包，不是最终参数表。Fan 2024 DOI/title 已与 `literature-matrix.md`、本地 summary、Zotero `WJVMJSNS` 和 API 记录一致；官方 Elsevier Supplementary Table 3-4 已解决 Fan 源上下文 Kc 冲突，但这些行只作为 CaSte2/GAL biosensor source-context `fixed from source`，项目 Gpr-ascr reporter gain/Kc/Hill/Emax 仍是 `wet-lab required`。Shaw/Kofahl 官方 BioModels SBML 已记录 species/reaction/parameter 指针，但速率值仍因单位/source-table 映射未完成而 `do-not-use`；Yi 速率表、Tehseen 全文仍在 full-text/Zotero queue。
+>
+> **2026-05-25 reporter 架构更新**：按用户确认和实验方案附件，输出层拓扑更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`。这确认的是架构，不固定具体色素、整合位点、实际 copy number、gain、Kc/Hill/Emax 或显色时间；这些仍是 `wet-lab required` 或 ODE 扫参变量。
 
 ## 解决什么问题
 
@@ -76,7 +78,7 @@ sTF（Ste12 PRD-Gal4DBD 类融合转录因子）
 
 **基线假设**：所有可调元件按**基因组单拷贝**整合于同一位点；不使用 CEN/2μ 质粒（避免拷贝数漂移破坏下游线性度）。
 
-> **GAL4 正反馈警告**：Fan et al. 2024 的 GAL4 级联放大方案与 Fan & Yuan 2023 的 GAL regulon 输出层均在不同构建背景下定量验证。在本项目单拷贝整合下，正反馈增益可能弱于文献值，需在 ODE 中作为**拷贝数变量**显式建模并做敏感性分析。
+> **GAL 输出层警告**：Fan et al. 2024 的 GAL4 级联放大方案与 Fan & Yuan 2023 的 GAL regulon 输出层均在不同构建背景下定量验证。在本项目单拷贝底盘下，GAL 多拷贝放大的实际增益、背景泄漏和显色时间必须重新校准；“多拷贝放大”是输出层设计变量，不等同于已经决定使用 2μ 质粒或某个固定拷贝数。
 
 ## 历史备选（已不激活）
 
@@ -218,7 +220,7 @@ ODE 当前应这样消费 docking 输出：
 | Gβγ 释放 / Sst2 RGS | Shaw 2019 / Kofahl 2004 / Yi 2003 | topology and source variable names `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 可先固定变量类别；速率等 SBML/补充表抽取后再决定 |
 | MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 / Kofahl 2004 | topology and Kofahl reaction ids `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 不在本轮写 solver 或最终 rate table |
 | Ste12 转录与 reporter 方程 | Shaw 2019 / Fan C & Yuan 2023 / Lengger 2020 | `literature prior` | 具体输出增益依赖 reporter 构型和单拷贝整合 |
-| pFUS1 / GAL / sTF 输出层 | Fan 2024 / Fan C & Yuan 2023 / Miettinen 2022 / Shaw 2019 | definitions and Fan source-context Table S4 rows `fixed from source`; project gains/Kc/Hill/Emax `wet-lab required` | Hill/LOD/LOQ 可用作方法定义；Fan S4 不迁移为项目 Gpr-ascr 参数 |
+| sTF / GAL / 色素输出层 | Fan 2024 / Fan C & Yuan 2023 / Miettinen 2022 / Shaw 2019；2026-05-25 用户确认实验方案附件 | topology and Fan source-context Table S4 rows `fixed from source`; project gains/Kc/Hill/Emax `wet-lab required` | sTF -> GAL 多拷贝放大 -> 色素显色作为结构进入模型；Fan S4 不迁移为项目 Gpr-ascr 参数 |
 | GAL4 正反馈参数（若使用） | Fan 2024 / Fan C & Yuan 2023 | `literature prior`; single-copy gain `wet-lab required` | **拷贝数敏感**：单拷贝下增益需重新评估 |
 | 拷贝数 N | 决策 003 / overview-v4 的单拷贝底盘背景；ODE 扫描 N=1/2/4 | baseline `fixed from source`; variants `scenario prior` | 基线 1 copy；2/4 copy 只做灵敏度情景 |
 
@@ -270,6 +272,7 @@ ODE 当前应这样消费 docking 输出：
 ## 进展记录
 
 - 2026-05-24：Stage 3 exact extraction 已补入证据矩阵；P0 ODE 文档只同步证据状态、手动队列和湿实验需求，不输出 solver、rate table 或最终参数表。
+- 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
 
 ## 与其他方向的依赖关系
 

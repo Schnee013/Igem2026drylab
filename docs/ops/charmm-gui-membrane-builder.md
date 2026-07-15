@@ -89,8 +89,8 @@
 
 | 体系 | Job ID | 原子数 | Box (Å) | POPC | 本地存档路径 | SLURM 状态 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Ch-ctrl（Ste2+Gpa1-WT） | 7649276832 | 263,906 | 120×120×192 | 389 | `systems/chimeric-ste2-gpa1-wt/gromacs/` | C-M4 ✅，Phase C4 Job 6688-6690 |
-| Ch-1（Gpr3+AoGpa2-C37） | 7650133176 | 328,928 | 140×140×179 | 538 | `systems/chimeric-gpr3-aogpa2-c37/gromacs/` | C-M4 ✅，Phase C4 Job 6691-6693 |
+| Ch-ctrl（Ste2+Gpa1-WT） | 7649276832 | 263,906 | 120×120×192 | 389 | `systems/chimeric-ste2-gpa1-wt/gromacs/` | C-M4 ✅，Phase C4 Job 6688/6689/**6745**（rep3 2026-04-20 重提，见 [logs/2026-04-20.md](../logs/2026-04-20.md)） |
+| Ch-1（Gpr3+AoGpa2-C37） | 7650133176 | 328,928 | 140×140×179 | 538 | `systems/chimeric-gpr3-aogpa2-c37/gromacs/` | C-M4 ✅，Phase C4 Job **6746/6747/6748**（2026-04-20 从 6691-6693 重提，见 [logs/2026-04-20.md](../logs/2026-04-20.md)） |
 | Ch-2（Gpr3+AoGpa2-C15） | 7652252454 | 366,017 | 140×140×197 | 537 | `systems/chimeric-gpr3-aogpa2-c15/gromacs/` | Phase C3 Job 6694 PD |
 | Ch-4（Gpr2+AoGpa2-C10） | 7652598711 | 370,926 | 140×140×200 | 537 | `systems/chimeric-gpr2-aogpa2-c10/gromacs/` | Phase C3 Job 6695 PD |
 
