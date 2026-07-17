@@ -2,7 +2,11 @@
 # includes trailing spaces that are not repository whitespace defects.
 experiments/md-simulation/systems/gpr2-R59C-ascr18/gromacs/ASCR18.itp -whitespace
 experiments/md-simulation/systems/gpr2-R59C-ascr18/gromacs/toppar/cgenff_ASCR18.itp -whitespace
+experiments/md-simulation/systems/gpr2-R59C-ascr18/ligand/Gpr2_R59C_ascr18_pose1.sdf -whitespace
 experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/charmm_gui_submission/Gpr2R59CASCR18_charmmgui_input.pdb -whitespace
 experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ASCR3.itp -whitespace
 experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/toppar/cgenff_ASCR3.itp -whitespace
+experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/Gpr3_R167Y_ascr3_pose1.sdf -whitespace
 experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_charmmgui_input.pdb -whitespace
+experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_matched_charmmgui_input.pdb -whitespace
+experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_evidence/em_local.log -whitespace

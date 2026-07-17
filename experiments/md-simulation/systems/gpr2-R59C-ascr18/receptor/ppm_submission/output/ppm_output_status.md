@@ -1,86 +1,49 @@
-# Gpr2_R59C + ASCR18 PPM 2.0 output status
+# Gpr2_R59C + ASCR18 PPM output route
 
-> Date: 2026-07-06
+> Last updated: 2026-07-15
 >
-> Last audited: 2026-07-12
->
-> Status: PPM raw output and current DUM-free handoff body are present. The
-> historical-to-current input and clean/upload checksum migrations remain
-> unresolved, so CHARMM-GUI submission is on provenance hold.
+> Status: the 2026-07-15 current-input PPM 2.0 rerun supersedes the prior
+> checksum-migration hold for Gpr2. The CHARMM-GUI handoff is provenance-ready;
+> the MD package remains non-runnable.
 
-## Files
+## Current Authority
 
-| Field | Value |
+| Layer | Current pointer |
 |---|---|
-| Manual PPM input | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/Gpr2R59CASCR18_ppm2_input.pdb` |
-| Raw PPM output | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/Gpr2R59CASCR18_ppm2_output_raw.pdb` |
-| Clean CHARMM-GUI input | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/Gpr2R59CASCR18_ppm2_output_clean.pdb` |
-| Output manifest | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/ppm_output_manifest.tsv` |
-| Historical submitted input SHA256 | `aeaafa1fb325dc3853496cfd6bd8411c5207d2f711580132085774aab7ac4f22` |
-| Current local input SHA256 | `5d8c537b4c9fe40268a20098bb6b2b8a3ec40e9935771df25d086f2d5e10a6a4` |
-| Raw output SHA256 | `770d02cccac7eae8a29d9afe979e034c16726690d94d07b6f939c795691e5657` |
-| Clean output SHA256 | `bde78fd766f1825d13e8285ecac2ea533556d70be273ac78c4af1219e9298997` |
-| Removed DUM HETATM records | `1946` |
+| Submitted input | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/Gpr2R59CASCR18_ppm2_input.pdb` |
+| Versioned rerun status | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/20260715_current_input_rerun/ppm_output_status.md` |
+| Versioned rerun manifest | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/20260715_current_input_rerun/ppm_output_manifest.tsv` |
+| Accepted upload contract | `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/charmm_gui_submission/Gpr2R59CASCR18_charmmgui_input.pdb` |
 
-## Checksum Migration Audit
+The submitted input SHA256 is
+`5d8c537b4c9fe40268a20098bb6b2b8a3ec40e9935771df25d086f2d5e10a6a4`.
+The new PPM result job key is `20260715_121304156_5202956`; the accepted
+DUM-free output and upload copy hash to
+`5e3105a86a865ce962e46902d772ddf841f1124680d381e53cb75ffb3c09fe56`.
+Detailed URLs, PPM orientation values, record counts, and validation live only
+in the versioned rerun status above.
 
-| Layer | Historical log SHA256 | Current body SHA256 | Status |
-|---|---|---|---|
-| PPM input / clean receptor | `aeaafa1fb325dc3853496cfd6bd8411c5207d2f711580132085774aab7ac4f22` | `5d8c537b4c9fe40268a20098bb6b2b8a3ec40e9935771df25d086f2d5e10a6a4` | unresolved replacement |
-| DUM-free clean / CHARMM-GUI upload copy | `a7f5dbe776a862091a76d10b872bf0a1c31eb396df612e00897d0c7ad05ac2ef` | `bde78fd766f1825d13e8285ecac2ea533556d70be273ac78c4af1219e9298997` | unresolved replacement |
+## Historical Boundary
 
-The old bodies and an old-to-new migration record are absent. The historical
-PPM result remains associated with the historical submitted-input hash; the
-current local input is not asserted to be that body. The current clean body is
-byte-identical to the package's CHARMM-GUI upload copy, but this only proves
-current internal consistency. Resolve the transition or perform a new,
-versioned PPM/cleaning run before submission.
+The root-level raw/clean PDB bodies and `ppm_output_manifest.tsv` record the
+pre-rerun 2026-07-05 chain. Their historical checksum mismatch is not silently
+rewritten. It is operationally superseded by the explicitly versioned
+2026-07-15 job that used the current input body.
 
-## PPM Record
+## Remaining Gate
 
-| Field | Value |
-|---|---|
-| PPM server/version | `PPM 2.0` |
-| Submission backend | `cgopm fallback endpoint https://cgopm.cc.lehigh.edu/ppm` |
-| Submission date/time | `2026-07-05 16:55:23.485 result-url timestamp; retrieved 2026-07-06 Asia/Shanghai` |
-| Results URL | `https://ppm-results.s3.us-east-2.amazonaws.com/20260705_165523485_8819042/ppm_results.html` |
-| Output PDB URL | `https://ppm-results.s3.us-east-2.amazonaws.com/20260705_165523485_8819042/Gpr2R59CASCR18_ppm2_inputout.pdb` |
-| Full membrane thickness | `33.4 +/- 2.1 A` |
-| Tilt angle | `3 +/- 1 deg` |
-| Transfer energy | `-74.9 kcal/mol` |
-| TM segments | `7; A: 1(26-51), 2(61-85), 3(97-123), 4(142-163), 5(180-201), 6(326-350), 7(357-380)` |
-| Any PPM warnings | `heteroatoms excluded` |
-
-## Validation
-
-| Field | Raw output | Clean output |
-|---|---:|---:|
-| Atom count | `3153` | `3153` |
-| Residue count | `406` | `406` |
-| CA count | `406` | `406` |
-| Chain | `A` | `A` |
-| Mutation check | `59=CYS` | `59=CYS` |
-| HETATM count | `1946` | `0` |
-| DUM count | `1946` | `0` |
-
-## CHARMM-GUI Handoff
-
-After the checksum-provenance hold is resolved, use `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/Gpr2R59CASCR18_ppm2_output_clean.pdb` as the single-chain GPCR input for CHARMM-GUI Membrane Builder with the package settings in `docs/ops/charmm-gui-membrane-builder.md`: `Use PDB Orientation`, rectangular box, water thickness `22.5 A`, X/Y `90 A`, POPC upper/lower `1`/`1`, KCl `0.15 M`, neutralizing ions, CHARMM36m, GROMACS-only, NPT, `303.15 K`.
-
-## Still Missing
-
-- [ ] historical-to-current input and clean/upload checksum migration resolved or superseded by a versioned rerun
-- [ ] CHARMM-GUI Membrane Builder package
-- [ ] ligand coordinate insertion/completion aligned to the final receptor package
-- [ ] `step6.6.gro` or equivalent final coordinate
-- [ ] `topol_phase3.top` or equivalent topology with molecule counts checked
-- [ ] package-local `index.ndx` regenerated from final coordinates
-- [ ] system-specific `grompp_warning_gate.txt` warning review
+- [x] current Gpr2 input bound to a versioned PPM 2.0 result
+- [x] DUM-free upload contract regenerated and checksum-validated
+- [ ] CHARMM-GUI Membrane Builder returned package
+- [ ] final ASCR18 receptor-frame insertion and clash review
+- [ ] final topology and molecule-count review
+- [ ] package-local index regenerated from final coordinates
+- [ ] system-specific `grompp_warning_gate.txt`
 
 ## References / 所引
 
 - `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/Gpr2R59CASCR18_ppm2_input.pdb`
-- `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/Gpr2R59CASCR18_ppm2_output_raw.pdb`
+- `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/20260715_current_input_rerun/ppm_output_status.md`
 - `docs/ops/charmm-gui-membrane-builder.md`
 
 ## Referenced by / 被引
@@ -88,4 +51,4 @@ After the checksum-provenance hold is resolved, use `experiments/md-simulation/s
 - `experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md`
 - `experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/README.md`
 - `codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md`
-- `docs/logs/2026-07-06.md`
+- `docs/logs/2026-07-15.md`
