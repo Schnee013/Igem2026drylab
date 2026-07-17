@@ -1,26 +1,38 @@
-# Gpr3_R167Y + ASCR3 package status
+# Gpr3 WT/R167Y + ASCR3 matched-pair package status
 
-> Date: 2026-07-06
+> Date: 2026-07-17
 >
-> Last audited: 2026-07-12
+> Last audited: 2026-07-17
 >
-> Status: ligand-topology scaffold, current receptor/PPM/CHARMM-GUI handoff
-> bodies, and a canonical standalone ASCR3 46-atom GRO are present.
-> Historical-to-current PPM input and clean/upload checksum migrations are
-> unresolved, so the upload is on provenance hold. Runnable gate also requires
-> CHARMM-GUI output, receptor-frame final coordinates, topology, index, and
-> warning review.
+> Status: `RETURN_RECEIVED_MATCHED_BACKBONE_BASE_ONLY`. The WT arm reuses the
+> receptor-only base from CHARMM-GUI job `7628627163`; the matched R167Y
+> receptor-membrane base from job `8426884163` has been received and
+> intake-audited. The independent-AF3/PPM mutant is retained as sensitivity
+> evidence only. Neither ASCR3 arm is runnable until receptor-frame ligand
+> alignment/insertion, topology, index, and warning gates are complete.
 >
-> Scope: package-local material checkpoint for the mutant GPR MD input gate.
+> Scope: package-local material checkpoint for the Gpr3 WT/R167Y matched MD
+> input gate.
 
 ## Current Contents
 
-This directory currently contains package-local ligand topology materials, current local receptor/PPM bodies, a DUM-free PPM-oriented receptor PDB copied into the intended Git-tracked CHARMM-GUI handoff location, a local `settings.tsv` parameter guide, and a standalone ASCR3 46-atom ligand coordinate in the docking-pose spatial frame. The GRO is explicitly promoted as the intended repo-owned canonical downstream coordinate because the historical producer is retired; its ownership and recovery contract is in `gromacs/ascr3_coordinate_completion/ascr3_coordinate_manifest.tsv`. The historical and current PPM/input hashes are not interchangeable; the explicit hold is recorded in `receptor/ppm_submission/output/ppm_output_status.md`.
+This directory contains the primary matched R167Y receptor upload, retained
+independent-AF3/PPM sensitivity bodies, package-local ligand topology
+materials, a promoted single-pose ASCR3 docking SDF, and a standalone 46-atom
+ASCR3 coordinate in the independent docking-receptor frame. The returned
+matched R167Y receptor-membrane base is preserved as an ignored byte-identical
+archive plus extracted local payload; its compact intake status and manifest
+are Git-visible. The matched receptor method and coordinate audit are in
+`receptor/matched_backbone_status.md`. The selected-pose SDF remains the docking
+orientation source, but its completed GRO must be transformed through the
+docking-receptor-to-matched-WT alignment before insertion; it cannot be copied
+unchanged into the returned matched package.
 
 Generated package-local files:
 
 - [x] `receptor/clean_receptor.pdb`
 - [x] `receptor/clean_receptor_status.md`
+- [x] `receptor/matched_backbone_status.md`
 
 - [x] `receptor/ppm_submission/Gpr3R167YASCR3_ppm2_input.pdb`
 - [x] `receptor/ppm_submission/README.md`
@@ -29,13 +41,24 @@ Generated package-local files:
 - [x] `receptor/ppm_submission/output/Gpr3R167YASCR3_ppm2_output_clean.pdb`
 - [x] `receptor/ppm_submission/output/ppm_output_manifest.tsv`
 - [x] `receptor/ppm_submission/output/ppm_output_status.md`
+- [x] `receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_manifest.tsv`
+- [x] `receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_status.md`
 
 - [x] `receptor/charmm_gui_submission/Gpr3R167YASCR3_charmmgui_input.pdb`
+- [x] `receptor/charmm_gui_submission/Gpr3R167YASCR3_matched_charmmgui_input.pdb`
 - [x] `receptor/charmm_gui_submission/settings.tsv`
+
+- [x] `ligand/Gpr3_R167Y_ascr3_pose1.sdf`
+- [x] `ligand/README.md`
+- [x] `ligand/manifest.tsv`
 
 - [x] `gromacs/ASCR3.itp`
 - [x] `gromacs/toppar/cgenff_ASCR3.itp`
 - [x] `gromacs/posre_ASCR3.itp`
+- [x] `gromacs/charmm_gui_return_manifest.tsv`
+- [x] `gromacs/charmm_gui_return_status.md`
+- [x] `gromacs/charmm_gui_returned/charmm-gui-8426884163-gpr3-r167y-matched-backbone.tgz` (local-only byte-identical matched-backbone archive; not independent AF3)
+- [x] `gromacs/charmm_gui_returned/charmm-gui-8426884163-gpr3-r167y-matched-backbone/` (local-only matched-backbone payload)
 - [x] `gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.pdb`
 - [x] `gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.gro`
 - [x] `gromacs/ascr3_coordinate_completion/ascr3_heavy_atom_mapping.tsv`
@@ -56,55 +79,81 @@ Ligand facts checked from `experiments/md-simulation/parameters/ascr3/deprotonat
 | Expected heavy atom count | `21` |
 | Expected total charge | `-1.000` |
 
-The SDF first pose has 24 atoms and serves as the traceable pose/orientation source. The package-local coordinate completion output now provides a 46-atom ASCR3 ligand coordinate in topology atom order, preserving mapped docking heavy-atom coordinates exactly and using the ASCR3 topology charge source. Evidence class: ligand coordinate layer; receptor/membrane-inserted final system coordinate waits for CHARMM-GUI output and package-frame insertion.
+The promoted SDF first pose has 24 atoms and serves as the traceable
+pose/orientation source. The package-local coordinate completion output provides
+a 46-atom ASCR3 ligand coordinate in topology atom order in the independent
+docking frame. Evidence class: ligand coordinate layer only. The final matched
+ligand coordinate waits for receptor alignment and package-frame insertion into
+both returned/reused receptor-membrane bases.
 
 ## Source Pointers
 
 | Layer | Path |
 |---|---|
-| Receptor source | `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_model_0.cif` |
-| AF3 job request | `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_job_request.json` |
-| Ligand pose source | `experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/tmp/Gpr3_R167Y_ascr3_poses.sdf` |
+| Primary receptor backbone/orientation | `experiments/md-simulation/structures/ppm2/Gpr3_G1XJN1out_clean.pdb` |
+| Matched-backbone method and audit | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md` |
+| Matched-backbone local-EM reproducibility evidence | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_evidence/README.md` |
+| Primary matched R167Y upload | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_matched_charmmgui_input.pdb` |
+| WT receptor/membrane base | `experiments/md-simulation/systems/Gpr3_WT/gromacs/step5_input.gro` + `topol.top` (CHARMM-GUI job `7628627163`) |
+| Independent-AF3 sensitivity source | `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_model_0.cif` |
+| Independent-AF3 job request | `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_job_request.json` |
+| Ligand pose source | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/Gpr3_R167Y_ascr3_pose1.sdf` |
+| Historical multi-pose docking SDF source | `experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/tmp/Gpr3_R167Y_ascr3_poses.sdf` |
 | Ligand topology source | `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/gromacs/ASCR3.itp` |
 | CGenFF source | `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/gromacs/charmm36.itp` |
-| Clean receptor PDB | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/clean_receptor.pdb` |
-| Clean receptor PDB status | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/clean_receptor_status.md` |
-| PPM submission package | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/README.md` |
-| PPM output raw PDB | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/Gpr3R167YASCR3_ppm2_output_raw.pdb` |
-| PPM output clean PDB | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/Gpr3R167YASCR3_ppm2_output_clean.pdb` |
-| PPM output manifest | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/ppm_output_manifest.tsv` |
-| PPM output status | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/ppm_output_status.md` |
-| PPM submission input | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/Gpr3R167YASCR3_ppm2_input.pdb` |
-| CHARMM-GUI upload input | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_charmmgui_input.pdb` |
+| Independent-AF3 clean receptor/status | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/clean_receptor.pdb` + `clean_receptor_status.md` |
+| Independent-AF3 PPM sensitivity package | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/README.md` |
+| Independent-AF3 versioned PPM evidence | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_status.md` |
+| Preserved independent-AF3 upload | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_charmmgui_input.pdb` |
 | CHARMM-GUI settings | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/settings.tsv` |
+| Matched R167Y CHARMM-GUI return intake | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_status.md` |
+| Matched R167Y CHARMM-GUI return manifest | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_manifest.tsv` |
 | Current input-gate route | `codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md` |
 | ASCR3 coordinate-completion status | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ascr3_coordinate_completion_status.md` |
 | ASCR3 coordinate ownership/recovery manifest | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ascr3_coordinate_manifest.tsv` |
 | ASCR3 canonical completed ligand GRO | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.gro` |
 | ASCR3 local derived PDB view | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.pdb` |
+| Selected ASCR3 docking pose manifest | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/manifest.tsv` |
 
 ## Still Missing
 
-- [x] clean receptor PDB converted from selected AF3 CIF
-- [x] PPM 2.0 submission input/provenance package
-- [x] PPM 2.0 oriented receptor PDB
-- [x] CHARMM-GUI upload PDB and settings
+- [x] canonical WT receptor backbone in an accepted PPM-oriented frame
+- [x] exact-backbone R167Y mutation plus local CHARMM36m geometry EM
+- [x] primary matched R167Y CHARMM-GUI upload PDB and shared settings
+- [x] WT receptor/membrane base from CHARMM-GUI job `7628627163`
+- [x] independent-AF3/PPM chain retained as starting-structure sensitivity evidence
 - [x] standalone ASCR3 46-atom ligand coordinate layer in docking-pose spatial frame
-- [ ] historical-to-current PPM input and clean/upload checksum migration resolved or superseded by a versioned rerun
-- [ ] CHARMM-GUI Membrane Builder output package
-- [ ] ASCR3 receptor-frame alignment/insertion into the final CHARMM-GUI receptor/membrane package
-- [ ] `step6.6.gro` or equivalent final coordinate
-- [ ] `topol_phase3.top` or equivalent topology with molecule counts checked
-- [ ] package-local `index.ndx` regenerated from final coordinates
-- [ ] system-specific `grompp_warning_gate.txt` warning review
+- [x] matched R167Y CHARMM-GUI Membrane Builder returned package from job `8426884163`
+- [ ] docking-receptor-to-matched-WT transform for the selected ASCR3 pose
+- [ ] ASCR3 insertion into both WT and matched-R167Y receptor/membrane frames
+- [ ] pair-specific `step6.6.gro` or equivalent final coordinates
+- [ ] pair-specific topologies with molecule counts checked
+- [ ] package-local indexes regenerated from each final coordinate
+- [ ] WT and R167Y system-specific `grompp` warning reviews
 
 ## Next Action
 
-First reconcile the old-to-current checksum transitions recorded in `receptor/ppm_submission/output/ppm_output_status.md`, or supersede them with a new versioned PPM/cleaning run. Only then submit `receptor/charmm_gui_submission/Gpr3R167YASCR3_charmmgui_input.pdb` to CHARMM-GUI Membrane Builder using `receptor/charmm_gui_submission/settings.tsv` and `docs/ops/charmm-gui-membrane-builder.md`. After downloading the CHARMM-GUI GROMACS output, archive the output under `gromacs/`, then align/insert the canonical `gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.gro` into the receptor/membrane package, run protein/POPC clash sanity, prepare final topology, regenerate the package-local index, and write the Gpr3_R167Y-specific warning review. Smoke or benchmark planning starts after those gates have named evidence.
+Do not resubmit either receptor: the matched R167Y return from job
+`8426884163` is present, and the WT arm starts from the receptor-only
+`systems/Gpr3_WT/gromacs/step5_input.*` / `topol.top` base from job
+`7628627163`, not from its later ASCR18-containing `step6.6.gro`.
+
+Next derive the docking-receptor-to-matched-WT transform, transform the selected
+46-atom ASCR3 pose, insert it separately into both receptor/membrane bases, run
+protein/POPC clash sanity, prepare pair-specific topologies and indexes, and
+write both warning reviews. Smoke/benchmark planning starts only after these
+gates have named evidence.
 
 ## References / 所引
 
+- `experiments/md-simulation/structures/ppm2/Gpr3_G1XJN1out_clean.pdb`
+- `experiments/md-simulation/systems/Gpr3_WT/gromacs/step5_input.gro`
+- `experiments/md-simulation/systems/Gpr3_WT/gromacs/topol.top`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_matched_charmmgui_input.pdb`
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ascr3_coordinate_completion_status.md`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/Gpr3_R167Y_ascr3_pose1.sdf`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/manifest.tsv`
 - `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_model_0.cif`
 - `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_job_request.json`
 - `experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/tmp/Gpr3_R167Y_ascr3_poses.sdf`
@@ -113,6 +162,9 @@ First reconcile the old-to-current checksum transitions recorded in `receptor/pp
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_charmmgui_input.pdb`
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/settings.tsv`
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/README.md`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_status.md`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_status.md`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_manifest.tsv`
 - `docs/ops/charmm-gui-membrane-builder.md`
 
 ## Referenced by / 被引
@@ -121,3 +173,5 @@ First reconcile the old-to-current checksum transitions recorded in `receptor/pp
 - `docs/INDEX.md`
 - `docs/modeling/P0-md-simulation.md`
 - `docs/logs/2026-07-06.md`
+- `docs/logs/2026-07-16.md`
+- `docs/logs/2026-07-17.md`

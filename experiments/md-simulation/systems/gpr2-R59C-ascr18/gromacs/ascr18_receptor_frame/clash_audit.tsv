@@ -1,0 +1,4 @@
+component	residue_or_atom	min_heavy_distance_A	action
+protein	145:PRO:O	3.129743	retain
+POPC	410	0.752287	remove
+POPC	411	4.401904	retain

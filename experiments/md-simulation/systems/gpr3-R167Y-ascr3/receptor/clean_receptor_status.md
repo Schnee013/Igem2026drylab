@@ -2,8 +2,9 @@
 
 > Date: 2026-07-05
 >
-> Status: clean receptor PDB provenance record. PPM output and CHARMM-GUI upload
-> material now exist in the package-local receptor tree.
+> Status: independent-AF3 receptor provenance record retained for
+> starting-structure sensitivity only. The primary matched-backbone route is
+> defined in `matched_backbone_status.md`.
 
 ## Output
 
@@ -25,8 +26,9 @@
 
 ## Gate Status
 
-- [x] PPM 2.0 oriented receptor PDB
-- [x] CHARMM-GUI upload PDB and `settings.tsv`
+- [x] independent-AF3 PPM 2.0 oriented receptor PDB retained
+- [x] independent-AF3 CHARMM-GUI upload PDB retained as sensitivity input
+- [x] matched-backbone primary CHARMM-GUI upload prepared separately
 - [ ] CHARMM-GUI Membrane Builder output package
 - [ ] ligand coordinate insertion/completion
 - [ ] final topology molecule-count check
@@ -37,6 +39,7 @@
 
 - `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_model_0.cif`
 - `experiments/docking-repro/mutagenesis/af3_downloads/gpr3_r167y/fold_gpr3_r167y_job_request.json`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md`
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/PACKAGE_STATUS.md`
 
 ## Referenced by / 被引

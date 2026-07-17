@@ -1,15 +1,16 @@
 # ASCR3 Coordinate Completion Status
 
-> Date: 2026-07-06
+> Date: 2026-07-17
 >
-> Last audited: 2026-07-12
+> Last audited: 2026-07-17
 >
-> Scope: Gpr3_R167Y + ASCR3 package-local ligand coordinate layer.
+> Scope: Gpr3 WT/R167Y + ASCR3 matched-pair package-local ligand coordinate
+> layer.
 >
-> Status: the exact 46-atom GRO is explicitly promoted as an intended repo-owned
-> canonical downstream input in the docking-pose spatial frame. The historical
-> producer is retired; receptor/membrane insertion still waits for CHARMM-GUI
-> output.
+> Status: the exact 46-atom GRO remains the repo-owned canonical standalone
+> ligand coordinate, but it is in the independent docking-receptor frame. It
+> must be transformed through the docking-receptor-to-matched-WT alignment
+> before insertion into either matched receptor/membrane arm.
 
 ## Result
 
@@ -36,11 +37,31 @@
 
 ## Method
 
-The script parsed the first molecule in the docking SDF, parsed the deprotonated ASCR3 template SDF and `ligandrm.pdb`, enumerated heavy-atom graph isomorphisms while ignoring hydrogen completeness and bond-order differences, and chose the graph mapping with the lowest rigid heavy-atom fit RMSD as a diagnostic mapping. The 46-atom coordinate uses the mapped docking heavy-atom coordinates exactly, copies docking polar hydrogens for `O3` and `O4`, and generates the remaining hydrogens from package-local ASCR3 topology connectivity and local heavy-atom geometry. This preserves the selected docking pose heavy atoms while making the output compatible with the 46-atom ASCR3 topology order.
+The historical completion script parsed the first molecule in the docking SDF, parsed the deprotonated ASCR3 template SDF and `ligandrm.pdb`, enumerated heavy-atom graph isomorphisms while ignoring hydrogen completeness and bond-order differences, and chose the graph mapping with the lowest rigid heavy-atom fit RMSD as a diagnostic mapping. The selected first molecule is now promoted as `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/Gpr3_R167Y_ascr3_pose1.sdf`; MD package consumers should use that system-local SDF rather than the `results/**/tmp/` multi-pose run output. The 46-atom coordinate uses the mapped docking heavy-atom coordinates exactly, copies docking polar hydrogens for `O3` and `O4`, and generates the remaining hydrogens from package-local ASCR3 topology connectivity and local heavy-atom geometry. This preserves the selected docking pose heavy atoms while making the output compatible with the 46-atom ASCR3 topology order.
 
 The rigid-template fit is retained only as a diagnostic because the CHARMM-GUI template conformer and the docking conformer differ. The selected rigid fit has RMSD `2.9557 A` and maximum heavy-atom delta `6.0769 A`; the 46-atom coordinate preserves docking heavy-atom positions rather than replacing them with rigidly transformed template heavy atoms.
 
 The standalone GRO uses residue name `ASCR3` and is the accepted exact body for downstream package assembly. The standalone PDB uses residue field `AS3` because fixed-width PDB residue names are three characters; it is retained locally as a derived inspection view and is not required for recovery or assembly. Topology authority remains `ASCR3.itp` plus the package assembly checks.
+
+## Matched-Frame Boundary
+
+The primary comparison now uses the PPM-oriented Gpr3 WT backbone and a
+coordinate-identical matched R167Y backbone. The selected ASCR3 pose was
+generated against an independently predicted R167Y docking receptor, so the
+current GRO must not be copied unchanged into either matched package. After the
+matched R167Y CHARMM-GUI return is received:
+
+1. fit the docking receptor to the PPM-oriented matched WT receptor using the
+   accepted receptor alignment selection;
+2. apply that same rigid transform to all 46 ASCR3 atoms;
+3. insert the transformed ligand separately into the WT and R167Y
+   receptor/membrane bases;
+4. run pair-specific protein/POPC clash, topology molecule-count, index, and
+   `grompp` warning gates.
+
+The WT arm reuses the receptor-only `systems/Gpr3_WT/gromacs/step5_input.*` and
+`topol.top` layer from CHARMM-GUI job `7628627163`; the later ASCR18-containing
+WT `step6.6.gro` is outside this matched ASCR3 assembly route.
 
 ## Ownership And Recovery Contract
 
@@ -60,7 +81,8 @@ The standalone GRO uses residue name `ASCR3` and is the accepted exact body for 
 
 | Input | SHA256 |
 |---|---|
-| `experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/tmp/Gpr3_R167Y_ascr3_poses.sdf` | `60cf0012c6f06a147ddf8497e39eee09b177fea5ce8b75b3d27de1680b18ba4d` |
+| `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/Gpr3_R167Y_ascr3_pose1.sdf` | `ccbd49e840b25c142c1cfcdd7f5247267c8b5099c48d0193427626554803d006` |
+| Historical multi-pose source: `experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/tmp/Gpr3_R167Y_ascr3_poses.sdf` | `60cf0012c6f06a147ddf8497e39eee09b177fea5ce8b75b3d27de1680b18ba4d` |
 | `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/ascr3_deprotonated.sdf` | `9ff3834a6af8c6552aefb36b65388832b0559774df2cdca5c0bb573ba389851f` |
 | `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/ligandrm.pdb` | `e6c9cf8f9a82b779b9c46de34b23f818afefef93e11dcaa37ef60b348542e6ad` |
 | `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/upload.crd` | `7749b1c6e969906c755e331c4328a4c2470e80ea3e6eace304e99b38b55c8ee9` |
@@ -78,14 +100,23 @@ The standalone GRO uses residue name `ASCR3` and is the accepted exact body for 
 
 ## Still Missing
 
-- CHARMM-GUI receptor/membrane GROMACS output package for `Gpr3_R167Y + ASCR3`.
-- Receptor-frame alignment into that package after output archival.
-- Protein/POPC clash sanity after insertion.
-- Final topology molecule-count check, package-local index, and system-specific warning review.
+- Matched R167Y CHARMM-GUI receptor/membrane GROMACS return.
+- Docking-receptor-to-matched-WT transform and transformed 46-atom ASCR3
+  coordinate.
+- Separate insertion into the WT and matched-R167Y receptor/membrane bases.
+- Pair-specific protein/POPC clash sanity after insertion.
+- Pair-specific topology molecule-count checks, package-local indexes, and
+  system-specific warning reviews.
 
 ## References / 所引
 
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ascr3_coordinate_manifest.tsv`
+- `experiments/md-simulation/structures/ppm2/Gpr3_G1XJN1out_clean.pdb`
+- `experiments/md-simulation/systems/Gpr3_WT/gromacs/step5_input.gro`
+- `experiments/md-simulation/systems/Gpr3_WT/gromacs/topol.top`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/Gpr3_R167Y_ascr3_pose1.sdf`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/manifest.tsv`
 - `experiments/docking-repro/results/ifp_analysis_mutants_gpr3_f_full_20260520_0854/tmp/Gpr3_R167Y_ascr3_poses.sdf`
 - `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/ligandrm.pdb`
 - `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/ascr3_deprotonated.sdf`
@@ -99,3 +130,4 @@ The standalone GRO uses residue name `ASCR3` and is the accepted exact body for 
 - `docs/INDEX.md`
 - `docs/modeling/P0-md-simulation.md`
 - `docs/logs/2026-07-06.md`
+- `docs/logs/2026-07-17.md`
