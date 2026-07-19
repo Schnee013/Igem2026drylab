@@ -12,10 +12,63 @@ PROD_DIR="$RUN_ROOT/production"
 PROD_LOG="$RUN_ROOT/logs/production"
 OUT_DIR="$RUN_ROOT/processed/rep1"
 
+verify_production_terminal() {
+  local actual_manifest_sha detail expected_manifest_sha latest
+  if [[ ! -s "$PROD_LOG/run_state_events.tsv" ]]; then
+    echo "ERROR: missing production run_state_events.tsv" >&2
+    return 66
+  fi
+  if ! latest=$(awk -F '\t' 'NR == 1 {
+      if ($0 != "observed_at\tstate\tsource\tdetail") {
+        invalid=1
+      }
+      next
+    }
+    NF != 4 {
+      invalid=1
+      next
+    }
+    {
+      observed_at=$1; state=$2; source=$3; detail=$4
+    }
+    END {
+      if (invalid) {
+        exit 2
+      }
+      if (state != "") {
+        printf "%s\t%s\t%s\t%s\n", observed_at, state, source, detail
+      }
+    }' "$PROD_LOG/run_state_events.tsv"); then
+    echo "ERROR: malformed production run-state event stream" >&2
+    return 66
+  fi
+  if [[ -z $latest ]]; then
+    echo "ERROR: no valid production run-state event" >&2
+    return 66
+  fi
+  IFS=$'\t' read -r _ latest_state _ detail <<< "$latest"
+  if [[ $latest_state != TERMINAL_NORMAL ]]; then
+    echo "ERROR: latest production state is $latest_state, not TERMINAL_NORMAL" >&2
+    return 66
+  fi
+  expected_manifest_sha=$(awk -v RS=';' -F= \
+    '$1 == "archive_manifest_sha256" { print $2; exit }' <<< "$detail")
+  if [[ ! $expected_manifest_sha =~ ^[0-9a-f]{64}$ ]] \
+      || [[ ! -s "$RUN_ROOT/production_archive.sha256" ]]; then
+    echo "ERROR: terminal event lacks a valid production archive identity" >&2
+    return 66
+  fi
+  actual_manifest_sha=$(sha256sum "$RUN_ROOT/production_archive.sha256" | awk '{print $1}')
+  if [[ $actual_manifest_sha != "$expected_manifest_sha" ]]; then
+    echo "ERROR: production archive identity changed after terminal event" >&2
+    return 66
+  fi
+}
+
 remote_run() {
   mkdir -p "$OUT_DIR"
   cd "$RUN_ROOT"
-  if ! grep -Fxq $'status\tfinished' "$PROD_LOG/terminal_status.tsv"; then
+  if ! verify_production_terminal; then
     printf 'status\tproduction_not_finished\n' > "$OUT_DIR/terminal_status.tsv"
     exit 66
   fi
@@ -132,6 +185,8 @@ PY
   find production logs/production sanity/production processed/rep1 \
     -type f \
     ! -path 'logs/production/terminal_status.tsv' \
+    ! -path 'logs/production/run_state_events.tsv' \
+    ! -path 'logs/production/run_state.lock' \
     ! -path 'processed/rep1/terminal_status.tsv' \
     ! -path 'processed/rep1/SHA256SUMS_processed_rep1.txt' \
     -print0 | sort -z | xargs -0 sha256sum > "$RUN_ROOT/final_archive.sha256"
@@ -151,8 +206,9 @@ local_launch() {
   printf 'launched_session\t%s\nrun_root\t%s\n' "$SESSION" "$RUN_ROOT"
 }
 
-if [[ ${1:-} == "--remote-run" ]]; then
-  remote_run
-else
-  local_launch
-fi
+case ${1:-} in
+  --remote-run) remote_run ;;
+  --verify-production-terminal) verify_production_terminal ;;
+  "") local_launch ;;
+  *) echo "ERROR: unsupported argument $1" >&2; exit 64 ;;
+esac
