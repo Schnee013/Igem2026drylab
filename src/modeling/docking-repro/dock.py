@@ -51,7 +51,7 @@ def get_manual_box_center(config: dict, receptor_name: str) -> tuple[float, floa
     返回 (x, y, z) in Å（dock frame），None 则走 compute_box_center_of_mass 自动质心。
     Gpr3（2026-04-23 方案 F 起）用 ECL2 质心 [0.42, 7.16, -17.11] 强制搜索胞外口袋。
     当 manual_box_center 非 None 时，extracellular_z_offset 不再叠加（center 已直接指定）。
-    → plan ~/.claude/plans/gpr3-1-2-cozy-bengio.md
+    设计与执行证据见 docs/logs/2026-04-23.md。
     """
     tm_topo = config.get("tm_topology")
     if tm_topo is None:
@@ -73,8 +73,7 @@ def get_receptor_box_size(config: dict, receptor_name: str) -> float | None:
     """从 config["tm_topology"][rec].box_size 读取 per-receptor docking box 边长（Å）。
 
     None 表示走 config["vina"]["singlestage"]["box_size"] 默认值（40 Å）。
-    Gpr3（2026-04-23 起）用 25 Å 强制 TM 内部搜索，修复 pose 在 TM 束外侧 groove 的问题。
-    → plan ~/.claude/plans/gpr3-1-2-cozy-bengio.md
+    Gpr3 的当前值由 config.yaml 指定；2026-04-23 的设计与变更证据见当日日志。
     """
     tm_topo = config.get("tm_topology")
     if tm_topo is None:

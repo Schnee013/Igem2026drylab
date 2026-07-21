@@ -174,7 +174,7 @@ tm_topology:
   #     膜法线在 dock frame = [0.617, 0.065, -0.785]，10Å 偏移 = [6.17, 0.65, -7.85]。
   #   GprC/Gpr3 = 0（无需偏移）。默认 0.0。
   #   → 根因: docs/logs/2026-04-16.md §Gpr2 Docking Pose 朝向验证
-  #   → 验算: ~/.claude/plans/sparkling-herding-dijkstra.md §偏移量验算
+  #   → 验算与执行记录: docs/logs/2026-04-23.md
 
   GprC:
     # UniProt A0A437AGY2 — https://www.uniprot.org/uniprotkb/A0A437AGY2
@@ -227,7 +227,7 @@ tm_topology:
     # 到 20 Å 强制排除 TM-POPC 界面。
     # ECL2 CA 质心 dock frame = [0.42, 7.16, -17.11]，memb frame Z=105.3（对齐 Gpr2
     # 基线 105-106），box=20 覆盖 memb Z∈[95.3, 115.3]（跨 upper P 110.4 共 4.9 Å 胞外）。
-    # → plan ~/.claude/plans/gpr3-1-2-cozy-bengio.md
+    # → 设计与执行证据: docs/logs/2026-04-23.md §方案 F
     extracellular_z_offset: 0.0   # F 方案用 manual_box_center 直接指定，不再叠加 offset
     manual_box_center: [0.42, 7.16, -17.11]
     box_size: 20.0

@@ -5,6 +5,11 @@ mutant-scan result set. It is an experiment-output tree, not an MD package
 authority. MD system packages must promote any selected pose they consume into
 their own `experiments/md-simulation/systems/<system>/ligand/` directory.
 
+## Local execution
+
+On macOS, run docking-repro scripts in the `docking` conda environment. Keep
+docking dependencies out of the base environment.
+
 ## Current authority
 
 Use these files for the current docking shortlist and interpretation boundary:
