@@ -1,0 +1,3 @@
+label,fit_atoms,receptor_ca_atoms,region_ca_atoms,ligand_heavy_atoms,after100_frames,no_refit_backbone_rmsd_mean_A,refit_backbone_rmsd_mean_A,region_ca_sqdisp_mean_of_frame_fraction_pct,refit_ligand_rmsd_mean_A,refit_ligand_rmsd_max_A,refit_ligand_centroid_shift_mean_A
+WT,1379,406,61,23,1001,7.20602520,5.20458295,71.93235196,7.02046520,10.49199614,5.51769063
+R59C,1379,406,61,23,1001,6.98678394,6.18263496,64.60491357,10.50888668,12.96037660,9.36242776

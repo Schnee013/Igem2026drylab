@@ -12,6 +12,7 @@ import os
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from MDAnalysis.analysis import align
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 CONFIG_PATH = REPO_ROOT / "experiments/md-simulation/analysis/chimeric_systems.json"
@@ -265,6 +266,36 @@ def time_ns(ts) -> float:
         return float(ts.time) / 1000.0
     except Exception:
         return float(ts.frame)
+
+
+def equal_weight_kabsch_coordinates(
+    mobile_fit_positions: np.ndarray,
+    reference_fit_positions: np.ndarray,
+    coordinates: np.ndarray,
+) -> tuple[np.ndarray, float]:
+    """Transform row-vector coordinates with an equal-weight Kabsch fit.
+
+    ``MDAnalysis.analysis.align.rotation_matrix`` returns a matrix acting on
+    column vectors. MDAnalysis atom coordinates are stored as row vectors, so
+    the returned matrix must be transposed when it is applied with ``@`` or
+    ``np.dot``.
+    """
+    mobile_fit_positions = np.asarray(mobile_fit_positions, dtype=float)
+    reference_fit_positions = np.asarray(reference_fit_positions, dtype=float)
+    coordinates = np.asarray(coordinates, dtype=float)
+    if mobile_fit_positions.shape != reference_fit_positions.shape:
+        raise ValueError(
+            "fit selection shape mismatch: "
+            f"{mobile_fit_positions.shape} != {reference_fit_positions.shape}"
+        )
+    mobile_center = mobile_fit_positions.mean(axis=0)
+    reference_center = reference_fit_positions.mean(axis=0)
+    rotation, fit_rmsd = align.rotation_matrix(
+        mobile_fit_positions - mobile_center,
+        reference_fit_positions - reference_center,
+    )
+    aligned = (coordinates - mobile_center) @ rotation.T + reference_center
+    return aligned, float(fit_rmsd)
 
 
 def linear_slope(x: np.ndarray, y: np.ndarray) -> float:

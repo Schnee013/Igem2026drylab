@@ -12,8 +12,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path('src/modeling/md-analysis').resolve()))
 import MDAnalysis as mda
-from MDAnalysis.analysis import align
-from common import add_system_argument, analysis_context, ensure_dir, time_ns, replicate_plot_path, save_csv, write_judgement
+from common import add_system_argument, analysis_context, ensure_dir, equal_weight_kabsch_coordinates, time_ns, replicate_plot_path, save_csv, write_judgement
 from plotting import lineplot_by_rep
 
 parser = argparse.ArgumentParser()
@@ -59,12 +58,14 @@ for rep in reps:
     ref.trajectory[0]
     mob_fit = u.select_atoms(ctx.backbone_selection); ref_fit = ref.select_atoms(ctx.backbone_selection)
     mob_sel = u.select_atoms(ctx.selection_rmsd_selection); ref_sel = ref.select_atoms(ctx.selection_rmsd_selection)
-    ref_fit_com = ref_fit.center_of_mass(); ref_fit_pos = ref_fit.positions - ref_fit_com
-    ref_sel_pos = ref_sel.positions - ref_fit_com
+    ref_fit_pos = ref_fit.positions.copy()
+    ref_sel_pos = ref_sel.positions.copy()
     for ts in u.trajectory:
-        mob_com = mob_fit.center_of_mass()
-        R, _ = align.rotation_matrix(mob_fit.positions - mob_com, ref_fit_pos)
-        sel = np.dot(mob_sel.positions - mob_com, R)
+        sel, _ = equal_weight_kabsch_coordinates(
+            mob_fit.positions,
+            ref_fit_pos,
+            mob_sel.positions,
+        )
         diff = sel - ref_sel_pos
         val = float(np.sqrt((diff * diff).sum() / len(sel)))
         rows.append({'rep': rep.rep, 'time_ns': time_ns(ts), 'selection_rmsd_A': val})

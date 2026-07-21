@@ -4,7 +4,8 @@
 >
 > Status: this versioned rerun binds the current package-local PPM input to a
 > new PPM 2.0 result. It supersedes the old checksum-migration hold for the
-> Gpr2 CHARMM-GUI handoff. It does not make the MD package runnable.
+> Gpr2 CHARMM-GUI handoff. Current package and run status is routed by
+> `experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md`.
 
 ## Provenance
 
@@ -25,6 +26,13 @@ The remote output was downloaded again during verification and matched the
 archived raw body byte-for-byte. The clean body was derived by removing the
 `1946` PPM membrane-marker records matching `HETATM ... DUM`; the `3153`
 protein `ATOM` records were retained.
+
+Both bodies preserve the submitted input remark
+`Package-local receptor PDB; PPM/CHARMM-GUI not run here.` This is inherited
+input-layer metadata describing the receptor before submission. The PPM result
+is determined by the result job key/page and byte-identical raw-output
+checksum above; current repository package state is determined by the
+system-local `PACKAGE_STATUS.md`.
 
 ## PPM Result
 
@@ -61,10 +69,9 @@ provenance. They are not rewritten as if they had used the current input. This
 2026-07-15 job is the new operational chain because its submitted input is the
 current package-local body with SHA256 `5d8c537b...`.
 
-The Gpr2 provenance gate is therefore cleared for manual CHARMM-GUI submission.
-The package remains non-runnable until the returned CHARMM-GUI output is
-archived and final ligand coordinates, topology molecule counts, package-local
-index, and `grompp` warning review are complete.
+This chain cleared the Gpr2 PPM provenance gate for its CHARMM-GUI handoff.
+Later package gates and runtime state are maintained through the system-local
+`PACKAGE_STATUS.md` and their direct gate/run artifacts.
 
 ## References / 所引
 

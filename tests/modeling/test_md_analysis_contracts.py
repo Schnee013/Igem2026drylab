@@ -32,7 +32,24 @@ def load_hbond_module():
     return module
 
 
+def load_ligand_path_module():
+    path = (
+        ROOT
+        / "experiments/md-simulation/analysis/chctrl/compare_ligand_paths.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "drylab_compare_ligand_paths",
+        path,
+    )
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot load {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 HBOND = load_hbond_module()
+LIGAND_PATH = load_ligand_path_module()
 
 
 class MdAnalysisContractTests(unittest.TestCase):
@@ -43,6 +60,10 @@ class MdAnalysisContractTests(unittest.TestCase):
     R59C_GPR2_CONFIG = (
         ROOT
         / "experiments/md-simulation/results/gpr2-r59c-ascr18/chimeric_systems.gpr2_r59c_ascr18_rep1.json"
+    )
+    R167Y_GPR3_CONFIG = (
+        ROOT
+        / "experiments/md-simulation/results/gpr3-r167y-ascr3/chimeric_systems.gpr3_r167y_ascr3_rep1.json"
     )
 
     def test_external_payload_root_keeps_analysis_outputs_in_repo_tree(self) -> None:
@@ -182,6 +203,34 @@ class MdAnalysisContractTests(unittest.TestCase):
             payload_root / "processed/rep1/prod_protein.xtc",
         )
 
+    def test_gpr3_r167y_config_resolves_ligand_and_ifp_contract(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            payload_root = Path(temporary_directory) / "gpr3-r167y-ascr3"
+            with patch.dict(
+                os.environ,
+                {
+                    "CHIMERIC_MD_PAYLOAD_ROOT": str(payload_root),
+                    "CHIMERIC_MD_REPS": "1",
+                },
+                clear=False,
+            ):
+                context = analysis_context(config_path=self.R167Y_GPR3_CONFIG)
+                replicates = context.replicates()
+
+        self.assertEqual(context.system, "gpr3-r167y-ascr3-rep1")
+        self.assertEqual(context.receptor_selection, "segid A")
+        self.assertEqual(context.galpha_selection, "(segid B) and resname ASCR")
+        self.assertEqual(context.interaction_partner_role, "ligand")
+        self.assertEqual(len(replicates), 1)
+        self.assertIn(
+            "gpr3_docking_ifp_93_97_100_101_104_134_138_150_169_170_171_174_175_177_178",
+            context.receptor_interface_clusters,
+        )
+        self.assertEqual(
+            replicates[0].topology,
+            payload_root / "processed/rep1/protein_ref.pdb",
+        )
+
     def test_duplicate_replicate_numbers_are_rejected(self) -> None:
         with patch.dict(os.environ, {"CHIMERIC_MD_REPS": "1,1"}):
             with self.assertRaisesRegex(ValueError, "duplicate replicate numbers: 1"):
@@ -265,6 +314,68 @@ class MdAnalysisContractTests(unittest.TestCase):
             self.assertIn("rep1: no detected pairs; top pair occupancy=0.000", judgement)
             self.assertIn("rep2: no detected pairs; top pair occupancy=0.000", judgement)
             self.assertIn("rep3: no detected pairs; top pair occupancy=0.000", judgement)
+
+    def test_ligand_path_named_paths_reject_duplicate_labels(self) -> None:
+        with self.assertRaisesRegex(ValueError, "duplicate --arm-config label: WT"):
+            LIGAND_PATH.parse_named_paths(
+                ["WT=wt.json", "WT=other.json"],
+                "--arm-config",
+            )
+
+    def test_ligand_path_equal_weight_fit_recovers_reference_frame(self) -> None:
+        import numpy as np
+
+        reference = np.array(
+            [
+                [0.0, 0.0, 0.0],
+                [1.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0],
+            ]
+        )
+        rotation = np.array(
+            [
+                [0.0, -1.0, 0.0],
+                [1.0, 0.0, 0.0],
+                [0.0, 0.0, 1.0],
+            ]
+        )
+        translation = np.array([4.0, -3.0, 2.0])
+        mobile = reference @ rotation + translation
+        ligand_reference = np.array([[0.25, 0.25, 1.0]])
+        ligand_mobile = ligand_reference @ rotation + translation
+
+        aligned, fit_rmsd = LIGAND_PATH.equal_weight_fit(
+            mobile,
+            reference,
+            ligand_mobile,
+        )
+
+        self.assertTrue(np.allclose(aligned, ligand_reference, atol=1e-6))
+        self.assertAlmostEqual(fit_rmsd, 0.0, places=6)
+
+    def test_ligand_path_contact_occupancy_separates_windows(self) -> None:
+        import numpy as np
+
+        rows = LIGAND_PATH.summarize_contact_occupancy(
+            "WT",
+            np.array([0.0, 50.0, 100.0, 150.0]),
+            [
+                {(10, "ALA")},
+                {(10, "ALA"), (20, "ARG")},
+                {(20, "ARG")},
+                {(20, "ARG")},
+            ],
+            window_start_ns=100.0,
+            cutoff_A=4.0,
+        )
+        by_resid = {row["receptor_resid"]: row for row in rows}
+
+        self.assertEqual(by_resid[10]["initial_contact"], True)
+        self.assertAlmostEqual(by_resid[10]["early_occupancy"], 1.0)
+        self.assertAlmostEqual(by_resid[10]["late_occupancy"], 0.0)
+        self.assertEqual(by_resid[20]["initial_contact"], False)
+        self.assertAlmostEqual(by_resid[20]["early_occupancy"], 0.5)
+        self.assertAlmostEqual(by_resid[20]["late_occupancy"], 1.0)
 
 
 if __name__ == "__main__":

@@ -2,17 +2,44 @@
 
 > Date: 2026-07-16
 >
-> Last audited: 2026-07-16
+> Last audited: 2026-07-19
 >
-> Status: `RUNNING_PRODUCTION_REP1_ON_E2`. The receptor-frame ASCR18 insertion,
-> clash review, final topology/index, 11-warning gate, EM, step6.1-step6.6, and
-> 100 ps benchmark have passed on E2. The resulting 130,638-atom holo system
-> contains one 406-residue Gpr2_R59C receptor, one 54-atom ASCR18, 200 POPC,
-> 88 POT, 100 CLA, and 32,404 TIP3. Its 200 ns rep1 started at
-> `2026-07-16T15:48:19+08:00`; the first parseable checkpoint was written at
-> `2026-07-16T16:18:26+08:00`.
+> Source: direct run-local terminal and archive evidence under
+> `/ifs1/User/dengwei/igem/md-simulation/gpr2_r59c_ascr18_rep1_20260716`,
+> mirrored compactly in the external payload root and routed by the
+> [55-row final archive manifest](../../archive-router/gpr2-r59c-ascr18_200ns-rep1_20260716_archive.sha256).
+> `run_state_events.tsv` remains the runtime write authority while a run is
+> active; the validator-promoted terminal records now establish the final rep1
+> state.
 >
-> Scope: package-local material checkpoint for the mutant GPR MD input gate.
+> As of: `2026-07-19T23:33:18+08:00`.
+>
+> Allowed use: detailed package readiness, production/postprocess terminal
+> state, canonical rep1 analysis routing, and descriptive dynamic-pocket
+> triage. Any new run-changing action still requires a live check no older than
+> 15 minutes and a current work order.
+>
+> Update trigger: a new replicate/work order, or a changed run/output checksum
+> identity.
+>
+> Status: `REP1_COMPLETE_ANALYZED_MATCHED`. The 200 ns physical trajectory,
+> audit finalization, E2 postprocess, shared seven-driver analysis, and WT/R59C
+> matched single-rep comparison have all completed. The additional ligand-path
+> inspection is also complete as exploratory dynamic-pocket triage, with the
+> evidence layers separated below.
+>
+> Scope: package-local readiness, terminal evidence, and canonical result route
+> for the Gpr2 R59C mutant GPR MD rep1.
+
+| Stage | Status | Direct evidence |
+|---|---|---|
+| Physical production completion | `finished`; 130,638 atoms; XTC/EDR both end at 200,000 ps | external `logs/production/gmx_check_production_{xtc,edr}.log`; GROMACS main log |
+| Audit finalization | `finished 2026-07-19T21:39:21+08:00`; finalizer exit `0`; production archive `43/43 PASS` | external `logs/production/terminal_status.tsv`, `finalizer_exit_code.tsv`, `production_archive.sha256` |
+| Postprocess completion | `finished 2026-07-19T21:41:09+08:00`; 6,438 atoms; 2,001 frames through 200,000 ps; processed manifest `11/11 PASS` | external `processed/rep1/terminal_status.tsv`, `gmx_check_protein.txt`, `SHA256SUMS_processed_rep1.txt` |
+| Seven-driver analysis | complete; seven shared drivers exited `0` | `../../results/gpr2-r59c-ascr18/analysis/run_logs/` and R59C metric report |
+| WT/R59C matched single-rep analysis | complete | matched comparison report |
+| Ligand-path / dynamic-pocket triage | complete; descriptive only; starting pockets differ | ligand-path report and `analysis/ligand_path/` outputs |
+| Final archive | `55/55 PASS` | archive-router manifest |
 
 ## Current Contents
 
@@ -20,10 +47,12 @@ This directory contains the package-local source/provenance chain and the
 Git-visible scripts/config used to complete the system. Large generated
 GROMACS bodies remain local/ignored or under the E2 run root
 `/ifs1/User/dengwei/igem/md-simulation/gpr2_r59c_ascr18_rep1_20260716`.
-The returned CHARMM-GUI package was ligand-free, but that was an intermediate
-base: the accepted E2 package now contains ASCR18 and has passed the runnable
-gate. The current task is to preserve the active production run, then generate
-chctrl-compatible processed inputs and matched WT/R59C analysis outputs.
+The returned CHARMM-GUI package was a ligand-free intermediate base. The
+accepted E2 package contains ASCR18, passed the runnable gate, completed 200 ns,
+and produced validated chctrl-compatible inputs plus canonical single-rep and
+matched-analysis outputs. The shared ligand-path driver additionally localized
+time-resolved ASCR18 movement and direct receptor contacts without assigning a
+stable/unstable cutoff or a best mutation.
 
 Generated package-local files:
 
@@ -81,7 +110,10 @@ Ligand facts checked from `experiments/md-simulation/parameters/ascr18/deprotona
 | Expected heavy atom count | `23` |
 | Expected total charge | `-1.000` |
 
-The package-local SDF contains only the selected first docking pose (`MODEL=1`, `VINA RESULT=-5.698`), not the full 20-pose IFP conversion. It is the ligand-coordinate provenance source; the completed receptor-frame 54-atom coordinate is now recorded under `gromacs/ascr18_receptor_frame/` and was consumed by the E2 assembly.
+The package-local SDF records the selected first docking pose (`MODEL=1`,
+`VINA RESULT=-5.698`) and is the ligand-coordinate provenance source. The
+accepted receptor-frame 54-atom coordinate is recorded under
+`gromacs/ascr18_receptor_frame/` and was consumed by the E2 assembly.
 
 ## Source Pointers
 
@@ -106,7 +138,15 @@ The package-local SDF contains only the selected first docking pose (`MODEL=1`, 
 | CHARMM-GUI return manifest | `experiments/md-simulation/systems/gpr2-R59C-ascr18/gromacs/charmm_gui_return_manifest.tsv` |
 | Current input-gate route | `codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md` |
 | E2 run root | `/ifs1/User/dengwei/igem/md-simulation/gpr2_r59c_ascr18_rep1_20260716` |
+| Runtime state authority | `/ifs1/User/dengwei/igem/md-simulation/gpr2_r59c_ascr18_rep1_20260716/logs/production/run_state_events.tsv` |
 | Rep1 analysis config | `experiments/md-simulation/results/gpr2-r59c-ascr18/chimeric_systems.gpr2_r59c_ascr18_rep1.json` |
+| Result-package recovery contract | `experiments/md-simulation/results/gpr2-r59c-ascr18/README.md` |
+| Result payload manifest | `experiments/md-simulation/results/gpr2-r59c-ascr18/payload_manifest.tsv` |
+| Final archive manifest | `experiments/md-simulation/archive-router/gpr2-r59c-ascr18_200ns-rep1_20260716_archive.sha256` |
+| R59C seven-driver report | `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_r59c_ascr18_rep1_chctrl_metric_analysis_20260719.md` |
+| WT/R59C matched report | `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_matched_comparison_20260719.md` |
+| Ligand-path / dynamic-pocket report | `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_ligand_path_pocket_triage_20260719.md` |
+| Shared ligand-path driver | `experiments/md-simulation/analysis/chctrl/compare_ligand_paths.py` |
 
 ## Still Missing
 
@@ -122,18 +162,19 @@ The package-local SDF contains only the selected first docking pose (`MODEL=1`, 
 - [x] `topol_phase3.top` molecule counts checked on E2
 - [x] package-local `index.fixed.ndx` regenerated from final coordinates on E2
 - [x] system-specific production `grompp` gate accepted exactly 11 identified duplicate type-9 ASCR18 dihedral warnings
-- [ ] 200 ns rep1 terminal state, final trajectory/energy sanity, and production archive checksum
-- [ ] chctrl-compatible `processed/rep1/` and seven-driver analysis
-- [ ] WT/R59C single-rep matched comparison
+- [x] 200 ns rep1 terminal state, final trajectory/energy sanity, and production archive checksum
+- [x] chctrl-compatible `processed/rep1/` and seven-driver analysis
+- [x] WT/R59C single-rep matched comparison
+- [x] WT/R59C ligand-path and dynamic-pocket structural triage
 
 ## Next Action
 
-Do not relaunch or overwrite the active production body. Monitor the E2 run to
-its 200 ns terminal state; use checkpoint resume only after a non-normal stop,
-with a valid TPR/CPT, no active `gmx_mpi`, and the shared-GPU idle gate. After
-normal completion, run the package postprocess script, restore the compact
-processed payload outside the Git worktree, reuse the shared chctrl seven-driver
-family with the rep1 config, and write the WT/R59C matched comparison.
+Rep1 has no remaining recovery or analysis action. The current outputs support
+single-rep exploratory/triage use under the linked reports. The next scientific
+evidence gate is a same-starting-system, replicated ASCR18/ASCR3 comparison;
+`ILE122` is the first cross-evidence validation site, not a declared best
+mutation. Any further replicate or production work requires a new work order,
+live E2 state check, resource gate, and explicit authorization.
 
 ## References / 所引
 
@@ -155,7 +196,16 @@ family with the rep1 config, and write the WT/R59C matched comparison.
 - `experiments/md-simulation/scripts/e2_run_gpr2_r59c_ascr18_production.sh`
 - `experiments/md-simulation/scripts/e2_postprocess_gpr2_r59c_ascr18_rep1.sh`
 - `experiments/md-simulation/results/gpr2-r59c-ascr18/chimeric_systems.gpr2_r59c_ascr18_rep1.json`
+- `experiments/md-simulation/results/gpr2-r59c-ascr18/README.md`
+- `experiments/md-simulation/results/gpr2-r59c-ascr18/payload_manifest.tsv`
+- `experiments/md-simulation/archive-router/gpr2-r59c-ascr18_200ns-rep1_20260716_archive.sha256`
+- `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_r59c_ascr18_rep1_chctrl_metric_analysis_20260719.md`
+- `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_matched_comparison_20260719.md`
+- `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_ligand_path_pocket_triage_20260719.md`
+- `experiments/md-simulation/analysis/chctrl/compare_ligand_paths.py`
 - `docs/logs/2026-07-16.md`
+- `docs/logs/2026-07-17.md`
+- `docs/logs/2026-07-19.md`
 
 ## Referenced by / 被引
 
@@ -164,3 +214,5 @@ family with the rep1 config, and write the WT/R59C matched comparison.
 - `docs/modeling/P0-md-simulation.md`
 - `docs/logs/2026-07-06.md`
 - `docs/logs/2026-07-15.md`
+- `docs/logs/2026-07-19.md`
+- `experiments/md-simulation/results/gpr2-r59c-ascr18/README.md`

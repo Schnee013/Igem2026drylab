@@ -1,6 +1,6 @@
 # Gpr2 WT + ASCR18 rep1 chctrl-metric analysis
 
-> Original analysis cleanrun: 2026-07-09 00:24-00:31 +0800; shared-driver semantic-contract regeneration: 2026-07-12 +0800 from the same local processed rep1 inputs.
+> Original analysis cleanrun: 2026-07-09 00:24-00:31 +0800; shared-driver semantic-contract regeneration: 2026-07-12 +0800; Kabsch row-vector correction regeneration: 2026-07-19 +0800 from the same local processed rep1 inputs.
 > Scope: reuse the existing chctrl rep1 metric-family drivers on `Gpr2_WT + ASCR18` 200 ns rep1. This is a single WT holo replicate, not a 3-replicate statistical conclusion.
 
 ## Completion and sanity
@@ -26,7 +26,7 @@
 |---|---:|---|
 | Gpr2 backbone RMSD after 100 ns | 12.6186 A mean; 13.1302 A at 200 ns | Frame-0-referenced receptor displacement; inspect structures before treating this single rep as a stable baseline. |
 | Gpr2 CA Rg after 100 ns | 27.711 A mean | Compactness trace available in `convergence/rg_summary.csv`. |
-| ASCR18 heavy-atom RMSD after 100 ns | 5.63561 A mean; 11.7193 A max | Descriptive frame-0-referenced displacement; no ligand-specific interpretation threshold is configured. |
+| ASCR18 heavy-atom RMSD after 100 ns | 5.63647 A mean; 11.7228 A max | Descriptive frame-0-referenced displacement; no ligand-specific interpretation threshold is configured. |
 | ASCR18 to all readout COM | 35.4901 A mean; 36.0808 A at 200 ns | Descriptive COM series for the configured readout cluster; no categorical cutoff is configured. |
 | ASCR18 to primary readout COM | 38.9451 A mean | Primary residues: 59,119,122,138. |
 | ASCR18 to secondary readout COM | 34.6327 A mean | Secondary residues: 115,134,143–148,150–151. |
@@ -38,6 +38,12 @@
 ## Bottom line
 
 This rep completed normally and the chctrl metric-family analysis is complete. Relative to the frame-0 reference, the single rep yields the receptor-backbone and ASCR18 heavy-atom displacement values reported above, together with lower late-window BSA fraction and initial-contact retention values. Because no GPR-specific cutoff is configured, these numbers are structural-inspection triggers rather than a categorical classification. Do not use this rep alone as a stable or unstable WT holo conclusion, or as a matched-mutant baseline, before structural inspection and matched analysis.
+
+The 2026-07-19 regeneration corrected the matrix orientation used when applying
+the manual Kabsch transform to row-vector coordinates. The ligand RMSD changed
+only slightly; the structural-triage interpretation is unchanged. The dated
+2026-07-09 log retains the original values and points to the current corrected
+analysis through the 2026-07-19 log.
 
 ## References / 所引
 
@@ -56,9 +62,11 @@ This rep completed normally and the chctrl metric-family analysis is complete. R
 - `experiments/md-simulation/analysis/chctrl/analyze_rmsf.py`
 - `experiments/md-simulation/analysis/chctrl/analyze_bsa.py`
 - `experiments/md-simulation/analysis/chctrl/analyze_contacts.py`
+- `src/modeling/md-analysis/common.py`
 
 ## Referenced by / 被引
 
 - `docs/logs/2026-07-09.md`.
 - `docs/INDEX.md`.
 - `docs/modeling/P0-md-simulation.md`.
+- `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_ligand_path_pocket_triage_20260719.md`.
