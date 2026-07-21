@@ -13,40 +13,57 @@
 1. [AGENTS.md](../AGENTS.md)
 2. [docs/DOCMAP.md](DOCMAP.md)
 
-然后按任务画像读取最小必要上下文。事实源来自仓库权威文件、代码、结果或日志；Codex native/global memory 与 `codex/docs/memory/` 只提供路由和警示线索。
+然后按任务画像读取最小必要上下文。事实源来自仓库权威文件、代码、结果或日志；Codex native/global memory 只保存用户偏好和仓库入口指针。
 
 | 任务画像 | 默认读取 | 继续读取条件 |
 |---|---|---|
-| 进度汇报 / PPT / 对外说明 | [docs/INDEX.md](INDEX.md)，再按主题读取 `docs/modeling/`、`docs/decisions/`、`docs/logs/` 或结果文件 | 只有需要跨会话警示或 handoff 时才读 `codex/docs/memory/README.md` 和相关 memory |
+| 进度汇报 / PPT / 对外说明 | [docs/INDEX.md](INDEX.md)，再按主题读取 `docs/modeling/`、`docs/decisions/`、`docs/logs/` 或结果文件 | 需要交接时读取对应 repo-owned plan 和相关日志 |
 | 审查 / truth / censor / 路由治理 | 本文件、被审查文件、必要的权威指针 | 需要当前状态时读 INDEX；需要历史经过时读对应日志 |
 | payload / manifest / Git tracking / commit 分类 | 本文件、`.gitignore`、[ops/payload-tracking-policy.md](ops/payload-tracking-policy.md)、被分类的 changed files | 只有需要当前项目状态时读 INDEX；只有需要具体经过时读对应日志；普通 MD/文献/状态任务沿各自任务画像加载上下文 |
-| 机械编辑 / 指定文件修复 | 本文件和指定文件 | 只有编辑影响路由、状态或权威边界时读 INDEX 或 memory README |
+| 机械编辑 / 指定文件修复 | 本文件和指定文件 | 只有编辑影响路由、状态或权威边界时读 INDEX |
 | MD / 远程计算 / 运行状态 | INDEX 当前优先入口；任何 MD / GROMACS 任务必须读取 [ops/md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)，再按需读 `environments/`、`codex/docs/plans/`、对应结果和日志 | 新服务器或远程计算任务同时读取 [ops/nkuliulab-e2-cloud-server.md](ops/nkuliulab-e2-cloud-server.md)；服务器、job、checkpoint 或运行完成状态由当前结果、日志或 ops 文档确认 |
 | 文献 / 论文证据 | [papers/literature-matrix.md](papers/literature-matrix.md)，再读指定 summary 或数据源 | 先用矩阵缩小范围，再读取指定 summary、数据源或必要 PDF |
-| memory / handoff / 踩坑复盘 | [codex/docs/memory/README.md](../codex/docs/memory/README.md)，再读相关 memory 文件 | memory 只给路由、警示和交接；事实仍回权威源验证 |
+| handoff / 踩坑复盘 | [docs/INDEX.md](INDEX.md)、[codex/docs/plans/README.md](../codex/docs/plans/README.md) 和相关日志 | INDEX 给当前状态，plans 给执行顺序，日志给发生经过 |
 
 ## 2. 单一权威源
 
-每条事实、规则、范围边界、验证命令、项目状态或结果解释只能有一个权威位置。其他文件只放指针，不并行复述。
+治理单位是会影响行动的具体主张。每条事实、规则、范围边界、验证命令、项目状态或结果解释只能有一个规范写入权威和一条冲突裁决规则。其他位置只能是路由指针、可追溯派生视图或有明确时间边界的历史快照，不得成为可独立修改的第二权威。
 
 | 信息类型 | 权威位置 | 非权威位置的做法 |
 |---|---|---|
-| 项目现状、阻塞项、活跃入口 | [docs/INDEX.md](INDEX.md) | 只链接 INDEX |
+| 项目级当前状态投影、优先级、阻塞项、活跃入口 | [docs/INDEX.md](INDEX.md) | 详细领域状态回领域权威源 |
+| gate / run 的原始状态与终态 | validator 输出或 run-local machine-readable artifact | `PACKAGE_STATUS.md` 和 INDEX 只作带来源、时间和用途边界的派生视图 |
+| package 详细状态 | 对应 system-local `PACKAGE_STATUS.md` 派生视图 | 必须指向原始 gate / run artifact，不独立改写原始结论 |
 | 具体经过、当天判断、踩坑 | [docs/logs/YYYY-MM-DD.md](logs/) | 只给日志日期指针 |
 | 领域方法、边界、解释 | `docs/modeling/`, `docs/prd/`, `docs/ops/`, `docs/papers/` | 只链接对应小节 |
 | 原始数据、数值结果、图表 | `experiments/` 结果文件、代码输出 | 不复制数值表 |
-| 可复用执行计划 | `codex/docs/plans/` | 不复制计划正文 |
-| 跨会话索引、警示、handoff | `codex/docs/memory/` | 只写摘要和指针 |
+| 可复用执行计划、handoff | `codex/docs/plans/` | 不复制计划正文或项目当前状态 |
 | 代码行为 | `src/`, `scripts/`, tests | 文档描述必须指向代码或测试 |
 
 如果同一信息已经在权威位置存在，新文档只能链接它。需要改变事实时，先改权威位置，再更新路由指针。
+
+可追溯派生视图必须给出：
+
+- `source`：规范写入权威或直接证据；
+- `as_of`：本视图核验到的时间；
+- `allowed_use`：本视图可以支持的决策；
+- `update_trigger`：什么上游变化会使本视图需要更新。
+
+派生视图只支持 `allowed_use` 范围内的决策。上游已变化、`as_of` 早于最新证据、来源身份不清或同步证据失效时，派生视图降级为 `stale` 或 `unresolved`，不得继续冒充当前事实。历史快照以日期和当时来源为边界，不参与当前冲突裁决。
+
+### 运行状态与新鲜度
+
+- 每个 run 使用一个 append-only `run_state_events.tsv` 作为 heartbeat 与 terminal-state 的机器可读写入权威；每行至少包含 `observed_at`、`state`、`source`、`detail`。兼容性 `terminal_status.tsv` 只能是由该事件流生成的当前快照。
+- 状态使用 `RUNNING_VERIFIED`、`TERMINAL_NORMAL`、`TERMINAL_ABNORMAL`、`WAITING_AUTHORIZATION`、`UNRESOLVED`。`RUNNING_VERIFIED` 必须来自当前进程和运行产物核验，不能由“曾启动”推断。
+- `RUNNING_VERIFIED` 的当前视图有效期为 6 小时；超过 6 小时没有新事件时，派生视图自动降级为 `UNRESOLVED`。
+- 启动、停止、续跑、覆盖、finalize 或 postprocess 等会改变行动的操作，必须使用 15 分钟内的 live verification 和相应 gate。较早 heartbeat 只能说明历史观察。
+- `TERMINAL_NORMAL` / `TERMINAL_ABNORMAL` 在事件及其引用输出的 checksum 身份未变化时保持有效；身份变化或终态证据不完整时降级为 `UNRESOLVED`。
 
 ## 3. 目录路由
 
 ```
 drylab/
 ├── AGENTS.md              # Agent 启动 shim；只放加载规则和指针
-├── CLAUDE.md              # Claude Code 兼容 shim
 ├── docs/
 │   ├── DOCMAP.md          # 本文件；治理规则和目录路由
 │   ├── INDEX.md           # 当前项目路由表；现状、阻塞项、活跃入口
@@ -60,8 +77,7 @@ drylab/
 │   ├── learning/          # 学习路线和工具准备
 │   └── archive/           # 旧 PRD、通用指南等不再活跃的历史材料
 ├── codex/
-│   ├── docs/plans/        # repo-owned execution plans
-│   └── docs/memory/       # repo-scoped project memory；索引/警示/交接层
+│   └── docs/plans/        # repo-owned execution plans 与 handoff
 ├── src/                   # 源代码
 ├── tests/                 # 自动化测试
 ├── experiments/           # 结果、输入、分析产物和运行证据
@@ -81,22 +97,21 @@ drylab/
 
 - 最近进展只保留少量高价值条目；完整历史回日志。
 - 已完成的待办在下一次维护时移除或转到日志。
-- 每次发生 durable 状态变更时，同步审视 INDEX。
+- 非平凡任务在完成声明前必须对照 INDEX 审视已验证结果；若改变项目级状态、优先级、阻塞项或活跃入口，须在同一任务中更新 INDEX。最终交接须说明 INDEX 已更新，或说明为何没有项目级字段变化。
 
-### codex/docs/memory/
+### codex/docs/plans/
 
-repo-scoped project memory 是时间戳索引、警示和 handoff 层，不是事实权威。
+repo-owned plans 承载可复用执行顺序、已记录决策的工作计划和跨 session handoff。
 
-- `current-state.md` 只写 `last_reviewed`、`latest_snapshot`、`state_timeline`、`source_pointers`。
-- `latest_snapshot` 只保留 5-8 条现状摘要，每条必须带日志或领域文档指针。
-- 旧时间线条目标为 historical；当前状态回 `latest_snapshot` 和对应 source pointers。
-- 普通任务只写日志；只有 durable 状态变更才更新 memory。
+- plans 是执行指导，不是项目状态或科学事实权威。
+- 启动或续接计划前，必须用 INDEX、领域文档、日志、代码和结果文件校准其前提。
+- 当前状态回 INDEX；发生经过回日志；数值和结果回原始输出。
 
-Codex native/global memory 和 Claude 私有 memory 只能保存用户偏好、入口规则或指向本仓库的路由，不复制 drylab 科学结论。
+Codex native/global memory 只能保存用户偏好、入口规则或指向本仓库的路由，不复制 drylab 科学结论。
 
 ### docs/logs/
 
-日志记录“做了什么、为什么、依据是什么、踩了什么坑、下一步不要重复什么”。日志是过程权威，不承担跨天当前状态；跨天状态回 INDEX，状态摘要指针回 memory。
+日志记录“做了什么、为什么、依据是什么、踩了什么坑、下一步不要重复什么”。日志是过程权威，不承担跨天当前状态；跨天状态回 INDEX。
 
 人工维护的日志正文默认使用中文书写，措辞必须专业、严谨、可审计。命令、路径、代码符号、错误信息、工具输出、英文论文标题等字面证据保留原文，并用中文说明其上下文和含义。历史日志如需语言归一化，只做表达层翻译，不改变事实、时间、数值、路径或证据指针。
 
@@ -125,8 +140,12 @@ Payload / manifest / Git tracking 规则见 [ops/payload-tracking-policy.md](ops
 ## 5. 代码、结果与文档联动
 
 - 代码路径、配置路径和实验产出路径必须由领域文档指明。
-- 代码或结果改变后，先写日志；若改变跨 session 的状态，再更新 INDEX 和必要的 memory 指针。
+- 代码或结果改变后，先写日志；若改变项目级当前状态、优先级、阻塞项或活跃入口，在完成声明前同步更新 INDEX；最终交接须报告该检查结果。
 - 结果文件是数值权威；文档只解释使用边界和指针。
+- 使用历史 JSON/CSV 作为基线前，核对输入身份、生产代码与配置版本，并确认产物是否早于已知修复。
+- `done`、`fixed`、`verified`、`passed`、外部提交或部署等状态声明必须有直接文件、日志或工具证据；开放问题需先检索近期权威材料。
+- 引用项目路径、代码符号、命令、章节、指标或列名之前必须核验；全称或最高级判断需要枚举完整相关集合，数学与统计推导需要重新计算。
+- 修改函数签名或影响行为的参数时必须检索并逐一审视所有 caller；runner 日志使用带时间戳的 run ID；脚本注释和 docstring 只描述依赖与调用，完整流程进入 plans、docs 或 logs。
 - 脚本不得硬编码 `experiments/` 下的可配置路径；优先从配置文件或项目根解析。
 
 ## 6. 远程与部署边界
@@ -148,7 +167,7 @@ Payload / manifest / Git tracking 规则见 [ops/payload-tracking-policy.md](ops
 
 - 改事实先改权威文件，再改路由。
 - 方法路线变化时保留历史边界和原因，但不要保留会被误读成当前行动的旧待办。
-- 不把日志中的具体经过复制到 PRD、DOCMAP 或 memory。
+- 不把日志中的具体经过复制到 PRD、DOCMAP 或 INDEX。
 
 ### 归档
 

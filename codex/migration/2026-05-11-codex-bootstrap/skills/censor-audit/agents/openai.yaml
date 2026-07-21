@@ -1,4 +1,0 @@
-version: 1
-display_name: censor audit
-short_description: Migrated Claude command workflow for censor-audit.
-default_prompt: Use the censor-audit workflow.

@@ -166,13 +166,6 @@ docs/presentation/*
 # 合作伙伴 / 赞助 / 外联材料含隐私信息，默认不入库
 docs/partners/
 
-# =====================================================================
-# Claude Code 私有配置
-# =====================================================================
-.claude/
-.claude.json
-.claude.json.backup
-
 # Codex repo-local private config. Keep `.codex/hooks*` tracked separately.
 .codex/config.toml
 

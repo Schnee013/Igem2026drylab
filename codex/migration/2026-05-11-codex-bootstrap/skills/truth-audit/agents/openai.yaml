@@ -1,4 +1,0 @@
-version: 1
-display_name: truth audit
-short_description: Migrated Claude command workflow for truth-audit.
-default_prompt: Use the truth-audit workflow.
