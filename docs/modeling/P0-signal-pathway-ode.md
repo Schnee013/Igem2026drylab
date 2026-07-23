@@ -21,6 +21,8 @@ last_updated: 2026-07-15
 > **2026-05-25 reporter 架构更新**：按用户确认和实验方案附件，输出层拓扑更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`。这确认的是架构，不固定具体色素、整合位点、实际 copy number、gain、Kc/Hill/Emax 或显色时间；这些仍是 `wet-lab required` 或 ODE 扫参变量。
 >
 > **2026-07-15 Phase 0 最小 solver**：已实现单一归一化 `scenario_prior` 的可运行链路骨架：`R_active -> G_on -> M -> TF -> GAL product rate -> C`。它只验证通路接口、time-course 和 CSV 导出；不接受 docking `ΔG` 作为动力学输入，不输出检测限、真实浓度、最优 copy number 或校准结论。
+>
+> **2026-07-16 Phase 1 情景扫描**：已用可读 suite config 对剂量 × 半响应、偶联 × 输出泄漏、以及 1/2/4 copy × gain × 观察时间执行 143 个含匹配无 ligand 对照的归一化情景，并导出完整 CSV、摘要指标和图。结果继续全部标为 `scenario_prior`；它们只支持条件性设计比较，不构成项目检测限、真实浓度或最终构建结论。
 
 ## 解决什么问题
 
@@ -42,11 +44,12 @@ last_updated: 2026-07-15
 - Phase 0 最小 solver 已实现：`src/modeling/ode/minimal_solver.py` 以 SciPy 求解归一化 `G_on`、lumped MAPK `M` 与色素 `C`，并显式导出受体、sTF 与 GAL 接口；`run_minimal_solver.py` 可生成单一情景 CSV。
 - 单一归一化场景 config 已建立：`experiments/ode-model/configs/minimal_normalized_scenario.json`。所有数值均标注为 `scenario_prior` 或 `wet-lab required`，不是项目校准参数。
 - Phase 0 `lumped` 方程、18 个内部可配置参数、外部控制量和湿实验替换条件已登记在 [参数状态/缺口表](P0-ode-lumped-parameter-register.md)；该表把当前示意数值来源与未来证据来源分开记录。
+- Phase 1 情景结果包已生成：`stage1_scenario_scan.json` 可读地定义 3 个扫描族；`run_scenario_scans.py` 输出 scenario manifest、完整 time-course、compact metrics 和 config snapshot；`plot_scenario_scan.py` 生成带证据边界的三面板摘要图。
 
 ### 当前缺口
 
-- 当前只实现了 Phase 0 的单输入归一化 time-course；尚未展开 Ste20/Ste11/Ste7/Fus3 的逐反应动力学，也没有接入真实 ascr 浓度、受体-配体场景或 wet-lab 数据。
-- 尚未完成剂量响应、1/2/4 copy、leak/动态范围和灵敏度扫描，也未提交任何可解释为项目结果的模拟 CSV 或图。
+- 当前仍是 lumped、归一化模型；尚未展开 Ste20/Ste11/Ste7/Fus3 的逐反应动力学，也没有接入真实 ascr 浓度或 wet-lab 数据。
+- 已完成受控的 Phase 1 剂量、1/2/4 copy、leak 与时间情景扫描，但尚未执行正式的敏感性/可识别性分析；当前 CSV 和图只能解释为 `scenario_prior` 结果包。
 - 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
 - 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
 
@@ -250,10 +253,10 @@ ODE 当前应这样消费 docking 输出：
 
 ## 代码与实验关联
 
-- **代码路径**: `src/modeling/ode/minimal_solver.py`（Phase 0 lumped solver）与 `src/modeling/ode/run_minimal_solver.py`（单情景 CSV runner）
-- **场景配置**: `experiments/ode-model/configs/minimal_normalized_scenario.json`（仅 `scenario_prior`）
+- **代码路径**: `src/modeling/ode/minimal_solver.py`（lumped solver）、`src/modeling/ode/run_minimal_solver.py`（单情景 runner）、`src/modeling/ode/run_scenario_scans.py`（Phase 1 batch runner）与 `src/modeling/ode/plot_scenario_scan.py`（扫描摘要图）。
+- **场景配置**: `experiments/ode-model/configs/minimal_normalized_scenario.json`（单一 smoke scenario）与 `experiments/ode-model/configs/stage1_scenario_scan.json`（3 个 `scenario_prior` 扫描族）。
 - **参数登记**: [P0-ode-lumped-parameter-register.md](P0-ode-lumped-parameter-register.md)（方程逐项解释、18 个内部参数、数值/证据状态与替换条件）
-- **产出路径**: `experiments/ode-model/`；未校准前，输出只能标记为情景模拟。
+- **产出路径**: `experiments/ode-model/results/stage1_scenario_scan/`（完整 time-course、manifest、metrics、config snapshot 和图）；未校准前，输出只能标记为情景模拟。
 - **湿实验对接**:
   - 本方向产出 → 通路工程组: 推荐 GAL4 promoter 强度、放大回路参数
   - 湿实验反馈 → 本方向: 实际剂量-响应数据，校准模型参数
@@ -277,12 +280,14 @@ ODE 当前应这样消费 docking 输出：
 | 2026-07-09 | **v2.5** | 正向校准 docking 输出消费口径：候选标签、Channel A/B、相对排序和 IFP 线索用于场景集合；Kd/EC50 需要独立 binding/calibration 证据 | 本次 docking authority 口径修订 |
 | 2026-07-15 | **v2.6** | 落地 Phase 0 单输入归一化 solver、显式 `scenario_prior` config、CSV runner 与 smoke tests；状态变量为 `G_on`、lumped `M`、`C` | 按 ODE 第一周计划进入最小 solver 实现；不推进剂量/copy/leak 扫描或项目校准 |
 | 2026-07-15 | **v2.7** | 新增 Phase 0 `lumped` 方程与参数状态/缺口登记表；逐项列出 18 个内部参数、3 个外部控制量、初始条件、来源状态和湿实验替换条件 | 完成 ODE 第一周“读懂方程骨架、建立参数表”的可审计交付物；未改变任何项目数值或校准状态 |
+| 2026-07-16 | **v2.8** | 落地 Phase 1 可读 scan suite、batch runner、143 个带匹配无 ligand 对照的情景、CSV/metrics/figure 输出与测试 | 完成剂量、copy、leak、时间及有效偶联的条件性情景比较；所有数值继续保持 `scenario_prior` |
 
 ## 进展记录
 
 - 2026-05-24：Stage 3 exact extraction 已补入证据矩阵；P0 ODE 文档只同步证据状态、手动队列和湿实验需求，不输出 solver、rate table 或最终参数表。
 - 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
 - 2026-07-15：Phase 0 最小 solver 通过单一归一化情景 smoke test。代码和 config 仅证明链路接口与导出可运行；数值仍是 `scenario_prior`/`wet-lab required`，后续需在阶段 1 执行受控扫描。
+- 2026-07-16：Phase 1 扫描通过可读 config 展开为剂量 × 半响应、偶联 × 输出泄漏、copy × gain × 观察时间三族，并为非零输入生成匹配无 ligand 对照。结果包已输出，但尚未升级为灵敏度、可识别性或项目校准结论。
 
 ## 与其他方向的依赖关系
 

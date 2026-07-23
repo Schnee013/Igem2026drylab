@@ -5,7 +5,7 @@
 ## 项目概述
 
 - **一句话**: 构建基于 GPCR 生物传感器的植物寄生线虫田间早期检测系统的干实验（计算建模）模块
-- **当前阶段**: 底盘已锁定酵母-STE2；docking-repro 已完成 refreshed shortlist；旧 Slurm 上 chimeric Gpa1 control/chctrl 组 3 reps MD 已完成，E2 路线已有 chctrl rep1 early-gate 证据和 R1 reduced-chctrl exploratory step6/100 ps short-production 证据；R1 Z-only 因 atom-count 降幅过小降级为证据点，候选体系 production 仍暂停；mutant GPR 前测中 `Gpr2_WT + ASCR18` 100 ps 资源基线和 200 ns rep1 均已完成，E2 payload 由 `experiments/md-simulation/archive-router/` 提供 Git-visible checksum/recovery route，repo 只保留合同与 canonical analysis outputs；`Gpr2_R59C + ASCR18` 与 `Gpr3_R167Y + ASCR3` 的 upload PDB 与 `settings.tsv` 已存在，但历史到当前 PPM/input checksum 迁移未解决，两个手工提交包均处于 provenance HOLD；ODE Phase 0 最小 solver、`scenario_prior` config、CSV runner 和 smoke test 已落地，但尚未产生校准模型或项目结论。
+- **当前阶段**: 底盘已锁定酵母-STE2；docking-repro 已完成 refreshed shortlist；旧 Slurm 上 chimeric Gpa1 control/chctrl 组 3 reps MD 已完成，E2 路线已有 chctrl rep1 early-gate 证据和 R1 reduced-chctrl exploratory step6/100 ps short-production 证据；R1 Z-only 因 atom-count 降幅过小降级为证据点，候选体系 production 仍暂停；mutant GPR 前测中 `Gpr2_WT + ASCR18` 100 ps 资源基线和 200 ns rep1 均已完成，E2 payload 由 `experiments/md-simulation/archive-router/` 提供 Git-visible checksum/recovery route，repo 只保留合同与 canonical analysis outputs；`Gpr2_R59C + ASCR18` 与 `Gpr3_R167Y + ASCR3` 的 upload PDB 与 `settings.tsv` 已存在，但历史到当前 PPM/input checksum 迁移未解决，两个手工提交包均处于 provenance HOLD；ODE 已完成 Phase 1 的归一化情景扫描结果包，但尚未产生校准模型或项目结论。
 - **主要卡点**: E2 是当前主要可用算力且属于共享服务器，后续 MD 必须降低 A100 占用。R1 reduced `chctrl` 已能完成 step6 和 100 ps short production，但 `120 A` XY / `20 A` water 的 Z-only 缩减只有 `-2.57%` atom-count delta，不足以解决算力问题；candidate-transfer 仍需新的 source-backed 规则。mutant GPR 必须先解决或用版本化重跑取代历史到当前 checksum 迁移，再进入 CHARMM-GUI output 回收、receptor-frame ligand insertion/alignment、final topology/index/warning review；`Gpr2_WT + ASCR18` rep1 出现高 receptor RMSD 与较大的 ASCR18 heavy-atom displacement，但尚无 ligand-specific RMSD cutoff，启动 matched mutant 解释前需先做结构检查。docking-derived MD 候选体系清单、reporter 实现参数和 HP 本地参数仍待对应 gate / calibration / HP 确认。
 - **目标**: iGEM Wiki freeze 约 2026-09 底
 - **详细背景**: [项目全貌 v4](prd/overview-v4.md)
@@ -18,7 +18,7 @@
 |--------|------|---------|----------|------|
 | **P0** | 受体-配体分子对接 | 否 | **refreshed_shortlist**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、266 条 merged ratio、Top 候选 IFP 与 MD 前候选体系清单均已刷新 | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **compute_triage**：旧 Slurm control/chctrl 3 reps 为历史完成证据，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1 Z-only 已降级为省算力不足；候选体系 full MD 暂停；mutant GPR 有 WT short benchmark 和 WT 200 ns rep1 chctrl-metric 单 rep 分析证据；两个 mutant system 的 upload 材料因历史到当前 checksum 迁移未解决而处于 provenance HOLD，之后仍待 CHARMM-GUI output、final coordinates、topology、index 和 warning review | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase0_minimum_solver**：单输入归一化 solver、显式 `scenario_prior` config 与 smoke test 已落地；尚未进入剂量/copy/leak 扫描、项目结果图或 wet-lab calibration | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase1_scenario_scan**：可读 suite config 已完成剂量 × 半响应、偶联 × 输出泄漏、1/2/4 copy × gain × 时间的 143 个情景及匹配无 ligand 对照，并输出 CSV/metrics/图；均为 `scenario_prior`，尚未 wet-lab calibration 或正式敏感性分析 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
@@ -46,7 +46,7 @@
 1. **MD 算力收缩与 mutant GPR 前测** — 决策见 [决策 005](decisions/005-md-compute-triage-after-chctrl.md)；WT 资源基线见 [2026-07-05 日志](logs/2026-07-05.md) 和 `experiments/md-simulation/results/gpr2-wt-ascr18/e2_short_benchmark/20260705_gpr2_wt_ascr18_short/README.md`；WT 200 ns rep1 completion 与 chctrl-metric 分析见 [2026-07-09 日志](logs/2026-07-09.md) 和 `experiments/md-simulation/results/gpr2-wt-ascr18/analysis/gpr2_wt_ascr18_rep1_chctrl_metric_analysis_20260709.md`，E2 payload 的 checksum/recovery authority 见 `experiments/md-simulation/archive-router/README.md`。mutant GPR 当前 input gate 只看 `codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md` 与两个 system-local 状态文件：`experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md`、`experiments/md-simulation/systems/gpr3-R167Y-ascr3/PACKAGE_STATUS.md`；两个 system-local upload PDB 与 `settings.tsv` 已保留，但提交前必须先解决或版本化取代 checksum-provenance HOLD。之后复用 [CHARMM-GUI Membrane Builder 操作指南](ops/charmm-gui-membrane-builder.md) 手工提交/回收 output，归档 GROMACS output 后完成 ASCR18/ASCR3 final coordinate、topology、index 和 warning review；方法边界见 [P0-md-simulation.md](modeling/P0-md-simulation.md)。
 2. **chimeric Gpa1 省算力方案调研** — 候选体系 production 仍暂停；R1-Z 对照与路线选择历史见 `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` 和 `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md`。R4 的唯一当前材料边界见 `experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md`；`experiments/chimeric-gpa1/literature/r4_tool_validation_plan_20260706.md` 作为非执行 validation-design evidence。任何 full-production 启动都需要新的当前 work order 和审批。
 3. **docking-repro MD 前候选体系清单** — 当前权威候选见 [MD 前候选体系清单](modeling/P0-docking-md-candidate-shortlist.md)；证据链从 [2026-05-19 日志](logs/2026-05-19.md) 与 [ratio_channel_report.md](../experiments/docking-repro/analysis/ratio_channel_report.md) 读取。直接输出是候选标签、Channel A/B 方向、相对排序、关键结合残基和 IFP 机制线索；后续验证入口在 MD gate。
-4. **ODE 并行推进** — Phase 0 最小 solver 已按 [ODE 第一周计划](../codex/docs/plans/ode-weekly-plan-2026-07-13.md) 落地；继续用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 维护通路结构、参数状态和 reporter 输出接口。候选标签可引用新版 docking 候选清单，Kd/calibration 仍等待文献/湿实验校准；剂量、copy 和 leak 扫描尚未开始。
+4. **ODE 并行推进** — Phase 1 情景结果包已按 [ODE 任务大纲](../codex/docs/plans/ode-v01-task-outline-2026-07-13.md) 落地；下一步是用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 的参数状态表做正式敏感性/DBTL 反馈，并将高影响参数映射到 wet-lab readout。候选标签可引用新版 docking 候选清单，Kd/calibration 仍等待文献/湿实验校准。
 5. **早期检测经济效益模型 HP 参数回收** — 文献/参数入口见 [early-detection economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
 6. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
@@ -99,6 +99,7 @@
 
 ## 最近进展
 
+- **2026-07-16**: ODE Phase 1 可读 scan suite、batch runner、tests 和运行说明已落地；实际运行 143 个含匹配无 ligand 对照的归一化情景，输出完整 time-course、scenario manifest、final metrics 和三面板图。扫描覆盖剂量 × 半响应、偶联 × 输出泄漏、1/2/4 copy × gain × 观察时间；所有结果为 `scenario_prior`，不构成检测限、真实浓度或最优构建结论。详见 [2026-07-16 日志](logs/2026-07-16.md)、[P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 `experiments/ode-model/results/stage1_scenario_scan/README.md`。
 - **2026-07-15**: ODE Phase 0 最小 solver、`scenario_prior` config、CSV runner、smoke test 和 lumped 参数状态/缺口登记表已落地；这些只证明链路接口可运行，不构成校准模型或检测限/最优 copy number 结论。详见 [2026-07-15 日志](logs/2026-07-15.md)、[P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [P0-ode-lumped-parameter-register.md](modeling/P0-ode-lumped-parameter-register.md)。
 - **2026-07-12**: 提交前 payload/分析语义复核完成修复：Gpr2 WT short/processed checksum manifest 移除 self-entry 并补齐 Git-visible recovery contract；历史 preproduction snapshot 保持 `11/14` integrity HOLD，final raw archive 本地为 `45/48`（3 个 runtime byproduct 待恢复）。两个 mutant system 的 PPM/input 与 clean/upload 历史到当前 checksum 迁移均无可证明记录，因此 CHARMM-GUI upload 暂停；Gpr3 的 `ASCR3_pose_completed.gro` 被明确提升为唯一 repo-owned canonical coordinate body。详细证据见 [2026-07-12 日志](logs/2026-07-12.md) 和对应 result/system manifests。
 - **2026-07-09**: `Gpr2_WT + ASCR18` 200 ns rep1 在 E2 正常完成（2026-07-08 17:10:18 +0800），raw/sanity/processed 输入已归档到 `experiments/md-simulation/results/gpr2-wt-ascr18/`，并通过 chctrl 七指标 driver family 完成单 rep 分析。结果摘要见 [2026-07-09 日志](logs/2026-07-09.md) 和 `experiments/md-simulation/results/gpr2-wt-ascr18/analysis/gpr2_wt_ascr18_rep1_chctrl_metric_analysis_20260709.md`；该 rep1 当前作为 caveated WT holo triage evidence 使用，高 receptor RMSD 与 ASCR18 heavy-atom displacement 需要结构检查，且 ligand RMSD 暂无预注册分类阈值。
@@ -146,9 +147,10 @@
 
 ### ③ P0 信号通路 ODE（并行）
 - [x] Phase 0 最小 solver：`src/modeling/ode/` 的单输入归一化 Python 实现 + `scenario_prior` config + 可重复 smoke test；不产生项目结论
-- [ ] 阶段 1 情景结果包：剂量、1/2/4 copy、leak/动态范围扫描，附 CSV/plots 与参数边界
-- [ ] reporter 输出层：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参
-- [ ] 1/2/4 copy 拷贝数敏感性分析
+- [x] 阶段 1 情景结果包：剂量、1/2/4 copy、leak/动态范围与时间扫描，附 CSV/plots、参数边界和匹配无 ligand 对照；仅为 `scenario_prior`
+- [x] reporter 输出层：完成 sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 条件性扫参；未确定真实 gain/leak 或最终 reporter
+- [x] 1/2/4 copy 拷贝数敏感性情景对比；尚未获得实际 copy-effect 校准
+- [ ] 阶段 2：用 Phase 1 输出执行正式敏感性/可识别性分析，并把高影响参数回填到 dose-response、无 ligand、time-course 与 coupling 实验需求
 - [ ] 与 docking 联动：候选标签可引用新版候选清单；Kd/calibration 需等待单独文献审查
 
 ### ④ 其他待启动

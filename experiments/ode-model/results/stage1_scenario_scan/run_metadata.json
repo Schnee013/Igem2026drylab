@@ -1,0 +1,9 @@
+{
+  "suite_id": "phase1_normalized_engineering_scenarios",
+  "evidence_status": "scenario_prior",
+  "model_scope": "Phase-1 normalized engineering scenarios. All values are deliberately uncalibrated and support conditional design comparisons only.",
+  "base_config": "minimal_normalized_scenario.json",
+  "scenario_count": 143,
+  "timecourse_row_count": 23023,
+  "result_boundary": "These are normalized scenario simulations. They are not calibrated receptor affinities, experimental detection limits, or final engineering recommendations."
+}
