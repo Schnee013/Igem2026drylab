@@ -11,7 +11,7 @@
 # Gpr2 Alanine Scan 重跑 — 用 3D box offset [6.17, 0.65, -7.85]
 # 旧 scan 基于胞内污染 box，必须重跑
 # 10 残基 × 2 配体（ascr18/3）= 20 次对接
-# → ~/.claude/plans/charmmgui-membrane-builder-gpr2-icl-vin-whimsical-ripple.md
+# → 设计与执行记录: docs/logs/2026-04-23.md
 
 cd ~/drylab-docking
 
