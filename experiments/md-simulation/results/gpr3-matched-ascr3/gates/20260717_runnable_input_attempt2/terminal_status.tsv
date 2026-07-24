@@ -1,0 +1,16 @@
+gate	status	detail
+docking_receptor_provenance	PASS	experiments/docking-repro/results/ifp_analysis_mutants/receptors/Gpr3_R167Y_tm.pdb sha256=0d071090099179aae47672862e1c01ccb29cf797701da5ca23592d1964439034
+alignment_mapping	PASS	common-backbone; atoms=988; rmsd_A=0.809728; max_A=5.422348
+alignment_sensitivity	PASS	max_ligand_delta_A=0.065634; criterion=OPERATIONAL_CRITERION_PENDING_SOURCE_REVIEW
+shared_transformed_ligand	PASS	atoms=46; sha256=db5b3e1aaffffa2d8006cd413ef025864d759ca46aa0c1f0dc46ed7ffa459a1c
+wt_box_containment	PASS	ligand xyz_A within [90.1975,90.1975,184.305]
+r167y_box_containment	PASS	ligand xyz_A within [90.1753,90.1753,184.305]
+wt_clash_inventory	PASS	protein_min_A=2.648771; reviewed_remove_popc=[407,514]; criterion=OPERATIONAL_CRITERION_PENDING_SOURCE_REVIEW
+r167y_clash_inventory	PASS	protein_min_A=2.659524; reviewed_remove_popc=[408]; criterion=OPERATIONAL_CRITERION_PENDING_SOURCE_REVIEW
+wt_final_input	PASS	139757 atoms; topology/index/checksum contract PASS
+r167y_final_input	PASS	139708 atoms; topology/index/checksum contract PASS
+wt_final_warning	PASS	grompp exit=0; warnings=0; no -maxwarn
+r167y_final_warning	PASS	grompp exit=0; warnings=0; no -maxwarn
+targeted_tests	PASS	9 tests; tests/modeling/test_md_input_assembly.py
+runnable_input_gate	PASS	WT_AND_R167Y_LOCAL_RUNNABLE_INPUT_EVIDENCE_COMPLETE
+next_gate	WAITING_AUTHORIZATION	remote qualification/preproduction/benchmark/production are outside this session

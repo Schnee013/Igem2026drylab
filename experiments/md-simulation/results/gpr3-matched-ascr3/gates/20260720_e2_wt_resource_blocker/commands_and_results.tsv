@@ -1,0 +1,4 @@
+stage	command_id	exit_code	stdout	stderr	result
+e2_resource_preflight	e2_resource_snapshot	0	preflight_stdout.txt	preflight_stderr.txt	BLOCKED_E2_GPU_BUSY
+e2_resource_preflight	e2_process_and_path_snapshot	0	preflight_stdout.txt	preflight_stderr.txt	BLOCKED_E2_GPU_BUSY
+e2_resource_preflight	resource_gate_decision	75	preflight_stdout.txt	preflight_stderr.txt	BLOCKED_E2_GPU_BUSY

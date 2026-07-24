@@ -1,0 +1,49 @@
+{
+  "contract_id": "gpr3-wt-ascr3-local-runnable-input-20260717",
+  "arm": "wt",
+  "ligand_moltype": "ASCR3",
+  "ligand_atom_count": 46,
+  "ligand_atom_names": [
+    "O1", "O2", "O3", "O4", "O5", "O6",
+    "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8",
+    "C9", "C10", "C11", "C12", "C13", "C14", "C15",
+    "H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8",
+    "H9", "H10", "H11", "H12", "H13", "H14", "H15",
+    "H16", "H17", "H18", "H19", "H20", "H21", "H22",
+    "H23", "H24", "H25"
+  ],
+  "base_gro_sha256": "59f2114d96f6c09f8a1b50ddefafa66338e9cb1c80fd19e664c4596840c9d317",
+  "base_topology_sha256": "55e6f92183b5057e7974ce729c604ff48676a7c15728e6d549ab2dcbb7347ffa",
+  "ligand_gro_sha256": "db5b3e1aaffffa2d8006cd413ef025864d759ca46aa0c1f0dc46ed7ffa459a1c",
+  "expected_base_molecule_counts": {
+    "PROA": 1,
+    "POPC": 203,
+    "POT": 97,
+    "CLA": 100,
+    "TIP3": 35423
+  },
+  "expected_remove_popc_resids": [407, 514],
+  "expected_final_molecule_counts": {
+    "PROA": 1,
+    "ASCR3": 1,
+    "POPC": 201,
+    "POT": 97,
+    "CLA": 100,
+    "TIP3": 35423
+  },
+  "expected_final_atom_count": 139759,
+  "required_index_groups": [
+    "PROA", "ASCR3", "SOLU", "MEMB", "SOLV", "SOLU_MEMB",
+    "SYSTEM", "TIP3"
+  ],
+  "expected_index_group_counts": {
+    "PROA": 6313,
+    "ASCR3": 46,
+    "SOLU": 6359,
+    "MEMB": 26934,
+    "SOLV": 106466,
+    "SOLU_MEMB": 33293,
+    "SYSTEM": 139759,
+    "TIP3": 106269
+  }
+}

@@ -1,0 +1,16 @@
+stage	command_or_recorded_source	exit_code	result	evidence
+python_compile	python3 -m py_compile prepare_gpr3_ascr3_matched_inputs.py assemble_complex.py validate_md_run_contract.py	0	PASS	local verification
+targeted_tests	python3 -m unittest tests.modeling.test_md_input_assembly	0	PASS	9 tests
+wt_final_input_validator	python3 experiments/md-simulation/scripts/validate_md_run_contract.py input --contract wt/final_input_contract.json --output-dir wt/validation/final_input_attempt2	0	PASS	wt/validation/final_input_attempt2/terminal_status.tsv
+r167y_final_input_validator	python3 experiments/md-simulation/scripts/validate_md_run_contract.py input --contract r167y/final_input_contract.json --output-dir r167y/validation/final_input_attempt2	0	PASS	r167y/validation/final_input_attempt2/terminal_status.tsv
+wt_final_grompp	exact command recorded by GROMACS in log	0	PASS_ZERO_WARNINGS	wt/grompp/final.log
+r167y_final_grompp	exact command recorded by GROMACS in log	0	PASS_ZERO_WARNINGS	r167y/grompp/final.log
+wt_final_warning_validator	python3 experiments/md-simulation/scripts/validate_md_run_contract.py warning --contract wt/final_warning_contract.json --output-dir wt/validation/final_warning	0	PASS	wt/validation/final_warning/terminal_status.tsv
+r167y_final_warning_validator	python3 experiments/md-simulation/scripts/validate_md_run_contract.py warning --contract r167y/final_warning_contract.json --output-dir r167y/validation/final_warning	0	PASS	r167y/validation/final_warning/terminal_status.tsv
+fresh_contract_recheck	four input/warning validators to a new temporary root	0	PASS	/tmp/gpr3-runnable-input-verify.DNEsjk
+final_manifest_recheck	verify bytes and SHA256 for every WT/R167Y final_manifest.tsv row	0	PASS	wt/final_manifest.tsv;r167y/final_manifest.tsv
+shared_ligand_identity_recheck	compare ordered ASCR3 name/XYZ tuples in shared and both post-genion coordinates	0	PASS	shared/final_ligand_identity.tsv
+payload_policy	python3 scripts/check_payload_tracking_policy.py	0	PASS	no payload tracking policy errors
+verification_wrapper_display	first status-display loop used zsh reserved variable status after all checks completed	1	NON_GATE_HARNESS_ERROR	corrected loop found four PASS terminal_status.tsv files
+git_diff_check	git diff --check	0	PASS	no output
+git_status_short	git status --short	0	PASS	dirty worktree preserved; no staging commit or push

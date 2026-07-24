@@ -1,0 +1,26 @@
+{
+  "contract_id": "gpr3-wt-ascr3-genion-warning-20260717",
+  "arm": "wt",
+  "gate": "warning",
+  "files": {
+    "grompp_log": "grompp/genion_grompp.log",
+    "exit_code": "grompp/genion_grompp.exit_code"
+  },
+  "expected": {
+    "warning_count": 1,
+    "accepted_warnings": [
+      {
+        "fingerprint_sha256": "09abf089b82f2656145088f4265a870be8dff8dad835bff2e069512f051feb66",
+        "count": 1,
+        "review_status": "ACCEPTED_FOR_GENION_ONLY",
+        "review_note": "ASCR3 contributes -1 total charge; accept only to create genion.tpr before adding one POT. Final post-genion grompp must have zero warnings."
+      }
+    ],
+    "expected_exit_code": 0,
+    "forbidden_terms": [],
+    "checksums": {
+      "grompp_log": "95c44b2206e94c853f7d8687a512324c60521daeb3c9b8042ae9129e148b134c",
+      "exit_code": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  }
+}

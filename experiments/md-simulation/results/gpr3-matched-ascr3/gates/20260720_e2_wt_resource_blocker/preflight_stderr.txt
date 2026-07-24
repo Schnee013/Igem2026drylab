@@ -1,0 +1,1 @@
+EMPTY: both read-only inspection commands returned exit code 0 without stderr.

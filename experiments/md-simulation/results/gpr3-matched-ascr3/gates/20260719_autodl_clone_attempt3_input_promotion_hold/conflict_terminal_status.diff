@@ -1,0 +1,12 @@
+--- frozen/input/provenance/terminal_status.tsv
++++ existing/input/provenance/terminal_status.tsv
+@@ -1,2 +1,8 @@
+ gate	status	detail
+-input	PASS	gpr3-r167y-ascr3-final-input-validator-20260717
++docking_receptor_provenance	PASS	Gpr3_R167Y_tm.pdb sha256=0d071090099179aae47672862e1c01ccb29cf797701da5ca23592d1964439034
++shared_transformed_ligand	PASS	46 atoms; shared SHA256=db5b3e1aaffffa2d8006cd413ef025864d759ca46aa0c1f0dc46ed7ffa459a1c
++box_containment	PASS	ligand xyz_A=[33.960..41.670,50.410..57.400,87.110..97.490]; box_A=[90.1753,90.1753,184.305]
++clash_and_popc_review	PASS	protein min=2.659524 A ratio=0.866294; reviewed POPC removal=408
++final_input_contract	PASS	139708 atoms; topology and final index validated
++final_grompp_warning	PASS	exit=0; warning_count=0; no -maxwarn
++runnable_input_gate	PASS	LOCAL_ONLY_REMOTE_AUTHORIZATION_REQUIRED

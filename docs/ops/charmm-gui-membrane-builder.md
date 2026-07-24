@@ -29,7 +29,7 @@
 - **存档路径**：`experiments/md-simulation/systems/{体系名}/gromacs/`
 - **必须包含**：`topol.top` + `step5_input.gro` + `index.ndx` + `step6*.mdp` + `toppar/`
 - **实测体系**：`systems/Gpr2_WT/gromacs/` + `systems/Gpr3_WT/gromacs/`（已完成）
-- **后续衔接**：→ `~/.claude/plans/mutants-md-execution.md` §Phase 配体插入 + SLURM 部署
+- **后续衔接**：当前 mutant GPR input gate 与配体插入路线见 `codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md`
 
 ### STEP 1 — PDB Reader
 
@@ -104,10 +104,10 @@
 
 ### 输出文件与存档
 
-- **存档路径**：`experiments/md-simulation/systems/chimeric-{体系名}/gromacs/`（目录映射 → `~/.claude/plans/chimeric-md-execution.md` §Phase C2）
+- **存档路径**：`experiments/md-simulation/systems/chimeric-{体系名}/gromacs/`
 - **必须包含**：`topol.top` + `step5_input.gro` + `index.ndx` + `step6*.mdp` + `toppar/`
-- **关键验证**：`index.ndx` 中须有 `SOLU_MEMB` 合并组；若缺失需 `gmx make_ndx` 手动合并（→ `~/.claude/plans/chimeric-md-execution.md` §5 备注）
-- **后续衔接**：→ `deploy_chimeric.sh` → `run_chimeric_phase3.sh`（详见 `~/.claude/plans/chimeric-md-execution.md` §Phase C3）
+- **关键验证**：`index.ndx` 中须有 `SOLU_MEMB` 合并组；若缺失需 `gmx make_ndx` 手动合并
+- **后续衔接**：历史 E2 C3 脚本与 gate 见 `codex/docs/plans/e2-chimeric-md-restart.md`；当前启动状态从 `docs/INDEX.md` 判断
 
 ### 链顺序与 PROA/PROB 对应
 

@@ -1,0 +1,2 @@
+stage	status	timestamp	reason
+input_promotion	HOLD	2026-07-19T22:21:28+08:00	same_path_sha256_conflict:input/provenance/terminal_status.tsv

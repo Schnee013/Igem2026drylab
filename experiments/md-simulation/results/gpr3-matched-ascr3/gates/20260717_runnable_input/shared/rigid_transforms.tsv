@@ -1,0 +1,22 @@
+transform	metric	value
+dock_to_matched_wt	atom_count	988
+dock_to_matched_wt	rmsd_A	0.809727948
+dock_to_matched_wt	max_delta_A	5.422348260
+dock_to_matched_wt	rotation_row_1	-0.705886732977 -0.694607433493 0.138724307688
+dock_to_matched_wt	rotation_row_2	-0.681006708401 0.719385944912 0.136798119048
+dock_to_matched_wt	rotation_row_3	-0.194817307547 0.002091793178 -0.980837316318
+dock_to_matched_wt	translation_A	-4.991627251340 -2.932878893047 -16.011731383622
+matched_wt_to_shared_wt_base	atom_count	1575
+matched_wt_to_shared_wt_base	rmsd_A	0.064455620
+matched_wt_to_shared_wt_base	max_delta_A	0.965147857
+matched_wt_to_shared_wt_base	rotation_row_1	0.999999999724 0.000011809366 -0.000020329248
+matched_wt_to_shared_wt_base	rotation_row_2	-0.000011810607 0.999999998069 -0.000061005683
+matched_wt_to_shared_wt_base	rotation_row_3	0.000020328527 0.000061005923 0.999999997933
+matched_wt_to_shared_wt_base	translation_A	46.099392482399 46.373071969972 92.149300562131
+matched_wt_to_r167y_base_audit_only	atom_count	1571
+matched_wt_to_r167y_base_audit_only	rmsd_A	0.068772071
+matched_wt_to_r167y_base_audit_only	max_delta_A	0.837181932
+matched_wt_to_r167y_base_audit_only	rotation_row_1	0.999999997045 -0.000075926878 0.000012024692
+matched_wt_to_r167y_base_audit_only	rotation_row_2	0.000075926983 0.999999997079 -0.000008754419
+matched_wt_to_r167y_base_audit_only	rotation_row_3	-0.000012024028 0.000008755332 0.999999999889
+matched_wt_to_r167y_base_audit_only	translation_A	46.090888055393 46.364656127125 92.148404646649
