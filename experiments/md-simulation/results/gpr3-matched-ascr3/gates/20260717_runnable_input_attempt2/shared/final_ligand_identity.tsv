@@ -1,0 +1,4 @@
+source	atom_count	ordered_name_xyz_sha256	max_abs_coordinate_delta_vs_shared_A	byte_equivalent_ordered_coordinates	status
+ASCR3_shared_base_frame.gro	46	f4d25dfbba017603575b59519b91c896aea277ce27b60064c36ed4e4699ece9c	0.000000	TRUE	PASS
+wt/input/gromacs/step5_complex_ion.gro:ASCR3	46	f4d25dfbba017603575b59519b91c896aea277ce27b60064c36ed4e4699ece9c	0.000000	TRUE	PASS
+r167y/input/gromacs/step5_complex_ion.gro:ASCR3	46	f4d25dfbba017603575b59519b91c896aea277ce27b60064c36ed4e4699ece9c	0.000000	TRUE	PASS

@@ -1,0 +1,5 @@
+check	actual	expected	status
+coordinate_atom_count	139708	139708	PASS
+ligand_atom_count	46	46	PASS
+topology_molecule_counts	"{""ASCR3"": 1, ""CLA"": 98, ""POPC"": 202, ""POT"": 97, ""PROA"": 1, ""TIP3"": 35363}"	"{""ASCR3"": 1, ""CLA"": 98, ""POPC"": 202, ""POT"": 97, ""PROA"": 1, ""TIP3"": 35363}"	PASS
+index_group_counts	"{""ASCR3"": 46, ""MEMB"": 27068, ""PROA"": 6310, ""SOLU"": 6356, ""SOLU_MEMB"": 33424, ""SOLV"": 106284, ""SYSTEM"": 139708, ""TIP3"": 106089}"	"{""ASCR3"": 46, ""MEMB"": 27068, ""PROA"": 6310, ""SOLU"": 6356, ""SOLU_MEMB"": 33424, ""SOLV"": 106284, ""SYSTEM"": 139708, ""TIP3"": 106089}"	PASS

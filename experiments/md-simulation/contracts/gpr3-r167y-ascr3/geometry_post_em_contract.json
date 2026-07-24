@@ -1,0 +1,25 @@
+{
+  "contract_id": "gpr3-r167y-ascr3-popc-geometry-post-standard-em-20260717",
+  "arm": "r167y",
+  "gate": "geometry",
+  "files": {
+    "coordinate": "../gromacs/step5_complex_ion.gro",
+    "topology": "../gromacs/topol.top",
+    "molecule_itp": "../gromacs/toppar/POPC.itp",
+    "forcefield_itp": "../gromacs/toppar/forcefield.itp"
+  },
+  "expected": {
+    "coordinate_atom_count": 139708,
+    "molecule_type": "POPC",
+    "molecule_count": 202,
+    "bond_deviation_threshold_nm": 0.025,
+    "max_outlier_bonds": 0,
+    "max_abs_bond_deviation_nm": 0.025,
+    "criterion_label": "OPERATIONAL_DIAGNOSTIC_POST_STANDARD_EM_GATE_PENDING_METHOD_SOURCE_REVIEW",
+    "checksums": {
+      "topology": "e704fadf795932afbe8a75c620493c482fc11bfc513c5b509e37bba442328cc2",
+      "molecule_itp": "7ab0926b769f2d71686192dddb163a099604c3c05bb259b885ec7fc99f3c3cb7",
+      "forcefield_itp": "274c3fcafdcb1ee301b7325059e2caf3b23773e69489ba74dd564f809269fc33"
+    }
+  }
+}

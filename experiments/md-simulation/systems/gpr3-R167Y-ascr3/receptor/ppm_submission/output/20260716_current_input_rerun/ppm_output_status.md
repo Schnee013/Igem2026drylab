@@ -6,8 +6,9 @@
 > new PPM 2.0 result. It supersedes the old checksum-migration hold for the
 > independent-AF3 Gpr3 receptor. A 2026-07-17 route decision retained this
 > chain as starting-structure sensitivity evidence and selected the
-> WT-oriented matched backbone as the primary CHARMM-GUI handoff. It does not
-> make the MD package runnable.
+> WT-oriented matched backbone as the primary CHARMM-GUI handoff. Current
+> package status is routed by
+> `experiments/md-simulation/systems/gpr3-R167Y-ascr3/PACKAGE_STATUS.md`.
 
 ## Provenance
 
@@ -30,6 +31,13 @@ The remote output was downloaded again during verification and matched the
 archived raw body byte-for-byte. The clean body was derived by removing the
 `1450` PPM membrane-marker records matching `HETATM ... DUM`; the `3158`
 protein `ATOM` records were retained unchanged and in the same order.
+
+Both bodies preserve the submitted input remark
+`Package-local receptor PDB; PPM/CHARMM-GUI not run here.` This is inherited
+input-layer metadata describing the independent-AF3 receptor before
+submission. The PPM result is determined by the result job key/page and
+byte-identical raw-output checksum above; current repository package state is
+determined by the system-local `PACKAGE_STATUS.md`.
 
 ## PPM Result
 
@@ -70,9 +78,8 @@ submitted input is the current package-local body with SHA256 `5116e802...`.
 This clears the provenance question for the independent-AF3 sensitivity
 structure; it no longer selects the primary upload. The primary route is
 `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md`.
-The package remains non-runnable until the returned matched CHARMM-GUI output
-is archived and final ASCR3 receptor-frame coordinates, topology molecule
-counts, package-local index, and `grompp` warning review are complete.
+Later local package gates and remote-stage authorization are maintained through
+the system-local `PACKAGE_STATUS.md` and their direct gate artifacts.
 
 ## References / 所引
 

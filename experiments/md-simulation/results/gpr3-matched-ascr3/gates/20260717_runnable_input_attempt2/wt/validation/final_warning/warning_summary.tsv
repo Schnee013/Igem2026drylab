@@ -1,0 +1,5 @@
+check	actual	expected	status
+warning_count	0	0	PASS
+grompp_exit_code	0	0	PASS
+unexpected_warning	0	0	PASS
+terminal_failure_terms			PASS

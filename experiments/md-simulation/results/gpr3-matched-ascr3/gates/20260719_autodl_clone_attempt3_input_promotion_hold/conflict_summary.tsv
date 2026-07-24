@@ -1,0 +1,2 @@
+path	expected_sha256	actual_sha256	state
+input/provenance/terminal_status.tsv	a7025692bdb4774f4832b69385505b82c54b351543ca42e4e54b800fe9cc6d47	00fccf065300609934bdfa49db71acef28c57e106d157f3f4666078ad10855b5	CONFLICT

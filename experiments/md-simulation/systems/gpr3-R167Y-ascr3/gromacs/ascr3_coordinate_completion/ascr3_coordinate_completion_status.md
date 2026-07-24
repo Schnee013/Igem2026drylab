@@ -8,9 +8,10 @@
 > layer.
 >
 > Status: the exact 46-atom GRO remains the repo-owned canonical standalone
-> ligand coordinate, but it is in the independent docking-receptor frame. It
-> must be transformed through the docking-receptor-to-matched-WT alignment
-> before insertion into either matched receptor/membrane arm.
+> ligand coordinate in the independent docking-receptor frame. The audited
+> transform and pair assembly have now been completed without changing this
+> canonical body; derived matched-frame coordinates and both runnable-input
+> arms are recorded under the 2026-07-17 local gate evidence.
 
 ## Result
 
@@ -45,11 +46,11 @@ The standalone GRO uses residue name `ASCR3` and is the accepted exact body for 
 
 ## Matched-Frame Boundary
 
-The primary comparison now uses the PPM-oriented Gpr3 WT backbone and a
+The primary comparison uses the PPM-oriented Gpr3 WT backbone and a
 coordinate-identical matched R167Y backbone. The selected ASCR3 pose was
 generated against an independently predicted R167Y docking receptor, so the
-current GRO must not be copied unchanged into either matched package. After the
-matched R167Y CHARMM-GUI return is received:
+canonical GRO was not copied unchanged into either matched package. With the
+matched R167Y CHARMM-GUI return present, the local gate completed:
 
 1. fit the docking receptor to the PPM-oriented matched WT receptor using the
    accepted receptor alignment selection;
@@ -58,6 +59,13 @@ matched R167Y CHARMM-GUI return is received:
    receptor/membrane bases;
 4. run pair-specific protein/POPC clash, topology molecule-count, index, and
    `grompp` warning gates.
+
+The unique docking receptor, 988-atom alignment, rigid transforms, six-selection
+sensitivity audit, shared transformed ligand, and pair-specific outputs are
+indexed by
+`experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/README.md`.
+The shared base-frame ligand contains 46 atoms and has SHA256
+`db5b3e1aaffffa2d8006cd413ef025864d759ca46aa0c1f0dc46ed7ffa459a1c`.
 
 The WT arm reuses the receptor-only `systems/Gpr3_WT/gromacs/step5_input.*` and
 `topol.top` layer from CHARMM-GUI job `7628627163`; the later ASCR18-containing
@@ -97,16 +105,13 @@ WT `step6.6.gro` is outside this matched ASCR3 assembly route.
 | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ascr3_coordinate_sources.tsv` | `d7d96de0049b41b6aec868fcdf06371de6aa44da47d121ec5049b198b1531492` |
 | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.pdb` | `a2a146b067577e500aebd6ecfea77634377ece8e2e1d96b92826767f1a3e2f62` |
 | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.gro` | `06e1e2925b28444aa5a8dec285c0cc52e4372eb415507661ab50244078112448` |
+| `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/shared/ASCR3_shared_base_frame.gro` | `db5b3e1aaffffa2d8006cd413ef025864d759ca46aa0c1f0dc46ed7ffa459a1c` |
 
 ## Still Missing
 
-- Matched R167Y CHARMM-GUI receptor/membrane GROMACS return.
-- Docking-receptor-to-matched-WT transform and transformed 46-atom ASCR3
-  coordinate.
-- Separate insertion into the WT and matched-R167Y receptor/membrane bases.
-- Pair-specific protein/POPC clash sanity after insertion.
-- Pair-specific topology molecule-count checks, package-local indexes, and
-  system-specific warning reviews.
+- No local coordinate-completion or runnable-input item remains missing.
+- Remote qualification, transfer, preproduction, benchmark, and production are
+  separate gates requiring independent authorization.
 
 ## References / 所引
 
@@ -122,6 +127,9 @@ WT `step6.6.gro` is outside this matched ASCR3 assembly route.
 - `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/ascr3_deprotonated.sdf`
 - `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/upload.crd`
 - `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/gromacs/ASCR3.itp`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_status.md`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/README.md`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/shared/rigid_transforms.tsv`
 
 ## Referenced by / 被引
 

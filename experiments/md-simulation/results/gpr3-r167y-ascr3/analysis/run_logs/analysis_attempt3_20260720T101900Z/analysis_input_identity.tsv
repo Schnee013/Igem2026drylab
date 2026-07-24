@@ -1,0 +1,5 @@
+role	path	bytes	sha256	status
+analysis_config	experiments/md-simulation/results/gpr3-r167y-ascr3/chimeric_systems.gpr3_r167y_ascr3_rep1.json	1235	460db32b799f317b0b1b5adb9898149e10ecea849635d21760ff61fc29bfcadb	PASS
+processed_topology	/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr3-r167y-ascr3/processed/rep1/protein_ref.pdb	502324	0da0a5961f07abf89c20ead561bf1770bfbc08b8436125d9eedc4c1956783423	PASS
+processed_trajectory	/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr3-r167y-ascr3/processed/rep1/prod_protein.xtc	48365108	1ebe62179c568c697bcc24c7e898aa6af60c53188d91dca00ac9fc2d9a85d40a	PASS
+postprocess_terminal_status	/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr3-r167y-ascr3/processed/rep1/terminal_status.tsv	471	f39a672302c10d5859bac733c898db0f43cb2f8cec8c0c6abefb28016d0b194f	PASS

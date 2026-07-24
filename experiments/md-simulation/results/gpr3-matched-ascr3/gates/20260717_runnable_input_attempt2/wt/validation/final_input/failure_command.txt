@@ -1,0 +1,1 @@
+/opt/homebrew/Caskroom/miniforge/base/bin/python3 experiments/md-simulation/scripts/validate_md_run_contract.py input --contract experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/wt/final_input_contract.json --output-dir experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/wt/validation/final_input

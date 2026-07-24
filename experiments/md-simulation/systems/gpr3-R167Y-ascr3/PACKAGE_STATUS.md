@@ -2,14 +2,49 @@
 
 > Date: 2026-07-17
 >
-> Last audited: 2026-07-17
+> Last audited: 2026-07-20
 >
-> Status: `RETURN_RECEIVED_MATCHED_BACKBONE_BASE_ONLY`. The WT arm reuses the
-> receptor-only base from CHARMM-GUI job `7628627163`; the matched R167Y
-> receptor-membrane base from job `8426884163` has been received and
-> intake-audited. The independent-AF3/PPM mutant is retained as sensitivity
-> evidence only. Neither ASCR3 arm is runnable until receptor-frame ligand
-> alignment/insertion, topology, index, and warning gates are complete.
+> Source: local runnable-input gate
+> `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/terminal_status.tsv`
+> plus the completed AutoDL result package
+> `experiments/md-simulation/results/gpr3-r167y-ascr3/README.md`, backed by the
+> external append-only `logs/production/rep1/run_state_events.tsv`, timestamped
+> completion/postprocess attempts, the 91-row production archive manifest, and
+> the 55-file analysis manifest; together with the E2 WT resource preflight
+> `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260720_e2_wt_resource_blocker/terminal_status.tsv`.
+>
+> As of: R167Y production ended normally at
+> `2026-07-20T18:13:57+08:00`; the completion gate passed at
+> `2026-07-20T10:16:40Z`, postprocess passed at
+> `2026-07-20T10:17:37Z`, and the recovered production/analysis manifests were
+> revalidated locally on 2026-07-20. WT E2 resource state was verified at
+> `2026-07-20T12:33:25+08:00`.
+>
+> Allowed use: local WT/R167Y runnable-input readiness plus the accepted
+> R167Y preproduction/benchmark, 200 ns `TERMINAL_NORMAL`, canonical
+> postprocess, and seven-driver single-rep exploratory analysis, plus the dated
+> E2 WT resource-blocker decision. This view does not establish WT completion,
+> a replicated WT/R167Y genotype comparison, or a categorical pose-stability
+> conclusion.
+>
+> Update trigger: a production/archive identity change, new R167Y replicate,
+> E2 WT resource recheck, WT execution evidence, or matched-analysis result.
+>
+> Status: local gate `LOCAL_RUNNABLE_INPUT_GATE_PASS`; R167Y AutoDL 200 ns rep1
+> is `TERMINAL_NORMAL`, postprocess is `PASS`, and the shared seven-driver
+> analysis is complete with evidence level `single_rep_exploratory_only`; WT
+> E2 stage remains `BLOCKED_E2_GPU_BUSY`. The historical input-promotion HOLD
+> was resolved with a versioned 42-row manifest and additive promotion.
+> Accepted attempt3 completed geometry repair, standard EM,
+> step6.1-step6.6, the 100 ps benchmark, checkpoint-resume, production,
+> completion finalization, postprocess, and analysis. The production archive
+> validates `91/91 PASS`; the canonical analysis/content validator returned
+> 45 PASS checks and its checksum manifest validates `55/55 PASS`. The WT arm
+> reuses the receptor-only base from CHARMM-GUI job
+> `7628627163`; the matched R167Y receptor-membrane
+> base from job `8426884163` has been received and intake-audited. Both arms now
+> have transformed ASCR3, reviewed clash/POPC decisions, pair-specific final
+> coordinates/topologies/indexes, and zero-warning final `grompp` evidence.
 >
 > Scope: package-local material checkpoint for the Gpr3 WT/R167Y matched MD
 > input gate.
@@ -23,10 +58,27 @@ ASCR3 coordinate in the independent docking-receptor frame. The returned
 matched R167Y receptor-membrane base is preserved as an ignored byte-identical
 archive plus extracted local payload; its compact intake status and manifest
 are Git-visible. The matched receptor method and coordinate audit are in
-`receptor/matched_backbone_status.md`. The selected-pose SDF remains the docking
-orientation source, but its completed GRO must be transformed through the
-docking-receptor-to-matched-WT alignment before insertion; it cannot be copied
-unchanged into the returned matched package.
+`receptor/matched_backbone_status.md`. The local runnable-input evidence at
+`experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/`
+records the unique docking-receptor provenance, receptor transform, shared
+46-atom ligand, pair-specific assembly, final validators, and warning reviews.
+
+The first E2 WT execution attempt stopped at the read-only resource preflight.
+At `2026-07-20T12:33:25+08:00`, two other users' Python jobs occupied the A100
+with 66,637 MiB of 81,920 MiB in use. No remote run root was created and no
+input, preproduction, benchmark, or production stage started. Evidence is in
+`experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260720_e2_wt_resource_blocker/`.
+
+The R167Y temporary launch wrapper initially sampled GPU state without emitting
+periodic formal events. The source-first runner was attached additively without
+changing the frozen launch package or restarting `mdrun`; it then maintained
+30-minute `RUNNING_VERIFIED` events through step 98,937,000. The launch wrapper
+recorded `TERMINAL_NORMAL` at `2026-07-20T18:13:57+08:00`, and the completion
+gate independently confirmed step 100,000,000 / 200,000 ps. Historical
+heartbeat evidence remains in
+`experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260720_autodl_clone_attempt3_periodic_heartbeat/`;
+the current completion/postprocess/analysis entry is
+`experiments/md-simulation/results/gpr3-r167y-ascr3/README.md`.
 
 Generated package-local files:
 
@@ -66,6 +118,8 @@ Generated package-local files:
 - [x] `gromacs/ascr3_coordinate_completion/ascr3_coordinate_sources.tsv`
 - [x] `gromacs/ascr3_coordinate_completion/ascr3_coordinate_manifest.tsv`
 - [x] `gromacs/ascr3_coordinate_completion/ascr3_coordinate_completion_status.md`
+- [x] `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/README.md`
+- [x] WT/R167Y `final_manifest.tsv`, `final_input_contract.json`, `final_warning_contract.json`, and `terminal_status.tsv`
 
 Ligand facts checked from `experiments/md-simulation/parameters/ascr3/deprotonated/charmm-gui-7629305001/gromacs/ASCR3.itp`:
 
@@ -82,9 +136,10 @@ Ligand facts checked from `experiments/md-simulation/parameters/ascr3/deprotonat
 The promoted SDF first pose has 24 atoms and serves as the traceable
 pose/orientation source. The package-local coordinate completion output provides
 a 46-atom ASCR3 ligand coordinate in topology atom order in the independent
-docking frame. Evidence class: ligand coordinate layer only. The final matched
-ligand coordinate waits for receptor alignment and package-frame insertion into
-both returned/reused receptor-membrane bases.
+docking frame. The gate applies the audited docking-receptor-to-matched-WT
+transform and then one WT-base bridge to all 46 atoms; both arms consume the
+same transformed GRO body (SHA256
+`db5b3e1aaffffa2d8006cd413ef025864d759ca46aa0c1f0dc46ed7ffa459a1c`).
 
 ## Source Pointers
 
@@ -114,6 +169,14 @@ both returned/reused receptor-membrane bases.
 | ASCR3 canonical completed ligand GRO | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.gro` |
 | ASCR3 local derived PDB view | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.pdb` |
 | Selected ASCR3 docking pose manifest | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/ligand/manifest.tsv` |
+| Local runnable-input evidence | `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/README.md` |
+| WT final evidence manifest | `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/wt/final_manifest.tsv` |
+| R167Y final evidence manifest | `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/r167y/final_manifest.tsv` |
+| Historical AutoDL clone input-promotion HOLD | `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260719_autodl_clone_attempt3_input_promotion_hold/README.md` |
+| Historical AutoDL production early gate | `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260719_autodl_clone_attempt3_running_early_gate_pass/README.md` |
+| Historical AutoDL periodic heartbeat | `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260720_autodl_clone_attempt3_periodic_heartbeat/README.md` |
+| Completed R167Y result and recovery contract | `experiments/md-simulation/results/gpr3-r167y-ascr3/README.md` |
+| R167Y single-rep seven-driver report | `experiments/md-simulation/results/gpr3-r167y-ascr3/analysis/gpr3_r167y_ascr3_rep1_chctrl_metric_analysis_20260720.md` |
 
 ## Still Missing
 
@@ -124,25 +187,34 @@ both returned/reused receptor-membrane bases.
 - [x] independent-AF3/PPM chain retained as starting-structure sensitivity evidence
 - [x] standalone ASCR3 46-atom ligand coordinate layer in docking-pose spatial frame
 - [x] matched R167Y CHARMM-GUI Membrane Builder returned package from job `8426884163`
-- [ ] docking-receptor-to-matched-WT transform for the selected ASCR3 pose
-- [ ] ASCR3 insertion into both WT and matched-R167Y receptor/membrane frames
-- [ ] pair-specific `step6.6.gro` or equivalent final coordinates
-- [ ] pair-specific topologies with molecule counts checked
-- [ ] package-local indexes regenerated from each final coordinate
-- [ ] WT and R167Y system-specific `grompp` warning reviews
+- [x] docking-receptor-to-matched-WT transform for the selected ASCR3 pose
+- [x] ASCR3 insertion into both WT and matched-R167Y receptor/membrane frames
+- [x] pair-specific post-genion final coordinates
+- [x] pair-specific topologies with coordinate molecule counts checked
+- [x] package-local indexes regenerated from each post-genion final coordinate
+- [x] WT and R167Y system-specific `grompp` warning reviews
+- [x] clone-host preflight and independent GPU smoke
+- [x] reconcile the frozen manifest identity and repeat additive input promotion
+- [x] complete R167Y preproduction, 100 ps benchmark, launch, and early-runtime gates
+- [x] attach the periodic production heartbeat and route future launch/resume packages through the tested runner
+- [x] complete and finalize R167Y 200 ns production rep1
+- [x] archive/postprocess the completed trajectory and run the shared analysis gates
+- [ ] rerun the E2 WT resource preflight after the foreign GPU jobs finish
+- [ ] implement and test generic production/postprocess drivers and remove site-specific assumptions before E2 deployment
+- [ ] complete WT E2 environment/input/preproduction/benchmark/production gates
 
 ## Next Action
 
-Do not resubmit either receptor: the matched R167Y return from job
-`8426884163` is present, and the WT arm starts from the receptor-only
-`systems/Gpr3_WT/gromacs/step5_input.*` / `topol.top` base from job
-`7628627163`, not from its later ASCR18-containing `step6.6.gro`.
+The R167Y AutoDL lane is complete through production, postprocess, and the
+single-rep seven-driver analysis. The verified remote check found no
+`gmx_mpi` and no tmux server after the local archive had validated, so the
+AutoDL instance no longer needs to remain powered on. Further scientific
+promotion requires the matched WT arm and replicate design; do not infer a
+replicated genotype effect from this rep1 alone.
 
-Next derive the docking-receptor-to-matched-WT transform, transform the selected
-46-atom ASCR3 pose, insert it separately into both receptor/membrane bases, run
-protein/POPC clash sanity, prepare pair-specific topologies and indexes, and
-write both warning reviews. Smoke/benchmark planning starts only after these
-gates have named evidence.
+For the WT E2 lane, wait for the foreign AlphaFold 3 and UNI2 GPU jobs recorded
+in the 2026-07-20 blocker package to finish. Then repeat the full 15-minute
+resource preflight before any remote write, bundle transfer, or deployment.
 
 ## References / 所引
 
@@ -165,6 +237,16 @@ gates have named evidence.
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_status.md`
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_status.md`
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_manifest.tsv`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/README.md`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/terminal_status.tsv`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260719_autodl_clone_attempt3_input_promotion_hold/README.md`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260719_autodl_clone_attempt3_running_early_gate_pass/README.md`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260720_autodl_clone_attempt3_periodic_heartbeat/README.md`
+- `experiments/md-simulation/results/gpr3-r167y-ascr3/README.md`
+- `experiments/md-simulation/results/gpr3-r167y-ascr3/analysis/gpr3_r167y_ascr3_rep1_chctrl_metric_analysis_20260720.md`
+- `experiments/md-simulation/archive-router/gpr3-r167y-ascr3_200ns-rep1_20260720_archive.sha256`
+- `experiments/md-simulation/scripts/run_gpr_md_production_heartbeat.sh`
+- `experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260720_e2_wt_resource_blocker/README.md`
 - `docs/ops/charmm-gui-membrane-builder.md`
 
 ## Referenced by / 被引
@@ -175,3 +257,5 @@ gates have named evidence.
 - `docs/logs/2026-07-06.md`
 - `docs/logs/2026-07-16.md`
 - `docs/logs/2026-07-17.md`
+- `docs/logs/2026-07-19.md`
+- `docs/logs/2026-07-20.md`

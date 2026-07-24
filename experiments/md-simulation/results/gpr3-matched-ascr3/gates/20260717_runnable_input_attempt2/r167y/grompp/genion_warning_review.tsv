@@ -1,0 +1,2 @@
+fingerprint_sha256	count	review_status	review_scope	review_note
+09abf089b82f2656145088f4265a870be8dff8dad835bff2e069512f051feb66	1	ACCEPTED_FOR_GENION_ONLY	grompp_genion	ASCR3 contributes -1 total charge to the neutral receptor-only base. Accept exactly one Ewald net-charge warning only to build genion.tpr; final post-genion grompp must contain zero warnings.

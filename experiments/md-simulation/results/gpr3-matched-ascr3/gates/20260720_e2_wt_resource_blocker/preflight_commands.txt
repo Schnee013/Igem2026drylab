@@ -1,0 +1,7 @@
+COMMAND e2_resource_snapshot
+ssh -o BatchMode=yes -o ConnectTimeout=15 nkuliulab-e2 '<read-only resource snapshot: date, hostname, pgrep gmx_mpi, nvidia-smi compute apps/GPU summary, quota, df /ifs1, Gpr2 production/postprocess terminal status, tmux ls>'
+
+COMMAND e2_process_and_path_snapshot
+ssh -o BatchMode=yes -o ConnectTimeout=15 nkuliulab-e2 '<read-only process/path snapshot: date, ps for observed GPU PIDs, nvidia-smi pmon, planned run-root existence, exact gmx_mpi executable check>'
+
+No remote mutation command was issued.

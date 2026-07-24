@@ -1,0 +1,8 @@
+key	value
+state	running
+pid	11020
+process_start_identity	1851856070
+command	/root/autodl-tmp/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi mdrun -v -s /root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/production/rep1/gpr3_r167y_ascr3_rep1_200ns.tpr -deffnm /root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/production/rep1/gpr3_r167y_ascr3_rep1_200ns -ntomp 24 -pin on -nb gpu -pme gpu -bonded gpu -cpt 30
+tpr_sha256	e584d1e3430e104c2133658cefb59e82096cfa208e30e99995858c61a3ff30a7
+bound_at	2026-07-20T05:01:54Z
+bound_at_epoch	1784523714

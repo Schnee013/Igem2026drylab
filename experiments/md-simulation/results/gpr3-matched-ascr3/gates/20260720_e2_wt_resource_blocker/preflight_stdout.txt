@@ -1,0 +1,43 @@
+## e2_resource_snapshot
+observed_at	2026-07-20T12:32:51+08:00
+hostname	almalinux10
+active_gmx_mpi
+gpu_compute_apps
+118970, python, 61330
+122792, python, 5294
+gpu_summary
+NVIDIA A100-SXM4-80GB, GPU-d14a551f-c3c4-e2f1-a8d5-124ab04c90f9, 590.48.01, 0, 66637, 81920
+quota
+Disk quotas for user dengwei (uid 1005):
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+       /dev/sdb  72957M   8000G   8072G            141k       0       0
+       /dev/sdc      0K      0K      0K               0       0       0
+df_ifs1
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/sdb       xfs    50T   18T   32T  37% /ifs1
+gpr2_terminal
+status	finished
+finished	2026-07-19T21:39:21+08:00
+state	TERMINAL_NORMAL
+source	run_state_events.tsv
+as_of	2026-07-19T14:48:56Z
+allowed_use	terminal_gate
+update_trigger	new_run_state_event
+detail	terminal_finished_at=2026-07-19T21:39:21+08:00;archive_manifest_sha256=d31ac9db0f75aa6ee5dd2c1b0cee534796ddb1e20c9cf7229616b89992016376;backfilled_from_legacy_terminal=true
+gpr2_postprocess
+status	finished
+finished	2026-07-19T21:41:09+08:00
+tmux_sessions
+
+## e2_process_and_path_snapshot
+observed_at	2026-07-20T12:33:25+08:00
+process_details
+118970	liht	01:16:05	Sl+	run_alphafold.p	python run_alphafold.py --input_dir=/ifs1/User/liht/AI/C_parvum_IowaII_AF3/json_test --model_dir=/ifs1/User/liht/AI/alphafold3/models --db_dir=/ifs1/User/liht/AI/alphafold3/databases --output_dir=/ifs1/User/liht/AI/C_parvum_IowaII_AF3/output_test
+122792	zhangyuxuan	01:14:10	Rl+	pt_main_thread	python code/extract_uni2_features.py --tile-dir analysis/01_permissive_tile_qc/tile_coordinates --qc-summary analysis/01_permissive_tile_qc/permissive_qc_summary.csv --checkpoint /ifs1/User/zhangyuxuan/yuxuanzhang/shared/models/UNI2-h/pytorch_model.bin --out-dir analysis/02_uni2_features --batch-size 32 --device cuda --use-amp --amp-dtype bf16 --skip-existing
+gpu_process_monitor
+0	118970	C	python
+0	122792	C	python
+planned_run_root_state
+ABSENT
+exact_gmx_path_state
+EXECUTABLE

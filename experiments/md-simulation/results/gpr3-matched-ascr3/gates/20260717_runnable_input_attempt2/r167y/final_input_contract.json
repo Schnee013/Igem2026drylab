@@ -1,0 +1,53 @@
+{
+  "contract_id": "gpr3-r167y-ascr3-final-input-validator-20260717",
+  "arm": "r167y",
+  "gate": "input",
+  "files": {
+    "coordinate": "input/gromacs/step5_complex_ion.gro",
+    "topology": "input/gromacs/topol.top",
+    "index": "input/gromacs/index_final.ndx",
+    "ligand_itp": "input/gromacs/ASCR3.itp"
+  },
+  "expected": {
+    "coordinate_atom_count": 139708,
+    "molecule_counts": {
+      "PROA": 1,
+      "ASCR3": 1,
+      "POPC": 202,
+      "POT": 97,
+      "CLA": 98,
+      "TIP3": 35363
+    },
+    "ligand_moltype": "ASCR3",
+    "ligand_atom_count": 46,
+    "ligand_atom_names": [
+      "O1", "O2", "O3", "O4", "O5", "O6",
+      "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8",
+      "C9", "C10", "C11", "C12", "C13", "C14", "C15",
+      "H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8",
+      "H9", "H10", "H11", "H12", "H13", "H14", "H15",
+      "H16", "H17", "H18", "H19", "H20", "H21", "H22",
+      "H23", "H24", "H25"
+    ],
+    "required_index_groups": [
+      "PROA", "ASCR3", "SOLU", "MEMB", "SOLV", "SOLU_MEMB",
+      "SYSTEM", "TIP3"
+    ],
+    "index_group_counts": {
+      "PROA": 6310,
+      "ASCR3": 46,
+      "SOLU": 6356,
+      "MEMB": 27068,
+      "SOLV": 106284,
+      "SOLU_MEMB": 33424,
+      "SYSTEM": 139708,
+      "TIP3": 106089
+    },
+    "checksums": {
+      "coordinate": "c743e0fe303109ef2381d39680ec21bc57de2d2baa9cbba29a21441f29c1810e",
+      "topology": "e704fadf795932afbe8a75c620493c482fc11bfc513c5b509e37bba442328cc2",
+      "index": "8d115d67ca73f2dffa7ce320b57771b27072138faccee6adf239645bc7cb443a",
+      "ligand_itp": "ad121770ebf2896be7b0db73de6fc6ecd7dfe6af85cff4fc63c8137432aef20d"
+    }
+  }
+}

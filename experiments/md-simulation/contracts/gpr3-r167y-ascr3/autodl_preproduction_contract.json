@@ -1,0 +1,50 @@
+{
+  "contract_id": "gpr3-r167y-ascr3-autodl-preproduction-rep1-20260717",
+  "system_id": "Gpr3_R167Y_ASCR3",
+  "system_slug": "gpr3_r167y_ascr3",
+  "replicate": 1,
+  "expected_atoms": 139708,
+  "expected_gromacs_version": "2025.4",
+  "expected_gromacs_command": "gmx_mpi",
+  "geometry_repair_mdp": "step6.0a_charmmgui_geometry_repair.mdp",
+  "geometry_repair_contract": "geometry_repair_contract.json",
+  "geometry_post_em_contract": "geometry_post_em_contract.json",
+  "standard_em_mdp": "step6.0_minimization.mdp",
+  "standard_em_maximum_force_kj_mol_nm": 1000.0,
+  "step6_warning_contract": {
+    "warning_count": 11,
+    "source_basename": "cgenff_ASCR3.itp",
+    "source_lines": [
+      400,
+      402,
+      404,
+      463,
+      465,
+      498,
+      500,
+      502,
+      543,
+      553,
+      555
+    ],
+    "required_text": "Encountered a second line of parameters for dihedral type 9"
+  },
+  "benchmark": {
+    "nsteps": 50000,
+    "nominal_ps": 100,
+    "gen_temp_k": 303.15,
+    "gen_seed": 20260717,
+    "warning_count": 11,
+    "warning_policy": "exact_step6_warning_whitelist",
+    "checkpoint_minutes": 0.05
+  },
+  "production_gate": {
+    "nsteps": 100000000,
+    "nominal_ns": 200,
+    "continuation": "yes",
+    "gen_vel": "no",
+    "warning_count": 11,
+    "warning_policy": "exact_step6_warning_whitelist"
+  },
+  "criterion_boundary": "Geometry thresholds are operational diagnostics derived from the frozen Gpr3 package and the 2026-07-17 controlled local repair test. Formal EM PASS additionally requires the original 5000-step constrained step6.0 run to finish with Fmax below 1000 and no LINCS, Fatal, or NaN evidence."
+}

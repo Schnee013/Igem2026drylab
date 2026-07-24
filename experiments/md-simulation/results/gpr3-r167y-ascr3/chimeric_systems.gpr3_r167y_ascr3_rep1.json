@@ -1,0 +1,31 @@
+{
+  "default": "gpr3-r167y-ascr3-rep1",
+  "systems": {
+    "gpr3-r167y-ascr3-rep1": {
+      "label": "Gpr3 R167Y + ASCR3 rep1",
+      "result_dir": "experiments/md-simulation/results/gpr3-r167y-ascr3",
+      "selection_rmsd_label": "ASCR3 heavy-atom RMSD",
+      "selection_rmsd_selection_label": "ASCR3 heavy atoms",
+      "selection_rmsd_selection": "((segid B) and resname ASCR) and not name H*",
+      "interaction_partner_role": "ligand",
+      "com_target_label": "ASCR3",
+      "plot_segids": ["A", "B"],
+      "receptor": {
+        "name": "Gpr3 R167Y",
+        "selection": "segid A",
+        "interface_selection": "segid A",
+        "interface_clusters": {
+          "gpr3_docking_ifp_93_97_100_101_104_134_138_150_169_170_171_174_175_177_178": "(segid A) and resid 93 97 100 101 104 134 138 150 169 170 171 174 175 177 178"
+        }
+      },
+      "galpha": {
+        "name": "ASCR3",
+        "selection": "(segid B) and resname ASCR",
+        "alpha5_selection": "((segid B) and resname ASCR) and not name H*",
+        "ect_selection": "((segid B) and resname ASCR) and not name H*",
+        "core_backbone_selection": "((segid B) and resname ASCR) and not name H*"
+      },
+      "junction_rmsf_regions": {}
+    }
+  }
+}

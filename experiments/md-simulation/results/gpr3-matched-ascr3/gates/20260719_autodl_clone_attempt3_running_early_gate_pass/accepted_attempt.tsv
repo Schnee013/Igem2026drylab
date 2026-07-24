@@ -1,0 +1,8 @@
+key	value
+status	PASS
+attempt_id	attempt3_geometry_repair_20260719T152123Z
+work_dir	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/preproduction/attempts/attempt3_geometry_repair_20260719T152123Z/gromacs
+benchmark_dir	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/benchmark_100ps/attempts/attempt3_geometry_repair_20260719T152123Z
+log_dir	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/logs/preproduction/attempt3_geometry_repair_20260719T152123Z
+attempt_manifest	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/manifests/preproduction_attempt3_geometry_repair_20260719T152123Z.sha256
+accepted	2026-07-19T23:43:43+08:00

@@ -1,0 +1,10 @@
+key	value
+terminal_status	RUNNING_EARLY_GATE_PASS
+mdrun_started	YES
+production_completed	NO
+attempt_id	production_launch_attempt3_20260719T155933Z
+gate_id	gate_attempt3_gatefix3_20260719T155749Z
+session	gpr3_r167y_ascr3_autodl_rep1_attempt3_20260719T155749Z
+stage	early_runtime_gate
+observed_at	2026-07-20T00:41:11+08:00
+summary	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/logs/production/rep1/early_gate_attempt3fix2_20260719T163746Z/early_gate_summary.tsv
