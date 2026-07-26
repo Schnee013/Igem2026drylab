@@ -160,6 +160,9 @@ docs/papers/pdf/
 # Presentation working drafts/deck bodies stay local. Reference materials are
 # explicitly trackable as source inputs for presentation work.
 docs/presentation/*
+!docs/presentation/image2-prompts.md
+!docs/presentation/notebooklm-prompt.md
+!docs/presentation/notebooklm-source-brief.md
 !docs/presentation/reference-materials/
 !docs/presentation/reference-materials/**
 
