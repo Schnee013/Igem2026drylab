@@ -1,6 +1,11 @@
 # Drylab Codex pitfalls
 
-> Distilled from selected Claude feedback memories. These are active guardrails, not final evidence.
+> Frozen historical snapshot. Retained for traceability; not an active
+> guardrail source. Re-enter through `docs/DOCMAP.md` and verify all current
+> claims against repository authorities.
+
+> Distilled from selected Claude feedback memories. These were historical
+> guardrails, not final evidence.
 
 ## Source-of-truth pitfalls
 

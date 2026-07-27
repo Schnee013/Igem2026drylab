@@ -1,5 +1,8 @@
 # External reference memory
 
+> Frozen historical snapshot. Retained for traceability; verify every fact from
+> current public or repository sources before use.
+
 ## Fankang Meng / 孟凡康
 
 > Distilled from Claude `reference_meng_fankang.md`. Verify public facts before external use.

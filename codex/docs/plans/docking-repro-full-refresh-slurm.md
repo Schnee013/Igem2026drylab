@@ -17,14 +17,10 @@
 - Project routing and status:
   - `docs/INDEX.md`
   - `docs/modeling/P0-molecular-docking.md`
-  - `codex/docs/memory/current-state.md`
-  - `codex/docs/memory/pitfalls.md`
-- Historical private-plan lookup, if needed:
-  - `codex/docs/memory/plan-index.md`
-  - Use this only as a repo-local index to old assistant plans; do not treat private plan files as execution authorities.
-- Gpr2/Gpr3 repair history:
+- Historical execution context, if needed:
   - `docs/logs/2026-04-23.md`
   - `docs/logs/2026-04-27.md`
+  - Treat dated records as historical context; current execution authority remains in repo-owned routes and source evidence.
 - New AF3 downloads:
   - `/Users/roy/Downloads/Arc/folds_2026_04_24_08_43`
   - `/Users/roy/Downloads/Arc/folds_2026_05_19_02_03`
@@ -138,7 +134,7 @@
    - ODE is parked.
    - Kd/calibration depends on the separate literature review.
    - Do not present docking-derived Kd as available.
-4. If a cross-session pointer is needed, update `codex/docs/memory/current-state.md` or `codex/docs/memory/pitfalls.md` with a pointer to this plan, not a duplicate of the plan.
+4. Record execution history in the dated log; update `docs/INDEX.md` only when the verified result changes project-level current status, priority, blockers, or active entrypoints.
 
 ## Validation Checklist
 
