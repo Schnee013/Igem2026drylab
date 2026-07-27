@@ -37,7 +37,24 @@ def load_hbond_module():
     return module
 
 
+def load_ligand_path_module():
+    path = (
+        ROOT
+        / "experiments/md-simulation/analysis/chctrl/compare_ligand_paths.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "drylab_compare_ligand_paths",
+        path,
+    )
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot load {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 HBOND = load_hbond_module()
+LIGAND_PATH = load_ligand_path_module()
 
 
 class MdAnalysisContractTests(unittest.TestCase):
@@ -312,6 +329,58 @@ class MdAnalysisContractTests(unittest.TestCase):
             self.assertIn("rep1: no detected pairs; top pair occupancy=0.000", judgement)
             self.assertIn("rep2: no detected pairs; top pair occupancy=0.000", judgement)
             self.assertIn("rep3: no detected pairs; top pair occupancy=0.000", judgement)
+
+    def test_ligand_path_named_paths_reject_duplicate_labels(self) -> None:
+        with self.assertRaisesRegex(ValueError, "duplicate --arm-config label: WT"):
+            LIGAND_PATH.parse_named_paths(
+                ["WT=wt.json", "WT=other.json"],
+                "--arm-config",
+            )
+
+    def test_ligand_path_requires_matching_config_and_payload_labels(self) -> None:
+        with self.assertRaisesRegex(ValueError, "labels differ"):
+            LIGAND_PATH.validate_arm_mappings(
+                {"WT": Path("wt.json"), "R59C": Path("r59c.json")},
+                {"WT": Path("wt-payload"), "R167Y": Path("r167y-payload")},
+                "WT",
+            )
+
+    def test_ligand_path_contact_occupancy_separates_windows(self) -> None:
+        rows = LIGAND_PATH.summarize_contact_occupancy(
+            "WT",
+            np.array([0.0, 50.0, 100.0, 150.0]),
+            [
+                {(10, "ALA")},
+                {(10, "ALA"), (20, "ARG")},
+                {(20, "ARG")},
+                {(20, "ARG")},
+            ],
+            window_start_ns=100.0,
+            cutoff_A=4.0,
+        )
+        by_resid = {row["receptor_resid"]: row for row in rows}
+
+        self.assertEqual(by_resid[10]["initial_contact"], True)
+        self.assertAlmostEqual(by_resid[10]["early_occupancy"], 1.0)
+        self.assertAlmostEqual(by_resid[10]["late_occupancy"], 0.0)
+        self.assertEqual(by_resid[20]["initial_contact"], False)
+        self.assertAlmostEqual(by_resid[20]["early_occupancy"], 0.5)
+        self.assertAlmostEqual(by_resid[20]["late_occupancy"], 1.0)
+
+    def test_ligand_path_representative_frames_are_unique(self) -> None:
+        frames = LIGAND_PATH.representative_indices(
+            np.array([0.0, 50.0, 100.0, 150.0, 200.0]),
+            np.array([0.0, 5.0, 1.0, 2.0, 3.0]),
+            window_start_ns=100.0,
+        )
+        by_label = dict(frames)
+
+        self.assertEqual(by_label["initial"], 0)
+        self.assertEqual(by_label["window_start"], 2)
+        self.assertEqual(by_label["late_midpoint"], 3)
+        self.assertEqual(by_label["max_displacement"], 1)
+        self.assertEqual(by_label["final"], 4)
+        self.assertEqual(len({index for _, index in frames}), len(frames))
 
 
 if __name__ == "__main__":
