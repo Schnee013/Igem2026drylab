@@ -1,0 +1,35 @@
+{
+  "reference_arm": "WT",
+  "replicate": 1,
+  "fit_selection": "segid A and backbone and not resid 250:310",
+  "contact_cutoff_A": 4.0,
+  "window_start_ns": 100.0,
+  "stride": 1,
+  "interpretation_boundary": "descriptive structural triage; absolute between-arm positions do not establish a mutation effect when starting poses differ",
+  "arms": {
+    "WT": {
+      "system": "gpr2-wt-ascr18-rep1",
+      "config_path": "experiments/md-simulation/results/gpr2-wt-ascr18/chimeric_systems.gpr2_wt_ascr18_rep1.json",
+      "config_sha256": "df51b580d43cc521b4da4c7fa25aedcc8732e373d92ea9012e5306c6e27bd9ee",
+      "topology_path": "/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr2-wt-ascr18/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "da9d97802756ed9ee46bab237fa6a250b91145f012efa5f2389835eab9d98260",
+      "trajectory_path": "/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr2-wt-ascr18/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "e286ee56f5889146a86befb111dda401637162249d05d0397a4ef793c657371b",
+      "frames_analyzed": 2001,
+      "ligand_selection": "((segid B) and resname ASCR) and not name H*",
+      "receptor_selection": "segid A"
+    },
+    "R59C": {
+      "system": "gpr2-r59c-ascr18-rep1",
+      "config_path": "experiments/md-simulation/results/gpr2-r59c-ascr18/chimeric_systems.gpr2_r59c_ascr18_rep1.json",
+      "config_sha256": "c836216b3a6a5ab97249bc223c282fd96be161dc20e0bfab396c27d70e435044",
+      "topology_path": "/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr2-r59c-ascr18/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "86834a671ec0d22661b48f52e54792a5845d31d88d2606f01f990f4189d76f96",
+      "trajectory_path": "/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr2-r59c-ascr18/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "be38397e82abc3db630ca4c6cf3cadfce6f5e9edbf2b93fe9138a15443962438",
+      "frames_analyzed": 2001,
+      "ligand_selection": "((segid B) and resname ASCR) and not name H*",
+      "receptor_selection": "segid A"
+    }
+  }
+}

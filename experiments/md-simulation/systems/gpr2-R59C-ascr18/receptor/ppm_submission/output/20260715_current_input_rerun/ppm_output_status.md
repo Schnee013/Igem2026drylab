@@ -4,7 +4,10 @@
 >
 > Status: this versioned rerun binds the current package-local PPM input to a
 > new PPM 2.0 result. It supersedes the old checksum-migration hold for the
-> Gpr2 CHARMM-GUI handoff. It does not make the MD package runnable.
+> Gpr2 CHARMM-GUI handoff. The statement that it did not make the MD package
+> runnable describes the 2026-07-15 handoff boundary only; current package and
+> analysis status is maintained in the system-local
+> [`PACKAGE_STATUS.md`](../../../../PACKAGE_STATUS.md).
 
 ## Provenance
 
@@ -61,10 +64,13 @@ provenance. They are not rewritten as if they had used the current input. This
 2026-07-15 job is the new operational chain because its submitted input is the
 current package-local body with SHA256 `5d8c537b...`.
 
-The Gpr2 provenance gate is therefore cleared for manual CHARMM-GUI submission.
-The package remains non-runnable until the returned CHARMM-GUI output is
-archived and final ligand coordinates, topology molecule counts, package-local
-index, and `grompp` warning review are complete.
+The Gpr2 provenance gate was therefore cleared for manual CHARMM-GUI submission
+on 2026-07-15. At that dated handoff, the package was still non-runnable until
+the returned CHARMM-GUI output, final ligand coordinates, topology molecule
+counts, package-local index, and `grompp` warning review were complete. Those
+downstream stages later completed; this PPM record remains historical
+provenance, while current state routes through the system-local
+`PACKAGE_STATUS.md`.
 
 ## References / 所引
 

@@ -1,10 +1,13 @@
 # Gpr2_R59C + ASCR18 PPM output route
 
-> Last updated: 2026-07-15
+> Last updated: 2026-07-27
 >
 > Status: the 2026-07-15 current-input PPM 2.0 rerun supersedes the prior
 > checksum-migration hold for Gpr2. The CHARMM-GUI handoff is provenance-ready;
-> the MD package remains non-runnable.
+> the statement that the MD package remained non-runnable describes the
+> 2026-07-15 handoff boundary only. Current package and analysis status is
+> maintained in the system-local
+> [`PACKAGE_STATUS.md`](../../../PACKAGE_STATUS.md).
 
 ## Current Authority
 
@@ -30,15 +33,19 @@ pre-rerun 2026-07-05 chain. Their historical checksum mismatch is not silently
 rewritten. It is operationally superseded by the explicitly versioned
 2026-07-15 job that used the current input body.
 
-## Remaining Gate
+## Historical 2026-07-15 handoff checklist
 
 - [x] current Gpr2 input bound to a versioned PPM 2.0 result
 - [x] DUM-free upload contract regenerated and checksum-validated
-- [ ] CHARMM-GUI Membrane Builder returned package
-- [ ] final ASCR18 receptor-frame insertion and clash review
-- [ ] final topology and molecule-count review
-- [ ] package-local index regenerated from final coordinates
-- [ ] system-specific `grompp_warning_gate.txt`
+- [ ] CHARMM-GUI Membrane Builder returned package (open as of 2026-07-15)
+- [ ] final ASCR18 receptor-frame insertion and clash review (open as of 2026-07-15)
+- [ ] final topology and molecule-count review (open as of 2026-07-15)
+- [ ] package-local index regenerated from final coordinates (open as of 2026-07-15)
+- [ ] system-specific `grompp_warning_gate.txt` (open as of 2026-07-15)
+
+This checklist is retained as dated PPM-to-CHARMM-GUI handoff history. It is not
+the current action list; all of these downstream package stages later completed.
+Use the system-local `PACKAGE_STATUS.md` for the current state.
 
 ## References / 所引
 
