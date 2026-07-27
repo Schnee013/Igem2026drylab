@@ -1,7 +1,7 @@
 """
 GprC Saturation Scan（5 位点 × 18 AA = 90 突变体）
 
-位点选择依据：alanine scan channel 信号最强 + IFP 差异接触（见计划 §Part B）
+位点选择依据：alanine scan channel 信号最强 + IFP 差异接触
   L377  sel_mut=-0.758  Channel A（ascr18，caveat）
   N378  sel_mut=+0.957  Channel B（ascr3，caveat，最强）
   Q411  sel_mut=+0.652  Channel B（caveat）
@@ -19,7 +19,7 @@ saturation 结果按正常 sel_mut 阈值评估（< −0.477 → Channel A，> +
       experiments/docking-repro/mutagenesis/af3_prepared/GprC/saturation/{Label}_tm.pdbqt
 
 完整执行流程（FASTA 生成 → AF3 提交 → 结构处理）：
-    见 ~/.claude/plans/sequential-dancing-origami.md §Part B
+    见 docs/modeling/P0-molecular-docking.md 和 docs/logs/2026-04-23.md
 
 用法（Windows）：
     python run_saturation_gprc.py

@@ -1,27 +1,19 @@
 # Mutant GPR MD Input-Gate Plan
 
-> Date: 2026-07-05; cleaned current route: 2026-07-12; Gpr2 gate updated:
-> 2026-07-16; Gpr3 matched-backbone route updated: 2026-07-17.
+> Date: 2026-07-05; route boundary clarified: 2026-07-27.
 >
-> Scope: current local input-gate route for `Gpr2_R59C + ASCR18` and
-> `Gpr3_R167Y + ASCR3`.
+> Scope: historical execution-order plan for the local input gates of
+> `Gpr2_R59C + ASCR18` and `Gpr3_R167Y + ASCR3`.
 >
-> Status: the `Gpr2_R59C + ASCR18` input gate is complete. Its E2 holo package
-> passed receptor-frame ligand insertion/clash review, topology/index checks,
-> EM, step6.1-step6.6, a 100 ps benchmark, and the production warning gate.
-> The 200 ns rep1 is running under
-> `/ifs1/User/dengwei/igem/md-simulation/gpr2_r59c_ascr18_rep1_20260716` and has
-> a parseable checkpoint. The primary `Gpr3 WT/R167Y + ASCR3` design now uses
-> one accepted PPM-oriented WT backbone: the WT arm reuses CHARMM-GUI job
-> `7628627163`, and the matched R167Y receptor has exact WT backbone
-> coordinates plus a locally minimized mutant sidechain neighborhood. Its
-> CHARMM-GUI receptor-membrane return from job `8426884163` is now archived and
-> intake-audited. The independent AF3/PPM mutant is sensitivity evidence only;
-> neither ASCR3 arm is runnable.
+> Status: live state is not maintained here. Before reuse, start from
+> `docs/INDEX.md`, then verify the relevant system-local `PACKAGE_STATUS.md`,
+> run-local artifacts, current logs, and direct outputs. The gate sequence below
+> is retained as provenance and must not be executed from its dated status
+> wording alone.
 
-## Current Authority
+## Reuse Authority
 
-Use these files as the current input-gate authority:
+Recalibrate this plan against these repository authorities:
 
 | Layer | Current pointer |
 |---|---|
@@ -46,7 +38,10 @@ Use these files as the current input-gate authority:
 The former session-local analysis scaffold is not a current authority source.
 System-local status files and output manifests now carry the durable route.
 
-## Next Gate
+## Historical Gate Sequence
+
+Do not execute this sequence without first replacing its dated preconditions
+with current evidence from the reuse authorities above.
 
 1. For Gpr2, preserve and monitor the active 200 ns rep1. Do not relaunch or
    overwrite it. Resume only after a non-normal stop when TPR/CPT are valid,

@@ -1,8 +1,12 @@
 # Current drylab state memory
 
-Purpose: timestamped project-state index for new sessions. This file summarizes
-where the current state is. Authoritative facts come from the linked logs,
-domain docs, plans, code, and result files.
+> Frozen historical snapshot. Retained for traceability; not a current-state
+> source or startup route. Re-enter through `docs/DOCMAP.md` and calibrate
+> current status against `docs/INDEX.md` and direct evidence.
+
+Historical purpose: timestamped project-state index for earlier sessions. It
+summarizes where the state appeared to be at its review date; current facts
+must be recovered from the linked active authorities.
 
 ## last_reviewed
 

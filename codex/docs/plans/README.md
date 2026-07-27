@@ -3,16 +3,15 @@
 This directory stores repo-owned execution plans and next-session handoffs for
 `/Users/roy/Documents/drylab`.
 
-Plans here are project-local replacements for private assistant plan paths such
-as `/Users/roy/.claude/plans/`. They should be usable by Codex, Claude, or a
-human reader without depending on tool-private storage.
+Plans here are repo-owned durable execution artifacts. They should be usable
+by a human or agent without depending on tool-private storage.
 
 ## Role
 
 - Use this directory for decision-recorded execution plans, handoff prompts,
   and session plans that need to survive across tools.
-- Keep `codex/docs/memory/` short and pointer-based; memory may point here but
-  stays as links to plan content.
+- Keep current project status in `docs/INDEX.md`; plans contain execution order
+  and source pointers rather than parallel status summaries.
 - Plans are execution guidance. Scientific and status claims require verification
   against `docs/`, logs, configs, code, and result files before action.
 

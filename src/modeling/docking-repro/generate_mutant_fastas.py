@@ -12,7 +12,7 @@ FASTA 文件命名：{label}.fasta（如 N83A.fasta）
     {突变后全长序列}
 
 完整执行流程（AF3 提交 → 结构处理 → 对接）：
-    见 ~/.claude/plans/sequential-dancing-origami.md
+    见 docs/modeling/P0-molecular-docking.md 和 docs/logs/2026-04-23.md
 
 用法：
     python generate_mutant_fastas.py
