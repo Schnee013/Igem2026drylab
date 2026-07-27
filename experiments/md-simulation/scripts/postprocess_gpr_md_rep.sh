@@ -35,6 +35,12 @@ PROTEIN_XTC="$OUT_DIR/prod_protein.xtc"
 REFERENCE_PDB="$OUT_DIR/protein_ref.pdb"
 CURRENT_STAGE=preflight
 
+fail_gate() {
+  local message=$1 exit_code=${2:-66}
+  echo "ERROR: $message" >&2
+  return "$exit_code"
+}
+
 on_error() {
   local rc=$?
   trap - ERR
@@ -59,23 +65,29 @@ trap on_error ERR
 } > "$ATTEMPT_STATUS"
 
 CURRENT_STAGE=production_terminal_gate
-latest=$(
-  awk -F '\t' '
-    NR == 1 {
-      if ($0 != "observed_at\tstate\tsource\tdetail") invalid=1
-      next
-    }
-    NF != 4 { invalid=1; next }
-    { observed=$1; state=$2; source=$3; detail=$4 }
-    END {
-      if (invalid || state == "") exit 2
-      printf "%s\t%s\t%s\t%s\n", observed, state, source, detail
-    }
-  ' "$STATE_EVENTS"
-)
+if ! latest=$(
+    awk -F '\t' '
+      NR == 1 {
+        if ($0 != "observed_at\tstate\tsource\tdetail") invalid=1
+        next
+      }
+      NF != 4 { invalid=1; next }
+      { observed=$1; state=$2; source=$3; detail=$4 }
+      END {
+        if (invalid || state == "") exit 2
+        printf "%s\t%s\t%s\t%s\n", observed, state, source, detail
+      }
+    ' "$STATE_EVENTS"
+  ); then
+  fail_gate "invalid or missing production state event stream"
+fi
 IFS=$'\t' read -r terminal_observed terminal_state terminal_source terminal_detail <<< "$latest"
-[[ $terminal_state == TERMINAL_NORMAL ]]
-grep -Fxq $'production_completed\tYES' "$PROD_STATUS"
+if [[ $terminal_state != TERMINAL_NORMAL ]]; then
+  fail_gate "latest production state is $terminal_state; expected TERMINAL_NORMAL"
+fi
+if ! grep -Fxq $'production_completed\tYES' "$PROD_STATUS"; then
+  fail_gate "production status snapshot does not confirm completion"
+fi
 archive_manifest=$(
   awk -v RS=';' -F= '$1 == "archive_manifest" { print $2; exit }' \
     <<< "$terminal_detail"
@@ -84,12 +96,19 @@ expected_archive_sha=$(
   awk -v RS=';' -F= '$1 == "archive_manifest_sha256" { print $2; exit }' \
     <<< "$terminal_detail"
 )
-[[ -s "$archive_manifest" ]]
-[[ $(sha256sum "$archive_manifest" | awk '{print $1}') == "$expected_archive_sha" ]]
-(
-  cd "$RUN_ROOT"
-  sha256sum -c "$archive_manifest"
-) > "$ATTEMPT_DIR/production_archive_check.log" 2>&1
+if [[ -z $archive_manifest || -z $expected_archive_sha || ! -s $archive_manifest ]]; then
+  fail_gate "terminal event is missing a readable archive manifest identity"
+fi
+actual_archive_sha=$(sha256sum "$archive_manifest" | awk '{print $1}')
+if [[ $actual_archive_sha != "$expected_archive_sha" ]]; then
+  fail_gate "production archive identity changed after terminal promotion"
+fi
+if ! (
+    cd "$RUN_ROOT"
+    sha256sum -c "$archive_manifest"
+  ) > "$ATTEMPT_DIR/production_archive_check.log" 2>&1; then
+  fail_gate "production archive manifest validation failed"
+fi
 
 CURRENT_STAGE=required_inputs
 if [[ -z $INDEX_FILE ]]; then
@@ -99,7 +118,10 @@ if [[ -z $INDEX_FILE ]]; then
   )
 fi
 for required in "$TPR" "$XTC" "$INDEX_FILE" "$PYTHON_CMD"; do
-  [[ -s "$required" ]]
+  if [[ ! -s "$required" ]]; then
+    printf '%s\n' "$required" > "$ATTEMPT_DIR/missing_required_input.txt"
+    fail_gate "missing or empty required postprocess input: $required"
+  fi
 done
 for output in "$CLUSTER_XTC" "$PROTEIN_XTC" "$REFERENCE_PDB"; do
   if [[ -e "$output" ]]; then
