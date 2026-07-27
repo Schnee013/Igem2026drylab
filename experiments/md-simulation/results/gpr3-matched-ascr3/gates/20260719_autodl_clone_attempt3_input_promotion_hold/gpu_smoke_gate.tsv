@@ -1,0 +1,9 @@
+key	value
+status	PASS
+reason	clone_host_gpu_smoke_completed
+hostname	autodl-container-b28c4e9e59-0b488fec
+source_assets	/root/autodl-tmp/igem/md-simulation/autodl_qualification_20260717/blackwell_smoke_attempt3
+max_gpu_utilization_percent	68
+checkpoint_step	10000
+checkpoint_time_ps	20.000000
+issue_scan_lines	0

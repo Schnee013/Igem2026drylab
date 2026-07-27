@@ -1,0 +1,3 @@
+arm	component	min_heavy_distance_A	min_vdw_ratio	decision	review_status	criterion_status	review_note
+wt	protein	2.648771	0.862792	retain	ACCEPTED_FOR_LOCAL_RUNNABLE_INPUT	OPERATIONAL_CRITERION_PENDING_SOURCE_REVIEW	No protein contact crossed the recorded severe-overlap ratio cutoff; this is an input-sanity decision, not a scientific interaction claim.
+wt	POPC	0.527286	0.163753	remove_407_514	ACCEPTED_FOR_LOCAL_RUNNABLE_INPUT	OPERATIONAL_CRITERION_PENDING_SOURCE_REVIEW	Remove only POPC residues 407 and 514 identified by the complete pair-specific inventory and reviewed_popc_removal.tsv.

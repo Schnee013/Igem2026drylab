@@ -1,0 +1,11 @@
+key	value
+status	PASS
+reason	all_clone_preflight_checks_passed
+ssh_alias	autodl-gpr3-clone
+hostname	autodl-container-b28c4e9e59-0b488fec
+gpu	NVIDIA GeForce RTX 5090
+gromacs	2025.4
+precision	mixed
+openmpi	5.0.8
+fftw	3.3.11
+cuda_runtime	12.90

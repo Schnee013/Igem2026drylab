@@ -1,0 +1,11 @@
+{
+  "work_dir": "experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_returned/charmm-gui-8426884163-gpr3-r167y-matched-backbone/gromacs",
+  "output_dir": "experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/r167y/input/gromacs",
+  "ligand_gro": "experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/shared/ASCR3_shared_base_frame.gro",
+  "ligand_moltype": "ASCR3",
+  "ligand_itp": "experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ASCR3.itp",
+  "cgenff_itp": "experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/toppar/cgenff_ASCR3.itp",
+  "posre_itp": "experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/posre_ASCR3.itp",
+  "remove_popc_from": "experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/r167y/reviewed_popc_removal.tsv",
+  "expected_contract": "experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/r167y/expected_contract.json"
+}

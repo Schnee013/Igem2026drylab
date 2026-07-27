@@ -1,0 +1,8 @@
+molecule	molecule_count	atoms_per_molecule	coordinate_atoms	status
+PROA	1	6313	6313	PASS
+ASCR3	1	46	46	PASS
+POPC	201	134	26934	PASS
+POT	97	1	97	PASS
+CLA	100	1	100	PASS
+TIP3	35422	3	106266	PASS
+POT	1	1	1	PASS

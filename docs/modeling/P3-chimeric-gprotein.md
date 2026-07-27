@@ -63,7 +63,7 @@ last_updated: 2026-07-05
 | Chimera-25 | 最末 25 残基 | 覆盖完整 α5 helix + eCT；测试 α5 完整替换是否足够（Ueda2003 gust23 失败，C25 略长） |
 | Chimera-37 | 最末 37 残基 | β6 + α5 + eCT；匹配 Ueda2003/Hara2012 双重验证的功能阈值（≥37 aa） |
 
-> **文献定位**: 5 aa 在多个系统中验证有效（Conklin1993, Brown2000, Hara2012）。10/15 aa 在已有文献中**无直接先例**——Ueda2003 的长度滴定跳跃为 5→11→23→37 aa，项目 C10/C15 填补了 5–23 aa 区间的空白。Hara2012 和 Ueda2003 均显示 37 aa 是功能化下限（含 β6 sheet），而 23 aa（仅 α5 + eCT）在 Ueda2003 中失败。C25/C37 于 2026-04-13 追加，动因见 [ranking_summary.md §4](../../experiments/chimeric-gpa1/analysis/ranking_summary.md#4-文献支撑解读)。
+> **文献定位**: 5 aa 在多个系统中验证有效（Conklin1993, Brown2000, Hara2012）。10/15 aa 在已有文献中**无直接先例**——Ueda2003 的长度滴定跳跃为 5→11→23→37 aa，项目 C10/C15 填补了 5–23 aa 区间的空白。Hara2012 和 Ueda2003 均显示 37 aa 是功能化下限（含 β6 sheet），而 23 aa（仅 α5 + eCT）在 Ueda2003 中失败。C25/C37 的设计理由见 [切割位点设计理由](../../experiments/chimeric-gpa1/alignment/boundary_analysis.md#切割位点设计理由)。
 
 每方案 × 2 真菌物种 = **10 个嵌合 Gpa1 候选序列**。
 

@@ -1,0 +1,27 @@
+key	value
+status	PASS
+contract_id	gpr3-r167y-ascr3-autodl-preproduction-rep1-20260717
+system	Gpr3_R167Y_ASCR3
+site	AutoDL
+attempt_id	attempt3_geometry_repair_20260719T152123Z
+atoms	139708
+gpu_name	NVIDIA GeForce RTX 5090
+gpu_uuid	GPU-ba63a3a8-5e28-20af-26f5-640621e813df
+threads	24
+geometry_repair_outlier_bonds	1
+post_standard_em_outlier_bonds	0
+standard_em_maximum_force_kj_mol_nm	8.8945721e+02
+step6_warning_count	11
+benchmark_grompp_warning_count_raw	11
+benchmark_grompp_unexpected_warning_count	0
+benchmark_ps	100
+benchmark_checkpoint_before_resume_step	5500
+benchmark_checkpoint_after_resume_step	50000
+benchmark_resume_mode	-cpi -append
+performance_ns_per_day	234.103
+hour_per_ns	0.10251898
+hourly_price_cny	2.88
+cost_per_ns_cny	0.29525466
+estimated_200ns_hours	20.5038
+estimated_200ns_cost_cny	59.05
+finished	2026-07-19T23:43:41+08:00

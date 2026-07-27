@@ -1,0 +1,6 @@
+selection	count	residues	observed_identity	status
+all_processed_atoms	6356	402	segid A plus segid B	PASS
+receptor_segID_A	6310	401	protein receptor	PASS
+ligand_segID_B_resname_ASCR	46	1	ASCR resid 402	PASS
+ligand_heavy_atoms	21	1	ASCR non-H atoms	PASS
+docking_ifp_residue_cluster	265	15	resids 93,97,100,101,104,134,138,150,169,170,171,174,175,177,178	PASS

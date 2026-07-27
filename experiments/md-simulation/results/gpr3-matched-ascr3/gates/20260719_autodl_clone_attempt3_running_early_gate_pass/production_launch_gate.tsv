@@ -1,0 +1,10 @@
+key	value
+status	GO
+gate_id	gate_attempt3_gatefix3_20260719T155749Z
+production_dir	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/production/rep1
+production_prefix	gpr3_r167y_ascr3_rep1_200ns
+session	gpr3_r167y_ascr3_autodl_rep1_attempt3_20260719T155749Z
+summary	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/logs/production_gate/gate_attempt3_gatefix3_20260719T155749Z/production_launch_gate_summary.tsv
+manifest	/root/autodl-tmp/igem/md-simulation/gpr3_r167y_ascr3_rep1_20260717/production/rep1/production_launch_package.sha256
+mdrun_started	NO
+accepted	2026-07-19T23:58:04+08:00

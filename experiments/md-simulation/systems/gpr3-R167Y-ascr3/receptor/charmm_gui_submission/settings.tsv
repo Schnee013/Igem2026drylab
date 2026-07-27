@@ -1,6 +1,8 @@
 setting	value
 route	Membrane Builder -> Bilayer Builder
-input	PPM-oriented clean PDB, no DUM HETATM
+input	Gpr3R167YASCR3_matched_charmmgui_input.pdb
+comparison_design	WT-oriented matched backbone; independent-AF3 PPM input is sensitivity-only
+wt_base	Gpr3 WT CHARMM-GUI job 7628627163; no new WT upload required
 step1_membrane_only_system	unchecked
 step1_check_pka	unchecked
 step2_orientation	Use PDB Orientation

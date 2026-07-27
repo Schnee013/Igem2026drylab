@@ -124,7 +124,7 @@ experiments/md-simulation/systems/**/gromacs/charmm_gui_*.tgz
 experiments/md-simulation/**/index.fixed.ndx
 experiments/md-simulation/systems/**/receptor/clean_receptor.pdb
 experiments/md-simulation/systems/**/receptor/ppm_submission/*.pdb
-experiments/md-simulation/systems/**/receptor/ppm_submission/output/*.pdb
+experiments/md-simulation/systems/**/receptor/ppm_submission/output/**/*.pdb
 experiments/md-simulation/systems/**/gromacs/*_coordinate_completion/*.gro
 experiments/md-simulation/systems/**/gromacs/*_coordinate_completion/*.pdb
 !experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/ascr3_coordinate_completion/ASCR3_pose_completed.gro

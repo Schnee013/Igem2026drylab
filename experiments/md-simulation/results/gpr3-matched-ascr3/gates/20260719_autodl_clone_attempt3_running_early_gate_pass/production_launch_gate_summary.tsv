@@ -1,0 +1,22 @@
+key	value
+status	GO
+scope	PRODUCTION_LAUNCH_GATE_ONLY_NO_MDRUN_STARTED
+contract_id	gpr3-r167y-ascr3-autodl-preproduction-rep1-20260717
+system	Gpr3_R167Y_ASCR3
+site	AutoDL
+replicate	1
+accepted_preproduction_attempt	attempt3_geometry_repair_20260719T152123Z
+production_prefix	gpr3_r167y_ascr3_rep1_200ns
+production_session	gpr3_r167y_ascr3_autodl_rep1_attempt3_20260719T155749Z
+production_nsteps	100000000
+nominal_ns	200
+atoms	139708
+gmx_command	/root/autodl-tmp/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi
+gmx_real_binary	/root/autodl-tmp/igem/envs/gromacs-2025.4-mpi-cuda/bin/gmx_mpi
+threads	24
+gpu_offload	-nb gpu -pme gpu -bonded gpu
+checkpoint_minutes	30
+grompp_warning_count_raw	11
+grompp_unexpected_warning_count	0
+mdrun_started	NO
+gate_completed	2026-07-19T23:58:04+08:00

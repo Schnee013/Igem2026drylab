@@ -1,0 +1,1 @@
+ValueError: coordinate atom order mismatch for POT molecule 98 at local atom 1

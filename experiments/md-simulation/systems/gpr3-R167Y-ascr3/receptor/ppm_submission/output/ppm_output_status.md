@@ -1,86 +1,56 @@
-# Gpr3_R167Y + ASCR3 PPM 2.0 output status
+# Gpr3_R167Y + ASCR3 PPM output route
 
-> Date: 2026-07-06
+> Last updated: 2026-07-17
 >
-> Last audited: 2026-07-12
->
-> Status: PPM raw output and current DUM-free handoff body are present. The
-> historical-to-current input and clean/upload checksum migrations remain
-> unresolved, so CHARMM-GUI submission is on provenance hold.
+> Status: the 2026-07-16 current-input PPM 2.0 rerun superseded the prior
+> checksum-migration hold for the independent-AF3 receptor. After the
+> 2026-07-17 matched-backbone decision, this lineage is retained as
+> starting-structure sensitivity evidence rather than the primary CHARMM-GUI
+> handoff. The MD package remains non-runnable.
 
-## Files
+## Independent-AF3 sensitivity authority
 
-| Field | Value |
+| Layer | Current pointer |
 |---|---|
-| Manual PPM input | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/Gpr3R167YASCR3_ppm2_input.pdb` |
-| Raw PPM output | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/Gpr3R167YASCR3_ppm2_output_raw.pdb` |
-| Clean CHARMM-GUI input | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/Gpr3R167YASCR3_ppm2_output_clean.pdb` |
-| Output manifest | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/ppm_output_manifest.tsv` |
-| Historical submitted input SHA256 | `32dd45cb114e8a59f9ced2d90215315929f01b4a821c2b57be47bdaf8b3b06e5` |
-| Current local input SHA256 | `5116e802a87b4b8b8b67f5c29b8ff574b7917962ab1cb90a7a18ce21dd3e1d21` |
-| Raw output SHA256 | `580400cc55ab8a6b08b3777b77f8b4974be74c46331915e347df1b4db0235cad` |
-| Clean output SHA256 | `4db73a5168dfc396872fc24b791556456d8f59b46dd332a6d30b31262e6ebe11` |
-| Removed DUM HETATM records | `1450` |
+| Submitted input | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/Gpr3R167YASCR3_ppm2_input.pdb` |
+| Versioned rerun status | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_status.md` |
+| Versioned rerun manifest | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_manifest.tsv` |
+| Preserved sensitivity upload | `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/charmm_gui_submission/Gpr3R167YASCR3_charmmgui_input.pdb` |
 
-## Checksum Migration Audit
+The submitted input SHA256 is
+`5116e802a87b4b8b67f5c29b8ff574b7917962ab1cb90a7a18ce21dd3e1d21`.
+The new PPM result job key is `20260716_092235699_8004174`; the accepted
+DUM-free output and upload copy hash to
+`6ff4497787bef8105dd0db378667df67833531b536161a94ebc18da96f5c3c63`.
+Detailed URLs, PPM orientation values, record counts, and validation live only
+in the versioned rerun status above.
 
-| Layer | Historical log SHA256 | Current body SHA256 | Status |
-|---|---|---|---|
-| PPM input / clean receptor | `32dd45cb114e8a59f9ced2d90215315929f01b4a821c2b57be47bdaf8b3b06e5` | `5116e802a87b4b8b8b67f5c29b8ff574b7917962ab1cb90a7a18ce21dd3e1d21` | unresolved replacement |
-| DUM-free clean / CHARMM-GUI upload copy | `488c633f6850ad03d0ddb2c9f6ea203353d41b061db571572c9433ed77d91b45` | `4db73a5168dfc396872fc24b791556456d8f59b46dd332a6d30b31262e6ebe11` | unresolved replacement |
+The primary matched input now reuses the accepted WT PPM frame and is routed by
+`experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md`.
+Do not submit the independent-AF3 upload for the primary WT/R167Y comparison.
 
-The old bodies and an old-to-new migration record are absent. The historical
-PPM result remains associated with the historical submitted-input hash; the
-current local input is not asserted to be that body. The current clean body is
-byte-identical to the package's CHARMM-GUI upload copy, but this only proves
-current internal consistency. Resolve the transition or perform a new,
-versioned PPM/cleaning run before submission.
+## Historical Boundary
 
-## PPM Record
+The root-level raw/clean PDB bodies and `ppm_output_manifest.tsv` record the
+pre-rerun 2026-07-05 chain. Their historical checksum mismatch is not silently
+rewritten. It is operationally superseded by the explicitly versioned
+2026-07-16 job that used the current input body.
 
-| Field | Value |
-|---|---|
-| PPM server/version | `PPM 2.0` |
-| Submission backend | `cgopm fallback endpoint https://cgopm.cc.lehigh.edu/ppm` |
-| Submission date/time | `2026-07-05 17:47:57.017 result-url timestamp; retrieved 2026-07-06 Asia/Shanghai` |
-| Results URL | `https://ppm-results.s3.us-east-2.amazonaws.com/20260705_174757017_9935109/ppm_results.html` |
-| Output PDB URL | `https://ppm-results.s3.us-east-2.amazonaws.com/20260705_174757017_9935109/Gpr3R167YASCR3_ppm2_inputout.pdb` |
-| Full membrane thickness | `31.6 +/- 1.1 A` |
-| Tilt angle | `7 +/- 1 deg` |
-| Transfer energy | `-77.4 kcal/mol` |
-| TM segments | `7; A: 1(12-37), 2(47-69), 3(86-109), 4(128-149), 5(166-187), 6(294-315), 7(326-349)` |
-| Any PPM warnings | `heteroatoms excluded` |
+## Remaining Gate
 
-## Validation
-
-| Field | Raw output | Clean output |
-|---|---:|---:|
-| Atom count | `3158` | `3158` |
-| Residue count | `401` | `401` |
-| CA count | `401` | `401` |
-| Chain | `A` | `A` |
-| Mutation check | `167=TYR` | `167=TYR` |
-| HETATM count | `1450` | `0` |
-| DUM count | `1450` | `0` |
-
-## CHARMM-GUI Handoff
-
-After the checksum-provenance hold is resolved, use `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/Gpr3R167YASCR3_ppm2_output_clean.pdb` as the single-chain GPCR input for CHARMM-GUI Membrane Builder with the package settings in `docs/ops/charmm-gui-membrane-builder.md`: `Use PDB Orientation`, rectangular box, water thickness `22.5 A`, X/Y `90 A`, POPC upper/lower `1`/`1`, KCl `0.15 M`, neutralizing ions, CHARMM36m, GROMACS-only, NPT, `303.15 K`.
-
-## Still Missing
-
-- [ ] historical-to-current input and clean/upload checksum migration resolved or superseded by a versioned rerun
-- [ ] CHARMM-GUI Membrane Builder package
-- [ ] ligand coordinate insertion/completion aligned to the final receptor package
-- [ ] `step6.6.gro` or equivalent final coordinate
-- [ ] `topol_phase3.top` or equivalent topology with molecule counts checked
-- [ ] package-local `index.ndx` regenerated from final coordinates
-- [ ] system-specific `grompp_warning_gate.txt` warning review
+- [x] current Gpr3 input bound to a versioned PPM 2.0 result
+- [x] DUM-free upload contract regenerated and checksum-validated
+- [ ] CHARMM-GUI Membrane Builder returned package
+- [ ] final ASCR3 receptor-frame insertion and clash review
+- [ ] final topology and molecule-count review
+- [ ] package-local index regenerated from final coordinates
+- [ ] system-specific `grompp_warning_gate.txt`
 
 ## References / 所引
 
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/Gpr3R167YASCR3_ppm2_input.pdb`
-- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/Gpr3R167YASCR3_ppm2_output_raw.pdb`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_status.md`
+- `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md`
 - `docs/ops/charmm-gui-membrane-builder.md`
 
 ## Referenced by / 被引
@@ -88,4 +58,4 @@ After the checksum-provenance hold is resolved, use `experiments/md-simulation/s
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/PACKAGE_STATUS.md`
 - `experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/README.md`
 - `codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md`
-- `docs/logs/2026-07-06.md`
+- `docs/logs/2026-07-16.md`

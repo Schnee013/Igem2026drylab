@@ -1,0 +1,8 @@
+status	PASS
+pre_existing_same	41
+pre_missing	1
+pre_conflict	0
+post_existing_same	42
+post_conflict	0
+protected_attempts_and_failed_gate_unchanged	YES
+production_authorized	NO

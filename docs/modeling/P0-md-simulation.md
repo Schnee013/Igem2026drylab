@@ -3,7 +3,7 @@ direction: P0-md-simulation
 status: compute_triage
 priority: P0
 chassis_dependent: false
-last_updated: 2026-07-12
+last_updated: 2026-07-19
 ---
 
 # P0: MD 模拟（机制验证 + 嵌合 Gpa1 稳定性）
@@ -28,13 +28,23 @@ last_updated: 2026-07-12
 >
 > **2026-07-09 校准**：`Gpr2_WT + ASCR18` 200 ns rep1 已在 E2 正常完成并归档 raw/sanity/processed 输入；本地复用 `experiments/md-simulation/analysis/chctrl/` 七个 metric-family drivers 完成单 rep 分析，结果入口为 `../../experiments/md-simulation/results/gpr2-wt-ascr18/analysis/gpr2_wt_ascr18_rep1_chctrl_metric_analysis_20260709.md`。该 rep1 是 WT holo triage evidence，不是 3-rep 统计结论；高 receptor RMSD 与 ASCR18 heavy-atom displacement 需要结构检查，ligand RMSD 暂无预注册分类阈值。
 >
-> **当前 archive / provenance 边界**：E2 上的 Gpr2 WT short benchmark 与 200 ns rep1 final archive 已分别按 Git-visible router manifest 验证为 `40/40 PASS` 与 `48/48 PASS`；payload body 不属于 repo-owned input，只从 `../../experiments/md-simulation/archive-router/README.md` 恢复到 repo 外 payload root。历史 preproduction snapshot 仍为 `11/14` integrity HOLD。两个 mutant system 的历史到当前 PPM/input 与 clean/upload checksum 迁移均缺可证明记录，现有 CHARMM-GUI upload 材料在解决迁移或由版本化重跑取代前不得提交。Gpr3 的 `ASCR3_pose_completed.gro` 是唯一提升为 repo-owned canonical body 的 standalone ligand coordinate。
+> **2026-07-16 运行校准**：`Gpr2_R59C + ASCR18` 已从 CHARMM-GUI receptor-membrane base 完成 receptor-frame ASCR18 insertion、protein/POPC clash review、topology/index gate、EM、step6.1-step6.6 和 100 ps benchmark；最终 holo 为 130,638 atoms，benchmark 为 93.135 ns/day。200 ns rep1 当日已在 E2 启动，首个 checkpoint 可由 GROMACS 解析；这是当时的运行中证据，不是完成或稳定性结论。完成后必须生成 chctrl-compatible processed inputs，复用七 driver 并与 WT rep1 做 matched single-rep comparison。
 >
-> 当前 mutant GPR 主线仍是 local input gate：按 `../../codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md`、`../../experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md` 和 `../../experiments/md-simulation/systems/gpr3-R167Y-ascr3/PACKAGE_STATUS.md` 把 `Gpr2_R59C + ASCR18` / `Gpr3_R167Y + ASCR3` 推进到可审计 MD input package。两个 system 已有 PPM output、CHARMM-GUI upload PDB、system-local `settings.tsv`，Gpr3 另有 ASCR3 46-atom coordinate layer；只有 checksum-provenance HOLD 被解除或由版本化重跑链明确取代后，才可提交并回收 CHARMM-GUI output，随后归档 GROMACS output，再做 final ligand insertion/alignment、topology、index 和 warning review。
+> **2026-07-19 终态与分析校准**：`Gpr2_R59C + ASCR18` 200 ns rep1 已由 XTC/EDR 终点、GROMACS 正常结束标记和空 issue scan 确认物理完成；completed-run finalizer 将 production status 提升为 `finished`，production/final archive 分别通过 `43/43` 与 `55/55` 校验。E2 GROMACS 2025.4 后处理生成 6,438-atom、200,000 ps 的 processed rep1，随后共享七 driver 与 WT/R59C matched single-rep analysis 完成。两条轨迹均有显著 receptor global motion，250–310 区段均为主要贡献；共同排除并重拟合该区段后，R59C 的剩余 backbone RMSD 和 ASCR18 displacement 高于 WT。当前允许用途是 matched single-rep exploratory/triage；population-level genotype inference 需要复制和起始体系控制。
 >
-> **2026-07-06 submission cleanup（历史材料收敛）**：当日将 CHARMM-GUI 人工提交入口降噪为两个 upload PDB 与两个 `settings.tsv`，网页操作步骤复用 `../../docs/ops/charmm-gui-membrane-builder.md`。该条只记录当日的材料收敛；提交就绪性已被 2026-07-12 provenance audit 取代，当前以上述 checksum-provenance HOLD 为准。
+> **2026-07-19 动态口袋校准**：共享 ligand-path driver 复核表明 WT 与 R59C 的 ASCR18 起始接触区域不同，因此当前两条轨迹不能作为“同一口袋只改 residue 59”的因果比较。R59C rep1 的后半程动态接触集中在 `ILE122/ILE126/THR133/GLN134/PHE137`；`GLN134/PHE137` 是强动态锚点，`ILE122` 是 docking/MD 的第一交叉验证候选。residue 59 未进入 `4 A` 直接接触表，更符合间接构象调控假说。当前报告只支持 dynamic-pocket triage；最佳突变需要同起始体系、ASCR18/ASCR3 双配体、至少三次独立重复和功能实验。
 >
-> **2026-07-06 采样队列决策**：为节省 E2 共享 A100 算力，GPR MD 采用 staged funnel。当时队列为先完成并归档 `Gpr2_WT + ASCR18` 200 ns rep1；2026-07-09 已完成该第一步。后续仍按 funnel 推进：先结构检查 WT rep1 caveat，再推进 `Gpr2_R59C + ASCR18` package gate、smoke/benchmark 和 200 ns rep1；先做 Gpr2 WT/mut matched analysis；再启动 Gpr3 matched ASCR3 pair（`Gpr3_WT + ASCR3` 与 `Gpr3_R167Y + ASCR3`）。rep1 稳定时可暂停 rep2/3，待最终 candidate 保留后再补；rep1 只作为 triage evidence，最终 3-rep 统计结论需要完整 rep 设计。
+> **2026-07-17 Gpr3 起始结构校准**：Gpr3 主比较采用 matched-backbone 设计，而不是把独立 AF3 mutant 与 WT 直接比较。R167Y 从已 PPM 定向的 Gpr3 WT backbone 构建，1,604 个 `N/CA/C/O` 主链原子与 WT 逐原子一致；仅 5 A 邻域侧链经 CHARMM36m 局部 EM 清理。主输入使用 `90 A` XY；独立 AF3/PPM mutant 保留为 starting-structure sensitivity evidence。该设计控制起始模型/低置信度环构象差异，但不等价于否定突变可在生产 MD 中驱动真实构象变化。
+>
+> **2026-07-20 Gpr3 R167Y 终态与分析校准**：AutoDL attempt3 的 200 ns rep1 已由 completion gate 确认为 `TERMINAL_NORMAL`（100,000,000 step / 200,000 ps），91-row production archive 在外部 payload mirror 复核为 `91/91 PASS`。同环境 GROMACS 2025.4 postprocess 生成 6,356-atom、2,001-frame processed rep1，共享七 driver 最终全部 exit `0`；45 项 canonical output/content 检查和 55-file analysis manifest 均 PASS。结果入口为 `../../experiments/md-simulation/results/gpr3-r167y-ascr3/README.md` 和其单-rep metric report。当前只允许 `single_rep_exploratory_only` 描述；matched WT 和独立重复仍是 genotype inference 的前置条件。
+>
+> **当前 archive / provenance 边界**：payload body 的 ownership、recoverability 和 checksum 路由按 `../../experiments/md-simulation/archive-router/README.md` 与 [payload tracking policy](../ops/payload-tracking-policy.md) 裁决。Gpr2/Gpr3 的详细 package 与 runtime 状态分别回到各自 `PACKAGE_STATUS.md` 和直接 gate/run artifact；本文不维护第二份实时 checklist。
+>
+> **当前 mutant GPR 状态入口**：Gpr2 见 `../../experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md`；Gpr3 见 `../../experiments/md-simulation/systems/gpr3-R167Y-ascr3/PACKAGE_STATUS.md`、`../../experiments/md-simulation/results/gpr3-r167y-ascr3/README.md` 与 `../../experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/terminal_status.tsv`；项目级优先级和阻塞项见 [docs/INDEX.md](../INDEX.md)。
+>
+> **2026-07-06 submission cleanup（历史材料收敛）**：当日将 CHARMM-GUI 人工提交入口降噪为两个 upload PDB 与两个 `settings.tsv`，网页操作步骤复用 `../../docs/ops/charmm-gui-membrane-builder.md`。该条只记录当日的材料收敛；Gpr2 提交链由 2026-07-15 versioned current-input PPM rerun 支持，Gpr3 的 2026-07-16 PPM rerun 在 2026-07-17 matched-backbone 决策后只保留为 sensitivity provenance。
+>
+> **2026-07-06 采样队列决策**：为节省 E2 共享 A100 算力，GPR MD 采用 staged funnel。Gpr2 mutant rep1 和 WT/mut matched comparison已于 2026-07-19 完成；Gpr3 matched ASCR3 pair（`Gpr3_WT + ASCR3` 与 `Gpr3_R167Y + ASCR3`）的下一门禁按其 system-local status 和当前远端证据处理。rep1 可作为 triage evidence；最终 replicated 统计结论需要完整 replicate 设计。各步当前状态回上方权威入口。
 
 ## 解决什么问题
 
@@ -337,7 +347,7 @@ Phase C5: 分析
 - 2026-06-26 后 chimeric candidate full-production 暂停；旧 Slurm RTX 5090 validated secondary route 保留为历史/未来备选指针。新的 production 需要当前 work order 和审批。
 - 旧 Slurm 操作指南 [slurm-md-server.md](../ops/archives/slurm-md-server.md) 仅保留历史执行记录、硬件和坑位追溯；2026-04-26 Slurm 历史核查和旧 production 日志只用于历史追溯。当前 rerun 结果需要对应结果包。
 - E2 MD/GROMACS 环境证据矩阵见 [e2-md-gromacs.md](../../environments/e2-md-gromacs.md)；站点环境细节不在本文重复维护。
-- chimeric rerun 历史范围为 chctrl + Ch-1/Ch-2/Ch-4；截至 2026-07-12，旧 Slurm control/chctrl 组 3 reps 已完成，E2 路线有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据，但 R1-Z atom-count 降幅不足，candidate full-production 继续暂停。R4 material boundary 回 [docs/INDEX.md](../INDEX.md) 和对应记录。mutant GPR 当前状态回 [docs/INDEX.md](../INDEX.md) 和 `../../codex/docs/plans/mutant-gpr-md-input-gate-plan-20260705.md`；`Gpr2_WT + ASCR18` 200 ns rep1 已完成并有 chctrl-metric 单 rep 分析，未完成门禁是 WT rep1 caveat 的结构检查、两个 mutant system 的 checksum-provenance HOLD、CHARMM-GUI returned output，以及 final coordinate/topology/index/warning review。
+- chimeric rerun 的历史范围、结果入口和当前暂停边界回 [docs/INDEX.md](../INDEX.md)、对应结果包与 material-boundary records。mutant GPR 的详细状态只从上方 system-local `PACKAGE_STATUS.md` 与直接 gate/run artifact 读取。
 
 ### 本地 Windows 节点
 
@@ -346,9 +356,9 @@ Phase C5: 分析
 
 ## 执行 Phase 定义
 
-下表定义 phase 语义和协议边界；当前运行状态以 [docs/INDEX.md](../INDEX.md) 和对应日志为准。
+下表定义 phase 语义和协议边界；当前运行状态以 [docs/INDEX.md](../INDEX.md)、system-local `PACKAGE_STATUS.md` 和直接 gate/run artifact 为准。
 
-> 日志和 memory 中引用 "Phase N" 时，定义以本节为准。
+> 历史材料中引用 "Phase N" 时，定义以本节为准。
 
 | Phase | 名称 | 输入 | 输出 | 状态 |
 |-------|------|------|------|------|
@@ -357,8 +367,8 @@ Phase C5: 分析
 | 2 | Docking pose 提取 + 坐标对齐 | Vina PDBQT + Phase 1 体系 | 膜坐标系下的配体 aligned PDB | Gpr3 ✅ / Gpr2 ✅ (3D offset) |
 | 2.5 | 配体 CGenFF 参数化（去质子化） | 去质子化 SDF | .itp (qtot=-1) | ✅ ASCR18 + ASCR3 |
 | 3 | 拓扑合并 + EM + 平衡化 | Phase 1 体系 + Phase 2 配体 + Phase 2.5 itp | 可跑 production 的 WT holo 体系 | ✅ 完成 (Gpr2 job 6595 + Gpr3 job 6596) |
-| 4 | 突变体引入 | Phase 3 WT holo 体系 + 突变定义 | 突变体体系 (local EM + 6 步 eq) | ⏳ `Gpr2_R59C` / `Gpr3_R167Y` upload 材料处于 checksum-provenance HOLD；解除或版本化取代后仍缺 returned output、final coordinates、topology、index 和 warning review |
-| 5 | Production MD | Phase 3/4 体系 | trajectories (.xtc/.trr) | baseline：`Gpr2_WT + ASCR18` 100 ps E2 short benchmark 和 200 ns rep1 chctrl-metric 单 rep 分析已完成；该 rep1 有高 receptor RMSD 与 ASCR18 heavy-atom displacement signal，mutant/full production 仍需另过输入门禁、结构检查与排程决策 |
+| 4 | 突变体引入 | WT backbone / receptor-membrane base + 突变定义 | matched 突变体体系 (local EM + full package eq) | 具体 gate 结果回 system-local `PACKAGE_STATUS.md` 与 validator artifact |
+| 5 | Production MD | Phase 3/4 体系 | trajectories (.xtc/.trr) | 运行与终态回 run-local `run_state_events.tsv`；项目级投影回 INDEX |
 | 6 | 分析 | trajectories | 盐桥占比 / RMSD / IFP / MM-PBSA | 协议定义；当前分析状态回 [docs/INDEX.md](../INDEX.md)、日志和结果包 |
 | **C1** | **Chimeric 结构准备** | AF3 CIF / PDB 7AD3 | 清理 PDB + PPM 对齐 | ✅ 完成 |
 | **C2** | **Chimeric 膜体系构建** | PPM 对齐 PDB | CHARMM-GUI GROMACS 输出 | ✅ 完成 |
@@ -383,6 +393,13 @@ Phase C5: 分析
 2. PyMOL `mutagenesis wizard`（单点突变 + 最优 rotamer 选择）或 CHARMM-GUI PDB Manipulator
 3. 突变残基局部 EM 消除新侧链 clash
 4. 完整 6 步 eq（同 Phase 3 step 5）
+
+Gpr3 matched route 的具体实现以
+`../../experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md`
+为准：突变发生在 PPM-oriented WT receptor 上，主链坐标保持一致；WT
+receptor/membrane base 复用 CHARMM-GUI job `7628627163`，R167Y
+receptor/membrane base 已由 job `8426884163` 返回并归档。独立 AF3/PPM
+mutant 不作为 primary comparison 起点。
 
 ### 历史突变体 MD 阻塞关系（2026-04 snapshot；当前状态回 INDEX）
 
@@ -461,10 +478,19 @@ Phase 6 → 阻塞于 Phase 5
 | 2026-07-04/05 | R4 source/material gate 历史链 | 具体 source/method/material 历史回 `experiments/chimeric-gpa1/literature/` 对应记录；当前 route/status 从 [docs/INDEX.md](../INDEX.md) 和 R4 material-boundary records 进入 |
 | 2026-07-05 | WT holo E2 short benchmark | `Gpr2_WT + ASCR18` 100 ps 短时 MD benchmark 完成，作为 mutant GPR 前测资源基线；突变体稳定性或 full-production 收敛结论需要独立轨迹证据 |
 | 2026-07-05/06 | Mutant GPR local input gate | 两个 mutant system 已从 AF3/package design 推进到 ligand topology scaffold、clean receptor、PPM output、CHARMM-GUI upload PDB 和 `settings.tsv`；runnable status 仍待 CHARMM-GUI output、final coordinates、topology、index 和 warning review |
-| 2026-07-06 | Mutant GPR CHARMM-GUI cleanup | 当日入口收敛为 upload PDB + `settings.tsv` + 通用操作指南；该材料就绪性后被 2026-07-12 provenance audit 取代，当前必须先解除或版本化取代 checksum-provenance HOLD，才可提交和回收 output |
+| 2026-07-06 | Mutant GPR CHARMM-GUI cleanup | 当日入口收敛为 upload PDB + `settings.tsv` + 通用操作指南；后续 checksum-provenance HOLD 已分别由 Gpr2 2026-07-15 与 Gpr3 2026-07-16 current-input PPM rerun 解除 |
 | 2026-07-06 | GPR sampling queue and WT rep1 launch | 队列收缩为先完成 `Gpr2_WT + ASCR18` rep1，再做 Gpr2 WT/mut matched analysis；当日只有 rep1 launch-gate/started 证据 |
 | 2026-07-09 | GPR WT rep1 completion and chctrl metrics | `Gpr2_WT + ASCR18` 200 ns rep1 正常完成并归档 raw/sanity/processed 输入；复用 chctrl 七指标 driver family 生成单 rep 分析，结果提示高 receptor RMSD 与 ASCR18 heavy-atom displacement，ligand RMSD 暂无预注册分类阈值 |
 | 2026-07-12 | Payload/provenance repair | Gpr2 WT result package 补 recovery contract；checksum self-entry 修复；preproduction 与 final raw 缺口保留为 HOLD/PARTIAL；两个 mutant upload 包进入 checksum-provenance HOLD；ASCR3 GRO 明确为 canonical coordinate body |
+| 2026-07-15 | Gpr2 mutant current-input PPM rerun | PPM 2.0 job `20260715_121304156_5202956` 绑定当前 Gpr2 input；远端 raw checksum 复核通过，DUM-free output 更新为 upload contract；Gpr2 provenance HOLD 解除，runnable gate 仍待 CHARMM-GUI return 与 final package review |
+| 2026-07-16 | Gpr2 mutant CHARMM-GUI return intake | 回收 job `8417129094` 的 130,720-atom receptor-membrane base；确认 R59C receptor、201 POPC、solvent/ions 齐全但 ASCR18 缺失，当前进入 ligand insertion 与 final topology/index/warning gate |
+| 2026-07-16 | Gpr2 mutant preproduction and rep1 launch | 完成 ASCR18 holo 组装、130,638-atom package gate、EM、step6.1-step6.6、100 ps benchmark 和 11-warning production gate；启动 200 ns rep1并验证首个 checkpoint 可解析，尚无 completion/analysis claim |
+| 2026-07-19 | Gpr2 mutant rep1 completion and matched analysis | 200 ns physical completion、validator finalization、E2 postprocess、共享七 driver 和 WT/R59C matched single-rep comparison 全部完成；结果作为单 rep exploratory/triage evidence，复制与起始体系控制仍是 genotype inference 的前置条件 |
+| 2026-07-19 | Gpr2 WT/R59C ligand-path and dynamic-pocket triage | 共同受体 refit、centroid path 与 `4 A` contact occupancy 显示两臂起始口袋不同；R59C 动态接触区集中在 `ILE122/ILE126/THR133/GLN134/PHE137`，`ILE122` 仅为第一交叉验证候选，不是最佳突变结论 |
+| 2026-07-16 | Gpr3 mutant current-input PPM rerun | PPM 2.0 job `20260716_092235699_8004174` 绑定当前 Gpr3 input；远端 raw checksum 复核通过，DUM-free output 与 upload contract byte-identical；Gpr3 provenance HOLD 解除，runnable gate 仍待 CHARMM-GUI return、ASCR3 insertion 与 final package review |
+| 2026-07-17 | Gpr3 matched-backbone primary route | 以 PPM-oriented WT backbone 构建 exact-backbone R167Y，局部 CHARMM36m EM 后生成 primary CHARMM-GUI upload；WT 复用 job `7628627163` receptor-only base，独立 AF3/PPM chain 降为 sensitivity-only，ASCR3 待 frame transform |
+| 2026-07-17 | Gpr3 matched R167Y CHARMM-GUI return intake | 回收并归档 job `8426884163` 的 139,798-atom receptor-membrane base；401-residue receptor 的 residue 167 为 TYR，ASCR3 按设计缺失；当前进入 ASCR3 transform、双臂 insertion 与 final package gate |
+| 2026-07-20 | Gpr3 R167Y rep1 completion and seven-driver analysis | AutoDL 200 ns rep1 `TERMINAL_NORMAL`；91-row production archive、同环境 postprocess、共享七 driver、45 项 canonical validation 与 55-file analysis manifest 全部 PASS；当前只支持 single-rep exploratory interpretation |
 
 ## 版本记录
 
@@ -489,6 +515,15 @@ Phase 6 → 阻塞于 Phase 5
 | 2026-07-06 | v3.9-v3.12 | CHARMM-GUI 当前路由收敛为 upload PDB + `settings.tsv` + 通用操作指南后的手工提交和 final package review | `../logs/2026-07-06.md` |
 | 2026-07-09 | v3.13 | 更新 `Gpr2_WT + ASCR18` 200 ns rep1 completion、processed 输入和 chctrl-metric 单 rep 分析入口；保留 high receptor RMSD / ligand displacement caveat，但不套用 alpha5 分类阈值 | [2026-07-09 日志](../logs/2026-07-09.md), `../../experiments/md-simulation/results/gpr2-wt-ascr18/analysis/gpr2_wt_ascr18_rep1_chctrl_metric_analysis_20260709.md` |
 | 2026-07-12 | v3.14 | 校准 GPR metric 语义与 payload/provenance gate；修复版本时间链 | [2026-07-12 日志](../logs/2026-07-12.md) |
+| 2026-07-15 | v3.15 | 用 current-input PPM 2.0 rerun 解除 Gpr2 mutant checksum-provenance HOLD；保留 CHARMM-GUI return 与 final package gate | [2026-07-15 日志](../logs/2026-07-15.md), `../../experiments/md-simulation/systems/gpr2-R59C-ascr18/receptor/ppm_submission/output/20260715_current_input_rerun/ppm_output_status.md` |
+| 2026-07-16 | v3.16 | 记录 Gpr2 mutant CHARMM-GUI job `8417129094` return intake；将当前 gate 收敛为 ASCR18 insertion、final topology/index 与 warning review | [2026-07-16 日志](../logs/2026-07-16.md), `../../experiments/md-simulation/systems/gpr2-R59C-ascr18/gromacs/charmm_gui_return_status.md` |
+| 2026-07-16 | v3.17 | 记录 Gpr2 mutant holo/preproduction gate、100 ps benchmark、200 ns rep1 launch 与首个 checkpoint；当前未完成项转为 production 终态、七 driver 和 WT/R59C matched analysis | [2026-07-16 日志](../logs/2026-07-16.md), `../../experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md` |
+| 2026-07-16 | v3.18 | 用 current-input PPM 2.0 rerun 解除 Gpr3 mutant checksum-provenance HOLD；当前动作转为人工 CHARMM-GUI submission/return，ASCR3 仍在 returned receptor frame 中后插入 | [2026-07-16 日志](../logs/2026-07-16.md), `../../experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/ppm_submission/output/20260716_current_input_rerun/ppm_output_status.md` |
+| 2026-07-17 | v3.19 | 将 Gpr3 主比较改为 WT-oriented matched backbone；记录 exact-backbone/local-EM receptor、WT base 复用、独立 AF3 sensitivity 边界与 ASCR3 frame-transform gate | [2026-07-17 日志](../logs/2026-07-17.md), `../../experiments/md-simulation/systems/gpr3-R167Y-ascr3/receptor/matched_backbone_status.md` |
+| 2026-07-17 | v3.20 | 记录 Gpr3 matched R167Y CHARMM-GUI job `8426884163` return intake；将当前 gate 收敛为 ASCR3 transform、双臂 insertion、final topology/index 与 warning review | [2026-07-17 日志](../logs/2026-07-17.md), `../../experiments/md-simulation/systems/gpr3-R167Y-ascr3/gromacs/charmm_gui_return_status.md` |
+| 2026-07-19 | v3.21 | 记录 Gpr2 R59C rep1 physical completion、validator finalization、processed payload、共享七 driver 和 WT/R59C matched single-rep 结论与证据边界 | [2026-07-19 日志](../logs/2026-07-19.md), `../../experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_matched_comparison_20260719.md` |
+| 2026-07-19 | v3.22 | 增加 WT/R59C ligand-path、动态接触区和候选突变证据门；记录 Kabsch row-vector 修复与当前“不能宣布最佳突变”的边界 | [2026-07-19 日志](../logs/2026-07-19.md), `../../experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_ligand_path_pocket_triage_20260719.md` |
+| 2026-07-20 | v3.23 | 记录 Gpr3 R167Y 200 ns rep1 completion、91-row archive、同环境 postprocess、共享七 driver 和 single-rep interpretation boundary | [2026-07-20 日志](../logs/2026-07-20.md), `../../experiments/md-simulation/results/gpr3-r167y-ascr3/analysis/gpr3_r167y_ascr3_rep1_chctrl_metric_analysis_20260720.md` |
 
 ## 与其他方向的依赖关系
 

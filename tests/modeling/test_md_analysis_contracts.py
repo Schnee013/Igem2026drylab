@@ -36,6 +36,15 @@ HBOND = load_hbond_module()
 
 
 class MdAnalysisContractTests(unittest.TestCase):
+    WT_GPR2_CONFIG = (
+        ROOT
+        / "experiments/md-simulation/results/gpr2-wt-ascr18/chimeric_systems.gpr2_wt_ascr18_rep1.json"
+    )
+    R59C_GPR2_CONFIG = (
+        ROOT
+        / "experiments/md-simulation/results/gpr2-r59c-ascr18/chimeric_systems.gpr2_r59c_ascr18_rep1.json"
+    )
+
     def test_external_payload_root_keeps_analysis_outputs_in_repo_tree(self) -> None:
         config = {
             "default": "test-system",
@@ -108,6 +117,69 @@ class MdAnalysisContractTests(unittest.TestCase):
         self.assertEqual(
             context.replicates()[0].topology,
             direct / "processed/rep1/protein_ref.pdb",
+        )
+
+    def test_gpr2_r59c_config_matches_wt_metric_contract(self) -> None:
+        wt_root = json.loads(self.WT_GPR2_CONFIG.read_text(encoding="utf-8"))
+        r59c_root = json.loads(self.R59C_GPR2_CONFIG.read_text(encoding="utf-8"))
+        wt = wt_root["systems"][wt_root["default"]]
+        r59c = r59c_root["systems"][r59c_root["default"]]
+
+        shared_fields = (
+            "selection_rmsd_label",
+            "selection_rmsd_selection_label",
+            "selection_rmsd_selection",
+            "interaction_partner_role",
+            "com_target_label",
+            "plot_segids",
+            "galpha",
+            "junction_rmsf_regions",
+        )
+        for field in shared_fields:
+            self.assertEqual(r59c[field], wt[field], field)
+        self.assertEqual(r59c["receptor"]["selection"], wt["receptor"]["selection"])
+        self.assertEqual(
+            r59c["receptor"]["interface_selection"],
+            wt["receptor"]["interface_selection"],
+        )
+        self.assertEqual(
+            r59c["receptor"]["interface_clusters"],
+            wt["receptor"]["interface_clusters"],
+        )
+        for heuristic in (
+            "selection_rmsd_mean_heuristic",
+            "bsa_mean_fraction_heuristic",
+            "contact_mean_fraction_heuristic",
+            "hbond_occupancy_reporting_heuristic",
+        ):
+            self.assertNotIn(heuristic, wt)
+            self.assertNotIn(heuristic, r59c)
+
+    def test_gpr2_r59c_config_resolves_single_rep_external_payload(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            payload_root = Path(temporary_directory) / "gpr2-r59c-ascr18"
+            with patch.dict(
+                os.environ,
+                {
+                    "CHIMERIC_MD_PAYLOAD_ROOT": str(payload_root),
+                    "CHIMERIC_MD_REPS": "1",
+                },
+                clear=False,
+            ):
+                context = analysis_context(config_path=self.R59C_GPR2_CONFIG)
+                replicates = context.replicates()
+
+        self.assertEqual(context.system, "gpr2-r59c-ascr18-rep1")
+        self.assertEqual(context.interaction_partner_role, "ligand")
+        self.assertEqual(context.selection_rmsd_mean_heuristic, None)
+        self.assertEqual(len(replicates), 1)
+        self.assertEqual(
+            replicates[0].topology,
+            payload_root / "processed/rep1/protein_ref.pdb",
+        )
+        self.assertEqual(
+            replicates[0].trajectory,
+            payload_root / "processed/rep1/prod_protein.xtc",
         )
 
     def test_duplicate_replicate_numbers_are_rejected(self) -> None:
