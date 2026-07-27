@@ -11,6 +11,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import numpy as np
 import pandas as pd
 
 
@@ -19,7 +20,11 @@ COMMON_DIR = ROOT / "src/modeling/md-analysis"
 if str(COMMON_DIR) not in sys.path:
     sys.path.insert(0, str(COMMON_DIR))
 
-from common import analysis_context, configured_replicate_numbers
+from common import (
+    analysis_context,
+    configured_replicate_numbers,
+    equal_weight_kabsch_coordinates,
+)
 
 
 def load_hbond_module():
@@ -44,6 +49,48 @@ class MdAnalysisContractTests(unittest.TestCase):
         ROOT
         / "experiments/md-simulation/results/gpr2-r59c-ascr18/chimeric_systems.gpr2_r59c_ascr18_rep1.json"
     )
+
+    def test_equal_weight_kabsch_recovers_reference_frame(self) -> None:
+        reference = np.array(
+            [
+                [0.0, 0.0, 0.0],
+                [2.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0],
+            ]
+        )
+        row_rotation = np.array(
+            [
+                [0.0, -1.0, 0.0],
+                [1.0, 0.0, 0.0],
+                [0.0, 0.0, 1.0],
+            ]
+        )
+        translation = np.array([4.0, -3.0, 2.0])
+        mobile = reference @ row_rotation + translation
+        coordinates_reference = np.array(
+            [
+                [0.25, 0.25, 1.0],
+                [1.25, -0.25, 0.5],
+            ]
+        )
+        coordinates_mobile = coordinates_reference @ row_rotation + translation
+
+        aligned, fit_rmsd = equal_weight_kabsch_coordinates(
+            mobile,
+            reference,
+            coordinates_mobile,
+        )
+
+        self.assertTrue(np.allclose(aligned, coordinates_reference, atol=1e-6))
+        self.assertAlmostEqual(fit_rmsd, 0.0, places=6)
+
+    def test_equal_weight_kabsch_rejects_fit_shape_mismatch(self) -> None:
+        with self.assertRaisesRegex(ValueError, "fit selection shape mismatch"):
+            equal_weight_kabsch_coordinates(
+                np.zeros((3, 3)),
+                np.zeros((4, 3)),
+                np.zeros((1, 3)),
+            )
 
     def test_external_payload_root_keeps_analysis_outputs_in_repo_tree(self) -> None:
         config = {

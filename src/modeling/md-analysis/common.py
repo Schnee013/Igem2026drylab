@@ -12,6 +12,7 @@ import os
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from MDAnalysis.analysis import align
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 CONFIG_PATH = REPO_ROOT / "experiments/md-simulation/analysis/chimeric_systems.json"
@@ -265,6 +266,46 @@ def time_ns(ts) -> float:
         return float(ts.time) / 1000.0
     except Exception:
         return float(ts.frame)
+
+
+def equal_weight_kabsch_coordinates(
+    mobile_fit: np.ndarray,
+    reference_fit: np.ndarray,
+    coordinates: np.ndarray,
+) -> tuple[np.ndarray, float]:
+    """Transform row-vector coordinates with an equal-weight Kabsch fit.
+
+    ``MDAnalysis.analysis.align.rotation_matrix`` returns a matrix acting on
+    column vectors. MDAnalysis atom coordinates are stored as row vectors, so
+    the returned matrix must be transposed when applied with ``@``.
+    """
+    mobile_fit = np.asarray(mobile_fit, dtype=float)
+    reference_fit = np.asarray(reference_fit, dtype=float)
+    coordinates = np.asarray(coordinates, dtype=float)
+    if mobile_fit.shape != reference_fit.shape:
+        raise ValueError(
+            "fit selection shape mismatch: "
+            f"{mobile_fit.shape} != {reference_fit.shape}"
+        )
+    if mobile_fit.ndim != 2 or mobile_fit.shape[1] != 3 or len(mobile_fit) == 0:
+        raise ValueError(
+            "fit selections must be non-empty N x 3 coordinate arrays: "
+            f"got {mobile_fit.shape}"
+        )
+    if coordinates.ndim != 2 or coordinates.shape[1] != 3:
+        raise ValueError(
+            "coordinates must be an N x 3 array: "
+            f"got {coordinates.shape}"
+        )
+
+    mobile_center = mobile_fit.mean(axis=0)
+    reference_center = reference_fit.mean(axis=0)
+    rotation, fit_rmsd = align.rotation_matrix(
+        mobile_fit - mobile_center,
+        reference_fit - reference_center,
+    )
+    aligned = (coordinates - mobile_center) @ rotation.T + reference_center
+    return aligned, float(fit_rmsd)
 
 
 def linear_slope(x: np.ndarray, y: np.ndarray) -> float:
