@@ -19,7 +19,6 @@ sys.path.insert(0, str(Path("src/modeling/md-analysis").resolve()))
 import numpy as np
 import pandas as pd
 import MDAnalysis as mda
-from MDAnalysis.analysis import align
 from MDAnalysis.coordinates.PDB import PDBWriter
 from MDAnalysis.lib.distances import distance_array
 
@@ -29,6 +28,7 @@ from common import (
     analysis_context,
     configured_replicate_numbers,
     ensure_dir,
+    equal_weight_kabsch_coordinates,
     time_ns,
 )
 
@@ -195,9 +195,11 @@ def selection_counts(u: mda.Universe, rep: str) -> list[dict]:
 
 
 def fit_rmsd(mob_fit, ref_fit_pos, mob_sel, ref_sel_pos) -> float:
-    mob_com = mob_fit.center_of_mass()
-    R, _ = align.rotation_matrix(mob_fit.positions - mob_com, ref_fit_pos)
-    mob = np.dot(mob_sel.positions - mob_com, R)
+    mob, _ = equal_weight_kabsch_coordinates(
+        mob_fit.positions,
+        ref_fit_pos,
+        mob_sel.positions,
+    )
     diff = mob - ref_sel_pos
     return float(np.sqrt((diff * diff).sum() / len(mob)))
 
@@ -218,10 +220,9 @@ def scan_alt_alpha5_rmsd(rep) -> pd.DataFrame:
     for scheme, spec in schemes.items():
         mobs[scheme] = u.select_atoms(spec)
         ref_fit = ref.select_atoms(spec)
-        ref_com = ref_fit.center_of_mass()
         refs[scheme] = {
-            "fit_pos": ref_fit.positions - ref_com,
-            "a5_pos": ref_a5.positions - ref_com,
+            "fit_pos": ref_fit.positions.copy(),
+            "a5_pos": ref_a5.positions.copy(),
         }
     rows = []
     for ts in u.trajectory:
