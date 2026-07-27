@@ -130,4 +130,4 @@
 
 - Log implementation and verified milestones in the relevant `docs/logs/YYYY-MM-DD.md` file first.
 - Update `docs/INDEX.md` and `docs/modeling/P0-md-simulation.md` only after durable status changes, such as recovered inputs, accepted smoke tests, or accepted production replicates.
-- Keep `codex/docs/memory/` pointer-based; detailed procedure remains in this plan.
+- Keep detailed procedure in this plan; route current project-level status through `docs/INDEX.md`.

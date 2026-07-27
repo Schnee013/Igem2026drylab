@@ -1,5 +1,9 @@
 # Execution discipline
 
+> Frozen historical snapshot. Retained for traceability; not an active policy
+> source. Current repository governance starts at `AGENTS.md` and
+> `docs/DOCMAP.md`.
+
 > Distilled from Claude feedback memories: `feedback_memory_not_terminal_source.md`, `feedback_completion_claim.md`, `feedback_read_before_quoting.md`, `feedback_universal_quantifier.md`, `feedback_math_derivation_verify.md`, `feedback_grep_all_callers.md`, and recent Codex latency incident.
 
 ## Short path for simple tasks

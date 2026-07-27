@@ -1,20 +1,19 @@
 # Mutant GPR MD Input-Gate Plan
 
-> Date: 2026-07-05; cleaned current route: 2026-07-12.
+> Date: 2026-07-05; route boundary clarified: 2026-07-27.
 >
-> Scope: current local input-gate route for `Gpr2_R59C + ASCR18` and
-> `Gpr3_R167Y + ASCR3`.
+> Scope: historical execution-order plan for the local input gates of
+> `Gpr2_R59C + ASCR18` and `Gpr3_R167Y + ASCR3`.
 >
-> Status: two system-local CHARMM-GUI upload packages exist. Neither mutant
-> system may be submitted yet because the historical-to-current PPM input and
-> clean/upload checksum migrations remain on provenance hold. After that hold
-> is resolved or superseded by a versioned rerun, runnable status still requires
-> CHARMM-GUI returned output, final ligand insertion/alignment, final topology,
-> package-local index, and warning review.
+> Status: live state is not maintained here. Before reuse, start from
+> `docs/INDEX.md`, then verify the relevant system-local `PACKAGE_STATUS.md`,
+> run-local artifacts, current logs, and direct outputs. The gate sequence below
+> is retained as provenance and must not be executed from its dated status
+> wording alone.
 
-## Current Authority
+## Reuse Authority
 
-Use these files as the current input-gate authority:
+Recalibrate this plan against these repository authorities:
 
 | Layer | Current pointer |
 |---|---|
@@ -31,7 +30,10 @@ Use these files as the current input-gate authority:
 The former session-local analysis scaffold is not a current authority source.
 System-local status files and output manifests now carry the durable route.
 
-## Next Gate
+## Historical Gate Sequence
+
+Do not execute this sequence without first replacing its dated preconditions
+with current evidence from the reuse authorities above.
 
 1. For each system, reconcile the historical-to-current PPM input and
    clean/upload checksum transitions recorded in its
