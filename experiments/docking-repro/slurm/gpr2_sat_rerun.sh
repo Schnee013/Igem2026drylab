@@ -10,7 +10,7 @@
 
 # Gpr2 Saturation Scan 重跑 — 用 3D box offset [6.17, 0.65, -7.85]
 # M327 × 18 AA + R59 × 18 AA = 36 突变体 × 2 配体 = 72 次对接
-# → ~/.claude/plans/charmmgui-membrane-builder-gpr2-icl-vin-whimsical-ripple.md
+# → 设计与执行记录: docs/logs/2026-04-23.md
 
 cd ~/drylab-docking
 

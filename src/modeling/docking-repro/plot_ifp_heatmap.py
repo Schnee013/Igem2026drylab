@@ -9,6 +9,8 @@ from __future__ import annotations
 
 import json
 import sys
+import csv
+import argparse
 from pathlib import Path
 
 import matplotlib
@@ -23,17 +25,27 @@ from utils import get_project_root, load_config
 
 LIGANDS = ["ascr18", "ascr3", "ascr7"]
 
-# Channel A 候选（2026-04-10 alanine scan 结果）
-TIER1 = {
+# 早期重点扫描残基（用于给行标签上色；不表示配体方向或接触强度）
+PRIMARY_FOCUS_RESIDUES = {
     "Gpr2": {"M327", "R59"},
     "Gpr3": {"I141"},
     "GprC": set(),
 }
-TIER2 = {
+SECONDARY_FOCUS_RESIDUES = {
     "Gpr2": set(),
     "Gpr3": {"F170", "V138"},
     "GprC": set(),
 }
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Plot WT docking IFP contact-frequency heatmaps.")
+    parser.add_argument(
+        "--ifp-subdir",
+        default=None,
+        help="IFP result subdirectory under paths.results_dir. Defaults to config paths.ifp_subdir.",
+    )
+    return parser.parse_args()
 
 
 def residue_label(key: str) -> str:
@@ -54,6 +66,43 @@ def residue_label(key: str) -> str:
 
 def total_contacts(interaction_dict: dict) -> int:
     return sum(interaction_dict.values())
+
+
+def load_contact_data(ifp_dir: Path, receptors: list[str]) -> dict:
+    """Load IFP contact counts, rebuilding from ifp_all.csv if JSON is incomplete."""
+    json_path = ifp_dir / "contact_frequency.json"
+    data = json.loads(json_path.read_text()) if json_path.exists() else {}
+
+    expected_keys = {f"{rec}_{lig}" for rec in receptors for lig in LIGANDS}
+    if expected_keys.issubset(data.keys()):
+        return data
+
+    csv_path = ifp_dir / "ifp_all.csv"
+    if not csv_path.exists():
+        missing = ", ".join(sorted(expected_keys - set(data.keys())))
+        raise FileNotFoundError(
+            f"{json_path} is missing required keys ({missing}) and {csv_path} does not exist"
+        )
+
+    rebuilt: dict[str, dict[str, dict[str, int]]] = {}
+    with csv_path.open(newline="") as handle:
+        reader = csv.DictReader(handle)
+        for row in reader:
+            receptor = row["receptor"]
+            ligand = row["ligand"]
+            if receptor not in receptors or ligand not in LIGANDS:
+                continue
+            key = f"{receptor}_{ligand}"
+            residue = row["residue"]
+            interaction = row["interaction"]
+            count = int(float(row["count"]))
+            rebuilt.setdefault(key, {}).setdefault(residue, {})[interaction] = count
+
+    missing = expected_keys - set(rebuilt.keys())
+    if missing:
+        raise ValueError(f"{csv_path} does not contain required receptor-ligand keys: {sorted(missing)}")
+
+    return rebuilt
 
 
 def plot_receptor(ax, rec: str, data: dict, scan_residues: list[int], wt_sel: float):
@@ -103,8 +152,14 @@ def plot_receptor(ax, rec: str, data: dict, scan_residues: list[int], wt_sel: fl
 
         in_scan = resnum in scan_residues
         short = label[0]
-        in_t1 = short + num_str in TIER1.get(rec, set()) or label in TIER1.get(rec, set())
-        in_t2 = short + num_str in TIER2.get(rec, set()) or label in TIER2.get(rec, set())
+        in_t1 = (
+            short + num_str in PRIMARY_FOCUS_RESIDUES.get(rec, set())
+            or label in PRIMARY_FOCUS_RESIDUES.get(rec, set())
+        )
+        in_t2 = (
+            short + num_str in SECONDARY_FOCUS_RESIDUES.get(rec, set())
+            or label in SECONDARY_FOCUS_RESIDUES.get(rec, set())
+        )
         yticks.append((label, in_scan, in_t1, in_t2))
 
     ax.set_yticklabels([t[0] for t in yticks], fontsize=7.5)
@@ -141,29 +196,30 @@ def plot_receptor(ax, rec: str, data: dict, scan_residues: list[int], wt_sel: fl
 
 
 def main():
+    args = parse_args()
     config = load_config(str(_this_dir / "config.yaml"))
     root = get_project_root(config)
-
-    ifp_json = root / config["paths"]["results_dir"] / config["paths"]["ifp_subdir"] / "contact_frequency.json"
-    data = json.loads(ifp_json.read_text())
-
-    scan_residues_cfg = config["mutagenesis"]["scan_residues"]
 
     wt_sel = {
         "GprC": -8.275 - (-7.477),   # -0.798
         "Gpr2": -6.834 - (-6.430),   # -0.404
         "Gpr3": -5.726 - (-5.921),   # +0.195
     }
+    receptors = ["GprC", "Gpr2", "Gpr3"]
+
+    ifp_subdir = args.ifp_subdir or config["paths"]["ifp_subdir"]
+    ifp_dir = root / config["paths"]["results_dir"] / ifp_subdir
+    data = load_contact_data(ifp_dir, receptors)
+
+    scan_residues_cfg = config["mutagenesis"]["scan_residues"]
 
     out_dir = root / config["paths"]["analysis_dir"]
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    receptors = ["GprC", "Gpr2", "Gpr3"]
-
     fig, axes = plt.subplots(1, 3, figsize=(16, 10),
                              gridspec_kw={"wspace": 0.45})
-    fig.suptitle("IFP Contact Frequency Heatmap — WT Docking (singlestage, exh=200)\n"
-                 "Values = contact counts across 20 poses; color intensity proportional to frequency",
+    fig.suptitle("IFP Contact Frequency Heatmap — WT receptor docking\n"
+                 "Darker cells = more contacts across 20 poses; row-label colors mark residue sets, not ligand preference",
                  fontsize=11, y=1.01)
 
     last_im = None
@@ -178,9 +234,9 @@ def main():
 
     # 图例
     legend_elements = [
-        mpatches.Patch(color="#d62728", label="Channel A (sel_mut < -0.477)"),
-        mpatches.Patch(color="#ff7f0e", label="neutral moderate"),
-        mpatches.Patch(color="#1f77b4", label="Current scan_residues"),
+        mpatches.Patch(color="#d62728", label="Primary focus residues"),
+        mpatches.Patch(color="#ff7f0e", label="Secondary focus residues"),
+        mpatches.Patch(color="#1f77b4", label="Current scan residues"),
         mpatches.Patch(color="black",   label="Other contact residues"),
     ]
     fig.legend(handles=legend_elements, loc="lower center",

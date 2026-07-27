@@ -75,12 +75,9 @@ last_updated: 2026-07-09
 
 ## 5. MD 验证输入清单
 
-当前 staged funnel：
-
-- `Gpr2_WT + ASCR18` 100 ps 资源基线和 200 ns rep1 已完成；rep1 有高 receptor RMSD 与 ASCR18 heavy-atom displacement signal，且 ligand RMSD 暂无预注册分类阈值；下一步先做结构检查。
-- `Gpr2_R59C + ASCR18` 进入 package gate、smoke/benchmark 和 200 ns rep1。
-- Gpr2 WT/mut matched analysis 完成后，再启动 `Gpr3_WT + ASCR3` / `Gpr3_R167Y + ASCR3` matched pair。
-- rep1 稳定时暂停 rep2/3，最终 candidate 保留后补齐。
+MD 执行顺序和实时状态由 [INDEX](../INDEX.md)、对应 system-local
+`PACKAGE_STATUS.md` 和直接 gate/run artifact 路由；本清单只维护候选体系身份和
+MD gate 的科学目的。
 
 当前最小 MD 输入集合：
 
