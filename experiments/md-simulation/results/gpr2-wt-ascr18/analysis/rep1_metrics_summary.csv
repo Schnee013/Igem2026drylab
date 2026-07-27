@@ -2,8 +2,8 @@ metric,stat,value,note
 convergence_backbone_rmsd,after100_mean_A,12.6186,Gpr2 backbone RMSD; chctrl convergence family
 convergence_backbone_rmsd,after100_final_A,13.1302,Gpr2 backbone RMSD at 200 ns
 convergence_rg,after100_mean_A,27.711,Gpr2 CA radius of gyration
-ligand_pose_rmsd,after100_mean_A,5.63561,ASCR18 heavy-atom RMSD after Gpr2/SOLU backbone fit; descriptive only; no ligand-specific cutoff configured
-ligand_pose_rmsd,after100_max_A,11.7193,ASCR18 heavy-atom RMSD maximum after 100 ns; descriptive only; no ligand-specific cutoff configured
+ligand_pose_rmsd,after100_mean_A,5.63647,ASCR18 heavy-atom RMSD after equal-weight Gpr2/SOLU backbone fit; descriptive only; no ligand-specific cutoff configured
+ligand_pose_rmsd,after100_max_A,11.7228,ASCR18 heavy-atom RMSD maximum after 100 ns; descriptive only; no ligand-specific cutoff configured
 com_distance_gpr2_all_readout,after100_mean_A,35.4901,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM
 com_distance_gpr2_all_readout,after100_final_A,36.0808,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM at 200 ns
 com_distance_gpr2_primary_59_119_122_138,after100_mean_A,38.9451,ASCR18 heavy-atom COM to configured Gpr2 readout cluster COM

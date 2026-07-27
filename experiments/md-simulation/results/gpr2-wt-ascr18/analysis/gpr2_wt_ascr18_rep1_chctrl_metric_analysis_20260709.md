@@ -1,6 +1,6 @@
 # Gpr2 WT + ASCR18 rep1 chctrl-metric analysis
 
-> Original analysis cleanrun: 2026-07-09 00:24-00:31 +0800; shared-driver semantic-contract regeneration: 2026-07-12 +0800 from the same local processed rep1 inputs.
+> Original analysis cleanrun: 2026-07-09 00:24-00:31 +0800; shared-driver semantic-contract regeneration: 2026-07-12 +0800; equal-weight Kabsch correction regeneration: 2026-07-27 +0800 from the same checksum-verified processed rep1 inputs.
 > Scope: reuse the existing chctrl rep1 metric-family drivers on `Gpr2_WT + ASCR18` 200 ns rep1. This is a single WT holo replicate, not a 3-replicate statistical conclusion.
 
 ## Completion and sanity
@@ -16,7 +16,7 @@
 
 - Existing chctrl drivers were reused from `experiments/md-simulation/analysis/chctrl/` with `CHIMERIC_MD_CONFIG=experiments/md-simulation/results/gpr2-wt-ascr18/chimeric_systems.gpr2_wt_ascr18_rep1.json` and `CHIMERIC_MD_REPS=1`.
 - E2-side GROMACS 2025.4 generated `processed/rep1/protein_ref.pdb` and `processed/rep1/prod_protein.xtc` from the `SOLU` group. Here `SOLU` means Gpr2 receptor plus ASCR18 ligand.
-- The `selection_rmsd/` output directory is the generic chctrl-family RMSD slot. In this GPR receptor-ligand context, it means ASCR18 heavy-atom RMSD after Gpr2/SOLU backbone fitting.
+- The `selection_rmsd/` output directory is the generic chctrl-family RMSD slot. In this GPR receptor-ligand context, it means ASCR18 heavy-atom RMSD after equal-weight Gpr2/SOLU backbone fitting. The 2026-07-27 regeneration uses geometric centers and applies the MDAnalysis column-vector rotation matrix transposed to row-vector coordinates.
 - H-bond, BSA, and contacts are Gpr2-ASCR18 receptor-ligand measurements. COM distance uses configured Gpr2 readout-residue clusters.
 - The GPR config deliberately defines no ligand-RMSD, BSA-retention, contact-retention, or H-bond occupancy interpretation cutoff. Those outputs are descriptive and must not inherit the chctrl alpha5/interface operational heuristics.
 
@@ -26,7 +26,7 @@
 |---|---:|---|
 | Gpr2 backbone RMSD after 100 ns | 12.6186 A mean; 13.1302 A at 200 ns | Frame-0-referenced receptor displacement; inspect structures before treating this single rep as a stable baseline. |
 | Gpr2 CA Rg after 100 ns | 27.711 A mean | Compactness trace available in `convergence/rg_summary.csv`. |
-| ASCR18 heavy-atom RMSD after 100 ns | 5.63561 A mean; 11.7193 A max | Descriptive frame-0-referenced displacement; no ligand-specific interpretation threshold is configured. |
+| ASCR18 heavy-atom RMSD after 100 ns | 5.63647 A mean; 11.7228 A max | Descriptive frame-0-referenced displacement; no ligand-specific interpretation threshold is configured. |
 | ASCR18 to all readout COM | 35.4901 A mean; 36.0808 A at 200 ns | Descriptive COM series for the configured readout cluster; no categorical cutoff is configured. |
 | ASCR18 to primary readout COM | 38.9451 A mean | Primary residues: 59,119,122,138. |
 | ASCR18 to secondary readout COM | 34.6327 A mean | Secondary residues: 115,134,143–148,150–151. |

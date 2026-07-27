@@ -97,9 +97,9 @@ Interpretation: all four Ste2 ranges have atoms within contact distance of all G
 
 | rep | full_after100_mean | full_after100_max | ste2_after100_mean | ste2_after100_max | gpa1_core_after100_mean | gpa1_core_after100_max |
 | --- | --- | --- | --- | --- | --- | --- |
-| rep1 | 4.264 | 7.461 | 6.067 | 11.928 | 5.562 | 9.484 |
-| rep2 | 3.793 | 6.400 | 3.959 | 8.989 | 5.209 | 10.327 |
-| rep3 | 2.970 | 5.269 | 3.935 | 8.163 | 3.481 | 8.867 |
+| rep1 | 4.259 | 7.449 | 3.372 | 6.834 | 6.000 | 10.519 |
+| rep2 | 3.788 | 6.384 | 3.376 | 6.314 | 4.756 | 9.067 |
+| rep3 | 2.971 | 5.266 | 2.411 | 4.631 | 3.587 | 7.475 |
 
 
 Interpretation: full-protein fit reproduces the prior metric; Ste2-frame values test receptor-relative alpha5 movement; Gpa1-core-frame values test alpha5 motion relative to the rest of Gpa1. Because rep1/rep2 remain elevated under alternative fits, the warning should be treated as a real local/relative-motion caveat unless visual inspection proves otherwise.
@@ -109,18 +109,18 @@ Interpretation: full-protein fit reproduces the prior metric; Ste2-frame values 
 
 | rep | event | time_ns | alpha5_irmsd_A |
 | --- | --- | --- | --- |
-| rep1 | first_ge3 | 2.700 | 3.095 |
-| rep1 | first_ge5 | 41.500 | 5.027 |
-| rep1 | first_after100_ge5 | 252.400 | 5.241 |
-| rep1 | max | 333.500 | 7.461 |
-| rep2 | first_ge3 | 1.700 | 3.013 |
-| rep2 | first_ge5 | 250.600 | 5.054 |
-| rep2 | first_after100_ge5 | 250.600 | 5.054 |
-| rep2 | max | 484.600 | 6.400 |
-| rep3 | first_ge3 | 1.400 | 3.124 |
-| rep3 | first_ge5 | 5.600 | 5.012 |
+| rep1 | first_ge3 | 2.700 | 3.102 |
+| rep1 | first_ge5 | 41.500 | 5.025 |
+| rep1 | first_after100_ge5 | 252.400 | 5.232 |
+| rep1 | max | 333.500 | 7.449 |
+| rep2 | first_ge3 | 1.700 | 3.014 |
+| rep2 | first_ge5 | 250.600 | 5.042 |
+| rep2 | first_after100_ge5 | 250.600 | 5.042 |
+| rep2 | max | 484.600 | 6.384 |
+| rep3 | first_ge3 | 1.400 | 3.131 |
+| rep3 | first_ge5 | 5.600 | 5.019 |
 | rep3 | first_after100_ge5 | 100.000 | 5.070 |
-| rep3 | max | 32.600 | 6.720 |
+| rep3 | max | 32.600 | 6.719 |
 
 
 ## Exported snapshot metrics
@@ -128,17 +128,17 @@ Interpretation: full-protein fit reproduces the prior metric; Ste2-frame values 
 | rep | label | time_ns | frame | pdb | full_protein_backbone_fit_alpha5_rmsd_A | ste2_backbone_fit_alpha5_rmsd_A | gpa1_core_backbone_fit_alpha5_rmsd_A | nearest_contact_time_ns | retained_contact_fraction |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | rep1 | baseline | 0.000 | 0 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_baseline_0.0ns.pdb | 0.000 | 0.000 | 0.000 | 0.000 | 1.000 |
-| rep1 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_after100_start_100.0ns.pdb | 3.296 | 4.657 | 4.871 | 100.000 | 0.821 |
-| rep1 | first_after100_ge5 | 252.400 | 2524 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_first_after100_ge5_252.4ns.pdb | 5.241 | 8.376 | 6.945 | 250.000 | 0.571 |
-| rep1 | max_alpha5 | 333.500 | 3335 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_max_alpha5_333.5ns.pdb | 7.461 | 11.645 | 8.270 | 335.000 | 0.571 |
+| rep1 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_after100_start_100.0ns.pdb | 3.305 | 2.549 | 4.062 | 100.000 | 0.821 |
+| rep1 | first_after100_ge5 | 252.400 | 2524 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_first_after100_ge5_252.4ns.pdb | 5.232 | 2.839 | 7.228 | 250.000 | 0.571 |
+| rep1 | max_alpha5 | 333.500 | 3335 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep1_max_alpha5_333.5ns.pdb | 7.449 | 4.025 | 7.210 | 335.000 | 0.571 |
 | rep2 | baseline | 0.000 | 0 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_baseline_0.0ns.pdb | 0.000 | 0.000 | 0.000 | 0.000 | 1.000 |
-| rep2 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_after100_start_100.0ns.pdb | 2.333 | 2.605 | 4.702 | 100.000 | 0.643 |
-| rep2 | first_ge5 | 250.600 | 2506 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_first_ge5_250.6ns.pdb | 5.054 | 5.213 | 6.735 | 250.000 | 0.500 |
-| rep2 | max_alpha5 | 484.600 | 4846 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_max_alpha5_484.6ns.pdb | 6.400 | 7.790 | 7.525 | 485.000 | 0.393 |
+| rep2 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_after100_start_100.0ns.pdb | 2.329 | 2.264 | 5.178 | 100.000 | 0.643 |
+| rep2 | first_ge5 | 250.600 | 2506 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_first_ge5_250.6ns.pdb | 5.042 | 3.953 | 5.047 | 250.000 | 0.500 |
+| rep2 | max_alpha5 | 484.600 | 4846 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep2_max_alpha5_484.6ns.pdb | 6.384 | 4.611 | 6.437 | 485.000 | 0.393 |
 | rep3 | baseline | 0.000 | 0 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_baseline_0.0ns.pdb | 0.000 | 0.000 | 0.000 | 0.000 | 1.000 |
-| rep3 | early_max | 32.600 | 326 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_early_max_32.6ns.pdb | 6.720 | 11.239 | 12.813 | 35.000 | 0.786 |
-| rep3 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_after100_start_100.0ns.pdb | 5.070 | 8.163 | 7.823 | 100.000 | 0.714 |
-| rep3 | late_representative | 450.000 | 4500 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_late_representative_450.0ns.pdb | 3.263 | 4.668 | 4.230 | 450.000 | 0.536 |
+| rep3 | early_max | 32.600 | 326 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_early_max_32.6ns.pdb | 6.719 | 3.974 | 7.405 | 35.000 | 0.786 |
+| rep3 | after100_start | 100.000 | 1000 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_after100_start_100.0ns.pdb | 5.070 | 3.041 | 5.370 | 100.000 | 0.714 |
+| rep3 | late_representative | 450.000 | 4500 | experiments/md-simulation/results/chimeric-ste2-gpa1-wt/analysis/selection_audit/snapshots/rep3_late_representative_450.0ns.pdb | 3.266 | 2.244 | 3.042 | 450.000 | 0.536 |
 
 
 ## Contact initial-set caveat
