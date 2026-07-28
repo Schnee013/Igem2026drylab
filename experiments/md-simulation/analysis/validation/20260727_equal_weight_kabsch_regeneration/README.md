@@ -61,8 +61,3 @@ ligand-specific categorical cutoff.
 - `experiments/md-simulation/analysis/chctrl/analyze_selection_rmsd.py`
 - `experiments/md-simulation/analysis/chctrl/audit_selections.py`
 - the result files listed in `canonical_outputs.sha256`
-
-## Referenced by / 被引
-
-- The phase-2 Git governance PR and the later pre-rebase closure audit are
-  expected to cite this validation record.
