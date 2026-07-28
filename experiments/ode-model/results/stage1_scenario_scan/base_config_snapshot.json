@@ -1,0 +1,51 @@
+{
+  "scenario_id": "phase0_normalized_single_input",
+  "evidence_status": "scenario_prior",
+  "model_scope": "Phase-0 normalized single-input time-course; not a calibrated prediction or detection-limit estimate.",
+  "parameter_note": "Every numeric value is illustrative and must be replaced by traceable literature mapping or project wet-lab calibration before quantitative interpretation.",
+  "time": {
+    "duration_hours": 8.0,
+    "output_points": 161
+  },
+  "input": {
+    "ligand_normalized": 1.0,
+    "note": "Dimensionless scenario input. It is not an ascr concentration or a docking-derived affinity."
+  },
+  "receptor": {
+    "basal_activity": 0.02,
+    "efficacy": 0.78,
+    "half_activation_normalized": 1.0,
+    "hill_coefficient": 1.5,
+    "evidence_status": "scenario_prior"
+  },
+  "g_protein": {
+    "coupling_rate_per_hour": 1.2,
+    "deactivation_rate_per_hour": 0.45,
+    "evidence_status": "wet-lab required"
+  },
+  "mapk": {
+    "activation_rate_per_hour": 1.0,
+    "deactivation_rate_per_hour": 0.3,
+    "evidence_status": "scenario_prior"
+  },
+  "transcription": {
+    "basal_activity": 0.01,
+    "efficacy": 0.85,
+    "half_activation": 0.25,
+    "hill_coefficient": 2.0,
+    "evidence_status": "wet-lab required"
+  },
+  "gal_output": {
+    "copy_number": 1,
+    "leak_rate": 0.005,
+    "gain_rate": 0.4,
+    "half_activation": 0.25,
+    "evidence_status": "wet-lab required",
+    "note": "The interface exposes copy_number but this Phase-0 scenario does not scan it."
+  },
+  "color": {
+    "production_rate_per_hour": 1.0,
+    "loss_rate_per_hour": 0.12,
+    "evidence_status": "wet-lab required"
+  }
+}
