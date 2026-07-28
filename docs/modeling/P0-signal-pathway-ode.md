@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-07-09
+last_updated: 2026-07-28
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -19,6 +19,8 @@ last_updated: 2026-07-09
 > **2026-05-24 Stage 3 exact extraction**：抽取进展写入 `tmp_papers/ode_api_refresh_20260521/stage2_value_extraction_matrix.md` 的 Stage 3 addendum；它仍是证据包，不是最终参数表。Fan 2024 DOI/title 已与 `literature-matrix.md`、本地 summary、Zotero `WJVMJSNS` 和 API 记录一致；官方 Elsevier Supplementary Table 3-4 已解决 Fan 源上下文 Kc 冲突，但这些行只作为 CaSte2/GAL biosensor source-context `fixed from source`，项目 Gpr-ascr reporter gain/Kc/Hill/Emax 仍是 `wet-lab required`。Shaw/Kofahl 官方 BioModels SBML 已记录 species/reaction/parameter 指针，但速率值仍因单位/source-table 映射未完成而 `do-not-use`；Yi 速率表、Tehseen 全文仍在 full-text/Zotero queue。
 >
 > **2026-05-25 reporter 架构更新**：按用户确认和实验方案附件，输出层拓扑更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`。这确认的是架构，不固定具体色素、整合位点、实际 copy number、gain、Kc/Hill/Emax 或显色时间；这些仍是 `wet-lab required` 或 ODE 扫参变量。
+>
+> **2026-07-28 可执行原型更新**：仓库现已有归一化 Phase 0 solver/time-course 和 Phase 1 工程情景扫描。当前结果只支持显式 `scenario_prior` 下的条件比较；真实 `Kd/EC50`、动力学常数、检测限、最佳 copy number 和最终构建推荐仍未校准。
 
 ## 解决什么问题
 
@@ -26,6 +28,9 @@ last_updated: 2026-07-09
 - 系统能检测的最低 ascr 浓度是多少？
 - 放大倍数如何选择？
 - 背景泄漏对假阳性的影响？
+
+当前 Phase 0/1 原型只建立回答这些问题所需的可执行接口和条件性扫描，
+不把归一化轴解释成真实浓度，也不输出真实检测限或最终优化结论。
 
 **iGEM 价值**: 预测放大回路参数范围 → 湿实验据此选择 GAL4 promoter 强度 → 测量实际输出 → 用数据校准模型 → 完成 DBTL cycle。
 
@@ -37,22 +42,26 @@ last_updated: 2026-07-09
 - docking 输入接口整理：docking 输出用于候选标签、Channel A/B 方向、相对排序和 IFP 线索；Kd/EC50 由独立 binding/calibration 证据或参数扫描定义。
 - 湿实验校准需求整理：dose-response、time-course、basal leak、Emax、Hill、表达/膜定位、reporter dynamic range 和 chimeric Gpa1 coupling 都已列为替换条件。
 - reporter 输出层架构已确认：sTF -> GAL 多拷贝放大 -> 色素显色。
+- Phase 0 已实现 `src/modeling/ode/` 最小 solver、runner、严格 config 校验、161 点归一化 time-course CSV 和由 CSV 渲染的 PNG。
+- Phase 1 已实现剂量 × 半响应、偶联 × 泄漏、1/2/4 copy × gain × 观察时间三组扫描；当前固定网格为 143 个情景（74 ligand + 69 一对一无 ligand controls）和 23,023 条完整 time-course。
+- Phase 1 紧凑结果包已保存 scenario manifest、final metrics、共置 suite/base config 快照、代码/输入 hash、软件版本、摘要图和外部完整 time-course 的 payload manifest。
+- 11 个 ODE 单元/合同测试覆盖严格 schema、有限数/整数、control effective-input 身份、一对一配对、结果 scenario 集合一致和 snapshot-only replay。
 
 ### 当前缺口
 
-- 未写 ODE solver；当前仓库没有 `src/modeling/ode/` 下的 Python 求解器、模型模块或 runner。
-- 未生成 ODE 参数 config、模拟 CSV、剂量响应图、拷贝数敏感性图或泄漏/动态范围图。
 - 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
 - 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
+- 尚未把 refreshed docking shortlist 展开成逐 receptor-ligand 的可校准配置；当前归一化 suite 不代表具体 Gpr2/Gpr3–ascr 构建。
+- 尚未完成正式的全局灵敏度、参数可识别性、拟合/不确定性传播和逐级 MAPK kinetic model；Phase 1 是预注册的小型工程情景网格。
 
 ### 完整完成后的形态
 
-完整 ODE v0.1 不只是一个 `.py` 脚本，而应包含：
+Phase 0/1 已交付可运行原型；走向校准 ODE v0.1 仍需：
 
-- Python solver：用 SciPy/NumPy 实现 pathway ODE、dose-response sweep、copy-number sweep 和 leakage sweep。
-- 参数 config：分离文献先验、scenario prior 和 wet-lab calibrated 参数，避免把证据状态硬编码进 solver。
-- 输出数据：`experiments/ode-model/` 下保存模拟 CSV 和参数扫描结果。
-- 可视化：ascr 浓度 vs reporter 输出的剂量响应曲线、1/2/4 copy 拷贝数敏感性图、basal leak/动态范围图、检测限或可判读窗口图。
+- 把当前 lumped 原型与具体 receptor-ligand 场景、可追溯文献映射和同底盘 wet-lab 数据连接。
+- 在 config 中继续分离文献先验、scenario prior 和 wet-lab calibrated 参数，任何状态升级都附带数据、单位、构建和拟合 provenance。
+- 增加正式灵敏度/可识别性分析、校准拟合、不确定性传播和必要时的逐级通路结构。
+- 只有在有单位的 calibration 数据进入后，才生成真实 ascr 浓度 dose-response、检测限或可判读窗口。
 - model-experiment feedback 表：把每个 `wet-lab required` 参数对应到实验 readout 和替换条件。
 
 ## 通路结构（已锁定酵母）
@@ -218,7 +227,7 @@ ODE 当前应这样消费 docking 输出：
 | 异源 Gpr 配体结合/激活参数 | [P0-molecular-docking](P0-molecular-docking.md) 提供候选标签与相对排序；Kuo 2024 / Hu 2024 支持受体身份和 docking 边界 | `wet-lab required`; docking constants `do-not-use` | Vina/SwissDock Delta G 仅作排序背景；先做参数范围/敏感性扫描 |
 | 嵌合 Gpa1/G protein cycle 速率 | Shaw 2019 / Kofahl 2004 / Yi 2003 | source candidacy `literature prior`; numeric rates `do-not-use` until full-text/SBML unit mapping | C 端嫁接对 GTPase 域速率的影响不能从文献直接固定；coupling 效率需湿实验 |
 | Gβγ 释放 / Sst2 RGS | Shaw 2019 / Kofahl 2004 / Yi 2003 | topology and source variable names `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 可先固定变量类别；速率等 SBML/补充表抽取后再决定 |
-| MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 / Kofahl 2004 | topology and Kofahl reaction ids `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 不在本轮写 solver 或最终 rate table |
+| MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 / Kofahl 2004 | topology and Kofahl reaction ids `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 当前 solver 将其压缩为一个 lumped MAPK 状态；未写逐级 kinetic model 或最终 rate table |
 | Ste12 转录与 reporter 方程 | Shaw 2019 / Fan C & Yuan 2023 / Lengger 2020 | `literature prior` | 具体输出增益依赖 reporter 构型和单拷贝整合 |
 | sTF / GAL / 色素输出层 | Fan 2024 / Fan C & Yuan 2023 / Miettinen 2022 / Shaw 2019；2026-05-25 用户确认实验方案附件 | topology and Fan source-context Table S4 rows `fixed from source`; project gains/Kc/Hill/Emax `wet-lab required` | sTF -> GAL 多拷贝放大 -> 色素显色作为结构进入模型；Fan S4 不迁移为项目 Gpr-ascr 参数 |
 | GAL4 正反馈参数（若使用） | Fan 2024 / Fan C & Yuan 2023 | `literature prior`; single-copy gain `wet-lab required` | **拷贝数敏感**：单拷贝下增益需重新评估 |
@@ -235,6 +244,8 @@ ODE 当前应这样消费 docking 输出：
 
 ## 产出定义
 
+- [x] 归一化 Phase 0 单情景 time-course、CSV 和 PNG（`scenario_prior`）
+- [x] 归一化 Phase 1 工程情景扫描、1/2/4 copy 条件比较、紧凑结果包和外部 payload 合同（`scenario_prior`）
 - [ ] 系统剂量-响应曲线（ascr 浓度 vs 报告基因输出，覆盖 refreshed docking shortlist 候选场景）
 - [ ] 灵敏度极限预测（最低可检测浓度）
 - [ ] 动态范围与放大倍数优化建议
@@ -245,7 +256,7 @@ ODE 当前应这样消费 docking 输出：
 
 ## 代码与实验关联
 
-- **代码路径**: `src/modeling/ode/`（当前未创建/未实现）
+- **代码路径**: `src/modeling/ode/`（Phase 0/1 归一化原型已实现）
 - **产出路径**: `experiments/ode-model/`
 - **湿实验对接**:
   - 本方向产出 → 通路工程组: 推荐 GAL4 promoter 强度、放大回路参数
@@ -268,11 +279,13 @@ ODE 当前应这样消费 docking 输出：
 | 2026-05-24 | **v2.3** | 同步 Stage 3 exact pointer checkpoint、湿实验需求拆分和状态化参数接口；继续保留 Vina Delta G 仅排序、`Kd/EC50` 需独立证据的 gate | 文献抽取进入 exact pointer/manual queue 阶段；未写 ODE 代码，未生成定论参数表 |
 | 2026-05-25 | **v2.4** | 增补当前形态/缺口/完整形态说明；更新 reporter 输出架构为 sTF -> GAL 多拷贝放大 -> 色素显色；明确未写 ODE solver | 用户确认实验方案附件中的 reporter 路径，需同步总览图缺口说明 |
 | 2026-07-09 | **v2.5** | 正向校准 docking 输出消费口径：候选标签、Channel A/B、相对排序和 IFP 线索用于场景集合；Kd/EC50 需要独立 binding/calibration 证据 | 本次 docking authority 口径修订 |
+| 2026-07-28 | **v2.6** | 增加可执行 Phase 0/1 原型、严格 schema/身份合同、紧凑结果与外部 payload 路由；保留全部未校准边界 | 从最新主线重建旧 ODE PR 的可用内容并通过本地合同验证 |
 
 ## 进展记录
 
 - 2026-05-24：Stage 3 exact extraction 已补入证据矩阵；P0 ODE 文档只同步证据状态、手动队列和湿实验需求，不输出 solver、rate table 或最终参数表。
 - 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
+- 2026-07-28：Phase 0 solver/config/CSV/PNG 和 Phase 1 归一化情景扫描已实现。当前网格为 143 scenarios（74 ligand + 69 controls）和 23,023 条完整 time-course；所有数值仍为 `scenario_prior`，完整 time-course 按 payload policy 外置并由 manifest/checksum 路由。
 
 ## 与其他方向的依赖关系
 

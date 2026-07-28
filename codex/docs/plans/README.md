@@ -17,6 +17,13 @@ by a human or agent without depending on tool-private storage.
 
 ## Plan Index
 
+- [ode-pr1-post-recovery-content-integration-plan-20260727.md](ode-pr1-post-recovery-content-integration-plan-20260727.md) —
+  execution plan for rebuilding the missing Phase 0/1 ODE content from a
+  verified current-main snapshot. It records the clean-worktree boundary,
+  focused historical sources, mandatory control/snapshot/schema repairs,
+  payload handling, verification gates, semantic documentation merge, and
+  INDEX non-regression rule. Current project status still comes from
+  `docs/INDEX.md`.
 - [chimeric-gpa1-r1-tight-full-rebuild-chctrl-plan.md](chimeric-gpa1-r1-tight-full-rebuild-chctrl-plan.md) —
   historical Route 1 chctrl-first plan for a tight full-system rebuild; keep as
   provenance for storage, source gates, padding-rule requirements, and E2
