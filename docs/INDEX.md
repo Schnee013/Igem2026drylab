@@ -1,10 +1,10 @@
 # iGEM DryLab 干实验 — 项目索引
 
-> 最后校准：2026-07-27。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
+> 最后校准：2026-07-28。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
 >
 > Source: system-local `PACKAGE_STATUS.md`、直接 gate/run artifacts、领域权威文件。
 >
-> As of: `2026-07-27`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
+> As of: `2026-07-28`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
 >
 > Allowed use: 项目级状态投影、优先级、阻塞项和活跃入口。
 >
@@ -26,7 +26,7 @@
 |--------|------|---------|----------|------|
 | **P0** | 受体-配体分子对接 | 否 | **refreshed_shortlist**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、266 条 merged ratio、Top 候选 IFP 与 MD 前候选体系清单均已刷新 | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **compute_triage + gpr2_wt_r59c_rep1_analyzed + gpr3_r167y_rep1_analyzed**：旧 Slurm control/chctrl 3 reps 为历史完成证据，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1 Z-only 已降级为省算力不足；chimeric 候选 full MD 暂停；Gpr2 WT/R59C 200 ns rep1、七 driver、matched single-rep 和 ligand-path triage 已完成；Gpr3 R167Y AutoDL 200 ns rep1、postprocess 和共享七 driver 已完成，当前为 single-rep exploratory，WT arm 尚无 production completion | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | in_progress：文献证据、参数状态、湿实验校准需求已整理；reporter 架构已确认；尚无 `src/modeling/ode/` solver、config 或 plots | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **prototype_validated_scenario_prior**：归一化 Phase 0 solver/config/CSV/plot 和 Phase 1 剂量/半响应、偶联/泄漏、1/2/4-copy 工程情景扫描已通过本地合同验证；数值仍未校准，不能解释为真实 `Kd/EC50`、检测限或最佳构建 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
@@ -54,7 +54,7 @@
 1. **MD 算力收缩与 mutant GPR 前测** — 决策见 [决策 005](decisions/005-md-compute-triage-after-chctrl.md)；Gpr2 R59C completion/recovery 入口为 `experiments/md-simulation/results/gpr2-r59c-ascr18/README.md`、`experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md` 和 [2026-07-19 日志](logs/2026-07-19.md)，分析分别见 `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_r59c_ascr18_rep1_chctrl_metric_analysis_20260719.md`、`experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_matched_comparison_20260719.md` 与 `experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_ligand_path_pocket_triage_20260719.md`。Gpr3 R167Y completion、恢复与七 driver 当前入口是 `experiments/md-simulation/results/gpr3-r167y-ascr3/README.md` 和 `experiments/md-simulation/results/gpr3-r167y-ascr3/analysis/gpr3_r167y_ascr3_rep1_chctrl_metric_analysis_20260720.md`；详细 package 视图回 system-local `PACKAGE_STATUS.md`，方法边界见 [P0-md-simulation.md](modeling/P0-md-simulation.md)。
 2. **chimeric Gpa1 省算力方案调研** — 候选体系 production 仍暂停；R1-Z 对照与路线选择历史见 `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` 和 `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md`。R4 的唯一当前材料边界见 `experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md`；`experiments/chimeric-gpa1/literature/r4_tool_validation_plan_20260706.md` 作为非执行 validation-design evidence。任何 full-production 启动都需要新的当前 work order 和审批。
 3. **docking-repro MD 前候选体系清单** — 当前权威候选见 [MD 前候选体系清单](modeling/P0-docking-md-candidate-shortlist.md)；证据链从 [2026-05-19 日志](logs/2026-05-19.md) 与 [ratio_channel_report.md](../experiments/docking-repro/analysis/ratio_channel_report.md) 读取。直接输出是候选标签、Channel A/B 方向、相对排序、关键结合残基和 IFP 机制线索；后续验证入口在 MD gate。
-4. **ODE 并行推进** — 用 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 维护通路结构、参数状态和 reporter 输出接口；候选标签可引用新版 docking 候选清单，Kd/calibration 仍等待文献/湿实验校准，尚未进入 solver 实现。
+4. **ODE 并行推进** — 可执行入口为 `src/modeling/ode/` 与 `experiments/ode-model/`，参数证据/边界入口为 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [lumped 参数登记表](modeling/P0-ode-lumped-parameter-register.md)。当前 Phase 0/1 只支持归一化 `scenario_prior` 条件比较；候选标签可引用新版 docking 清单，具体 Gpr2/Gpr3–ascr 配置、Kd/calibration、全局灵敏度和 wet-lab 回填仍未完成。
 5. **早期检测经济效益模型 HP 参数回收** — 文献/参数入口见 [early-detection economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
 6. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
@@ -83,6 +83,7 @@
 - **GROMACS / MD 必读前置**：[md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)（服务器中立；任何 MD/GROMACS 任务先读）
 - **当前服务器入口**：完成上述必读后，新服务器/远程计算任务再读 [NKULiulab E2 共享云服务器](ops/nkuliulab-e2-cloud-server.md)。2026-06-26 后 chimeric 候选 full-production 暂停，旧 Slurm secondary route 只保留为历史/未来备选指针；任何新的 MD production 都必须先做资源估算和短程 benchmark。
 - **[已归档] Slurm GPU 集群**：[slurm-md-server.md](ops/archives/slurm-md-server.md)（仅用于追溯旧 MD/Slurm 运行记录；2026-05-30 chimeric secondary route 已于 2026-06-26 降级为历史/未来备选指针，相关脚本和 gate 见 `environments/md-production-sites.md` 和 `experiments/md-simulation/scripts/slurm_*`）
+- **2026-07-28**: 从 `BASE_SHA=e6a8be4` 聚焦重建 ODE Phase 0/1 可执行原型并通过 11 个单元/合同测试、编译和 snapshot-only replay；固定网格为 143 scenarios（74 ligand + 69 controls）和 23,023 条完整 time-course data rows。所有输出仍为 `scenario_prior`；完整 time-course 按 payload policy 外置并由 checksum manifest 路由。实现、结果边界与验证证据见 [ODE 领域文档](modeling/P0-signal-pathway-ode.md)、[结果 README](../experiments/ode-model/README.md) 和 [2026-07-28 日志](logs/2026-07-28.md)。
 - **[已归档] Sunlab 历史文件查询服务器**：[sunlab-historical-server.md](ops/archives/sunlab-historical-server.md)（`10.40.4.2`，本机 alias `drylab-10-40-4-2`；用途限定为历史文件查询，当前活跃计算入口使用 E2 规范）
 - **[已归档] HBU SGE 集群**：[hbu-sge-cluster.md](ops/archives/hbu-sge-cluster.md)（仅用于追溯旧 HBU SGE 调研/投递记录）
 - **[已弃用] Windows SSH 操作指南**：[ssh-windows-compute.md](ops/archives/ssh-windows-compute.md)（Windows 7500F 节点停用；部分 docking 结构文件仍存于该节点，需访问时参考此文档）
@@ -158,9 +159,10 @@
 - [ ] 视 PI/湿实验沟通需要补 PyMOL PNG/PSE 渲染交付物
 
 ### ③ P0 信号通路 ODE（并行）
-- [ ] ODE v0.1 solver：`src/modeling/ode/` Python 实现 + 参数 config + 模拟输出 CSV/plots
-- [ ] reporter 输出层：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参
-- [ ] 1/2/4 copy 拷贝数敏感性分析
+- [x] 归一化 Phase 0 原型：`src/modeling/ode/` Python solver + 严格参数 config + 模拟 CSV/plot（`scenario_prior`，不是校准 v0.1）
+- [x] Phase 1 reporter 工程情景：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参和匹配无 ligand 对照
+- [x] 1/2/4 copy 归一化情景比较（不是实际构建优选结论）
+- [ ] 正式全局灵敏度、可识别性、拟合/不确定性传播和逐级 pathway kinetic model
 - [ ] 与 docking 联动：候选标签可引用新版候选清单；Kd/calibration 需等待单独文献审查
 
 ### ④ 其他待启动

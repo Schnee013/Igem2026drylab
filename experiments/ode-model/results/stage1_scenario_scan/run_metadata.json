@@ -1,0 +1,40 @@
+{
+  "schema_version": "ode_phase1_run_metadata_v1",
+  "suite_id": "phase1_normalized_engineering_scenarios",
+  "evidence_status": "scenario_prior",
+  "model_scope": "Phase-1 normalized engineering scenarios. All values are deliberately uncalibrated and support conditional design comparisons only.",
+  "scenario_count": 143,
+  "control_count": 69,
+  "timecourse_row_count": 23023,
+  "source_config_provenance": {
+    "suite_path": "/Users/roy/Documents/drylab/.omx/worktrees/ode-pr1-content-integration/experiments/ode-model/configs/stage1_scenario_scan.json",
+    "suite_sha256": "37b6720df6bc6a3198568d4f7e21bc769e7a5e8394401692812d88a7942340fb",
+    "base_config_path": "/Users/roy/Documents/drylab/.omx/worktrees/ode-pr1-content-integration/experiments/ode-model/configs/minimal_normalized_scenario.json",
+    "base_config_sha256": "082ead3fec9a380314939d33bbc5e5a1ab00ebb0821e4fa6487f2a24040b0a6d"
+  },
+  "snapshot_config": {
+    "suite_file": "scan_suite_config_snapshot.json",
+    "suite_sha256": "8e14f28dd4487ae161b818c5bde2c4eab757a71a3a54df8bd212f43a14df6c70",
+    "base_config_file": "base_config_snapshot.json",
+    "base_config_sha256": "082ead3fec9a380314939d33bbc5e5a1ab00ebb0821e4fa6487f2a24040b0a6d"
+  },
+  "runner_identity": {
+    "runner_file": "src/modeling/ode/run_scenario_scans.py",
+    "runner_sha256": "17bae8346116e963cda3d251bd79b058edb45031069380ed516607f4ad9ca6a8",
+    "solver_file": "src/modeling/ode/minimal_solver.py",
+    "solver_sha256": "96a2a6df7a5eb16973108c2e7cd5d65aefd151c1cae16a5022d682e3624bfd3c"
+  },
+  "software": {
+    "python": "3.12.11",
+    "numpy": "2.3.3",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8"
+  },
+  "generation_command": "python -m src.modeling.ode.run_scenario_scans --config /Users/roy/Documents/drylab/.omx/worktrees/ode-pr1-content-integration/experiments/ode-model/configs/stage1_scenario_scan.json --out-dir /Users/roy/Documents/drylab/.omx/worktrees/ode-pr1-content-integration/experiments/ode-model/results/stage1_scenario_scan --timecourses-out /Users/roy/.codex/payloads/drylab/ode/stage1/20260728_e6a8be4/timecourses.csv",
+  "external_timecourse_payload": {
+    "path": "/Users/roy/.codex/payloads/drylab/ode/stage1/20260728_e6a8be4/timecourses.csv",
+    "bytes": 7621441,
+    "sha256": "ae60b88eb3e8d363a961bdffc90273e55ac4ffa0e95d62850eb765c1c900cd4d"
+  },
+  "result_boundary": "These are normalized scenario simulations. They are not calibrated receptor affinities, experimental detection limits, or final engineering recommendations."
+}

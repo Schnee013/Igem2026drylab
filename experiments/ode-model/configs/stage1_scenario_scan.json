@@ -1,0 +1,51 @@
+{
+  "suite_id": "phase1_normalized_engineering_scenarios",
+  "evidence_status": "scenario_prior",
+  "model_scope": "Phase-1 normalized engineering scenarios. All values are deliberately uncalibrated and support conditional design comparisons only.",
+  "base_config": "minimal_normalized_scenario.json",
+  "parameter_basis": {
+    "input.ligand_normalized": "Dimensionless dose axis. It is not an ascr molar concentration, docking score, or affinity estimate.",
+    "receptor.half_activation_normalized": "scenario_prior; project Gpr-ascr half activation requires same-chassis dose-response calibration.",
+    "g_protein.coupling_rate_per_hour": "wet-lab required for the project chimera; values form an exploratory effective-rate range.",
+    "gal_output.leak_rate": "wet-lab required; values represent arbitrary normalized background production rates.",
+    "gal_output.copy_number": "1 is the single-integration design baseline; 2 and 4 are engineering scenarios, not confirmed constructs.",
+    "gal_output.gain_rate": "wet-lab required; values explore reporter-layer gain without transferring a value from another biosensor.",
+    "time.duration_hours": "Scenario observation windows, not a measured color-development time."
+  },
+  "scans": [
+    {
+      "scan_id": "dose_by_half_activation",
+      "purpose": "Show conditional dose-response shapes under alternative normalized receptor half-activation assumptions.",
+      "include_no_ligand_control": true,
+      "axes": {
+        "input.ligand_normalized": [0.0, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0],
+        "receptor.half_activation_normalized": [0.01, 0.1, 1.0, 10.0, 100.0]
+      }
+    },
+    {
+      "scan_id": "coupling_by_output_leak",
+      "purpose": "Identify conditional loss of separation when effective receptor-G protein coupling is low or reporter background is high.",
+      "include_no_ligand_control": true,
+      "fixed_overrides": {
+        "input.ligand_normalized": 1.0
+      },
+      "axes": {
+        "g_protein.coupling_rate_per_hour": [0.05, 0.25, 1.2],
+        "gal_output.leak_rate": [0.0, 0.005, 0.02, 0.08]
+      }
+    },
+    {
+      "scan_id": "copy_gain_by_time_window",
+      "purpose": "Compare 1/2/4-copy engineering scenarios across reporter gain and observation-window assumptions.",
+      "include_no_ligand_control": true,
+      "fixed_overrides": {
+        "input.ligand_normalized": 1.0
+      },
+      "axes": {
+        "gal_output.copy_number": [1, 2, 4],
+        "gal_output.gain_rate": [0.1, 0.4, 1.0],
+        "time.duration_hours": [2.0, 4.0, 8.0]
+      }
+    }
+  ]
+}
