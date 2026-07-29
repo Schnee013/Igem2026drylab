@@ -69,10 +69,27 @@ one-to-one no-ligand controls. The complete payload has 23,023 data rows.
 Requested scan-axis identity and effective solver input are stored separately,
 so every no-ligand control has an effective ligand input of `0.0`.
 
+## Phase 2A: analysis contract
+
+`configs/phase2a_analysis_contract.json` defines the sensitivity and
+calibration-readiness analysis interface on top of the accepted Phase 0/1
+baseline. Its companion CSV files register:
+
+- all 18 internal model fields and their screening ranges;
+- 17 continuous uncertainty fields plus the discrete 1/2/4-copy design strata;
+- active, diagnostic, and threshold-gated output metrics; and
+- one observation/experiment/replacement route for every parameter.
+
+The human-readable rationale and activation gates are in
+[`docs/modeling/P0-ode-phase2a-analysis-contract.md`](../../docs/modeling/P0-ode-phase2a-analysis-contract.md).
+Phase 2A establishes the contract; local sensitivity and Morris results begin
+in Phase 2B.
+
 Run the ODE contracts without requiring `pytest`:
 
 ```bash
 python -m unittest \
   tests.modeling.test_ode_minimal_solver \
-  tests.modeling.test_ode_scenario_scans -v
+  tests.modeling.test_ode_scenario_scans \
+  tests.modeling.test_ode_phase2a_contract -v
 ```
