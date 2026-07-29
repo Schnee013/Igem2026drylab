@@ -50,7 +50,7 @@
 |---|---|
 | Canonical target | `origin/main` |
 | `BASE_SHA` | `e6a8be4e5f0d586f9a8ee9defeda9f83a5ef0763` |
-| Isolated branch | `codex/ode-pr1-content-integration` |
+| Isolated branch | `ode-pr1-content-integration` |
 | Isolated worktree | `/Users/roy/Documents/drylab/.omx/worktrees/ode-pr1-content-integration` |
 | Gap audit | real delta: `BASE_SHA` has no `src/modeling/ode/`, ODE configs/tests, or ODE result package |
 | Recovery method | focused content extraction/reimplementation; no cherry-pick and no replay of `05eb79a` |
@@ -207,8 +207,8 @@ If the post-merge tree already satisfies every acceptance criterion:
 
 Only when the gap audit finds a real delta:
 
-1. Create a new clean worktree and branch from `BASE_SHA`, using a branch such
-   as `codex/ode-pr1-content-integration`.
+1. Create a new clean worktree and branch from `BASE_SHA`, using the neutral
+   task branch `ode-pr1-content-integration`.
 2. Verify the new worktree is clean before edits.
 3. Keep the primary worktree unchanged.
 4. Never run `git add .`, `git add -A`, `git clean`, `git reset --hard`, or a
