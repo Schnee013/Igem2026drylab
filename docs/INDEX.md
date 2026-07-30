@@ -1,10 +1,10 @@
 # iGEM DryLab 干实验 — 项目索引
 
-> 最后校准：2026-07-29。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
+> 最后校准：2026-07-30。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
 >
 > Source: system-local `PACKAGE_STATUS.md`、直接 gate/run artifacts、领域权威文件。
 >
-> As of: `2026-07-29`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
+> As of: `2026-07-30`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
 >
 > Allowed use: 项目级状态投影、优先级、阻塞项和活跃入口。
 >
@@ -26,7 +26,7 @@
 |--------|------|---------|----------|------|
 | **P0** | 受体-配体分子对接 | 否 | **refreshed_shortlist**：Gpr2 3D offset、Gpr3 方案 F、Gpr3 supplemental docking、266 条 merged ratio、Top 候选 IFP 与 MD 前候选体系清单均已刷新 | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **compute_triage + gpr2_wt_r59c_rep1_analyzed + gpr3_r167y_rep1_analyzed**：旧 Slurm control/chctrl 3 reps 为历史完成证据，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1 Z-only 已降级为省算力不足；chimeric 候选 full MD 暂停；Gpr2 WT/R59C 200 ns rep1、七 driver、matched single-rep 和 ligand-path triage 已完成；Gpr3 R167Y AutoDL 200 ns rep1、postprocess 和共享七 driver 已完成，当前为 single-rep exploratory，WT arm 尚无 production completion | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase2a_contract_active + prototype_validated_scenario_prior**：Phase 0/1 原型与工程扫描已验证；Phase 2A 已固定 18 参数空间、输出指标、ligand/copy 分层和逐参数实验接口并通过 5 项合同测试，正式敏感性结果从 Phase 2B 产生 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase2a_review_amendment_validated + prototype_validated_scenario_prior**：Phase 0/1 原型与工程扫描已验证；Phase 2A 保留 3 个 primary ligand context，并增加 2 个仅用于 `n_R` 转折区检查的 diagnostic context；6/6 合同测试和 17/17 完整 ODE 测试通过，正式敏感性结果从 Phase 2B 产生 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
@@ -108,6 +108,7 @@
 
 ## 最近进展
 
+- **2026-07-30**: P0 ODE Phase 2A 接受personal复核回传：保留 `L=0/1/1000` 三个primary context，增加 `L=0.3/3` 两个围绕基线 `K_R=1` 的analysis-only diagnostic context，避免在 `L=K_R` 处结构性低估 `n_R`。两点不构成wet-lab浓度要求；6/6合同测试与17/17完整ODE测试通过。入口见 [Phase 2A合同](modeling/P0-ode-phase2a-analysis-contract.md) 和 [2026-07-30日志](logs/2026-07-30.md)。
 - **2026-07-29**: P0 ODE Phase 2A 分析合同已建立：18 个内部字段分为 17 个连续不确定参数和 1 个离散 copy-number 设计变量；定义 no-ligand/transition/high-input 三种 context、1/2/4 copy strata、13 个输出指标和 18 行参数—观测量—实验接口。5/5 合同测试通过；所有范围保持 `scenario_prior`。入口见 [Phase 2A 合同](modeling/P0-ode-phase2a-analysis-contract.md) 和 [2026-07-29 日志](logs/2026-07-29.md)。
 - **2026-07-27**: 从 checksum 识别的外部 processed inputs 重算并恢复 `Gpr2_R59C + ASCR18` 七 driver、WT/R59C matched single-rep 和 ligand-path canonical evidence；Git 跟踪的 55 行 final manifest 与外部版本字节一致，本机现存 25 项全部 checksum 匹配，其余 30 项仍为 E2-only。当前证据只支持 matched single-rep exploratory/triage；两臂起始 receptor/pose 不同、无预注册 ligand RMSD cutoff，不能形成 population-level genotype conclusion 或“最佳突变”结论。入口见 `experiments/md-simulation/results/gpr2-r59c-ascr18/README.md` 和 [2026-07-19 日志](logs/2026-07-19.md)。
 - **2026-07-20**: `Gpr3_R167Y + ASCR3` AutoDL 200 ns rep1 正常完成，completion gate 确认 100,000,000 step / 200,000 ps、同终点 CPT、空 issue scan 与 `TERMINAL_NORMAL`；91-row production archive 回收到仓库外 payload 后 `91/91 PASS`。同环境 GROMACS 2025.4 postprocess 与共享七 driver 均完成，45 项 canonical 检查和 55-file analysis manifest 全部 PASS。当前证据等级为 single-rep exploratory only；结果和恢复入口见 `experiments/md-simulation/results/gpr3-r167y-ascr3/README.md`，详细经过见 [2026-07-20 日志](logs/2026-07-20.md)。

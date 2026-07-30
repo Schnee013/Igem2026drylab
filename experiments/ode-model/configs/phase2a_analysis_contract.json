@@ -35,8 +35,28 @@
   "design_contexts": {
     "ligand_normalized": {
       "no_ligand": 0.0,
+      "transition_low_diagnostic": 0.3,
       "transition_reference": 1.0,
+      "transition_high_diagnostic": 3.0,
       "high_input": 1000.0
+    },
+    "ligand_context_sets": {
+      "primary": [
+        "no_ligand",
+        "transition_reference",
+        "high_input"
+      ],
+      "transition_diagnostic": [
+        "transition_low_diagnostic",
+        "transition_high_diagnostic"
+      ]
+    },
+    "transition_diagnostic_basis": {
+      "target_parameter": "n_R",
+      "baseline_K_R": 1.0,
+      "scope": "analysis_only",
+      "wet_lab_requirement": false,
+      "rationale": "At L=K_R the Hill output is 0.5 for every n_R; fixed flanking contexts keep log(L/K_R) non-zero without relying only on zero or saturated input."
     },
     "copy_number_strata": [1, 2, 4],
     "duration_hours": 8.0,
@@ -58,12 +78,12 @@
     {
       "stage": "local_time_dependent_sensitivity",
       "status": "next",
-      "purpose": "Check direction, scale, and numerical stability for all continuous fields."
+      "purpose": "Check direction, scale, and numerical stability for all continuous fields across the primary and transition-diagnostic ligand contexts."
     },
     {
       "stage": "morris_screening",
       "status": "planned",
-      "purpose": "Rank main effects, nonlinearity, and interactions across ligand contexts and copy strata."
+      "purpose": "Rank main effects, nonlinearity, and interactions across primary and transition-diagnostic ligand contexts and copy strata, reporting the context classes separately."
     },
     {
       "stage": "focused_two_parameter_surfaces",
@@ -76,5 +96,5 @@
       "purpose": "Quantify variance contributions after the influential subset and independence assumptions are reviewed."
     }
   ],
-  "next_gate": "Freeze the validated Phase 2A team asset, review its personal understanding report, resolve any contract changes, then implement local sensitivity without changing the accepted baseline equations."
+  "next_gate": "Freeze and verify the amended Phase 2A candidate in a new personal read-only snapshot, complete review readiness and the Phase 2A PR, then implement local sensitivity without changing the accepted baseline equations."
 }

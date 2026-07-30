@@ -2,7 +2,7 @@
 artifact: P0-ode-phase2a-analysis-contract
 status: active-contract
 priority: P0
-last_updated: 2026-07-29
+last_updated: 2026-07-30
 source_base_commit: 36599402fd091f616520e9b7415d3b30aefd5781
 ---
 
@@ -90,17 +90,26 @@ Phase 2B 报告必须同时保存具体范围版本和基线提交，敏感性�
 
 ## 分析上下文
 
-第一轮筛选使用三种输入上下文：
+第一轮筛选保留三种主输入上下文，并增加两个围绕基线
+`K_R=1` 的分析诊断上下文：
 
-| context | `ligand_normalized` | 用途 |
-|---|---:|---|
-| `no_ligand` | 0 | 背景与假阳性风险 |
-| `transition_reference` | 1 | 当前归一化半响应附近 |
-| `high_input` | 1000 | 高输入/接近饱和的压力情景 |
+| context | `ligand_normalized` | 角色 | 用途 |
+|---|---:|---|---|
+| `no_ligand` | 0 | primary | 背景与假阳性风险 |
+| `transition_low_diagnostic` | 0.3 | diagnostic | 基线转折区低侧的 `n_R` 形状诊断 |
+| `transition_reference` | 1 | primary | 当前归一化半响应参考 |
+| `transition_high_diagnostic` | 3 | diagnostic | 基线转折区高侧的 `n_R` 形状诊断 |
+| `high_input` | 1000 | primary | 高输入/接近饱和的压力情景 |
 
-每个输入上下文在 `N=1/2/4` 三个 copy strata 下运行。正输入情景同时生成
+`L=K_R` 时 Hill 输出恒为 `1/2`，不随 `n_R` 变化；`L=0` 与高输入又分别
+位于零输入和近饱和区。两个固定诊断点令基线附近的 `log(L/K_R)` 非零，避免
+只依据原有三点把 `n_R` 错误判为低影响。它们属于归一化模型的分析设计，
+不构成 wet-lab 必须采用的配体浓度要求，也不建立项目 dose-response。
+
+五个输入上下文均在 `N=1/2/4` 三个 copy strata 下运行。正输入情景同时生成
 逐参数匹配的 no-ligand control，唯一改变字段为 `input.ligand_normalized=0`。
-时间网格沿用 0–8 h、161 点，保证 2 h、4 h 和 8 h 输出可直接比较。
+时间网格沿用 0–8 h、161 点，保证 2 h、4 h 和 8 h 输出可直接比较。报告必须
+分别标明 primary 与 diagnostic context，不能把诊断点单独解释为构建性能结论。
 
 ## 输出指标
 
@@ -156,7 +165,8 @@ Phase 2B 报告必须同时保存具体范围版本和基线提交，敏感性�
 
 1. 对 17 个连续不确定字段运行局部归一化敏感性，检查方向、数值稳定性和
    time-dependent sensitivity。
-2. 在三个 ligand context 和三个 copy strata 下运行 Morris screening。
+2. 在三个 primary ligand context、两个 transition diagnostic context 和三个
+   copy strata 下运行 Morris screening，并分开报告两类 context。
 3. 根据 `mu_star`、`sigma`、不同输出和不同时间的一致性选择重点参数。
 4. 为高影响交互补少量二维图；优先候选为：
    - `K_TF × n_TF`；

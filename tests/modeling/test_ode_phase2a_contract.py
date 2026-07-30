@@ -103,9 +103,43 @@ class Phase2AContractTests(unittest.TestCase):
         contexts = self.contract["design_contexts"]
         self.assertEqual(contexts["copy_number_strata"], [1, 2, 4])
         self.assertEqual(contexts["ligand_normalized"]["no_ligand"], 0.0)
-        self.assertGreater(contexts["ligand_normalized"]["transition_reference"], 0.0)
-        self.assertGreater(contexts["ligand_normalized"]["high_input"], 0.0)
+        self.assertEqual(
+            contexts["ligand_context_sets"]["primary"],
+            ["no_ligand", "transition_reference", "high_input"],
+        )
+        self.assertEqual(
+            contexts["ligand_context_sets"]["transition_diagnostic"],
+            ["transition_low_diagnostic", "transition_high_diagnostic"],
+        )
+        classified = {
+            context_id
+            for context_ids in contexts["ligand_context_sets"].values()
+            for context_id in context_ids
+        }
+        self.assertEqual(classified, set(contexts["ligand_normalized"]))
         self.assertIn("only input.ligand_normalized", contexts["matched_control_rule"])
+
+    def test_nr_diagnostic_contexts_flank_baseline_kr_for_analysis_only(self) -> None:
+        contexts = self.contract["design_contexts"]
+        ligand = contexts["ligand_normalized"]
+        basis = contexts["transition_diagnostic_basis"]
+        baseline_kr = float(
+            _get_dotted(self.baseline, "receptor.half_activation_normalized")
+        )
+
+        self.assertEqual(basis["target_parameter"], "n_R")
+        self.assertEqual(float(basis["baseline_K_R"]), baseline_kr)
+        self.assertEqual(basis["scope"], "analysis_only")
+        self.assertFalse(basis["wet_lab_requirement"])
+        self.assertEqual(ligand["transition_low_diagnostic"], 0.3)
+        self.assertEqual(ligand["transition_high_diagnostic"], 3.0)
+        self.assertLess(ligand["transition_low_diagnostic"], baseline_kr)
+        self.assertEqual(ligand["transition_reference"], baseline_kr)
+        self.assertGreater(ligand["transition_high_diagnostic"], baseline_kr)
+        self.assertLess(
+            ligand["transition_high_diagnostic"],
+            ligand["high_input"],
+        )
 
     def test_output_metrics_have_unique_ids_and_explicit_activation_state(self) -> None:
         ids = [row["metric_id"] for row in self.output_rows]
