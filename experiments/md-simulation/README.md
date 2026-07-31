@@ -3,9 +3,11 @@
 > **锁定日期**: 2026-04-12
 > **目的**: 在生产计算启动前写死体系清单，防止中途增减导致统计比较不公
 > **权威方向文档**: [P0-md-simulation.md](../../docs/modeling/P0-md-simulation.md) v1.3
-> **对接数据来源**: [ratio_channel_report.md](../docking-repro/analysis/ratio_channel_report.md)
+> **历史对接数据来源**: [ratio_channel_report.md](../docking-repro/analysis/ratio_channel_report.md)（仅解释 2026-04 pre-registration 输入，不是 current docking source）
 >
 > **2026-06-02 边界**：下方 mutant-holo 8 体系是 2026-04 历史 pre-registration，保留作方法和 provenance 记录，不代表当前生产队列或湿实验推荐。当前 MD 状态看 [docs/INDEX.md](../../docs/INDEX.md) 和 [P0-md-simulation.md](../../docs/modeling/P0-md-simulation.md)。
+>
+> **2026-07-30 docking 输入边界**：旧 mutant shortlist、ratio 和 IFP 已因 receptor frame 缺陷撤回。已完成 R59C/R167Y MD 只绑定其实际旧起始 pose；未来 mutant panel 必须等待 frame-repaired 全量排名。
 
 ## 体系清单（8 个 holo）
 
