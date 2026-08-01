@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-07-29
+last_updated: 2026-07-28
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -21,8 +21,6 @@ last_updated: 2026-07-29
 > **2026-05-25 reporter 架构更新**：按用户确认和实验方案附件，输出层拓扑更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`。这确认的是架构，不固定具体色素、整合位点、实际 copy number、gain、Kc/Hill/Emax 或显色时间；这些仍是 `wet-lab required` 或 ODE 扫参变量。
 >
 > **2026-07-28 可执行原型更新**：仓库现已有归一化 Phase 0 solver/time-course 和 Phase 1 工程情景扫描。当前结果只支持显式 `scenario_prior` 下的条件比较；真实 `Kd/EC50`、动力学常数、检测限、最佳 copy number 和最终构建推荐仍未校准。
->
-> **2026-07-29 Phase 2A 分析合同**：18 个内部字段、17 个连续筛选参数、1 个离散 copy-number 设计变量、输出指标和逐参数实验接口已形成机器可读合同并通过 5 项合同测试。局部敏感性和 Morris screening 从 Phase 2B 开始。
 
 ## 解决什么问题
 
@@ -48,14 +46,13 @@ last_updated: 2026-07-29
 - Phase 1 已实现剂量 × 半响应、偶联 × 泄漏、1/2/4 copy × gain × 观察时间三组扫描；当前固定网格为 143 个情景（74 ligand + 69 一对一无 ligand controls）和 23,023 条完整 time-course。
 - Phase 1 紧凑结果包已保存 scenario manifest、final metrics、共置 suite/base config 快照、代码/输入 hash、软件版本、摘要图和外部完整 time-course 的 payload manifest。
 - 11 个 ODE 单元/合同测试覆盖严格 schema、有限数/整数、control effective-input 身份、一对一配对、结果 scenario 集合一致和 snapshot-only replay。
-- Phase 2A 已建立[敏感性与实验接口分析合同](P0-ode-phase2a-analysis-contract.md)：覆盖 18 个内部字段、三种 ligand context、1/2/4 copy strata、输出指标和逐参数实验替换路径；5 项合同测试验证参数覆盖、基线一致性、路径和矩阵身份。
 
 ### 当前缺口
 
 - 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
 - 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
 - 尚未把 refreshed docking shortlist 展开成逐 receptor-ligand 的可校准配置；当前归一化 suite 不代表具体 Gpr2/Gpr3–ascr 构建。
-- Phase 2A 已固定筛选合同；局部敏感性、Morris screening、参数可识别性、拟合/不确定性传播和逐级 MAPK kinetic model 仍待后续阶段执行。
+- 尚未完成正式的全局灵敏度、参数可识别性、拟合/不确定性传播和逐级 MAPK kinetic model；Phase 1 是预注册的小型工程情景网格。
 
 ### 完整完成后的形态
 
@@ -249,7 +246,6 @@ ODE 当前应这样消费 docking 输出：
 
 - [x] 归一化 Phase 0 单情景 time-course、CSV 和 PNG（`scenario_prior`）
 - [x] 归一化 Phase 1 工程情景扫描、1/2/4 copy 条件比较、紧凑结果包和外部 payload 合同（`scenario_prior`）
-- [x] Phase 2A 参数空间、输出指标和参数—观测量—实验接口合同
 - [ ] 系统剂量-响应曲线（ascr 浓度 vs 报告基因输出，覆盖 refreshed docking shortlist 候选场景）
 - [ ] 灵敏度极限预测（最低可检测浓度）
 - [ ] 动态范围与放大倍数优化建议
@@ -284,14 +280,12 @@ ODE 当前应这样消费 docking 输出：
 | 2026-05-25 | **v2.4** | 增补当前形态/缺口/完整形态说明；更新 reporter 输出架构为 sTF -> GAL 多拷贝放大 -> 色素显色；明确未写 ODE solver | 用户确认实验方案附件中的 reporter 路径，需同步总览图缺口说明 |
 | 2026-07-09 | **v2.5** | 正向校准 docking 输出消费口径：候选标签、Channel A/B、相对排序和 IFP 线索用于场景集合；Kd/EC50 需要独立 binding/calibration 证据 | 本次 docking authority 口径修订 |
 | 2026-07-28 | **v2.6** | 增加可执行 Phase 0/1 原型、严格 schema/身份合同、紧凑结果与外部 payload 路由；保留全部未校准边界 | 从最新主线重建旧 ODE PR 的可用内容并通过本地合同验证 |
-| 2026-07-29 | **v2.7** | 建立 Phase 2A 参数空间、输出指标、实验矩阵和自动合同校验；保留 `M0` 作为筛选基线并登记动态 sTF `M1` 的启用门槛 | 用户启动 Phase 2A，先固定敏感性与 calibration-readiness 分析合同 |
 
 ## 进展记录
 
 - 2026-05-24：Stage 3 exact extraction 已补入证据矩阵；P0 ODE 文档只同步证据状态、手动队列和湿实验需求，不输出 solver、rate table 或最终参数表。
 - 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
 - 2026-07-28：Phase 0 solver/config/CSV/PNG 和 Phase 1 归一化情景扫描已实现。当前网格为 143 scenarios（74 ligand + 69 controls）和 23,023 条完整 time-course；所有数值仍为 `scenario_prior`，完整 time-course 按 payload policy 外置并由 manifest/checksum 路由。
-- 2026-07-29：Phase 2A 分析合同已建立并通过 5 项合同测试。当前交付覆盖 18 参数空间、13 个输出指标、三种 ligand context、1/2/4 copy strata 和逐参数实验替换路径；正式敏感性结果从 Phase 2B 产生。
 
 ## 与其他方向的依赖关系
 

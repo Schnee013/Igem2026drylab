@@ -80,8 +80,10 @@ baseline. Its companion CSV files register:
 - active, diagnostic, and threshold-gated output metrics; and
 - one observation/experiment/replacement route for every parameter.
 
-The human-readable rationale and activation gates are in
-[`docs/modeling/P0-ode-phase2a-analysis-contract.md`](../../docs/modeling/P0-ode-phase2a-analysis-contract.md).
+The machine-readable rationale and activation gates are recorded in
+`configs/phase2a_analysis_contract.json`. The canonical ODE scope and evidence
+boundaries remain in
+[`docs/modeling/P0-signal-pathway-ode.md`](../../docs/modeling/P0-signal-pathway-ode.md).
 Phase 2A establishes the contract; local sensitivity and Morris results begin
 in Phase 2B.
 

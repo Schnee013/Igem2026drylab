@@ -25,7 +25,7 @@
     "parameter_space": "experiments/ode-model/configs/phase2a_parameter_space.csv",
     "output_metrics": "experiments/ode-model/configs/phase2a_output_metrics.csv",
     "experiment_matrix": "experiments/ode-model/configs/phase2a_experiment_matrix.csv",
-    "human_readable_contract": "docs/modeling/P0-ode-phase2a-analysis-contract.md"
+    "domain_authority": "docs/modeling/P0-signal-pathway-ode.md"
   },
   "parameter_counts": {
     "internal_config_fields": 18,
