@@ -1,15 +1,18 @@
 # Gpr3_R167Y + ASCR3 ligand input
 
-This directory is the system-local authority for the selected ligand coordinate
-used by the `Gpr3_R167Y + ASCR3` MD input package.
+This directory is the system-local historical authority for the exact ligand
+coordinate used by the completed `Gpr3_R167Y + ASCR3` MD input package. It is
+not a current docking-ranking or candidate authority.
 
-## Current input
+## Historical MD input
 
 - `Gpr3_R167Y_ascr3_pose1.sdf` contains exactly one molecule: model 1 from the
   20-pose docking result.
 - The retained pose score is `VINA RESULT: -5.715`. The candidate-ranking value
   `dg_ascr3=-5.715` in the shortlist matches this pose score, but the SDF is
-  retained as the coordinate authority rather than as a ranking table.
+  retained as the historical coordinate authority rather than as ranking
+  evidence; equality of the displayed values does not promote the withdrawn
+  shortlist to current status.
 - `manifest.tsv` records ownership, source, checksum, consumer, recovery, and
   validation. The SDF body is explicitly promoted as a repo-owned canonical
   input because downstream ASCR3 coordinate completion and receptor-frame
@@ -17,10 +20,10 @@ used by the `Gpr3_R167Y + ASCR3` MD input package.
 
 ## Boundary
 
-The full PDBQT pose set and IFP-generated multi-pose SDF remain docking-analysis
-outputs. They are not current MD input authorities and must not be referenced
-from `results/**/tmp/` by the MD package. The completed 46-atom GRO remains the
-accepted downstream ASCR3 coordinate body for package assembly.
+The full PDBQT pose set and IFP-generated multi-pose SDF are withdrawn
+docking-analysis outputs. The promoted SDF and completed 46-atom GRO remain
+authoritative only for auditing the actual historical MD starting coordinate;
+they cannot validate the frame-repaired ranking or define a future candidate.
 
 ## References / 所引
 

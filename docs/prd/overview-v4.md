@@ -1,6 +1,6 @@
 # 项目全貌（v4）
 
-> 来源: 在 v3（[archive/overview-v3.md](archive/overview-v3.md)）基础上，根据 2026-04-11 PI 确认底盘策略落地 | 最后更新: 2026-05-25
+> 来源: 在 v3（[archive/overview-v3.md](archive/overview-v3.md)）基础上，根据 2026-04-11 PI 确认底盘策略落地 | 最后更新: 2026-07-30
 
 ## 一句话描述
 
@@ -46,7 +46,7 @@ sTF（Ste12 PRD-Gal4DBD 类融合转录因子）
 - **ascr#18**: 在植物寄生线虫（PPNs）中占绝对优势
 - **ascr#3**: 在自由生活线虫中占主导
 - 通过改造 Gpr 受体获得对 ascr#3 / ascr#18 的差异化特异性，由两个传感器（不同 Gpr 突变体）输出的显色比例判别有害线虫
-- 04-11 干实验曾产出 6 个 Top 候选位点；当前 docking-derived MD 候选以刷新后的 [MD 前候选体系清单](../modeling/P0-docking-md-candidate-shortlist.md) 为准。
+- 04-11 干实验曾产出 6 个 Top 候选位点；该阶段及 2026-05 refreshed shortlist 均已因 mutant/WT docking frame 缺陷撤回。当前没有 active docking-derived MD 候选，未来身份必须来自 Gpr2/Gpr3 共同 frame 的全量重跑与审计；边界见 [已撤回的 MD 前候选体系清单](../modeling/P0-docking-md-candidate-shortlist.md)。
 
 ## 团队组织
 

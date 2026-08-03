@@ -1,6 +1,6 @@
 # Hu2024 精确复现 Pipeline 配置
 # 方法参考: Hu et al. 2024 Nat Microbiol (doi: 10.1038/s41564-024-01731-9)
-# 执行架构: Mac M1（代码/分析）→ Windows 7500F（ADFR/Orca/Vina 计算）
+# 当前执行架构: 本地代码/验证；任何远程 preflight 或计算需单独授权
 
 pipeline_version: "hu2024-repro-v1"
 method_reference: "Hu et al. 2024 Nat Microbiol"
@@ -29,7 +29,7 @@ paths:
   results_filename: "docking_results.json"
 
 # ---------------------------------------------------------------------------
-# Windows 计算节点（通过 SSH 远程调用）
+# 历史 Windows 计算节点（非默认执行入口；只保留历史配置）
 # ---------------------------------------------------------------------------
 remote:
   host: "100.87.153.84"
@@ -42,6 +42,136 @@ remote:
   conda_python: "D:/drylab-tools/envs/docking-repro/python.exe"
   conda_prefix: "D:/drylab-tools/envs/docking-repro"  # 用 conda run --prefix 调用
   conda_env: "docking-repro"
+
+# ---------------------------------------------------------------------------
+# Gpr2/Gpr3 mutant docking frame repair
+# ---------------------------------------------------------------------------
+frame_repair:
+  schema_version: "docking-frame-repair-v2"
+  allowed_receptors: ["Gpr2", "Gpr3"]
+  ligands: ["ascr18", "ascr3"]
+  expected_mutants:
+    Gpr2: 46
+    Gpr3: 116
+  expected_total_mutants: 162
+  expected_mutant_jobs: 324
+  expected_wt_baseline_jobs: 4
+  expected_total_jobs: 328
+  requested_max_modes_per_job: 20
+  compute:
+    cpu_per_job: 8
+  alignment:
+    chain: "A"
+    atom: "CA"
+    expected_ca_count: 147
+    method: "Kabsch proper rotation"
+    target_frame: "receptor-specific WT docking frame"
+  mutation_inventory: "experiments/docking-repro/mutagenesis/mutagenesis_results_merged_gpr3_f_full_20260520_0854.json"
+  output_root_pattern: "temp/docking_frame_repair_<run_id>"
+  require_frame_manifest: true
+  reject_legacy_af3_prepared: true
+  environment_lock: "environments/e2-docking-frame-repair.lock.yml"
+  target_toolchain:
+    vina: "1.2.6"
+    openbabel: "3.1.1"
+    adfr: "1.1dev"
+    adfr_build: "100"
+    adfr_official_url: "https://ccsb.scripps.edu/adfr/downloads/"
+    adfr_installer_sha256: "7d31898d0a94f260b2e1007bd245ff4940f7bc6a3710621fd46c551e4f0cc967"
+    adfr_installer: "/ifs1/User/dengwei/igem/software/installers/ADFRsuite_Linux-x86_64_1.1dev_Install"
+    adfr_runtime_root: "/ifs1/User/dengwei/igem/software/ADFRsuite-1.1dev/runtime"
+    adfr_version_file: "/ifs1/User/dengwei/igem/software/ADFRsuite-1.1dev/source/Version"
+    adfr_release_notes: "/ifs1/User/dengwei/igem/software/ADFRsuite-1.1dev/source/releaseNotes.txt"
+  membrane_references:
+    Gpr2: "experiments/md-simulation/systems/Gpr2_WT/gromacs/step5_input.pdb"
+    Gpr3: "experiments/md-simulation/systems/Gpr3_WT/gromacs/step5_input.pdb"
+  geometry_gate:
+    schema_version: "docking-geometry-gate-v3"
+    policy: "current_toolchain_wt_only_frozen_before_holdout_and_mutant_results"
+    calibration_artifact:
+      path: "experiments/docking-repro/geometry-gates/20260731_seed42_seed43_wt_v1/geometry_gate.json"
+      sha256: "7b74b8335c18eeb2548d32dbe0b5cdf823f34dc2bf22f09061c8a750afb62d8d"
+      gate_identity: "5b59c1d36b3b5e89e0c67ed9846c2b76b48bf1ca5ce8af9873a8562565740924"
+    common:
+      requested_max_modes: 20
+      model1_must_pass: true
+      require_standard_prolif_contact: true
+      distance_contact_audit_cutoff_angstrom: 4.5
+      distance_contact_is_gate: false
+      contact_definition: "ProLIF standard interactions are the gate; 4.5 A nearest-neighbor distance is recorded only as a non-gating audit"
+      height_reference: "receptor-specific WT docking-to-membrane transform recorded in the frame run"
+      source:
+        implementation: "src/modeling/docking-repro/geometry_gate.py"
+        prolif_interactions: "src/modeling/docking-repro/run_ifp_analysis.py:ALL_INTERACTION_TYPES"
+    Gpr2:
+      calibration_status: "FROZEN_BEFORE_MUTANT_RESULTS"
+      radial_max_angstrom: 8.498799
+      by_ligand:
+        ascr18:
+          membrane_height_min_angstrom: 105.157897
+          membrane_height_max_angstrom: 107.442750
+          min_protein_closer_atoms: 19
+          min_passing_modes: 17
+          calibration:
+            gate_identity: "5b59c1d36b3b5e89e0c67ed9846c2b76b48bf1ca5ce8af9873a8562565740924"
+            seeds: [42, 43]
+        ascr3:
+          membrane_height_min_angstrom: 105.157897
+          membrane_height_max_angstrom: 107.442750
+          min_protein_closer_atoms: 17
+          min_passing_modes: 15
+          calibration:
+            gate_identity: "5b59c1d36b3b5e89e0c67ed9846c2b76b48bf1ca5ce8af9873a8562565740924"
+            seeds: [42, 43]
+    Gpr3:
+      calibration_status: "FROZEN_BEFORE_MUTANT_RESULTS"
+      radial_max_angstrom: 8.014167
+      by_ligand:
+        ascr18:
+          membrane_height_min_angstrom: 108.052843
+          membrane_height_max_angstrom: 114.430823
+          min_protein_closer_atoms: 19
+          min_passing_modes: 16
+          calibration:
+            gate_identity: "5b59c1d36b3b5e89e0c67ed9846c2b76b48bf1ca5ce8af9873a8562565740924"
+            seeds: [42, 43]
+        ascr3:
+          membrane_height_min_angstrom: 108.052843
+          membrane_height_max_angstrom: 114.430823
+          min_protein_closer_atoms: 17
+          min_passing_modes: 18
+          calibration:
+            gate_identity: "5b59c1d36b3b5e89e0c67ed9846c2b76b48bf1ca5ce8af9873a8562565740924"
+            seeds: [42, 43]
+  ratio_ranking:
+    implementation: "src/modeling/docking-repro/ratio_ranking.py"
+    allowed_receptors: ["Gpr2", "Gpr3"]
+    sel_mut_formula: "dg_ascr18 - dg_ascr3"
+    channel_threshold: 0.477
+    affinity_floor: 5.0
+    pairing_separation_formula: "sel_A - sel_B"
+    pairing_sort_direction: "ascending"
+    balance_formula: "abs(sel_A)/(abs(sel_A)+abs(sel_B))"
+    pairing_tie_break:
+      - "abs(balance-0.5) ascending"
+      - "target MODEL1 affinity sum ascending"
+      - "channel_a identifier ascending"
+      - "channel_b identifier ascending"
+    panel_size: 7
+    min_distinct_gpr2_mutants: 2
+    requires_gpr3: true
+    old_candidate_privilege: false
+    ligand_quota: null
+    insufficient_panel_action: "stop_without_backfill_or_threshold_relaxation"
+    test_vectors:
+      - dg_ascr18: -6.227
+        dg_ascr3: -4.847
+        expected_sel_mut: -1.380
+        expected_channel: "A"
+      - dg_ascr18: -4.809
+        dg_ascr3: -5.715
+        expected_sel_mut: 0.906
+        expected_channel: "B"
 
 # ---------------------------------------------------------------------------
 # 受体配置（与 v2 相同，只对接 GprC 复现 Hu2024）
@@ -132,9 +262,11 @@ orca:
 # AutoDock Vina 对接参数
 # ---------------------------------------------------------------------------
 vina:
-  seed: 42
+  seed: 44
   num_modes: 20
   energy_range: 3.0
+  min_rmsd: 1.0
+  max_evals: 0
 
   # 单阶段（Hu2024 原文精确参数）— 主协议
   singlestage:
@@ -311,7 +443,8 @@ mutagenesis:
   scan_type: "alanine"
 
   # 扫描受体
-  target_receptors: ["GprC", "Gpr2", "Gpr3"]
+  # Active frame-repair/candidate universe is restricted to Gpr2/Gpr3.
+  target_receptors: ["Gpr2", "Gpr3"]
 
   # 扫描残基（绝对残基编号）
   # GprC: Hu2024 实验验证 3 个 + v2 PLIP 高频接触残基

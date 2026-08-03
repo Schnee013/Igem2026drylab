@@ -258,11 +258,75 @@ def get_pocket(prot: mda.AtomGroup, lig_center: np.ndarray,
     return prot.select_atoms(pocket_sel)
 
 
+def get_pose_set_pocket(
+    prot: mda.AtomGroup,
+    pose_sdf: Path,
+    *,
+    top_n: int,
+    radius: float = POCKET_RADIUS,
+) -> mda.AtomGroup:
+    """选择任一 pose 重原子 radius Å 内的蛋白残基并集。
+
+    frame-repair 主线必须对完整 pose 分布做 IFP。只按 MODEL 1 质心选择
+    pocket 会静默遗漏其他 MODEL 附近的接触，因此这里用前 ``top_n`` 个
+    可解析 SDF record 的全部重原子构造残基并集。
+    """
+    supplier = Chem.SDMolSupplier(
+        str(pose_sdf),
+        removeHs=False,
+        sanitize=False,
+        strictParsing=True,
+    )
+    ligand_coordinate_sets: list[np.ndarray] = []
+    for record_index, molecule in enumerate(supplier, start=1):
+        if record_index > top_n:
+            break
+        if molecule is None:
+            raise ValueError(
+                f"SDF record {record_index} 无法解析，拒绝构造 pose-set pocket"
+            )
+        conformer = molecule.GetConformer()
+        coordinates = np.asarray(
+            [
+                list(conformer.GetAtomPosition(atom.GetIdx()))
+                for atom in molecule.GetAtoms()
+                if atom.GetAtomicNum() > 1
+            ],
+            dtype=float,
+        )
+        if not len(coordinates):
+            raise ValueError(f"SDF record {record_index} 不含配体重原子")
+        ligand_coordinate_sets.append(coordinates)
+    if len(ligand_coordinate_sets) != top_n:
+        raise ValueError(
+            f"pose-set pocket 需要 {top_n} 个 SDF records，"
+            f"实际 {len(ligand_coordinate_sets)}"
+        )
+
+    near_resids: set[int] = set()
+    protein_positions = np.asarray(prot.positions, dtype=float)
+    for ligand_coordinates in ligand_coordinate_sets:
+        distances = np.linalg.norm(
+            protein_positions[:, np.newaxis, :]
+            - ligand_coordinates[np.newaxis, :, :],
+            axis=2,
+        )
+        atom_indices = np.where(np.any(distances < radius, axis=1))[0]
+        near_resids.update(int(value) for value in prot.atoms[atom_indices].resids)
+    if not near_resids:
+        raise ValueError(
+            f"No residues within {radius}Å of any ligand atom in {pose_sdf}"
+        )
+    pocket_sel = " or ".join(f"resid {rid}" for rid in sorted(near_resids))
+    return prot.select_atoms(pocket_sel)
+
+
 def analyze_pair(
     rec_pdb_h: Path,
     pose_sdf: Path,
     top_n: int = 20,
     template_smiles: str | None = None,
+    pocket_mode: str = "pose1_centroid",
 ) -> tuple[pd.DataFrame, int]:
     """对单个 receptor×ligand 对运行 ProLIF IFP，返回 (IFP DataFrame, 实际 pose 数)
 
@@ -274,19 +338,23 @@ def analyze_pair(
     u_rec = mda.Universe(str(rec_pdb_h))
     prot = u_rec.select_atoms("protein")
 
-    # 读取配体 pose 坐标（用于定义 pocket）
-    suppl_rd = Chem.SDMolSupplier(str(pose_sdf), removeHs=False)
-    pose1 = next(iter(suppl_rd))
-    if pose1 is None:
-        raise ValueError(f"无法读取 SDF: {pose_sdf}")
-    conf = pose1.GetConformer()
-    lig_center = np.mean(
-        [list(conf.GetAtomPosition(i)) for i in range(pose1.GetNumAtoms())],
-        axis=0,
-    )
+    if pocket_mode == "pose1_centroid":
+        suppl_rd = Chem.SDMolSupplier(str(pose_sdf), removeHs=False)
+        pose1 = next(iter(suppl_rd))
+        if pose1 is None:
+            raise ValueError(f"无法读取 SDF: {pose_sdf}")
+        conf = pose1.GetConformer()
+        lig_center = np.mean(
+            [list(conf.GetAtomPosition(i)) for i in range(pose1.GetNumAtoms())],
+            axis=0,
+        )
+        pocket = get_pocket(prot, lig_center)
+    elif pocket_mode == "all_pose_heavy_atom_union":
+        pocket = get_pose_set_pocket(prot, pose_sdf, top_n=top_n)
+    else:
+        raise ValueError(f"未知 IFP pocket_mode: {pocket_mode}")
 
-    # 选择 pocket，注入受体 pH 7.4 形式电荷（ARG +1 / ASP,GLU -1）
-    pocket = get_pocket(prot, lig_center)
+    # 注入受体 pH 7.4 形式电荷（ARG +1 / ASP,GLU -1）
     prot_mol = plf.Molecule.from_mda(pocket)
     rdkit_charged = fix_receptor_charges(prot_mol)
     prot_mol = plf.Molecule.from_rdkit(rdkit_charged)

@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-07-28
+last_updated: 2026-07-30
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -14,7 +14,7 @@ last_updated: 2026-07-28
 >
 > 本方向走**完整酵母 STE2 ODE 模型**，参数源 Shaw 2019 / Kofahl 2004 / Yi 2003 / Brown 2000 / Ladds 2005 / Lengger 2020-2022 / Fan 2024 / Fan & Yuan 2023。丝状真菌 ODE 表格（下方）保留为**历史备选 / 已不激活**。
 >
-> **2026-07-09 输入接口校准**：P0 docking 线已提供刷新后的候选标签、双通道方向、相对排序和 IFP 线索；ODE 用这些字段定义 receptor-ligand 场景集合与优先级。配体结合/激活参数先作为文献校准或参数扫描变量，待 Hu2024/Kuo2024/酵母 GPCR 文献与后续湿实验剂量响应确认后再固定。
+> **2026-07-30 docking 输入暂停**：旧 P0 docking mutant shortlist、双通道排序和 IFP 因 AF3 mutant/WT frame 缺陷已撤回，ODE 当前不得消费这些 mutant 标签或优先级。WT Gpr2/Gpr3、ascr#18/ascr#3 的场景结构与参数扫描框架可继续维护；mutant 场景必须等待 frame-repaired 全量排名。配体结合/激活参数仍作为文献校准或参数扫描变量，待独立文献与湿实验剂量响应确认后再固定。
 >
 > **2026-05-24 Stage 3 exact extraction**：抽取进展写入 `tmp_papers/ode_api_refresh_20260521/stage2_value_extraction_matrix.md` 的 Stage 3 addendum；它仍是证据包，不是最终参数表。Fan 2024 DOI/title 已与 `literature-matrix.md`、本地 summary、Zotero `WJVMJSNS` 和 API 记录一致；官方 Elsevier Supplementary Table 3-4 已解决 Fan 源上下文 Kc 冲突，但这些行只作为 CaSte2/GAL biosensor source-context `fixed from source`，项目 Gpr-ascr reporter gain/Kc/Hill/Emax 仍是 `wet-lab required`。Shaw/Kofahl 官方 BioModels SBML 已记录 species/reaction/parameter 指针，但速率值仍因单位/source-table 映射未完成而 `do-not-use`；Yi 速率表、Tehseen 全文仍在 full-text/Zotero queue。
 >
@@ -39,7 +39,7 @@ last_updated: 2026-07-28
 ### 当前已完成
 
 - 文献证据与参数状态整理：`tmp_papers/ode_api_refresh_20260521/stage2_value_extraction_matrix.md` 作为证据包，`fixed from source` / `literature prior` / `scenario prior` / `wet-lab required` / `do-not-use` 标签已进入本文。
-- docking 输入接口整理：docking 输出用于候选标签、Channel A/B 方向、相对排序和 IFP 线索；Kd/EC50 由独立 binding/calibration 证据或参数扫描定义。
+- docking 输入接口边界已整理：旧 mutant 候选标签、Channel A/B 排序和 IFP 暂停消费；WT 场景结构可用，Kd/EC50 由独立 binding/calibration 证据或参数扫描定义。
 - 湿实验校准需求整理：dose-response、time-course、basal leak、Emax、Hill、表达/膜定位、reporter dynamic range 和 chimeric Gpa1 coupling 都已列为替换条件。
 - reporter 输出层架构已确认：sTF -> GAL 多拷贝放大 -> 色素显色。
 - Phase 0 已实现 `src/modeling/ode/` 最小 solver、runner、严格 config 校验、161 点归一化 time-course CSV 和由 CSV 渲染的 PNG。
@@ -51,7 +51,7 @@ last_updated: 2026-07-28
 
 - 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
 - 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
-- 尚未把 refreshed docking shortlist 展开成逐 receptor-ligand 的可校准配置；当前归一化 suite 不代表具体 Gpr2/Gpr3–ascr 构建。
+- 旧 docking mutant shortlist 已撤回；尚未把 frame-repaired 全量排名展开成逐 receptor-ligand 的可校准配置，当前归一化 suite 不代表具体 Gpr2/Gpr3–ascr 构建。
 - 尚未完成正式的全局灵敏度、参数可识别性、拟合/不确定性传播和逐级 MAPK kinetic model；Phase 1 是预注册的小型工程情景网格。
 
 ### 完整完成后的形态
@@ -67,7 +67,7 @@ Phase 0/1 已交付可运行原型；走向校准 ODE v0.1 仍需：
 ## 通路结构（已锁定酵母）
 
 ```
-异源 Gpr 受体（Gpr2/Gpr3；GprC 仅作探索备选）
+异源 Gpr 受体（Gpr2/Gpr3）
     │ ascr#18 / ascr#3 结合（Kd/EC50 为文献校准或参数扫描变量）
     ▼
 嵌合 Gpa1（C 端嫁接真菌 Gα C 端，由 P0-chimeric-gprotein 提供 5/10/15 三档候选）
@@ -108,16 +108,14 @@ sTF（Ste12 PRD-Gal4DBD 类融合转录因子）
 4. **拷贝数敏感性分析**：N=1（基线）/ N=2（异源单倍体复制）/ N=4（双 cassette 整合），评估线性度与动态范围
 5. 灵敏度分析：哪些参数对最终输出影响最大？
 6. 优化下游 reporter 输出层接口（sTF/GAL/色素架构已确认；具体 gain、copy number、leakage 和 time-course 待湿实验回填）
-7. **与 P0-docking 联动**：读取刷新后的候选标签、Channel A/B 方向、D/balance 和相对排序；Vina ΔG 只支持相对排序。ODE 中的配体结合/激活参数用文献校准范围、湿实验剂量响应或敏感性扫描定义。
+7. **与 P0-docking 联动**：当前只保留 WT Gpr2/Gpr3 与双配体的场景接口；mutant 候选标签、Channel A/B 方向、D/balance、相对排序和 IFP 等待 frame-repaired 全量结果。Vina ΔG 即使修复后也只支持相对排序；ODE 中的配体结合/激活参数用文献校准范围、湿实验剂量响应或敏感性扫描定义。
 
-## ODE 输入接口（2026-05-20）
+## ODE 输入接口（2026-07-30 withdrawal boundary）
 
-P0 docking 当前能提供：
+P0 docking 当前允许提供：
 
-- 候选集合与优先级：首选 `Gpr2_R59C + Gpr3_R167Y`；B 端备选 `Gpr3_V138M/R167P/R167C`；A 端备选 `Gpr2_R59F/R59T`；`GprC_Q411S` 仅作探索性备选并保留 GprC caveat。
-- 每个候选的双通道方向：Channel A 偏 ascr#18，Channel B 偏 ascr#3。
-- 相对排序证据：`sel_mut`、D、balance、IFP 接触差异，用于设定模型场景和优先级。
-- WT Gpr2 / WT Gpr3 baseline 标签，用于湿实验和模型校准对照。
+- WT Gpr2 / WT Gpr3 与 ascr#18 / ascr#3 的场景标签，用于模型结构和未来校准对照。
+- 已撤回的 mutant shortlist/ratio/IFP 只作历史 provenance，不用于当前场景优先级。
 
 P0 docking 后续参数仍需独立证据：
 
@@ -127,10 +125,10 @@ P0 docking 后续参数仍需独立证据：
 
 ODE 当前应这样消费 docking 输出：
 
-1. 用 docking candidate-system shortlist 选定 receptor-ligand 场景集合；固定 Kd 表等待独立 binding/calibration 证据。
-2. 对每个 receptor-ligand pair 设置待校准参数：`K_L`/EC50-like half activation、ligand efficacy、basal activity、最大输出比例。
+1. 在 repaired shortlist 形成前，只建立 WT Gpr2/Gpr3 × ascr#18/ascr#3 的中性场景结构，不设置 mutant 候选优先级。
+2. 新 mutant shortlist 通过全量 frame/geometry/ratio/IFP 审计后，再把合格 receptor-ligand pair 加入场景集合。
 3. 用文献或湿实验剂量响应给这些参数设定先验范围；文献不足时做 log-scale 参数扫描。
-4. 在报告中明确区分“docking 排名假设”和“ODE 数值参数假设”。
+4. 固定 Kd 表等待独立 binding/calibration 证据；报告中明确区分“docking 排名假设”和“ODE 数值参数假设”。
 
 ## 参数证据矩阵与校准计划（2026-05-23/24）
 
@@ -173,11 +171,11 @@ ODE 当前应这样消费 docking 输出：
 | 问题 | 参数/模块 | 主要来源 | 当前状态 | ODE 使用方式 |
 |------|-----------|----------|----------|--------------|
 | 酵母 GPCR-MAPK 通路拓扑是否可先固定？ | GPCR → Gpa1/Gbetagamma → Ste20/Ste11/Ste7/Fus3 → Ste12/reporter | Shaw 2019 `10.1016/j.cell.2019.02.023`; Kofahl 2004 `10.1002/yea.1122`; Yi 2003 `10.1073/pnas.1834247100` | topology `fixed from source`; rate constants `do-not-use` until SBML/full-text extraction | 先固定模块顺序和状态变量类别；SBML/补充表未抽完前不固定具体速率 |
-| Gpr2/Gpr3/GprC 配体结合和激活强度能否由文献固定？ | `Kd`, `kon`, `koff`, EC50/Kc, Emax, Hill | Hu 2024 `10.1038/s41564-024-01731-9`; Kuo 2024 `10.1038/s41564-024-01679-w` | `wet-lab required`; docking constants `do-not-use` | Hu/Kuo 支持受体身份、机制和 native 条件，不提供可迁移 wet `Kd/EC50`；本项目只能先扫参 |
+| Gpr2/Gpr3 配体结合和激活强度能否由文献固定？ | `Kd`, `kon`, `koff`, EC50/Kc, Emax, Hill | Hu 2024 `10.1038/s41564-024-01731-9`（机制背景）；Kuo 2024 `10.1038/s41564-024-01679-w` | `wet-lab required`; docking constants `do-not-use` | 文献支持受体/机制背景，但不提供可迁移 wet `Kd/EC50`；本项目只能先扫参 |
 | 异源 Gpr 与嵌合 Gpa1 偶联如何处理？ | 偶联效率、basal leak、G protein cycle | Brown 2000 `10.1002/(SICI)1097-0061(20000115)16:1<11::AID-YEA497>3.0.CO;2-K`; Ladds 2005 `10.1016/j.tibtech.2005.05.007`; Lengger 2020 `10.1093/femsyr/foz087`; Lengger 2022 `10.1021/acssensors.1c02061`; Tehseen 2014 `10.1371/journal.pone.0111429` | `literature prior`; project coupling `wet-lab required` | 用作偶联效率和 basal leak 的宽先验；Gpr2/Gpr3 与项目 chimeric Gpa1 必须实测 |
 | reporter / promoter / GAL4 放大能否迁移？ | reporter gain、pFUS1/GAL4/sTF 输出、LOD/LOQ、T50、copy-number effect | Fan 2024 `10.1016/j.bios.2024.116058`; Fan & Yuan 2023 `10.1016/j.crmeth.2023.100647`; Miettinen 2022 `10.1038/s41467-022-31357-6`; Shaw 2019 | `literature prior`; single-copy gain `wet-lab required` | 用作输出层结构和增益/时间尺度先验；单拷贝整合下必须重新标定 |
 | 缺少 binding 参数时如何建模？ | log-scale scan、profile likelihood、sloppy sensitivity | Simpson & Maclaren 2023 `10.1371/journal.pcbi.1011515`; Gutenkunst 2007 `10.1371/journal.pcbi.0030189`; Raue 2009 `10.1093/bioinformatics/btp358` | `literature prior` for method | 第一版只输出参数接口、扫描范围和可识别性计划；数据到位后做 profile likelihood |
-| docking 刷新结果如何进入 ODE？ | candidate label、Channel A/B、relative rank、IFP clue | `ratio_channel_report.md`; `ratio_pairings.csv`; `P0-docking-md-candidate-shortlist.md`; 2026-05-19/20 logs | constants `do-not-use`; labels/ranking usable | 定义场景集合和优先级；`Kd/EC50` 需要独立 binding/calibration 证据 |
+| docking 修复结果如何进入 ODE？ | candidate label、Channel A/B、relative rank、IFP clue | frame-repaired run manifest、未来 ranking/IFP release；旧 `ratio_channel_report.md` / `ratio_pairings.csv` / shortlist 仅作历史边界 | 当前 mutant labels/ranking `withdrawn`; constants `do-not-use` | 修复后合格标签才可定义 mutant 场景；`Kd/EC50` 仍需独立 binding/calibration 证据 |
 
 ### 建议扫描范围（非定论）
 
@@ -193,17 +191,17 @@ ODE 当前应这样消费 docking 输出：
 
 | 对象/决定 | assay | ligand / control panel | readout | ODE 替换条件 | 状态 |
 |-----------|-------|------------------------|---------|---------------|------|
-| WT Gpr2、WT Gpr3、`Gpr2_R59C`、`Gpr3_R167Y` | 同一 chassis/reporter 背景下的 dose-response | ascr#18 与 ascr#3；无配体、低 nM、uM、mM 点 | 选定 reporter 输出 + OD/growth 归一化 | 替换 `K_L`/EC50-like、Emax、Hill、basal leak、A/B 通道分离的 `scenario prior` | `wet-lab required` |
-| 备选突变：`Gpr3_V138M/R167P/R167C`、`Gpr2_R59F/R59T`、探索性 `GprC_Q411S` | 与 WT 完全同版 dose-response panel | 同上；GprC 只作探索，除非湿实验有响应 | 同上 | 验证/降级 docking 场景标签和相对优先级；不从 docking score 换算 affinity | `wet-lab required` |
+| WT Gpr2、WT Gpr3 | 同一 chassis/reporter 背景下的 dose-response | ascr#18 与 ascr#3；无配体、低 nM、uM、mM 点 | 选定 reporter 输出 + OD/growth 归一化 | 替换 WT `K_L`/EC50-like、Emax、Hill、basal leak 的 `scenario prior` | `wet-lab required` |
+| 修复后 mutant panel（身份待全量排名） | 与 WT 完全同版 dose-response panel | ascr#18 与 ascr#3；不得从旧 shortlist 预填身份 | 同上 | 验证/降级 repaired docking 场景标签和相对优先级；不从 docking score 换算 affinity | `blocked_pending_repaired_shortlist` |
 | reporter 方案：pFUS1 直连、GAL4/sTF、荧光、lacZ、NanoLuc 或显色模块 | reporter-specific dose-response、basal/no-ligand、dynamic range、noise floor、饱和区 | 至少包含 alpha-factor 正控和选定 ascaroside panel | fluorescence/lacZ/luminescence/color + OD；记录仪器设置和 incubation time | 替换 reporter gain、Emax、noise、degradation/dilution、LOD/LOQ 假设 | `wet-lab required` |
 | 底盘编辑：`Δsst2`、`Δbar1`、Gpa1 过表达、GAL4 feedback | 每项编辑的阳性/阴性对照矩阵 | pathway 正控 + selected ascaroside panel | matched reporter output + growth/viability | 区分灵敏度提升、basal leak、生长惩罚和 reporter artifact | `wet-lab required` |
 | time-course | 早期 pathway/reporter 激活和 2-8 h 稳态输出 | 无配体、正控、每构建至少一个低/近 EC50/高 ascaroside 浓度 | minutes-hours early points + 2-8 h reporter window；尽量包含 OD/growth | 替换 response delay、reporter production/degradation/dilution 和稳态假设 | `wet-lab required` |
-| 表达/定位 | WT/mutant Gpr2/Gpr3/GprC 膜定位和表达量 | 无配体 + 代表性 ligand 条件（若 ligand 影响 trafficking） | tagged receptor imaging/flow/western as available | 区分 trafficking/expression failure 与 ligand activation / G protein coupling failure | `wet-lab required` |
+| 表达/定位 | WT/mutant Gpr2/Gpr3 膜定位和表达量 | 无配体 + 代表性 ligand 条件（若 ligand 影响 trafficking） | tagged receptor imaging/flow/western as available | 区分 trafficking/expression failure 与 ligand activation / G protein coupling failure | `wet-lab required` |
 | chimeric Gpa1 coupling | 同一 reporter/chassis 的功能偶联 assay；可选 co-IP/BRET-like 相互作用验证 | yeast MAPK 正控 + selected ascaroside panel | reporter output、basal/no-ligand、可选 protein interaction readout | 替换 coupling efficiency 和 basal Gbetagamma leak；决定 Gpr2/Gpr3 native Gpa2 coupling 能否迁移 | `wet-lab required` |
 
 ### 建模建议
 
-- 可固定：酵母 pheromone/MAPK 拓扑、状态变量类别、reporter 方程形式、LOD/LOQ/Hill fitting 定义，以及 docking 刷新后的候选标签集合。
+- 可固定：酵母 pheromone/MAPK 拓扑、状态变量类别、reporter 方程形式、LOD/LOQ/Hill fitting 定义，以及 WT Gpr2/Gpr3 场景结构。
 - 可作为文献先验：异源 GPCR-Gpa1 偶联效率量级、basal leak 风险、reporter/GAL4 放大和时间尺度。
 - 只能作为 scenario prior：Gpr-ascr 半激活浓度、efficacy、Hill、basal leak、reporter gain 的项目数值。
 - 必须等待湿实验：每个 mutant/ascr pair 的 `Kd/kon/koff/EC50/Kc/Emax/Hill`、表达/定位、chimeric Gpa1 coupling、单拷贝 reporter gain。
@@ -224,7 +222,7 @@ ODE 当前应这样消费 docking 输出：
 
 | 参数 | 来源 | 状态 | 备注 |
 |------|------|------|------|
-| 异源 Gpr 配体结合/激活参数 | [P0-molecular-docking](P0-molecular-docking.md) 提供候选标签与相对排序；Kuo 2024 / Hu 2024 支持受体身份和 docking 边界 | `wet-lab required`; docking constants `do-not-use` | Vina/SwissDock Delta G 仅作排序背景；先做参数范围/敏感性扫描 |
+| 异源 Gpr 配体结合/激活参数 | [P0-molecular-docking](P0-molecular-docking.md) 当前只提供 WT 场景结构，mutant 标签/排序等待 repaired release；Kuo 2024 / Hu 2024 支持受体身份和 docking 边界 | `wet-lab required`; docking constants `do-not-use` | Vina/SwissDock Delta G 仅作排序背景；先做参数范围/敏感性扫描 |
 | 嵌合 Gpa1/G protein cycle 速率 | Shaw 2019 / Kofahl 2004 / Yi 2003 | source candidacy `literature prior`; numeric rates `do-not-use` until full-text/SBML unit mapping | C 端嫁接对 GTPase 域速率的影响不能从文献直接固定；coupling 效率需湿实验 |
 | Gβγ 释放 / Sst2 RGS | Shaw 2019 / Kofahl 2004 / Yi 2003 | topology and source variable names `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 可先固定变量类别；速率等 SBML/补充表抽取后再决定 |
 | MAPK 级联动力学（Ste20/Ste11/Ste7/Fus3） | Shaw 2019 / Kofahl 2004 | topology and Kofahl reaction ids `fixed from source`; rates `do-not-use` until SBML/full-text mapping | 当前 solver 将其压缩为一个 lumped MAPK 状态；未写逐级 kinetic model 或最终 rate table |
@@ -246,7 +244,7 @@ ODE 当前应这样消费 docking 输出：
 
 - [x] 归一化 Phase 0 单情景 time-course、CSV 和 PNG（`scenario_prior`）
 - [x] 归一化 Phase 1 工程情景扫描、1/2/4 copy 条件比较、紧凑结果包和外部 payload 合同（`scenario_prior`）
-- [ ] 系统剂量-响应曲线（ascr 浓度 vs 报告基因输出，覆盖 refreshed docking shortlist 候选场景）
+- [ ] 系统剂量-响应曲线（ascr 浓度 vs 报告基因输出；先用 WT 场景，mutant 待 repaired shortlist）
 - [ ] 灵敏度极限预测（最低可检测浓度）
 - [ ] 动态范围与放大倍数优化建议
 - [ ] **拷贝数敏感性分析（1/2/4 copy 对比）** —— 基线整合策略下的核心交付
@@ -280,12 +278,14 @@ ODE 当前应这样消费 docking 输出：
 | 2026-05-25 | **v2.4** | 增补当前形态/缺口/完整形态说明；更新 reporter 输出架构为 sTF -> GAL 多拷贝放大 -> 色素显色；明确未写 ODE solver | 用户确认实验方案附件中的 reporter 路径，需同步总览图缺口说明 |
 | 2026-07-09 | **v2.5** | 正向校准 docking 输出消费口径：候选标签、Channel A/B、相对排序和 IFP 线索用于场景集合；Kd/EC50 需要独立 binding/calibration 证据 | 本次 docking authority 口径修订 |
 | 2026-07-28 | **v2.6** | 增加可执行 Phase 0/1 原型、严格 schema/身份合同、紧凑结果与外部 payload 路由；保留全部未校准边界 | 从最新主线重建旧 ODE PR 的可用内容并通过本地合同验证 |
+| 2026-07-30 | **v2.7** | 暂停消费旧 mutant shortlist/ranking/IFP；保留 WT 场景结构、已验证 Phase 0/1 原型和参数扫描框架，等待 frame-repaired 全量排名 | mutant/WT docking frame 缺陷导致旧候选撤回 |
 
 ## 进展记录
 
 - 2026-05-24：Stage 3 exact extraction 已补入证据矩阵；P0 ODE 文档只同步证据状态、手动队列和湿实验需求，不输出 solver、rate table 或最终参数表。
 - 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
 - 2026-07-28：Phase 0 solver/config/CSV/PNG 和 Phase 1 归一化情景扫描已实现。当前网格为 143 scenarios（74 ligand + 69 controls）和 23,023 条完整 time-course；所有数值仍为 `scenario_prior`，完整 time-course 按 payload policy 外置并由 manifest/checksum 路由。
+- 2026-07-30：旧 docking mutant shortlist/ranking/IFP 撤回后，ODE 仅保留 WT Gpr2/Gpr3 × ascr#18/ascr#3 场景接口；Phase 0/1 已验证实现不回退，mutant 场景等待 repaired release。
 
 ## 与其他方向的依赖关系
 
@@ -293,6 +293,6 @@ ODE 当前应这样消费 docking 输出：
   - [P1-soil-diffusion](P1-soil-diffusion.md): 灵敏度极限 → 检测有效距离计算
   - [P1-bayesian-inference](P1-bayesian-inference.md): 剂量-响应曲线 → 正向模型组件
 - **依赖于**:
-  - [P0-molecular-docking](P0-molecular-docking.md): refreshed shortlist 候选标签、Channel A/B 方向、相对排序和 WT baseline；Kd/EC50/efficacy 需文献或湿实验校准，Vina ΔG 仅支持排序
+  - [P0-molecular-docking](P0-molecular-docking.md): 当前只消费 WT Gpr2/Gpr3 场景结构；mutant 标签、Channel A/B、相对排序和 IFP 等待 repaired release；Kd/EC50/efficacy 需文献或湿实验校准
   - [P3-chimeric-gprotein](P3-chimeric-gprotein.md): 嵌合 Gpa1 偶联效率 → ODE 中 Gpr-Gpa1 偶联速率
   - [决策 003](../decisions/003-chassis-yeast-ste2-integration.md): 底盘锁定酵母触发本方向激活
