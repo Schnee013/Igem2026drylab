@@ -19,6 +19,7 @@
 |---|---|---|
 | 进度汇报 / PPT / 对外说明 | [docs/INDEX.md](INDEX.md)，再按主题读取 `docs/modeling/`、`docs/decisions/`、`docs/logs/` 或结果文件 | 需要交接时读取对应 repo-owned plan 和相关日志 |
 | 审查 / truth / censor / 路由治理 | 本文件、被审查文件、必要的权威指针 | 需要当前状态时读 INDEX；需要历史经过时读对应日志 |
+| Git commit / push / PR 查看、审查、复审或合并 | [ops/git-role-and-pr-governance.md](ops/git-role-and-pr-governance.md)，再读取 staged/outgoing diff 或 PR 完整净 diff、checks、review 状态和受影响文件 | 只有涉及当前项目状态时读 INDEX；每个写操作按 ops 文档重新确认本次操作角色与精确目标 |
 | payload / manifest / Git tracking / commit 分类 | 本文件、`.gitignore`、[ops/payload-tracking-policy.md](ops/payload-tracking-policy.md)、被分类的 changed files | 只有需要当前项目状态时读 INDEX；只有需要具体经过时读对应日志；普通 MD/文献/状态任务沿各自任务画像加载上下文 |
 | 机械编辑 / 指定文件修复 | 本文件和指定文件 | 只有编辑影响路由、状态或权威边界时读 INDEX |
 | MD / 远程计算 / 运行状态 | INDEX 当前优先入口；任何 MD / GROMACS 任务必须读取 [ops/md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)，再按需读 `environments/`、`codex/docs/plans/`、对应结果和日志 | 新服务器或远程计算任务同时读取 [ops/nkuliulab-e2-cloud-server.md](ops/nkuliulab-e2-cloud-server.md)；服务器、job、checkpoint 或运行完成状态由当前结果、日志或 ops 文档确认 |
@@ -34,7 +35,7 @@
 | 项目级当前状态投影、优先级、阻塞项、活跃入口 | [docs/INDEX.md](INDEX.md) | 详细领域状态回领域权威源 |
 | gate / run 的原始状态与终态 | validator 输出或 run-local machine-readable artifact | `PACKAGE_STATUS.md` 和 INDEX 只作带来源、时间和用途边界的派生视图 |
 | package 详细状态 | 对应 system-local `PACKAGE_STATUS.md` 派生视图 | 必须指向原始 gate / run artifact，不独立改写原始结论 |
-| 具体经过、当天判断、踩坑 | [docs/logs/YYYY-MM-DD.md](logs/) | 只给日志日期指针 |
+| 具体经过、当天判断、踩坑 | 维护者规范日志 [docs/logs/YYYY-MM-DD.md](logs/)；贡献者 PR 过程日志 `docs/logs/YYYY-MM-DD-<contributor>.md` | 规范日志只给日期指针；贡献者日志不得承载跨 PR 当前状态 |
 | 领域方法、边界、解释 | `docs/modeling/`, `docs/prd/`, `docs/ops/`, `docs/papers/` | 只链接对应小节 |
 | 原始数据、数值结果、图表 | `experiments/` 结果文件、代码输出 | 不复制数值表 |
 | 可复用执行计划、handoff | `codex/docs/plans/` | 不复制计划正文或项目当前状态 |
@@ -119,6 +120,8 @@ Codex native/global memory 只能保存用户偏好、入口规则或指向本�
 
 日志记录“做了什么、为什么、依据是什么、踩了什么坑、下一步不要重复什么”。日志是过程权威，不承担跨天当前状态；跨天状态回 INDEX。
 
+无后缀 `YYYY-MM-DD.md` 是维护者维护的当日规范日志。`YYYY-MM-DD-<contributor>.md` 是贡献者随 PR 提交的详细过程日志，只在该 PR 和作者范围内成立；合并时由维护者在规范日志中给最小指针，不复制其正文。
+
 人工维护的日志正文默认使用中文书写，措辞必须专业、严谨、可审计。命令、路径、代码符号、错误信息、工具输出、英文论文标题等字面证据保留原文，并用中文说明其上下文和含义。历史日志如需语言归一化，只做表达层翻译，不改变事实、时间、数值、路径或证据指针。
 
 ### docs/modeling/ 与 docs/prd/
@@ -134,6 +137,8 @@ Codex native/global memory 只能保存用户偏好、入口规则或指向本�
 任何 MD/GROMACS 任务必须先读 [ops/md-gromacs-operational-pitfalls.md](ops/md-gromacs-operational-pitfalls.md)。新服务器/远程计算任务还要读 [ops/nkuliulab-e2-cloud-server.md](ops/nkuliulab-e2-cloud-server.md)。
 
 Payload / manifest / Git tracking 规则见 [ops/payload-tracking-policy.md](ops/payload-tracking-policy.md)。该文件是条件加载的 commit/tracking 分类规则，用于 payload、manifest、checksum、ignore 或 staging 风险审查；普通 MD 状态或科学解释入口仍按本 DOCMAP 的任务画像选择。
+
+Git commit、push、PR review/integration 或 merge 的角色确认、文件边界和授权门见 [ops/git-role-and-pr-governance.md](ops/git-role-and-pr-governance.md)。该文件只在 Git/PR 任务中条件加载；普通写作、建模或状态读取不加载其中的操作角色规则。
 
 ### docs/papers/
 
@@ -187,7 +192,8 @@ Payload / manifest / Git tracking 规则见 [ops/payload-tracking-policy.md](ops
 |---|---|---|
 | 建模方向文档 | `P{0-3}-{english-name}.md` | `P0-molecular-docking.md` |
 | 技术决策记录 | `{NNN}-{short-title}.md` | `003-chassis-yeast-ste2-integration.md` |
-| 工作日志 | `YYYY-MM-DD.md` | `2026-06-02.md` |
+| 维护者规范工作日志 | `YYYY-MM-DD.md` | `2026-06-02.md` |
+| 贡献者 PR 过程日志 | `YYYY-MM-DD-<contributor>.md` | `2026-07-30-yrx.md` |
 | 文献总结 | `{Author}{Year}-{Topic}-summary.md` | `Hu2024-GprC-summary.md` |
 | 运行日志 | `run_{script}_{YYYYMMDD}_{HHMMSS}.log` | `run_multiseed_20260406_072954.log` |
 

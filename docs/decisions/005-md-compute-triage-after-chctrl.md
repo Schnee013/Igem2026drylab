@@ -20,7 +20,7 @@
 2. chimeric Gpa1 线下一步先做体系优化方案调研，重点考察：
    - 减少体系大小，只保留回答 receptor-Gpa1 interface 稳定性所需的必要原子、膜/水/离子范围；
    - 或加入更强物理限制、分层 restraint、局部区域约束等算法，降低算力占用并保持可解释边界。
-3. 在 chimeric 体系优化方案调研期间，先启动突变 GPR MD 的前置工作。起点为当前 refreshed docking shortlist 中 Channel A/B 的优先候选位点：
+3. 在 chimeric 体系优化方案调研期间，先启动突变 GPR MD 的前置工作。当时的起点来自 2026-05 refreshed docking shortlist 中 Channel A/B 的优先候选位点：
    - Channel A: `Gpr2_R59C`
    - Channel B: `Gpr3_R167Y`
 4. 突变 GPR MD 不直接进入 full production。第一步只做体系大小核查、资源估算和短程算力测试；通过共享资源门禁后，再单独决定 production 长度、rep 数和排程。
@@ -37,5 +37,13 @@
 
 1. **执行优先级**：MD 主线从“继续 chimeric unified rerun”切换为“chimeric 省算力方案调研 + mutant GPR MD 前置算力测试”。
 2. **计划边界**：旧 E2 chimeric restart plan 和 unified rerun sites plan 保留为历史执行路线、脚本和 provenance 参考；当前 full-production 启动需要新的 work order 和审批。
-3. **候选来源**：突变 GPR MD 的初始候选来自 refreshed docking shortlist 和 release report，当前生产队列以 2026-05 refreshed candidate source 为准。
+3. **候选来源（历史）**：突变 GPR MD 的初始候选来自当时的 refreshed docking shortlist 和 release report；该选择解释 2026-06 至 2026-07 已执行 R59C/R167Y MD 的输入来源，但不再定义当前或未来生产队列。
 4. **证据边界**：减少体系或强约束会改变物理解释范围；未来写作必须明确它们是省算力 protocol，而不是无条件等同于原 full-system production MD。
+
+## 2026-07-30 superseding boundary
+
+AF3 mutant docking 未先对齐 WT docking frame，导致 2026-05 shortlist、ratio、IFP
+和候选排名撤回。本决策中 R59C/R167Y 的历史启动顺序和已完成 MD 终态保持不变，
+但这些 MD 只能描述各自实际旧起始 pose 的单重复探索性行为，不能验证修复后的
+docking 排名。未来 mutant GPR 候选或新 MD 必须等待 frame-repaired Gpr2/Gpr3
+全量排名，并通过新的 work order 与资源门禁。

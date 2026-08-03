@@ -1,0 +1,43 @@
+schema: docking-double-mutant-cycle-v1
+cycle_id: synthetic-placeholder-cycle
+allowed_use: schema_and_test_only
+prohibited_use: real_candidate_selection_or_docking
+genotypes:
+  WT:
+    receptor: SyntheticR
+    mutations: []
+    parent: parent-placeholder
+    ligands: [target, offtarget]
+    grid: &grid
+      center: [0.0, 0.0, 0.0]
+      size: [40.0, 40.0, 40.0]
+    seeds: &seeds [11, 22]
+    conformers: &conformers [conf-1, conf-2]
+  A:
+    receptor: SyntheticR
+    mutations:
+      - {position: 2, wt: C, mut: V}
+    parent: parent-placeholder
+    ligands: [target, offtarget]
+    grid: *grid
+    seeds: *seeds
+    conformers: *conformers
+  B:
+    receptor: SyntheticR
+    mutations:
+      - {position: 8, wt: I, mut: A}
+    parent: parent-placeholder
+    ligands: [target, offtarget]
+    grid: *grid
+    seeds: *seeds
+    conformers: *conformers
+  AB:
+    receptor: SyntheticR
+    mutations:
+      - {position: 2, wt: C, mut: V}
+      - {position: 8, wt: I, mut: A}
+    parent: parent-placeholder
+    ligands: [target, offtarget]
+    grid: *grid
+    seeds: *seeds
+    conformers: *conformers
