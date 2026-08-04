@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import math
 from pathlib import Path
 import shutil
 import tempfile
@@ -149,6 +150,74 @@ class ScenarioScanTests(unittest.TestCase):
             figure_path = output_dir / "summary.png"
             plot_metrics(load_metrics(output_dir / "final_metrics.csv"), figure_path)
             self.assertGreater(figure_path.stat().st_size, 0)
+
+    def test_zero_matched_control_denominator_marks_ratio_invalid(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            base_config = ROOT / "experiments/ode-model/configs/minimal_normalized_scenario.json"
+            shutil.copyfile(base_config, temporary_root / base_config.name)
+            suite_path = temporary_root / "zero-denominator-suite.json"
+            suite_path.write_text(
+                json.dumps(
+                    {
+                        "suite_id": "zero_denominator_regression",
+                        "evidence_status": "scenario_prior",
+                        "model_scope": "regression test for guarded ratio output",
+                        "base_config": base_config.name,
+                        "scans": [
+                            {
+                                "scan_id": "zero_matched_control_denominator",
+                                "purpose": "Exercise ratio guard when the matched no-ligand control is zero.",
+                                "fixed_overrides": {
+                                    "receptor.basal_activity": 0.0,
+                                    "transcription.basal_activity": 0.0,
+                                    "gal_output.leak_rate": 0.0,
+                                },
+                                "axes": {"input.ligand_normalized": [1.0]},
+                                "include_no_ligand_control": True,
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            output_dir = temporary_root / "compact"
+            timecourse_path = temporary_root / "payload" / "timecourses.csv"
+
+            run_scan_suite(
+                suite_path,
+                output_dir,
+                timecourse_output_path=timecourse_path,
+            )
+
+            with (output_dir / "final_metrics.csv").open(
+                encoding="utf-8", newline=""
+            ) as handle:
+                metrics = list(csv.DictReader(handle))
+            ligand = next(row for row in metrics if row["scenario_role"] == "ligand")
+            control = next(
+                row for row in metrics if row["scenario_role"] == "no_ligand_control"
+            )
+
+            self.assertEqual(
+                float(control["final_color_signal_arbitrary_units"]),
+                0.0,
+            )
+            self.assertEqual(
+                float(ligand["matched_no_ligand_final_color_arbitrary_units"]),
+                0.0,
+            )
+            self.assertGreater(float(ligand["final_color_signal_arbitrary_units"]), 0.0)
+            self.assertGreater(
+                float(ligand["final_color_delta_vs_no_ligand_arbitrary_units"]),
+                0.0,
+            )
+            self.assertTrue(math.isnan(float(ligand["final_color_ratio_vs_no_ligand"])))
+            self.assertEqual(ligand["final_color_ratio_vs_no_ligand_valid"], "false")
+            self.assertEqual(
+                ligand["final_color_ratio_vs_no_ligand_invalid_reason"],
+                "matched_control_denominator_zero_or_near_zero",
+            )
 
     def test_copied_config_snapshots_replay_without_source_config_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:

@@ -60,6 +60,9 @@ PAYLOAD_MANIFEST_FIELDS = (
     "validator_result",
     "notes",
 )
+RATIO_DENOMINATOR_MIN_POSITIVE_VALUE = 1e-12
+RATIO_MISSING_CONTROL_REASON = "matched_control_unavailable"
+RATIO_ZERO_DENOMINATOR_REASON = "matched_control_denominator_zero_or_near_zero"
 
 
 @dataclass(frozen=True)
@@ -380,6 +383,19 @@ def _time_to_half_final(result: SimulationResult) -> float:
     return float(result.time_hours[first_index])
 
 
+def _trapezoid(y: np.ndarray, x: np.ndarray) -> float:
+    integrate = getattr(np, "trapezoid", np.trapz)
+    return float(integrate(y, x))
+
+
+def _guarded_ratio(numerator: float, denominator: float | None) -> tuple[float, bool, str]:
+    if denominator is None:
+        return float("nan"), False, RATIO_MISSING_CONTROL_REASON
+    if denominator <= RATIO_DENOMINATOR_MIN_POSITIVE_VALUE:
+        return float("nan"), False, RATIO_ZERO_DENOMINATOR_REASON
+    return numerator / denominator, True, ""
+
+
 def run_scan_suite(
     suite_path: Path,
     output_dir: Path,
@@ -455,18 +471,22 @@ def run_scan_suite(
         else:
             baseline = control_final_color.get(str(record.config["scenario_id"]))
         delta = final_color - baseline if baseline is not None else 0.0
-        ratio = final_color / baseline if baseline is not None and baseline > 0 else 1.0
+        ratio, ratio_valid, ratio_invalid_reason = _guarded_ratio(final_color, baseline)
         metric_rows.append(
             {
                 **common,
                 "final_color_signal_arbitrary_units": final_color,
-                "area_under_color_curve_arbitrary_units_hours": float(
-                    np.trapezoid(result.color_signal, result.time_hours)
+                "area_under_color_curve_arbitrary_units_hours": _trapezoid(
+                    result.color_signal, result.time_hours
                 ),
                 "time_to_half_final_color_hours": _time_to_half_final(result),
                 "matched_no_ligand_final_color_arbitrary_units": baseline,
                 "final_color_delta_vs_no_ligand_arbitrary_units": delta,
                 "final_color_ratio_vs_no_ligand": ratio,
+                "final_color_ratio_vs_no_ligand_valid": (
+                    "true" if ratio_valid else "false"
+                ),
+                "final_color_ratio_vs_no_ligand_invalid_reason": ratio_invalid_reason,
             }
         )
 
