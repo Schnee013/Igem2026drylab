@@ -86,6 +86,11 @@ def load_metrics(path: Path) -> list[dict[str, str]]:
             except (TypeError, ValueError) as error:
                 raise ValueError(f"metrics CSV has a non-numeric {field!r} value") from error
             if not math.isfinite(value):
+                if (
+                    field == "final_color_ratio_vs_no_ligand"
+                    and row.get("final_color_ratio_vs_no_ligand_valid") == "false"
+                ):
+                    continue
                 raise ValueError(f"metrics CSV has a non-finite {field!r} value")
         try:
             requested = json.loads(row["requested_axis_values_json"])

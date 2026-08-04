@@ -151,6 +151,32 @@ class Phase2AContractTests(unittest.TestCase):
         self.assertEqual(threshold["status"], "inactive_pending_threshold")
         self.assertIn("wet-lab threshold", threshold["required_data"])
 
+    def test_guarded_ratio_metric_has_machine_readable_policy(self) -> None:
+        guarded_metrics = [
+            row["metric_id"]
+            for row in self.output_rows
+            if row["status"] == "active_with_denominator_guard"
+        ]
+        self.assertEqual(guarded_metrics, ["ratio_color_8h"])
+
+        policies = self.contract["metric_guard_policies"]
+        policy = policies["ratio_color_8h"]
+        self.assertEqual(policy["status"], "active")
+        self.assertEqual(policy["applies_to_metric_id"], "ratio_color_8h")
+        self.assertEqual(policy["numerator_metric_id"], "color_8h")
+        self.assertEqual(policy["denominator_metric_id"], "matched_control_color_8h")
+        self.assertGreater(float(policy["denominator_min_positive_value"]), 0.0)
+        self.assertEqual(policy["invalid_result"], "NaN")
+        self.assertEqual(
+            policy["validity_flag_column"],
+            "final_color_ratio_vs_no_ligand_valid",
+        )
+        self.assertEqual(
+            policy["invalid_reason_column"],
+            "final_color_ratio_vs_no_ligand_invalid_reason",
+        )
+        self.assertIn("delta_color_8h", policy["interpretation"])
+
     def test_experiment_matrix_covers_each_parameter_exactly_once(self) -> None:
         parameter_ids = {row["parameter_id"] for row in self.parameter_rows}
         experiment_ids = [row["parameter_id"] for row in self.experiment_rows]

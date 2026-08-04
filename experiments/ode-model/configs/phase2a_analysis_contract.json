@@ -63,6 +63,25 @@
     "output_points": 161,
     "matched_control_rule": "For each positive-ligand parameter set, keep every numeric model field fixed and set only input.ligand_normalized to 0.0."
   },
+  "metric_guard_policies": {
+    "ratio_color_8h": {
+      "status": "active",
+      "applies_to_metric_id": "ratio_color_8h",
+      "numerator_metric_id": "color_8h",
+      "denominator_metric_id": "matched_control_color_8h",
+      "denominator_min_positive_value": 1e-12,
+      "invalid_when": "denominator <= denominator_min_positive_value or matched control is unavailable",
+      "invalid_result": "NaN",
+      "validity_flag_column": "final_color_ratio_vs_no_ligand_valid",
+      "invalid_reason_column": "final_color_ratio_vs_no_ligand_invalid_reason",
+      "invalid_reason_values": {
+        "missing_matched_control": "matched_control_unavailable",
+        "zero_or_near_zero_denominator": "matched_control_denominator_zero_or_near_zero"
+      },
+      "valid_result_rule": "color_8h / matched_control_color_8h",
+      "interpretation": "Use ratio_color_8h only when the validity flag is true; use delta_color_8h for absolute ligand-control separation when the ratio is invalid."
+    }
+  },
   "model_variants": {
     "M0_lumped_algebraic_stf": {
       "status": "active_baseline",
