@@ -27,7 +27,7 @@
 | **P0** | 受体-配体分子对接 | 否 | **geometry_gate_v3_seed44_holdout_fail_stop_full_blocked**：新门已从 seed 42 + 43 WT evidence 冻结；seed-44 独立 holdout 8/8 技术完成，但 Gpr3/R167Y 两臂 geometry 失败，终态阻止 full-run | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0（探索）** | 双/多突变 docking | 否 | **phase2_local_schema_test_ready_blocked_by_frame_repair（2026-07-30）**：canonical genotype、multi-mutation FASTA、旧单突变只读兼容、WT/A/B/AB validator 和 synthetic focused tests 已完成；仍须等共同 frame 修复、单突变全量重跑和 active shortlist 重建后才能冻结真实 AB，当前未生成双突变结构或启动计算 | [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **compute_triage + gpr2_wt_r59c_rep1_analyzed + gpr3_r167y_rep1_analyzed**：旧 Slurm control/chctrl 3 reps 为历史完成证据，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1 Z-only 已降级为省算力不足；chimeric 候选 full MD 暂停；Gpr2 WT/R59C 200 ns rep1、七 driver、matched single-rep 和 ligand-path triage 已完成；Gpr3 R167Y AutoDL 200 ns rep1、postprocess 和共享七 driver 已完成，当前为 single-rep exploratory，WT arm 尚无 production completion | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **prototype_validated_scenario_prior**：归一化 Phase 0 solver/config/CSV/plot 和 Phase 1 剂量/半响应、偶联/泄漏、1/2/4-copy 工程情景扫描已通过本地合同验证；数值仍未校准，不能解释为真实 `Kd/EC50`、检测限或最佳构建 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase2a_contract_active_scenario_prior**：Phase 0/1 可执行原型与工程扫描已验证；Phase 2A 已固定 18 字段参数空间、输出/实验接口和 guarded ratio，正 ligand 缺失 matched control 时 fail closed。尚无 Phase 2B 灵敏度排序或项目校准结果 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
@@ -56,7 +56,7 @@
 2. **chimeric Gpa1 省算力方案调研** — 候选体系 production 仍暂停；R1-Z 对照与路线选择历史见 `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` 和 `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md`。R4 的唯一当前材料边界见 `experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md`；`experiments/chimeric-gpa1/literature/r4_tool_validation_plan_20260706.md` 作为非执行 validation-design evidence。任何 full-production 启动都需要新的当前 work order 和审批。
 3. **docking-repro frame repair** — 当前状态和方法边界见 [P0 molecular docking](modeling/P0-molecular-docking.md) 与 [docking-repro directory contract](../experiments/docking-repro/README.md)。新门已冻结；seed-44 独立 holdout 归档在 `temp/docking_frame_repair_20260731_e2_full_seed44_r1/`，终态为 `TERMINAL_ABNORMAL / fail_stop_before_full`。下一步是对失败门保持现状，或另行决定新的 geometry 策略与独立验证；当前不得启动剩余 320 jobs。旧 shortlist/ratio/IFP 只保留为带日期的撤回历史证据。
 4. **双/多突变 docking（Phase 2 local ready / blocked）** — 方向、证据边界和核心文献见 [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md)，执行合同见 [multi-mutant-docking-execution-plan-20260730.md](../codex/docs/plans/multi-mutant-docking-execution-plan-20260730.md)，本地 schema/test 入口见 [multi-mutant local contract](../experiments/docking-repro/multi-mutant/README.md)。当前不从旧 ratio/IFP 组合候选；只有 frame repair 和 repaired single-mutant shortlist 完成后，才冻结少量真实 WT/A/B/AB 周期。
-5. **ODE 并行推进** — 可执行入口为 `src/modeling/ode/` 与 `experiments/ode-model/`，参数证据/边界入口为 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [lumped 参数登记表](modeling/P0-ode-lumped-parameter-register.md)。Phase 0/1 已实现并通过本地合同验证，当前只支持归一化 `scenario_prior` 条件比较；WT Gpr2/Gpr3、ascr#18/ascr#3 场景结构可继续使用，mutant 候选标签、排序和 IFP 暂停消费，等待 frame-repaired 全量排名。Kd/calibration、全局灵敏度和 wet-lab 回填仍未完成。
+5. **ODE 并行推进** — 可执行入口为 `src/modeling/ode/` 与 `experiments/ode-model/`，Phase 2A 机器合同入口为 `experiments/ode-model/configs/phase2a_analysis_contract.json`；参数证据/边界回 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [lumped 参数登记表](modeling/P0-ode-lumped-parameter-register.md)。当前只支持归一化 `scenario_prior`；下一阶段是 Phase 2B 灵敏度实现，Kd/calibration、全局结果和 wet-lab 回填仍未完成。
 6. **早期检测经济效益模型 HP 参数回收** — 文献/参数入口见 [early-detection economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
 7. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
@@ -111,6 +111,7 @@
 
 ## 最近进展
 
+- **2026-08-04**: ODE Phase 2A 已固定 18 字段参数空间、主/诊断 ligand contexts、输出指标和参数—实验替换接口；ratio 对零/近零 denominator 输出 NaN + validity/reason，正 ligand 缺失 matched control 时 fail closed。20/20 ODE tests 通过；当前仍无灵敏度排序或校准结论。证据见 [ODE 领域文档](modeling/P0-signal-pathway-ode.md) 与 `experiments/ode-model/configs/phase2a_analysis_contract.json`。
 - **2026-07-31**: seed 42 + 43 WT evidence 已冻结 `docking-geometry-gate-v3`；随后 seed-44 独立 holdout 8/8 docking、IFP 和 geometry 技术完成。Gpr2 四项与 Gpr3 WT 两项通过；Gpr3 R167Y-ascr18 为 14/16，R167Y-ascr3 为 11/18 且 MODEL 1 失败。终态 `TERMINAL_ABNORMAL / fail_stop_before_full`，未创建 full plan或启动剩余 320 jobs；1,089/1,089 远端与本地 checksum 通过。证据见 [2026-07-31 日志](logs/2026-07-31.md)。
 - **2026-07-30**: R1 8-job E2 smoke 已完成：8/8 docking 与 IFP 技术完成，两个 R167Y job 的 18/20 poses 被正确接受；geometry 仅 3/8 job 通过，五项分布结果为 Gpr2 WT–ascr#18 17/19、WT–ascr#3 17/18、R59C–ascr#18 18/19、Gpr3 R167Y–ascr#18 12/15、R167Y–ascr#3 9/15，后者 MODEL 1 也低于高度门。终态为 `TERMINAL_ABNORMAL` / `fail_stop_before_full`，未建立 full plan 或启动剩余 320 jobs；608 个远端文件已逐项哈希一致归档到 `temp/docking_frame_repair_20260730_e2_smoke_r1_v5/`。证据见 [2026-07-30 日志](logs/2026-07-30.md)。
 - **2026-07-30**: 完成 18/20 成因审计：Vina v1.2.6 将 `num_modes` 定义为最大输出数，RMSD 去重后合法返回少于 20；三次 18-mode 输出均正常结束，能量跨度 1.118/1.192 kcal/mol，排除 `energy_range=3.0` 截断。R167Y-ascr18 在 v3/v4 三次 pose SHA256 相同，原合同重试无恢复价值。另确认 v4 全部命令遗漏 `--cpu 8`，CPU 未进入 plan/environment/job identity，因此 v4 不能作为 production smoke。已形成待批准的 [R1 恢复合同](../codex/docs/plans/docking-frame-repair-18mode-recovery-contract-20260730.md)；未改代码、未新跑 E2。
@@ -184,7 +185,8 @@
 - [x] 归一化 Phase 0 原型：`src/modeling/ode/` Python solver + 严格参数 config + 模拟 CSV/plot（`scenario_prior`，不是校准 v0.1）
 - [x] Phase 1 reporter 工程情景：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参和匹配无 ligand 对照
 - [x] 1/2/4 copy 归一化情景比较（不是实际构建优选结论）
-- [ ] 正式全局灵敏度、可识别性、拟合/不确定性传播和逐级 pathway kinetic model
+- [x] Phase 2A 分析合同：18 字段参数空间、输出指标、主/诊断 contexts、参数—实验替换矩阵和 guarded ratio
+- [ ] Phase 2B 灵敏度结果、可识别性、拟合/不确定性传播和逐级 pathway kinetic model
 - [ ] 与 docking 联动：WT 场景结构可继续使用；mutant 候选标签/排序/IFP 等待 frame-repaired 全量候选清单，Kd/calibration 需等待单独文献审查
 
 ### ④ 其他待启动

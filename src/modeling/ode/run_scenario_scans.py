@@ -470,6 +470,14 @@ def run_scan_suite(
             baseline = final_color
         else:
             baseline = control_final_color.get(str(record.config["scenario_id"]))
+            if (
+                baseline is None
+                and float(record.config["input"]["ligand_normalized"]) > 0.0
+            ):
+                raise ValueError(
+                    f"positive-ligand scenario {record.config['scenario_id']!r} "
+                    "is missing a matched no-ligand control"
+                )
         delta = final_color - baseline if baseline is not None else 0.0
         ratio, ratio_valid, ratio_invalid_reason = _guarded_ratio(final_color, baseline)
         metric_rows.append(

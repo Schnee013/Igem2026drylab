@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-07-30
+last_updated: 2026-08-04
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -21,6 +21,8 @@ last_updated: 2026-07-30
 > **2026-05-25 reporter 架构更新**：按用户确认和实验方案附件，输出层拓扑更新为 `异源 Gpr2/3 -> 嵌合 Gpa1 -> MAPK 级联 -> sTF -> GAL 多拷贝放大 -> 色素显色`。这确认的是架构，不固定具体色素、整合位点、实际 copy number、gain、Kc/Hill/Emax 或显色时间；这些仍是 `wet-lab required` 或 ODE 扫参变量。
 >
 > **2026-07-28 可执行原型更新**：仓库现已有归一化 Phase 0 solver/time-course 和 Phase 1 工程情景扫描。当前结果只支持显式 `scenario_prior` 下的条件比较；真实 `Kd/EC50`、动力学常数、检测限、最佳 copy number 和最终构建推荐仍未校准。
+>
+> **2026-08-04 Phase 2A 合同更新**：机器合同现已固定 18 个模型字段的筛选范围、主/诊断 ligand contexts、输出指标和参数—实验替换接口。`ratio_color_8h` 对零/近零 matched-control denominator 使用 `NaN`、显式 validity flag 和 reason；正 ligand 情景缺失 matched control 时 runner fail closed。Phase 2A 仍是 `scenario_prior` 合同，不包含灵敏度排序或项目校准结果。
 
 ## 解决什么问题
 
@@ -45,14 +47,15 @@ last_updated: 2026-07-30
 - Phase 0 已实现 `src/modeling/ode/` 最小 solver、runner、严格 config 校验、161 点归一化 time-course CSV 和由 CSV 渲染的 PNG。
 - Phase 1 已实现剂量 × 半响应、偶联 × 泄漏、1/2/4 copy × gain × 观察时间三组扫描；当前固定网格为 143 个情景（74 ligand + 69 一对一无 ligand controls）和 23,023 条完整 time-course。
 - Phase 1 紧凑结果包已保存 scenario manifest、final metrics、共置 suite/base config 快照、代码/输入 hash、软件版本、摘要图和外部完整 time-course 的 payload manifest。
-- 11 个 ODE 单元/合同测试覆盖严格 schema、有限数/整数、control effective-input 身份、一对一配对、结果 scenario 集合一致和 snapshot-only replay。
+- Phase 2A 已固定 18 字段参数空间、输出指标、主/诊断 ligand contexts、实验替换矩阵和 guarded ratio 合同；正 ligand 情景必须有 matched no-ligand control。
+- 20 个 ODE 单元/合同测试覆盖严格 schema、有限数/整数、control effective-input 身份、一对一配对、零分母与缺失 control 防护、结果 scenario 集合一致和 snapshot-only replay。
 
 ### 当前缺口
 
 - 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
 - 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
 - 旧 docking mutant shortlist 已撤回；尚未把 frame-repaired 全量排名展开成逐 receptor-ligand 的可校准配置，当前归一化 suite 不代表具体 Gpr2/Gpr3–ascr 构建。
-- 尚未完成正式的全局灵敏度、参数可识别性、拟合/不确定性传播和逐级 MAPK kinetic model；Phase 1 是预注册的小型工程情景网格。
+- 尚未完成 Phase 2B 灵敏度结果、参数可识别性、拟合/不确定性传播和逐级 MAPK kinetic model；Phase 2A 只固定分析合同。
 
 ### 完整完成后的形态
 
@@ -244,6 +247,7 @@ ODE 当前应这样消费 docking 输出：
 
 - [x] 归一化 Phase 0 单情景 time-course、CSV 和 PNG（`scenario_prior`）
 - [x] 归一化 Phase 1 工程情景扫描、1/2/4 copy 条件比较、紧凑结果包和外部 payload 合同（`scenario_prior`）
+- [x] Phase 2A 参数空间、输出指标、分析 contexts 和参数—实验替换合同（`scenario_prior`）
 - [ ] 系统剂量-响应曲线（ascr 浓度 vs 报告基因输出；先用 WT 场景，mutant 待 repaired shortlist）
 - [ ] 灵敏度极限预测（最低可检测浓度）
 - [ ] 动态范围与放大倍数优化建议
@@ -254,7 +258,7 @@ ODE 当前应这样消费 docking 输出：
 
 ## 代码与实验关联
 
-- **代码路径**: `src/modeling/ode/`（Phase 0/1 归一化原型已实现）
+- **代码路径**: `src/modeling/ode/`（Phase 0/1 原型与 Phase 2A 合同已实现）
 - **产出路径**: `experiments/ode-model/`
 - **湿实验对接**:
   - 本方向产出 → 通路工程组: 推荐 GAL4 promoter 强度、放大回路参数
@@ -279,6 +283,7 @@ ODE 当前应这样消费 docking 输出：
 | 2026-07-09 | **v2.5** | 正向校准 docking 输出消费口径：候选标签、Channel A/B、相对排序和 IFP 线索用于场景集合；Kd/EC50 需要独立 binding/calibration 证据 | 本次 docking authority 口径修订 |
 | 2026-07-28 | **v2.6** | 增加可执行 Phase 0/1 原型、严格 schema/身份合同、紧凑结果与外部 payload 路由；保留全部未校准边界 | 从最新主线重建旧 ODE PR 的可用内容并通过本地合同验证 |
 | 2026-07-30 | **v2.7** | 暂停消费旧 mutant shortlist/ranking/IFP；保留 WT 场景结构、已验证 Phase 0/1 原型和参数扫描框架，等待 frame-repaired 全量排名 | mutant/WT docking frame 缺陷导致旧候选撤回 |
+| 2026-08-04 | **v2.8** | 登记 Phase 2A 机器合同、18 字段参数/实验接口和 guarded ratio；缺失 matched control 时 fail closed | Phase 2A 合同与指标有效性边界完成验证 |
 
 ## 进展记录
 
@@ -286,6 +291,7 @@ ODE 当前应这样消费 docking 输出：
 - 2026-05-25：同步 reporter 输出架构和 ODE v0.1 完整形态定义；本轮仍未写 ODE solver、config、CSV 或 plots。
 - 2026-07-28：Phase 0 solver/config/CSV/PNG 和 Phase 1 归一化情景扫描已实现。当前网格为 143 scenarios（74 ligand + 69 controls）和 23,023 条完整 time-course；所有数值仍为 `scenario_prior`，完整 time-course 按 payload policy 外置并由 manifest/checksum 路由。
 - 2026-07-30：旧 docking mutant shortlist/ranking/IFP 撤回后，ODE 仅保留 WT Gpr2/Gpr3 × ascr#18/ascr#3 场景接口；Phase 0/1 已验证实现不回退，mutant 场景等待 repaired release。
+- 2026-08-04：Phase 2A 分析合同已固定 18 字段参数空间、输出/实验接口和 ratio denominator guard；正 ligand 缺失 matched control 时拒绝生成指标，Phase 2B 灵敏度结果尚未开始。
 
 ## 与其他方向的依赖关系
 

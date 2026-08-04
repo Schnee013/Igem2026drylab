@@ -219,6 +219,41 @@ class ScenarioScanTests(unittest.TestCase):
                 "matched_control_denominator_zero_or_near_zero",
             )
 
+    def test_positive_ligand_without_matched_control_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            base_config = ROOT / "experiments/ode-model/configs/minimal_normalized_scenario.json"
+            shutil.copyfile(base_config, temporary_root / base_config.name)
+            suite_path = temporary_root / "missing-control-suite.json"
+            suite_path.write_text(
+                json.dumps(
+                    {
+                        "suite_id": "missing_control_regression",
+                        "evidence_status": "scenario_prior",
+                        "model_scope": "regression test for required matched controls",
+                        "base_config": base_config.name,
+                        "scans": [
+                            {
+                                "scan_id": "positive_ligand_without_control",
+                                "purpose": "Reject a positive-ligand metric without its control.",
+                                "axes": {"input.ligand_normalized": [1.0]},
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(
+                ValueError,
+                "positive-ligand scenario .* is missing a matched no-ligand control",
+            ):
+                run_scan_suite(
+                    suite_path,
+                    temporary_root / "compact",
+                    timecourse_output_path=temporary_root / "payload" / "timecourses.csv",
+                )
+
     def test_copied_config_snapshots_replay_without_source_config_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             temporary_root = Path(temporary_directory)
