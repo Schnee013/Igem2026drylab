@@ -87,11 +87,46 @@ boundaries remain in
 Phase 2A establishes the contract; local sensitivity and Morris results begin
 in Phase 2B.
 
+## Phase 2B: local time-dependent sensitivity
+
+`configs/phase2b_local_sensitivity.json` defines the first executable Phase 2B
+slice. The runner reads the Phase 2A parameter and context contract, computes
+scaled local sensitivities `d(output)/d(log(parameter))`, and repeats the
+finite difference at a halved step. Parameters on a registered range boundary
+use an in-bounds one-sided difference; all others use a central difference. A
+configured output-scale floor prevents solver noise around a true zero
+sensitivity from being mislabeled as a large relative step difference.
+
+Run the full 17-parameter, five-context baseline-copy analysis from the
+repository root:
+
+```bash
+python -m src.modeling.ode.local_sensitivity
+```
+
+For a small diagnostic slice, filters can be repeated as needed:
+
+```bash
+python -m src.modeling.ode.local_sensitivity \
+  --parameter-id n_R \
+  --ligand-context transition_reference \
+  --ligand-context transition_low_diagnostic \
+  --ligand-context transition_high_diagnostic \
+  --out /tmp/ode-phase2b-nr-slice/sensitivities.csv
+```
+
+The CSV keeps all configured time points and `run_metadata.json` records the
+input hashes, finite-difference rule, selected dimensions, and interpretation
+boundary. These normalized `scenario_prior` derivatives support local numerical
+diagnostics. Biological effect calibration and parameter ranking require
+project data and their separate analysis gates.
+
 Run the ODE contracts without requiring `pytest`:
 
 ```bash
 python -m unittest \
   tests.modeling.test_ode_minimal_solver \
   tests.modeling.test_ode_scenario_scans \
-  tests.modeling.test_ode_phase2a_contract -v
+  tests.modeling.test_ode_phase2a_contract \
+  tests.modeling.test_ode_local_sensitivity -v
 ```
