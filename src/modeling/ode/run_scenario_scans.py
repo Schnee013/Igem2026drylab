@@ -384,7 +384,9 @@ def _time_to_half_final(result: SimulationResult) -> float:
 
 
 def _trapezoid(y: np.ndarray, x: np.ndarray) -> float:
-    integrate = getattr(np, "trapezoid", np.trapz)
+    integrate = getattr(np, "trapezoid", None)
+    if integrate is None:
+        integrate = np.trapz
     return float(integrate(y, x))
 
 
