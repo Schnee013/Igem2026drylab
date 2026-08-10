@@ -71,21 +71,24 @@ so every no-ligand control has an effective ligand input of `0.0`.
 
 ## Phase 2A: analysis contract
 
-`configs/phase2a_analysis_contract.json` defines the sensitivity and
-calibration-readiness analysis interface on top of the accepted Phase 0/1
-baseline. Its companion CSV files register:
+`configs/phase2a_analysis_contract.json` defines the analysis and evidence-gap
+contract on top of the accepted Phase 0/1 baseline. Its companion CSV files
+register:
 
 - all 18 internal model fields and their screening ranges;
 - 17 continuous uncertainty fields plus the discrete 1/2/4-copy design strata;
 - active, diagnostic, and threshold-gated output metrics; and
-- one observation/experiment/replacement route for every parameter.
+- a potential-observable class and current evidence gap for every parameter.
 
 The machine-readable rationale and activation gates are recorded in
 `configs/phase2a_analysis_contract.json`. The canonical ODE scope and evidence
 boundaries remain in
 [`docs/modeling/P0-signal-pathway-ode.md`](../../docs/modeling/P0-signal-pathway-ode.md).
-Phase 2A establishes the contract; local sensitivity and Morris results begin
-in Phase 2B.
+Phase 2A establishes the analysis contract. Phase 2B produces model-side
+sensitivity results, and Phase 2C evaluates identifiability under candidate
+observable classes. Concrete assays, experimental controls, sampling design,
+and priorities enter the later DBTL handoff after joint review of those model
+outputs and the team-confirmed wet-lab plan, feasibility, cost, and resources.
 
 Run the ODE contracts without requiring `pytest`:
 
