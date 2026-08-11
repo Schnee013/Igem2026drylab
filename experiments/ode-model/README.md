@@ -87,7 +87,7 @@ boundaries remain in
 Phase 2A establishes the contract; local sensitivity and Morris results begin
 in Phase 2B.
 
-## Phase 2B: local time-dependent sensitivity
+## Phase 2B: sensitivity and global screening
 
 `configs/phase2b_local_sensitivity.json` defines the first executable Phase 2B
 slice. The runner reads the Phase 2A parameter and context contract, computes
@@ -121,6 +121,84 @@ boundary. These normalized `scenario_prior` derivatives support local numerical
 diagnostics. Biological effect calibration and parameter ranking require
 project data and their separate analysis gates.
 
+`configs/phase2b_morris_screening.json` defines the next Phase 2B substage.
+The dependency-free runner builds deterministic one-at-a-time Morris
+trajectories in the normalized unit cube, maps uniform and log-uniform
+coordinates through the Phase 2A parameter ranges, and reports elementary
+effects plus `mu`, `mu_star`, and `sigma` separately for each metric, ligand
+context class, and copy stratum.
+
+Run a small verification slice before expanding to the full contract:
+
+```bash
+python -m src.modeling.ode.morris_screening \
+  --parameter-id K_R \
+  --parameter-id n_R \
+  --parameter-id k_couple \
+  --ligand-context transition_low_diagnostic \
+  --copy-number 1 \
+  --metric-id color_8h \
+  --trajectory-count 4 \
+  --out-dir /tmp/ode-phase2b-morris-slice
+```
+
+The slice is valid for verifying sampling, mapping, elementary-effect
+bookkeeping, summary statistics, and reproducibility. Phase 2B continues with
+full conditional Morris screening, conditional subset Sobol decomposition,
+and focused equation-linked two-parameter surfaces.
+
+The 17-parameter `L=0.3`, `N=1`, `color_8h` stability check selected 64
+trajectories for conditional screening. Run the registered contexts, copy
+strata, and active metrics with:
+
+```bash
+python -m src.modeling.ode.morris_screening \
+  --trajectory-count 64 \
+  --out-dir /tmp/ode-phase2b-morris-full
+```
+
+`configs/phase2b_sobol_sensitivity.json` registers the Morris-selected
+eight-parameter subset, primary ligand contexts, extreme copy strata, color
+metrics, deterministic scrambled-Sobol seed, bootstrap settings, and result
+boundary. Running the command without an execution flag validates the contract
+and design size only:
+
+```bash
+python -m src.modeling.ode.sobol_sensitivity
+python -m src.modeling.ode.sobol_sensitivity --second-order
+```
+
+The first command validates `N * (D + 2) = 2560` rows per condition for S1/ST;
+the second validates `N * (2D + 2) = 9216` rows per condition for S1/ST/S2.
+ODE evaluation requires the explicit `--execute-ode` gate and a reviewed output
+directory:
+
+```bash
+python -m src.modeling.ode.sobol_sensitivity \
+  --execute-ode \
+  --out-dir /tmp/ode-phase2b-sobol-pilot
+```
+
+The resulting indices partition variance within the selected eight-parameter
+subset under fixed omitted parameters. The runner writes a sample manifest,
+first/total indices with bootstrap intervals, optional second-order indices,
+run metadata, and SHA-256 identities.
+
+The first focused surface fixes `transition_reference`, `N=1`, and `color_8h`,
+then evaluates a 7 x 7 registered-range grid for `gain_out x K_out`. Validate
+the 49-point contract first; ODE execution requires the explicit gate:
+
+```bash
+python -m src.modeling.ode.focused_two_parameter_surface
+python -m src.modeling.ode.focused_two_parameter_surface \
+  --execute-ode \
+  --out-dir /tmp/ode-phase2b-gain-by-half-surface
+```
+
+The CSV records the response and balanced-grid additive interaction residual;
+the PNG shows both surfaces. Their allowed use is the fixed-condition
+`scenario_prior` response shape registered in the config.
+
 Run the ODE contracts without requiring `pytest`:
 
 ```bash
@@ -128,5 +206,8 @@ python -m unittest \
   tests.modeling.test_ode_minimal_solver \
   tests.modeling.test_ode_scenario_scans \
   tests.modeling.test_ode_phase2a_contract \
-  tests.modeling.test_ode_local_sensitivity -v
+  tests.modeling.test_ode_local_sensitivity \
+  tests.modeling.test_ode_morris_screening \
+  tests.modeling.test_ode_sobol_sensitivity \
+  tests.modeling.test_ode_focused_two_parameter_surface -v
 ```

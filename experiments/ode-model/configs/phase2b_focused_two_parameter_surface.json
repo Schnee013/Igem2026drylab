@@ -1,0 +1,13 @@
+{
+  "analysis_id": "phase2b_focused_surface_gain_out_K_out",
+  "evidence_status": "scenario_prior",
+  "analysis_contract": "experiments/ode-model/configs/phase2a_analysis_contract.json",
+  "baseline_config": "experiments/ode-model/configs/minimal_normalized_scenario.json",
+  "parameter_ids": ["gain_out", "K_out"],
+  "ligand_context_id": "transition_reference",
+  "copy_number": 1,
+  "metric_id": "color_8h",
+  "grid_points_each": 7,
+  "grid_coordinate_rule": "linear_in_registered_unit_interval",
+  "result_boundary": "Allowed use: explain the scenario-prior gain_out by K_out response shape at the fixed transition-reference ligand, single-copy stratum, and color_8h endpoint. Parameter values span the registered independent ranges; all other numeric fields remain at the accepted baseline."
+}

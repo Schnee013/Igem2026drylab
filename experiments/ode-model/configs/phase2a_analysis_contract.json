@@ -96,24 +96,24 @@
   "analysis_sequence": [
     {
       "stage": "local_time_dependent_sensitivity",
-      "status": "next",
+      "status": "candidate_freeze_full_time_context_verified",
       "purpose": "Check direction, scale, and numerical stability for all continuous fields across the primary and transition-diagnostic ligand contexts."
     },
     {
       "stage": "morris_screening",
-      "status": "planned",
+      "status": "candidate_freeze_full_conditional_summary_verified",
       "purpose": "Rank main effects, nonlinearity, and interactions across primary and transition-diagnostic ligand contexts and copy strata, reporting the context classes separately."
     },
     {
-      "stage": "focused_two_parameter_surfaces",
-      "status": "planned",
-      "purpose": "Explain selected high-impact interactions with small interpretable grids."
+      "stage": "conditional_subset_sobol",
+      "status": "candidate_freeze_n512_rank_stability_verified",
+      "purpose": "Quantify first and total variance contributions for the Morris subset; selected second-order indices require the registered second-order gate."
     },
     {
-      "stage": "global_variance_decomposition",
-      "status": "gated",
-      "purpose": "Quantify variance contributions after the influential subset and independence assumptions are reviewed."
+      "stage": "focused_two_parameter_surfaces",
+      "status": "candidate_freeze_one_focused_surface_verified",
+      "purpose": "Explain stable high-impact, equation-linked parameter pairs with small interpretable grids."
     }
   ],
-  "next_gate": "Freeze and verify the amended Phase 2A candidate in a new personal read-only snapshot, complete review readiness and the Phase 2A PR, then implement local sensitivity without changing the accepted baseline equations."
+  "next_gate": "The Phase 2B candidate freeze is verified. Contributor commit, push, and pull-request actions each require their own explicit authorization gate."
 }

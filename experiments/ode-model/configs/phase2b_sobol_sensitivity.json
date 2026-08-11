@@ -1,0 +1,33 @@
+{
+  "analysis_id": "phase2b_conditional_subset_sobol",
+  "evidence_status": "scenario_prior",
+  "analysis_contract": "experiments/ode-model/configs/phase2a_analysis_contract.json",
+  "parameter_ids": [
+    "b_TF",
+    "k_color_loss",
+    "gain_out",
+    "K_out",
+    "k_color_prod",
+    "K_TF",
+    "k_mapk_on",
+    "k_couple"
+  ],
+  "ligand_context_ids": [
+    "no_ligand",
+    "transition_reference",
+    "high_input"
+  ],
+  "copy_numbers": [1, 4],
+  "metric_ids": [
+    "color_2h",
+    "color_8h",
+    "color_auc_0_8h",
+    "delta_color_8h"
+  ],
+  "random_seed": 20260809,
+  "pilot_base_sample_size": 256,
+  "second_order_base_sample_size": 512,
+  "bootstrap_replicates": 1000,
+  "confidence_level": 0.95,
+  "result_boundary": "Allowed use: conditional Sobol variance decomposition inside the registered eight-parameter subset for the selected color metrics, ligand contexts, and fixed copy strata. Fixed parameters contribute no sampled variance. Full-model variance and calibration claims require their separate evidence gates."
+}
