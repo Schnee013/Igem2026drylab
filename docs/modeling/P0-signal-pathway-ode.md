@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-08-04
+last_updated: 2026-08-11
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -23,6 +23,10 @@ last_updated: 2026-08-04
 > **2026-07-28 可执行原型更新**：仓库现已有归一化 Phase 0 solver/time-course 和 Phase 1 工程情景扫描。当前结果只支持显式 `scenario_prior` 下的条件比较；真实 `Kd/EC50`、动力学常数、检测限、最佳 copy number 和最终构建推荐仍未校准。
 >
 > **2026-08-04 Phase 2A 合同更新**：机器合同现已固定 18 个模型字段的筛选范围、主/诊断 ligand contexts、输出指标和参数—实验替换接口。`ratio_color_8h` 对零/近零 matched-control denominator 使用 `NaN`、显式 validity flag 和 reason；正 ligand 情景缺失 matched control 时 runner fail closed。Phase 2A 仍是 `scenario_prior` 合同，不包含灵敏度排序或项目校准结果。
+>
+> **2026-08-10 Phase 2B 本地工作树更新**：局部时变敏感性、64轨迹Morris完整条件汇总、前8候选N=256/N=512条件性Sobol比较及 `gain_out × K_out` 49点重点曲面均有验证证据。17参数×5 ligand contexts×161时间点的局部比较已从冻结提交 `2c31dfd` 生成；当前允许用途为归一化 `scenario_prior` 内部诊断、筛选和机制解释，活动门槛为Personal理解验收。
+>
+> **2026-08-11 Phase 2B候选冻结更新**：Personal第1–5轮理解已记录；完整ODE发现测试42/42通过，Sobol两种设计与重点曲面合同预检通过。候选冻结状态已固定；commit、push和PR分别使用独立授权门，项目级INDEX更新由集成者处理。
 
 ## 解决什么问题
 
@@ -48,6 +52,7 @@ last_updated: 2026-08-04
 - Phase 1 已实现剂量 × 半响应、偶联 × 泄漏、1/2/4 copy × gain × 观察时间三组扫描；当前固定网格为 143 个情景（74 ligand + 69 一对一无 ligand controls）和 23,023 条完整 time-course。
 - Phase 1 紧凑结果包已保存 scenario manifest、final metrics、共置 suite/base config 快照、代码/输入 hash、软件版本、摘要图和外部完整 time-course 的 payload manifest。
 - Phase 2A 已固定 18 字段参数空间、输出指标、主/诊断 ligand contexts、实验替换矩阵和 guarded ratio 合同；正 ligand 情景必须有 matched no-ligand control。
+- Phase 2B 技术结果已覆盖局部时变敏感性、Morris完整条件汇总、条件性Sobol稳定候选和一个重点双参数曲面；完整局部比较含13,685行及两张时间—条件图，相关测试与独立结果核验通过。
 - 20 个 ODE 单元/合同测试覆盖严格 schema、有限数/整数、control effective-input 身份、一对一配对、零分母与缺失 control 防护、结果 scenario 集合一致和 snapshot-only replay。
 
 ### 当前缺口
@@ -55,7 +60,7 @@ last_updated: 2026-08-04
 - 未生成最终参数表；Shaw/Kofahl/Yi 等速率常数仍需 source-table、unit 和 kinetic-law 映射后才能决定是否进入数值模型。
 - 未完成项目自身 wet-lab calibration；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
 - 旧 docking mutant shortlist 已撤回；尚未把 frame-repaired 全量排名展开成逐 receptor-ligand 的可校准配置，当前归一化 suite 不代表具体 Gpr2/Gpr3–ascr 构建。
-- 尚未完成 Phase 2B 灵敏度结果、参数可识别性、拟合/不确定性传播和逐级 MAPK kinetic model；Phase 2A 只固定分析合同。
+- Phase 2B候选冻结已通过本地验证；Git写操作分别使用独立授权门。
 
 ### 完整完成后的形态
 
@@ -292,6 +297,8 @@ ODE 当前应这样消费 docking 输出：
 - 2026-07-28：Phase 0 solver/config/CSV/PNG 和 Phase 1 归一化情景扫描已实现。当前网格为 143 scenarios（74 ligand + 69 controls）和 23,023 条完整 time-course；所有数值仍为 `scenario_prior`，完整 time-course 按 payload policy 外置并由 manifest/checksum 路由。
 - 2026-07-30：旧 docking mutant shortlist/ranking/IFP 撤回后，ODE 仅保留 WT Gpr2/Gpr3 × ascr#18/ascr#3 场景接口；Phase 0/1 已验证实现不回退，mutant 场景等待 repaired release。
 - 2026-08-04：Phase 2A 分析合同已固定 18 字段参数空间、输出/实验接口和 ratio denominator guard；正 ligand 缺失 matched control 时拒绝生成指标，Phase 2B 灵敏度结果尚未开始。
+- 2026-08-10：Phase 2B 本地工作树形成局部敏感性、Morris、条件性Sobol和 `gain_out × K_out` 重点曲面的技术证据链；17参数×5 ligand contexts的时间比较已补齐，Personal理解验收继续进行。详细经过见 [2026-08-07-yrx 日志](../logs/2026-08-07-yrx.md)。
+- 2026-08-11：Personal第1–5轮理解和候选冻结核对完成；完整ODE发现测试42/42通过，提交前文件按贡献者权限分层。详细经过见 [2026-08-07-yrx 日志](../logs/2026-08-07-yrx.md)。
 
 ## 与其他方向的依赖关系
 
