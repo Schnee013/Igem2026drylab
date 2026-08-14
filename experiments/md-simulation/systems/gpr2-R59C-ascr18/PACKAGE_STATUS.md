@@ -31,11 +31,11 @@
 > Scope: package-local readiness, terminal evidence, and canonical result route
 > for the Gpr2 R59C mutant GPR MD rep1.
 >
-> 2026-07-30 docking input boundary: the ligand/receptor starting pose was
-> selected from a now-withdrawn docking release. The completed MD terminal state
-> is unchanged, but allowed interpretation is limited to this actual historical
-> starting pose and single-rep exploratory/triage evidence. This package does
-> not validate the frame-repaired candidate ranking or define a future shortlist.
+> Historical docking input boundary: the ligand/receptor starting pose comes
+> from the 2026-05 docking selection snapshot. The completed MD terminal state
+> and package provenance are unchanged. Allowed interpretation is limited to
+> this actual starting pose and single-rep exploratory/triage evidence; any new
+> candidate panel requires its own input and comparison contract.
 
 | Stage | Status | Direct evidence |
 |---|---|---|

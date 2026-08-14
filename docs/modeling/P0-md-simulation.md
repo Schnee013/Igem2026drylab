@@ -3,7 +3,7 @@ direction: P0-md-simulation
 status: compute_triage
 priority: P0
 chassis_dependent: false
-last_updated: 2026-07-30
+last_updated: 2026-08-14
 ---
 
 # P0: MD 模拟（机制验证 + 嵌合 Gpa1 稳定性）
@@ -12,7 +12,7 @@ last_updated: 2026-07-30
 >
 > **范围边界**：本文维护 MD 方法、protocol、gate、分析指标和证据边界。当前执行状态、阻塞项和优先级只看 [docs/INDEX.md](../INDEX.md)；具体经过看 [docs/logs/](../logs/)。
 >
-> **历史突变体 MD 背景**：2026-04 的 docking/IFP 阶段提出了 ARG138 盐桥、F170E/ECL2 pose drift 和候选 pose 稳定性等静态方法无法回答的问题。这些问题保留为 mutant-holo 方法背景；若未来重启，候选集合必须来自完成共同 frame 全量重跑后的新 shortlist。
+> **历史突变体 MD 背景**：2026-04 的 docking/IFP 阶段提出了 ARG138 盐桥、F170E/ECL2 pose drift 和候选 pose 稳定性等静态方法无法回答的问题。这些问题保留为 mutant-holo 方法背景；相关体系只有在新的独立输入设计和 work order 下才能重启。
 >
 > 同时 [P3-chimeric-gprotein](P3-chimeric-gprotein.md)（已升 P0）的嵌合 Gpa1 设计也需要 MD 稳定性验证。
 >
@@ -32,7 +32,7 @@ last_updated: 2026-07-30
 >
 > **2026-07-19 终态与分析校准**：`Gpr2_R59C + ASCR18` 200 ns rep1 已由 XTC/EDR 终点、GROMACS 正常结束标记和空 issue scan 确认物理完成；completed-run finalizer 将 production status 提升为 `finished`，production/final archive 分别通过 `43/43` 与 `55/55` 校验。E2 GROMACS 2025.4 后处理生成 6,438-atom、200,000 ps 的 processed rep1，随后共享七 driver 与 WT/R59C matched single-rep analysis 完成。两条轨迹均有显著 receptor global motion，250–310 区段均为主要贡献；共同排除并重拟合该区段后，R59C 的剩余 backbone RMSD 和 ASCR18 displacement 高于 WT。当前允许用途是 matched single-rep exploratory/triage；population-level genotype inference 需要复制和起始体系控制。
 >
-> **2026-07-19 动态口袋校准**：共享 ligand-path driver 复核表明 WT 与 R59C 的 ASCR18 起始接触区域不同，因此当前两条轨迹不能作为“同一口袋只改 residue 59”的因果比较。R59C rep1 的后半程动态接触集中在 `ILE122/ILE126/THR133/GLN134/PHE137`；`GLN134/PHE137` 是强动态锚点，`ILE122` 只保留为旧 docking pose 与该轨迹之间的历史交叉检查线索。residue 59 未进入 `4 A` 直接接触表，更符合该起始 pose 下的间接构象调控假说。当前报告只支持 dynamic-pocket triage，不能验证修复后的排名；最佳突变需要共同 frame 新候选、同起始体系、ASCR18/ASCR3 双配体、至少三次独立重复和功能实验。
+> **2026-07-19 动态口袋校准**：共享 ligand-path driver 复核表明 WT 与 R59C 的 ASCR18 起始接触区域不同，因此当前两条轨迹不能作为“同一口袋只改 residue 59”的因果比较。R59C rep1 的后半程动态接触集中在 `ILE122/ILE126/THR133/GLN134/PHE137`；`GLN134/PHE137` 是强动态锚点，`ILE122` 只保留为旧 docking pose 与该轨迹之间的历史交叉检查线索。residue 59 未进入 `4 A` 直接接触表，更符合该起始 pose 下的间接构象调控假说。当前报告只支持 dynamic-pocket triage；最佳突变判断需要同起始体系、ASCR18/ASCR3 双配体、至少三次独立重复和功能实验。
 >
 > **2026-07-17 Gpr3 起始结构校准**：Gpr3 主比较采用 matched-backbone 设计，而不是把独立 AF3 mutant 与 WT 直接比较。R167Y 从已 PPM 定向的 Gpr3 WT backbone 构建，1,604 个 `N/CA/C/O` 主链原子与 WT 逐原子一致；仅 5 A 邻域侧链经 CHARMM36m 局部 EM 清理。主输入使用 `90 A` XY；独立 AF3/PPM mutant 保留为 starting-structure sensitivity evidence。该设计控制起始模型/低置信度环构象差异，但不等价于否定突变可在生产 MD 中驱动真实构象变化。
 >
@@ -42,7 +42,7 @@ last_updated: 2026-07-30
 >
 > **当前 mutant GPR 状态入口**：Gpr2 见 `../../experiments/md-simulation/systems/gpr2-R59C-ascr18/PACKAGE_STATUS.md`；Gpr3 见 `../../experiments/md-simulation/systems/gpr3-R167Y-ascr3/PACKAGE_STATUS.md`、`../../experiments/md-simulation/results/gpr3-r167y-ascr3/README.md` 与 `../../experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/terminal_status.tsv`；项目级优先级和阻塞项见 [docs/INDEX.md](../INDEX.md)。
 >
-> **2026-07-30 docking 输入边界**：R59C/R167Y 是从现已撤回的 2026-05 docking shortlist 选出的历史 MD 输入。已完成的 MD 终态不变，但其解释只绑定各自实际旧起始 pose 和单重复证据；它们不能恢复旧 shortlist、验证修复后的候选排名或为未来候选赋予优先级。新的 mutant MD 必须等待 frame-repaired 全量排名和独立 work order。
+> **历史 docking 输入边界**：R59C/R167Y 来自 2026-05 docking 选择快照。已完成的 MD 终态不变，其解释只绑定各自实际起始 pose 和单重复证据。新的 mutant MD 需要独立 work order、输入 provenance 和预注册比较设计。
 >
 > **2026-07-06 submission cleanup（历史材料收敛）**：当日将 CHARMM-GUI 人工提交入口降噪为两个 upload PDB 与两个 `settings.tsv`，网页操作步骤复用 `../../docs/ops/charmm-gui-membrane-builder.md`。该条只记录当日的材料收敛；Gpr2 提交链由 2026-07-15 versioned current-input PPM rerun 支持，Gpr3 的 2026-07-16 PPM rerun 在 2026-07-17 matched-backbone 决策后只保留为 sensitivity provenance。
 >
@@ -106,11 +106,11 @@ last_updated: 2026-07-30
 
 | 方案 | 体系数 | 时长/rep | Reps | 总 ns | A100 天数 | 用途 |
 |---|---|---|---|---|---|---|
-| 历史 mutant-holo MVP | 8 holo (2 WT + 2026-04 历史候选集合) | 200 ns | 3 | 4800 | ~28 | 历史方案；若重启必须按 frame-repaired shortlist 重新定义 |
+| 历史 mutant-holo MVP | 8 holo (2 WT + 2026-04 历史候选集合) | 200 ns | 3 | 4800 | ~28 | 历史方案；重启需要独立预注册与输入证据 |
 | **标准** | 8 holo + 2 WT-apo | 300 ns | 3 | 9000 | ~51 | p 值稳定 + bootstrap CI |
 | **理想** | 14 (holo + apo) | 500 ns | 3 | 21000 | ~120 | 匹配 GPCRmd-2 |
 
-**历史 mutant-holo 执行路径**：先跑 MVP 出初稿，再视结果升级关键机制问题到更长时长和更多 seeds。R59C/R167Y 生产输入曾由现已撤回的 refreshed shortlist 选出；已完成轨迹只描述其实际旧起始 pose。未来 mutant GPR 生产队列必须等待 frame-repaired 全量 shortlist 重新定义。AF3 起始需分阶段 restraint release（2→60→80→20 ns schedule），生产前额外损耗 50–100 ns。HMR 4 fs 留作后期优化（CGenFF 数值稳定性需另验）；GaMD / metadynamics / LiGaMD 属于后续增强采样路线。
+**历史 mutant-holo 执行路径**：先跑 MVP 出初稿，再视结果升级关键机制问题到更长时长和更多 seeds。R59C/R167Y 生产输入来自 2026-05 历史选择快照；已完成轨迹只描述其实际起始 pose。新的 mutant GPR 生产队列需要独立定义体系、输入和证据目标。AF3 起始需分阶段 restraint release（2→60→80→20 ns schedule），生产前额外损耗 50–100 ns。HMR 4 fs 留作后期优化（CGenFF 数值稳定性需另验）；GaMD / metadynamics / LiGaMD 属于后续增强采样路线。
 
 ### 分析栈（第二轮 §7）
 
@@ -170,7 +170,7 @@ last_updated: 2026-07-30
    Gpr3：需删 POPC resid 514（Phase 3 已处理），其余就绪。
    Gpr2：3D offset `[6.17, 0.65, -7.85]` 修复后 76/80 poses 胞外（历史 Slurm job 6535），best pose Z≈106。
    Gpr2 新 pose 需重新检查 POPC 碰撞（Phase 3 第一步）。
-   该检查只覆盖当时 WT/历史 pose 与膜的空间兼容性，没有验证独立 AF3 mutant docking frame；不能作为 2026-07-30 frame repair 的通过证据。
+   该检查只覆盖当时 WT/历史 pose 与膜的空间兼容性，允许用途限于对应历史输入。
    → `docs/logs/2026-04-16.md` §Gpr2 Docking Pose 朝向验证
 10. ~~⭐⭐ **Ascr18/ascr3 羧基质子化态确认**~~：**已完成（2026-04-16）**。ascr18 + ascr3 均已去质子化重新参数化。ASCR18.itp（54 atoms, qtot=-1.000）Job 7629292909 + ASCR3.itp（46 atoms, qtot=-1.000）Job 7629305001。penalty 全部 < 10。输出 `parameters/{ascr18,ascr3}/deprotonated/charmm-gui-{jobid}/gromacs/`。
 11. ⭐ **突变体引入方法未指定**（2026-04-16 provenance 审计新增）：Phase 4 "从 WT 膜体系引入点突变"未指定工具。推荐：PyMOL `mutagenesis wizard`（单点突变 + 最优 rotamer 选择）或 CHARMM-GUI PDB Manipulator；突变后需对突变残基做局部 EM 消除新侧链 clash，再跑完整 6 步 eq。
@@ -179,7 +179,7 @@ last_updated: 2026-07-30
 
 ## 待回答的科学问题
 
-本节保存 2026-04 历史 mutant-holo 分支的问题清单。未来生产队列只能在 frame-repaired 全量 shortlist 形成后重新定义体系、候选和证据目标。
+本节保存 2026-04 历史 mutant-holo 分支的问题清单。新的生产队列需要独立定义体系、输入和证据目标。
 
 ### 问题 1：V138R 盐桥实证（最高优先级）⭐⭐⭐
 
@@ -209,7 +209,7 @@ last_updated: 2026-07-30
 
 ### 问题 3：历史候选 binding pose 稳定性
 
-**体系**：2026-04 历史候选集合保留为方法背景。[MD 前候选体系清单](P0-docking-md-candidate-shortlist.md) 及其 ratio/IFP release 已撤回；未来突变体 MD 清单只能由 frame-repaired 全量排名重新定义。
+**体系**：2026-04 历史候选集合保留为方法背景。[MD 前候选体系清单](P0-docking-md-candidate-shortlist.md) 只用于追溯当时的输入选择。新的突变体 MD 清单需要独立 work order。
 
 **核心测量**：
 - 配体 RMSD（相对初始 docking pose）
@@ -440,7 +440,7 @@ Phase 6 → 阻塞于 Phase 5
 
 - [ ] V138R 盐桥占比时间序列图 + 统计（vs WT 对照）
 - [ ] F170E pose drift 分析 + GLU170 χ 角时间序列
-- [ ] 历史起始 pose 或未来 frame-repaired 候选的 RMSD/RMSF 汇总表 + WT 对照；两类证据不得混作同一排名验证
+- [ ] 历史起始 pose 的 RMSD/RMSF 汇总表 + WT 对照；结果只解释对应输入与轨迹
 - [ ] 嵌合 Gpa1 + Gpr 复合物界面稳定性报告（与 P3 联动）
 - [ ] 产出路径：`experiments/md-simulation/`
 
@@ -527,15 +527,13 @@ Phase 6 → 阻塞于 Phase 5
 | 2026-07-19 | v3.21 | 记录 Gpr2 R59C rep1 physical completion、validator finalization、processed payload、共享七 driver 和 WT/R59C matched single-rep 结论与证据边界 | [2026-07-19 日志](../logs/2026-07-19.md), `../../experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_matched_comparison_20260719.md` |
 | 2026-07-19 | v3.22 | 增加 WT/R59C ligand-path、动态接触区和候选突变证据门；记录 Kabsch row-vector 修复与当前“不能宣布最佳突变”的边界 | [2026-07-19 日志](../logs/2026-07-19.md), `../../experiments/md-simulation/results/gpr2-r59c-ascr18/analysis/gpr2_wt_r59c_ascr18_rep1_ligand_path_pocket_triage_20260719.md` |
 | 2026-07-20 | v3.23 | 记录 Gpr3 R167Y 200 ns rep1 completion、91-row archive、同环境 postprocess、共享七 driver 和 single-rep interpretation boundary | [2026-07-20 日志](../logs/2026-07-20.md), `../../experiments/md-simulation/results/gpr3-r167y-ascr3/analysis/gpr3_r167y_ascr3_rep1_chctrl_metric_analysis_20260720.md` |
-| 2026-07-30 | v3.24 | 将 R59C/R167Y MD 限定为各自旧起始 pose 的探索性描述；撤销其作为当前 docking ranking/候选验证的角色 | [2026-07-30 日志](../logs/2026-07-30.md), [已撤回 shortlist](P0-docking-md-candidate-shortlist.md) |
+| 2026-08-14 | v3.24 | 将 R59C/R167Y MD 的解释边界固定为实际起始 pose、运行证据与单重复分析，并把后续体系定义改为独立输入合同 | [2026-05 MD 输入选择快照](P0-docking-md-candidate-shortlist.md), system-local `PACKAGE_STATUS.md` |
 
 ## 与其他方向的依赖关系
 
 - **输出到**:
-  - [P0-molecular-docking](P0-molecular-docking.md): 机制验证与候选 pose 稳定性 → 回填机制结论与置信度
   - [P3-chimeric-gprotein](P3-chimeric-gprotein.md): 嵌合 Gpa1 + Gpr 复合物 MD 验证 → 选定首选嵌合方案
-  - [MD 前候选体系清单](P0-docking-md-candidate-shortlist.md): 仅说明旧 R59C/R167Y MD 输入身份与解释边界；不得恢复已撤回 shortlist
 - **依赖于**:
-  - [P0-molecular-docking](P0-molecular-docking.md): 若重启突变体 MD，候选 pose 必须来自完成共同 frame、smoke、全量重跑和审计后的新 release
+  - [P0-molecular-docking](P0-molecular-docking.md) 与 [2026-05 MD 输入选择快照](P0-docking-md-candidate-shortlist.md): 提供已完成 R59C/R167Y 体系的历史 pose provenance
   - [P3-chimeric-gprotein](P3-chimeric-gprotein.md): 提供嵌合 Gpa1 + Gpr 复合物 AF3 结构作为 MD 初始构象
   - [决策 003](../decisions/003-chassis-yeast-ste2-integration.md): 底盘锁定酵母触发嵌合 Gpa1 验证需求

@@ -1,8 +1,10 @@
 # 干实验总策略
 
-> 来源: PRD v3 §2, §2A, §2B, §5 | 最后更新: 2026-04-11
+> 来源: PRD v3 §2, §2A, §2B, §5 | 最后校准: 2026-08-14
 >
 > **底盘**：已锁定 *S. cerevisiae* + STE2 通路（2026-04-11，PI 确认）。详见 [底盘决策 §最终决策](chassis-decision.md#最终决策2026-04-11)。本文件中所有"条件性 / 底盘相关"路线已根据策略 B 激活。
+>
+> 当前方向状态和活跃入口以 [docs/INDEX.md](../INDEX.md) 为准；分子对接在本仓库中维护为 2026 年 4–5 月历史证据与 MD 输入 provenance。
 
 ## 1. 原有方向评估
 
@@ -81,23 +83,23 @@
 
 | 方向 | 形成的 DBTL cycle |
 |------|------------------|
-| §3.1 分子对接 | 产出突变位点 → 湿实验定点突变 → 验证结果反馈 |
+| §3.1 分子对接（2026 年 4–5 月历史） | 保留当时的突变位点生成、对照设计和 MD 输入 provenance |
 | §3.2 ODE 建模 | 预测放大参数 → 湿实验选择 GAL4 promoter 强度 → 实际输出校准 |
 | §3.3 扩散模型 | 为 HP 提供定量论据（试纸间距） |
 | §3.5c 经济效益 | 完成"检测→预防"闭环，支撑 Proposed Implementation |
 
 ## 5. 建模方向间的依赖图
 
-> 2026-04-11 底盘锁定酵母后：P3-chimeric-gprotein 升 P0；P0-md-simulation 新建作为 docking 与嵌合 Gpa1 的实证补充；P2-biocontrol-lv 灰化（archived）。
+> 当前投影：P3-chimeric-gprotein 已升为 P0；P0-md-simulation 消费嵌合体系和历史 pose provenance；P2-biocontrol-lv 已归档。
 
 ```
-P0-molecular-docking ──→ P0-signal-pathway-ode ──→ P1-soil-diffusion
-        │   │                   │                        │
-        │   │                   ▼                        ▼
-        │   └──→ P0-md-simulation         P1-bayesian-inference
-        │              │                          │
-        ▼              ▼              ┌───────────┼───────────┐
-   P0-chimeric-gprotein               ▼           ▼           ▼
-   (former P3, 升级为 P0)        P2-economic  P2-dose-response  ~~P2-biocontrol-lv~~
-                                                                  (archived)
+P0-signal-pathway-ode ──→ P1-soil-diffusion
+          └─────────────→ P1-bayesian-inference
+
+P0-chimeric-gprotein ──→ P0-md-simulation
+P0-molecular-docking（历史） ──→ P0-md-simulation（pose provenance）
+
+P2-economic-benefit
+P2-dose-response
+~~P2-biocontrol-lv~~（archived）
 ```

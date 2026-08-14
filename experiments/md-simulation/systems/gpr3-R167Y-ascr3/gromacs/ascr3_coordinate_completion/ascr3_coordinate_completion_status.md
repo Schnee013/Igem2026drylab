@@ -13,10 +13,10 @@
 > canonical body; derived matched-frame coordinates and both runnable-input
 > arms are recorded under the 2026-07-17 local gate evidence.
 >
-> 2026-07-30 boundary: this canonical body remains authoritative for the actual
-> historical R167Y MD starting coordinate only. Its source docking release is
-> withdrawn and this completion record does not validate a frame-repaired
-> shortlist, ratio, IFP, or candidate rank.
+> Historical input boundary: this canonical body is authoritative for the
+> actual R167Y MD starting coordinate and its package recovery. The source
+> docking release supplies provenance; candidate or parameter decisions require
+> separate evidence.
 
 ## Result
 

@@ -15,12 +15,12 @@ AutoDock Vina 对接模块（Hu2024 复现）
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
 import time
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 
 from grid_box import GridBox, compute_box_center_of_mass
@@ -160,9 +160,6 @@ def _run_vina(
     exhaustiveness: int,
     num_modes: int,
     energy_range: float,
-    min_rmsd: float,
-    max_evals: int,
-    cpu: int,
     seed: int,
     output: Path,
 ) -> list[float]:
@@ -184,65 +181,15 @@ def _run_vina(
         "--exhaustiveness", str(exhaustiveness),
         "--num_modes",      str(num_modes),
         "--energy_range",   f"{energy_range:.1f}",
-        "--min_rmsd",       f"{min_rmsd:.1f}",
-        "--max_evals",      str(max_evals),
-        "--cpu",            str(cpu),
         "--seed",           str(seed),
         "--out",      str(output),
     ]
+    vina_cpu = os.environ.get("VINA_CPU")
+    if vina_cpu:
+        cmd += ["--cpu", vina_cpu]
     logger.debug("vina cmd: " + " ".join(cmd))
 
-    command_path = output.parent / f"{output.stem}.vina.command.json"
-    stdout_path = output.parent / f"{output.stem}.vina.stdout.txt"
-    stderr_path = output.parent / f"{output.stem}.vina.stderr.txt"
-    started_at = datetime.now(timezone.utc).isoformat()
-    started = time.monotonic()
-    try:
-        proc = subprocess.run(cmd, capture_output=True, text=True)
-    except Exception as exc:
-        elapsed = time.monotonic() - started
-        stdout_path.write_text("", encoding="utf-8")
-        stderr_path.write_text(f"{type(exc).__name__}: {exc}\n", encoding="utf-8")
-        command_path.write_text(
-            json.dumps(
-                {
-                    "schema": "vina-command-v2",
-                    "argv": cmd,
-                    "started_at_utc": started_at,
-                    "finished_at_utc": datetime.now(timezone.utc).isoformat(),
-                    "elapsed_sec": elapsed,
-                    "returncode": None,
-                    "status": "invocation_error",
-                    "error_type": type(exc).__name__,
-                    "error": str(exc),
-                },
-                ensure_ascii=False,
-                indent=2,
-            )
-            + "\n",
-            encoding="utf-8",
-        )
-        raise
-    elapsed = time.monotonic() - started
-    stdout_path.write_text(proc.stdout, encoding="utf-8")
-    stderr_path.write_text(proc.stderr, encoding="utf-8")
-    command_path.write_text(
-        json.dumps(
-            {
-                "schema": "vina-command-v2",
-                "argv": cmd,
-                "started_at_utc": started_at,
-                "finished_at_utc": datetime.now(timezone.utc).isoformat(),
-                "elapsed_sec": elapsed,
-                "returncode": proc.returncode,
-                "status": "process_complete",
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
+    proc = subprocess.run(cmd, capture_output=True, text=True)
     if proc.returncode != 0:
         raise RuntimeError(
             f"vina.exe 失败（exit {proc.returncode}）\n"
@@ -356,9 +303,6 @@ def dock_pair_twostage(
         exhaustiveness=stage1_cfg["exhaustiveness"],
         num_modes=vina_cfg["num_modes"],
         energy_range=vina_cfg["energy_range"],
-        min_rmsd=vina_cfg["min_rmsd"],
-        max_evals=vina_cfg["max_evals"],
-        cpu=config["frame_repair"]["compute"]["cpu_per_job"],
         seed=effective_seed,
         output=stage1_poses,
     )
@@ -392,9 +336,6 @@ def dock_pair_twostage(
         exhaustiveness=stage2_cfg["exhaustiveness"],
         num_modes=vina_cfg["num_modes"],
         energy_range=vina_cfg["energy_range"],
-        min_rmsd=vina_cfg["min_rmsd"],
-        max_evals=vina_cfg["max_evals"],
-        cpu=config["frame_repair"]["compute"]["cpu_per_job"],
         seed=effective_seed,
         output=stage2_poses,
     )
@@ -436,7 +377,6 @@ def dock_pair_singlestage(
     box_center_offset: tuple[float, float, float] = (0.0, 0.0, 0.0),
     receptor_box_size: float | None = None,
     manual_box_center: tuple[float, float, float] | None = None,
-    vina_bin_override: str | None = None,
 ) -> DockingResult:
     """
     单阶段对接（精确复现 Hu2024 参数）。
@@ -469,7 +409,7 @@ def dock_pair_singlestage(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    vina_bin = vina_bin_override or config["remote"]["vina_bin"]
+    vina_bin = config["remote"]["vina_bin"]
     vina_cfg = config["vina"]
     ss_cfg = vina_cfg.get("singlestage", {
         "spacing": 0.1,
@@ -539,9 +479,6 @@ def dock_pair_singlestage(
         exhaustiveness=ss_cfg["exhaustiveness"],
         num_modes=vina_cfg["num_modes"],
         energy_range=vina_cfg["energy_range"],
-        min_rmsd=vina_cfg["min_rmsd"],
-        max_evals=vina_cfg["max_evals"],
-        cpu=config["frame_repair"]["compute"]["cpu_per_job"],
         seed=effective_seed,
         output=poses_out,
     )

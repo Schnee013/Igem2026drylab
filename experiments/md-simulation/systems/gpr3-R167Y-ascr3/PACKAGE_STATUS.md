@@ -49,12 +49,11 @@
 > Scope: package-local material checkpoint for the Gpr3 WT/R167Y matched MD
 > input gate.
 >
-> 2026-07-30 docking input boundary: the ASCR3 starting pose was selected from a
-> now-withdrawn docking release. The accepted R167Y terminal state and package
-> provenance are unchanged, but allowed interpretation is limited to this actual
-> historical starting pose and single-rep exploratory evidence. This package
-> does not validate the frame-repaired candidate ranking or define a future
-> shortlist.
+> Historical docking input boundary: the ASCR3 starting pose comes from the
+> 2026-05 docking selection snapshot. The accepted R167Y terminal state and
+> package provenance are unchanged. Allowed interpretation is limited to this
+> actual starting pose and single-rep exploratory evidence; any new candidate
+> panel requires its own input and comparison contract.
 
 ## Current Contents
 

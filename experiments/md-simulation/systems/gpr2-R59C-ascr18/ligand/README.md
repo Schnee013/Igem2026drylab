@@ -1,8 +1,8 @@
 # Gpr2_R59C + ASCR18 ligand input
 
 This directory is the system-local historical authority for the exact ligand
-coordinate used by the completed `Gpr2_R59C + ASCR18` MD input package. It is
-not a current docking-ranking or candidate authority.
+coordinate used by the completed `Gpr2_R59C + ASCR18` MD input package. Its
+allowed use is MD input provenance and recovery.
 
 ## Historical MD input
 
@@ -17,11 +17,10 @@ not a current docking-ranking or candidate authority.
 
 ## Boundary
 
-The full PDBQT pose set and IFP-generated multi-pose SDF are withdrawn
-docking-analysis outputs. The promoted SDF remains authoritative only for
-auditing the actual historical MD starting coordinate; it cannot validate the
-frame-repaired ranking or define a future candidate. Package consumers must not
-replace this historical input through `results/**/tmp/`.
+The promoted SDF and `manifest.tsv` are the coordinate and identity authority
+for this MD package. The full PDBQT pose set and IFP-generated multi-pose SDF
+remain historical provenance. Package consumers recover the exact input from
+this directory rather than selecting another pose from `results/**/tmp/`.
 
 ## References / 所引
 

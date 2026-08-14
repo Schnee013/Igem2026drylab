@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from typing import cast
@@ -99,7 +100,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--wt-baseline-subdir", default=None,
                         help="覆盖 WT singlestage 基线子目录，例如 wt_singlestage_gpr3_f_test")
     parser.add_argument("--cpu", type=int, default=None,
-                        help="Vina 使用的 CPU 核心数（默认读取 config 的显式值）")
+                        help="Vina 使用的 CPU 核心数（默认占满全部；Mac 长时间跑建议 4-6 避免过热）")
     return parser.parse_args()
 
 
@@ -125,7 +126,7 @@ def main() -> None:
     if args.wt_baseline_subdir:
         config["paths"]["wt_singlestage_subdir"] = args.wt_baseline_subdir
     if args.cpu is not None:
-        config["frame_repair"]["compute"]["cpu_per_job"] = args.cpu
+        os.environ["VINA_CPU"] = str(args.cpu)
 
     root = get_project_root(config)
     run_id = generate_run_id()

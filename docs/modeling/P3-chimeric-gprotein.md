@@ -164,5 +164,5 @@ last_updated: 2026-07-05
   - [P0-signal-pathway-ode](P0-signal-pathway-ode.md): 嵌合 Gpa1 的偶联效率参数 → ODE 模型输入
   - [P0-md-simulation](P0-md-simulation.md): Top 2-3 嵌合候选 → MD 稳定性验证
 - **依赖于**:
-  - [P0-molecular-docking](P0-molecular-docking.md): 结合口袋结构信息（mutant pose 影响嵌合 Gpa1 与受体偶联界面）
+  - [P0-molecular-docking](P0-molecular-docking.md): 提供 2026 年 4–5 月受体-配体结构背景
   - [决策 003](../decisions/003-chassis-yeast-ste2-integration.md): 底盘锁定酵母触发本方向激活

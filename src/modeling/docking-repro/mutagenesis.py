@@ -202,15 +202,6 @@ def run_mutagenesis(
     logger = get_logger()
     root = get_project_root(config)
     mut_cfg = config.get("mutagenesis", {})
-    target_receptors = mut_cfg.get("target_receptors", ["GprC"])
-    corrected_receptors = set(config.get("frame_repair", {}).get("allowed_receptors", []))
-    requested_corrected = corrected_receptors.intersection(target_receptors)
-    if requested_corrected:
-        raise RuntimeError(
-            "Gpr2/Gpr3 frame-repair production 已从 legacy mutagenesis.py "
-            "fail-closed；唯一执行入口是 run_frame_repair_docking.py，"
-            "其 job manifest 再由 aggregate_frame_repair_terminal.py 聚合。"
-        )
 
     # 目录结构
     mutant_dir = root / config["paths"].get(
@@ -248,6 +239,9 @@ def run_mutagenesis(
         raw = json.loads(results_json.read_text(encoding="utf-8"))
         wt_dock_results = {r["pair_name"]: r["best_affinity"] for r in raw}
         logger.info(f"已加载 WT 对接结果: {len(wt_dock_results)} 个对接对")
+
+    # 确定要扫描的受体（默认仅 GprC，因为有 Hu2024 关键残基数据）
+    target_receptors = mut_cfg.get("target_receptors", ["GprC"])
 
     all_results = []
 
@@ -442,6 +436,7 @@ def run_mutagenesis(
 
     # 排序（ΔΔG_sel 升序，越小越好）
     all_results.sort(key=lambda r: r.ddg_selectivity)
+
     # 保存 JSON（默认保留历史副本 + latest；显式输出文件可关闭 latest 覆写）
     save_run_id = str(mut_cfg.get("run_id") or generate_run_id())
     output_filename = str(

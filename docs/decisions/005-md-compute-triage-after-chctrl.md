@@ -40,10 +40,8 @@
 3. **候选来源（历史）**：突变 GPR MD 的初始候选来自当时的 refreshed docking shortlist 和 release report；该选择解释 2026-06 至 2026-07 已执行 R59C/R167Y MD 的输入来源，但不再定义当前或未来生产队列。
 4. **证据边界**：减少体系或强约束会改变物理解释范围；未来写作必须明确它们是省算力 protocol，而不是无条件等同于原 full-system production MD。
 
-## 2026-07-30 superseding boundary
+## 历史输入边界
 
-AF3 mutant docking 未先对齐 WT docking frame，导致 2026-05 shortlist、ratio、IFP
-和候选排名撤回。本决策中 R59C/R167Y 的历史启动顺序和已完成 MD 终态保持不变，
-但这些 MD 只能描述各自实际旧起始 pose 的单重复探索性行为，不能验证修复后的
-docking 排名。未来 mutant GPR 候选或新 MD 必须等待 frame-repaired Gpr2/Gpr3
-全量排名，并通过新的 work order 与资源门禁。
+R59C/R167Y 的初始选择来自 2026-05 历史 shortlist。已完成 MD 的终态和输入身份
+保持不变；其允许用途是描述各自实际起始 pose 下的单重复探索性行为。新的候选或
+production 设计需要独立 work order、输入证据和资源门禁。

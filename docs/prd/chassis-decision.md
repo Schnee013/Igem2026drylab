@@ -32,7 +32,7 @@
 - P3 嵌合 Gpa1 同源建模升为核心干实验路线；当前进展和 MD 验证状态看 [P3-chimeric-gprotein.md](../modeling/P3-chimeric-gprotein.md)、[P0-md-simulation.md](../modeling/P0-md-simulation.md) 和 [docs/INDEX.md](../INDEX.md)。
 - P0 ODE 走酵母 STE2/MAPK/reporter 输出接口；参数状态和实现边界看 [P0-signal-pathway-ode.md](../modeling/P0-signal-pathway-ode.md)。
 - P2 生物防治 LV 只属于丝状真菌路线下的历史备选；当前 P2 经济模型看 [P2-economic-benefit.md](../modeling/P2-economic-benefit.md)。
-- docking 当前状态/已撤回 shortlist 边界、MD 运行状态和 reporter 参数的入口分别是 [P0-molecular-docking.md](../modeling/P0-molecular-docking.md)、[已撤回的 docking MD candidate-system shortlist](../modeling/P0-docking-md-candidate-shortlist.md)、[P0-md-simulation.md](../modeling/P0-md-simulation.md)、[P0-signal-pathway-ode.md](../modeling/P0-signal-pathway-ode.md) 和 [docs/INDEX.md](../INDEX.md)。当前无 active docking candidate list。
+- 历史 docking 方法与 MD 输入来源、MD 运行状态和 reporter 参数的入口分别是 [P0-molecular-docking.md](../modeling/P0-molecular-docking.md)、[2026-05 MD 输入选择快照](../modeling/P0-docking-md-candidate-shortlist.md)、[P0-md-simulation.md](../modeling/P0-md-simulation.md)、[P0-signal-pathway-ode.md](../modeling/P0-signal-pathway-ode.md) 和 [docs/INDEX.md](../INDEX.md)。
 
 ## 历史分析边界
 
