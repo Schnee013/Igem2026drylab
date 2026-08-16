@@ -1,10 +1,10 @@
 # iGEM DryLab 干实验 — 项目索引
 
-> 最后校准：2026-07-31。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
+> 最后校准：项目全表 2026-07-31；ODE 条目 2026-08-16。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
 >
 > Source: system-local `PACKAGE_STATUS.md`、直接 gate/run artifacts、领域权威文件。
 >
-> As of: `2026-07-31`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
+> As of: 项目全表 `2026-07-31`，ODE 条目 `2026-08-16`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
 >
 > Allowed use: 项目级状态投影、优先级、阻塞项和活跃入口。
 >
@@ -27,7 +27,7 @@
 | **P0** | 受体-配体分子对接 | 否 | **geometry_gate_v3_seed44_holdout_fail_stop_full_blocked**：新门已从 seed 42 + 43 WT evidence 冻结；seed-44 独立 holdout 8/8 技术完成，但 Gpr3/R167Y 两臂 geometry 失败，终态阻止 full-run | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0（探索）** | 双/多突变 docking | 否 | **phase2_local_schema_test_ready_blocked_by_frame_repair（2026-07-30）**：canonical genotype、multi-mutation FASTA、旧单突变只读兼容、WT/A/B/AB validator 和 synthetic focused tests 已完成；仍须等共同 frame 修复、单突变全量重跑和 active shortlist 重建后才能冻结真实 AB，当前未生成双突变结构或启动计算 | [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **compute_triage + gpr2_wt_r59c_rep1_analyzed + gpr3_r167y_rep1_analyzed**：旧 Slurm control/chctrl 3 reps 为历史完成证据，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1 Z-only 已降级为省算力不足；chimeric 候选 full MD 暂停；Gpr2 WT/R59C 200 ns rep1、七 driver、matched single-rep 和 ligand-path triage 已完成；Gpr3 R167Y AutoDL 200 ns rep1、postprocess 和共享七 driver 已完成，当前为 single-rep exploratory，WT arm 尚无 production completion | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase2a_contract_active_scenario_prior**：Phase 0/1 可执行原型与工程扫描已验证；Phase 2A 已固定 18 字段参数空间、输出/实验接口和 guarded ratio，正 ligand 缺失 matched control 时 fail closed。尚无 Phase 2B 灵敏度排序或项目校准结果 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase2b_runners_verified_result_package_pending**：Phase 0/1 可执行原型、Phase 2A 分析合同及 Phase 2B 局部敏感性、Morris、Sobol、重点曲面 runner/config/test 已验证；完整长运行结果尚缺仓库内紧凑结果包与恢复指针，候选冻结和项目校准仍待证据接纳 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
@@ -46,6 +46,7 @@
 - [ ] **[质量门] 预注册 operational cutoff 来源审查**：所有用于 go/no-go 的项目预注册阈值、技术栈选择、几何定义和数值判据必须补齐 DOI / 标题 / 原文方法段落 / 官方工具文档等 exact pointer；没有 exact pointer 的文献引用暂不承认，统一标记为待查验或项目 operational heuristic。
 - [ ] **[门禁] docking frame 纠错与候选重建**：旧 shortlist 已撤回。maximum-20、显式 CPU8、WT calibration、MODEL 1 目视和新门冻结均已完成；seed-44 独立 holdout 8/8 技术完成但 Gpr3/R167Y 两臂未通过冻结门，已 `fail_stop_before_full`。不得按 holdout 结果调低门；当前不存在可发送的 docking 湿实验候选。
 - [ ] **[待确认] reporter 输出实现参数**：架构已确认（sTF -> GAL 多拷贝放大 -> 色素显色），但具体色素、整合位点、实际拷贝数、输出增益和 time-course 参数仍需通路工程组/湿实验校准。
+- [ ] **[证据门] ODE Phase 2B 结果接纳**：runner、配置、测试和设计预检已具备；候选冻结需要仓库内紧凑结果包绑定完整局部敏感性、Morris、Sobol、重点曲面的来源哈希、输出校验和、生成命令、软件身份和恢复入口。
 - [ ] **[重要] HP 组沟通**: 回收经济模型的本地参数：传感器单次成本、部署密度、检测性能、当地 lab 成本/周期、施药/轮作/抗性品种成本、作物价格与农户支付意愿。
 
 ---
@@ -56,7 +57,7 @@
 2. **chimeric Gpa1 省算力方案调研** — 候选体系 production 仍暂停；R1-Z 对照与路线选择历史见 `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` 和 `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md`。R4 的唯一当前材料边界见 `experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md`；`experiments/chimeric-gpa1/literature/r4_tool_validation_plan_20260706.md` 作为非执行 validation-design evidence。任何 full-production 启动都需要新的当前 work order 和审批。
 3. **docking-repro frame repair** — 当前状态和方法边界见 [P0 molecular docking](modeling/P0-molecular-docking.md) 与 [docking-repro directory contract](../experiments/docking-repro/README.md)。新门已冻结；seed-44 独立 holdout 归档在 `temp/docking_frame_repair_20260731_e2_full_seed44_r1/`，终态为 `TERMINAL_ABNORMAL / fail_stop_before_full`。下一步是对失败门保持现状，或另行决定新的 geometry 策略与独立验证；当前不得启动剩余 320 jobs。旧 shortlist/ratio/IFP 只保留为带日期的撤回历史证据。
 4. **双/多突变 docking（Phase 2 local ready / blocked）** — 方向、证据边界和核心文献见 [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md)，执行合同见 [multi-mutant-docking-execution-plan-20260730.md](../codex/docs/plans/multi-mutant-docking-execution-plan-20260730.md)，本地 schema/test 入口见 [multi-mutant local contract](../experiments/docking-repro/multi-mutant/README.md)。当前不从旧 ratio/IFP 组合候选；只有 frame repair 和 repaired single-mutant shortlist 完成后，才冻结少量真实 WT/A/B/AB 周期。
-5. **ODE 并行推进** — 可执行入口为 `src/modeling/ode/` 与 `experiments/ode-model/`，Phase 2A 机器合同入口为 `experiments/ode-model/configs/phase2a_analysis_contract.json`；参数证据/边界回 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [lumped 参数登记表](modeling/P0-ode-lumped-parameter-register.md)。当前只支持归一化 `scenario_prior`；下一阶段是 Phase 2B 灵敏度实现，Kd/calibration、全局结果和 wet-lab 回填仍未完成。
+5. **ODE 并行推进** — 可执行入口为 `src/modeling/ode/` 与 `experiments/ode-model/`，分析合同入口为 `experiments/ode-model/configs/phase2a_analysis_contract.json`；参数证据/边界回 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [lumped 参数登记表](modeling/P0-ode-lumped-parameter-register.md)。当前只支持归一化 `scenario_prior`；下一门槛是补齐并审查 Phase 2B 紧凑结果包，Kd/calibration、可识别性、拟合和不确定性传播仍未完成。
 6. **早期检测经济效益模型 HP 参数回收** — 文献/参数入口见 [early-detection economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
 7. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
@@ -186,7 +187,8 @@
 - [x] Phase 1 reporter 工程情景：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参和匹配无 ligand 对照
 - [x] 1/2/4 copy 归一化情景比较（不是实际构建优选结论）
 - [x] Phase 2A 分析合同：18 字段参数空间、输出指标、主/诊断 contexts、参数—实验替换矩阵和 guarded ratio
-- [ ] Phase 2B 灵敏度结果、可识别性、拟合/不确定性传播和逐级 pathway kinetic model
+- [x] Phase 2B runner/config/test：局部时变敏感性、Morris、条件性 Sobol 和重点双参数曲面；当前支持设计预检与 `scenario_prior` 技术诊断
+- [ ] Phase 2B 紧凑结果包与正式结果接纳；可识别性、拟合/不确定性传播和逐级 pathway kinetic model
 - [ ] 与 docking 联动：WT 场景结构可继续使用；mutant 候选标签/排序/IFP 等待 frame-repaired 全量候选清单，Kd/calibration 需等待单独文献审查
 
 ### ④ 其他待启动
