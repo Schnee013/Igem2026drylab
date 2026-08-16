@@ -24,6 +24,7 @@ except ImportError:  # pragma: no cover - direct script execution fallback
 
 
 ROOT = Path(__file__).resolve().parents[3]
+COLOR_ENDPOINT_HOURS = 8.0
 DEFAULT_CONFIG = (
     ROOT
     / "experiments/ode-model/configs/phase2b_focused_two_parameter_surface.json"
@@ -192,7 +193,7 @@ def load_surface_inputs(
     contract = _load_json(contract_path)
     baseline = _load_json(baseline_path)
     validate_config(baseline)
-    if float(baseline["time"]["duration_hours"]) < 8.0:
+    if float(baseline["time"]["duration_hours"]) < COLOR_ENDPOINT_HOURS:
         raise ValueError("baseline duration must cover color_8h")
 
     stages = [row["stage"] for row in contract["analysis_sequence"]]
@@ -316,7 +317,9 @@ def summarize_surface(values: np.ndarray) -> dict[str, float | int | bool]:
 
 
 def _default_evaluator(config: dict[str, Any]) -> float:
-    result = solve_normalized_scenario(config)
+    endpoint_config = copy.deepcopy(config)
+    endpoint_config["time"]["duration_hours"] = COLOR_ENDPOINT_HOURS
+    result = solve_normalized_scenario(endpoint_config)
     return float(result.color_signal[-1])
 
 
