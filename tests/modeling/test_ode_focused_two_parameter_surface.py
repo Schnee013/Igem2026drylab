@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import json
 import math
 from pathlib import Path
@@ -11,6 +12,7 @@ import unittest
 import numpy as np
 
 from src.modeling.ode.focused_two_parameter_surface import (
+    _default_evaluator,
     additive_interaction_residuals,
     build_surface_grid,
     load_surface_inputs,
@@ -18,6 +20,7 @@ from src.modeling.ode.focused_two_parameter_surface import (
     run_focused_surface,
     summarize_surface,
 )
+from src.modeling.ode.minimal_solver import solve_normalized_scenario
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,6 +59,26 @@ class FocusedTwoParameterSurfaceTests(unittest.TestCase):
         self.assertAlmostEqual(float(gain[-1]), 1.0)
         self.assertAlmostEqual(float(half[0]), 0.025)
         self.assertAlmostEqual(float(half[-1]), 2.5)
+
+    def test_default_evaluator_uses_eight_hour_endpoint_for_longer_run(self) -> None:
+        config = copy.deepcopy(self.baseline)
+        config["time"]["duration_hours"] = 10.0
+        config["time"]["output_points"] = 201
+
+        long_run = solve_normalized_scenario(config)
+        eight_hour_index = int(np.flatnonzero(long_run.time_hours == 8.0)[0])
+        evaluated = _default_evaluator(config)
+
+        self.assertAlmostEqual(
+            evaluated,
+            float(long_run.color_signal[eight_hour_index]),
+            places=8,
+        )
+        self.assertNotAlmostEqual(
+            evaluated,
+            float(long_run.color_signal[-1]),
+            places=6,
+        )
 
     def test_additive_surface_has_zero_interaction_residual(self) -> None:
         row_effect = np.asarray([1.0, 2.0, 4.0])[:, None]
