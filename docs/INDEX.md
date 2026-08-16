@@ -186,7 +186,7 @@
 - [x] 归一化 Phase 0 原型：`src/modeling/ode/` Python solver + 严格参数 config + 模拟 CSV/plot（`scenario_prior`，不是校准 v0.1）
 - [x] Phase 1 reporter 工程情景：sTF -> GAL 多拷贝放大 -> 色素显色的 copy-number/gain/leakage 扫参和匹配无 ligand 对照
 - [x] 1/2/4 copy 归一化情景比较（不是实际构建优选结论）
-- [x] Phase 2A 分析合同：18 字段参数空间、输出指标、主/诊断 contexts、参数—实验替换矩阵和 guarded ratio
+- [x] Phase 2A 分析合同：18 字段参数空间、输出指标、主/诊断 contexts、参数—潜在可观测量—证据缺口和 guarded ratio
 - [x] Phase 2B runner/config/test：局部时变敏感性、Morris、条件性 Sobol 和重点双参数曲面；当前支持设计预检与 `scenario_prior` 技术诊断
 - [ ] Phase 2B 紧凑结果包与正式结果接纳；可识别性、拟合/不确定性传播和逐级 pathway kinetic model
 - [ ] 与 docking 联动：WT 场景结构可继续使用；mutant 候选标签/排序/IFP 等待 frame-repaired 全量候选清单，Kd/calibration 需等待单独文献审查
