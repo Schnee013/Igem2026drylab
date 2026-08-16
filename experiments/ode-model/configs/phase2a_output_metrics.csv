@@ -1,14 +1,14 @@
 metric_id,level,definition,unit,evaluation_context,role,status,decision_use,required_data
-color_2h,system,color_signal at 2 h,arbitrary color units,each ligand context and copy stratum,primary,active,early readable output comparison,solver time-course
-color_4h,system,color_signal at 4 h,arbitrary color units,each ligand context and copy stratum,primary,active,intermediate read-window comparison,solver time-course
-color_8h,system,color_signal at 8 h,arbitrary color units,each ligand context and copy stratum,primary,active,endpoint output comparison,solver time-course
-color_auc_0_8h,system,trapezoidal integral of color_signal from 0 to 8 h,arbitrary color units h,each ligand context and copy stratum,primary,active,total accumulated signal comparison,solver time-course
-matched_control_color_8h,system,color_8h from the parameter-matched no-ligand run,arbitrary color units,positive-ligand contexts,primary,active,background and false-positive risk,matched no-ligand time-course
-delta_color_8h,system,color_8h minus matched_control_color_8h,arbitrary color units,positive-ligand contexts,primary,active,absolute ligand-dependent separation,ligand and matched-control time-courses
-ratio_color_8h,system,color_8h divided by matched_control_color_8h,dimensionless,positive-ligand contexts,secondary,active_with_denominator_guard,relative ligand-control separation,ligand and matched-control time-courses
-time_to_half_final_color,system,first time color_signal reaches 50 percent of its own 8 h value,h,each ligand context and copy stratum,secondary,active,scenario-relative response timing,solver time-course
-g_on_1h,g_protein,G_on at 1 h,normalized active fraction,each ligand context and copy stratum,module_diagnostic,active,locate upstream sensitivity,solver time-course
-mapk_active_1h,mapk,mapk_active at 1 h,normalized active fraction,each ligand context and copy stratum,module_diagnostic,active,locate MAPK sensitivity,solver time-course
-stf_activity_1h,transcription,stf_activity at 1 h,normalized activity,each ligand context and copy stratum,module_diagnostic,active,locate sTF transfer sensitivity,solver time-course
-gal_product_rate_1h,gal_output,gal_product_rate at 1 h,effective production,each ligand context and copy stratum,module_diagnostic,active,locate output-layer sensitivity,solver time-course
-time_to_readout_threshold,system,first time color_signal crosses a calibrated visible or instrument threshold,h,project readout context,calibration_interface,inactive_pending_threshold,field or instrument decision timing,wet-lab threshold noise model and readout rule
+color_2h,system,color_signal at simulation time 2 h,arbitrary color units,each in-silico ligand context and copy stratum,primary,active,early simulated-output comparison,solver time-course
+color_4h,system,color_signal at simulation time 4 h,arbitrary color units,each in-silico ligand context and copy stratum,primary,active,intermediate simulated-output comparison,solver time-course
+color_8h,system,color_signal at simulation time 8 h,arbitrary color units,each in-silico ligand context and copy stratum,primary,active,endpoint simulated-output comparison,solver time-course
+color_auc_0_8h,system,trapezoidal integral of color_signal from simulation time 0 to 8 h,arbitrary color units h,each in-silico ligand context and copy stratum,primary,active,total simulated-signal comparison,solver time-course
+matched_control_color_8h,system,color_8h from the parameter-matched in-silico no-ligand run,arbitrary color units,positive-ligand analysis contexts,primary,active,simulated background comparison,parameter-matched in-silico no-ligand time-course
+delta_color_8h,system,color_8h minus matched_control_color_8h,arbitrary color units,positive-ligand analysis contexts,primary,active,absolute simulated ligand-control separation,positive-ligand and parameter-matched in-silico control time-courses
+ratio_color_8h,system,color_8h divided by matched_control_color_8h,dimensionless,positive-ligand analysis contexts,secondary,active_with_denominator_guard,relative simulated ligand-control separation,positive-ligand and parameter-matched in-silico control time-courses
+time_to_half_final_color,system,first simulation time color_signal reaches 50 percent of its own 8 h value,h,each in-silico ligand context and copy stratum,secondary,active,scenario-relative simulated-response timing,solver time-course
+g_on_1h,g_protein,G_on at simulation time 1 h,normalized active fraction,each in-silico ligand context and copy stratum,module_diagnostic,active,locate upstream sensitivity,solver time-course
+mapk_active_1h,mapk,mapk_active at simulation time 1 h,normalized active fraction,each in-silico ligand context and copy stratum,module_diagnostic,active,locate MAPK sensitivity,solver time-course
+stf_activity_1h,transcription,stf_activity at simulation time 1 h,normalized activity,each in-silico ligand context and copy stratum,module_diagnostic,active,locate sTF transfer sensitivity,solver time-course
+gal_product_rate_1h,gal_output,gal_product_rate at simulation time 1 h,effective production,each in-silico ligand context and copy stratum,module_diagnostic,active,locate output-layer sensitivity,solver time-course
+time_to_readout_threshold,system,first simulation time color_signal crosses a team-confirmed readout threshold,h,future project readout context,calibration_interface,inactive_pending_threshold,readout timing after threshold activation,team-confirmed threshold noise model and readout rule after identifiability review
