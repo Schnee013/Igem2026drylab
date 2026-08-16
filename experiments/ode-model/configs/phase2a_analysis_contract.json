@@ -1,19 +1,14 @@
 {
-  "contract_id": "ode_phase2a_sensitivity_and_experiment_interface",
+  "contract_id": "ode_phase2a_analysis_and_evidence_gap_contract",
   "status": "active_contract",
   "evidence_status": "scenario_prior",
   "source_base_commit": "36599402fd091f616520e9b7415d3b30aefd5781",
-  "allowed_use": "Define reproducible screening ranges, outputs, analysis contexts, and calibration-readiness experiments for the normalized Phase 0/1 ODE.",
-  "phase_workflow": {
-    "sequence": [
-      "freeze_team_asset",
-      "create_personal_read_only_snapshot",
-      "complete_personal_understanding_and_reproduction",
-      "write_understanding_report",
-      "sync_reviewed_conclusions_to_team",
-      "enter_next_phase"
-    ],
-    "phase2b_entry_gate": "phase2a_understanding_report_reviewed_and_contract_changes_resolved"
+  "allowed_use": "Define reproducible parameter ranges, model outputs, analysis-only contexts, and evidence-gap placeholders for Phase 2B sensitivity and Phase 2C identifiability analysis of the normalized Phase 0/1 ODE.",
+  "phase_boundary": {
+    "phase2a_deliverable": "Draft mapping from model parameters to potential observable classes and evidence gaps.",
+    "phase2b_deliverable": "Model-side sensitivity results with condition dependence reported explicitly.",
+    "phase2c_deliverable": "Identifiability analysis for parameters and parameter combinations under candidate observable classes.",
+    "dbtl_handoff_gate": "Concrete assays, experimental controls, sampling design, and experimental priorities require completed model-analysis gates plus the team-confirmed wet-lab plan, feasibility, cost, and resources."
   },
   "source_baseline": {
     "solver": "src/modeling/ode/minimal_solver.py",
@@ -24,7 +19,6 @@
   "contract_files": {
     "parameter_space": "experiments/ode-model/configs/phase2a_parameter_space.csv",
     "output_metrics": "experiments/ode-model/configs/phase2a_output_metrics.csv",
-    "experiment_matrix": "experiments/ode-model/configs/phase2a_experiment_matrix.csv",
     "domain_authority": "docs/modeling/P0-signal-pathway-ode.md"
   },
   "parameter_counts": {
@@ -61,7 +55,7 @@
     "copy_number_strata": [1, 2, 4],
     "duration_hours": 8.0,
     "output_points": 161,
-    "matched_control_rule": "For each positive-ligand parameter set, keep every numeric model field fixed and set only input.ligand_normalized to 0.0."
+    "matched_control_rule": "In silico matched-control rule: for each positive-ligand parameter set, keep every numeric model field fixed and set only input.ligand_normalized to 0.0."
   },
   "metric_guard_policies": {
     "ratio_color_8h": {
@@ -96,24 +90,24 @@
   "analysis_sequence": [
     {
       "stage": "local_time_dependent_sensitivity",
-      "status": "next",
+      "status": "runner_and_contract_verified_result_package_pending",
       "purpose": "Check direction, scale, and numerical stability for all continuous fields across the primary and transition-diagnostic ligand contexts."
     },
     {
       "stage": "morris_screening",
-      "status": "planned",
+      "status": "runner_and_contract_verified_result_package_pending",
       "purpose": "Rank main effects, nonlinearity, and interactions across primary and transition-diagnostic ligand contexts and copy strata, reporting the context classes separately."
     },
     {
-      "stage": "focused_two_parameter_surfaces",
-      "status": "planned",
-      "purpose": "Explain selected high-impact interactions with small interpretable grids."
+      "stage": "conditional_subset_sobol",
+      "status": "runner_and_contract_verified_result_package_pending",
+      "purpose": "Quantify first and total variance contributions for the Morris subset; selected second-order indices require the registered second-order gate."
     },
     {
-      "stage": "global_variance_decomposition",
-      "status": "gated",
-      "purpose": "Quantify variance contributions after the influential subset and independence assumptions are reviewed."
+      "stage": "focused_two_parameter_surfaces",
+      "status": "runner_and_contract_verified_result_package_pending",
+      "purpose": "Explain stable high-impact, equation-linked parameter pairs with small interpretable grids."
     }
   ],
-  "next_gate": "Freeze and verify the amended Phase 2A candidate in a new personal read-only snapshot, complete review readiness and the Phase 2A PR, then implement local sensitivity without changing the accepted baseline equations."
+  "next_gate": "Review a repository-owned compact result package that binds each accepted Phase 2B result family to source hashes, output checksums, producer commands, software identity, and a recovery route before accepting a candidate freeze."
 }

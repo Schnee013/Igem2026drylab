@@ -304,11 +304,17 @@ def _rhs(_: float, state: np.ndarray, config: Mapping[str, Any], r_active: float
     gal_output = _require_mapping(config, "gal_output")
     color = _require_mapping(config, "color")
 
+    # Adaptive Runge--Kutta stages can briefly probe a few floating-point ulps
+    # outside the invariant [0, 1] state interval near a zero-signal boundary.
+    # Use the physical interval for the algebraic Hill interface while leaving
+    # the raw state in the ODE terms so the vector field still restores bounds.
+    mapk_for_tf = float(np.clip(mapk_active, 0.0, 1.0))
+
     tf_activity = float(
         transcription["basal_activity"]
         + transcription["efficacy"]
         * hill_response(
-            mapk_active,
+            mapk_for_tf,
             float(transcription["half_activation"]),
             float(transcription["hill_coefficient"]),
         )
@@ -367,6 +373,12 @@ def solve_normalized_scenario(config: Mapping[str, Any]) -> SimulationResult:
 
     g_on = solution.y[0]
     mapk_active = solution.y[1]
+    state_tolerance = 1e-8
+    for state_name, values in (("g_on", g_on), ("mapk_active", mapk_active)):
+        if np.any(values < -state_tolerance) or np.any(values > 1.0 + state_tolerance):
+            raise RuntimeError(f"ODE solver returned out-of-bounds {state_name} values")
+    g_on = np.clip(g_on, 0.0, 1.0)
+    mapk_active = np.clip(mapk_active, 0.0, 1.0)
     transcription = _require_mapping(config, "transcription")
     gal_output = _require_mapping(config, "gal_output")
     stf_activity = np.asarray(

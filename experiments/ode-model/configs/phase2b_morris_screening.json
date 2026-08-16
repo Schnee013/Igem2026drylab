@@ -1,0 +1,23 @@
+{
+  "analysis_id": "phase2b_morris_screening",
+  "evidence_status": "scenario_prior",
+  "analysis_contract": "experiments/ode-model/configs/phase2a_analysis_contract.json",
+  "num_levels": 4,
+  "trajectory_count": 8,
+  "random_seed": 20260807,
+  "metric_ids": [
+    "color_2h",
+    "color_4h",
+    "color_8h",
+    "color_auc_0_8h",
+    "matched_control_color_8h",
+    "delta_color_8h",
+    "ratio_color_8h",
+    "time_to_half_final_color",
+    "g_on_1h",
+    "mapk_active_1h",
+    "stf_activity_1h",
+    "gal_product_rate_1h"
+  ],
+  "result_boundary": "Allowed use: deterministic Morris screening of the normalized M0 scenario-prior model, reported separately by metric, ligand context class, and copy stratum. Rankings, interaction hypotheses, and variance claims require their subsequent Phase 2B analysis gates."
+}

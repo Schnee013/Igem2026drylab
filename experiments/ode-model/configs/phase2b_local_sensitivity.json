@@ -1,0 +1,18 @@
+{
+  "analysis_id": "phase2b_local_time_dependent_sensitivity",
+  "evidence_status": "scenario_prior",
+  "analysis_contract": "experiments/ode-model/configs/phase2a_analysis_contract.json",
+  "relative_step": 0.01,
+  "stability_step_factor": 0.5,
+  "numerical_zero_floor_relative_to_output_scale": 1e-7,
+  "copy_number": 1,
+  "outputs": [
+    "receptor_active",
+    "g_on",
+    "mapk_active",
+    "stf_activity",
+    "gal_product_rate",
+    "color_signal"
+  ],
+  "result_boundary": "Allowed use: local finite-difference diagnosis of the normalized M0 scenario-prior model. Calibrated biological effects, parameter rankings, detection limits, and construct recommendations require project data and separate analysis gates."
+}

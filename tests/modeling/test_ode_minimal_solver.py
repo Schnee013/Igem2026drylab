@@ -51,6 +51,45 @@ class MinimumSolverTests(unittest.TestCase):
         baseline = solve_normalized_scenario(no_receptor_signal)
         self.assertGreater(first.color_signal[-1], baseline.color_signal[-1])
 
+    def test_near_zero_signal_boundary_preserves_bounded_solver_states(self) -> None:
+        config = load_config()
+        config["input"]["ligand_normalized"] = 0.3
+        config["receptor"].update(
+            basal_activity=0.0,
+            efficacy=0.9,
+            half_activation_normalized=100.0,
+            hill_coefficient=2.1666666666666665,
+        )
+        config["g_protein"].update(
+            coupling_rate_per_hour=0.05,
+            deactivation_rate_per_hour=0.9694956105143481,
+        )
+        config["mapk"].update(
+            activation_rate_per_hour=0.46415888336127786,
+            deactivation_rate_per_hour=0.6463304070095649,
+        )
+        config["transcription"].update(
+            basal_activity=0.0,
+            efficacy=0.1,
+            half_activation=0.1160397208403195,
+            hill_coefficient=1.3333333333333335,
+        )
+        config["gal_output"].update(
+            leak_rate=0.0,
+            gain_rate=0.4641588833612779,
+            half_activation=2.5000000000000013,
+        )
+        config["color"].update(
+            production_rate_per_hour=0.4641588833612779,
+            loss_rate_per_hour=0.258532162803826,
+        )
+
+        result = solve_normalized_scenario(config)
+
+        self.assertTrue(np.all((0.0 <= result.g_on) & (result.g_on <= 1.0)))
+        self.assertTrue(np.all((0.0 <= result.mapk_active) & (result.mapk_active <= 1.0)))
+        self.assertTrue(np.all(np.isfinite(result.color_signal)))
+
     def test_rows_are_self_describing_and_writable(self) -> None:
         config = load_config()
         result = solve_normalized_scenario(config)

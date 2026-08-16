@@ -1,4 +1,4 @@
-"""Contract tests for the ODE Phase 2A sensitivity and experiment interface."""
+"""Contract tests for the ODE Phase 2A analysis and evidence-gap contract."""
 
 from __future__ import annotations
 
@@ -53,7 +53,6 @@ class Phase2AContractTests(unittest.TestCase):
         files = cls.contract["contract_files"]
         cls.parameter_rows = _read_csv(ROOT / files["parameter_space"])
         cls.output_rows = _read_csv(ROOT / files["output_metrics"])
-        cls.experiment_rows = _read_csv(ROOT / files["experiment_matrix"])
         cls.baseline = json.loads(
             (ROOT / cls.contract["source_baseline"]["baseline_config"]).read_text(
                 encoding="utf-8"
@@ -69,6 +68,17 @@ class Phase2AContractTests(unittest.TestCase):
             self.assertTrue((ROOT / path).is_file(), path)
         for path in self.contract["contract_files"].values():
             self.assertTrue((ROOT / path).is_file(), path)
+
+    def test_contract_scope_stops_at_analysis_and_evidence_gaps(self) -> None:
+        self.assertEqual(
+            self.contract["contract_id"],
+            "ode_phase2a_analysis_and_evidence_gap_contract",
+        )
+        self.assertNotIn("experiment_matrix", self.contract["contract_files"])
+        boundary = self.contract["phase_boundary"]
+        self.assertIn("sensitivity", boundary["phase2b_deliverable"])
+        self.assertIn("Identifiability", boundary["phase2c_deliverable"])
+        self.assertIn("team-confirmed wet-lab plan", boundary["dbtl_handoff_gate"])
 
     def test_parameter_space_matches_all_18_baseline_fields(self) -> None:
         counts = self.contract["parameter_counts"]
@@ -98,6 +108,19 @@ class Phase2AContractTests(unittest.TestCase):
             else:
                 levels = {int(value) for value in row["discrete_levels"].split("|")}
                 self.assertIn(int(baseline), levels)
+
+        self.assertTrue(all(row["potential_observable_class"] for row in self.parameter_rows))
+        self.assertTrue(all(row["evidence_gap"] for row in self.parameter_rows))
+        experiment_design_columns = {
+            "minimal_assay",
+            "controls",
+            "time_or_dose_design",
+            "replacement_gate",
+            "replacement_evidence",
+        }
+        self.assertTrue(
+            experiment_design_columns.isdisjoint(self.parameter_rows[0].keys())
+        )
 
     def test_design_contexts_preserve_phase1_copy_strata_and_controls(self) -> None:
         contexts = self.contract["design_contexts"]
@@ -149,7 +172,7 @@ class Phase2AContractTests(unittest.TestCase):
             row for row in self.output_rows if row["metric_id"] == "time_to_readout_threshold"
         )
         self.assertEqual(threshold["status"], "inactive_pending_threshold")
-        self.assertIn("wet-lab threshold", threshold["required_data"])
+        self.assertIn("team-confirmed threshold", threshold["required_data"])
 
     def test_guarded_ratio_metric_has_machine_readable_policy(self) -> None:
         guarded_metrics = [
@@ -176,15 +199,6 @@ class Phase2AContractTests(unittest.TestCase):
             "final_color_ratio_vs_no_ligand_invalid_reason",
         )
         self.assertIn("delta_color_8h", policy["interpretation"])
-
-    def test_experiment_matrix_covers_each_parameter_exactly_once(self) -> None:
-        parameter_ids = {row["parameter_id"] for row in self.parameter_rows}
-        experiment_ids = [row["parameter_id"] for row in self.experiment_rows]
-        self.assertEqual(len(experiment_ids), 18)
-        self.assertEqual(set(experiment_ids), parameter_ids)
-        self.assertEqual(len(experiment_ids), len(set(experiment_ids)))
-        self.assertTrue(all(row["replacement_gate"] for row in self.experiment_rows))
-
 
 if __name__ == "__main__":
     unittest.main()
