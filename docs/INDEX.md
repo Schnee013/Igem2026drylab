@@ -1,10 +1,10 @@
 # iGEM DryLab 干实验 — 项目索引
 
-> 最后校准：项目全表 2026-07-31；ODE 条目 2026-08-16。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
+> 最后校准：项目全表 2026-07-31；ODE 条目 2026-08-16；P2 经济效益条目 2026-10-04。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
 >
 > Source: system-local `PACKAGE_STATUS.md`、直接 gate/run artifacts、领域权威文件。
 >
-> As of: 项目全表 `2026-07-31`，ODE 条目 `2026-08-16`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
+> As of: 项目全表 `2026-07-31`，ODE 条目 `2026-08-16`，P2 经济效益条目 `2026-10-04`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
 >
 > Allowed use: 项目级状态投影、优先级、阻塞项和活跃入口。
 >
@@ -31,7 +31,7 @@
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
-| **P2** | 早期检测经济效益模型 | 否 | **framework_mvp_validated_arithmetic + stage3_benchmarks_extracted**：deterministic cost-accounting MVP 已落地并验证公开示例算术；最终 ROI 仍待 HP/湿实验/本地参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
+| **P2** | 早期检测经济效益模型 | 否 | **framework_mvp_validated + spain_tomato_demo_integrated**：公开框架 MVP 保留；西班牙设施番茄—南方根结线虫示例已集成密度—损失函数、三级处理、EUR/ha 核算和中英文报告。示例不是田间处方，跨地区/作物的最终 ROI 仍待 HP、产品性能和田间参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
 | **P2** | 化学杀线虫剂剂量-响应 | 否 | not_started | [P2-dose-response.md](modeling/P2-dose-response.md) |
 | ~~P2~~ | ~~生物防治 Lotka-Volterra~~ | 仅丝状真菌 | **archived** | [P2-biocontrol-lv.md](modeling/P2-biocontrol-lv.md) |
 
@@ -58,7 +58,7 @@
 3. **docking-repro frame repair** — 当前状态和方法边界见 [P0 molecular docking](modeling/P0-molecular-docking.md) 与 [docking-repro directory contract](../experiments/docking-repro/README.md)。新门已冻结；seed-44 独立 holdout 归档在 `temp/docking_frame_repair_20260731_e2_full_seed44_r1/`，终态为 `TERMINAL_ABNORMAL / fail_stop_before_full`。下一步是对失败门保持现状，或另行决定新的 geometry 策略与独立验证；当前不得启动剩余 320 jobs。旧 shortlist/ratio/IFP 只保留为带日期的撤回历史证据。
 4. **双/多突变 docking（Phase 2 local ready / blocked）** — 方向、证据边界和核心文献见 [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md)，执行合同见 [multi-mutant-docking-execution-plan-20260730.md](../codex/docs/plans/multi-mutant-docking-execution-plan-20260730.md)，本地 schema/test 入口见 [multi-mutant local contract](../experiments/docking-repro/multi-mutant/README.md)。当前不从旧 ratio/IFP 组合候选；只有 frame repair 和 repaired single-mutant shortlist 完成后，才冻结少量真实 WT/A/B/AB 周期。
 5. **ODE 并行推进** — 可执行入口为 `src/modeling/ode/` 与 `experiments/ode-model/`，分析合同入口为 `experiments/ode-model/configs/phase2a_analysis_contract.json`；参数证据/边界回 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [lumped 参数登记表](modeling/P0-ode-lumped-parameter-register.md)。当前只支持归一化 `scenario_prior`；下一门槛是补齐并审查 Phase 2B 紧凑结果包，Kd/calibration、可识别性、拟合和不确定性传播仍未完成。
-6. **早期检测经济效益模型 HP 参数回收** — 文献/参数入口见 [early-detection economic-benefit dossier](papers/p2-economic-benefit/README.md)，问卷见 [P2-economic-benefit-hp-questionnaire.md](modeling/P2-economic-benefit-hp-questionnaire.md)；当前只能做公开示例和 break-even 结构。
+6. **早期检测经济效益模型** — 可执行入口为 `src/modeling/economic/eco_model.py`，配置和双语报告路由见 `experiments/economic/README.md`；西班牙设施番茄固定示例可运行，但一般化与最终商业结论仍需沿 [early-detection economic-benefit dossier](papers/p2-economic-benefit/README.md) 和 [HP 问卷](modeling/P2-economic-benefit-hp-questionnaire.md) 回收参数。
 7. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
 ---
@@ -112,6 +112,7 @@
 
 ## 最近进展
 
+- **2026-10-04**: 西班牙设施番茄—南方根结线虫经济效益示例已从外部工作目录集成到 `src/modeling/economic/eco_model_pkg/`，用户入口为 `src/modeling/economic/eco_model.py`；示例配置、12 项回归测试和中英文 HTML 报告生成已纳入仓库。其结论边界仍是固定情景的简化经济预估，不是田间处方或跨地区最终 ROI。证据与运行入口见 [P2 领域文档](modeling/P2-economic-benefit.md)、`experiments/economic/README.md` 和 [2026-10-04 日志](logs/2026-10-04.md)。
 - **2026-08-04**: ODE Phase 2A 已固定 18 字段参数空间、主/诊断 ligand contexts、输出指标和参数—实验替换接口；ratio 对零/近零 denominator 输出 NaN + validity/reason，正 ligand 缺失 matched control 时 fail closed。20/20 ODE tests 通过；当前仍无灵敏度排序或校准结论。证据见 [ODE 领域文档](modeling/P0-signal-pathway-ode.md) 与 `experiments/ode-model/configs/phase2a_analysis_contract.json`。
 - **2026-07-31**: seed 42 + 43 WT evidence 已冻结 `docking-geometry-gate-v3`；随后 seed-44 独立 holdout 8/8 docking、IFP 和 geometry 技术完成。Gpr2 四项与 Gpr3 WT 两项通过；Gpr3 R167Y-ascr18 为 14/16，R167Y-ascr3 为 11/18 且 MODEL 1 失败。终态 `TERMINAL_ABNORMAL / fail_stop_before_full`，未创建 full plan或启动剩余 320 jobs；1,089/1,089 远端与本地 checksum 通过。证据见 [2026-07-31 日志](logs/2026-07-31.md)。
 - **2026-07-30**: R1 8-job E2 smoke 已完成：8/8 docking 与 IFP 技术完成，两个 R167Y job 的 18/20 poses 被正确接受；geometry 仅 3/8 job 通过，五项分布结果为 Gpr2 WT–ascr#18 17/19、WT–ascr#3 17/18、R59C–ascr#18 18/19、Gpr3 R167Y–ascr#18 12/15、R167Y–ascr#3 9/15，后者 MODEL 1 也低于高度门。终态为 `TERMINAL_ABNORMAL` / `fail_stop_before_full`，未建立 full plan 或启动剩余 320 jobs；608 个远端文件已逐项哈希一致归档到 `temp/docking_frame_repair_20260730_e2_smoke_r1_v5/`。证据见 [2026-07-30 日志](logs/2026-07-30.md)。
@@ -194,4 +195,4 @@
 ### ④ 其他待启动
 - [ ] reporter 实现参数讨论（具体色素 / 整合位点 / 实际拷贝数 / 输出增益 / 显色时间）
 - [ ] 与 HP 组沟通经济效益模型参数，回填 `experiments/economic/configs/public_mvp_framework.json` 或后续正式 config
-- [ ] 土壤扩散、贝叶斯推断、经济效益、剂量-响应等 P1/P2 方向按 Wiki 叙事需要启动
+- [ ] 土壤扩散、贝叶斯推断、剂量-响应等 P1/P2 方向按 Wiki 叙事需要启动

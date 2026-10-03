@@ -1,9 +1,9 @@
 ---
 direction: P2-economic-benefit
-status: framework_mvp_validated_arithmetic + stage3_benchmarks_extracted
+status: framework_mvp_validated + spain_tomato_demo_integrated
 priority: P2
 chassis_dependent: false
-last_updated: 2026-05-25
+last_updated: 2026-10-04
 ---
 
 # P2: 早期检测经济效益模型
@@ -24,7 +24,7 @@ P2 经济效益模型和 P0 ODE 的建模原理不同：
 
 - ODE 是动态反应网络模型：输入 ascr 浓度、配体-受体激活、G protein/MAPK/reporter 参数，求解随时间变化的 pathway/reporter 输出。
 - P2 是 deterministic cost-accounting 模型：输入作物、线虫密度、损失函数、作物价格、早期检测/干预成本和干预效果，直接计算 gross loss、break-even early-program cost、net benefit 和 ROI。
-- P2 当前已有 `src/modeling/economic/` MVP、公开示例 config、CSV 输出和自动化算术测试；但 P2 ROI 未最终校准，不能把 docking Delta G、ODE Kd 或未验证 wet-lab 假设当作经济确定输入。
+- P2 当前已有 `src/modeling/economic/` 的公开框架 MVP，以及固定为“西班牙设施番茄—南方根结线虫”的文献支持演示。后者可生成中英文网页，但仍是简化示例，不是田间处方或对其他地区/作物的最终 ROI 校准；不能把 docking Delta G、ODE Kd 或未验证 wet-lab 假设当作经济确定输入。
 
 ## 方法路线
 
@@ -60,16 +60,16 @@ P2 经济效益模型和 P0 ODE 的建模原理不同：
 
 ## 产出定义
 
-- [ ] 作物损失函数图（至少 2-3 种主要作物）
-- [ ] 成本-收益对比表（无检测 vs 早期检测）
+- [ ] 作物损失函数图（西班牙设施番茄示例已实现；推广到至少 2-3 种主要作物仍待完成）
+- [x] 西班牙设施番茄示例的成本-收益对比表（未检测无防治、常规统一处理、检测后分级处理）
 - [ ] ROI 曲线: "每提前 X 天检测可减少 Y% 经济损失"
 - [ ] 可用于 HP 组访谈的定量摘要
 - [ ] 产出文件位置: `experiments/economic/`
 
 ## 代码与实验关联
 
-- **代码路径**: `src/modeling/economic/`
-- **产出路径**: `experiments/economic/`
+- **代码路径**: `src/modeling/economic/`；西班牙示例入口为 `src/modeling/economic/eco_model.py`
+- **产出路径**: `experiments/economic/`；双语示例报告默认写入 `experiments/economic/results/eco_model/`
 - **HP 组对接**:
   - 本方向产出 → HP 组: 经济论据用于与农业专家、政策制定者访谈
   - 本方向产出 → Proposed Implementation: 量化检测系统的实际价值
@@ -85,6 +85,7 @@ P2 经济效益模型和 P0 ODE 的建模原理不同：
 
 | 日期 | 版本 | 变更内容 | 触发原因 |
 |------|------|---------|---------|
+| 2026-10-04 | v1.6 | 集成西班牙设施番茄—南方根结线虫的文献支持示例、三级处理、EUR/ha 核算和中英文报告；入口命名为 `eco_model.py` | 将外部演示代码纳入仓库权威路径并提供可复现运行入口 |
 | 2026-05-25 | v1.5 | 增补 P2 与 ODE 的模型性质区别：P2 是 fixed-input deterministic cost-accounting，不是动态反应网络；保留最终 ROI guardrail | 缺口更新与总览图填充说明 |
 | 2026-05-23 | v1.4 | 新增 Stage 3 外部 benchmark 抽取：PCN/Koehler、USDA ERS VOI、cucumber-RKN Bragantia、Barker tomato-RKN | 把公式结构从自洽算术推进到外部方法/密度-产量证据支撑，同时保持 ROI guardrail |
 | 2026-05-23 | v1.3 | 新增 framework validation 文档与自动化测试，确认 UC IPM golden baseline 和成本核算公式可复现 | 防止把 smoke run 误读为最终 ROI；为 HP 参数回填前建立可靠性底线 |
@@ -92,6 +93,16 @@ P2 经济效益模型和 P0 ODE 的建模原理不同：
 | 2026-04-03 | v1.0 | 从 PRD v3 §3.5c + §2B 提取初始内容 | 文档体系搭建 |
 
 ## 进展记录
+
+### 2026-10-04：西班牙设施番茄演示集成
+
+- 运行入口：`src/modeling/economic/eco_model.py`。
+- 核心包：`src/modeling/economic/eco_model_pkg/`。
+- 配置：`experiments/economic/configs/eco_model_example_model.json` 与 `eco_model_example_input.json`。
+- 测试：`tests/modeling/test_eco_model.py`。
+- 模型固定采用西班牙设施番茄、南方根结线虫、种植前检测、`J2/100 cm³ soil`、`EUR/ha`；密度—产量损失使用 Expósito 等（2020）的 Seinhorst 拟合，处理与经济参数及其证据类型记录在模型配置中。
+- 页面并列展示未检测无防治、常规统一处理和检测后分级处理，生成中文与英文 HTML；报告用于展示试纸可能带来的单位面积利润变化，不构成田间防治处方。
+- 试纸成本 `5 EUR/ha` 是团队定价；处理效果在共同参考密度下固定化，低密度区域含外推；输入密度被视为已知且准确。最终商业结论仍需目标市场、采样、产品性能与田间验证。
 
 ### 2026-05-21：Stage 1/2 文献参数矩阵 + MVP 框架
 
@@ -117,7 +128,7 @@ P2 经济效益模型和 P0 ODE 的建模原理不同：
   - 当地作物价格、施药成本、人工/设备成本、抗性品种溢价、轮作机会成本；
   - docking Delta G、ODE Kd 或未验证 wet-lab 假设。
 
-### 当前 MVP 示例分析边界
+### 原公开框架 MVP 的分析边界
 
 - 基线不是“完全不损失”，而是“没有早期检测/晚发现时，在给定线虫密度下承受的产量收入损失”。
 - 早期检测情景暂不使用真实传感器成本；当前用 `early_program_costs_per_area` 做 50/100/200 USD/acre 等占位成本扫参。
