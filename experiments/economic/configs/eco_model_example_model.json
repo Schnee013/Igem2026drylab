@@ -1,0 +1,339 @@
+{
+  "scenario": {
+    "crop": "设施番茄",
+    "crop_en": "Protected tomato",
+    "country": "西班牙",
+    "country_en": "Spain",
+    "nematode": "南方根结线虫 Meloidogyne incognita",
+    "nematode_en": "Southern root-knot nematode (Meloidogyne incognita)",
+    "detection_timing": "种植前",
+    "detection_timing_en": "Pre-plant testing",
+    "density_unit": "J2/100 cm^3 soil",
+    "area_unit": "ha",
+    "currency": "EUR"
+  },
+  "loss_function": {
+    "type": "seinhorst",
+    "tolerance_density": 6.0,
+    "minimum_relative_yield": 0.34,
+    "z": 0.95,
+    "max_density": 869.6
+  },
+  "economics": {
+    "baseline_yield_kg_per_ha": 113500.0,
+    "price_per_kg": 0.690044053,
+    "baseline_production_cost_per_ha": 51600.0,
+    "test_cost_per_ha": 5.0,
+    "test_cost_status": "team_pricing_assumption"
+  },
+  "grade_thresholds": {
+    "middle_from_density": 10.0,
+    "high_from_density": 80.0
+  },
+  "without_test": {
+    "name": "常规统一处理（氟吡菌酰胺方案）",
+    "name_en": "Uniform control (fluopyram program)",
+    "application_rate": "0.375 L/ha",
+    "application_rate_en": "0.375 L/ha",
+    "cost_per_ha": 220.0,
+    "effect": {
+      "model": "fixed_avoided_loss_fraction_at_reference_density",
+      "avoided_loss_fraction": 0.586805,
+      "population_reduction_fraction": 0.637,
+      "reference_density": 100.0,
+      "study_density_min": 50.0,
+      "study_density_max": null,
+      "management_support_max": null,
+      "basis_note": "将文献虫口降低率63.70%作用于100 J2/100 cm^3参考密度，再用本模型的密度—产量曲线计算避免损失比例，并将该比例固定用于演示。虫口降低率不等同于避免损失比例。",
+      "basis_note_en": "The literature population-reduction rate of 63.70% is applied at the reference density of 100 J2/100 cm^3, converted through this model's density-yield curve, and then held fixed for the demonstration. Population reduction is not the same as loss avoided."
+    },
+    "evidence_class": "scenario_counterfactual_from_literature",
+    "evidence_note": "使用Talavera-Rubia等(2022)的氟吡菌酰胺成本和虫口减少率构造常规统一处理代表方案；它不是西班牙当前具体产品使用频率调查结论。",
+    "evidence_note_en": "A uniform-control comparator constructed from the fluopyram cost and population-reduction result in Talavera-Rubia et al. (2022); it is not evidence that this is the most frequently used product in Spain.",
+    "plan_overview": "不使用试纸获得密度信息，按统一的非熏蒸线虫药剂代表方案处理。",
+    "plan_overview_en": "Apply the same representative non-fumigant nematicide program without using test-strip density information.",
+    "recommended_actions": [
+      "仅作为计算试纸分级带来利润变化的统一比较基线。"
+    ],
+    "recommended_actions_en": [
+      "Use only as the uniform comparator for estimating the conditional value of density-guided treatment."
+    ],
+    "precautions": [
+      "氟吡菌酰胺是可计算的非熏蒸药剂代表，不宣称为西班牙当前使用频率最高的具体产品。"
+    ],
+    "precautions_en": [
+      "Fluopyram is a calculable non-fumigant representative, not a claim about the most frequently used product in Spain."
+    ]
+  },
+  "low": {
+    "name": "不进行专项防治",
+    "name_en": "No dedicated nematode control",
+    "application_rate": "",
+    "application_rate_en": "",
+    "cost_per_ha": 0.0,
+    "effect": {
+      "model": "no_dedicated_control",
+      "avoided_loss_fraction": 0.0,
+      "population_reduction_fraction": null,
+      "reference_density": null,
+      "study_density_min": null,
+      "study_density_max": null,
+      "management_support_max": null,
+      "basis_note": "不新增线虫专项处理，因此模型不计专项处理带来的避免损失。",
+      "basis_note_en": "No dedicated nematode treatment is added, so the model assigns no treatment-attributable avoided loss."
+    },
+    "evidence_class": "accounting_assumption",
+    "evidence_note": "低于10 J2/100 cm^3时不新增专项处理；约6 J2/100 cm^3以上可能开始出现损失，但10是考虑文献不确定性后的示例操作阈值。",
+    "evidence_note_en": "No dedicated treatment is added below 10 J2/100 cm^3. Loss may begin above about 6, while 10 is a demonstration action threshold chosen with literature uncertainty in mind.",
+    "plan_overview": "本季不进行针对根结线虫的药剂处理或土壤消毒，仅维持基础农艺、田间卫生和日常观察。",
+    "plan_overview_en": "Do not apply a nematicide or soil disinfestation treatment specifically for root-knot nematodes this season; maintain routine crop management, field hygiene, and regular scouting.",
+    "recommended_actions": [
+      "不额外施用杀线虫剂，也不安排专门的土壤消毒处理。",
+      "使用无明显根结症状的健康苗，清理带土残根，并避免工具和灌溉径流把受污染土壤带入地块。",
+      "保留本次种植前密度记录；如果生长期出现长势不均、萎蔫或根结症状，再复查线虫情况。"
+    ],
+    "recommended_actions_en": [
+      "Do not add a nematicide or schedule a dedicated soil disinfestation treatment.",
+      "Use healthy seedlings without obvious root-galling symptoms, remove soil-bearing root residues, and avoid moving infested soil with tools or irrigation runoff.",
+      "Keep the pre-plant density record and reassess nematodes if uneven growth, wilting, or root galls appear during the crop cycle."
+    ],
+    "precautions": [
+      "密度超过约6后已经可能出现损失；10以下不进行专项防治是简化的示例决策，不代表完全没有风险。",
+      "方案成本0 EUR/ha仅表示不增加线虫专项防治费用，常规栽培、卫生和日常巡视仍属于基础生产活动。"
+    ],
+    "precautions_en": [
+      "Loss may begin above a density of about 6. The no-dedicated-control decision below 10 is a simplified demonstration rule and does not mean that risk is absent.",
+      "A treatment cost of 0 EUR/ha means no additional nematode-specific control cost; routine cultivation, hygiene, and scouting remain part of normal production."
+    ]
+  },
+  "middle": {
+    "name": "40%氟吡菌酰胺制剂",
+    "name_en": "40% fluopyram formulation",
+    "application_rate": "0.375 L/ha",
+    "application_rate_en": "0.375 L/ha",
+    "cost_per_ha": 220.0,
+    "effect": {
+      "model": "fixed_avoided_loss_fraction_at_reference_density",
+      "avoided_loss_fraction": 0.586805,
+      "population_reduction_fraction": 0.637,
+      "reference_density": 100.0,
+      "study_density_min": 50.0,
+      "study_density_max": null,
+      "management_support_max": null,
+      "basis_note": "将文献虫口降低率63.70%作用于100 J2/100 cm^3参考密度，再用本模型的密度—产量曲线计算避免损失比例，并固定为58.6805%。该固定值用于演示，不代表所有初始密度下的实测防效。",
+      "basis_note_en": "The literature population-reduction rate of 63.70% is applied at the reference density of 100 J2/100 cm^3 and converted through this model's density-yield curve to a fixed 58.6805% loss-avoidance value. This is a demonstration assumption, not measured efficacy at every initial density."
+    },
+    "evidence_class": "demo_derived",
+    "evidence_note": "成本由文献欧元/公顷换算；效果由63.70%虫口减少率在100 J2/100 cm^3参考密度下推算。",
+    "evidence_note_en": "Cost is taken in EUR/ha from the study; effect is derived from a 63.70% population reduction at the reference density of 100 J2/100 cm^3.",
+    "plan_overview": "采用文献研究中的40%氟吡菌酰胺0.375 L/ha作为中等级代表方案。",
+    "plan_overview_en": "Use the 40% fluopyram formulation at 0.375 L/ha from the source study as the representative medium-tier treatment.",
+    "recommended_actions": [
+      "文献试验中的化学处理通过滴灌施入，并在种植前实施。",
+      "执行前在西班牙农业部实时登记中核对具体商品、番茄用途、剂量、施用时期和保护要求。"
+    ],
+    "recommended_actions_en": [
+      "In the source trial, the chemical treatment was applied through drip irrigation before planting.",
+      "Before use, verify the specific product, tomato use, dose, application timing, and protection requirements in Spain's live plant-protection product register."
+    ],
+    "precautions": [
+      "原防治效果研究仅纳入初始密度大于50 J2/100 cm^3的地块，因此10至50区间的预计效果属于简化外推。",
+      "固定58.6805%避免损失比例由100 J2/100 cm^3参考密度推算；在更高密度下继续使用同一比例也是模型假设。"
+    ],
+    "precautions_en": [
+      "The efficacy study included only fields with an initial density above 50 J2/100 cm^3; the estimated effect from 10 to 50 is therefore a simplified extrapolation.",
+      "The fixed 58.6805% loss-avoidance fraction is derived at 100 J2/100 cm^3; applying the same fraction at higher densities is also a model assumption."
+    ]
+  },
+  "high": {
+    "name": "鸡粪生物太阳能消毒",
+    "name_en": "Chicken-manure biosolarization",
+    "application_rate": "20,000 kg/ha",
+    "application_rate_en": "20,000 kg/ha",
+    "cost_per_ha": 2700.0,
+    "effect": {
+      "model": "fixed_avoided_loss_fraction_at_reference_density",
+      "avoided_loss_fraction": 0.691234,
+      "population_reduction_fraction": 0.7213,
+      "reference_density": 100.0,
+      "study_density_min": 50.0,
+      "study_density_max": null,
+      "management_support_max": 759.0,
+      "basis_note": "将文献虫口降低率72.13%作用于100 J2/100 cm^3参考密度，再用本模型的密度—产量曲线计算避免损失比例，并固定为69.1234%。该固定值用于演示，不代表所有初始密度下的实测防效。",
+      "basis_note_en": "The literature population-reduction rate of 72.13% is applied at the reference density of 100 J2/100 cm^3 and converted through this model's density-yield curve to a fixed 69.1234% loss-avoidance value. This is a demonstration assumption, not measured efficacy at every initial density."
+    },
+    "evidence_class": "demo_derived",
+    "evidence_note": "成本由2700 EUR/ha换算；效果由72.13%虫口减少率在100 J2/100 cm^3参考密度下推算。",
+    "evidence_note_en": "Cost is 2,700 EUR/ha in the study; effect is derived from a 72.13% population reduction at the reference density of 100 J2/100 cm^3.",
+    "plan_overview": "采用西班牙研究中的鸡粪生物太阳能消毒：夏季施入20,000 kg/ha鸡粪，混入表土、灌溉并覆透明膜约6周。",
+    "plan_overview_en": "Use the chicken-manure biosolarization treatment from the Spanish study: incorporate 20,000 kg/ha of chicken manure in summer, irrigate, and cover the soil with transparent film for about six weeks.",
+    "recommended_actions": [
+      "在夏季将鸡粪均匀撒施并混入约20 cm表土，灌溉至田间持水量。",
+      "覆盖约0.03 mm透明低密度聚乙烯膜约6周，揭膜后再整地种植。",
+      "结合抗性砧木、轮作和田间卫生制定综合治理计划。"
+    ],
+    "recommended_actions_en": [
+      "In summer, distribute the chicken manure evenly, incorporate it into approximately 20 cm of topsoil, and irrigate to field capacity.",
+      "Cover the soil with approximately 0.03 mm transparent low-density polyethylene film for about six weeks, then remove the film and prepare the soil for planting.",
+      "Combine the treatment with resistant rootstocks, crop rotation, and field hygiene in an integrated management plan."
+    ],
+    "precautions": [
+      "鸡粪来源、卫生质量、盐分和当地有机肥使用要求必须预先核查。",
+      "固定69.1234%避免损失比例由100 J2/100 cm^3参考密度推算；在更高密度下继续使用同一比例也是模型假设。",
+      "线虫密度超过约759 J2/100 cm^3时，已超出文献估算的番茄经济管理范围，应评估抗性砧木、轮作或调整作物。"
+    ],
+    "precautions_en": [
+      "Verify the manure source, sanitary quality, salinity, and local organic-fertilizer requirements before treatment.",
+      "The fixed 69.1234% loss-avoidance fraction is derived at 100 J2/100 cm^3; applying the same fraction at higher densities is also a model assumption.",
+      "Above approximately 759 J2/100 cm^3, the input exceeds the study's estimated tomato economic-management range; assess resistant rootstocks, crop rotation, or a change of crop."
+    ]
+  },
+  "detection_cost_comparison": {
+    "project_method_name": "本项目试纸",
+    "project_method_name_en": "Project test strip",
+    "samples_per_ha": 1.0,
+    "excluded_costs": "未计采样、寄送、税费或额外前处理。",
+    "excluded_costs_en": "Sampling, shipping, tax, and additional preparation are excluded.",
+    "laboratory_methods": [
+      {
+        "name": "提取后显微/形态学鉴定",
+        "name_en": "Extraction followed by microscopy / morphological identification",
+        "fee_per_sample_eur": 31.55,
+        "basis": "西班牙官方实验室，首项判定/样",
+        "basis_en": "Spanish public laboratory, first determination per sample"
+      },
+      {
+        "name": "PCR 分子鉴定",
+        "name_en": "PCR molecular identification",
+        "fee_per_sample_eur": 15.8,
+        "basis": "西班牙官方实验室，首项判定/样",
+        "basis_en": "Spanish public laboratory, first determination per sample"
+      },
+      {
+        "name": "PCR / 实时 PCR 实验室分析",
+        "name_en": "PCR / real-time PCR laboratory analysis",
+        "fee_per_sample_eur": 152.14,
+        "basis": "ILVO 公开价，单项分析/样，未含税",
+        "basis_en": "ILVO public fee, one analysis per sample, excluding tax"
+      }
+    ]
+  },
+  "sensitivity_analysis": {
+    "test_cost_multipliers": [0.5, 1.5],
+    "treatment_cost_multipliers": [0.8, 1.2],
+    "efficacy_multipliers": [0.8, 1.2],
+    "crop_price_multipliers": [0.8, 1.2]
+  },
+  "evidence": [
+    {
+      "parameter": "密度—产量公式",
+      "classification": "literature_converted",
+      "value_note": "Expósito等(2020)春季未嫁接番茄拟合；T由15 J2/250 cm^3换算为6 J2/100 cm^3，m=0.34，z=0.95。",
+      "source": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.560024/full"
+    },
+    {
+      "parameter": "最大适用密度",
+      "classification": "literature_converted",
+      "value_note": "原试验最高2174 J2/250 cm^3，换算为869.6 J2/100 cm^3。",
+      "source": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.560024/full"
+    },
+    {
+      "parameter": "正常产量基数",
+      "classification": "literature_direct",
+      "value_note": "113500 kg/ha，为区域平均产量代理，不是无线虫健康田对照。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "番茄售价",
+      "classification": "literature_derived",
+      "value_note": "由文献的78320 EUR/ha收入除以113500 kg/ha，得到0.690044053 EUR/kg。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "基础生产成本",
+      "classification": "literature_direct",
+      "value_note": "文献表列设施番茄一般生产成本为51600 EUR/ha，线虫专项处理另计。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "中、高等级处理成本与虫口减少率",
+      "classification": "literature_direct",
+      "value_note": "氟吡菌酰胺和鸡粪生物太阳能消毒虫口减少率为63.70%与72.13%；文献成本分别为220与2700 EUR/ha。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "固定避免损失比例",
+      "classification": "demo_derived",
+      "value_note": "在100 J2/100 cm^3参考密度下，将虫口减少率转成处理后密度，再代入产量公式所得。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "分级阈值",
+      "classification": "demo_derived",
+      "value_note": "损失约从6 J2/100 cm^3开始；理论经济切换点约为6.85和77.95。本示例为便于解释并考虑阈值不确定性，采用操作阈值10和80。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "试纸成本",
+      "classification": "team_pricing_assumption",
+      "value_note": "团队定价为5 EUR/ha，用于本示例的试纸检测成本。",
+      "source": "团队定价假设；最终应由本项目BOM、采样与人工成本更新"
+    },
+    {
+      "parameter": "低等级监测与农艺管理成本",
+      "classification": "accounting_assumption",
+      "value_note": "低等级专项处理增量成本设为0；常规农艺和巡视计入基础生产成本，额外检测作业计入团队试纸成本，避免重复计费。",
+      "source": "模型核算边界定义"
+    },
+    {
+      "parameter": "简化检测假设",
+      "classification": "scope_assumption",
+      "value_note": "按项目当前范围，模型把输入密度视为已知且准确，不计算检出限、灵敏度、特异性、采样误差或误分级概率；结果是理想检测条件下的经济预估。",
+      "source": "项目范围定义"
+    },
+    {
+      "parameter": "不检测反事实基线",
+      "classification": "scenario_counterfactual_from_literature",
+      "value_note": "假设所有地块统一采用氟吡菌酰胺：成本220 EUR/ha，固定避免损失比例0.586805；用于衡量检测分级节省的处理，并非实际采用率调查。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "高等级方案与密度支持范围",
+      "classification": "literature_direct_and_demo_derived",
+      "value_note": "鸡粪生物太阳能消毒的文献处理量为20,000 kg/ha、覆盖约6周；文献估算番茄可管理初始密度上限约759 J2/100 cm^3，超过该值须警示综合治理或调整作物。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    },
+    {
+      "parameter": "旧熏蒸高等级方案的欧盟法规状态",
+      "classification": "current_regulatory_status",
+      "value_note": "1,3-二氯丙烯和氯化苦均未获欧盟活性物质批准，因此不再作为本模型的当前常规高等级方案；临时紧急授权需逐次核验。",
+      "source": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R0740"
+    },
+    {
+      "parameter": "氯化苦欧盟法规状态",
+      "classification": "current_regulatory_status",
+      "value_note": "欧盟实施条例(EU) 2022/751确认氯化苦不获批准。",
+      "source": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32022R0751"
+    },
+    {
+      "parameter": "西班牙植物保护产品登记核验入口",
+      "classification": "official_live_register",
+      "value_note": "具体商品、作物、剂量和使用期应在执行时查询西班牙农业部实时登记，不由静态演示配置代替。",
+      "source": "https://servicio.mapa.gob.es/regfiweb"
+    },
+    {
+      "parameter": "西班牙设施茄科综合治理框架",
+      "classification": "official_guidance",
+      "value_note": "高风险地块应结合卫生、轮作、抗性/嫁接材料、土壤处理与登记产品；单一固定处理不是完整的综合治理处方。",
+      "source": "https://www.mapa.gob.es/es/agricultura/temas/sanidad-vegetal/solanaceas_web_metadatos_v03_protegida_tcm30-576872.pdf"
+    },
+    {
+      "parameter": "停种、休耕或改种",
+      "classification": "not_selected_contingency",
+      "value_note": "不作为高等级默认处理。休耕防效不稳定且不能视为根除；若放弃一季健康番茄，文献净收益26720 EUR/ha可作为机会成本参照，但这不是防治成本，改种时应比较替代作物净收益差。",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9607077/"
+    }
+  ],
+  "source_note": "固定演示组合：Expósito等(2020)巴塞罗那密度—产量试验与Talavera-Rubia等(2022)西班牙南部经济/防效研究；两者不是同一田块完整实测。试纸成本为团队定价假设，检测性能不在本简化经济模型范围内。",
+  "source_note_en": "Fixed demonstration combining the Barcelona density-yield study of Expósito et al. (2020) with the southern-Spain economic and efficacy study of Talavera-Rubia et al. (2022). They are not a complete measured chain from the same field. Test-strip cost is a team pricing assumption, and diagnostic performance is outside this simplified model."
+}

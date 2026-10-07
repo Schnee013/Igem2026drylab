@@ -1,8 +1,13 @@
-# P2 Economic Benefit Framework
+# P2 Economic Benefit Models
 
-Date: 2026-05-21
+Last updated: 2026-10-07
 
-This folder holds the first framework-only implementation for the P2 early-detection economic benefit model.
+This folder holds two complementary implementations for the P2 early-detection
+economic benefit model:
+
+- the original framework-only public MVP; and
+- a literature-backed demonstration for Spanish protected tomato and southern
+  root-knot nematode (*Meloidogyne incognita*).
 
 ## What Is Implemented
 
@@ -23,9 +28,13 @@ This folder holds the first framework-only implementation for the P2 early-detec
 - Product price, application labor, resistant-seed premium, and rotation opportunity cost.
 - Final soybean-SCN density-yield curve.
 
-These remain HP/wet-lab or full-text extraction inputs. Do not present ROI values as final project claims until those values are filled.
+These remain HP/wet-lab or full-text extraction inputs for generalization beyond
+the fixed Spanish demonstration. Do not present either implementation as a
+field prescription or a universally calibrated ROI model.
 
 ## Run
+
+### Public framework MVP
 
 ```bash
 python3 src/modeling/economic/run_mvp.py \
@@ -33,15 +42,66 @@ python3 src/modeling/economic/run_mvp.py \
   --out experiments/economic/results/public_mvp_framework_results.csv
 ```
 
+### Spanish protected-tomato demonstration
+
+```bash
+python3 src/modeling/economic/eco_model.py
+```
+
+The command reads the tracked example configuration and density input, then
+writes TXT, JSON, Chinese HTML, and English HTML reports to
+`experiments/economic/results/eco_model/`. It does not open a browser by
+default. Pass `--open` only when the Chinese HTML report should be opened after
+generation.
+
+The demonstration reports two different economic comparisons and does not
+attribute all control benefit to testing:
+
+- combined testing-and-control program versus no control; and
+- conditional value of density-guided testing versus no testing with uniform
+  fluopyram control.
+
+Each comparison has its own net benefit, incremental cost, ROI, and density
+break-even results. ROI is omitted when the comparison has no positive
+incremental cost. The fixed 10/80 density tiers remain a preset demonstration
+policy; the report separately identifies the treatment option with the highest
+modelled net income at the current density.
+
+One-way sensitivity rows state which strategy each change applies to. Treatment
+cost and efficacy are varied for both the preset guided plan and the uniform-
+control comparator. When those sides use the same medium-tier treatment, their
+shared economic parameters move together. Effect-extrapolation warnings inspect
+every treatment participating in the comparison, including unselected options
+in the economic comparison and the uniform-control baseline. Medium-tier and
+uniform-control warnings are combined only when their recorded study-density
+bounds match; distinct bounds are checked separately.
+
+The TXT report includes the same sensitivity rows and effect-extrapolation
+warnings as the JSON and bilingual HTML reports, including the parameter scope,
+both net-benefit comparisons, and whether conditional test value is positive.
+It also retains the high-density management warning. Sensitivity rows are
+one-at-a-time scenarios, not confidence intervals.
+
+Useful variants:
+
+```bash
+python3 src/modeling/economic/eco_model.py 100 --no-report
+python3 -m src.modeling.economic.eco_model_pkg.cli --help
+```
+
 ## Current Inputs
 
 - `experiments/economic/configs/public_mvp_framework.json`
+- `experiments/economic/configs/eco_model_example_model.json`
+- `experiments/economic/configs/eco_model_example_input.json`
 - Source matrix: `docs/papers/p2-economic-benefit/stage2-model-parameters.csv`
 
 ## Current Output
 
 - `experiments/economic/results/public_mvp_framework_results.csv`
 - `experiments/economic/results/public_mvp_framework_summary.md`
+- Regenerable bilingual demonstration reports:
+  `experiments/economic/results/eco_model/`
 
 ## Validation
 
@@ -53,8 +113,20 @@ Run the automated arithmetic and guardrail checks with:
 
 ```bash
 python3 -m unittest tests.modeling.test_economic_model -v
+python3 -m unittest tests.modeling.test_eco_model -v
 ```
 
 The tests validate UC IPM public tomato-RKN arithmetic, piecewise interpolation,
 PCN normalized structure, threshold-only SCN guardrails, and cost-accounting
 identities. They do not validate final biosensor ROI.
+
+The demonstration tests additionally validate the Seinhorst density-loss
+function, both comparison baselines, treatment thresholds, density break-even
+results, fixed-effect conversion at the reference density, low-density
+extrapolation warnings, economic-best treatment comparison, sensitivity output,
+uniform-control baseline sensitivity, shared-treatment parameter consistency,
+configuration-driven laboratory fees, and parity between the Chinese and
+English report structures. Scenario text, treatment names/rates/instructions,
+laboratory fees, samples per hectare, and sensitivity ranges are loaded from the
+example JSON instead of being overwritten by report-language constants. The
+demonstration uses only the Python standard library.
