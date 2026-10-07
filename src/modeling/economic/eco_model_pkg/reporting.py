@@ -249,7 +249,11 @@ def _english_report(report: dict[str, Any]) -> dict[str, Any]:
     ].pop("comparison_basis_en")
     for row in localized["sensitivity_analysis"]:
         row["parameter"] = row.pop("parameter_en")
+        row["scope"] = row.pop("scope_en")
         row["change"] = row.pop("change_en")
+    for warning in localized["diagnosis"]["effect_scope_warnings"]:
+        warning["role"] = warning.pop("role_en")
+        warning["treatment"] = warning.pop("treatment_en")
     localized["assumptions"] = translations["assumptions"]
     localized["source_note"] = translations["source_note"]
     return localized
@@ -373,19 +377,48 @@ def _replace_selected_treatment(
 ) -> Model:
     changes = {key: treatment}
     if key == "middle":
-        changes["without_test"] = treatment
+        changes["without_test"] = replace(
+            model.without_test,
+            cost_per_ha=treatment.cost_per_ha,
+            avoided_loss_fraction=treatment.avoided_loss_fraction,
+            population_reduction_fraction=treatment.population_reduction_fraction,
+            effect_reference_density=treatment.effect_reference_density,
+        )
     return replace(model, **changes)
+
+
+def _replace_uniform_control(model: Model, treatment: Treatment) -> Model:
+    """Change the comparator while keeping its shared medium-tier inputs aligned."""
+
+    middle = replace(
+        model.middle,
+        cost_per_ha=treatment.cost_per_ha,
+        avoided_loss_fraction=treatment.avoided_loss_fraction,
+        population_reduction_fraction=treatment.population_reduction_fraction,
+        effect_reference_density=treatment.effect_reference_density,
+    )
+    return replace(model, without_test=treatment, middle=middle)
 
 
 def _sensitivity_payload(model: Model, result: Result) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
 
-    def add(parameter: str, parameter_en: str, change: str, change_en: str, scenario: Model) -> None:
+    def add(
+        parameter: str,
+        parameter_en: str,
+        scope: str,
+        scope_en: str,
+        change: str,
+        change_en: str,
+        scenario: Model,
+    ) -> None:
         scenario_result = evaluate(result.density, scenario)
         rows.append(
             {
                 "parameter": parameter,
                 "parameter_en": parameter_en,
+                "scope": scope,
+                "scope_en": scope_en,
                 "change": change,
                 "change_en": change_en,
                 "program_net_benefit_vs_no_control": scenario_result.program_net_benefit_vs_no_control,
@@ -395,17 +428,212 @@ def _sensitivity_payload(model: Model, result: Result) -> list[dict[str, Any]]:
         )
 
     for multiplier in model.sensitivity.test_cost_multipliers:
-        add("试纸成本", "Test-strip cost", f"×{multiplier:g}", f"×{multiplier:g}", replace(model, test_cost_per_ha=model.test_cost_per_ha * multiplier))
+        add(
+            "试纸成本",
+            "Test-strip cost",
+            "检测后预设策略",
+            "Preset strategy after testing",
+            f"×{multiplier:g}",
+            f"×{multiplier:g}",
+            replace(model, test_cost_per_ha=model.test_cost_per_ha * multiplier),
+        )
     for multiplier in model.sensitivity.treatment_cost_multipliers:
-        plan = replace(result.treatment, cost_per_ha=result.treatment.cost_per_ha * multiplier)
-        add("当前处理成本", "Selected treatment cost", f"×{multiplier:g}", f"×{multiplier:g}", _replace_selected_treatment(model, result.treatment_key, plan))
+        selected = replace(
+            result.treatment,
+            cost_per_ha=result.treatment.cost_per_ha * multiplier,
+        )
+        if result.treatment_key == "middle":
+            add(
+                "处理成本",
+                "Treatment cost",
+                "检测后中等级方案与未检测统一处理基线（共享参数）",
+                "Guided medium-tier plan and uniform-control baseline (shared parameter)",
+                f"×{multiplier:g}",
+                f"×{multiplier:g}",
+                _replace_selected_treatment(model, result.treatment_key, selected),
+            )
+        else:
+            add(
+                "处理成本",
+                "Treatment cost",
+                f"检测后预设方案：{result.treatment.name}",
+                f"Preset guided plan: {result.treatment.name_en}",
+                f"×{multiplier:g}",
+                f"×{multiplier:g}",
+                _replace_selected_treatment(model, result.treatment_key, selected),
+            )
+            uniform = replace(
+                model.without_test,
+                cost_per_ha=model.without_test.cost_per_ha * multiplier,
+            )
+            add(
+                "处理成本",
+                "Treatment cost",
+                f"未检测统一处理基线：{model.without_test.name}",
+                f"Uniform-control baseline: {model.without_test.name_en}",
+                f"×{multiplier:g}",
+                f"×{multiplier:g}",
+                _replace_uniform_control(model, uniform),
+            )
     for multiplier in model.sensitivity.efficacy_multipliers:
-        effect = min(1.0, result.treatment.avoided_loss_fraction * multiplier)
-        plan = replace(result.treatment, avoided_loss_fraction=effect, population_reduction_fraction=None, effect_reference_density=None)
-        add("固定避免损失比例", "Fixed loss-avoidance fraction", f"×{multiplier:g}", f"×{multiplier:g}", _replace_selected_treatment(model, result.treatment_key, plan))
+        selected_effect = min(
+            1.0, result.treatment.avoided_loss_fraction * multiplier
+        )
+        selected = replace(
+            result.treatment,
+            avoided_loss_fraction=selected_effect,
+            population_reduction_fraction=None,
+            effect_reference_density=None,
+        )
+        if result.treatment_key == "middle":
+            add(
+                "固定避免损失比例",
+                "Fixed loss-avoidance fraction",
+                "检测后中等级方案与未检测统一处理基线（共享参数）",
+                "Guided medium-tier plan and uniform-control baseline (shared parameter)",
+                f"×{multiplier:g}",
+                f"×{multiplier:g}",
+                _replace_selected_treatment(model, result.treatment_key, selected),
+            )
+        else:
+            add(
+                "固定避免损失比例",
+                "Fixed loss-avoidance fraction",
+                f"检测后预设方案：{result.treatment.name}",
+                f"Preset guided plan: {result.treatment.name_en}",
+                f"×{multiplier:g}",
+                f"×{multiplier:g}",
+                _replace_selected_treatment(model, result.treatment_key, selected),
+            )
+            uniform_effect = min(
+                1.0, model.without_test.avoided_loss_fraction * multiplier
+            )
+            uniform = replace(
+                model.without_test,
+                avoided_loss_fraction=uniform_effect,
+                population_reduction_fraction=None,
+                effect_reference_density=None,
+            )
+            add(
+                "固定避免损失比例",
+                "Fixed loss-avoidance fraction",
+                f"未检测统一处理基线：{model.without_test.name}",
+                f"Uniform-control baseline: {model.without_test.name_en}",
+                f"×{multiplier:g}",
+                f"×{multiplier:g}",
+                _replace_uniform_control(model, uniform),
+            )
     for multiplier in model.sensitivity.crop_price_multipliers:
-        add("番茄价格", "Tomato price", f"×{multiplier:g}", f"×{multiplier:g}", replace(model, price_per_kg=model.price_per_kg * multiplier))
+        add(
+            "番茄价格",
+            "Tomato price",
+            "所有比较方案",
+            "All compared strategies",
+            f"×{multiplier:g}",
+            f"×{multiplier:g}",
+            replace(model, price_per_kg=model.price_per_kg * multiplier),
+        )
     return rows
+
+
+def _outside_study_density(treatment: Treatment, density: float) -> bool:
+    return (
+        treatment.study_density_min is not None
+        and density < treatment.study_density_min
+    ) or (
+        treatment.study_density_max is not None
+        and density > treatment.study_density_max
+    )
+
+
+def _effect_scope_warnings(model: Model, result: Result) -> list[dict[str, Any]]:
+    participants = []
+    shared_scope = (
+        model.middle.study_density_min == model.without_test.study_density_min
+        and model.middle.study_density_max == model.without_test.study_density_max
+    )
+    for outcome in result.plan_outcomes:
+        role = "经济比较备选方案"
+        role_en = "Alternative in economic comparison"
+        if outcome.key == result.treatment_key:
+            role = "检测后预设方案"
+            role_en = "Preset guided plan"
+        if outcome.key == "middle" and shared_scope:
+            role += "与未检测统一处理基线（共享）"
+            role_en += " and uniform-control baseline (shared)"
+        participants.append((role, role_en, outcome.treatment))
+    if not shared_scope:
+        participants.append(
+            ("未检测统一处理基线", "Uniform-control baseline", model.without_test)
+        )
+    return [
+        {
+            "role": role,
+            "role_en": role_en,
+            "treatment": treatment.name,
+            "treatment_en": treatment.name_en,
+            "study_density_min": treatment.study_density_min,
+            "study_density_max": treatment.study_density_max,
+        }
+        for role, role_en, treatment in participants
+        if _outside_study_density(treatment, result.density)
+    ]
+
+
+def _support_range_text(warning: dict[str, Any], *, english: bool = False) -> str:
+    minimum = warning["study_density_min"]
+    maximum = warning["study_density_max"]
+    if minimum is not None and maximum is not None:
+        return (
+            f"approximately {minimum:g}–{maximum:g} J2/100 cm³"
+            if english
+            else f"约{minimum:g}–{maximum:g} J2/100 cm³"
+        )
+    if minimum is not None:
+        return (
+            f"approximately {minimum:g} J2/100 cm³ and above"
+            if english
+            else f"约{minimum:g} J2/100 cm³及以上"
+        )
+    return (
+        f"approximately {maximum:g} J2/100 cm³ and below"
+        if english
+        else f"约{maximum:g} J2/100 cm³及以下"
+    )
+
+
+def _comparison_effect_assumption(
+    model: Model, result: Result, *, english: bool = False
+) -> str:
+    if result.treatment_key == "middle":
+        prefix = (
+            "Guided medium-tier plan and uniform-control baseline share: "
+            if english
+            else "检测后中等级方案与未检测统一处理基线共享："
+        )
+        note = (
+            model.middle.effect_basis_note_en
+            if english
+            else model.middle.effect_basis_note
+        )
+        return _display_unit(prefix + note)
+    guided_prefix = "Preset guided plan: " if english else "检测后预设方案："
+    uniform_prefix = (
+        "Uniform-control baseline: " if english else "未检测统一处理基线："
+    )
+    guided_note = (
+        result.treatment.effect_basis_note_en
+        if english
+        else result.treatment.effect_basis_note
+    )
+    uniform_note = (
+        model.without_test.effect_basis_note_en
+        if english
+        else model.without_test.effect_basis_note
+    )
+    return _display_unit(
+        f"{guided_prefix}{guided_note} {uniform_prefix}{uniform_note}"
+    )
 
 
 def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
@@ -481,16 +709,10 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
             result,
         ),
     ]
-    effect_scope_warning = (
-        result.treatment.study_density_min is not None
-        and result.density < result.treatment.study_density_min
-    ) or (
-        result.treatment.study_density_max is not None
-        and result.density > result.treatment.study_density_max
-    )
+    effect_scope_warnings = _effect_scope_warnings(model, result)
     management_max = model.high.management_support_max
     return {
-        "schema_version": 8,
+        "schema_version": 9,
         "report_title": "线虫检测试纸经济效益模拟报告",
         "report_note": (
             "模拟用户在种植前使用试纸获得线虫密度，并根据试纸给出的分级防治建议采取相应措施后，"
@@ -531,7 +753,9 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
             "assumptions": {
                 "test_cost": "Test-strip cost is a team pricing assumption, not an observed market price.",
                 "known_density": "Input density is treated as known and accurate; detection limit, sensitivity, specificity, sampling error, and misclassification are not modelled.",
-                "fixed_effect": _display_unit(result.treatment.effect_basis_note_en),
+                "fixed_effect": _comparison_effect_assumption(
+                    model, result, english=True
+                ),
                 "cross_study": _display_unit(model.source_note_en),
                 "conditional_value": "The comparison with uniform control is conditional on the current density. Without a prior density distribution and test error, it is not an ex-ante expected value of information.",
             },
@@ -612,7 +836,8 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
                 without_test_no_control_residual_loss - with_test_residual_loss
             ),
             "expected_reduced_loss_fraction": result.treatment.avoided_loss_fraction,
-            "effect_scope_warning": effect_scope_warning,
+            "effect_scope_warning": bool(effect_scope_warnings),
+            "effect_scope_warnings": effect_scope_warnings,
             "above_biosolarization_support": bool(
                 management_max is not None and result.density > management_max
             ),
@@ -641,7 +866,7 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
         "assumptions": {
             "test_cost": "试纸成本为团队定价，不是公开市场实测售价。",
             "known_density": "输入线虫密度被视为已知且准确；本模型未计检出限、灵敏度、特异性、采样误差和误分级。",
-            "fixed_effect": _display_unit(result.treatment.effect_basis_note),
+            "fixed_effect": _comparison_effect_assumption(model, result),
             "cross_study": _display_unit(model.source_note),
             "conditional_value": "相对统一处理的结果是给定当前密度后的条件增量价值；没有密度先验分布和检测误差时，不能解释为种植前的期望信息价值。",
         },
@@ -696,8 +921,29 @@ def format_text_report(report: dict[str, Any]) -> str:
             for threshold, left, right in report["break_even"]["detection_vs_uniform"]["threshold_jumps"]
         ),
         "",
-        "三、预设分级与经济比较",
+        "  单因素敏感性（其余参数保持不变；不是置信区间）",
     ]
+    for row in report["sensitivity_analysis"]:
+        lines.append(
+            f"  - {row['parameter']} {row['change']}；作用方案：{row['scope']}；"
+            f"整套项目净收益（相对无防治）={_signed_money(row['program_net_benefit_vs_no_control'], report)}；"
+            f"检测条件增量价值（相对统一处理）={_signed_money(row['detection_net_benefit_vs_uniform'], report)}；"
+            f"检测是否增益：{'是' if row['detection_worthwhile'] else '否'}"
+        )
+    if d["effect_scope_warnings"]:
+        lines.extend(["", "  防效外推提示：以下参与经济比较的方案超出来源研究密度支持范围；固定防效仅作为演示假设。"])
+        for warning in d["effect_scope_warnings"]:
+            lines.append(
+                f"  - {warning['role']}：{warning['treatment']}；"
+                f"研究密度支持为{_support_range_text(warning)}；"
+                f"本次输入为{report['input']['density']:g} J2/100 cm³。"
+            )
+    if d["above_biosolarization_support"]:
+        lines.append(
+            f"  高密度提示：本次输入超过约{t['biosolarization_supported_to']:g} J2/100 cm³，"
+            "高等级方案超出来源文献估算的番茄经济管理范围；应另行评估抗性砧木、轮作或调整作物。"
+        )
+    lines.extend(["", "三、预设分级与经济比较"])
     for plan in report["treatment_options"]:
         selected = "【当前密度】" if plan["label"] == d["band"] else ""
         lines.append(
@@ -843,7 +1089,7 @@ def format_html_report(
     d = report["diagnosis"]
     e = report["economics"]
     t = report["thresholds"]
-    colon = ":" if english else "："
+    colon = ": " if english else "："
     profit_class = "gain" if d["profit_change_per_ha"] >= 0 else "loss"
 
     def plan_name_markup(plan: dict[str, Any]) -> str:
@@ -896,7 +1142,8 @@ def format_html_report(
         for item in report["references"]
     )
     sensitivity_rows = "".join(
-        f"<tr><td>{html.escape(row['parameter'])}</td><td>{html.escape(row['change'])}</td>"
+        f"<tr><td>{html.escape(row['parameter'])}</td><td>{html.escape(row['scope'])}</td>"
+        f"<td>{html.escape(row['change'])}</td>"
         f"<td>{_signed_money(row['program_net_benefit_vs_no_control'], report)}</td>"
         f"<td>{_signed_money(row['detection_net_benefit_vs_uniform'], report)}</td>"
         f"<td>{'Yes' if english and row['detection_worthwhile'] else 'No' if english else '是' if row['detection_worthwhile'] else '否'}</td></tr>"
@@ -931,9 +1178,25 @@ def format_html_report(
     detection_jumps = jump_text(
         report["break_even"]["detection_vs_uniform"]["threshold_jumps"]
     )
+
+    effect_warning_items = "".join(
+        f"<li><strong>{html.escape(warning['role'])}{colon}{html.escape(warning['treatment'])}</strong>"
+        + (
+            f" — source-study density support is {html.escape(_support_range_text(warning, english=english))}; "
+            f"the current input is {report['input']['density']:g} J2/100 cm³."
+            if english
+            else f"；配置记录的来源研究密度支持为{html.escape(_support_range_text(warning, english=english))}，"
+            f"本次输入为{report['input']['density']:g} J2/100 cm³。"
+        )
+        + "</li>"
+        for warning in d["effect_scope_warnings"]
+    )
     if english:
         effect_warning = (
-            f'<div class="alert"><strong>Effect extrapolation:</strong> The current density is outside the source study density support recorded for this treatment. The fixed loss-avoidance fraction is retained only as a demonstration assumption.</div>'
+            '<div class="alert"><strong>Effect extrapolation:</strong> Every treatment '
+            'participating in the comparison is checked. The following fixed '
+            f'loss-avoidance value is extrapolated for this input:<ul>{effect_warning_items}</ul>'
+            'These values are retained only as demonstration assumptions.</div>'
             if d["effect_scope_warning"]
             else ""
         )
@@ -980,7 +1243,9 @@ h2{font-size:1.45rem}h3{font-size:1rem}
 """
     else:
         effect_warning = (
-            '<div class="alert"><strong>防效外推提示：</strong>当前密度不在配置记录的该处理来源研究密度支持范围内；报告仍使用固定避免损失比例，仅作为演示假设。</div>'
+            '<div class="alert"><strong>防效外推提示：</strong>已检查参与比较的各方案。'
+            f'以下方案的固定避免损失比例在本次密度下属于外推：<ul>{effect_warning_items}</ul>'
+            '报告仍保留该数值，仅作为演示假设。</div>'
             if d["effect_scope_warning"]
             else ""
         )
@@ -1051,7 +1316,7 @@ h2{{font-size:1.55rem;line-height:1.35;margin:0;color:#163e30}} h3{{font-size:1.
 .expected{{padding:10px 12px;background:#f0f6f2;border-radius:9px;margin:12px 0;font-size:.9rem}} ul{{margin:.45rem 0;padding-left:1.3rem}} li{{margin:.45rem 0}}
 .alert{{padding:15px 17px;border-left:5px solid var(--amber);background:#fff7e7;border-radius:10px;margin:14px 0}} .alert.danger{{border-color:var(--red);background:#fff0ed}}
 .references{{padding-left:1.5rem;font-size:.9rem;line-height:1.75}} .references li{{padding:.55rem 0 .75rem .35rem;border-bottom:1px solid var(--line);overflow-wrap:anywhere}} a{{color:#245d47;text-decoration:none;text-underline-offset:2px}} a:hover{{text-decoration:underline}} .muted{{color:var(--muted)}}
-.analysis-grid{{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}} .analysis-card{{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}} .analysis-card h3{{margin:0 0 8px}} .analysis-card p{{margin:.35rem 0;color:var(--muted)}} .sensitivity-table{{width:100%;border-collapse:collapse;margin-top:12px;font-size:.8rem}} .sensitivity-table th,.sensitivity-table td{{padding:8px 7px;border-bottom:1px solid var(--line);text-align:right}} .sensitivity-table th:first-child,.sensitivity-table td:first-child{{text-align:left}} .assumption-list{{font-size:.88rem;line-height:1.65}}
+.analysis-grid{{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}} .analysis-card{{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}} .analysis-card h3{{margin:0 0 8px}} .analysis-card p{{margin:.35rem 0;color:var(--muted)}} .sensitivity-table{{width:100%;border-collapse:collapse;margin-top:12px;font-size:.78rem}} .sensitivity-table th,.sensitivity-table td{{padding:8px 7px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}} .sensitivity-table th:first-child,.sensitivity-table td:first-child,.sensitivity-table th:nth-child(2),.sensitivity-table td:nth-child(2){{text-align:left}} .sensitivity-table td:nth-child(2){{max-width:270px}} .assumption-list{{font-size:.88rem;line-height:1.65}}
 @media(max-width:850px){{.summary-grid{{grid-template-columns:1fr 1fr}}.decision-grid,.comparison-grid,.analysis-grid{{grid-template-columns:1fr}}.cost-grid{{grid-template-columns:1fr 1fr}}.plans{{grid-template-columns:1fr;row-gap:28px}}.hero{{padding:34px 26px}}}}
 @media(max-width:520px){{.page{{padding:12px 10px 40px}}.hero{{border-radius:20px}}section{{padding:21px 17px}}.summary-grid,.cost-grid,.no-test-grid{{grid-template-columns:1fr}}.summary-card{{min-height:138px;padding:17px}}.sub-strategy h3,.cost-method{{min-height:0}}.section-head{{gap:10px;margin-bottom:16px}}.section-no{{font-size:1.15rem}}h1{{font-size:2rem}}h2{{font-size:1.35rem}}.delta{{align-items:flex-start;flex-direction:column}}}}
 @media print{{body{{background:#fff}}.page{{max-width:none;padding:0}}.hero,section,.summary-card{{box-shadow:none}}section{{break-inside:avoid}}a{{color:inherit}}}}
@@ -1116,7 +1381,7 @@ h2{{font-size:1.55rem;line-height:1.35;margin:0;color:#163e30}} h3{{font-size:1.
       <article class="analysis-card"><h3>{'Interpretation boundary' if english else '解释边界'}</h3><p>{'The first comparison includes control benefits and must not be attributed entirely to detection. The second is a conditional, density-known comparison, not an ex-ante expected value of information.' if english else '第一种比较包含防治本身的收益，不能全部归因于检测；第二种比较是在密度已知条件下的增量价值，不是种植前的期望信息价值。'}</p></article>
     </div>
     <h3 class="subsection-title">{ui['sensitivity']}</h3>
-    <table class="sensitivity-table"><thead><tr><th>{'Parameter' if english else '参数'}</th><th>{'Change' if english else '变化'}</th><th>{'Program net benefit' if english else '整套项目净收益'}</th><th>{'Conditional test value' if english else '检测条件增量价值'}</th><th>{'Worth testing?' if english else '检测是否增益'}</th></tr></thead><tbody>{sensitivity_rows}</tbody></table>
+    <table class="sensitivity-table"><thead><tr><th>{'Parameter' if english else '参数'}</th><th>{'Applies to' if english else '作用方案'}</th><th>{'Change' if english else '变化'}</th><th>{'Program net benefit' if english else '整套项目净收益'}</th><th>{'Conditional test value' if english else '检测条件增量价值'}</th><th>{'Worth testing?' if english else '检测是否增益'}</th></tr></thead><tbody>{sensitivity_rows}</tbody></table>
   </section>
 
   <section>

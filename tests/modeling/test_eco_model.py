@@ -219,7 +219,7 @@ class SpainTomatoDemoTests(unittest.TestCase):
             paths = write_diagnostic_report(report, directory)
             self.assertTrue(all(path.exists() for path in paths))
             payload = json.loads(paths[1].read_text(encoding="utf-8"))
-            self.assertEqual(payload["schema_version"], 8)
+            self.assertEqual(payload["schema_version"], 9)
             self.assertIn("program_vs_no_control", payload["break_even"])
             self.assertIn("detection_vs_uniform", payload["break_even"])
 
@@ -234,10 +234,104 @@ class SpainTomatoDemoTests(unittest.TestCase):
     def test_low_density_efficacy_extrapolation_is_flagged(self) -> None:
         report = build_diagnostic_report(self.model, evaluate(20.0, self.model))
         self.assertTrue(report["diagnosis"]["effect_scope_warning"])
+        self.assertEqual(len(report["diagnosis"]["effect_scope_warnings"]), 2)
+        self.assertIn(
+            "共享", report["diagnosis"]["effect_scope_warnings"][0]["role"]
+        )
         html = format_html_report(report)
         english = format_html_report_en(report)
         self.assertIn("防效外推提示", html)
         self.assertIn("Effect extrapolation", english)
+
+    def test_low_density_sensitivity_includes_uniform_control_baseline(self) -> None:
+        report = build_diagnostic_report(self.model, evaluate(6.8, self.model))
+        self.assertAlmostEqual(
+            report["diagnosis"]["detection_net_benefit_vs_uniform"],
+            8.2595281,
+            places=6,
+        )
+        baseline_effect = next(
+            row
+            for row in report["sensitivity_analysis"]
+            if row["parameter"] == "固定避免损失比例"
+            and row["change"] == "×1.2"
+            and row["scope"].startswith("未检测统一处理基线")
+        )
+        self.assertAlmostEqual(
+            baseline_effect["detection_net_benefit_vs_uniform"],
+            -33.0885663,
+            places=6,
+        )
+        self.assertFalse(baseline_effect["detection_worthwhile"])
+        warnings = report["diagnosis"]["effect_scope_warnings"]
+        self.assertEqual(len(warnings), 2)
+        self.assertIn("未检测统一处理基线", warnings[0]["role"])
+        html = format_html_report(report)
+        english = format_html_report_en(report)
+        self.assertIn("作用方案", html)
+        self.assertIn("未检测统一处理基线（共享）：40%氟吡菌酰胺制剂", html)
+        self.assertIn("-33.09 EUR/ha", html)
+        self.assertIn("Applies to", english)
+        self.assertIn("Uniform-control baseline", english)
+
+    def test_text_report_includes_sensitivity_reversal_and_scope_warnings(self) -> None:
+        report = build_diagnostic_report(self.model, evaluate(6.8, self.model))
+        text = format_text_report(report)
+        self.assertIn("+8.26 EUR/ha", text)
+        self.assertIn("-33.09 EUR/ha；检测是否增益：否", text)
+        self.assertIn("单因素敏感性", text)
+        self.assertIn("不是置信区间", text)
+        for row in report["sensitivity_analysis"]:
+            self.assertIn(f"{row['parameter']} {row['change']}；作用方案：{row['scope']}", text)
+        self.assertIn("防效外推提示", text)
+        for warning in report["diagnosis"]["effect_scope_warnings"]:
+            self.assertIn(f"{warning['role']}：{warning['treatment']}", text)
+        high_text = format_text_report(
+            build_diagnostic_report(self.model, evaluate(800.0, self.model))
+        )
+        self.assertIn("高密度提示：本次输入超过约759", high_text)
+
+    def test_unselected_high_option_has_warning_in_all_report_formats(self) -> None:
+        report = build_diagnostic_report(self.model, evaluate(20.0, self.model))
+        warnings = report["diagnosis"]["effect_scope_warnings"]
+        high_warning = next(w for w in warnings if w["treatment"] == self.model.high.name)
+        self.assertEqual(high_warning["role"], "经济比较备选方案")
+        for rendered in (format_text_report(report), format_html_report(report)):
+            self.assertIn("经济比较备选方案：鸡粪生物太阳能消毒", rendered)
+            self.assertIn("约50 J2/100 cm³及以上", rendered)
+        english = format_html_report_en(report)
+        self.assertIn("Alternative in economic comparison: Chicken-manure biosolarization", english)
+        self.assertNotRegex(english, r"[\u4e00-\u9fff]")
+        in_range = build_diagnostic_report(self.model, evaluate(100.0, self.model))
+        self.assertEqual(in_range["diagnosis"]["effect_scope_warnings"], [])
+
+    def test_uniform_control_with_distinct_support_is_checked_separately(self) -> None:
+        model = replace(
+            self.model,
+            without_test=replace(self.model.without_test, study_density_max=90.0),
+        )
+        report = build_diagnostic_report(model, evaluate(100.0, model))
+        warnings = report["diagnosis"]["effect_scope_warnings"]
+        self.assertEqual(len(warnings), 1)
+        self.assertEqual(warnings[0]["role"], "未检测统一处理基线")
+        self.assertIn("约50–90 J2/100 cm³", format_text_report(report))
+        self.assertIn("approximately 50–90 J2/100 cm³", format_html_report_en(report))
+
+    def test_shared_middle_treatment_sensitivity_changes_both_sides(self) -> None:
+        report = build_diagnostic_report(self.model, evaluate(20.0, self.model))
+        shared_effect_rows = [
+            row
+            for row in report["sensitivity_analysis"]
+            if row["parameter"] == "固定避免损失比例"
+        ]
+        self.assertEqual(len(shared_effect_rows), 2)
+        self.assertTrue(all("共享参数" in row["scope"] for row in shared_effect_rows))
+        self.assertTrue(
+            all(
+                abs(row["detection_net_benefit_vs_uniform"] + 5.0) < 1e-8
+                for row in shared_effect_rows
+            )
+        )
 
     def test_english_web_report_matches_chinese_structure_and_values(self) -> None:
         report = build_diagnostic_report(self.model, evaluate(100.0, self.model))

@@ -67,6 +67,21 @@ incremental cost. The fixed 10/80 density tiers remain a preset demonstration
 policy; the report separately identifies the treatment option with the highest
 modelled net income at the current density.
 
+One-way sensitivity rows state which strategy each change applies to. Treatment
+cost and efficacy are varied for both the preset guided plan and the uniform-
+control comparator. When those sides use the same medium-tier treatment, their
+shared economic parameters move together. Effect-extrapolation warnings inspect
+every treatment participating in the comparison, including unselected options
+in the economic comparison and the uniform-control baseline. Medium-tier and
+uniform-control warnings are combined only when their recorded study-density
+bounds match; distinct bounds are checked separately.
+
+The TXT report includes the same sensitivity rows and effect-extrapolation
+warnings as the JSON and bilingual HTML reports, including the parameter scope,
+both net-benefit comparisons, and whether conditional test value is positive.
+It also retains the high-density management warning. Sensitivity rows are
+one-at-a-time scenarios, not confidence intervals.
+
 Useful variants:
 
 ```bash
@@ -109,6 +124,7 @@ The demonstration tests additionally validate the Seinhorst density-loss
 function, both comparison baselines, treatment thresholds, density break-even
 results, fixed-effect conversion at the reference density, low-density
 extrapolation warnings, economic-best treatment comparison, sensitivity output,
+uniform-control baseline sensitivity, shared-treatment parameter consistency,
 configuration-driven laboratory fees, and parity between the Chinese and
 English report structures. Scenario text, treatment names/rates/instructions,
 laboratory fees, samples per hectare, and sensitivity ranges are loaded from the
