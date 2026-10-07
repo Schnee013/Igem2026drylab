@@ -33,7 +33,10 @@ def _density_unit_label(model: Model) -> str:
 
 
 def print_report(model: Model, density: float | None) -> None:
-    roots, jumps = break_even_analysis(model)
+    program_roots, program_jumps = break_even_analysis(model, baseline="no_control")
+    detection_roots, detection_jumps = break_even_analysis(
+        model, baseline="uniform_control"
+    )
     print(
         f"场景：{model.country}；{model.crop}；{model.nematode}；"
         f"{model.detection_timing}检测"
@@ -50,17 +53,32 @@ def print_report(model: Model, density: float | None) -> None:
         f"参数：T={model.tolerance_density:g}, "
         f"m={model.minimum_relative_yield:g}, z={model.seinhorst_z:g}"
     )
-    print("\n检测方案相对未检测且未采取防治手段的严格零收益密度：")
-    if roots:
-        for root in roots:
-            benefit = evaluate(root, model).incremental_net_benefit
+    print("\n整套检测与防治项目相对未采取防治的严格零收益密度：")
+    if program_roots:
+        for root in program_roots:
+            benefit = evaluate(root, model).program_net_benefit_vs_no_control
             print(
                 f"  {root:.4f} {_density_unit_label(model)}；"
                 f"增量净收益={_money(benefit, model)}"
             )
     else:
         print("  在文献试验密度范围内不存在严格零收益密度。")
-    for threshold, left, right in jumps:
+    for threshold, left, right in program_jumps:
+        print(
+            f"  分级阈值 {threshold:g}：左极限 {_money(left, model)} → "
+            f"阈值处 {_money(right, model)}（方案切换造成跳变）"
+        )
+    print("\n检测分级相对未检测统一处理的严格零收益密度：")
+    if detection_roots:
+        for root in detection_roots:
+            benefit = evaluate(root, model).detection_net_benefit_vs_uniform
+            print(
+                f"  {root:.4f} {_density_unit_label(model)}；"
+                f"条件增量价值={_money(benefit, model)}"
+            )
+    else:
+        print("  在文献试验密度范围内不存在严格零收益密度。")
+    for threshold, left, right in detection_jumps:
         print(
             f"  分级阈值 {threshold:g}：左极限 {_money(left, model)} → "
             f"阈值处 {_money(right, model)}（方案切换造成跳变）"
@@ -87,9 +105,13 @@ def print_report(model: Model, density: float | None) -> None:
         f"{_money(result.net_income_without_test_uniform, model)}"
     )
     print(f"检测后分级处理的净收入：{_money(result.net_income_with_test, model)}")
+    print("整套检测与防治项目净收益（基线：未采取防治）："
+          f"{_money(result.program_net_benefit_vs_no_control, model)}")
+    print("检测信息与分级决策的条件增量价值（基线：未检测统一处理）："
+          f"{_money(result.detection_net_benefit_vs_uniform, model)}")
     print(
-        "检测方案相对未检测且未采取防治手段的增量净收益："
-        f"{_money(result.incremental_net_benefit, model)}"
+        f"预设策略：{result.treatment.name}；"
+        f"当前参数下经济净收入最高：{result.economic_best_treatment.name}"
     )
     print(
         f"注意：试纸成本 {model.test_cost_per_ha:g} "

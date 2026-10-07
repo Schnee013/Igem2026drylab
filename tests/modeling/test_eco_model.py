@@ -6,6 +6,7 @@ import math
 import tempfile
 import unittest
 from contextlib import redirect_stdout
+from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
@@ -95,6 +96,12 @@ class SpainTomatoDemoTests(unittest.TestCase):
             high.net_income_without_test_uniform,
             high.net_income_without_test,
         )
+        at_100 = evaluate(100.0, self.model)
+        self.assertAlmostEqual(at_100.program_net_benefit_vs_no_control, 17028.4824857)
+        self.assertAlmostEqual(at_100.detection_net_benefit_vs_uniform, 496.2593745)
+        self.assertAlmostEqual(at_100.detection_incremental_cost_vs_uniform, 2485.0)
+        self.assertAlmostEqual(at_100.program_roi_vs_no_control, 6.2951876)
+        self.assertAlmostEqual(at_100.detection_roi_vs_uniform, 0.1997020)
 
     def test_fixed_effects_match_reference_density_derivation(self) -> None:
         model = self.model
@@ -106,6 +113,13 @@ class SpainTomatoDemoTests(unittest.TestCase):
             model.middle.avoided_loss_fraction,
             places=5,
         )
+        self.assertEqual(
+            model.middle.effect_model,
+            "fixed_avoided_loss_fraction_at_reference_density",
+        )
+        self.assertEqual(model.middle.effect_reference_density, 100.0)
+        self.assertEqual(model.middle.study_density_min, 50.0)
+        self.assertIn("不代表所有初始密度", model.middle.effect_basis_note)
         self.assertAlmostEqual(
             (untreated_loss - biosolarization_loss) / untreated_loss,
             model.high.avoided_loss_fraction,
@@ -113,13 +127,19 @@ class SpainTomatoDemoTests(unittest.TestCase):
         )
 
     def test_break_even_roots_are_true_zeros(self) -> None:
-        roots, jumps = break_even_analysis(self.model)
-        self.assertEqual(roots, [])
-        self.assertEqual(len(jumps), 2)
-        self.assertAlmostEqual(jumps[0][0], 10.0)
-        self.assertAlmostEqual(jumps[1][0], 80.0)
-        self.assertLess(jumps[0][1], jumps[0][2])
-        self.assertLess(jumps[1][1], jumps[1][2])
+        program_roots, program_jumps = break_even_analysis(
+            self.model, baseline="no_control"
+        )
+        detection_roots, detection_jumps = break_even_analysis(
+            self.model, baseline="uniform_control"
+        )
+        self.assertEqual(program_roots, [])
+        self.assertEqual(len(program_jumps), 2)
+        self.assertAlmostEqual(detection_roots[0], 6.8320749, places=6)
+        self.assertEqual(len(detection_jumps), 2)
+        self.assertAlmostEqual(detection_jumps[1][0], 80.0)
+        self.assertLess(detection_jumps[1][1], 0)
+        self.assertGreater(detection_jumps[1][2], 0)
 
     def test_report_is_plain_language_and_uses_new_structure(self) -> None:
         report = build_diagnostic_report(self.model, evaluate(100.0, self.model))
@@ -141,9 +161,8 @@ class SpainTomatoDemoTests(unittest.TestCase):
         self.assertIn("设施番茄", html)
         self.assertIn("Meloidogyne incognita", html)
         self.assertIn("鸡粪生物太阳能消毒", html)
-        self.assertIn("使用试纸后的利润变化", html)
-        self.assertNotIn("使用试纸前后的利润变化", html)
-        self.assertIn("未检测且未采取防治手段", html)
+        self.assertIn("两种收益比较", html)
+        self.assertIn("未采取防治手段", html)
         self.assertIn("<h3>未采取防治手段</h3>", html)
         self.assertIn("<h3>常规统一处理（氟吡菌酰胺方案）</h3>", html)
         self.assertEqual(html.count('<article class="strategy-group">'), 2)
@@ -169,20 +188,27 @@ class SpainTomatoDemoTests(unittest.TestCase):
         self.assertNotIn("团队定价，EUR/ha", html)
         self.assertNotIn("首项判定/样", html)
         self.assertNotIn("ILVO 公开价", html)
-        self.assertIn("预计减少损失一览", html)
-        self.assertIn("预计减少的损失（EUR/ha）", html)
-        self.assertNotIn("预计减少的损失占比", html)
-        self.assertIn("stroke-width=\"3\"", html)
-        self.assertIn('r="5"', html)
+        self.assertIn("净收益、盈亏平衡与敏感性", html)
+        self.assertIn("扣除成本后的净收益（EUR/ha）", html)
+        self.assertIn("整套检测与防治项目净收益", html)
+        self.assertIn("检测信息与分级决策的条件增量价值", html)
+        self.assertIn("+17,028.48 EUR/ha", html)
+        self.assertIn("+496.26 EUR/ha", html)
+        self.assertIn("629.52%", html)
+        self.assertIn("19.97%", html)
         self.assertIn("本团队试纸成本比所列实验室公开收费低约68%–97%，且操作更为简便。", html)
-        self.assertIn('<div class="cost-footnote">成本按每公顷提交1份代表性样品计算，且未计采样、寄送、税费或额外前处理。</div>', html)
+        self.assertIn('<div class="cost-footnote">实验室费用按每公顷提交1份代表性样品换算；未计采样、寄送、税费或额外前处理。</div>', html)
         self.assertNotIn('<p class="section-kicker">', html)
-        self.assertEqual(html.count("<circle "), 1)
+        self.assertEqual(html.count("<circle "), 2)
         self.assertIn("预计避免作物损失", html)
         self.assertNotIn("预计避免损失", html)
         self.assertEqual(html.count('<article class="execution-card">'), 1)
         self.assertIn("横轴显示至500", html)
         self.assertIn("参考文献", html)
+        self.assertIn("预设演示策略", html)
+        self.assertIn("当前参数下经济净收入最高", html)
+        self.assertIn("固定69.1234%避免损失比例", html)
+        self.assertIn("每公顷提交1份代表性样品", html)
         self.assertNotIn("损失公式", html)
         self.assertNotIn("Seinhorst", html)
         self.assertNotIn("核算边界", html)
@@ -193,7 +219,9 @@ class SpainTomatoDemoTests(unittest.TestCase):
             paths = write_diagnostic_report(report, directory)
             self.assertTrue(all(path.exists() for path in paths))
             payload = json.loads(paths[1].read_text(encoding="utf-8"))
-            self.assertEqual(payload["schema_version"], 7)
+            self.assertEqual(payload["schema_version"], 8)
+            self.assertIn("program_vs_no_control", payload["break_even"])
+            self.assertIn("detection_vs_uniform", payload["break_even"])
 
     def test_high_density_report_has_support_warning(self) -> None:
         report = build_diagnostic_report(self.model, evaluate(800.0, self.model))
@@ -202,6 +230,14 @@ class SpainTomatoDemoTests(unittest.TestCase):
         self.assertIn("高密度提示", html)
         self.assertIn("超过横轴显示范围", html)
         self.assertEqual(html.count("<circle "), 0)
+
+    def test_low_density_efficacy_extrapolation_is_flagged(self) -> None:
+        report = build_diagnostic_report(self.model, evaluate(20.0, self.model))
+        self.assertTrue(report["diagnosis"]["effect_scope_warning"])
+        html = format_html_report(report)
+        english = format_html_report_en(report)
+        self.assertIn("防效外推提示", html)
+        self.assertIn("Effect extrapolation", english)
 
     def test_english_web_report_matches_chinese_structure_and_values(self) -> None:
         report = build_diagnostic_report(self.model, evaluate(100.0, self.model))
@@ -214,6 +250,7 @@ class SpainTomatoDemoTests(unittest.TestCase):
         self.assertIn("Southern root-knot nematode", english)
         self.assertIn("Chicken-manure biosolarization", english)
         self.assertIn("+17,028.48 EUR/ha", english)
+        self.assertIn("+496.26 EUR/ha", english)
         self.assertIn("36.45%", english)
         self.assertIn("Yield loss without control", english)
         self.assertIn("With test strip and recommended treatment", english)
@@ -242,7 +279,10 @@ class SpainTomatoDemoTests(unittest.TestCase):
             '<h3>Chicken-manure biosolarization<span class="plan-dose">20,000 kg/ha</span></h3>',
             plans_section,
         )
-        self.assertNotIn('class="plan-dose"', chinese)
+        self.assertIn(
+            '<h3>鸡粪生物太阳能消毒<span class="plan-dose">20,000 kg/ha</span></h3>',
+            chinese,
+        )
         for marker in (
             '<span class="section-no">',
             '<div class="summary-card">',
@@ -261,6 +301,47 @@ class SpainTomatoDemoTests(unittest.TestCase):
             self.assertTrue(path.exists())
             self.assertEqual(path.name, "diagnostic_report_en.html")
             self.assertEqual(path.read_text(encoding="utf-8"), english)
+
+    def test_config_changes_flow_to_both_reports_without_hardcoded_overrides(self) -> None:
+        payload = json.loads(MODEL_PATH.read_text(encoding="utf-8"))
+        payload["economics"]["test_cost_per_ha"] = 12.0
+        payload["high"]["name"] = "配置中的高等级方案"
+        payload["high"]["name_en"] = "Configured high-tier plan"
+        payload["high"]["application_rate"] = "配置剂量"
+        payload["high"]["application_rate_en"] = "configured dose"
+        payload["high"]["plan_overview_en"] = "Configured English instructions."
+        payload["detection_cost_comparison"]["samples_per_ha"] = 2.0
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "model.json"
+            path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+            model = load_model(path)
+            report = build_diagnostic_report(model, evaluate(100.0, model))
+            text = format_text_report(report)
+            chinese = format_html_report(report)
+            english = format_html_report_en(report)
+        self.assertIn("配置中的高等级方案", chinese)
+        self.assertIn("配置剂量", chinese)
+        self.assertIn("Configured high-tier plan", english)
+        self.assertIn("configured dose", english)
+        self.assertIn("Configured English instructions.", english)
+        self.assertIn("12.00 EUR/ha", english)
+        self.assertIn("63.10 EUR/ha", english)
+        self.assertIn("2 representative samples", english)
+        self.assertIn("每公顷2份代表性样品", text)
+        self.assertIn("approximately 62%–96% less", english)
+
+    def test_preset_tier_is_distinct_from_economic_best_option(self) -> None:
+        expensive_high = replace(self.model.high, cost_per_ha=20000.0)
+        scenario = replace(self.model, high=expensive_high)
+        result = evaluate(100.0, scenario)
+        self.assertEqual(result.treatment_key, "high")
+        self.assertEqual(result.economic_best_key, "middle")
+        self.assertGreater(result.preset_opportunity_cost, 0)
+        report = build_diagnostic_report(scenario, result)
+        high = next(item for item in report["treatment_options"] if item["key"] == "high")
+        middle = next(item for item in report["treatment_options"] if item["key"] == "middle")
+        self.assertTrue(high["is_preset"])
+        self.assertTrue(middle["is_economic_best"])
 
     def test_cli_does_not_open_browser_by_default(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

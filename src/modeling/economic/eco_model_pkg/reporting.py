@@ -7,11 +7,13 @@ import json
 import math
 import webbrowser
 from copy import deepcopy
+from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
+from .break_even import break_even_analysis
 from .config import Model, Treatment
-from .economics import Result, choose_treatment
+from .economics import Result, choose_treatment, evaluate
 from .loss import relative_yield_fraction
 
 
@@ -103,113 +105,40 @@ REFERENCES = (
 )
 
 
-DETECTION_COST_COMPARISON = (
-    {
-        "method": "本项目试纸",
-        "cost_per_ha": 5.0,
-        "basis": "团队定价，EUR/ha",
-        "featured": True,
-    },
-    {
-        "method": "提取后显微/形态学鉴定",
-        "cost_per_ha": 31.55,
-        "basis": "西班牙官方实验室，首项判定/样",
-        "featured": False,
-    },
-    {
-        "method": "PCR 分子鉴定",
-        "cost_per_ha": 15.80,
-        "basis": "西班牙官方实验室，首项判定/样",
-        "featured": False,
-    },
-    {
-        "method": "PCR / 实时 PCR 实验室分析",
-        "cost_per_ha": 152.14,
-        "basis": "ILVO 公开价，单项分析/样，未含税",
-        "featured": False,
-    },
-)
-
-
-ENGLISH_PLAN_TEXT = {
-    "low": {
-        "label": "Low",
-        "name": "No dedicated nematode control",
-        "overview": (
-            "Do not apply a nematicide or soil disinfestation treatment specifically "
-            "for root-knot nematodes this season; maintain routine crop management, "
-            "field hygiene, and regular scouting."
-        ),
-        "actions": [
-            "Do not add a nematicide or schedule a dedicated soil disinfestation treatment.",
-            "Use healthy seedlings without obvious root-galling symptoms, remove soil-bearing root residues, and avoid moving infested soil with tools or irrigation runoff.",
-            "Keep the pre-plant density record and reassess nematodes if uneven growth, wilting, or root galls appear during the crop cycle.",
-        ],
-        "precautions": [
-            "Loss may begin above a density of about 6. The no-dedicated-control decision below 10 is a simplified demonstration rule and does not mean that risk is absent.",
-            "A treatment cost of 0 EUR/ha means no additional nematode-specific control cost; routine cultivation, hygiene, and scouting remain part of normal production.",
-        ],
-    },
-    "middle": {
-        "label": "Medium",
-        "name": "40% fluopyram formulation 0.375 L/ha",
-        "overview": (
-            "Use the 40% fluopyram formulation at 0.375 L/ha from the source study "
-            "as the representative medium-tier treatment."
-        ),
-        "actions": [
-            "In the source trial, the chemical treatment was applied through drip irrigation before planting.",
-            "Before use, verify the specific product, tomato use, dose, application timing, and protection requirements in Spain’s live plant-protection product register.",
-        ],
-        "precautions": [
-            "The efficacy study included only fields with an initial density above 50 J2/100 cm³ soil; the estimated effect from 10 to 50 is therefore a simplified extrapolation.",
-        ],
-    },
-    "high": {
-        "label": "High",
-        "name": "Chicken-manure biosolarization 20,000 kg/ha",
-        "overview": (
-            "Use the chicken-manure biosolarization treatment from the Spanish study: "
-            "incorporate 20,000 kg/ha of chicken manure in summer, irrigate, and cover "
-            "the soil with transparent film for about six weeks."
-        ),
-        "actions": [
-            "In summer, distribute the chicken manure evenly, incorporate it into approximately 20 cm of topsoil, and irrigate to field capacity.",
-            "Cover the soil with approximately 0.03 mm transparent low-density polyethylene film for about six weeks, then remove the film and prepare the soil for planting.",
-            "Combine the treatment with resistant rootstocks, crop rotation, and field hygiene in an integrated management plan.",
-        ],
-        "precautions": [
-            "Verify the manure source, sanitary quality, salinity, and local organic-fertilizer requirements before treatment.",
-            "At nematode densities above about 759 J2/100 cm³ soil, assess resistant rootstocks, crop rotation, or a change of crop.",
-        ],
-    },
-}
-
-
 ZH_UI = {
     "eyebrow": "经济效益示例",
     "example_scenario": "示例场景",
     "detected_density": "检测出的线虫密度",
     "untreated_yield_loss": "如不采取防治手段，预计产量损失",
-    "treatment_recommendation": "处理建议",
-    "profit_change": "使用试纸后的预计利润变化",
-    "section_profit": "使用试纸后的利润变化",
+    "treatment_recommendation": "预设风险等级",
+    "profit_change": "检测分级的条件增量价值",
+    "section_profit": "两种收益比较",
     "without_test": "未使用试纸",
     "with_test": "使用试纸并按建议处理",
     "season_profit": "预计单季利润",
     "remaining_loss": "预计剩余产量损失",
     "treatment_cost": "处理成本",
     "test_cost": "试纸成本",
-    "profit_delta": "使用试纸后的预计利润变化（相比未检测且未采取防治手段）",
+    "program_benefit": "整套检测与防治项目净收益",
+    "detection_value": "检测信息与分级决策的条件增量价值",
+    "incremental_cost": "增量成本",
+    "roi": "ROI",
+    "roi_not_applicable": "不适用（增量成本不为正）",
     "detection_costs": "常用线虫检测方法成本对比",
-    "section_loss": "预计减少损失一览",
+    "section_loss": "净收益、盈亏平衡与敏感性",
     "legend_low": "低等级",
     "legend_middle": "中等级",
     "legend_high": "高等级",
     "current_input": "本次输入",
-    "section_plans": "三级处理方案",
+    "section_plans": "预设分级与经济比较",
     "current_density": "当前密度",
     "avoided_loss": "预计避免作物损失",
+    "preset_strategy": "预设演示策略",
+    "economic_best": "当前参数下经济净收入最高",
+    "option_profit": "检测后预计利润",
+    "difference_from_preset": "相对预设方案",
+    "effect_scope": "效果适用性",
+    "sensitivity": "关键参数单因素敏感性",
     "section_execution": "执行建议",
     "implementation": "实施内容",
     "precautions": "注意事项",
@@ -222,25 +151,35 @@ EN_UI = {
     "example_scenario": "Example scenario",
     "detected_density": "Detected density",
     "untreated_yield_loss": "Yield loss without control",
-    "treatment_recommendation": "Treatment recommendation",
-    "profit_change": "Profit change with test strip",
-    "section_profit": "Profit change with test strip",
+    "treatment_recommendation": "Preset risk tier",
+    "profit_change": "Conditional value of density-guided testing",
+    "section_profit": "Two benefit comparisons",
     "without_test": "Without test strip",
     "with_test": "With test strip and recommended treatment",
     "season_profit": "Estimated profit per season",
     "remaining_loss": "Remaining crop loss",
     "treatment_cost": "Treatment cost",
     "test_cost": "Test-strip cost",
-    "profit_delta": "Profit change vs no control",
+    "program_benefit": "Net benefit of the combined testing-and-control program",
+    "detection_value": "Conditional incremental value of testing and tiered decisions",
+    "incremental_cost": "Incremental cost",
+    "roi": "ROI",
+    "roi_not_applicable": "Not applicable (incremental cost is not positive)",
     "detection_costs": "Detection-method cost comparison",
-    "section_loss": "Expected loss reduction",
+    "section_loss": "Net benefit, break-even, and sensitivity",
     "legend_low": "Low tier",
     "legend_middle": "Medium tier",
     "legend_high": "High tier",
     "current_input": "Current input",
-    "section_plans": "Three-tier treatment plans",
+    "section_plans": "Preset tiers and economic comparison",
     "current_density": "Current density",
     "avoided_loss": "Estimated crop loss avoided",
+    "preset_strategy": "Preset demonstration strategy",
+    "economic_best": "Highest net income under current parameters",
+    "option_profit": "Expected profit after testing",
+    "difference_from_preset": "Versus preset strategy",
+    "effect_scope": "Effect applicability",
+    "sensitivity": "One-way sensitivity of key parameters",
     "section_execution": "Implementation guidance",
     "implementation": "Implementation steps",
     "precautions": "Precautions",
@@ -262,6 +201,16 @@ def _signed_money(value: float, report: dict[str, Any]) -> str:
     )
 
 
+def _format_roi(value: float | None) -> str:
+    return "不适用" if value is None else f"{value:.2%}"
+
+
+def _format_roots(roots: list[float]) -> str:
+    if not roots:
+        return "文献密度范围内无严格零点；方案切换处另有收益跳变"
+    return "、".join(f"{value:.2f} J2/100 cm³" for value in roots)
+
+
 def _display_unit(text: str) -> str:
     """Use typographic superscripts in user-facing report text."""
 
@@ -269,118 +218,83 @@ def _display_unit(text: str) -> str:
 
 
 def _english_report(report: dict[str, Any]) -> dict[str, Any]:
-    """Return an English presentation view without changing report values."""
+    """Return the config-backed English view without changing numeric values."""
 
     localized = deepcopy(report)
+    translations = localized.pop("translations")
     localized["report_title"] = "Nematode Test-Strip Economic Benefit Simulation"
     localized["report_note"] = (
-        "This example simulates a grower using a pre-plant test strip to determine "
-        "nematode density, following the tiered treatment recommendation, and then "
-        "compares the resulting profit per hectare with the no-testing scenario."
+        "This example reports both the combined value of testing plus treatment "
+        "against no control and the conditional value of density-guided decisions "
+        "against uniform control."
     )
-    localized["scenario"].update(
-        {
-            "crop": "Protected tomato",
-            "country": "Spain",
-            "nematode": "Southern root-knot nematode (Meloidogyne incognita)",
-            "detection_timing": "Pre-plant testing",
-            "scenario_status": "Example scenario",
-        }
-    )
-    thresholds = localized["thresholds"]
-    thresholds["plain_language_note"] = (
-        f"Yield loss may begin above approximately "
-        f"{thresholds['expected_loss_begins_near']:g} J2/100 cm³ soil. To reflect "
-        f"literature uncertainty, this example begins dedicated treatment at "
-        f"{thresholds['action_from_density']:g} and switches to the high-tier plan "
-        f"at {thresholds['high_from_density']:g}."
-    )
+    localized["scenario"].update(translations["scenario"])
+    localized["scenario"]["scenario_status"] = "Example scenario"
+    localized["thresholds"]["plain_language_note"] = translations["threshold_note"]
     localized["economics"]["without_test_no_control"]["name"] = "No control treatment"
     localized["economics"]["without_test_uniform_control"].update(
-        {
-            "name": "Uniform control (fluopyram program)",
-            "note": (
-                "A uniform-control comparison constructed from the fluopyram cost "
-                "and nematode-reduction result reported by Talavera-Rubia et al. "
-                "(2022); it is not a survey of the most frequently used product in Spain."
-            ),
-        }
+        translations["uniform_control"]
     )
-
-    band_to_key = {"低": "low", "中": "middle", "高": "high"}
-    selected_key = band_to_key[report["diagnosis"]["band"]]
-    selected_text = ENGLISH_PLAN_TEXT[selected_key]
-    treatment_title, treatment_dose = _split_treatment_name(selected_text["name"])
-    localized["diagnosis"].update(
-        {
-            "band": selected_text["label"],
-            "treatment": selected_text["name"],
-            "treatment_title": treatment_title,
-            "treatment_dose": treatment_dose,
-        }
-    )
+    localized["diagnosis"].update(translations["diagnosis"])
     for plan in localized["treatment_options"]:
-        translated = ENGLISH_PLAN_TEXT[plan["key"]]
-        plan.update(
-            {
-                "label": translated["label"],
-                "name": translated["name"],
-                "overview": translated["overview"],
-                "actions": list(translated["actions"]),
-                "precautions": list(translated["precautions"]),
-            }
-        )
-
-    localized["loss_reduction_curve"].update(
-        {
-            "comparison": "Tiered treatment after testing versus no testing and no control",
-            "value_definition": "Expected value of crop loss avoided",
-        }
-    )
-    method_names = (
-        "Project test strip",
-        "Extraction followed by microscopy / morphological identification",
-        "PCR molecular identification",
-        "PCR / real-time PCR laboratory analysis",
-    )
-    for item, name in zip(
-        localized["detection_cost_comparison"]["items"], method_names
-    ):
-        item["method"] = name
-    localized["detection_cost_comparison"].update(
-        {
-            "price_summary": (
-                "Our team’s test strip costs approximately 68%–97% less than the "
-                "listed public laboratory fees and is simpler to operate."
-            ),
-            "comparison_basis": (
-                "Costs assume one representative sample submitted per hectare and "
-                "exclude sampling, shipping, tax, and additional preparation."
-            ),
-        }
-    )
+        plan.update(plan.pop("en"))
+    for item in localized["detection_cost_comparison"]["items"]:
+        item["method"] = item.pop("method_en")
+        item["basis"] = item.pop("basis_en")
+    localized["detection_cost_comparison"]["price_summary"] = localized[
+        "detection_cost_comparison"
+    ].pop("price_summary_en")
+    localized["detection_cost_comparison"]["comparison_basis"] = localized[
+        "detection_cost_comparison"
+    ].pop("comparison_basis_en")
+    for row in localized["sensitivity_analysis"]:
+        row["parameter"] = row.pop("parameter_en")
+        row["change"] = row.pop("change_en")
+    localized["assumptions"] = translations["assumptions"]
+    localized["source_note"] = translations["source_note"]
     return localized
 
 
-def _split_treatment_name(name: str) -> tuple[str, str]:
-    for dose in ("20,000 kg/ha", "0.375 L/ha"):
-        suffix = f" {dose}"
-        if name.endswith(suffix):
-            return name[: -len(suffix)], dose
-    return name, ""
-
-
-def _plan_payload(key: str, label: str, plan: Treatment, density_range: str) -> dict[str, Any]:
+def _plan_payload(
+    key: str,
+    label: str,
+    label_en: str,
+    plan: Treatment,
+    density_range: str,
+    outcome: Any,
+    result: Result,
+) -> dict[str, Any]:
     return {
         "key": key,
         "label": label,
         "density_range": density_range,
         "name": plan.name,
+        "application_rate": plan.application_rate,
         "cost_per_ha": plan.cost_per_ha,
         "expected_avoided_loss_fraction": plan.avoided_loss_fraction,
+        "effect_model": plan.effect_model,
+        "effect_reference_density": plan.effect_reference_density,
+        "population_reduction_fraction": plan.population_reduction_fraction,
+        "study_density_min": plan.study_density_min,
+        "study_density_max": plan.study_density_max,
+        "management_support_max": plan.management_support_max,
+        "effect_basis_note": _display_unit(plan.effect_basis_note),
         "overview": _display_unit(plan.plan_overview),
         "actions": [_display_unit(item) for item in plan.recommended_actions],
         "precautions": [_display_unit(item) for item in plan.precautions],
+        "net_income_with_test_per_ha": outcome.net_income_with_test,
+        "difference_from_preset_per_ha": outcome.difference_from_preset,
+        "is_preset": key == result.treatment_key,
+        "is_economic_best": key == result.economic_best_key,
+        "en": {
+            "label": label_en,
+            "name": plan.name_en,
+            "application_rate": plan.application_rate_en,
+            "effect_basis_note": _display_unit(plan.effect_basis_note_en),
+            "overview": _display_unit(plan.plan_overview_en),
+            "actions": [_display_unit(item) for item in plan.recommended_actions_en],
+            "precautions": [_display_unit(item) for item in plan.precautions_en],
+        },
     }
 
 
@@ -396,6 +310,104 @@ def _loss_reduction_at_density(density: float, model: Model) -> float:
     return gross_loss * guided_plan.avoided_loss_fraction
 
 
+def _discount_summary(test_cost: float, laboratory_costs: list[float]) -> tuple[str, str]:
+    discounts = [1.0 - test_cost / cost for cost in laboratory_costs if cost > 0]
+    if discounts and min(discounts) >= 0:
+        low = round(min(discounts) * 100)
+        high = round(max(discounts) * 100)
+        return (
+            f"本团队试纸成本比所列实验室公开收费低约{low}%–{high}%，且操作更为简便。",
+            f"Our team's test strip costs approximately {low}%–{high}% less than the listed public laboratory fees and is simpler to operate.",
+        )
+    return (
+        "当前试纸成本并非低于所有列示实验室收费，请逐项比较。",
+        "The current test-strip cost is not lower than every listed laboratory fee; compare the entries individually.",
+    )
+
+
+def _detection_cost_payload(model: Model) -> dict[str, Any]:
+    settings = model.detection_cost_comparison
+    laboratory_costs = [
+        method.fee_per_sample_eur * settings.samples_per_ha
+        for method in settings.methods
+    ]
+    summary, summary_en = _discount_summary(model.test_cost_per_ha, laboratory_costs)
+    items = [
+        {
+            "method": settings.project_method_name,
+            "method_en": settings.project_method_name_en,
+            "cost_per_ha": model.test_cost_per_ha,
+            "basis": "团队定价，EUR/ha",
+            "basis_en": "Team pricing assumption, EUR/ha",
+            "featured": True,
+        }
+    ]
+    for method, cost in zip(settings.methods, laboratory_costs):
+        items.append(
+            {
+                "method": method.name,
+                "method_en": method.name_en,
+                "cost_per_ha": cost,
+                "basis": method.basis,
+                "basis_en": method.basis_en,
+                "featured": False,
+            }
+        )
+    sample_text = f"{settings.samples_per_ha:g}份代表性样品"
+    sample_text_en = (
+        f"{settings.samples_per_ha:g} representative sample"
+        + ("" if settings.samples_per_ha == 1 else "s")
+    )
+    return {
+        "items": items,
+        "samples_per_ha": settings.samples_per_ha,
+        "price_summary": summary,
+        "price_summary_en": summary_en,
+        "comparison_basis": f"实验室费用按每公顷提交{sample_text}换算；{settings.excluded_costs}",
+        "comparison_basis_en": f"Laboratory fees assume {sample_text_en} submitted per hectare; {settings.excluded_costs_en}",
+    }
+
+
+def _replace_selected_treatment(
+    model: Model, key: str, treatment: Treatment
+) -> Model:
+    changes = {key: treatment}
+    if key == "middle":
+        changes["without_test"] = treatment
+    return replace(model, **changes)
+
+
+def _sensitivity_payload(model: Model, result: Result) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+
+    def add(parameter: str, parameter_en: str, change: str, change_en: str, scenario: Model) -> None:
+        scenario_result = evaluate(result.density, scenario)
+        rows.append(
+            {
+                "parameter": parameter,
+                "parameter_en": parameter_en,
+                "change": change,
+                "change_en": change_en,
+                "program_net_benefit_vs_no_control": scenario_result.program_net_benefit_vs_no_control,
+                "detection_net_benefit_vs_uniform": scenario_result.detection_net_benefit_vs_uniform,
+                "detection_worthwhile": scenario_result.detection_net_benefit_vs_uniform > 0,
+            }
+        )
+
+    for multiplier in model.sensitivity.test_cost_multipliers:
+        add("试纸成本", "Test-strip cost", f"×{multiplier:g}", f"×{multiplier:g}", replace(model, test_cost_per_ha=model.test_cost_per_ha * multiplier))
+    for multiplier in model.sensitivity.treatment_cost_multipliers:
+        plan = replace(result.treatment, cost_per_ha=result.treatment.cost_per_ha * multiplier)
+        add("当前处理成本", "Selected treatment cost", f"×{multiplier:g}", f"×{multiplier:g}", _replace_selected_treatment(model, result.treatment_key, plan))
+    for multiplier in model.sensitivity.efficacy_multipliers:
+        effect = min(1.0, result.treatment.avoided_loss_fraction * multiplier)
+        plan = replace(result.treatment, avoided_loss_fraction=effect, population_reduction_fraction=None, effect_reference_density=None)
+        add("固定避免损失比例", "Fixed loss-avoidance fraction", f"×{multiplier:g}", f"×{multiplier:g}", _replace_selected_treatment(model, result.treatment_key, plan))
+    for multiplier in model.sensitivity.crop_price_multipliers:
+        add("番茄价格", "Tomato price", f"×{multiplier:g}", f"×{multiplier:g}", replace(model, price_per_kg=model.price_per_kg * multiplier))
+    return rows
+
+
 def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
     potential_revenue = model.baseline_yield_kg_per_ha * model.price_per_kg
     without_test_no_control_residual_loss = result.gross_loss
@@ -405,9 +417,7 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
     with_test_residual_loss = result.gross_loss * (
         1.0 - result.treatment.avoided_loss_fraction
     )
-    sampled_densities = {
-        model.max_density * index / 200.0 for index in range(201)
-    }
+    sampled_densities = {model.max_density * index / 200.0 for index in range(201)}
     sampled_densities.update(
         {
             model.tolerance_density,
@@ -416,7 +426,7 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
             model.high_from_density - 1e-6,
             model.high_from_density,
             500.0,
-            759.0,
+            model.high.management_support_max or model.max_density,
         }
     )
     curve_points = []
@@ -427,16 +437,64 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
             {
                 "density": density,
                 "expected_reduced_loss_per_ha": _loss_reduction_at_density(density, model),
+                "program_net_benefit_vs_no_control": evaluate(
+                    density, model
+                ).program_net_benefit_vs_no_control,
+                "detection_net_benefit_vs_uniform": evaluate(
+                    density, model
+                ).detection_net_benefit_vs_uniform,
             }
         )
-
-    treatment_title, treatment_dose = _split_treatment_name(result.treatment.name)
+    no_control_roots, no_control_jumps = break_even_analysis(
+        model, baseline="no_control"
+    )
+    uniform_roots, uniform_jumps = break_even_analysis(
+        model, baseline="uniform_control"
+    )
+    outcome_by_key = {item.key: item for item in result.plan_outcomes}
+    plan_payloads = [
+        _plan_payload(
+            "low",
+            "低",
+            "Low",
+            model.low,
+            f"d < {model.middle_from_density:g}",
+            outcome_by_key["low"],
+            result,
+        ),
+        _plan_payload(
+            "middle",
+            "中",
+            "Medium",
+            model.middle,
+            f"{model.middle_from_density:g} ≤ d < {model.high_from_density:g}",
+            outcome_by_key["middle"],
+            result,
+        ),
+        _plan_payload(
+            "high",
+            "高",
+            "High",
+            model.high,
+            f"{model.high_from_density:g} ≤ d ≤ {model.max_density:g}",
+            outcome_by_key["high"],
+            result,
+        ),
+    ]
+    effect_scope_warning = (
+        result.treatment.study_density_min is not None
+        and result.density < result.treatment.study_density_min
+    ) or (
+        result.treatment.study_density_max is not None
+        and result.density > result.treatment.study_density_max
+    )
+    management_max = model.high.management_support_max
     return {
-        "schema_version": 7,
+        "schema_version": 8,
         "report_title": "线虫检测试纸经济效益模拟报告",
         "report_note": (
             "模拟用户在种植前使用试纸获得线虫密度，并根据试纸给出的分级防治建议采取相应措施后，"
-            "相比未检测情况单位面积利润发生的变化。"
+            "分别比较整套检测与防治项目相对无防治的收益，以及检测分级相对统一处理的条件增量价值。"
         ),
         "scenario": {
             "crop": model.crop,
@@ -448,6 +506,37 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
             "currency": model.currency,
             "scenario_status": "示例场景",
         },
+        "translations": {
+            "scenario": {
+                "crop": model.crop_en,
+                "country": model.country_en,
+                "nematode": model.nematode_en,
+                "detection_timing": model.detection_timing_en,
+            },
+            "threshold_note": (
+                f"Yield loss may begin above approximately {model.tolerance_density:g} J2/100 cm³ soil. "
+                f"The fixed {model.middle_from_density:g}/{model.high_from_density:g} thresholds form a preset demonstration policy, not an economic optimiser."
+            ),
+            "uniform_control": {
+                "name": model.without_test.name_en,
+                "note": _display_unit(model.without_test.evidence_note_en),
+            },
+            "diagnosis": {
+                "band": {"低": "Low", "中": "Medium", "高": "High"}[result.band],
+                "treatment": result.treatment.name_en,
+                "treatment_title": result.treatment.name_en,
+                "treatment_dose": result.treatment.application_rate_en,
+                "economic_best_treatment": result.economic_best_treatment.name_en,
+            },
+            "assumptions": {
+                "test_cost": "Test-strip cost is a team pricing assumption, not an observed market price.",
+                "known_density": "Input density is treated as known and accurate; detection limit, sensitivity, specificity, sampling error, and misclassification are not modelled.",
+                "fixed_effect": _display_unit(result.treatment.effect_basis_note_en),
+                "cross_study": _display_unit(model.source_note_en),
+                "conditional_value": "The comparison with uniform control is conditional on the current density. Without a prior density distribution and test error, it is not an ex-ante expected value of information.",
+            },
+            "source_note": _display_unit(model.source_note_en),
+        },
         "input": {
             "density": result.density,
             "within_literature_density_range": result.density <= model.max_density,
@@ -456,12 +545,13 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
             "expected_loss_begins_near": model.tolerance_density,
             "action_from_density": model.middle_from_density,
             "high_from_density": model.high_from_density,
-            "biosolarization_supported_to": 759.0,
+            "biosolarization_supported_to": management_max,
             "maximum_supported_density": model.max_density,
             "plain_language_note": (
                 f"约{model.tolerance_density:g} J2/100 cm³以上可能开始出现损失；"
                 f"本示例考虑文献不确定性后，从{model.middle_from_density:g}开始给出"
                 f"专项处理建议，并在{model.high_from_density:g}以上切换到高等级方案。"
+                "这些阈值是预设演示策略，不会随成本或防效自动优化。"
             ),
         },
         "economics": {
@@ -486,8 +576,8 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
         "diagnosis": {
             "band": result.band,
             "treatment": result.treatment.name,
-            "treatment_title": treatment_title,
-            "treatment_dose": treatment_dose,
+            "treatment_title": result.treatment.name,
+            "treatment_dose": result.treatment.application_rate,
             "treatment_cost_per_ha": result.treatment.cost_per_ha,
             "expected_avoided_loss_fraction": result.treatment.avoided_loss_fraction,
             "relative_yield_fraction": result.relative_yield_fraction,
@@ -507,44 +597,54 @@ def build_diagnostic_report(model: Model, result: Result) -> dict[str, Any]:
                 result.net_income_without_test_uniform
             ),
             "net_income_with_test_per_ha": result.net_income_with_test,
-            "profit_change_per_ha": result.incremental_net_benefit,
+            "profit_change_per_ha": result.detection_net_benefit_vs_uniform,
+            "program_incremental_cost_vs_no_control": result.program_incremental_cost_vs_no_control,
+            "program_net_benefit_vs_no_control": result.program_net_benefit_vs_no_control,
+            "program_roi_vs_no_control": result.program_roi_vs_no_control,
+            "detection_incremental_cost_vs_uniform": result.detection_incremental_cost_vs_uniform,
+            "detection_net_benefit_vs_uniform": result.detection_net_benefit_vs_uniform,
+            "detection_roi_vs_uniform": result.detection_roi_vs_uniform,
+            "economic_best_key": result.economic_best_key,
+            "economic_best_treatment": result.economic_best_treatment.name,
+            "economic_best_net_income_per_ha": result.economic_best_net_income,
+            "preset_opportunity_cost_per_ha": result.preset_opportunity_cost,
             "expected_reduced_loss_per_ha": (
                 without_test_no_control_residual_loss - with_test_residual_loss
             ),
             "expected_reduced_loss_fraction": result.treatment.avoided_loss_fraction,
-            "above_biosolarization_support": result.density > 759.0,
+            "effect_scope_warning": effect_scope_warning,
+            "above_biosolarization_support": bool(
+                management_max is not None and result.density > management_max
+            ),
         },
-        "loss_reduction_curve": {
-            "comparison": "检测分级处理相对于未检测且未采取防治手段",
-            "value_definition": "预计减少的作物损失金额",
+        "net_benefit_curve": {
+            "comparison_no_control": "检测并按预设策略处理 vs 未采取防治",
+            "comparison_uniform": "检测并按预设策略处理 vs 未检测统一处理",
+            "value_definition": "扣除检测与处理成本后的净收益",
             "points": curve_points,
         },
-        "detection_cost_comparison": {
-            "items": [dict(item) for item in DETECTION_COST_COMPARISON],
-            "price_summary": (
-                "本团队试纸成本比所列实验室公开收费低约68%–97%，且操作更为简便。"
-            ),
-            "comparison_basis": (
-                "成本按每公顷提交1份代表性样品计算，且未计采样、寄送、税费或额外前处理。"
-            ),
+        "break_even": {
+            "program_vs_no_control": {
+                "baseline": "未采取防治",
+                "roots": no_control_roots,
+                "threshold_jumps": no_control_jumps,
+            },
+            "detection_vs_uniform": {
+                "baseline": "未检测统一处理",
+                "roots": uniform_roots,
+                "threshold_jumps": uniform_jumps,
+            },
         },
-        "treatment_options": [
-            _plan_payload(
-                "low", "低", model.low, f"d < {model.middle_from_density:g}"
-            ),
-            _plan_payload(
-                "middle",
-                "中",
-                model.middle,
-                f"{model.middle_from_density:g} ≤ d < {model.high_from_density:g}",
-            ),
-            _plan_payload(
-                "high",
-                "高",
-                model.high,
-                f"{model.high_from_density:g} ≤ d ≤ {model.max_density:g}",
-            ),
-        ],
+        "detection_cost_comparison": _detection_cost_payload(model),
+        "sensitivity_analysis": _sensitivity_payload(model, result),
+        "treatment_options": plan_payloads,
+        "assumptions": {
+            "test_cost": "试纸成本为团队定价，不是公开市场实测售价。",
+            "known_density": "输入线虫密度被视为已知且准确；本模型未计检出限、灵敏度、特异性、采样误差和误分级。",
+            "fixed_effect": _display_unit(result.treatment.effect_basis_note),
+            "cross_study": _display_unit(model.source_note),
+            "conditional_value": "相对统一处理的结果是给定当前密度后的条件增量价值；没有密度先验分布和检测误差时，不能解释为种植前的期望信息价值。",
+        },
         "references": list(REFERENCES),
         "source_note": _display_unit(model.source_note),
     }
@@ -561,34 +661,51 @@ def format_text_report(report: dict[str, Any]) -> str:
         report["report_note"],
         f"标签：示例场景；{s['country']}；{s['crop']}；{s['nematode']}；{s['currency']}/{s['area_unit']}",
         "",
-        "一、使用试纸后的利润变化",
+        "一、两种收益比较",
         f"  检测密度：{report['input']['density']:g} {s['density_unit']}",
         f"  如不采取防治手段，预计产量损失：{d['yield_loss_fraction']:.2%}",
         f"  处理建议：{d['band']}等级；{d['treatment']}",
         f"  未检测且未采取防治手段的预计利润：{_money(d['net_income_without_test_no_control_per_ha'], report)}",
         f"  未检测但采用统一处理的预计利润：{_money(d['net_income_without_test_uniform_per_ha'], report)}",
         f"  使用试纸后的预计利润：{_money(d['net_income_with_test_per_ha'], report)}",
-        f"  使用试纸后的预计利润变化：{_signed_money(d['profit_change_per_ha'], report)}",
+        f"  整套检测与防治项目净收益（相对未采取防治）：{_signed_money(d['program_net_benefit_vs_no_control'], report)}",
+        f"    增量成本：{_signed_money(d['program_incremental_cost_vs_no_control'], report)}；ROI：{_format_roi(d['program_roi_vs_no_control'])}",
+        f"  检测信息与分级决策的条件增量价值（相对未检测统一处理）：{_signed_money(d['detection_net_benefit_vs_uniform'], report)}",
+        f"    增量成本：{_signed_money(d['detection_incremental_cost_vs_uniform'], report)}；ROI：{_format_roi(d['detection_roi_vs_uniform'])}",
         "",
-        "  检测成本对比（按1份代表性样品/ha的演示口径）",
+        f"  检测成本对比（每公顷{report['detection_cost_comparison']['samples_per_ha']:g}份代表性样品）",
         *(
             f"  - {item['method']}：{item['cost_per_ha']:.2f} EUR/ha（{item['basis']}）"
             for item in report["detection_cost_comparison"]["items"]
         ),
         f"  {report['detection_cost_comparison']['comparison_basis']}",
         "",
-        "二、阈值说明",
+        "二、净收益、盈亏平衡与敏感性",
         f"  {t['plain_language_note']}",
-        "  损失的减少来自依据检测结果调整处理方案，不是试纸本身直接防治线虫。",
+        "  整套项目收益不能全部归因于检测；检测的条件增量价值使用统一处理作为基线。",
+        f"  相对无防治的严格盈亏平衡密度：{_format_roots(report['break_even']['program_vs_no_control']['roots'])}",
+        "  相对无防治的分级阈值收益跳变："
+        + "; ".join(
+            f"{threshold:g} J2/100 cm³：{_signed_money(left, report)} → {_signed_money(right, report)}"
+            for threshold, left, right in report["break_even"]["program_vs_no_control"]["threshold_jumps"]
+        ),
+        f"  相对统一处理的严格盈亏平衡密度：{_format_roots(report['break_even']['detection_vs_uniform']['roots'])}",
+        "  相对统一处理的分级阈值收益跳变："
+        + "; ".join(
+            f"{threshold:g} J2/100 cm³：{_signed_money(left, report)} → {_signed_money(right, report)}"
+            for threshold, left, right in report["break_even"]["detection_vs_uniform"]["threshold_jumps"]
+        ),
         "",
-        "三、三级处理方案",
+        "三、预设分级与经济比较",
     ]
     for plan in report["treatment_options"]:
         selected = "【当前密度】" if plan["label"] == d["band"] else ""
         lines.append(
             f"  {plan['label']}等级 {selected} {plan['density_range']}：{plan['name']}；"
             f"成本={_money(plan['cost_per_ha'], report)}；"
-            f"预计避免作物损失={plan['expected_avoided_loss_fraction']:.2%}"
+            f"预计避免作物损失={plan['expected_avoided_loss_fraction']:.2%}；"
+            f"检测后预计利润={_money(plan['net_income_with_test_per_ha'], report)}；"
+            f"相对预设方案={_signed_money(plan['difference_from_preset_per_ha'], report)}"
         )
     lines.extend(["", "四、执行建议"])
     selected_plan = next(
@@ -598,125 +715,118 @@ def format_text_report(report: dict[str, Any]) -> str:
     lines.append(f"    {selected_plan['overview']}")
     lines.extend(f"    - {item}" for item in selected_plan["actions"])
     lines.extend(f"    - 注意：{item}" for item in selected_plan["precautions"])
+    lines.append(f"    - 效果换算：{selected_plan['effect_basis_note']}")
+    lines.extend(["", "  关键假设"])
+    lines.extend(f"    - {value}" for value in report["assumptions"].values())
     lines.extend(["", "五、参考文献"])
     for index, item in enumerate(report["references"], 1):
         lines.append(f"  [{index}] {item['citation']} {item['url']}")
     return "\n".join(lines) + "\n"
 
 
-def _loss_reduction_curve_svg(
+def _net_benefit_curve_svg(
     report: dict[str, Any], *, language: str = "zh-CN"
 ) -> str:
-    points_data = report["loss_reduction_curve"]["points"]
-    thresholds = report["thresholds"]
-    diagnosis = report["diagnosis"]
-    input_density = report["input"]["density"]
-    width, height = 900.0, 310.0
-    left, right, top, bottom = 76.0, 24.0, 20.0, 48.0
-    plot_w, plot_h = width - left - right, height - top - bottom
-    chart_max_density = 500.0
-    visible_points = [
-        point for point in points_data if point["density"] <= chart_max_density
+    points = [
+        point
+        for point in report["net_benefit_curve"]["points"]
+        if point["density"] <= 500.0
     ]
-    current_is_visible = input_density <= chart_max_density
-    current_value = diagnosis["expected_reduced_loss_per_ha"]
-    values = [point["expected_reduced_loss_per_ha"] for point in visible_points]
-    raw_max = max(values + ([current_value] if current_is_visible else []) + [1.0])
-    raw_step = raw_max / 4.0
+    input_density = report["input"]["density"]
+    diagnosis = report["diagnosis"]
+    width, height = 900.0, 330.0
+    left, right, top, bottom = 82.0, 24.0, 20.0, 50.0
+    plot_w, plot_h = width - left - right, height - top - bottom
+    values = [
+        value
+        for point in points
+        for value in (
+            point["program_net_benefit_vs_no_control"],
+            point["detection_net_benefit_vs_uniform"],
+        )
+    ]
+    max_abs = max([abs(value) for value in values] + [1.0])
+    raw_step = max_abs / 2.0
     magnitude = 10.0 ** math.floor(math.log10(raw_step))
-    normalized_step = raw_step / magnitude
-    if normalized_step <= 1.0:
-        tick_step = magnitude
-    elif normalized_step <= 2.0:
-        tick_step = 2.0 * magnitude
-    elif normalized_step <= 5.0:
-        tick_step = 5.0 * magnitude
-    else:
-        tick_step = 10.0 * magnitude
-    y_min, y_max = 0.0, tick_step * 4.0
+    normalized = raw_step / magnitude
+    step = magnitude if normalized <= 1 else 2 * magnitude if normalized <= 2 else 5 * magnitude if normalized <= 5 else 10 * magnitude
+    axis_max = step * 2.0
+    axis_min = -axis_max
 
     def sx(value: float) -> float:
-        return left + plot_w * value / chart_max_density
+        return left + plot_w * value / 500.0
 
     def sy(value: float) -> float:
-        return top + plot_h * (y_max - value) / (y_max - y_min)
+        return top + plot_h * (axis_max - value) / (axis_max - axis_min)
 
-    zones = (
-        (0.0, thresholds["action_from_density"], "#e8f5ed"),
-        (thresholds["action_from_density"], thresholds["high_from_density"], "#fff4d6"),
-        (thresholds["high_from_density"], chart_max_density, "#fbe9e5"),
-    )
-    zone_markup = "".join(
-        f'<rect x="{sx(start):.2f}" y="{top:.2f}" width="{sx(end)-sx(start):.2f}" '
-        f'height="{plot_h:.2f}" fill="{colour}" />'
-        for start, end, colour in zones
-    )
-    bands = (
-        [point for point in visible_points if point["density"] < thresholds["action_from_density"]],
-        [
-            point
-            for point in visible_points
-            if thresholds["action_from_density"] <= point["density"] < thresholds["high_from_density"]
-        ],
-        [point for point in visible_points if point["density"] >= thresholds["high_from_density"]],
-    )
-    polylines = "".join(
-        '<polyline points="{}" fill="none" stroke="#176744" stroke-width="3" '
-        'stroke-linejoin="round" stroke-linecap="round" />'.format(
-            " ".join(
-                f"{sx(point['density']):.2f},{sy(point['expected_reduced_loss_per_ha']):.2f}"
-                for point in band
-            )
-        )
-        for band in bands
-        if len(band) >= 2
-    )
     grid = []
-    for index in range(5):
-        value = y_min + (y_max - y_min) * index / 4.0
+    for value in (axis_min, -axis_max / 2, 0.0, axis_max / 2, axis_max):
         y = sy(value)
         grid.append(
-            f'<line x1="{left}" y1="{y:.2f}" x2="{width-right}" y2="{y:.2f}" '
-            'stroke="#dbe4de" stroke-width="1" />'
+            f'<line x1="{left}" y1="{y:.2f}" x2="{width-right}" y2="{y:.2f}" stroke="#dbe4de" stroke-width="1" />'
             f'<text x="{left-10}" y="{y+4:.2f}" text-anchor="end">{value:,.0f}</text>'
         )
     x_ticks = []
-    for tick in (0.0, 10.0, 50.0, 80.0, 150.0, 300.0, chart_max_density):
-        x = sx(tick)
+    for tick in (0.0, 10.0, 50.0, 80.0, 150.0, 300.0, 500.0):
         x_ticks.append(
-            f'<line x1="{x:.2f}" y1="{height-bottom}" x2="{x:.2f}" y2="{height-bottom+5}" '
-            'stroke="#617269" />'
-            f'<text x="{x:.2f}" y="{height-bottom+21}" text-anchor="middle">{tick:g}</text>'
+            f'<text x="{sx(tick):.2f}" y="{height-bottom+22}" text-anchor="middle">{tick:g}</text>'
         )
-    zero_y = sy(0.0)
-    marker_x, marker_y = sx(min(input_density, chart_max_density)), sy(current_value)
-    marker_markup = (
-        f'<circle cx="{marker_x:.2f}" cy="{marker_y:.2f}" r="5" fill="#ffffff" '
-        'stroke="#253b33" stroke-width="3" />'
-        if current_is_visible
-        else ""
+    thresholds = report["thresholds"]
+    zones = (
+        (0.0, thresholds["action_from_density"], "#e8f5ed"),
+        (thresholds["action_from_density"], thresholds["high_from_density"], "#fff4d6"),
+        (thresholds["high_from_density"], 500.0, "#fbe9e5"),
     )
+    zone_markup = "".join(
+        f'<rect x="{sx(start):.2f}" y="{top:.2f}" width="{sx(end)-sx(start):.2f}" height="{plot_h:.2f}" fill="{colour}" />'
+        for start, end, colour in zones
+    )
+
+    def polyline(field: str, colour: str) -> str:
+        bands = (
+            [p for p in points if p["density"] < thresholds["action_from_density"]],
+            [p for p in points if thresholds["action_from_density"] <= p["density"] < thresholds["high_from_density"]],
+            [p for p in points if p["density"] >= thresholds["high_from_density"]],
+        )
+        parts = []
+        for band in bands:
+            if len(band) < 2:
+                continue
+            coordinates = " ".join(
+                f"{sx(point['density']):.2f},{sy(point[field]):.2f}"
+                for point in band
+            )
+            parts.append(
+                f'<polyline points="{coordinates}" fill="none" stroke="{colour}" '
+                'stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" />'
+            )
+        return "".join(parts)
+
+    markers = ""
+    if input_density <= 500.0:
+        x = sx(input_density)
+        for value, colour in (
+            (diagnosis["program_net_benefit_vs_no_control"], "#176744"),
+            (diagnosis["detection_net_benefit_vs_uniform"], "#b76518"),
+        ):
+            markers += f'<circle cx="{x:.2f}" cy="{sy(value):.2f}" r="4.5" fill="#fff" stroke="{colour}" stroke-width="2.5" />'
     if language == "en":
-        aria_label = "Nematode density and expected crop-loss reduction after testing"
-        x_axis_label = "Nematode density (J2/100 cm³ soil)"
-        y_axis_label = "Expected loss reduction (EUR/ha)"
+        aria = "Net benefit of test-guided treatment against two baselines"
+        x_label = "Nematode density (J2/100 cm³ soil)"
+        y_label = "Net benefit after costs (EUR/ha)"
     else:
-        aria_label = "线虫密度与根据检测建议预计减少的损失"
-        x_axis_label = "线虫密度（J2/100 cm³ soil）"
-        y_axis_label = "预计减少的损失（EUR/ha）"
+        aria = "检测后预设分级处理相对两种基线的净收益"
+        x_label = "线虫密度（J2/100 cm³ soil）"
+        y_label = "扣除成本后的净收益（EUR/ha）"
     return f"""
-<svg class="loss-chart" viewBox="0 0 {width:g} {height:g}" role="img"
- aria-label="{aria_label}">
-  {zone_markup}
-  {''.join(grid)}
-  {''.join(x_ticks)}
-  <line x1="{left}" y1="{zero_y:.2f}" x2="{width-right}" y2="{zero_y:.2f}"
-   stroke="#617269" stroke-width="1.4" />
-  {polylines}
-  {marker_markup}
-  <text x="{left + plot_w/2:.2f}" y="{height-2}" text-anchor="middle">{x_axis_label}</text>
-  <text x="17" y="{top+plot_h/2:.2f}" text-anchor="middle"
-   transform="rotate(-90 17 {top+plot_h/2:.2f})">{y_axis_label}</text>
+<svg class="loss-chart" viewBox="0 0 {width:g} {height:g}" role="img" aria-label="{aria}">
+  {zone_markup}{''.join(grid)}{''.join(x_ticks)}
+  <line x1="{left}" y1="{sy(0):.2f}" x2="{width-right}" y2="{sy(0):.2f}" stroke="#617269" stroke-width="1.5" />
+  {polyline('program_net_benefit_vs_no_control', '#176744')}
+  {polyline('detection_net_benefit_vs_uniform', '#b76518')}
+  {markers}
+  <text x="{left + plot_w/2:.2f}" y="{height-2}" text-anchor="middle">{x_label}</text>
+  <text x="17" y="{top+plot_h/2:.2f}" text-anchor="middle" transform="rotate(-90 17 {top+plot_h/2:.2f})">{y_label}</text>
 </svg>"""
 
 
@@ -733,46 +843,50 @@ def format_html_report(
     d = report["diagnosis"]
     e = report["economics"]
     t = report["thresholds"]
+    colon = ":" if english else "："
     profit_class = "gain" if d["profit_change_per_ha"] >= 0 else "loss"
 
     def plan_name_markup(plan: dict[str, Any]) -> str:
-        if english and plan["key"] in {"middle", "high"}:
-            title, dose = _split_treatment_name(plan["name"])
-            if dose:
-                return (
-                    f"{html.escape(title)}"
-                    f'<span class="plan-dose">{html.escape(dose)}</span>'
-                )
-        return html.escape(plan["name"])
+        rate = plan.get("application_rate", "")
+        return html.escape(plan["name"]) + (
+            f'<span class="plan-dose">{html.escape(rate)}</span>' if rate else ""
+        )
+
+    def roi_text(value: float | None) -> str:
+        return ui["roi_not_applicable"] if value is None else f"{value:.2%}"
 
     treatment_cards = "".join(
-        f"""<article class="plan-card {'selected' if plan['label'] == d['band'] else ''}">
-          {f'<span class="current-tag">{ui["current_density"]}</span>' if plan['label'] == d['band'] else ''}
+        f"""<article class="plan-card {'selected' if plan['is_preset'] else ''}">
+          {f'<span class="current-tag">{ui["current_density"]}</span>' if plan['is_preset'] else ''}
           <div class="plan-heading"><span class="grade grade-{plan['key']}">{plan['label']}</span>
           <span class="range">{html.escape(plan['density_range'])}</span></div>
           <h3>{plan_name_markup(plan)}</h3>
           <div class="plan-metrics"><span>{ui['treatment_cost']} <b>{_money(plan['cost_per_ha'], report)}</b></span>
-          <span>{ui['avoided_loss']} <b>{plan['expected_avoided_loss_fraction']:.2%}</b></span></div>
+          <span>{ui['avoided_loss']} <b>{plan['expected_avoided_loss_fraction']:.2%}</b></span>
+          <span>{ui['option_profit']} <b>{_money(plan['net_income_with_test_per_ha'], report)}</b></span>
+          <span>{ui['difference_from_preset']} <b>{_signed_money(plan['difference_from_preset_per_ha'], report)}</b></span></div>
+          <div class="plan-flags">{'<span>'+ui['preset_strategy']+'</span>' if plan['is_preset'] else ''}{'<span>'+ui['economic_best']+'</span>' if plan['is_economic_best'] else ''}</div>
         </article>"""
         for plan in report["treatment_options"]
     )
     execution_cards = "".join(
         f"""<article class="execution-card">
           <div class="execution-title"><span class="grade grade-{plan['key']}">{plan['label']}</span>
-          <div><h3>{html.escape(plan['name'])}</h3><span>{html.escape(plan['density_range'])}</span></div></div>
+          <div><h3>{plan_name_markup(plan)}</h3><span>{html.escape(plan['density_range'])}</span></div></div>
           <p>{html.escape(plan['overview'])}</p>
           <div class="expected">{ui['avoided_loss']}: <strong>{plan['expected_avoided_loss_fraction']:.2%}</strong>
           · {ui['treatment_cost']}: <strong>{_money(plan['cost_per_ha'], report)}</strong></div>
+          <div class="plain-note"><strong>{ui['effect_scope']}：</strong>{html.escape(plan['effect_basis_note'])}</div>
           <h4>{ui['implementation']}</h4><ul>{''.join(f'<li>{html.escape(item)}</li>' for item in plan['actions'])}</ul>
           <h4>{ui['precautions']}</h4><ul>{''.join(f'<li>{html.escape(item)}</li>' for item in plan['precautions'])}</ul>
         </article>"""
         for plan in report["treatment_options"]
-        if plan["label"] == d["band"]
+        if plan["is_preset"]
     )
     cost_cards = "".join(
         f"""<article class="cost-card {'featured' if item['featured'] else ''}">
           <div class="cost-method">{html.escape(item['method'])}</div>
-          <div class="cost-value">{item['cost_per_ha']:,.2f} EUR/ha</div>
+          <div class="cost-value">{_money(item['cost_per_ha'], report)}</div>
         </article>"""
         for item in report["detection_cost_comparison"]["items"]
     )
@@ -781,11 +895,52 @@ def format_html_report(
         f'rel="noopener noreferrer">{html.escape(item["citation"])}</a></li>'
         for item in report["references"]
     )
+    sensitivity_rows = "".join(
+        f"<tr><td>{html.escape(row['parameter'])}</td><td>{html.escape(row['change'])}</td>"
+        f"<td>{_signed_money(row['program_net_benefit_vs_no_control'], report)}</td>"
+        f"<td>{_signed_money(row['detection_net_benefit_vs_uniform'], report)}</td>"
+        f"<td>{'Yes' if english and row['detection_worthwhile'] else 'No' if english else '是' if row['detection_worthwhile'] else '否'}</td></tr>"
+        for row in report["sensitivity_analysis"]
+    )
+    def root_text(roots: list[float]) -> str:
+        if roots:
+            return ", ".join(f"{value:.2f} J2/100 cm³" for value in roots)
+        return (
+            "No strict zero within the literature density range; inspect threshold jumps."
+            if english
+            else "文献密度范围内无严格零点；需同时查看固定分级切换造成的收益跳变。"
+        )
+
+    def jump_text(jumps: list[list[float]] | list[tuple[float, float, float]]) -> str:
+        if not jumps:
+            return "None" if english else "无"
+        return "; ".join(
+            f"{threshold:g} J2/100 cm³: {_signed_money(left, report)} → {_signed_money(right, report)}"
+            for threshold, left, right in jumps
+        )
+
+    program_break_even = root_text(
+        report["break_even"]["program_vs_no_control"]["roots"]
+    )
+    detection_break_even = root_text(
+        report["break_even"]["detection_vs_uniform"]["roots"]
+    )
+    program_jumps = jump_text(
+        report["break_even"]["program_vs_no_control"]["threshold_jumps"]
+    )
+    detection_jumps = jump_text(
+        report["break_even"]["detection_vs_uniform"]["threshold_jumps"]
+    )
     if english:
+        effect_warning = (
+            f'<div class="alert"><strong>Effect extrapolation:</strong> The current density is outside the source study density support recorded for this treatment. The fixed loss-avoidance fraction is retained only as a demonstration assumption.</div>'
+            if d["effect_scope_warning"]
+            else ""
+        )
         high_warning = (
             "<div class=\"alert danger\"><strong>High-density note:</strong> "
-            "The current input exceeds approximately 759 J2/100 cm³ soil. "
-            "Single-treatment biosolarization is beyond the tomato economic-management "
+            f"The current input exceeds approximately {t['biosolarization_supported_to']:g} J2/100 cm³ soil. "
+            "The selected high-tier treatment is beyond the tomato economic-management "
             "range estimated in the source study; also assess resistant rootstocks, "
             "crop rotation, or a change of crop.</div>"
             if d["above_biosolarization_support"]
@@ -797,16 +952,12 @@ def format_html_report(
             else "The current input is beyond the displayed x-axis range, so no dot is shown."
         )
         chart_note = (
-            "The curve uses ‘no testing and no control’ as its baseline. The y-axis "
-            "shows the monetary value of crop loss expected to be avoided by following "
-            f"the test-strip recommendation. The current input is "
-            f"{report['input']['density']:g} J2/100 cm³ soil, corresponding to an "
-            f"expected crop-loss reduction of {_money(d['expected_reduced_loss_per_ha'], report)}. "
-            f"{chart_current_note} To show the low- and medium-density regions clearly, "
-            "the x-axis ends at 500 J2/100 cm³ soil. Yield loss may begin above "
-            f"approximately {t['expected_loss_begins_near']:g}; this example begins "
-            f"dedicated treatment at {t['action_from_density']:g} and switches to the "
-            f"high tier at {t['high_from_density']:g}."
+            "The green curve is the net benefit of the combined testing-and-control program "
+            "against no control. The amber curve is the conditional incremental value of "
+            "density-guided testing against uniform control. Both deduct test and treatment "
+            f"costs. {chart_current_note} The x-axis ends at 500 J2/100 cm³ soil. "
+            "The fixed tier changes create discontinuities; they are not automatically "
+            "re-optimised when cost or efficacy parameters change."
         )
         language_css = """
 body{font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.6}
@@ -828,9 +979,14 @@ h2{font-size:1.45rem}h3{font-size:1rem}
 @media(max-width:520px){.summary-card .label,.summary-notes>.muted,.calc-table td:first-child{white-space:normal}.sub-strategy h3,.cost-method,.plan-card h3{min-height:0}}
 """
     else:
+        effect_warning = (
+            '<div class="alert"><strong>防效外推提示：</strong>当前密度不在配置记录的该处理来源研究密度支持范围内；报告仍使用固定避免损失比例，仅作为演示假设。</div>'
+            if d["effect_scope_warning"]
+            else ""
+        )
         high_warning = (
-            "<div class=\"alert danger\"><strong>高密度提示：</strong>本次输入超过约759 J2/100 cm³。"
-            "单项生物太阳能消毒超出文献估算的番茄经济管理范围，应同时评估抗性砧木、轮作或调整作物。</div>"
+            f"<div class=\"alert danger\"><strong>高密度提示：</strong>本次输入超过约{t['biosolarization_supported_to']:g} J2/100 cm³。"
+            "当前高等级方案超出文献估算的番茄经济管理范围，应同时评估抗性砧木、轮作或调整作物。</div>"
             if d["above_biosolarization_support"]
             else ""
         )
@@ -840,13 +996,9 @@ h2{font-size:1.45rem}h3{font-size:1rem}
             else "本次输入超过横轴显示范围，因此图中不标记数据点。"
         )
         chart_note = (
-            "曲线以“未检测且未采取防治手段”为比较基线，纵轴表示按试纸建议处理后预计减少的作物损失金额。"
-            f"本次输入为{report['input']['density']:g} J2/100 cm³，对应预计减少作物损失"
-            f"{_money(d['expected_reduced_loss_per_ha'], report)}。{chart_current_note}"
-            "为清楚展示中低密度变化，横轴显示至500 J2/100 cm³。"
-            f"约{t['expected_loss_begins_near']:g}以上可能开始出现损失，本示例从"
-            f"{t['action_from_density']:g}开始给出专项处理建议，在"
-            f"{t['high_from_density']:g}以上切换至高等级方案。"
+            "绿色曲线表示整套检测与防治项目相对无防治的净收益；棕色曲线表示检测分级相对未检测统一处理的条件增量价值。"
+            f"两条曲线均已扣除检测和处理成本。{chart_current_note}为清楚展示中低密度变化，横轴显示至500 J2/100 cm³。"
+            "固定分级切换会造成曲线跳变；成本或防效变化时，预设阈值不会自动重新优化。"
         )
         language_css = ""
     timing_tag = s["detection_timing"] if english else f"{s['detection_timing']}检测"
@@ -882,6 +1034,7 @@ h2{{font-size:1.55rem;line-height:1.35;margin:0;color:#163e30}} h3{{font-size:1.
 .calc-table{{width:100%;border-collapse:collapse;margin-top:12px;font-size:.86rem;line-height:1.5}} .calc-table td{{vertical-align:top;border-bottom:1px dashed var(--line);padding:7px 0}} .calc-table td:first-child{{padding-right:12px}} .calc-table td:last-child{{text-align:right;white-space:nowrap;font-weight:650;font-variant-numeric:tabular-nums}}
 .delta{{margin-top:16px;padding:17px 19px;border-radius:14px;background:#edf7f1;display:flex;justify-content:space-between;gap:18px;align-items:center}}
 .delta span{{line-height:1.5}} .delta strong{{font-size:1.35rem;line-height:1.25;white-space:nowrap;font-variant-numeric:tabular-nums}} .gain{{color:var(--green)}} .loss{{color:var(--red)}}
+.comparison-grid{{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}} .comparison-card{{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#f8fbf9}} .comparison-card h3{{margin:0 0 8px}} .comparison-value{{font-size:1.35rem;font-weight:850;font-variant-numeric:tabular-nums}} .comparison-meta{{display:grid;gap:3px;margin-top:8px;color:var(--muted);font-size:.82rem}}
 .subsection-title{{margin:24px 0 12px;color:#315b4b}} .cost-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}}
 .cost-card{{min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}} .cost-card.featured{{border:2px solid var(--green);background:#f2f8f4}}
 .cost-method{{min-height:3em;font-weight:800;line-height:1.5}} .cost-value{{font-size:1.25rem;font-weight:800;line-height:1.35;letter-spacing:-.015em;white-space:nowrap;margin:.45rem 0 0;font-variant-numeric:tabular-nums}} .cost-footnote{{margin-top:5px;font-size:.78rem;color:var(--muted)}}
@@ -893,11 +1046,13 @@ h2{{font-size:1.55rem;line-height:1.35;margin:0;color:#163e30}} h3{{font-size:1.
 .plan-heading{{display:flex;align-items:center;justify-content:space-between;gap:8px}} .plan-heading h3{{margin:0}} .grade{{display:grid;place-items:center;min-width:34px;height:34px;padding:0 9px;border-radius:9px;font-weight:900}}
 .grade-low{{background:#e1f2e8;color:#176744}} .grade-middle{{background:#fff0c9;color:#966015}} .grade-high{{background:#f8ded8;color:#923d2c}} .range{{font-family:"Cascadia Code",Consolas,monospace;font-size:.78rem;color:var(--muted)}}
 .plan-metrics{{display:grid;gap:5px;margin:.8rem 0;color:var(--muted);font-size:.86rem}} .plan-metrics b{{color:var(--ink)}}
+.plan-flags{{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}} .plan-flags span{{font-size:.68rem;font-weight:800;color:var(--green);background:#e8f5ed;border-radius:999px;padding:4px 8px}}
 .execution-list{{display:grid;gap:14px}} .execution-card{{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff}} .execution-title{{display:flex;align-items:flex-start;gap:12px}} .execution-title h3{{margin:0}} .execution-title span:last-child{{font-size:.78rem;line-height:1.5;color:var(--muted)}}
 .expected{{padding:10px 12px;background:#f0f6f2;border-radius:9px;margin:12px 0;font-size:.9rem}} ul{{margin:.45rem 0;padding-left:1.3rem}} li{{margin:.45rem 0}}
 .alert{{padding:15px 17px;border-left:5px solid var(--amber);background:#fff7e7;border-radius:10px;margin:14px 0}} .alert.danger{{border-color:var(--red);background:#fff0ed}}
 .references{{padding-left:1.5rem;font-size:.9rem;line-height:1.75}} .references li{{padding:.55rem 0 .75rem .35rem;border-bottom:1px solid var(--line);overflow-wrap:anywhere}} a{{color:#245d47;text-decoration:none;text-underline-offset:2px}} a:hover{{text-decoration:underline}} .muted{{color:var(--muted)}}
-@media(max-width:850px){{.summary-grid{{grid-template-columns:1fr 1fr}}.decision-grid{{grid-template-columns:1fr}}.cost-grid{{grid-template-columns:1fr 1fr}}.plans{{grid-template-columns:1fr;row-gap:28px}}.hero{{padding:34px 26px}}}}
+.analysis-grid{{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}} .analysis-card{{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}} .analysis-card h3{{margin:0 0 8px}} .analysis-card p{{margin:.35rem 0;color:var(--muted)}} .sensitivity-table{{width:100%;border-collapse:collapse;margin-top:12px;font-size:.8rem}} .sensitivity-table th,.sensitivity-table td{{padding:8px 7px;border-bottom:1px solid var(--line);text-align:right}} .sensitivity-table th:first-child,.sensitivity-table td:first-child{{text-align:left}} .assumption-list{{font-size:.88rem;line-height:1.65}}
+@media(max-width:850px){{.summary-grid{{grid-template-columns:1fr 1fr}}.decision-grid,.comparison-grid,.analysis-grid{{grid-template-columns:1fr}}.cost-grid{{grid-template-columns:1fr 1fr}}.plans{{grid-template-columns:1fr;row-gap:28px}}.hero{{padding:34px 26px}}}}
 @media(max-width:520px){{.page{{padding:12px 10px 40px}}.hero{{border-radius:20px}}section{{padding:21px 17px}}.summary-grid,.cost-grid,.no-test-grid{{grid-template-columns:1fr}}.summary-card{{min-height:138px;padding:17px}}.sub-strategy h3,.cost-method{{min-height:0}}.section-head{{gap:10px;margin-bottom:16px}}.section-no{{font-size:1.15rem}}h1{{font-size:2rem}}h2{{font-size:1.35rem}}.delta{{align-items:flex-start;flex-direction:column}}}}
 @media print{{body{{background:#fff}}.page{{max-width:none;padding:0}}.hero,section,.summary-card{{box-shadow:none}}section{{break-inside:avoid}}a{{color:inherit}}}}
 {language_css}
@@ -918,7 +1073,7 @@ h2{{font-size:1.55rem;line-height:1.35;margin:0;color:#163e30}} h3{{font-size:1.
     <div class="summary-card"><div class="label">{ui['detected_density']}</div><div class="summary-content"><div class="value">{report['input']['density']:g}</div><div class="summary-notes"><div class="muted">{html.escape(s['density_unit'])}</div></div></div></div>
     <div class="summary-card"><div class="label">{ui['untreated_yield_loss']}</div><div class="summary-content"><div class="value">{d['yield_loss_fraction']:.2%}</div><div class="summary-notes"></div></div></div>
     <div class="summary-card"><div class="label">{ui['treatment_recommendation']}</div><div class="summary-content"><div class="value">{html.escape(d['band'])}{'' if english else '等级'}</div><div class="summary-notes"><div class="muted">{html.escape(d['treatment_title'])}</div></div></div></div>
-    <div class="summary-card"><div class="label">{ui['profit_change']}</div><div class="summary-content"><div class="value {profit_class}">{_signed_money(d['profit_change_per_ha'], report)}</div><div class="summary-notes"></div></div></div>
+    <div class="summary-card"><div class="label">{ui['profit_change']}</div><div class="summary-content"><div class="value {profit_class}">{_signed_money(d['detection_net_benefit_vs_uniform'], report)}</div><div class="summary-notes"><div class="muted">{'vs uniform control' if english else '相对未检测统一处理'}</div></div></div></div>
   </div>
 
   <section>
@@ -942,7 +1097,10 @@ h2{{font-size:1.55rem;line-height:1.35;margin:0;color:#163e30}} h3{{font-size:1.
         </div>
       </div></article>
     </div>
-    <div class="delta"><span>{ui['profit_delta']}</span><strong class="{profit_class}">{_signed_money(d['profit_change_per_ha'], report)}</strong></div>
+    <div class="comparison-grid">
+      <article class="comparison-card"><h3>{ui['program_benefit']}</h3><div class="comparison-value {'gain' if d['program_net_benefit_vs_no_control'] >= 0 else 'loss'}">{_signed_money(d['program_net_benefit_vs_no_control'], report)}</div><div class="comparison-meta"><span>{'Baseline: no control' if english else '基线：未采取防治手段'}</span><span>{ui['incremental_cost']}{colon}{_signed_money(d['program_incremental_cost_vs_no_control'], report)}</span><span>{ui['roi']}{colon}{roi_text(d['program_roi_vs_no_control'])}</span></div></article>
+      <article class="comparison-card"><h3>{ui['detection_value']}</h3><div class="comparison-value {'gain' if d['detection_net_benefit_vs_uniform'] >= 0 else 'loss'}">{_signed_money(d['detection_net_benefit_vs_uniform'], report)}</div><div class="comparison-meta"><span>{'Baseline: no testing with uniform control' if english else '基线：未检测统一处理'}</span><span>{ui['incremental_cost']}{colon}{_signed_money(d['detection_incremental_cost_vs_uniform'], report)}</span><span>{ui['roi']}{colon}{roi_text(d['detection_roi_vs_uniform'])}</span></div></article>
+    </div>
     <h3 class="subsection-title">{ui['detection_costs']}</h3>
     <div class="cost-grid">{cost_cards}</div>
     <div class="plain-note"><div>{html.escape(report['detection_cost_comparison']['price_summary'])}</div><div class="cost-footnote">{html.escape(report['detection_cost_comparison']['comparison_basis'])}</div></div>
@@ -950,19 +1108,27 @@ h2{{font-size:1.55rem;line-height:1.35;margin:0;color:#163e30}} h3{{font-size:1.
 
   <section>
     <div class="section-head"><span class="section-no">02</span><div><h2>{ui['section_loss']}</h2></div></div>
-    {_loss_reduction_curve_svg(report, language=language)}
-    <div class="legend"><span><i style="background:#e8f5ed"></i>{ui['legend_low']}</span><span><i style="background:#fff4d6"></i>{ui['legend_middle']}</span><span><i style="background:#fbe9e5"></i>{ui['legend_high']}</span><span>● {ui['current_input']}</span></div>
+    {_net_benefit_curve_svg(report, language=language)}
+    <div class="legend"><span><i style="background:#176744"></i>{ui['program_benefit']}</span><span><i style="background:#b76518"></i>{ui['detection_value']}</span><span>○ {ui['current_input']}</span></div>
     <div class="plain-note">{chart_note}</div>
+    <div class="analysis-grid">
+      <article class="analysis-card"><h3>{'Break-even density' if english else '密度盈亏平衡'}</h3><p><strong>{ui['program_benefit']}{colon}</strong>{html.escape(program_break_even)}</p><p class="fine-print"><strong>{'Tier-threshold changes' if english else '分级阈值两侧'}{colon}</strong>{html.escape(program_jumps)}</p><p><strong>{ui['detection_value']}{colon}</strong>{html.escape(detection_break_even)}</p><p class="fine-print"><strong>{'Tier-threshold changes' if english else '分级阈值两侧'}{colon}</strong>{html.escape(detection_jumps)}</p><p>{'A preset plan change can cross zero without an exact zero-benefit density, so both strict roots and the values immediately beside each tier threshold are shown.' if english else '预设方案切换可能直接跨过零点而没有严格零收益密度，因此同时展示严格零点和分级阈值两侧的结果。'}</p></article>
+      <article class="analysis-card"><h3>{'Interpretation boundary' if english else '解释边界'}</h3><p>{'The first comparison includes control benefits and must not be attributed entirely to detection. The second is a conditional, density-known comparison, not an ex-ante expected value of information.' if english else '第一种比较包含防治本身的收益，不能全部归因于检测；第二种比较是在密度已知条件下的增量价值，不是种植前的期望信息价值。'}</p></article>
+    </div>
+    <h3 class="subsection-title">{ui['sensitivity']}</h3>
+    <table class="sensitivity-table"><thead><tr><th>{'Parameter' if english else '参数'}</th><th>{'Change' if english else '变化'}</th><th>{'Program net benefit' if english else '整套项目净收益'}</th><th>{'Conditional test value' if english else '检测条件增量价值'}</th><th>{'Worth testing?' if english else '检测是否增益'}</th></tr></thead><tbody>{sensitivity_rows}</tbody></table>
   </section>
 
   <section>
     <div class="section-head"><span class="section-no">03</span><div><h2>{ui['section_plans']}</h2></div></div>
-    <div class="plans">{treatment_cards}</div>{high_warning}
+    <div class="plain-note">{'The density tier selects a preset demonstration strategy. The economic-best badge identifies the option with the highest modelled profit at the current density and parameters; it is not a field prescription.' if english else '密度等级决定预设演示策略；“当前参数下经济净收入最高”标记表示在本次密度和参数下模型利润最高的备选方案，并不构成田间处方。'}</div>
+    <div class="plans">{treatment_cards}</div>{effect_warning}{high_warning}
   </section>
 
   <section>
     <div class="section-head"><span class="section-no">04</span><div><h2>{ui['section_execution']}</h2></div></div>
     <div class="execution-list">{execution_cards}</div>
+    <h3 class="subsection-title">{'Key assumptions' if english else '关键假设'}</h3><ul class="assumption-list">{''.join(f'<li>{html.escape(value)}</li>' for value in report['assumptions'].values())}</ul>
   </section>
 
   <section>

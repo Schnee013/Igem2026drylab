@@ -1,6 +1,6 @@
 # P2 Economic Benefit Models
 
-Last updated: 2026-10-04
+Last updated: 2026-10-07
 
 This folder holds two complementary implementations for the P2 early-detection
 economic benefit model:
@@ -54,6 +54,19 @@ writes TXT, JSON, Chinese HTML, and English HTML reports to
 default. Pass `--open` only when the Chinese HTML report should be opened after
 generation.
 
+The demonstration reports two different economic comparisons and does not
+attribute all control benefit to testing:
+
+- combined testing-and-control program versus no control; and
+- conditional value of density-guided testing versus no testing with uniform
+  fluopyram control.
+
+Each comparison has its own net benefit, incremental cost, ROI, and density
+break-even results. ROI is omitted when the comparison has no positive
+incremental cost. The fixed 10/80 density tiers remain a preset demonstration
+policy; the report separately identifies the treatment option with the highest
+modelled net income at the current density.
+
 Useful variants:
 
 ```bash
@@ -93,6 +106,11 @@ PCN normalized structure, threshold-only SCN guardrails, and cost-accounting
 identities. They do not validate final biosensor ROI.
 
 The demonstration tests additionally validate the Seinhorst density-loss
-function, treatment thresholds, economic accounting, configuration guardrails,
-and parity between the Chinese and English report structures. The demonstration
-uses only the Python standard library.
+function, both comparison baselines, treatment thresholds, density break-even
+results, fixed-effect conversion at the reference density, low-density
+extrapolation warnings, economic-best treatment comparison, sensitivity output,
+configuration-driven laboratory fees, and parity between the Chinese and
+English report structures. Scenario text, treatment names/rates/instructions,
+laboratory fees, samples per hectare, and sensitivity ranges are loaded from the
+example JSON instead of being overwritten by report-language constants. The
+demonstration uses only the Python standard library.
