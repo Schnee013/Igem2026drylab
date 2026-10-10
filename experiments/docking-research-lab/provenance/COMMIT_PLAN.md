@@ -1,6 +1,6 @@
-# 七组研究任务提交计划
+# PR #18 七组研究任务整理记录
 
-提交按学长的阅读顺序组织。具体文件见[commit-files.csv](commit-files.csv)，该表已限定为GitHub目录中的文件，飞书附件路径已排除；在目标仓库中按本清单逐组暂存。
+以下是 PR #18 导入时的历史组织计划。[commit-files.csv](commit-files.csv)只记录当时的 Git 文件，不是当前提交清单。当前必要附件与恢复操作见[数据恢复](../DATA_DELIVERY.md)。
 
 | 组 | 建议提交主题 | 主要范围 |
 |---|---|---|
@@ -14,8 +14,8 @@
 
 共享组合JSON同时保存04与08结果，在第7组纳入完整版本；所有提交完成后统一交付。commit顺序是整理顺序，原研究时间和来源保留在运行记录中。
 
-Git和gh命令由用户执行。目标分支为docs/docking-research-handoff，落地目录为experiments/docking-research-lab。每次暂存只使用本清单对应组的明确路径；原始数据按恢复清单从飞书取得。
+该导入已随 PR #18 合并。原研究文档仍在 experiments/docking-research-lab；必要 LFS 数据位于既有 docking-repro 线的 final-docking 子路径。
 
-逐文件的Git/附件建议见[数据发布范围](PUBLICATION_SCOPE.md)。commit-files.csv已按GitHub目录实际文件筛选，附件单独通过飞书交付。
+当前逐文件发布方式见[数据发布范围](PUBLICATION_SCOPE.md)，不再以旧六附件交付要求决定保留范围。
 
 各组附带必要的精确路径格式规则，保留原始CSV换行、报告表格及来源文件字节。实际分组文件数以commit-files.csv为准。

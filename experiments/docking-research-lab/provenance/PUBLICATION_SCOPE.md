@@ -1,11 +1,20 @@
 # 数据发布范围
 
-GitHub保留文档、脚本、方法定义、解析表格和图表、紧凑验证结果及来源清单。飞书保存可通过附件和校验值恢复的原始输入、结构、pose、运行日志、运行配置副本、预测详情和分析对象。
+选择依据是文件的研究用途、准确输入身份和可恢复性。正式范围为 01–08 批突变研究、解释初始选位的证据，以及已有 MD 实际使用的结构输入；报告、代码和紧凑结果继续保留在普通 Git。
 
-该划分按目标仓库docs/ops/payload-tracking-policy.md落实。全部8,712个外部文件及用途见[payload manifest](payload_manifest.tsv)，准确恢复路径见[feishu-files.csv](feishu-files.csv)。Git文件以[commit-files.csv](commit-files.csv)为准。
+| 内容 | 保存方式与理由 |
+|---|---|
+| 8 个 AF3 原始返回包 | LFS；保留 02–08 批全部原始模型、请求及置信度，支持模型选择复核 |
+| 136 个唯一受体 JSON | 筛选后压缩至 LFS；接触分析实际读取化学模板、原子和氢坐标，PDBQT 或结果 CSV 不能直接替代 |
+| 1,098 个唯一结构/姿势 | 筛选后压缩至 LFS；覆盖正式八批对接、初始选位和已有 MD 输入关系 |
+| 小型序列、参数、预测请求/摘要、必要运行证据 | 普通 Git，保留原始字节；已有正式序列通过恢复映射复用 |
+| 原始 AF3 包中的展开预测文件、相同受体及交接副本 | 按 SHA256 和原路径映射恢复，不另上传重复内容 |
+| 其他历史预测、受体/协议探索、70 个旧 pickle、旧整理备份 | 不在本次发布范围，留在本地旧附件 |
 
-[初步分类](publication-file-classification.csv)和[初步统计](publication-classification-summary.json)保留此前按体积筛选的历史结果；当前发布范围以上述实际清单为准。
+旧 pickle 对应可读的接触结果 CSV，且本次主线源码不读取这些 pickle；这不表示 CSV 覆盖 pickle 的全部内部状态。展示副本已有正式内容，不另建发布包。
 
-两份报告直接引用2,271个不同来源文件，接触metadata进一步引用122个受体JSON。完整来源检查需要恢复全部六个附件；依赖记录见[分析清单](analysis-publication-dependencies.csv)，操作见[数据恢复](../DATA_DELIVERY.md)。
+当前权威清单是 [LFS 包清单](lfs-release.json)、[恢复映射](lfs-files.csv)、[普通 Git 校验值](release-git.sha256)及 [payload 分类](payload_manifest.tsv)。[报告依赖记录](analysis-publication-dependencies.csv)用于检查遗漏，不用来代替文件价值判断。
 
-原科研目录和local-full完整副本保留。附件已本地生成，发送状态由实际传输记录确认。
+两份报告的全部来源及 122 个间接受体依赖必须通过 `full` 检查。可选历史材料的缺失不等于核心科学输入缺失；恢复器不再要求原六个附件全部存在。获取命令、验证范围和限制见[数据恢复](../DATA_DELIVERY.md)。
+
+`feishu-*`、`commit-files.csv`、`checksums.sha256` 和初步 publication 分类表仅记录 PR #18 的原始交付快照，不是当前发布要求。原始附件未删除；没有将本地旧附件表述为已经通过飞书发送。

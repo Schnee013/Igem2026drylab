@@ -47,6 +47,56 @@ def check(root, source_root=None):
     extras = actual_paths - expected_paths - {'provenance/checksums.sha256'}
     errors.extend('Unlisted delivery file: ' + p for p in sorted(extras))
 
+    sources = check_sources(root)
+    errors.extend(sources['errors'])
+    stats.update(sources['checks'])
+
+    generated = json.loads((root / 'provenance/generated-files.json').read_text())
+    changed = json.loads((root / 'provenance/documentation-changes.json').read_text())
+    docs = sorted({p for p in generated if p.endswith('.md')} |
+                  {r['destination'] for r in changed})
+    checked_links = 0
+    for relative in docs:
+        path = root / relative
+        if not path.exists():
+            errors.append('Missing document: ' + relative)
+            continue
+        text = re.sub(r'```.*?```', '', path.read_text(), flags=re.S)
+        for target in re.findall(r'\]\(([^)\n]+)\)', text):
+            target = unquote(target.split('#', 1)[0])
+            if not target or re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', target):
+                continue
+            checked_links += 1
+            resolved = (path.parent / target).resolve()
+            if not resolved.is_relative_to(root.resolve()):
+                errors.append('Link escapes delivery: ' + relative + ' -> ' + target)
+            elif not resolved.exists():
+                errors.append('Broken link: ' + relative + ' -> ' + target)
+    stats['reading_documents_checked'] = len(docs)
+    stats['local_links_checked'] = checked_links
+
+    if source_root is not None:
+        with (root / 'provenance/file-map.csv').open(newline='') as handle:
+            mapping = {r['source']: r for r in csv.DictReader(handle)}
+        for relative, row in mapping.items():
+            path = source_root / relative
+            if not path.is_file() or sha256(path) != row['sha256']:
+                errors.append('Original source changed or missing: ' + relative)
+        stats['original_source_files_checked'] = len(mapping)
+    return {'status': 'PASS' if not errors else 'FAIL', 'checks': stats, 'errors': errors}
+
+
+
+def check_sources(root):
+    errors = []
+    stats = {}
+    cached = {}
+
+    def digest(path):
+        if path not in cached:
+            cached[path] = sha256(path)
+        return cached[path]
+
     with (root / 'provenance/file-map.csv').open(newline='') as handle:
         mapping = {r['source']: r for r in csv.DictReader(handle)}
     indirect_receptors = set()
@@ -85,30 +135,6 @@ def check(root, source_root=None):
         errors.append('Batch counts differ: ' + repr(counts))
     stats['batch_docking_outputs'] = counts
 
-    generated = json.loads((root / 'provenance/generated-files.json').read_text())
-    changed = json.loads((root / 'provenance/documentation-changes.json').read_text())
-    docs = sorted({p for p in generated if p.endswith('.md')} |
-                  {r['destination'] for r in changed})
-    checked_links = 0
-    for relative in docs:
-        path = root / relative
-        if not path.exists():
-            errors.append('Missing document: ' + relative)
-            continue
-        text = re.sub(r'```.*?```', '', path.read_text(), flags=re.S)
-        for target in re.findall(r'\]\(([^)\n]+)\)', text):
-            target = unquote(target.split('#', 1)[0])
-            if not target or re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', target):
-                continue
-            checked_links += 1
-            resolved = (path.parent / target).resolve()
-            if not resolved.is_relative_to(root.resolve()):
-                errors.append('Link escapes delivery: ' + relative + ' -> ' + target)
-            elif not resolved.exists():
-                errors.append('Broken link: ' + relative + ' -> ' + target)
-    stats['reading_documents_checked'] = len(docs)
-    stats['local_links_checked'] = checked_links
-
     python_files = set((root / 'shared/scripts').glob('*.py'))
     python_files.update((root / '05-mutant-research').rglob('*.py'))
     python_files.add(Path(__file__).resolve())
@@ -119,12 +145,6 @@ def check(root, source_root=None):
             errors.append('Python syntax: ' + str(path) + ': ' + str(exc))
     stats['python_files_parsed'] = len(python_files)
 
-    if source_root is not None:
-        for relative, row in mapping.items():
-            path = source_root / relative
-            if not path.is_file() or sha256(path) != row['sha256']:
-                errors.append('Original source changed or missing: ' + relative)
-        stats['original_source_files_checked'] = len(mapping)
     return {'status': 'PASS' if not errors else 'FAIL', 'checks': stats, 'errors': errors}
 
 

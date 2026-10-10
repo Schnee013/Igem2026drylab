@@ -39,8 +39,14 @@ experiments/docking/results/docking_results.json
 experiments/docking/results/blind_validation.json
 
 # docking-repro 产出
-experiments/docking-repro/prepared/
-experiments/docking-repro/results/
+experiments/docking-repro/prepared/*
+!experiments/docking-repro/prepared/final-docking/
+experiments/docking-repro/prepared/final-docking/*
+!experiments/docking-repro/prepared/final-docking/core-receptors.zip
+experiments/docking-repro/results/*
+!experiments/docking-repro/results/final-docking/
+experiments/docking-repro/results/final-docking/*
+!experiments/docking-repro/results/final-docking/core-structures.zip
 experiments/docking-repro/ligands/orca/
 experiments/docking-repro/mutagenesis/*.json
 experiments/docking-repro/mutagenesis/*.md

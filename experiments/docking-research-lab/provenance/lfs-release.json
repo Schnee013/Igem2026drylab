@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "scope": "mutant batches 01-08, initial selection evidence, and existing MD input structures",
+  "source_commit": "eaa816cb1054866bcb4ba2f718fa790acd1b754d",
+  "archives": [
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_18_08_05.zip",
+      "group": "af3_original",
+      "bytes": 36958611,
+      "sha256": "ec323ed106414e647f68ea1cc75c9ae9d0f6136893c8b0872c02b14be2a67eb5",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_16_11_15.zip",
+      "group": "af3_original",
+      "bytes": 62801703,
+      "sha256": "4232e3bb609ecd2e2a7ecbb9f88e613225f17cf0d1491d17c95d71b9bcf4538b",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_16_11_16.zip",
+      "group": "af3_original",
+      "bytes": 58515529,
+      "sha256": "b0d65fdebc66b0abffec96fa552d5c243aa8652c70c3ab9244365e7bcaeae2ed",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_17_10_20.zip",
+      "group": "af3_original",
+      "bytes": 14374483,
+      "sha256": "a4f7fc90998830350dc4b5f9cf4089882d4f0c3befbcf5e2b56bc0db9d5ee392",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_18_02_12.zip",
+      "group": "af3_original",
+      "bytes": 40188224,
+      "sha256": "161662097217cf164fa40fc0eb97315845f74e011e5760d9a1098c81f0ece9ce",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_09_16_20.zip",
+      "group": "af3_original",
+      "bytes": 5954336,
+      "sha256": "d22697ee82e5940d293a6ec59c09634f1771f2861b718c043aaf10680dc6f724",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_11_00_54.zip",
+      "group": "af3_original",
+      "bytes": 39704281,
+      "sha256": "ac869e9a1c91bc8aa1e29115dd16ceac44a5b104194426dab0a5aa688b3c40d0",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking/receptors/final-docking/af3/folds_2026_09_10_04_58.zip",
+      "group": "af3_original",
+      "bytes": 16643466,
+      "sha256": "6d0e287478ceba0746528bb962e27e5c4d489adbc31bc26ab1a00674e8375b7f",
+      "source_files": 1
+    },
+    {
+      "path": "experiments/docking-repro/prepared/final-docking/core-receptors.zip",
+      "group": "prepared_receptors",
+      "bytes": 99891270,
+      "sha256": "f2ffd7cde2e214b73a6f271a054e5c4032dd77ad1e879d34b0ec8db6f8aaed9a",
+      "source_files": 136
+    },
+    {
+      "path": "experiments/docking-repro/results/final-docking/core-structures.zip",
+      "group": "structures_and_poses",
+      "bytes": 19414633,
+      "sha256": "e21b1d400f238b3ba3c44a79920b9620e4e2a0ebc76b0a42c21fafaf7b620918",
+      "source_files": 1098
+    }
+  ],
+  "restore_manifest": "provenance/lfs-files.csv",
+  "git_checksums": "provenance/release-git.sha256",
+  "counts": {
+    "af3_archives": 8,
+    "prepared_receptors": 136,
+    "structures_and_poses": 1098,
+    "ordinary_git_files": 1335,
+    "restored_paths": 3534,
+    "expanded_main_af3_files": 3067
+  },
+  "total_lfs_bytes": 394446536,
+  "excluded": "Other historical predictions/protocols, obsolete pickle objects, duplicate display bundles, and organization backups remain outside this release."
+}

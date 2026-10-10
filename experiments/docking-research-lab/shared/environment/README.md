@@ -1,6 +1,6 @@
 # 环境与路径使用说明
 
-当前交付支持按README阅读报告、查找原始结果，以及使用Python标准库运行[交付验证器](../../provenance/verify_delivery.py)。GitHub内容默认检查，完整数据需先按[飞书恢复说明](../../DATA_DELIVERY.md)恢复再使用`--mode full`。验证器按交付根目录解析路径，独立核对文件与来源哈希。
+当前交付支持按README阅读报告、查找原始结果，以及使用Python标准库运行[交付验证器](../../provenance/verify_delivery.py)。GitHub内容默认检查，本次必要数据需先按[LFS 恢复说明](../../DATA_DELIVERY.md)恢复再使用`--mode full`。验证器按交付根目录解析路径，独立核对文件与来源哈希。
 
 ## 原科学流程
 

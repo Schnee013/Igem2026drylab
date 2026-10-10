@@ -1,25 +1,17 @@
-# 来源 迁移与交付核验
+# 来源、迁移与交付核验
 
-[文件映射](file-map.csv)记录原项目相对路径、交付位置、来源SHA256及字节数。原研究数据、科学脚本和运行记录保留内容；阅读文档的链接适配另见[文档修改记录](documentation-changes.json)。[checksums.sha256](checksums.sha256)记录整理完成时的交付内容。
+当前交付入口见[必要数据恢复](../DATA_DELIVERY.md)。[LFS 包清单](lfs-release.json)记录十个包；[恢复映射](lfs-files.csv)记录它们与原研究路径的关系；[普通 Git 校验值](release-git.sha256)记录当前紧凑文件；[payload manifest](payload_manifest.tsv)区分发布与本地历史材料。
 
-[复制检查](copy-verification.json)记录初次复制校验；[源快照](source-snapshot.json)记录纳入交付的源文件；[排除清单](excluded-files.json)记录未纳入项。原目录保持原样，交付中的新说明、表格和核验脚本见[新增文件清单](generated-files.json)。
-
-## 只读核验与数据恢复
-
-GitHub目录先运行：
+在仓库根目录运行：
 
 ```bash
-python3 provenance/verify_delivery.py --mode github
+python3 experiments/docking-research-lab/provenance/verify_delivery.py --mode github
+python3 experiments/docking-research-lab/provenance/restore_lfs.py
+python3 experiments/docking-research-lab/provenance/verify_delivery.py --mode full
 ```
 
-取得飞书六个附件后，按[恢复说明](../DATA_DELIVERY.md)运行restore_feishu.py，再运行：
+恢复前先按[数据恢复说明](../DATA_DELIVERY.md)获取 LFS。`full` 检查本次发布内容、报告全部来源、间接受体和八批输出；历史材料的阅读链接单列，不冒充已恢复。科学计算未重运行。
 
-```bash
-python3 provenance/verify_delivery.py --mode full
-```
+[文件映射](file-map.csv)记录原研究路径到交付路径及来源哈希，用于解析报告中的历史路径。[源快照](source-snapshot.json)、[复制检查](copy-verification.json)、[文档修改记录](documentation-changes.json)、[新增文件记录](generated-files.json)、[排除清单](excluded-files.json)保留 PR #18 整理时的范围与日期。
 
-完整模式检查文件校验值、两份报告所列来源、122个间接受体依赖、八批输出、阅读链接和语法。默认GitHub模式允许清单中已明确列出的飞书文件尚未恢复；它不等同完整科学来源核验。
-
-原JSON中的历史路径通过file-map.csv映射。checksums.sha256覆盖GitHub与恢复后的飞书内容；verify_research.py保存完整科研文件检查逻辑，由完整模式调用。
-
-发布分工见[PUBLICATION_SCOPE.md](PUBLICATION_SCOPE.md)，来源复制和历史验证记录保留当时的范围与日期。
+旧 `feishu-archives.json`、`feishu-files.csv`、`checksums.sha256`、`validation-result.json` 与 `commit-files.csv` 是当时的六附件交付快照。`restore_feishu.py` 仅用于持有完整旧附件的历史恢复；`verify_research.py` 保留旧整体校验逻辑，并提供当前交付复用的科学来源检查函数。当前验证入口始终是 `verify_delivery.py`。

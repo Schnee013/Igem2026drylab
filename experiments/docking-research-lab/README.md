@@ -2,7 +2,7 @@
 
 本项目整理受体对接研究的文献、基础比较和Gpr2突变结果。交付重点是批次01–08：从结构路线比较和单点筛选，逐步发展为四位点饱和面板及18个双突变的亲本比较。
 
-原始结构、pose、日志及输入通过飞书附件恢复；直接阅读说明与分析表可从下列任务开始。详见[数据恢复](DATA_DELIVERY.md)。
+必要原始预测、接触分析受体和正式结构/pose 通过 Git LFS 保存，并按原路径恢复。说明与分析表可直接阅读；获取方法和历史材料边界见[数据恢复](DATA_DELIVERY.md)。
 
 ## 推荐阅读顺序
 
@@ -29,9 +29,9 @@
 - [共享工具与输入](shared/README.md)。
 - [制图及MD结构交付](05-mutant-research/handoff/README.md)。
 - [来源与核验](provenance/README.md)：文件迁移、哈希和只读验证入口。
-- [飞书附件恢复](DATA_DELIVERY.md)：六个附件、校验和接收步骤。
+- [必要数据恢复](DATA_DELIVERY.md)：十个 LFS 包、校验和恢复步骤。
 - [数据发布范围审查](provenance/PUBLICATION_SCOPE.md)：Git与附件的逐文件建议及依赖。
-- [七组提交计划](provenance/COMMIT_PLAN.md)：供后续人工Git操作使用。
+- [七组整理记录](provenance/COMMIT_PLAN.md)：PR #18 的历史组织方式。
 - [发布前事项](provenance/RELEASE_READINESS.md)：数据体积、历史脚本路径与验证范围。
 
-整理日期为2026-10-10。当前为GitHub待提交内容；完整数据通过飞书附件交付，恢复步骤见[DATA_DELIVERY.md](DATA_DELIVERY.md)。目标为Schnee013/Igem2026drylab的experiments/docking-research-lab目录。结果用于计算评分及结构比较，实验亲和力、选择性和协同结论需要独立证据。
+整理日期为2026-10-10。研究记录已随 PR #18 合并；必要数据改由 LFS 交付，恢复步骤及发布边界见[DATA_DELIVERY.md](DATA_DELIVERY.md)。目标为Schnee013/Igem2026drylab的experiments/docking-research-lab目录。结果用于计算评分及结构比较，实验亲和力、选择性和协同结论需要独立证据。
