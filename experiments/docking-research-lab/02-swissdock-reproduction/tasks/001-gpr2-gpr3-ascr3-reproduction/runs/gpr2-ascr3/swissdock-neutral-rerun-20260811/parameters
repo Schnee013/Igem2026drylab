@@ -1,0 +1,9 @@
+Date: Tue 11 Aug 2026 12:26:08 
+Ligand: C[C@H](CCCC/C=C/C(=O)O)O[C@@H]1O[C@@H](C)[C@H](O)C[C@H]1O
+Method: AC
+Target: Gpr2_TGJ68930.1_AF2_rank1_unrelaxed.pdb
+Sampling exhaustivity: 90
+Cavity prioritization: 70
+Random Initial Conditions: 1
+Box size: 94.3 81.2 120.8
+Box center: -11.8 13.0 17.0

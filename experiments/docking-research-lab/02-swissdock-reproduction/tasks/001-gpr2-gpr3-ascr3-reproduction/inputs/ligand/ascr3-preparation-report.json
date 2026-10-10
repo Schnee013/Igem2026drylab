@@ -1,0 +1,45 @@
+{
+  "source_file": "ascr3_ChemSpider_17226059_2D.mol",
+  "source_sha256": "dc1c80fc32743ebd49f4799b105ba6f8b90bee28ae3a625096a075befdb400eb",
+  "source": "ChemSpider ID 17226059",
+  "rdkit_version": "2026.03.5",
+  "formula": "C15H26O6",
+  "formal_charge": 0,
+  "heavy_atoms": 21,
+  "total_atoms_with_hydrogens": 47,
+  "assigned_chiral_centers": [
+    [
+      6,
+      "R"
+    ],
+    [
+      7,
+      "R"
+    ],
+    [
+      9,
+      "R"
+    ],
+    [
+      10,
+      "S"
+    ],
+    [
+      11,
+      "R"
+    ]
+  ],
+  "alkene_geometry_from_source_2d": "E",
+  "isomeric_smiles": "C[C@H](CCCC/C=C/C(=O)O)O[C@@H]1O[C@@H](C)[C@H](O)C[C@H]1O",
+  "embedding": "ETKDGv3",
+  "random_seed": 20260811,
+  "force_field": "MMFF94s",
+  "optimization_converged": true,
+  "final_force_field_energy": 41.10699348130825,
+  "z_coordinate_span_angstrom": 5.407963112893544,
+  "protonation_policy": "neutral form exactly as downloaded from ChemSpider",
+  "outputs": [
+    "ascr3_ChemSpider_17226059_3D.sdf",
+    "ascr3_ChemSpider_17226059_3D.mol"
+  ]
+}
