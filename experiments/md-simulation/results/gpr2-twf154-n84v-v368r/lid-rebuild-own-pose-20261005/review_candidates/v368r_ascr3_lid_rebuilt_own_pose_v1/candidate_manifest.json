@@ -1,0 +1,204 @@
+{
+  "case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+  "status": "STATIC_SCREEN_PASSED_REVIEW_PENDING",
+  "production_ready": false,
+  "source_candidate_number": 12,
+  "refinement_round": 3,
+  "selection_rule": "Among geometry- and cycle-screen passing candidates, choose lowest maximum lid rama_prepro score; retain the final round of the same three-round refinement. No affinity ranking.",
+  "receptor_path": "review_candidates/v368r_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1_receptor.pdb",
+  "receptor_sha256": "f899cccfd40caefb2828576f3a06bcc0c9ef8cc0d6d67617e651e0cc01f78d93",
+  "ligand_path": "review_candidates/v368r_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1_ligand.sdf",
+  "ligand_sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506",
+  "parent_heavy_atom_count": 3163,
+  "full_length_residues": 406,
+  "sequence_and_heavy_atom_identity_match": true,
+  "ligand_file_identical_to_original": true,
+  "original_parent_sha256_unchanged": true,
+  "geometric_screen": {
+    "geometric_screen_pass": true,
+    "gates": {
+      "outside_fixed": true,
+      "local_bond_lengths": true,
+      "peptide_connections": true,
+      "disulfide_geometry": true,
+      "CA_chirality": true,
+      "protein_sterics": true,
+      "both_ligand_sterics": true
+    },
+    "outside_max_displacement_A": 0.0,
+    "max_bond_length_change_A": 0.0034149913005245836,
+    "inverted_CA": [],
+    "protein_sterics": {
+      "min_nonbonded_heavy_A": 2.5677205844873416,
+      "max_vdw_overlap_A": 0.5022794155126586,
+      "pairs_overlap_gt_0p6_A": 0
+    },
+    "ligands": {
+      "v368r_ascr3": {
+        "min_heavy_A": 3.8433169268224563,
+        "max_vdw_overlap_A": -0.4433169268224564,
+        "pairs_below_2_A": 0,
+        "pairs_overlap_gt_0p6_A": 0
+      }
+    },
+    "disulfide": {
+      "SG_SG_A": 2.030488857393709,
+      "CB_SG_SG_deg": 96.54766418252409,
+      "SG_SG_CB_deg": 103.05456206601681,
+      "chi3_deg": 80.88696645483957
+    },
+    "peptides": [
+      {
+        "res1": 163,
+        "CN_A": 1.3341607849131227,
+        "CA_C_N_deg": 117.60184506518601,
+        "C_N_CA_deg": 125.06849665696663,
+        "omega_deg": -179.2594088993368
+      },
+      {
+        "res1": 164,
+        "CN_A": 1.3204412141401827,
+        "CA_C_N_deg": 117.32357462050942,
+        "C_N_CA_deg": 124.68626122951977,
+        "omega_deg": 178.65090831554096
+      },
+      {
+        "res1": 165,
+        "CN_A": 1.339537980051331,
+        "CA_C_N_deg": 115.34340536546881,
+        "C_N_CA_deg": 123.72963210306604,
+        "omega_deg": -177.37548383899167
+      },
+      {
+        "res1": 166,
+        "CN_A": 1.3346782383780722,
+        "CA_C_N_deg": 116.59375126275376,
+        "C_N_CA_deg": 124.22457097389585,
+        "omega_deg": -177.6501844586441
+      },
+      {
+        "res1": 167,
+        "CN_A": 1.3234995277672001,
+        "CA_C_N_deg": 117.42890663766765,
+        "C_N_CA_deg": 122.23790859027422,
+        "omega_deg": -179.58556942054093
+      },
+      {
+        "res1": 168,
+        "CN_A": 1.3258220091701578,
+        "CA_C_N_deg": 116.65940137520319,
+        "C_N_CA_deg": 124.21784463085501,
+        "omega_deg": -177.27660927865406
+      },
+      {
+        "res1": 169,
+        "CN_A": 1.3361639121006057,
+        "CA_C_N_deg": 117.97580139275156,
+        "C_N_CA_deg": 124.46825110400536,
+        "omega_deg": 179.23860378545038
+      },
+      {
+        "res1": 170,
+        "CN_A": 1.3297104948070442,
+        "CA_C_N_deg": 118.6592554508616,
+        "C_N_CA_deg": 125.20466131241729,
+        "omega_deg": 179.9351082212607
+      },
+      {
+        "res1": 171,
+        "CN_A": 1.3320671904975403,
+        "CA_C_N_deg": 118.85492303358326,
+        "C_N_CA_deg": 125.0226278104429,
+        "omega_deg": 177.89751261097038
+      },
+      {
+        "res1": 172,
+        "CN_A": 1.343902526227257,
+        "CA_C_N_deg": 117.38586568114358,
+        "C_N_CA_deg": 121.80078180468944,
+        "omega_deg": 179.58798441498888
+      },
+      {
+        "res1": 173,
+        "CN_A": 1.3365578924984869,
+        "CA_C_N_deg": 116.17517425381583,
+        "C_N_CA_deg": 122.93389374022597,
+        "omega_deg": 176.61551165872763
+      },
+      {
+        "res1": 174,
+        "CN_A": 1.3276998907885758,
+        "CA_C_N_deg": 120.09210449142672,
+        "C_N_CA_deg": 121.08046098456674,
+        "omega_deg": -178.3241785503564
+      },
+      {
+        "res1": 175,
+        "CN_A": 1.3267546871972984,
+        "CA_C_N_deg": 116.56719926352712,
+        "C_N_CA_deg": 123.34826058262253,
+        "omega_deg": -179.35615329495667
+      },
+      {
+        "res1": 176,
+        "CN_A": 1.3356474085626053,
+        "CA_C_N_deg": 117.11186406978929,
+        "C_N_CA_deg": 122.34723912807323,
+        "omega_deg": 179.3216434574842
+      },
+      {
+        "res1": 177,
+        "CN_A": 1.333088144122513,
+        "CA_C_N_deg": 116.2202477892033,
+        "C_N_CA_deg": 122.56049147145397,
+        "omega_deg": 176.8182695451867
+      },
+      {
+        "res1": 178,
+        "CN_A": 1.3427468115769234,
+        "CA_C_N_deg": 115.73939232427533,
+        "C_N_CA_deg": 124.48460033668287,
+        "omega_deg": -178.78400752271705
+      }
+    ],
+    "lid_backbone_rmsd_no_fit_A": 10.15652852274503
+  },
+  "ss_loop_sugar_linking_numbers": [
+    0.0
+  ],
+  "protein_ring_sugar_links": [],
+  "open_lid_artificial_surface_diagnostic": {
+    "centroid_fan": {
+      "count": 0,
+      "intersections": []
+    },
+    "anchor_midpoint_fan": {
+      "count": 0,
+      "intersections": []
+    }
+  },
+  "lid_rama_prepro_REU": {
+    "164": 1.1752306257214202,
+    "165": 0.06949919043378372,
+    "166": -0.8273696957805159,
+    "167": 0.07389178076659111,
+    "168": -0.20857688544583533,
+    "169": -0.04833215860680924,
+    "170": -0.899843141190188,
+    "171": -0.888133750512764,
+    "172": 0.31918896370565036,
+    "173": -0.03258534059883883,
+    "174": -0.5793898963326207,
+    "175": -0.6342697928430803,
+    "176": -0.7331306497428178,
+    "177": 0.3074438061948053,
+    "178": 0.2978587803027057
+  },
+  "max_rama_prepro_REU": 1.1752306257214202,
+  "independent_check_path": "supplemental/refine_v368r02/independent_geometry.json",
+  "pending": [
+    "Three-dimensional structural and energetic review",
+    "Consistent membrane-system topology and minimization/equilibration",
+    "New production TPR and benchmark"
+  ]
+}

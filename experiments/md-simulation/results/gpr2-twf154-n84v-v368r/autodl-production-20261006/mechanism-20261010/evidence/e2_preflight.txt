@@ -1,0 +1,20 @@
+almalinux10
+2026-10-10T16:54:06+08:00
+ 16:54:06 up 32 days,  3:03, 63 users,  load average: 85.86, 108.85, 118.25
+               total        used        free      shared  buff/cache   available
+Mem:           1.7Ti       1.2Ti        79Gi        36Gi       545Gi       578Gi
+Swap:          127Mi       127Mi       8.0Ki
+Disk quotas for user dengwei (uid 1005): 
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+       /dev/sdd    291G   8000G   8072G            983k       0       0        
+       /dev/sdb      0K      0K      0K               0       0       0        
+    PID %CPU COMMAND         COMMAND
+ 797053 2816 colabfold_batch /ifs1/User/liht/software/localcolabfold/colabfold-conda/bin/python3.10 /ifs1/User/liht/software/localcolabfold/colabfold-conda/bin/colabfold_batch --num-models 1 --num-recycle 3 /ifs1/User/liht/Kudoa_bora/paper_pipeline_v2.2/03_structure_atlas/results/benchmarkA_fold_cpu_inputs /ifs1/User/liht/Kudoa_bora/paper_pipeline_v2.2/03_structure_atlas/results/benchmarkA_fold
+ 815030 1957 raxmlHPC-PTHREA /ifs1/User/leiyu/mambaforge/envs/phylophlan/bin/raxmlHPC-PTHREADS-SSE3 -p 1989 -m PROTCATLG -T 20 -t /ifs1/Vip/leiyu/work/hmq/phylophlan_out_90流行率_3000bin/90流行率_resolved.tre -w /ifs1/Vip/leiyu/work/hmq/phylophlan_out_90流行率_3000bin -s /ifs1/Vip/leiyu/work/hmq/phylophlan_out_90流行率_3000bin/90流行率_concatenated.aln -n 90流行率_refined.tre
+3302845 1722 megahit_core    /ifs1/User/niuqichen/miniforge3/envs/salidroside_meta/bin/megahit_core assemble -s /ifs1/User/niuqichen/data/ningx_meta/04_salidroside_meta/02_coassembly/assemblies/P037/tmp/k21/21 -o /ifs1/User/niuqichen/data/ningx_meta/04_salidroside_meta/02_coassembly/assemblies/P037/intermediate_contigs/k21 -t 20 --min_standalone 500 --prune_level 2 --merge_len 20 --merge_similar 0.95 --cleaning_rounds 5 --disconnect_ratio 0.1 --low_local_ratio 0.2 --cleaning_rounds 5 --min_depth 2 --bubble_level 2 --max_tip_len -1 --careful_bubble
+ 133117 1088 bwa             bwa mem -t 16 /ifs1/Vip/leiyu/work/zcg/Metagenome/05prodigal/Diarrea/wenxian5pig/merge/geneset_bwa /ifs1/Vip/leiyu/work/zcg/Metagenome/03host-remove/Diarrea/wenxian5pig/SRR37048548_host_removed.fastq.1.gz /ifs1/Vip/leiyu/work/zcg/Metagenome/03host-remove/Diarrea/wenxian5pig/SRR37048548_host_removed.fastq.2.gz
+ 211119  823 pigz            pigz -6 -p 10 -k -- /ifs1/Vip/leiyu/metagenome/4P_PLredbull/metagenomics/04_assembly/Rumen_clean_data/Ru_d_AMP_1_2.cl.fastq
+ 207198  816 pigz            pigz -6 -p 10 -k -- /ifs1/Vip/leiyu/metagenome/4P_PLredbull/metagenomics/04_assembly/Rumen_clean_data/Ru_d_AMP_1_1.cl.fastq
+ 209760  814 pigz            pigz -6 -p 10 -k -- /ifs1/Vip/leiyu/metagenome/4P_PLredbull/metagenomics/04_assembly/Rumen_clean_data/Ru_a_BULL_5_2.cl.fastq
+ 211130  802 pigz            pigz -6 -p 10 -k -- /ifs1/Vip/leiyu/metagenome/4P_PLredbull/metagenomics/04_assembly/Rumen_clean_data/Ru_a_BULL_6_1.cl.fastq
+2.10.0 1.11.1 2.4.6 1.17.1

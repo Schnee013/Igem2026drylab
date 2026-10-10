@@ -1,0 +1,5 @@
+{
+  "type": "RuntimeError",
+  "message": "\n\nFile: /Volumes/scratch/w/rosetta/commits/rosetta/source/src/protocols/generalized_kinematic_closure/perturber/GeneralizedKICperturber.cc:450\n[ ERROR ] UtilityExitException\nERROR: Error in GeneralizedKICperturber::apply_set_dihedral.  The dihedral angle specified was not found in the chain of atoms to be closed.\n\n",
+  "completed": 0
+}

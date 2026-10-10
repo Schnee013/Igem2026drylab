@@ -1,0 +1,56 @@
+[
+  {
+    "case_id": "raw_n84v_ascr18",
+    "parent_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+    "parent_sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+    "pose_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr18/top1.sdf",
+    "pose_sha256": "c81504d49f3a92190b53dba3867dded54d1b473d760501b7a730b6a75f94f1ba",
+    "source_pointer": "../../input-selection-20261005/provenance.json",
+    "scope": "Retained source provenance; preparation/production identities are independently documented by each own input_contract and TPR closed records."
+  },
+  {
+    "case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "parent_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+    "parent_sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+    "pose_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr3/top1.sdf",
+    "pose_sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506",
+    "source_pointer": "../../input-selection-20261005/provenance.json",
+    "scope": "Retained source provenance; preparation/production identities are independently documented by each own input_contract and TPR closed records."
+  },
+  {
+    "case_id": "raw_n84v_ascr3",
+    "parent_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+    "parent_sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+    "pose_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr3/top1.sdf",
+    "pose_sha256": "0b0faa6bfc6bdd4c462ae051a576bbf92dd61eb77243c15166751cfe53d66cfb",
+    "source_pointer": "../../input-selection-20261005/provenance.json",
+    "scope": "Retained source provenance; preparation/production identities are independently documented by each own input_contract and TPR closed records."
+  },
+  {
+    "case_id": "raw_v368r_ascr18",
+    "parent_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+    "parent_sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+    "pose_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr18/top1.sdf",
+    "pose_sha256": "15413aae5c7ed06b4321f38dfff4a8942cd7da906681d0127c132695ca43ca31",
+    "source_pointer": "../../input-selection-20261005/provenance.json",
+    "scope": "Retained source provenance; preparation/production identities are independently documented by each own input_contract and TPR closed records."
+  },
+  {
+    "case_id": "native_wt_ascr18",
+    "parent_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/full_length.pdb",
+    "parent_sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+    "pose_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr18/top1.sdf",
+    "pose_sha256": "d481ec509ad39c92a2b01143baa37859972237f85774e6543c0fe1a843f104b3",
+    "source_pointer": "../../input-selection-20261005/provenance.json",
+    "scope": "Retained source provenance; preparation/production identities are independently documented by each own input_contract and TPR closed records."
+  },
+  {
+    "case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+    "parent_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/full_length.pdb",
+    "parent_sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+    "pose_origin": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr3/top1.sdf",
+    "pose_sha256": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+    "source_pointer": "../../input-selection-20261005/provenance.json",
+    "scope": "Retained source provenance; preparation/production identities are independently documented by each own input_contract and TPR closed records."
+  }
+]

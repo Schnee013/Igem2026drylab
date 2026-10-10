@@ -58,6 +58,26 @@ LIGAND_PATH = load_ligand_path_module()
 
 
 class MdAnalysisContractTests(unittest.TestCase):
+    def test_explicit_100ns_summary_uses_half_trajectory_not_endpoint(self) -> None:
+        from dataclasses import replace
+        context = analysis_context(config_path=self.WT_GPR2_CONFIG)
+        context = replace(context, config={**context.config, 'summary_window_ns': [50, 100]})
+        table = pd.DataFrame({'time_ns': [0, 49, 50, 75, 100], 'value': [0, 1, 2, 3, 4]})
+        self.assertEqual(context.summary(table).time_ns.tolist(), [50, 75, 100])
+        self.assertEqual(context.summary_label, '50-100 ns')
+        with self.assertRaisesRegex(ValueError, 'fewer than two'):
+            context.summary(table.iloc[-1:])
+
+
+    def test_invalid_analysis_window_is_rejected(self) -> None:
+        from dataclasses import replace
+        context = analysis_context(config_path=self.WT_GPR2_CONFIG)
+        for window in ([100, 50], [50, 50], [-1, 100], [float('nan'), 100]):
+            changed = replace(context, config={**context.config, 'summary_window_ns': window})
+            with self.assertRaises(ValueError):
+                changed.window('summary_window_ns')
+
+
     WT_GPR2_CONFIG = (
         ROOT
         / "experiments/md-simulation/results/gpr2-wt-ascr18/chimeric_systems.gpr2_wt_ascr18_rep1.json"

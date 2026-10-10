@@ -17,7 +17,7 @@ import pandas as pd
 import MDAnalysis as mda
 from MDAnalysis.lib.distances import distance_array
 
-from common import add_system_argument, analysis_context, ensure_dir, time_ns, replicate_plot_path, write_judgement
+from common import add_system_argument, analysis_context, ensure_dir, time_ns, replicate_plot_path, write_judgement, in_time_window
 from plotting import lineplot_by_rep
 
 parser = argparse.ArgumentParser()
@@ -67,6 +67,7 @@ for rep in ctx.replicates():
     per_pair_counts = {p: 0 for p in initial_pairs}
     n_frames = 0
     for ts in u.trajectory[::args.stride]:
+        count_for_occupancy = in_time_window(ts, ctx.window('occupancy_window_ns'))
         retained = 0
         for p in initial_pairs:
             receptor_resid, receptor_resname, partner_resid, partner_resname = p
@@ -75,7 +76,8 @@ for rep in ctx.replicates():
             min_dist = distance_array(u.atoms[receptor_idx].positions, u.atoms[partner_idx].positions).min()
             if min_dist <= args.cutoff:
                 retained += 1
-                per_pair_counts[p] += 1
+                if count_for_occupancy:
+                    per_pair_counts[p] += 1
         frac = retained / len(initial_pairs)
         summary_rows.append({
             'rep': rep.rep,
@@ -86,7 +88,11 @@ for rep in ctx.replicates():
             'cutoff_A': args.cutoff,
             'stride': args.stride,
         })
-        n_frames += 1
+        if count_for_occupancy:
+            n_frames += 1
+
+    if n_frames == 0:
+        raise ValueError('contact occupancy window has no sampled frames')
 
     for p, count in per_pair_counts.items():
         receptor_resid, receptor_resname, partner_resid, partner_resname = p
@@ -103,6 +109,7 @@ for rep in ctx.replicates():
             'n_frames': n_frames,
             'cutoff_A': args.cutoff,
             'stride': args.stride,
+            'window_ns': str(ctx.window('occupancy_window_ns') or 'full'),
         }
         # Preserve the historical chimeric-output columns only when the
         # configured interaction partner is actually a Galpha protein.
@@ -130,13 +137,13 @@ if heuristic is not None:
         )
 lines = []
 for rep, sub in summary.groupby('rep'):
-    tail = sub[sub.time_ns >= 100] if sub.time_ns.max() >= 100 else sub
+    tail = ctx.summary(sub)
     mean_frac = tail.retained_fraction.mean()
     min_frac = tail.retained_fraction.min()
     init_n = int(sub.initial_contacts.iloc[0])
     if heuristic is None:
         lines.append(
-            f'{rep}: initial residue contacts={init_n}; after100 mean retained={mean_frac:.3f}, '
+            f'{rep}: initial residue contacts={init_n}; {ctx.summary_label} mean retained={mean_frac:.3f}, '
             f'min={min_frac:.3f}; descriptive only (no configured retention threshold)'
         )
         continue
@@ -145,7 +152,7 @@ for rep, sub in summary.groupby('rep'):
         if mean_frac > retention_above
         else f'caveat under configured project operational >{retention_above:g} heuristic'
     )
-    lines.append(f'{rep}: initial residue contacts={init_n}; after100 mean retained={mean_frac:.3f}, min={min_frac:.3f}; {status}')
+    lines.append(f'{rep}: initial residue contacts={init_n}; {ctx.summary_label} mean retained={mean_frac:.3f}, min={min_frac:.3f}; {status}')
 title_suffix = 'judgement' if heuristic is not None else 'descriptive summary'
 write_judgement(out / 'judgement.md', f'{ctx.label} contact persistence {title_suffix}', lines)
 print('[contacts] done', flush=True)

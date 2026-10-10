@@ -1,0 +1,1586 @@
+{
+  "producer": {
+    "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-audit/20261003/audit_handoff.py",
+    "sha256": "5987fa8f2d7e4148f6a0ef3c9b0d8a7e3b0e4d06e1d561a91337b4eb79e230a2"
+  },
+  "method": "Read-only static heavy-atom geometry audit; no minimization, chemistry validation, MD or membrane construction. Distances below 1.5/2 A are descriptive screens, not force-field acceptance thresholds. Confidence summaries use CA B-factor from AF3-export PDB.",
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "numpy": "2.4.4",
+  "fasta": {
+    "path": "/Users/roy/Documents/docking/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+    "sha256": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150",
+    "length": 406,
+    "residue84": "N",
+    "residue368": "V",
+    "lid164_178": "LGYGYIGGWCWLTSD"
+  },
+  "sources": [
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/af3_original/raw_model0.pdb",
+      "sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/docking_receptor/input.pdb",
+      "sha256": "09d9cb594732b2d8a4d0549b944c4b52cfc8a332f51843b6d075fa4e4b9d1ab3"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/docking_receptor/alignment.json",
+      "sha256": "4842a275b5d2aea8d25d5483420f17bb1062dec62eaf1ac285e5468443e20da7"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/af3_original/fold_gpr2_b05_fl_n84v_model_0.cif",
+      "sha256": "bce75fcec858c3c83f9c14ed3fd1779b10824e7a96a506ce47430daa17c17059"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/top1.sdf",
+      "sha256": "c81504d49f3a92190b53dba3867dded54d1b473d760501b7a730b6a75f94f1ba"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/top1.pdbqt",
+      "sha256": "ba4506461d5c02374fe13dc05052f706f5bda33ec03309939cbb50f7e01cea1c"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/selection.json",
+      "sha256": "287385edf7eb09c3c49f781d4159fb46cf9cd641abd9a0ca6c2262839127c3be"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/poses.pdbqt",
+      "sha256": "8282792029200f9c81708c50ca010fd503a6ab2ef1aea3e1735b6108cb735d17"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr3/top1.sdf",
+      "sha256": "0b0faa6bfc6bdd4c462ae051a576bbf92dd61eb77243c15166751cfe53d66cfb"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr3/top1.pdbqt",
+      "sha256": "3991286b160753264864522703a135901cc3bf9b501080a48693a3f5c56f38f1"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr3/selection.json",
+      "sha256": "3636695677f522f27d9c5c924a1d9cf938848fdb6db0f063bbea6551445502ba"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr3/poses.pdbqt",
+      "sha256": "a6e0856b3805a6d003a51e052231e05f3ae6db91041d4266109291d8c04f7d00"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/af3_original/raw_model0.pdb",
+      "sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/docking_receptor/input.pdb",
+      "sha256": "36802565b94833188a4a23bca39d9b76077eaa9614dffd623bad8a6873fde2dd"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/docking_receptor/alignment.json",
+      "sha256": "c5f5ec6386321e3aa5436ff8036e7f02a748445a2e5196507821feda92c750fc"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/af3_original/fold_gpr2_b05_fl_v368r_model_0.cif",
+      "sha256": "9f198132781b1ebfa125f47a0b7f15a83d4d825c9917821324df5bfb0c984e35"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr18/top1.sdf",
+      "sha256": "15413aae5c7ed06b4321f38dfff4a8942cd7da906681d0127c132695ca43ca31"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr18/top1.pdbqt",
+      "sha256": "c8f83c8b2f66ef171e49c06bcc627b7bbdbb994c31014804ec487623bcf17b04"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr18/selection.json",
+      "sha256": "3c2aef7f8b5294dcf7c1e2157f130d47c45b9b5ac4ab1c5ed192450346254331"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr18/poses.pdbqt",
+      "sha256": "a45e2239a0ea8b9f8d412540e16cf0e55b8d37655b4e5d53fea53bc0d255e042"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/top1.sdf",
+      "sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/top1.pdbqt",
+      "sha256": "dbc141615e4f398fc5f8b3f3a8b30527cd60d193b10c24d0b8fbae3d4a0b1199"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/selection.json",
+      "sha256": "845245f27e6c6859950088be53aa0d91d847052ad9bada56e47beeacdf590ddc"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/poses.pdbqt",
+      "sha256": "bf5d28e2839e4c5937dbe507cbda2655827c8f13a0081e8d6ab1512dd732bf9a"
+    }
+  ],
+  "systems": {
+    "05_n84v": {
+      "full_residues": 406,
+      "docking_residues": 370,
+      "sequence_differences_from_fasta": [
+        {
+          "resid": 84,
+          "wt": "N",
+          "model": "V"
+        }
+      ],
+      "transform_check": {
+        "common_heavy_atoms": 2887,
+        "rmsd_A": {
+          "row_x_R_plus_t": 0.0005013032849383294,
+          "row_x_RT_plus_t": 31.515386357950668
+        },
+        "convention": "row_x_R_plus_t",
+        "rotation_orthogonality_max_error": 6.661338147750939e-16,
+        "rotation_determinant": 1.0000000000000004
+      },
+      "confidence": {
+        "n_term": {
+          "min": 24.58,
+          "max": 86.29,
+          "mean": 52.52
+        },
+        "lid": {
+          "min": 77.93,
+          "max": 92.94,
+          "mean": 88.44666666666669
+        },
+        "site84": {
+          "min": 92.44,
+          "max": 92.44,
+          "mean": 92.44
+        },
+        "site368": {
+          "min": 94.11,
+          "max": 94.11,
+          "mean": 94.11
+        }
+      },
+      "ligands": {
+        "ascr18": {
+          "total_atoms": 54,
+          "bonds": 54,
+          "heavy_atoms": 23,
+          "charge_records": [
+            "M  CHG  1  13  -1"
+          ],
+          "pdbqt_heavy_atoms": 23,
+          "sdf_pdbqt_max_nearest_A": 0.0,
+          "sdf_pdbqt_bijective": true,
+          "sdf_pdbqt_elements_match": true,
+          "vina_score": -6.856,
+          "poses_sha256_matches_selection": true,
+          "full": {
+            "min_distance_A": 0.334823613423457,
+            "pairs_below_1_5A": 23,
+            "pairs_below_2A": 48,
+            "residues_within_4A": [
+              31,
+              77,
+              80,
+              90,
+              102,
+              106,
+              110,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              185,
+              186,
+              189,
+              338,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:CZ3",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 0.334823613423457
+              },
+              {
+                "receptor": "TRP172:CE3",
+                "ligand_sdf_atom": 3,
+                "ligand_element": "C",
+                "distance_A": 0.34279009850189157
+              },
+              {
+                "receptor": "TRP172:CZ2",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 0.4487023425447313
+              },
+              {
+                "receptor": "TRP172:CA",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "O",
+                "distance_A": 0.534842247720288
+              },
+              {
+                "receptor": "TRP172:CB",
+                "ligand_sdf_atom": 15,
+                "ligand_element": "C",
+                "distance_A": 0.6447511078009822
+              }
+            ]
+          },
+          "restored_lid": {
+            "min_distance_A": 0.334823613423457,
+            "pairs_below_1_5A": 23,
+            "pairs_below_2A": 48,
+            "residues_within_4A": [
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:CZ3",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 0.334823613423457
+              },
+              {
+                "receptor": "TRP172:CE3",
+                "ligand_sdf_atom": 3,
+                "ligand_element": "C",
+                "distance_A": 0.34279009850189157
+              },
+              {
+                "receptor": "TRP172:CZ2",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 0.4487023425447313
+              },
+              {
+                "receptor": "TRP172:CA",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "O",
+                "distance_A": 0.534842247720288
+              },
+              {
+                "receptor": "TRP172:CB",
+                "ligand_sdf_atom": 15,
+                "ligand_element": "C",
+                "distance_A": 0.6447511078009822
+              }
+            ]
+          },
+          "restored_lid_backbone": {
+            "min_distance_A": 0.534842247720288,
+            "pairs_below_1_5A": 8,
+            "pairs_below_2A": 19,
+            "residues_within_4A": [
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:CA",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "O",
+                "distance_A": 0.534842247720288
+              },
+              {
+                "receptor": "TRP172:C",
+                "ligand_sdf_atom": 17,
+                "ligand_element": "C",
+                "distance_A": 0.7337655207183331
+              },
+              {
+                "receptor": "CYS173:N",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.8062048128041954
+              },
+              {
+                "receptor": "TRP172:C",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.8673621452494255
+              },
+              {
+                "receptor": "TRP172:CA",
+                "ligand_sdf_atom": 17,
+                "ligand_element": "C",
+                "distance_A": 1.1547036482751372
+              }
+            ]
+          },
+          "restored_n_term": {
+            "min_distance_A": 7.6233862862460935,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [],
+            "nearest_pairs": [
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 7.6233862862460935
+              },
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 8,
+                "ligand_element": "C",
+                "distance_A": 7.952432993714812
+              },
+              {
+                "receptor": "ALA14:CB",
+                "ligand_sdf_atom": 20,
+                "ligand_element": "O",
+                "distance_A": 8.016388327612672
+              },
+              {
+                "receptor": "ALA16:O",
+                "ligand_sdf_atom": 14,
+                "ligand_element": "O",
+                "distance_A": 8.106898070786476
+              },
+              {
+                "receptor": "ALA16:O",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 8.19200606283933
+              }
+            ]
+          },
+          "retained_receptor": {
+            "min_distance_A": 2.8227501828531807,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              31,
+              77,
+              80,
+              90,
+              102,
+              106,
+              110,
+              185,
+              186,
+              189,
+              338,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "THR106:OG1",
+                "ligand_sdf_atom": 23,
+                "ligand_element": "O",
+                "distance_A": 2.8227501828531807
+              },
+              {
+                "receptor": "ASN102:OD1",
+                "ligand_sdf_atom": 23,
+                "ligand_element": "O",
+                "distance_A": 2.8327187701906587
+              },
+              {
+                "receptor": "ARG189:NH1",
+                "ligand_sdf_atom": 12,
+                "ligand_element": "O",
+                "distance_A": 2.951032282133398
+              },
+              {
+                "receptor": "SER80:OG",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "O",
+                "distance_A": 3.1868408199285674
+              },
+              {
+                "receptor": "SER80:CB",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "O",
+                "distance_A": 3.3965056641266163
+              }
+            ]
+          },
+          "site84": {
+            "min_distance_A": 6.124233174188229,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [],
+            "nearest_pairs": [
+              {
+                "receptor": "VAL84:CG2",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "C",
+                "distance_A": 6.124233174188229
+              },
+              {
+                "receptor": "VAL84:CG2",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "O",
+                "distance_A": 6.917336480704203
+              },
+              {
+                "receptor": "VAL84:CG2",
+                "ligand_sdf_atom": 17,
+                "ligand_element": "C",
+                "distance_A": 7.040782599874444
+              },
+              {
+                "receptor": "VAL84:CB",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "C",
+                "distance_A": 7.475765767800933
+              },
+              {
+                "receptor": "VAL84:CG2",
+                "ligand_sdf_atom": 1,
+                "ligand_element": "C",
+                "distance_A": 7.752135233443425
+              }
+            ]
+          },
+          "site368": {
+            "min_distance_A": 3.6081837441179383,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 3.6081837441179383
+              },
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 5,
+                "ligand_element": "C",
+                "distance_A": 3.8400355502529995
+              },
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 3,
+                "ligand_element": "C",
+                "distance_A": 4.565109839813343
+              },
+              {
+                "receptor": "VAL368:N",
+                "ligand_sdf_atom": 5,
+                "ligand_element": "C",
+                "distance_A": 4.972679362008883
+              },
+              {
+                "receptor": "VAL368:CB",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 5.1071829149439045
+              }
+            ]
+          },
+          "inverse_frame_lid_min_distance_A": 0.3348236134234451
+        },
+        "ascr3": {
+          "total_atoms": 46,
+          "bonds": 46,
+          "heavy_atoms": 21,
+          "charge_records": [
+            "M  CHG  1  11  -1"
+          ],
+          "pdbqt_heavy_atoms": 21,
+          "sdf_pdbqt_max_nearest_A": 0.0,
+          "sdf_pdbqt_bijective": true,
+          "sdf_pdbqt_elements_match": true,
+          "vina_score": -6.264,
+          "poses_sha256_matches_selection": true,
+          "full": {
+            "min_distance_A": 0.31918011474544117,
+            "pairs_below_1_5A": 34,
+            "pairs_below_2A": 55,
+            "residues_within_4A": [
+              31,
+              77,
+              80,
+              81,
+              106,
+              107,
+              110,
+              169,
+              171,
+              172,
+              173,
+              174,
+              175,
+              181,
+              185,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP174:CZ2",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "C",
+                "distance_A": 0.31918011474544117
+              },
+              {
+                "receptor": "TRP174:CE3",
+                "ligand_sdf_atom": 14,
+                "ligand_element": "O",
+                "distance_A": 0.3715089487690616
+              },
+              {
+                "receptor": "TRP172:CZ3",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 0.4580403608927967
+              },
+              {
+                "receptor": "TRP172:CZ2",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 0.5439489960746431
+              },
+              {
+                "receptor": "TRP172:CD1",
+                "ligand_sdf_atom": 1,
+                "ligand_element": "C",
+                "distance_A": 0.6654383507751293
+              }
+            ]
+          },
+          "restored_lid": {
+            "min_distance_A": 0.31918011474544117,
+            "pairs_below_1_5A": 34,
+            "pairs_below_2A": 55,
+            "residues_within_4A": [
+              169,
+              171,
+              172,
+              173,
+              174,
+              175
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP174:CZ2",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "C",
+                "distance_A": 0.31918011474544117
+              },
+              {
+                "receptor": "TRP174:CE3",
+                "ligand_sdf_atom": 14,
+                "ligand_element": "O",
+                "distance_A": 0.3715089487690616
+              },
+              {
+                "receptor": "TRP172:CZ3",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 0.4580403608927967
+              },
+              {
+                "receptor": "TRP172:CZ2",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 0.5439489960746431
+              },
+              {
+                "receptor": "TRP172:CD1",
+                "ligand_sdf_atom": 1,
+                "ligand_element": "C",
+                "distance_A": 0.6654383507751293
+              }
+            ]
+          },
+          "restored_lid_backbone": {
+            "min_distance_A": 1.8078116471338066,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 4,
+            "residues_within_4A": [
+              171,
+              172,
+              173,
+              174,
+              175
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "GLY171:O",
+                "ligand_sdf_atom": 11,
+                "ligand_element": "O",
+                "distance_A": 1.8078116471338066
+              },
+              {
+                "receptor": "TRP172:N",
+                "ligand_sdf_atom": 11,
+                "ligand_element": "O",
+                "distance_A": 1.9487636343080215
+              },
+              {
+                "receptor": "TRP172:CA",
+                "ligand_sdf_atom": 11,
+                "ligand_element": "O",
+                "distance_A": 1.9534689959716285
+              },
+              {
+                "receptor": "GLY171:C",
+                "ligand_sdf_atom": 11,
+                "ligand_element": "O",
+                "distance_A": 1.9555763912974489
+              },
+              {
+                "receptor": "GLY171:O",
+                "ligand_sdf_atom": 9,
+                "ligand_element": "C",
+                "distance_A": 2.2368313013424848
+              }
+            ]
+          },
+          "restored_n_term": {
+            "min_distance_A": 6.567438357781992,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [],
+            "nearest_pairs": [
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 6.567438357781992
+              },
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 3,
+                "ligand_element": "C",
+                "distance_A": 6.634165373465465
+              },
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 13,
+                "ligand_element": "C",
+                "distance_A": 6.969052262475239
+              },
+              {
+                "receptor": "ALA14:CB",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 7.046998388221079
+              },
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 2,
+                "ligand_element": "C",
+                "distance_A": 7.129638455049577
+              }
+            ]
+          },
+          "retained_receptor": {
+            "min_distance_A": 2.770498027200785,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              31,
+              77,
+              80,
+              81,
+              106,
+              107,
+              110,
+              181,
+              185,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "SER80:OG",
+                "ligand_sdf_atom": 11,
+                "ligand_element": "O",
+                "distance_A": 2.770498027200785
+              },
+              {
+                "receptor": "GLN107:OE1",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "O",
+                "distance_A": 3.0014183819728992
+              },
+              {
+                "receptor": "ARG181:NH1",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 3.055040350760887
+              },
+              {
+                "receptor": "SER80:OG",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 3.146554126973664
+              },
+              {
+                "receptor": "PHE77:O",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 3.1897855915823707
+              }
+            ]
+          },
+          "site84": {
+            "min_distance_A": 7.306593853782303,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [],
+            "nearest_pairs": [
+              {
+                "receptor": "VAL84:CG2",
+                "ligand_sdf_atom": 11,
+                "ligand_element": "O",
+                "distance_A": 7.306593853782303
+              },
+              {
+                "receptor": "VAL84:CG2",
+                "ligand_sdf_atom": 9,
+                "ligand_element": "C",
+                "distance_A": 7.890438444460935
+              },
+              {
+                "receptor": "VAL84:CG2",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 7.891321670879806
+              },
+              {
+                "receptor": "VAL84:CB",
+                "ligand_sdf_atom": 11,
+                "ligand_element": "O",
+                "distance_A": 8.06802556074493
+              },
+              {
+                "receptor": "VAL84:CB",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 8.255445821817165
+              }
+            ]
+          },
+          "site368": {
+            "min_distance_A": 3.6806203800630386,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 7,
+                "ligand_element": "C",
+                "distance_A": 3.6806203800630386
+              },
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 3.783484070731034
+              },
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 5,
+                "ligand_element": "C",
+                "distance_A": 4.02635353837985
+              },
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 8,
+                "ligand_element": "C",
+                "distance_A": 4.9002620727139545
+              },
+              {
+                "receptor": "VAL368:CG2",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 5.056175890345571
+              }
+            ]
+          },
+          "inverse_frame_lid_min_distance_A": 0.31918011474544605
+        }
+      },
+      "cif_pdb_check": {
+        "max_coordinate_delta_A": 0.0,
+        "max_confidence_delta": 0.0
+      },
+      "cys173_SG_distances_A": {
+        "51": 33.791624406056606,
+        "99": 2.000288479194939,
+        "160": 14.546039942197327,
+        "287": 107.33921702714254,
+        "340": 21.7607647613773,
+        "366": 20.710101231041822
+      }
+    },
+    "05_v368r": {
+      "full_residues": 406,
+      "docking_residues": 370,
+      "sequence_differences_from_fasta": [
+        {
+          "resid": 368,
+          "wt": "V",
+          "model": "R"
+        }
+      ],
+      "transform_check": {
+        "common_heavy_atoms": 2892,
+        "rmsd_A": {
+          "row_x_R_plus_t": 0.0005009158944762167,
+          "row_x_RT_plus_t": 10.231897548391458
+        },
+        "convention": "row_x_R_plus_t",
+        "rotation_orthogonality_max_error": 2.220446049250313e-16,
+        "rotation_determinant": 1.0
+      },
+      "confidence": {
+        "n_term": {
+          "min": 23.05,
+          "max": 78.97,
+          "mean": 48.84428571428572
+        },
+        "lid": {
+          "min": 76.3,
+          "max": 91.15,
+          "mean": 85.23799999999999
+        },
+        "site84": {
+          "min": 85.81,
+          "max": 85.81,
+          "mean": 85.81
+        },
+        "site368": {
+          "min": 87.67,
+          "max": 87.67,
+          "mean": 87.67
+        }
+      },
+      "ligands": {
+        "ascr18": {
+          "total_atoms": 54,
+          "bonds": 54,
+          "heavy_atoms": 23,
+          "charge_records": [
+            "M  CHG  1  13  -1"
+          ],
+          "pdbqt_heavy_atoms": 23,
+          "sdf_pdbqt_max_nearest_A": 0.0,
+          "sdf_pdbqt_bijective": true,
+          "sdf_pdbqt_elements_match": true,
+          "vina_score": -6.293,
+          "poses_sha256_matches_selection": true,
+          "full": {
+            "min_distance_A": 0.471372419973384,
+            "pairs_below_1_5A": 23,
+            "pairs_below_2A": 47,
+            "residues_within_4A": [
+              24,
+              28,
+              31,
+              77,
+              80,
+              84,
+              90,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:NE1",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "C",
+                "distance_A": 0.471372419973384
+              },
+              {
+                "receptor": "TRP172:N",
+                "ligand_sdf_atom": 15,
+                "ligand_element": "C",
+                "distance_A": 0.6672150300620538
+              },
+              {
+                "receptor": "GLY171:N",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "C",
+                "distance_A": 0.7344224578447529
+              },
+              {
+                "receptor": "TRP172:CH2",
+                "ligand_sdf_atom": 7,
+                "ligand_element": "C",
+                "distance_A": 0.7703669904335565
+              },
+              {
+                "receptor": "GLY171:O",
+                "ligand_sdf_atom": 14,
+                "ligand_element": "O",
+                "distance_A": 0.827456822222698
+              }
+            ]
+          },
+          "restored_lid": {
+            "min_distance_A": 0.471372419973384,
+            "pairs_below_1_5A": 23,
+            "pairs_below_2A": 47,
+            "residues_within_4A": [
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:NE1",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "C",
+                "distance_A": 0.471372419973384
+              },
+              {
+                "receptor": "TRP172:N",
+                "ligand_sdf_atom": 15,
+                "ligand_element": "C",
+                "distance_A": 0.6672150300620538
+              },
+              {
+                "receptor": "GLY171:N",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "C",
+                "distance_A": 0.7344224578447529
+              },
+              {
+                "receptor": "TRP172:CH2",
+                "ligand_sdf_atom": 7,
+                "ligand_element": "C",
+                "distance_A": 0.7703669904335565
+              },
+              {
+                "receptor": "GLY171:O",
+                "ligand_sdf_atom": 14,
+                "ligand_element": "O",
+                "distance_A": 0.827456822222698
+              }
+            ]
+          },
+          "restored_lid_backbone": {
+            "min_distance_A": 0.6672150300620538,
+            "pairs_below_1_5A": 11,
+            "pairs_below_2A": 22,
+            "residues_within_4A": [
+              169,
+              170,
+              171,
+              172,
+              173,
+              174
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:N",
+                "ligand_sdf_atom": 15,
+                "ligand_element": "C",
+                "distance_A": 0.6672150300620538
+              },
+              {
+                "receptor": "GLY171:N",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "C",
+                "distance_A": 0.7344224578447529
+              },
+              {
+                "receptor": "GLY171:O",
+                "ligand_sdf_atom": 14,
+                "ligand_element": "O",
+                "distance_A": 0.827456822222698
+              },
+              {
+                "receptor": "GLY170:O",
+                "ligand_sdf_atom": 23,
+                "ligand_element": "O",
+                "distance_A": 0.8480158471582416
+              },
+              {
+                "receptor": "GLY171:CA",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "C",
+                "distance_A": 0.8815017367612576
+              }
+            ]
+          },
+          "restored_n_term": {
+            "min_distance_A": 5.738818182971135,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [],
+            "nearest_pairs": [
+              {
+                "receptor": "ALA16:O",
+                "ligand_sdf_atom": 23,
+                "ligand_element": "O",
+                "distance_A": 5.738818182971135
+              },
+              {
+                "receptor": "PRO18:CD",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "C",
+                "distance_A": 5.992610942926122
+              },
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 13,
+                "ligand_element": "O",
+                "distance_A": 6.077854314453332
+              },
+              {
+                "receptor": "PRO18:CD",
+                "ligand_sdf_atom": 20,
+                "ligand_element": "O",
+                "distance_A": 6.091908085949368
+              },
+              {
+                "receptor": "PRO18:CD",
+                "ligand_sdf_atom": 23,
+                "ligand_element": "O",
+                "distance_A": 6.136147630792028
+              }
+            ]
+          },
+          "retained_receptor": {
+            "min_distance_A": 2.805772176473675,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              24,
+              28,
+              31,
+              77,
+              80,
+              84,
+              90,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "ASN28:ND2",
+                "ligand_sdf_atom": 20,
+                "ligand_element": "O",
+                "distance_A": 2.805772176473675
+              },
+              {
+                "receptor": "LYS364:NZ",
+                "ligand_sdf_atom": 23,
+                "ligand_element": "O",
+                "distance_A": 2.81496472533024
+              },
+              {
+                "receptor": "LYS364:NZ",
+                "ligand_sdf_atom": 13,
+                "ligand_element": "O",
+                "distance_A": 2.847383891917149
+              },
+              {
+                "receptor": "ASP24:OD1",
+                "ligand_sdf_atom": 20,
+                "ligand_element": "O",
+                "distance_A": 3.172290793163686
+              },
+              {
+                "receptor": "SER80:OG",
+                "ligand_sdf_atom": 14,
+                "ligand_element": "O",
+                "distance_A": 3.2539428281644835
+              }
+            ]
+          },
+          "site84": {
+            "min_distance_A": 3.42322112854967,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              84
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "ASN84:ND2",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "C",
+                "distance_A": 3.42322112854967
+              },
+              {
+                "receptor": "ASN84:ND2",
+                "ligand_sdf_atom": 17,
+                "ligand_element": "C",
+                "distance_A": 3.6194450135568106
+              },
+              {
+                "receptor": "ASN84:ND2",
+                "ligand_sdf_atom": 20,
+                "ligand_element": "O",
+                "distance_A": 3.8917341859956607
+              },
+              {
+                "receptor": "ASN84:CG",
+                "ligand_sdf_atom": 20,
+                "ligand_element": "O",
+                "distance_A": 4.098328174378597
+              },
+              {
+                "receptor": "ASN84:CG",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "C",
+                "distance_A": 4.203839643891224
+              }
+            ]
+          },
+          "site368": {
+            "min_distance_A": 3.5252049375762353,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "ARG368:CD",
+                "ligand_sdf_atom": 5,
+                "ligand_element": "C",
+                "distance_A": 3.5252049375762353
+              },
+              {
+                "receptor": "ARG368:CD",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 3.9628041509225524
+              },
+              {
+                "receptor": "ARG368:NE",
+                "ligand_sdf_atom": 5,
+                "ligand_element": "C",
+                "distance_A": 4.2652116953095
+              },
+              {
+                "receptor": "ARG368:NE",
+                "ligand_sdf_atom": 3,
+                "ligand_element": "C",
+                "distance_A": 4.392776918136468
+              },
+              {
+                "receptor": "ARG368:CD",
+                "ligand_sdf_atom": 3,
+                "ligand_element": "C",
+                "distance_A": 4.498152973153987
+              }
+            ]
+          },
+          "arg368_guanidinium_N_to_any_ligand_O_min_A": 6.477105451361099,
+          "inverse_frame_lid_min_distance_A": 0.47137241997338075
+        },
+        "ascr3": {
+          "total_atoms": 46,
+          "bonds": 46,
+          "heavy_atoms": 21,
+          "charge_records": [
+            "M  CHG  1  11  -1"
+          ],
+          "pdbqt_heavy_atoms": 21,
+          "sdf_pdbqt_max_nearest_A": 0.0,
+          "sdf_pdbqt_bijective": true,
+          "sdf_pdbqt_elements_match": true,
+          "vina_score": -7.013,
+          "poses_sha256_matches_selection": true,
+          "full": {
+            "min_distance_A": 0.44475471534044303,
+            "pairs_below_1_5A": 20,
+            "pairs_below_2A": 40,
+            "residues_within_4A": [
+              24,
+              28,
+              31,
+              77,
+              80,
+              81,
+              84,
+              90,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:N",
+                "ligand_sdf_atom": 13,
+                "ligand_element": "C",
+                "distance_A": 0.44475471534044303
+              },
+              {
+                "receptor": "TRP172:CZ2",
+                "ligand_sdf_atom": 8,
+                "ligand_element": "C",
+                "distance_A": 0.4805202241076952
+              },
+              {
+                "receptor": "GLY170:O",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 0.7164915512680694
+              },
+              {
+                "receptor": "GLY171:CA",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.7272079205001963
+              },
+              {
+                "receptor": "GLY171:N",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.8535947096269763
+              }
+            ]
+          },
+          "restored_lid": {
+            "min_distance_A": 0.44475471534044303,
+            "pairs_below_1_5A": 20,
+            "pairs_below_2A": 40,
+            "residues_within_4A": [
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:N",
+                "ligand_sdf_atom": 13,
+                "ligand_element": "C",
+                "distance_A": 0.44475471534044303
+              },
+              {
+                "receptor": "TRP172:CZ2",
+                "ligand_sdf_atom": 8,
+                "ligand_element": "C",
+                "distance_A": 0.4805202241076952
+              },
+              {
+                "receptor": "GLY170:O",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 0.7164915512680694
+              },
+              {
+                "receptor": "GLY171:CA",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.7272079205001963
+              },
+              {
+                "receptor": "GLY171:N",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.8535947096269763
+              }
+            ]
+          },
+          "restored_lid_backbone": {
+            "min_distance_A": 0.44475471534044303,
+            "pairs_below_1_5A": 12,
+            "pairs_below_2A": 24,
+            "residues_within_4A": [
+              169,
+              170,
+              171,
+              172,
+              173
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "TRP172:N",
+                "ligand_sdf_atom": 13,
+                "ligand_element": "C",
+                "distance_A": 0.44475471534044303
+              },
+              {
+                "receptor": "GLY170:O",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 0.7164915512680694
+              },
+              {
+                "receptor": "GLY171:CA",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.7272079205001963
+              },
+              {
+                "receptor": "GLY171:N",
+                "ligand_sdf_atom": 19,
+                "ligand_element": "C",
+                "distance_A": 0.8535947096269763
+              },
+              {
+                "receptor": "GLY170:C",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 1.0330324558129822
+              }
+            ]
+          },
+          "restored_n_term": {
+            "min_distance_A": 4.952693952947905,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [],
+            "nearest_pairs": [
+              {
+                "receptor": "ALA16:CB",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 4.952693952947905
+              },
+              {
+                "receptor": "ALA16:O",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 5.605570555852982
+              },
+              {
+                "receptor": "PRO18:CD",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 5.7640369524460375
+              },
+              {
+                "receptor": "ALA17:CA",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 5.896428253234734
+              },
+              {
+                "receptor": "ALA16:O",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 5.976939729626896
+              }
+            ]
+          },
+          "retained_receptor": {
+            "min_distance_A": 2.958361690758909,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              24,
+              28,
+              31,
+              77,
+              80,
+              81,
+              84,
+              90,
+              364,
+              367,
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "ASN28:ND2",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "O",
+                "distance_A": 2.958361690758909
+              },
+              {
+                "receptor": "LYS364:NZ",
+                "ligand_sdf_atom": 21,
+                "ligand_element": "O",
+                "distance_A": 2.989721814603458
+              },
+              {
+                "receptor": "LYS364:NZ",
+                "ligand_sdf_atom": 10,
+                "ligand_element": "O",
+                "distance_A": 3.061098646505361
+              },
+              {
+                "receptor": "SER80:OG",
+                "ligand_sdf_atom": 12,
+                "ligand_element": "O",
+                "distance_A": 3.117056396757183
+              },
+              {
+                "receptor": "ASN28:OD1",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "O",
+                "distance_A": 3.131591620266557
+              }
+            ]
+          },
+          "site84": {
+            "min_distance_A": 3.133042166114397,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              84
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "ASN84:ND2",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "O",
+                "distance_A": 3.133042166114397
+              },
+              {
+                "receptor": "ASN84:CG",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "O",
+                "distance_A": 3.434765223046005
+              },
+              {
+                "receptor": "ASN84:OD1",
+                "ligand_sdf_atom": 18,
+                "ligand_element": "O",
+                "distance_A": 3.7017628162066685
+              },
+              {
+                "receptor": "ASN84:ND2",
+                "ligand_sdf_atom": 15,
+                "ligand_element": "C",
+                "distance_A": 3.728912762422666
+              },
+              {
+                "receptor": "ASN84:ND2",
+                "ligand_sdf_atom": 16,
+                "ligand_element": "C",
+                "distance_A": 3.754192777716435
+              }
+            ]
+          },
+          "site368": {
+            "min_distance_A": 3.6451397985116474,
+            "pairs_below_1_5A": 0,
+            "pairs_below_2A": 0,
+            "residues_within_4A": [
+              368
+            ],
+            "nearest_pairs": [
+              {
+                "receptor": "ARG368:CD",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 3.6451397985116474
+              },
+              {
+                "receptor": "ARG368:CD",
+                "ligand_sdf_atom": 5,
+                "ligand_element": "C",
+                "distance_A": 3.780365161946104
+              },
+              {
+                "receptor": "ARG368:NE",
+                "ligand_sdf_atom": 4,
+                "ligand_element": "C",
+                "distance_A": 3.947864267602427
+              },
+              {
+                "receptor": "ARG368:CD",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 3.9665433819456632
+              },
+              {
+                "receptor": "ARG368:CB",
+                "ligand_sdf_atom": 6,
+                "ligand_element": "C",
+                "distance_A": 4.5534346283886995
+              }
+            ]
+          },
+          "arg368_guanidinium_N_to_any_ligand_O_min_A": 6.777725150899629,
+          "inverse_frame_lid_min_distance_A": 0.4447547153404432
+        }
+      },
+      "cif_pdb_check": {
+        "max_coordinate_delta_A": 0.0,
+        "max_confidence_delta": 0.0
+      },
+      "cys173_SG_distances_A": {
+        "51": 33.98051490192578,
+        "99": 1.9884448697411796,
+        "160": 14.723214798405948,
+        "287": 100.67041124878749,
+        "340": 21.845961297228378,
+        "366": 20.768493565976325
+      }
+    }
+  },
+  "cross_mutant": {
+    "TM_alignment_CA": {
+      "atoms": 153,
+      "in_docking_frame_RMSD_A": 0.18460335511840412,
+      "independent_optimal_fit_RMSD_A": 0.18460072749140258
+    },
+    "lid_backbone": {
+      "atoms": 60,
+      "in_docking_frame_RMSD_A": 0.17887282506290847,
+      "independent_optimal_fit_RMSD_A": 0.10076508704080489
+    },
+    "all_backbone": {
+      "atoms": 1624,
+      "in_docking_frame_RMSD_A": 10.196449284493731,
+      "independent_optimal_fit_RMSD_A": 9.091142355160233
+    },
+    "ascr18": {
+      "centroid_distance_A": 3.2733053841638715,
+      "atom_order_RMSD_A": 4.674365295207839,
+      "atom_order_element_agreement": true
+    },
+    "ascr3": {
+      "centroid_distance_A": 4.492376523110771,
+      "atom_order_RMSD_A": 7.807915934363998,
+      "atom_order_element_agreement": true
+    }
+  }
+}

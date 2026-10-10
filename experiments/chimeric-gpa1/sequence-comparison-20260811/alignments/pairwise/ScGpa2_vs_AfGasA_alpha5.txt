@@ -1,0 +1,13 @@
+# ScGpa2_alpha5 vs AfGasA_alpha5
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 47.0
+# Length: 28
+# Identity: 9/28 (32.143%)
+# Similarity (BLOSUM62 > 0): 19/28 (67.857%)
+# Gap columns: 1/28 (3.571%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa2_alpha5      1-28  DTSNIRLVFAAIKETILENTLKDSGVLQ
+                         ||:.|:.|.||:.:.|::..|::.|:: 
+AfGasA_alpha5      1-27  DTTQIKFVMAAVNDIIIQENLRNCGLI-

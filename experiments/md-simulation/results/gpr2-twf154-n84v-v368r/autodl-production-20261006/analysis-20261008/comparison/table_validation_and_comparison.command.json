@@ -1,0 +1,11 @@
+{
+  "name": "table_validation_and_comparison",
+  "argv": [
+    "/ifs1/User/dengwei/igem/envs/roy_md-analysis-py311/bin/python",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/analysis/chctrl/summarize_metric_tables.py",
+    "--batch-config",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/batch_config_v3.json",
+    "--output-dir",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_comparison"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "drivers": [
+    "convergence",
+    "selection_rmsd",
+    "hbond",
+    "com_distance",
+    "rmsf",
+    "bsa",
+    "contacts"
+  ],
+  "replicate_selector": "1",
+  "summary_window_ns": [
+    50,
+    100
+  ],
+  "sparse_sample_spacing_ns": 0.5,
+  "finished_at": "2026-10-08T18:37:48.355557+00:00"
+}

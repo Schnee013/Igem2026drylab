@@ -1,0 +1,8 @@
+2026-10-09T03:06:52+08:00
+ 03:06:52 up 30 days, 13:16, 50 users,  load average: 179.71, 171.22, 153.53
+               total        used        free      shared  buff/cache   available
+Mem:           1.7Ti       592Gi       171Gi        35Gi       1.0Ti       1.2Ti
+Swap:          127Mi       127Mi        20Ki
+    PID ELAPSED %CPU COMMAND
+1152800  466478  495 gmx_mpi
+3328118  468210  480 gmx_mpi

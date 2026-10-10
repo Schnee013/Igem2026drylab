@@ -1,0 +1,18 @@
+{
+  "atoms": 6402,
+  "charge": 14.0,
+  "ss_atom_indices": [
+    1515,
+    2698
+  ],
+  "lid_position_restraints": false,
+  "genotype": "n84v",
+  "ligand": "ascr18",
+  "pose_mapping": "n84v_ascr18",
+  "id": "raw_n84v_ascr18",
+  "lid": "raw",
+  "source_original_case": "raw_n84v_ascr18",
+  "production_authority": "../../../../WORK_ORDER.json",
+  "production_ns": 100,
+  "replicate": 1
+}

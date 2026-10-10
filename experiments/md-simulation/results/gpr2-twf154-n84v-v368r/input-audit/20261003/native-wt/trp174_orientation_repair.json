@@ -1,0 +1,124 @@
+{
+  "source": "/private/tmp/gpr2-wt-replacement-20261003-_214_9xd/runs/native_wt_ascr18/ionized.gro",
+  "source_sha256": "0bfce60e4ae0d116ae744dbc3849eaba5f9f08151af070bc196dde3a274fe714",
+  "trials": 1296,
+  "feasible": 10,
+  "selection_rule": "Increase worst nonbonded separation, then reduce overlap and side-chain shift; no affinity objective",
+  "starting_solute_distance_minimum_A": 1.4,
+  "starting_water_distance_minimum_A": 1.5,
+  "selected": {
+    "chi1_delta_deg": 160,
+    "chi2_delta_deg": -30,
+    "min_solute_heavy_A": 1.6260615788969293,
+    "min_water_heavy_A": 2.71457196967983,
+    "overlap_penalty": 18.72026529449198,
+    "sidechain_rms_shift_A": 5.074905173065568,
+    "candidate": "/private/tmp/gpr2-wt-replacement-20261003-_214_9xd/runs/trp174_orientation04/candidate_001.gro",
+    "changed_atom_names": [
+      "HB1",
+      "HB2",
+      "CG",
+      "CD1",
+      "HD1",
+      "NE1",
+      "HE1",
+      "CE2",
+      "CD2",
+      "CE3",
+      "HE3",
+      "CZ3",
+      "HZ3",
+      "CZ2",
+      "HZ2",
+      "CH2",
+      "HH2"
+    ],
+    "unchanged_atoms": 145759,
+    "all_backbone_and_ligand_coordinates_unchanged": true,
+    "candidate_sha256": "2860154e6fc8272516b1eebecd28c7a88f5a00d62aa0134824db732c3ee4642c",
+    "lid_ligand_min_A": 0.3903844259188648
+  },
+  "candidate_ranking": [
+    {
+      "chi1_delta_deg": 160,
+      "chi2_delta_deg": -30,
+      "min_solute_heavy_A": 1.6260615788969293,
+      "min_water_heavy_A": 2.71457196967983,
+      "overlap_penalty": 18.72026529449198,
+      "sidechain_rms_shift_A": 5.074905173065568
+    },
+    {
+      "chi1_delta_deg": 150,
+      "chi2_delta_deg": -30,
+      "min_solute_heavy_A": 1.5911391203197687,
+      "min_water_heavy_A": 2.835416759321761,
+      "overlap_penalty": 26.671346633783116,
+      "sidechain_rms_shift_A": 5.019938872753189
+    },
+    {
+      "chi1_delta_deg": -140,
+      "chi2_delta_deg": -40,
+      "min_solute_heavy_A": 1.4887840952492888,
+      "min_water_heavy_A": 3.1956522527939297,
+      "overlap_penalty": 26.17423953393737,
+      "sidechain_rms_shift_A": 4.661775754020867
+    },
+    {
+      "chi1_delta_deg": 160,
+      "chi2_delta_deg": -160,
+      "min_solute_heavy_A": 1.4831530231143604,
+      "min_water_heavy_A": 4.47097202273764,
+      "overlap_penalty": 27.242132754556103,
+      "sidechain_rms_shift_A": 6.77818005956463
+    },
+    {
+      "chi1_delta_deg": -130,
+      "chi2_delta_deg": 10,
+      "min_solute_heavy_A": 1.4751850331947562,
+      "min_water_heavy_A": 2.2881622548126463,
+      "overlap_penalty": 17.203069762926752,
+      "sidechain_rms_shift_A": 4.669379346817879
+    },
+    {
+      "chi1_delta_deg": 150,
+      "chi2_delta_deg": -40,
+      "min_solute_heavy_A": 1.4714358822853153,
+      "min_water_heavy_A": 2.9197994091964263,
+      "overlap_penalty": 23.668053215728115,
+      "sidechain_rms_shift_A": 5.132341863133228
+    },
+    {
+      "chi1_delta_deg": 160,
+      "chi2_delta_deg": -40,
+      "min_solute_heavy_A": 1.459655392269092,
+      "min_water_heavy_A": 2.826828165183189,
+      "overlap_penalty": 17.97306620387275,
+      "sidechain_rms_shift_A": 5.17586345887914
+    },
+    {
+      "chi1_delta_deg": 90,
+      "chi2_delta_deg": -140,
+      "min_solute_heavy_A": 1.4194210670471372,
+      "min_water_heavy_A": 5.890414680292453,
+      "overlap_penalty": 32.23004171838557,
+      "sidechain_rms_shift_A": 5.6733608053392866
+    },
+    {
+      "chi1_delta_deg": -140,
+      "chi2_delta_deg": -30,
+      "min_solute_heavy_A": 1.4190462400656656,
+      "min_water_heavy_A": 2.7604589274741564,
+      "overlap_penalty": 22.2590866451854,
+      "sidechain_rms_shift_A": 4.624063356000654
+    },
+    {
+      "chi1_delta_deg": -130,
+      "chi2_delta_deg": -180,
+      "min_solute_heavy_A": 1.4158539559985437,
+      "min_water_heavy_A": 4.674918179274611,
+      "overlap_penalty": 19.114781122761052,
+      "sidechain_rms_shift_A": 6.353322193959555
+    }
+  ],
+  "scope": "Discrete geometric repair, not a physical unthreading trajectory; remaining nonbonded overlaps require original-force-field minimization; no final acceptance criteria are relaxed"
+}

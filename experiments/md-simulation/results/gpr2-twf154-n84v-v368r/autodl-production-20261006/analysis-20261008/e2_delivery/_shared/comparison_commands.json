@@ -1,0 +1,70 @@
+{
+  "cwd": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3",
+  "batch_config": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/batch_config_v3.json",
+  "output_dir": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_comparison",
+  "commands": [
+    {
+      "name": "table_validation_and_comparison",
+      "argv": [
+        "/ifs1/User/dengwei/igem/envs/roy_md-analysis-py311/bin/python",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/analysis/chctrl/summarize_metric_tables.py",
+        "--batch-config",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/batch_config_v3.json",
+        "--output-dir",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_comparison"
+      ]
+    },
+    {
+      "name": "independent_RMSD_reproduction",
+      "argv": [
+        "/ifs1/User/dengwei/igem/envs/roy_md-analysis-py311/bin/python",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/validate_metric_samples.py",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/batch_config_v3.json",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_comparison/independent_rmsd_reproduction.csv"
+      ]
+    },
+    {
+      "name": "shared_ligand_path_comparison",
+      "argv": [
+        "/ifs1/User/dengwei/igem/envs/roy_md-analysis-py311/bin/python",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/analysis/chctrl/compare_ligand_paths.py",
+        "--reference-arm",
+        "WT_A18",
+        "--replicate",
+        "1",
+        "--output-dir",
+        "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_comparison/ligand_paths",
+        "--fit-selection",
+        "protein and backbone",
+        "--window-start-ns",
+        "50",
+        "--stride",
+        "50",
+        "--arm-config",
+        "WT_A18=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/system_config.json",
+        "--arm-payload",
+        "WT_A18=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18",
+        "--arm-config",
+        "N84V_A18=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/system_config.json",
+        "--arm-payload",
+        "N84V_A18=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18",
+        "--arm-config",
+        "N84V_A3=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/system_config.json",
+        "--arm-payload",
+        "N84V_A3=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3",
+        "--arm-config",
+        "V368R_A18=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/system_config.json",
+        "--arm-payload",
+        "V368R_A18=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18",
+        "--arm-config",
+        "V368R_A3_newlid=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/system_config.json",
+        "--arm-payload",
+        "V368R_A3_newlid=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1",
+        "--arm-config",
+        "WT_A3_newlid=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/system_config.json",
+        "--arm-payload",
+        "WT_A3_newlid=/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+name: docking
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - setuptools=71.*
+  - wheel
+  - biopython=1.87
+  - numpy=1.26.4
+  - openmm=8.2.0
+  - pdbfixer=1.12
+  - jax=0.4.26
+  - jaxlib=0.4.26
+  - dm-haiku=0.0.12
+  - absl-py=1.0.0
+  - contextlib2=21.6.0
+  - meeko=0.7.1
+  - rdkit=2025.09.5
+  - pip:
+      - ml-collections==0.1.0
+      - PyQt6==6.9.1
+      - PyQt6-Qt6==6.9.2
+      - PyQt6-sip==13.12.0

@@ -1,0 +1,5 @@
+numpy==2.5.3
+pillow==12.3.0
+pyrosetta @ file:///private/tmp/gpr2-lid-20261003-GCBHIJ/downloads/complete/pyrosetta-2026.29+releasequarterly.80a0635615-cp313-cp313-macosx_12_0_arm64.whl
+rdkit==2026.3.6
+scipy==1.18.1

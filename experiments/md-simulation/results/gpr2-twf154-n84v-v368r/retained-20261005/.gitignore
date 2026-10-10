@@ -1,0 +1,14 @@
+# Runtime bodies remain local; selected source links resolve inside this repo.
+data/
+sources/*
+!sources/WT_sequence.fasta
+!sources/native_wt/
+sources/native_wt/*
+!sources/native_wt/full_length.pdb
+!sources/native_wt/deltaN_docking_receptor.pdb
+!sources/native_wt/ascr18/
+!sources/native_wt/ascr3/
+sources/native_wt/ascr18/*
+sources/native_wt/ascr3/*
+!sources/native_wt/ascr18/poses.pdbqt
+!sources/native_wt/ascr3/poses.pdbqt

@@ -1,0 +1,29 @@
+{
+  "as_of_utc": "2026-10-03T04:09:42.587101+00:00",
+  "cases": [
+    {
+      "case": "native_wt_ascr18",
+      "genotype": "wt",
+      "ligand": "ascr18",
+      "lid_input": "native",
+      "pose_mapping": "wt_ascr18",
+      "em_source": "attempt6_trp174_orientation/em.gro",
+      "em_Fmax_kJ_mol_nm": 983.462363238901,
+      "em_sha256": "4ea6b9271c6a24adc6a4df5d2116f77143e3d485f8a0ef166391f94d467129f3",
+      "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr18/heating_v4",
+      "final_gro_sha256": "ddb12dfed97a3840d3da8b7e4288f7e5fc46a115dd8231ff064e425063d2478a"
+    },
+    {
+      "case": "native_wt_ascr3",
+      "genotype": "wt",
+      "ligand": "ascr3",
+      "lid_input": "native",
+      "pose_mapping": "wt_ascr3",
+      "em_source": "em.gro",
+      "em_Fmax_kJ_mol_nm": 979.10596,
+      "em_sha256": "43d7597149e658287bb43f0aad683d80fd2ff4e7e93a7a1b057be9d124530e61",
+      "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr3/heating_v4",
+      "final_gro_sha256": "77b7e01a80f05dd456cc9c0ff90fcf43924a0aada188ea4435b80c10785a3c9e"
+    }
+  ]
+}

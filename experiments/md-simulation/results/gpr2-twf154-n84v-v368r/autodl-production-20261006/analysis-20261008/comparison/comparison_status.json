@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "accepted_cases": [
+    "native_wt_ascr18",
+    "raw_n84v_ascr18",
+    "raw_n84v_ascr3",
+    "raw_v368r_ascr18",
+    "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "native_wt_ascr3_lid_rebuilt_own_pose_v1"
+  ],
+  "expected_cases": [
+    "native_wt_ascr18",
+    "raw_n84v_ascr18",
+    "raw_n84v_ascr3",
+    "raw_v368r_ascr18",
+    "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "native_wt_ascr3_lid_rebuilt_own_pose_v1"
+  ],
+  "validation_passes": 180,
+  "validation_failures": 0,
+  "primary_window_ns": [
+    50,
+    100
+  ],
+  "dense_spacing_ns": 0.01,
+  "sparse_spacing_ns": 0.5,
+  "evidence_level": "single_rep_exploratory_only",
+  "interpretation_boundary": "actual parents/lids/poses; no mutation causality, affinity rank, or mechanism establishment"
+}

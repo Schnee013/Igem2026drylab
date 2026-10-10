@@ -1,0 +1,43 @@
+{
+  "source": "Latest user instruction in this conversation; retained-20261005 remains an immutable historical input/results package.",
+  "as_of": "2026-10-05",
+  "allowed_use": "Current six-case input selection; changed cases require their linked contracts and actual candidate acceptance before execution.",
+  "update_trigger": "Input contract or accepted coordinate changes.",
+  "cases": [
+    {
+      "comparison_case": "raw_n84v_ascr18",
+      "selected_case_id": "raw_n84v_ascr18",
+      "retained_case_source": "../retained-20261005/cases.json",
+      "input_change": "none"
+    },
+    {
+      "comparison_case": "raw_v368r_ascr3",
+      "selected_case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "selection_contract": "gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1.input.json"
+    },
+    {
+      "comparison_case": "raw_n84v_ascr3",
+      "selected_case_id": "raw_n84v_ascr3",
+      "retained_case_source": "../retained-20261005/cases.json",
+      "input_change": "none"
+    },
+    {
+      "comparison_case": "raw_v368r_ascr18",
+      "selected_case_id": "raw_v368r_ascr18",
+      "retained_case_source": "../retained-20261005/cases.json",
+      "input_change": "none"
+    },
+    {
+      "comparison_case": "native_wt_ascr18",
+      "selected_case_id": "native_wt_ascr18",
+      "retained_case_source": "../retained-20261005/cases.json",
+      "input_change": "none",
+      "existing_preparation": "Trp174 side-chain repair followed by selected EM/preheat; see retained provenance/trp174_orientation_repair.json"
+    },
+    {
+      "comparison_case": "native_wt_ascr3",
+      "selected_case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "selection_contract": "gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1.input.json"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "integrity_pass": true,
+  "checked_files": 365,
+  "errors": [],
+  "production_readiness": "NOT_CLAIMED; follow WORK_ORDER and RUNBOOK",
+  "extracted_from": "gpr2-twf154-dots-20261006.zip",
+  "archive_sha256": "b7912d4b4d8fe491aa72ae15f3a264916f674460fe774dccf24a29a24003b4de",
+  "tested_at": "2026-10-05T18:50:02.047306+00:00",
+  "validation_scope": "Relocated files, hashes, no symlinks, and local topology includes. Not GROMACS scientific acceptance."
+}

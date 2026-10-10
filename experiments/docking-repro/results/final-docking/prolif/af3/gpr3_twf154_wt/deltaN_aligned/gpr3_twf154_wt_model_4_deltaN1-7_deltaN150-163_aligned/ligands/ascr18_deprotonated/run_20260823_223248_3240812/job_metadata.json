@@ -1,0 +1,38 @@
+{
+  "model_rel": "gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned",
+  "ligand": "ascr18_deprotonated",
+  "run_name": "run_20260823_223248_3240812",
+  "source_poses_pdbqt": "experiments/docking-repro/results/final-docking/vina/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt",
+  "receptor_json": "/Users/roy/Documents/drylab-payloads/final-docking/prolif/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/receptor/receptor.json",
+  "expected_poses_from_pdbqt": 9,
+  "n_poses": 9,
+  "pose_explicit_hydrogens": [
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31
+  ],
+  "expected_formal_charge_from_pdbqt_smiles": -1,
+  "pose_formal_charges": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+  ],
+  "receptor": {
+    "residue_count": 380,
+    "atom_count": 6016,
+    "explicit_hydrogens": 3019,
+    "formal_charge": 4
+  }
+}

@@ -54,11 +54,36 @@ class AnalysisContext:
 
     @property
     def backbone_selection(self) -> str:
-        return f"({self.protein_selection}) and backbone"
+        return self.config.get("backbone_selection") or f"({self.protein_selection}) and backbone"
 
     @property
     def ca_selection(self) -> str:
-        return f"({self.protein_selection}) and name CA"
+        return self.config.get("ca_selection") or f"({self.protein_selection}) and name CA"
+
+    def window(self, key: str) -> tuple[float, float] | None:
+        value = self.config.get(key)
+        if value is None:
+            return None
+        if len(value) != 2:
+            raise ValueError(f"{key} requires [start_ns, end_ns]")
+        start, end = map(float, value)
+        if not np.isfinite([start, end]).all() or not 0 <= start < end:
+            raise ValueError(f"invalid {key}: {value}")
+        return start, end
+
+    def summary(self, table: pd.DataFrame) -> pd.DataFrame:
+        window = self.window("summary_window_ns")
+        if window is None:
+            return table[table.time_ns >= 100] if table.time_ns.max() >= 100 else table
+        selected = table[table.time_ns.between(*window)]
+        if len(selected) < 2:
+            raise ValueError(f"summary window {window} contains fewer than two samples")
+        return selected
+
+    @property
+    def summary_label(self) -> str:
+        window = self.window("summary_window_ns")
+        return f"{window[0]:g}-{window[1]:g} ns" if window else "after100"
 
     @property
     def alpha5_selection(self) -> str:
@@ -268,29 +293,44 @@ def time_ns(ts) -> float:
         return float(ts.frame)
 
 
+def in_time_window(ts, window: tuple[float, float] | None) -> bool:
+    return window is None or window[0] <= time_ns(ts) <= window[1]
+
+
+def trajectory_window_slice(universe, window: tuple[float, float] | None) -> slice:
+    if window is None:
+        return slice(None)
+    times = np.array([time_ns(ts) for ts in universe.trajectory])
+    indices = np.flatnonzero((times >= window[0]) & (times <= window[1]))
+    if len(indices) < 2 or not np.all(np.diff(indices) == 1):
+        raise ValueError(f"invalid/empty contiguous trajectory window: {window}")
+    return slice(int(indices[0]), int(indices[-1]) + 1)
+
+
 def equal_weight_kabsch_coordinates(
-    mobile_fit: np.ndarray,
-    reference_fit: np.ndarray,
+    mobile_fit_positions: np.ndarray,
+    reference_fit_positions: np.ndarray,
     coordinates: np.ndarray,
 ) -> tuple[np.ndarray, float]:
     """Transform row-vector coordinates with an equal-weight Kabsch fit.
 
     ``MDAnalysis.analysis.align.rotation_matrix`` returns a matrix acting on
     column vectors. MDAnalysis atom coordinates are stored as row vectors, so
-    the returned matrix must be transposed when applied with ``@``.
+    the returned matrix must be transposed when it is applied with ``@`` or
+    ``np.dot``.
     """
-    mobile_fit = np.asarray(mobile_fit, dtype=float)
-    reference_fit = np.asarray(reference_fit, dtype=float)
+    mobile_fit_positions = np.asarray(mobile_fit_positions, dtype=float)
+    reference_fit_positions = np.asarray(reference_fit_positions, dtype=float)
     coordinates = np.asarray(coordinates, dtype=float)
-    if mobile_fit.shape != reference_fit.shape:
+    if mobile_fit_positions.shape != reference_fit_positions.shape:
         raise ValueError(
             "fit selection shape mismatch: "
-            f"{mobile_fit.shape} != {reference_fit.shape}"
+            f"{mobile_fit_positions.shape} != {reference_fit_positions.shape}"
         )
-    if mobile_fit.ndim != 2 or mobile_fit.shape[1] != 3 or len(mobile_fit) == 0:
+    if mobile_fit_positions.ndim != 2 or mobile_fit_positions.shape[1] != 3 or len(mobile_fit_positions) == 0:
         raise ValueError(
             "fit selections must be non-empty N x 3 coordinate arrays: "
-            f"got {mobile_fit.shape}"
+            f"got {mobile_fit_positions.shape}"
         )
     if coordinates.ndim != 2 or coordinates.shape[1] != 3:
         raise ValueError(
@@ -298,11 +338,11 @@ def equal_weight_kabsch_coordinates(
             f"got {coordinates.shape}"
         )
 
-    mobile_center = mobile_fit.mean(axis=0)
-    reference_center = reference_fit.mean(axis=0)
+    mobile_center = mobile_fit_positions.mean(axis=0)
+    reference_center = reference_fit_positions.mean(axis=0)
     rotation, fit_rmsd = align.rotation_matrix(
-        mobile_fit - mobile_center,
-        reference_fit - reference_center,
+        mobile_fit_positions - mobile_center,
+        reference_fit_positions - reference_center,
     )
     aligned = (coordinates - mobile_center) @ rotation.T + reference_center
     return aligned, float(fit_rmsd)

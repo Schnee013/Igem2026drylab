@@ -1,0 +1,3 @@
+case,site,neighbor,anchor,initial_bridge,early_bridge_occupancy,late_bridge_occupancy,late_bridge_and_anchor_ligand_occupancy,first_1ns_bridge_ns,first_1ns_joint_ns
+native_wt_ascr18,84,80,102,False,0.228,0.10578842315369262,0.0,23.2,
+native_wt_ascr18,84,90,102,False,0.106,0.07984031936127745,0.0,97.0,

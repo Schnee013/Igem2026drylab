@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/ifs1/User/dengwei/igem/envs/roy_md-analysis-py311/bin/python",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/analysis/chctrl/analyze_contacts.py",
+    "--stride",
+    "50",
+    "--cutoff",
+    "4.0"
+  ],
+  "stdin": null,
+  "observed_at": "2026-10-08T18:28:13.727631+00:00"
+}

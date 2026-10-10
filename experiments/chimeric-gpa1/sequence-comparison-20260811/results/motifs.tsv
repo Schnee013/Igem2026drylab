@@ -1,0 +1,33 @@
+protein	feature	start	end	sequence	basis
+ScGpa1	G1_P_loop	43	56	KLLLLGAGESGKST	direct database annotation
+ScGpa1	Switch_I_G2	292	300	DILKGRIKT	direct database annotation
+ScGpa1	G3	315	324	FKVLDAGGQR	direct database annotation
+ScGpa1	G4	384	391	ILFLNKID	direct database annotation
+ScGpa1	G5	442	447	TCATDT	direct database annotation
+ScGpa1	ScGpa1_insert	127	235	LDYINASVAGGSDFLNDYVLKYSERYETRRRVQSTGRAKAAFDEDGNISNVKSDTDRDAETVTQNEDADRNNSSRINLQDICKDLNQEGDDQMFVRKTSREIQGQNRRN	direct database annotation
+ScGpa1	Switch_II_MSA_mapped_from_Ao_CDD	320	336	AGGQRSERKKWIHCFEG	MSA-mapped from AoGpa2 CDD Switch II
+ScGpa1	alpha5_operational	446	472	DTQTMKFVLSAVTDLIIQQNLKKIGII	operational G5-to-C-terminal alpha5 boundary
+ScGpa2	G1_P_loop	125	138	KVLLLGAGESGKST	direct database annotation
+ScGpa2	Switch_I_G2	268	276	DILRSRQMT	direct database annotation
+ScGpa2	G3	292	301	MHIYDVGGQR	direct database annotation
+ScGpa2	G4	361	368	VLFLNKID	direct database annotation
+ScGpa2	G5	418	423	TQATDT	direct database annotation
+ScGpa2	N_terminal_disordered	1	91	MGLCASSEKNGSTPDTQTASAGSDNVGKAKVPPKQEPQKTVRTVNTANQQEKQQQRQQQPSPHNVKDRKEQNGSINNAISPTATANTSGSQ	direct database annotation
+ScGpa2	Switch_II_MSA_mapped_from_Ao_CDD	297	313	VGGQRSERKKWIHCFDN	MSA-mapped from AoGpa2 CDD Switch II
+ScGpa2	alpha5_operational	422	449	DTSNIRLVFAAIKETILENTLKDSGVLQ	operational G5-to-C-terminal alpha5 boundary
+AoGpa2	G1_P_loop	43	50	GSGESGKS	direct database annotation
+AoGpa2	Switch_I_G2	180	188	RARTKTTGI	direct database annotation
+AoGpa2	G3	204	207	DVGG	direct database annotation
+AoGpa2	Switch_II	205	221	VGGQRSERKKWIHCFES	direct database annotation
+AoGpa2	G4	273	276	NKVD	direct database annotation
+AoGpa2	G5	327	329	QAT	direct database annotation
+AoGpa2	CDD_receptor_binding	319	335	LNLYPHLTQATDTSNIR	direct database annotation
+AoGpa2	alpha5_operational	330	356	DTSNIRLVFAAVKETILQNALKDSGIL	operational G5-to-C-terminal alpha5 boundary
+AfGasA	G1_P_loop	40	47	GAGESGKS	direct database annotation
+AfGasA	Switch_I_G2	176	184	RSRVKTLGI	direct database annotation
+AfGasA	G3	200	203	DVGG	direct database annotation
+AfGasA	Switch_II	201	217	VGGQRSERKKWIHCFEN	direct database annotation
+AfGasA	G4	269	272	NKID	direct database annotation
+AfGasA	G5	324	326	CAT	direct database annotation
+AfGasA	CDD_receptor_binding_span	316	332	KQIYTHFTCATDTTQIK	direct database annotation
+AfGasA	alpha5_operational	327	353	DTTQIKFVMAAVNDIIIQENLRNCGLI	operational G5-to-C-terminal alpha5 boundary

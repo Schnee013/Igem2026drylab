@@ -22,3 +22,32 @@ experiments/docking/receptors/final-docking/af3/folds_2026_09_11_00_54.zip filte
 experiments/docking/receptors/final-docking/af3/folds_2026_09_10_04_58.zip filter=lfs diff=lfs merge=lfs -text
 experiments/docking-repro/prepared/final-docking/core-receptors.zip filter=lfs diff=lfs merge=lfs -text
 experiments/docking-repro/results/final-docking/core-structures.zip filter=lfs diff=lfs merge=lfs -text
+
+# Preserve accepted structural inputs and measured tables byte-for-byte.
+experiments/docking/receptors/final-docking/** -text -whitespace
+experiments/docking-repro/ligands/final-docking/** -text -whitespace
+experiments/docking-repro/prepared/final-docking/** -text -whitespace
+experiments/docking-repro/results/final-docking/** -text -whitespace
+
+# Accepted MD structures and immutable source evidence retain original formatting.
+experiments/md-simulation/results/gpr2-twf154-n84v-v368r/** -whitespace
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/**/*.gro -text -whitespace
+
+# Preserve imported evidence formatting and fixed-width sequence alignments.
+experiments/docking-repro/analysis/final-docking/** -text -whitespace
+docs/research/final-docking/storage-review/*.tsv -text -whitespace
+experiments/chimeric-gpa1/sequence-comparison-20260811/alignments/** -text -whitespace
+experiments/chimeric-gpa1/sequence-comparison-20260811/records/** -text -whitespace
+experiments/chimeric-gpa1/sequence-comparison-20260811/sequences/** -text -whitespace
+docs/research/2026-08-11-galpha-sequence-comparison.md -whitespace
+docs/modeling/final-docking/msa_prolif_biological_report_zh.md whitespace=-blank-at-eol
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/gromacs_binary_identity.txt -whitespace
+
+# Original reference and GROMACS gate evidence keep their source bytes.
+experiments/chimeric-gpa1/sequence-comparison-20260811/sources/Hu2024_PMC11222155.html -text -whitespace
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/r167y/grompp/final_out.mdp -text -whitespace
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/r167y/grompp/genion_out.mdp -text -whitespace
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/r167y/proposed_popc_removal.tsv -text -whitespace
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/wt/grompp/final_out.mdp -text -whitespace
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/wt/grompp/genion_out.mdp -text -whitespace
+experiments/md-simulation/results/gpr3-matched-ascr3/gates/20260717_runnable_input_attempt2/wt/proposed_popc_removal.tsv -text -whitespace

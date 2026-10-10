@@ -1,0 +1,37 @@
+# ScGpa1_delta127_235 vs AfGasA
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 901.0
+# Length: 368
+# Identity: 171/368 (46.467%)
+# Similarity (BLOSUM62 > 0): 254/368 (69.022%)
+# Gap columns: 20/368 (5.435%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa1_delta127_235      1-60  MGCTVSTQTIGDESDPFLQNKRANDVIEQSLQLEKQRDKNEIKLLLLGAGESGKSTVLKQ
+                               |||::||:.        .:.|:.|:.|...||.:|...:||||:||||||||||||:|||
+AfGasA                   1-52  MGCSMSTEE--------KEGKQRNEEINAQLQKDKMLARNEIKMLLLGAGESGKSTILKQ
+
+ScGpa1_delta127_235    61-120  LKLLHQGGFSHQERLQYAQVIWADAIQSMKILIIQARKLGIQLDCDDPINNKDLFACKRI
+                               :||:|:||:|..|:..:.::|:::.:|||::::.....|.:.|.     :::..:..:.|
+AfGasA                 53-107  MKLIHEGGYSRDEKESFKEIIFSNTVQSMRVILEAMETLELPLS-----DSRSEYHVQTI
+
+ScGpa1_delta127_235   121-176  LLKAKAL----IHEDIAKAIKQLWNNDKGIKQCFARSNEFQLEGSAAYYFDNIEKFASPN
+                               .::...:    :..::..||:.|| .|:|:::||.||.|:||..||.||||:|::.|:|:
+AfGasA                108-166  FMQPAQIEGDSLPAEVGNAIRALW-QDQGVQECFKRSREYQLNDSAKYYFDSIDRIATPD
+
+ScGpa1_delta127_235   177-236  YVCTDEDILKGRIKTTGITETEFNIGSSKFKVLDAGGQRSERKKWIHCFEGITAVLFVLA
+                               ||.:|:|:|:.|:||.|||||.|.||...:::.|.|||||||||||||||.:|.:||::|
+AfGasA                167-226  YVPSDQDVLRSRVKTLGITETTFVIGDLTYRMFDVGGQRSERKKWIHCFENVTTILFLVA
+
+ScGpa1_delta127_235   237-296  MSEYDQMLFEDERVNRMHESIMLFDTLLNSKWFKDTPFILFLNKIDLFEEKVKSMPIRKY
+                               :|||||:|||||.||||.|::.|||::.||:||..|..||||||||.|.||:...|::.|
+AfGasA                227-286  ISEYDQLLFEDETVNRMQEALTLFDSICNSRWFIKTSIILFLNKIDRFREKLPVSPMKNY
+
+ScGpa1_delta127_235   297-355  FPDYQGRVGDAEAGLKYFEKIFLSLNKT-NKPIYVKRTCATDTQTMKFVLSAVTDLIIQQ
+                               |||::|. .|..|...|....|:|||:: .|.||...||||||..:|||::||.|:|||:
+AfGasA                287-345  FPDFEGG-DDYAAACDYILNRFVSLNQSETKQIYTHFTCATDTTQIKFVMAAVNDIIIQE
+
+ScGpa1_delta127_235   356-363  NLKKIGII
+                               ||:..|:|
+AfGasA                346-353  NLRNCGLI

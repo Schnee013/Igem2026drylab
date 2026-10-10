@@ -1,0 +1,26 @@
+[
+  {
+    "case": "native_wt_ascr18",
+    "exit_code": 0
+  },
+  {
+    "case": "raw_n84v_ascr18",
+    "exit_code": 0
+  },
+  {
+    "case": "raw_n84v_ascr3",
+    "exit_code": 0
+  },
+  {
+    "case": "raw_v368r_ascr18",
+    "exit_code": 0
+  },
+  {
+    "case": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "exit_code": 0
+  },
+  {
+    "case": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+    "exit_code": 0
+  }
+]

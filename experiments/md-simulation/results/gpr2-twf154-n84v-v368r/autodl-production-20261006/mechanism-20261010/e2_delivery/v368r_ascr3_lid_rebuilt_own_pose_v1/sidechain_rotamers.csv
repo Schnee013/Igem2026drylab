@@ -1,0 +1,7 @@
+case,site,chi1_bin_center_deg,initial,early_occupancy,late_occupancy
+v368r_ascr3_lid_rebuilt_own_pose_v1,84,-60,True,0.958,0.8542914171656687
+v368r_ascr3_lid_rebuilt_own_pose_v1,84,60,False,0.0,0.0
+v368r_ascr3_lid_rebuilt_own_pose_v1,84,180,False,0.042,0.14570858283433133
+v368r_ascr3_lid_rebuilt_own_pose_v1,368,-60,True,0.98,1.0
+v368r_ascr3_lid_rebuilt_own_pose_v1,368,60,False,0.0,0.0
+v368r_ascr3_lid_rebuilt_own_pose_v1,368,180,False,0.02,0.0

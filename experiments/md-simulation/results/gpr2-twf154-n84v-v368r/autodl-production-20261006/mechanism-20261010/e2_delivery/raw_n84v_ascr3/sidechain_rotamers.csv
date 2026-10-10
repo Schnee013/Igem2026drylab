@@ -1,0 +1,7 @@
+case,site,chi1_bin_center_deg,initial,early_occupancy,late_occupancy
+raw_n84v_ascr3,84,-60,False,0.0,0.0
+raw_n84v_ascr3,84,60,False,0.014,0.011976047904191617
+raw_n84v_ascr3,84,180,True,0.986,0.9880239520958084
+raw_n84v_ascr3,368,-60,False,0.558,1.0
+raw_n84v_ascr3,368,60,False,0.0,0.0
+raw_n84v_ascr3,368,180,True,0.442,0.0

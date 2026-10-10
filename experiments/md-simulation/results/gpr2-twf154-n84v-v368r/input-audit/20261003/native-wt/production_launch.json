@@ -1,0 +1,90 @@
+{
+  "as_of_utc": "2026-10-03T09:36:22.910043+00:00",
+  "scope": "Actual startup of the two authorized full-length rep1 100 ns production simulations; not completion or mechanistic evidence.",
+  "production_step_growth_verified": true,
+  "observations": [
+    {
+      "as_of_utc": "2026-10-03T09:35:01.585228+00:00",
+      "cases": [
+        {
+          "case": "raw_n84v_ascr18",
+          "process": {
+            "pid": 3328118,
+            "cwd": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_n84v_ascr18/rep1",
+            "command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi mdrun -deffnm production -ntomp 8 -pin off -nb gpu -pme gpu -bonded cpu -update cpu -cpt 10"
+          },
+          "started_log_line": "Started mdrun on rank 0 Sat Oct  3 17:03:34 2026",
+          "step": 135000,
+          "time_ps": 270,
+          "target_ns": 100,
+          "replicate": 1,
+          "full_length": true,
+          "position_or_dihedral_restraints": false,
+          "npt_preparation_end_ps": 2750,
+          "npt_final_structure_pass": true,
+          "npt_box_density_drift_screen_pass": true,
+          "runtime_issues": [],
+          "grompp_warnings": [],
+          "production_tpr_sha256": "20109d0cb35c209d4d4bc834b65990bde71a9bcda2e4eb95c5e5df71da70ac97",
+          "input_manifest": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_n84v_ascr18/rep1/input_manifest.json",
+          "input_manifest_sha256": "0034372c72b5949248559eb366010380dda85d8eb25fc78d33983a2ace9fe45b"
+        },
+        {
+          "case": "raw_v368r_ascr3",
+          "process": {
+            "pid": 1152800,
+            "cwd": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_v368r_ascr3/rep1",
+            "command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi mdrun -deffnm production -ntomp 8 -pin off -nb gpu -pme gpu -bonded cpu -update cpu -cpt 10"
+          },
+          "started_log_line": "Started mdrun on rank 0 Sat Oct  3 17:32:25 2026",
+          "step": 10000,
+          "time_ps": 20,
+          "target_ns": 100,
+          "replicate": 1,
+          "full_length": true,
+          "position_or_dihedral_restraints": false,
+          "npt_preparation_end_ps": 2750,
+          "npt_final_structure_pass": true,
+          "npt_box_density_drift_screen_pass": true,
+          "runtime_issues": [],
+          "grompp_warnings": [],
+          "production_tpr_sha256": "31668c3d33e01af712be4511aebbbf0a08b874ce1af23247cb58e46e0cd0712c",
+          "input_manifest": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_v368r_ascr3/rep1/input_manifest.json",
+          "input_manifest_sha256": "256a3aedaf8f82a22b278e042fdddc4b68afec96f2e3c38f4e9c6823e7535c19"
+        }
+      ]
+    },
+    {
+      "as_of_utc": "2026-10-03T09:36:22.910043+00:00",
+      "cases": [
+        {
+          "case": "raw_n84v_ascr18",
+          "process": {
+            "pid": 3328118,
+            "cwd": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_n84v_ascr18/rep1",
+            "command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi mdrun -deffnm production -ntomp 8 -pin off -nb gpu -pme gpu -bonded cpu -update cpu -cpt 10"
+          },
+          "step": 140000,
+          "time_ps": 280,
+          "runtime_issues": [],
+          "production_tpr_sha256": "20109d0cb35c209d4d4bc834b65990bde71a9bcda2e4eb95c5e5df71da70ac97"
+        },
+        {
+          "case": "raw_v368r_ascr3",
+          "process": {
+            "pid": 1152800,
+            "cwd": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_v368r_ascr3/rep1",
+            "command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi mdrun -deffnm production -ntomp 8 -pin off -nb gpu -pme gpu -bonded cpu -update cpu -cpt 10"
+          },
+          "step": 15000,
+          "time_ps": 30,
+          "runtime_issues": [],
+          "production_tpr_sha256": "31668c3d33e01af712be4511aebbbf0a08b874ce1af23247cb58e46e0cd0712c"
+        }
+      ]
+    }
+  ],
+  "wt_preheats_completed": 2,
+  "combined_preheats_completed": 14,
+  "back_mutated_wt_systems_retained": 4
+}

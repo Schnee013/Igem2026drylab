@@ -1,5 +1,6 @@
 # iGEM DryLab 干实验 — 项目索引
 
+> 2026-10-10 局部更新：保留本地研究增量并接入 final-docking；TWF154 六组机制分析仍为单重复探索证据。
 > 最后校准：项目全表 2026-07-31；ODE 条目 2026-08-16；P2 经济效益条目 2026-10-04。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
 >
 > Source: system-local `PACKAGE_STATUS.md`、直接 gate/run artifacts、领域权威文件。
@@ -26,6 +27,7 @@
 |--------|------|---------|----------|------|
 | **P0** | 受体-配体分子对接 | 否 | **geometry_gate_v3_seed44_holdout_fail_stop_full_blocked**：新门已从 seed 42 + 43 WT evidence 冻结；seed-44 独立 holdout 8/8 技术完成，但 Gpr3/R167Y 两臂 geometry 失败，终态阻止 full-run | [P0-molecular-docking.md](modeling/P0-molecular-docking.md) |
 | **P0（探索）** | 双/多突变 docking | 否 | **phase2_local_schema_test_ready_blocked_by_frame_repair（2026-07-30）**：canonical genotype、multi-mutation FASTA、旧单突变只读兼容、WT/A/B/AB validator 和 synthetic focused tests 已完成；仍须等共同 frame 修复、单突变全量重跑和 active shortlist 重建后才能冻结真实 AB，当前未生成双突变结构或启动计算 | [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md) |
+| **P0（本轮完成）** | Gpr2 TWF154 N84V/V368R 配体偏好机制 MD | 对应全长湿实验构建体 | **six_rep1_mechanism_analysis_validated; single_rep_exploratory**：基础七指标后，已补齐位点邻域、基团锚定、局部拟合/lid、时间顺序四项分析及机制图/证据表。局部结构线索有支持，突变增强选择性的因果链未建立；不同起点、单重复限制保留。AutoDL关机、定时任务删除；无追加MD/FEP | [机制中文报告](../experiments/md-simulation/results/gpr2-twf154-n84v-v368r/autodl-production-20261006/mechanism-20261010/REPORT_CN.md)、[机制交付入口](../experiments/md-simulation/results/gpr2-twf154-n84v-v368r/autodl-production-20261006/mechanism-20261010/README.md)、[基础后分析](../experiments/md-simulation/results/gpr2-twf154-n84v-v368r/autodl-production-20261006/analysis-20261008/README.md)、[当天记录](logs/2026-10-10.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **compute_triage + gpr2_wt_r59c_rep1_analyzed + gpr3_r167y_rep1_analyzed**：旧 Slurm control/chctrl 3 reps 为历史完成证据，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1 Z-only 已降级为省算力不足；chimeric 候选 full MD 暂停；Gpr2 WT/R59C 200 ns rep1、七 driver、matched single-rep 和 ligand-path triage 已完成；Gpr3 R167Y AutoDL 200 ns rep1、postprocess 和共享七 driver 已完成，当前为 single-rep exploratory，WT arm 尚无 production completion | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
 | **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase2b_runners_verified_result_package_pending**：Phase 0/1 可执行原型、Phase 2A 分析合同及 Phase 2B 局部敏感性、Morris、Sobol、重点曲面 runner/config/test 已验证；完整长运行结果尚缺仓库内紧凑结果包与恢复指针，候选冻结和项目校准仍待证据接纳 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
@@ -198,3 +200,10 @@
 - [ ] reporter 实现参数讨论（具体色素 / 整合位点 / 实际拷贝数 / 输出增益 / 显色时间）
 - [ ] 与 HP 组沟通经济效益模型参数，回填 `experiments/economic/configs/public_mvp_framework.json` 或后续正式 config
 - [ ] 土壤扩散、贝叶斯推断、剂量-响应等 P1/P2 方向按 Wiki 叙事需要启动
+
+
+## 2026-10-10 本地研究整合
+
+- 独立 Docking 已拆入既有研究线的各类 `final-docking/`，入口为[代码与运行说明](../src/modeling/docking-repro/final-docking/README.md)和[研究材料导航](modeling/final-docking/README.md)。可重建的 Meeko 缓存和运行环境 wheel 留仓库外；必要 LFS 附件沿远端既有配置保留。
+- Gpr2 TWF154 结构准备、lid 重建、生产恢复、共享分析工具及两套分析交付纳入本地 main；范围见[本日记录](logs/2026-10-10.md)。原始轨迹、恢复压缩包和数值缓存不纳入 Git。
+- 已删除用户确认废弃的 38 个历史 Docking 文件；分类导入的 final-docking 数据保留。整合以远端 `38bbf5ba` 为基础，本次只创建本地提交；GitHub 尚未更新。

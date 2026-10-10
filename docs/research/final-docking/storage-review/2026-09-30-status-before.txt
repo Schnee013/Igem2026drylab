@@ -1,0 +1,1132 @@
+ M .gitattributes
+ M .gitignore
+ D README.md
+ D docs/DOCKING_GUI_VALIDATION.md
+ D inputs/ligands/deprotonated-minus1/ascr18_deprotonated.sdf
+ D inputs/ligands/deprotonated-minus1/ascr3_deprotonated.sdf
+ D inputs/receptors/af3/pdb/daf37_wt/fold_daf37_wt_model_0.pdb
+ D inputs/receptors/af3/pdb/daf37_wt/fold_daf37_wt_model_1.pdb
+ D inputs/receptors/af3/pdb/daf37_wt/fold_daf37_wt_model_2.pdb
+ D inputs/receptors/af3/pdb/daf37_wt/fold_daf37_wt_model_3.pdb
+ D inputs/receptors/af3/pdb/daf37_wt/fold_daf37_wt_model_4.pdb
+ D inputs/receptors/af3/pdb/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_0.pdb
+ D inputs/receptors/af3/pdb/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_1.pdb
+ D inputs/receptors/af3/pdb/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_2.pdb
+ D inputs/receptors/af3/pdb/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_3.pdb
+ D inputs/receptors/af3/pdb/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_4.pdb
+ D inputs/receptors/af3/pdb/gpr3_twf154_wt/fold_gpr3_twf154_wt_model_0.pdb
+ D inputs/receptors/af3/pdb/gpr3_twf154_wt/fold_gpr3_twf154_wt_model_1.pdb
+ D inputs/receptors/af3/pdb/gpr3_twf154_wt/fold_gpr3_twf154_wt_model_2.pdb
+ D inputs/receptors/af3/pdb/gpr3_twf154_wt/fold_gpr3_twf154_wt_model_3.pdb
+ D inputs/receptors/af3/pdb/gpr3_twf154_wt/fold_gpr3_twf154_wt_model_4.pdb
+ D inputs/receptors/af3/pdb/gprc_wt/fold_gprc_wt_model_0.pdb
+ D inputs/receptors/af3/pdb/gprc_wt/fold_gprc_wt_model_1.pdb
+ D inputs/receptors/af3/pdb/gprc_wt/fold_gprc_wt_model_2.pdb
+ D inputs/receptors/af3/pdb/gprc_wt/fold_gprc_wt_model_3.pdb
+ D inputs/receptors/af3/pdb/gprc_wt/fold_gprc_wt_model_4.pdb
+ D inputs/receptors/af3/pdb/srbc64_wt/fold_srbc64_wt_model_0.pdb
+ D inputs/receptors/af3/pdb/srbc64_wt/fold_srbc64_wt_model_1.pdb
+ D inputs/receptors/af3/pdb/srbc64_wt/fold_srbc64_wt_model_2.pdb
+ D inputs/receptors/af3/pdb/srbc64_wt/fold_srbc64_wt_model_3.pdb
+ D inputs/receptors/af3/pdb/srbc64_wt/fold_srbc64_wt_model_4.pdb
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/.biolib/metadata.json
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/.stderr.txt
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/.stdout.txt
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/TMRs.gff3
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/biolib-input-files/DAF-37_Caenorhabditis_elegans_N2_Q18321.fasta
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/predicted_topologies.3line
+ D inputs/receptors/deepTMHMM/DAF37_CAEEL_probs/sp|Q18321|DAF37_CAEEL_probs.csv
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/.biolib/metadata.json
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/.stderr.txt
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/.stdout.txt
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/TMRs.gff3
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/biolib-input-files/GprC_Arthrobotrys_flagrans_A0A437AGY2.fasta
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/predicted_topologies.3line
+ D inputs/receptors/deepTMHMM/GPRC_ARTFL_probs/sp|A0A437AGY2|GPRC_ARTFL_probs.csv
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/.biolib/metadata.json
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/.stderr.txt
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/.stdout.txt
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/TMRs.gff3
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/biolib-input-files/SRBC-64_Caenorhabditis_elegans_N2_G5ECV4.fasta
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/predicted_topologies.3line
+ D inputs/receptors/deepTMHMM/SRBC64_CAEEL_probs/tr|G5ECV4|G5ECV4_CAEEL_probs.csv
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/.biolib/metadata.json
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/.stderr.txt
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/.stdout.txt
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/TGJ68930.1_probs.csv
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/TMRs.gff3
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/biolib-input-files/Gpr2_TWF154_TGJ68930.1.fasta
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md
+ D inputs/receptors/deepTMHMM/gpr2_TGJ68930.1_probs/predicted_topologies.3line
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/.biolib/metadata.json
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/.stderr.txt
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/.stdout.txt
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/TGJ67963.1_probs.csv
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/TMRs.gff3
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/biolib-input-files/Gpr3_TWF154_TGJ67963.1.fasta
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md
+ D inputs/receptors/deepTMHMM/gpr3_TGJ67963.1_probs/predicted_topologies.3line
+ D manifest/ARCHIVE_POINTERS.tsv
+ D manifest/MODEL_SELECTION.tsv
+ D manifest/PREDICTION_MANIFEST.tsv
+ D manifest/README.md
+ D manifest/SHA256SUMS
+ D manifest/SOURCE_MANIFEST.tsv
+ D references/ligand-validation/ASCR18.itp
+ D references/ligand-validation/ASCR3.itp
+ D references/ligand-validation/README.md
+ D references/receptor-provenance/RECEPTOR_SOURCE_AUDIT.md
+ M src/docking_gui.py
+ M src/docking_tool_specs.py
+ M src/generate_maestro_lid.py
+ M src/make_raw_relaxed_review_pml.py
+ M src/prepare_ligand_pdbqt.py
+ M src/prepare_receptor_pdbqt.py
+ M src/report_ligand_chemistry.py
+ M src/report_receptor_chemistry.py
+ M src/run_geometry_validation.py
+ M src/run_restrained_minimization.py
+ D src/run_vina.py
+ M src/summarize_vina_results.py
+ D tests/fixtures/chemistry_meeko/fake_meeko.py
+ D tests/fixtures/chemistry_meeko/ligand.pdbqt
+ D tests/fixtures/chemistry_meeko/ligand.sdf
+ D tests/fixtures/chemistry_meeko/ligand_bad_map.json
+ D tests/fixtures/chemistry_meeko/ligand_map.json
+ D tests/fixtures/chemistry_meeko/receptor.pdb
+ D tests/fixtures/confidence_geometry/af_confidence.json
+ D tests/fixtures/confidence_geometry/fake_minimizer.py
+ D tests/fixtures/confidence_geometry/fake_validator.py
+ D tests/fixtures/confidence_geometry/geometry_native.json
+ D tests/fixtures/confidence_geometry/raw.pdb
+ D tests/fixtures/confidence_geometry/relaxed.pdb
+ D tests/fixtures/existing_tools/bad_deeptmhmm_9col.gff3
+ D tests/fixtures/existing_tools/bad_ppm_one_plane.pdb
+ D tests/fixtures/existing_tools/toy.fasta
+ D tests/fixtures/existing_tools/toy_deeptmhmm_8col.gff3
+ D tests/fixtures/existing_tools/toy_ppm.pdb
+ D tests/fixtures/existing_tools/toy_structure.pdb
+ D tests/fixtures/external_process/stubborn_grandchild.py
+ D tests/fixtures/external_process/timed_child.py
+ D tests/fixtures/gui/fake_stream_cli.py
+ D tests/fixtures/lid_exports/ligand_missing_meeko_metadata.pdbqt
+ D tests/fixtures/lid_exports/prepared_ligand.sdf
+ D tests/fixtures/lid_exports/prepared_receptor.pdb
+ D tests/fixtures/lid_exports/receptor_sample.pdbqt
+ D tests/fixtures/vina/poses.pdbqt
+ D tests/fixtures/vina/vina_1_2_5.log
+ D tests/product_audit.py
+ D tests/temp_support.py
+ D tests/test_atomic_publish.py
+ D tests/test_chemistry_meeko.py
+ D tests/test_cli_contracts.py
+ D tests/test_cli_product_copy.py
+ D tests/test_confidence_geometry.py
+ D tests/test_existing_cli_contracts.py
+ D tests/test_external_process.py
+ D tests/test_gui_runner.py
+ D tests/test_lid_exports.py
+ D tests/test_release_contracts.py
+ D tests/test_tm_topology_combined.py
+ D tests/test_tool_result_contract.py
+ D tests/test_tool_spec_contract.py
+ D tests/test_vina_tools.py
+?? batch_prolif.py
+?? boxes.tsv
+?? env/INSTALL_AF2_RELAX.md
+?? env/dist/docking_af2_runtime-0.1.0+c77e5d2-py3-none-any.whl
+?? env/environment.yml
+?? env/scripts/build_af2_relax_runtime.py
+?? inputs/ligands/deprotonated-minus1/atom-map/ascr18_deprotonated.atom-map.json
+?? inputs/ligands/deprotonated-minus1/atom-map/ascr3_deprotonated.atom-map.json
+?? inputs/ligands/deprotonated-minus1/pdbqt/ascr18_deprotonated.pdbqt
+?? inputs/ligands/deprotonated-minus1/pdbqt/ascr3_deprotonated.pdbqt
+?? inputs/ligands/deprotonated-minus1/sdf/ascr18_deprotonated.sdf
+?? inputs/ligands/deprotonated-minus1/sdf/ascr3_deprotonated.sdf
+?? inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_001_alphafold2_ptm_model_3_seed_001.af2-amber-relax-report.json
+?? inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_001_alphafold2_ptm_model_3_seed_001.af2-amber-relax-report.json.stderr.txt
+?? inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_001_alphafold2_ptm_model_3_seed_001.af2-amber-relax-report.json.stdout.txt
+?? inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_001_alphafold2_ptm_model_3_seed_001.af2-amber-relaxed.pdb
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_full_data_0.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_full_data_1.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_full_data_2.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_full_data_3.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_full_data_4.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_job_request.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_model_0.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_model_1.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_model_2.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_model_3.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_model_4.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_summary_confidences_0.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_summary_confidences_1.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_summary_confidences_2.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_summary_confidences_3.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_summary_confidences_4.json
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/msas/fold_gpr2_twf154_deltan1_16_paired_msa_chains_a.a3m
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/msas/fold_gpr2_twf154_deltan1_16_unpaired_msa_chains_a.a3m
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/templates/fold_gpr2_twf154_deltan1_16_template_hit_0_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/templates/fold_gpr2_twf154_deltan1_16_template_hit_1_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/templates/fold_gpr2_twf154_deltan1_16_template_hit_2_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/templates/fold_gpr2_twf154_deltan1_16_template_hit_3_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/templates/fold_gpr2_twf154_deltan1_16_template_hits_chains_a_query_to_hit.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_full_data_0.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_full_data_1.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_full_data_2.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_full_data_3.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_full_data_4.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_job_request.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_model_0.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_model_1.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_model_2.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_model_3.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_model_4.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_summary_confidences_0.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_summary_confidences_1.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_summary_confidences_2.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_summary_confidences_3.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/fold_gpr3_twf154_deltan1_5_summary_confidences_4.json
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/msas/fold_gpr3_twf154_deltan1_5_paired_msa_chains_a.a3m
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/msas/fold_gpr3_twf154_deltan1_5_unpaired_msa_chains_a.a3m
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/templates/fold_gpr3_twf154_deltan1_5_template_hit_0_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/templates/fold_gpr3_twf154_deltan1_5_template_hit_1_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/templates/fold_gpr3_twf154_deltan1_5_template_hit_2_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/templates/fold_gpr3_twf154_deltan1_5_template_hit_3_chains_a.cif
+?? inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/templates/fold_gpr3_twf154_deltan1_5_template_hits_chains_a_query_to_hit.json
+?? inputs/receptors/af3/pdb/daf37_wt/wt/daf37_wt_model_0.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt/daf37_wt_model_1.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt/daf37_wt_model_2.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt/daf37_wt_model_3.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt/daf37_wt_model_4.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt_aligned/daf37_wt_model_0_aligned.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt_aligned/daf37_wt_model_1_aligned.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt_aligned/daf37_wt_model_2_aligned.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt_aligned/daf37_wt_model_3_aligned.pdb
+?? inputs/receptors/af3/pdb/daf37_wt/wt_aligned/daf37_wt_model_4_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/aligned/gpr2_twf154_deltan1_16_model_0_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/aligned/gpr2_twf154_deltan1_16_model_1_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/aligned/gpr2_twf154_deltan1_16_model_2_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/aligned/gpr2_twf154_deltan1_16_model_3_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/aligned/gpr2_twf154_deltan1_16_model_4_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_0.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_1.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_2.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_3.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_4.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/templates/gpr2_twf154_deltan1_16_template_hit_0_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/templates/gpr2_twf154_deltan1_16_template_hit_1_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/templates/gpr2_twf154_deltan1_16_template_hit_2_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/templates/gpr2_twf154_deltan1_16_template_hit_3_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_0.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_1.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_2.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_3.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_4.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/aligned/gpr3_twf154_deltan1_5_model_0_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/aligned/gpr3_twf154_deltan1_5_model_1_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/aligned/gpr3_twf154_deltan1_5_model_2_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/aligned/gpr3_twf154_deltan1_5_model_3_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/aligned/gpr3_twf154_deltan1_5_model_4_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_0.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_1.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_2.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_3.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_4.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/templates/gpr3_twf154_deltan1_5_template_hit_0_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/templates/gpr3_twf154_deltan1_5_template_hit_1_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/templates/gpr3_twf154_deltan1_5_template_hit_2_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/templates/gpr3_twf154_deltan1_5_template_hit_3_chains_a.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt/gpr3_twf154_wt_model_0.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt/gpr3_twf154_wt_model_1.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt/gpr3_twf154_wt_model_2.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt/gpr3_twf154_wt_model_3.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt/gpr3_twf154_wt_model_4.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned.pdb
+?? inputs/receptors/af3/pdb/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt/gprc_wt_model_0.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt/gprc_wt_model_1.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt/gprc_wt_model_2.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt/gprc_wt_model_3.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt/gprc_wt_model_4.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt_aligned/gprc_wt_model_0_aligned.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt_aligned/gprc_wt_model_1_aligned.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt_aligned/gprc_wt_model_2_aligned.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt_aligned/gprc_wt_model_3_aligned.pdb
+?? inputs/receptors/af3/pdb/gprc_wt/wt_aligned/gprc_wt_model_4_aligned.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt/srbc64_wt_model_0.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt/srbc64_wt_model_1.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt/srbc64_wt_model_2.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt/srbc64_wt_model_3.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt/srbc64_wt_model_4.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned.pdb
+?? inputs/receptors/af3/pdb/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned.pdb
+?? inputs/receptors/af3/pdbqt/daf37_wt/wt_aligned/daf37_wt_model_0_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/daf37_wt/wt_aligned/daf37_wt_model_1_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/daf37_wt/wt_aligned/daf37_wt_model_2_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/daf37_wt/wt_aligned/daf37_wt_model_3_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/daf37_wt/wt_aligned/daf37_wt_model_4_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_0_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_1_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_2_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_3_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_deltan1_16/gpr2_twf154_deltan1_16_model_4_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_0_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_1_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_2_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_3_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_deltan1_5/gpr3_twf154_deltan1_5_model_4_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gprc_wt/wt_aligned/gprc_wt_model_0_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gprc_wt/wt_aligned/gprc_wt_model_1_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gprc_wt/wt_aligned/gprc_wt_model_2_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gprc_wt/wt_aligned/gprc_wt_model_3_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/gprc_wt/wt_aligned/gprc_wt_model_4_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned.pdbqt
+?? inputs/receptors/af3/pdbqt/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned.pdbqt
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/.biolib/metadata.json
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/.stderr.txt
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/.stdout.txt
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/TMRs.gff3
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/biolib-input-files/DAF-37_Caenorhabditis_elegans_N2_Q18321.fasta
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/predicted_topologies.3line
+?? inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/sp|Q18321|DAF37_CAEEL_probs.csv
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/.biolib/metadata.json
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/.stderr.txt
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/.stdout.txt
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/TMRs.gff3
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/biolib-input-files/GprC_Arthrobotrys_flagrans_A0A437AGY2.fasta
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/predicted_topologies.3line
+?? inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/sp|A0A437AGY2|GPRC_ARTFL_probs.csv
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/.biolib/metadata.json
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/.stderr.txt
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/.stdout.txt
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/TMRs.gff3
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/biolib-input-files/SRBC-64_Caenorhabditis_elegans_N2_G5ECV4.fasta
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/predicted_topologies.3line
+?? inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/tr|G5ECV4|G5ECV4_CAEEL_probs.csv
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/.biolib/metadata.json
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/.stderr.txt
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/.stdout.txt
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/TGJ68930.1_probs.csv
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/TMRs.gff3
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/biolib-input-files/Gpr2_TWF154_TGJ68930.1.fasta
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md
+?? inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/predicted_topologies.3line
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/.biolib/metadata.json
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/.stderr.txt
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/.stdout.txt
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/TGJ67963.1_probs.csv
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/TMRs.gff3
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/biolib-input-files/Gpr3_TWF154_TGJ67963.1.fasta
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md
+?? inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/predicted_topologies.3line
+?? merge_prolif_csv.py
+?? mutants/gpr2_gpr3_selectivity_mutation_recommendations.xlsx
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt
+?? outputs/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/vina.log
+?? outputs/msa-prolif-evidence-20260826/ascr18_tm6_w_contact_scenes.pml
+?? outputs/msa-prolif-evidence-20260826/cross_receptor_selectivity_and_mutation_recommendations_zh.md
+?? outputs/msa-prolif-evidence-20260826/msa_prolif_biological_report_zh.md
+?? outputs/msa-prolif-evidence-20260826/prolif_ligand_discrimination_matrix_all_msa_annotated.csv
+?? outputs/msa-prolif-evidence-20260826/residue_mapping_evidence.csv
+?? outputs/prolif-batch-full/af3/batch_manifest.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_0_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_1_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_2_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_3_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/daf37_wt/wt_aligned/daf37_wt_model_4_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_1_deltaN1-21_deltaN164-178_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_2_deltaN1-21_deltaN164-178_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_3_deltaN1-21_deltaN164-178_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_4_deltaN1-21_deltaN164-178_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_1_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_4_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_1_deltaN1-7_deltaN150-163_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_2_deltaN1-7_deltaN150-163_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_3_deltaN1-7_deltaN150-163_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_4_deltaN1-7_deltaN150-163_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_0_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_1_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_2_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_4_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_0_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_1_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_2_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_3_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/gprc_wt/wt_aligned/gprc_wt_model_4_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/merged/prolif_interaction_frequency_profiles.xlsx
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_0_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_1_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_3_aligned/receptor/receptor_validation.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/fingerprint.pkl
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_counts.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/ifp_presence.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/interaction_frequency.csv
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/ifp/run_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/job_metadata.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/receptor/receptor.json
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/receptor/receptor_regenerated.pdbqt
+?? outputs/prolif-batch-full/af3/srbc64_wt/wt_aligned/srbc64_wt_model_4_aligned/receptor/receptor_validation.json
+?? outputs/prolif_cross_receptor_biological_summary.md
+?? prolif_ifp.py
+?? run_all_vina.sh
+?? src/af2_amber_relax_engine.py
+?? src/chemistry_review.py
+?? src/generate_vina_server_command.py
+?? src/realize_receptor_microstates.py

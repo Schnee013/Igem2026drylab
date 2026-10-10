@@ -1,0 +1,290 @@
+{
+  "as_of_utc": "2026-10-03T04:09:42.587101+00:00",
+  "cases": [
+    {
+      "case": "native_wt_ascr18",
+      "status": "preheat_qc_pass",
+      "directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr18/heating_v4",
+      "end_ps": 125.0,
+      "heating_completed": true,
+      "numerical_thermal_checks_pass": true,
+      "geometry": {
+        "case": "native_wt_ascr18",
+        "snapshot": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr18/heating_v4/hold.gro",
+        "finite_coordinates": true,
+        "protein_chirality_inversions": [],
+        "ligand_chirality_inversions": [],
+        "popc_chirality_inversions": [],
+        "ss_distance_A": 2.0141995928904346,
+        "peptide_bond_range_A": [
+          1.2801562404644264,
+          1.4356531614564914
+        ],
+        "ligand_max_bond_ratio_vs_seed": 1.0638616437542951,
+        "ligand_worst_bond": {
+          "atoms": [
+            "C17",
+            "O5"
+          ],
+          "seed_A": 1.357414085679093,
+          "snapshot_A": 1.275931032618933,
+          "ratio": 1.0638616437542951
+        },
+        "ligand_bond_ratio_limit": 1.2,
+        "water_max_distance_error_nm": 0.0015393225762320578,
+        "lid_ligand_min_heavy_A": 3.0525071662487457,
+        "ligand_heavy_no_fit_rmsd_vs_start_A": 1.3597857887565792,
+        "pass": true,
+        "ss_loop_sugar_linking_numbers": [
+          0.0
+        ],
+        "topology_views": 30,
+        "protein_ring_pairs_checked": 72,
+        "protein_ring_sugar_links": [],
+        "all_bond_count": 30466,
+        "all_bond_worst_by_molecule": {
+          "PROA": {
+            "molecule": "PROA",
+            "atom_indices_1based": [
+              2263,
+              2265
+            ],
+            "atoms": [
+              [
+                144,
+                "ILE",
+                "C"
+              ],
+              [
+                145,
+                "PRO",
+                "N"
+              ]
+            ],
+            "equilibrium_A": 1.3,
+            "snapshot_A": 1.435479014127349,
+            "ratio": 1.1042146262518069
+          },
+          "ASCR18": {
+            "molecule": "ASCR18",
+            "atom_indices_1based": [
+              6407,
+              6410
+            ],
+            "atoms": [
+              [
+                407,
+                "ASCR1",
+                "C1"
+              ],
+              [
+                407,
+                "ASCR1",
+                "C4"
+              ]
+            ],
+            "equilibrium_A": 1.5,
+            "snapshot_A": 1.555056269078392,
+            "ratio": 1.0367041793855947
+          },
+          "POPC": {
+            "molecule": "POPC",
+            "atom_indices_1based": [
+              29803,
+              29815
+            ],
+            "atoms": [
+              [
+                582,
+                "POPC",
+                "C22"
+              ],
+              [
+                582,
+                "POPC",
+                "C23"
+              ]
+            ],
+            "equilibrium_A": 1.53,
+            "snapshot_A": 1.683716128092855,
+            "ratio": 1.1004680575770294
+          }
+        },
+        "all_bonds_outside_20pct": [],
+        "topology_note": "Closed covalent-loop diagnostic under the retained 99-173 disulfide assumption; zero linking number is not a proof against every possible link type",
+        "scope": "preparation snapshot geometry only; no thermodynamic or mechanistic inference"
+      },
+      "last20ps_statistics": {
+        "Potential": {
+          "mean": -1653150.0,
+          "rmsd": 1427.17
+        },
+        "Temperature": {
+          "mean": 303.234,
+          "rmsd": 0.814651
+        },
+        "T-SOLU": {
+          "mean": 303.242,
+          "rmsd": 3.11644
+        },
+        "T-MEMB": {
+          "mean": 303.423,
+          "rmsd": 1.63533
+        },
+        "T-SOLV": {
+          "mean": 303.186,
+          "rmsd": 0.795024
+        }
+      },
+      "runtime_warnings": {
+        "heat": [],
+        "hold": []
+      }
+    },
+    {
+      "case": "native_wt_ascr3",
+      "status": "preheat_qc_pass",
+      "directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr3/heating_v4",
+      "end_ps": 125.0,
+      "heating_completed": true,
+      "numerical_thermal_checks_pass": true,
+      "geometry": {
+        "case": "native_wt_ascr3",
+        "snapshot": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr3/heating_v4/hold.gro",
+        "finite_coordinates": true,
+        "protein_chirality_inversions": [],
+        "ligand_chirality_inversions": [],
+        "popc_chirality_inversions": [],
+        "ss_distance_A": 1.9512816301087963,
+        "peptide_bond_range_A": [
+          1.2588089608832633,
+          1.429195577938866
+        ],
+        "ligand_max_bond_ratio_vs_seed": 1.1032487750974747,
+        "ligand_worst_bond": {
+          "atoms": [
+            "C15",
+            "O5"
+          ],
+          "seed_A": 1.3532235587662511,
+          "snapshot_A": 1.2265806129235814,
+          "ratio": 1.1032487750974747
+        },
+        "ligand_bond_ratio_limit": 1.2,
+        "water_max_distance_error_nm": 0.00138548881771898,
+        "lid_ligand_min_heavy_A": 2.6184155514356418,
+        "ligand_heavy_no_fit_rmsd_vs_start_A": 3.1449029056100097,
+        "pass": true,
+        "ss_loop_sugar_linking_numbers": [
+          0.0
+        ],
+        "topology_views": 30,
+        "protein_ring_pairs_checked": 72,
+        "protein_ring_sugar_links": [],
+        "all_bond_count": 30458,
+        "all_bond_worst_by_molecule": {
+          "PROA": {
+            "molecule": "PROA",
+            "atom_indices_1based": [
+              3632,
+              3634
+            ],
+            "atoms": [
+              [
+                229,
+                "THR",
+                "CA"
+              ],
+              [
+                229,
+                "THR",
+                "CB"
+              ]
+            ],
+            "equilibrium_A": 1.5,
+            "snapshot_A": 1.6530275254816509,
+            "ratio": 1.1020183503211007
+          },
+          "ASCR3": {
+            "molecule": "ASCR3",
+            "atom_indices_1based": [
+              6412,
+              6416
+            ],
+            "atoms": [
+              [
+                407,
+                "ASCR3",
+                "C6"
+              ],
+              [
+                407,
+                "ASCR3",
+                "C10"
+              ]
+            ],
+            "equilibrium_A": 1.5379999999999998,
+            "snapshot_A": 1.4335968749965935,
+            "ratio": 1.072825999291924
+          },
+          "POPC": {
+            "molecule": "POPC",
+            "atom_indices_1based": [
+              12091,
+              12097
+            ],
+            "atoms": [
+              [
+                450,
+                "POPC",
+                "C11"
+              ],
+              [
+                450,
+                "POPC",
+                "O12"
+              ]
+            ],
+            "equilibrium_A": 1.43,
+            "snapshot_A": 1.3218547575282305,
+            "ratio": 1.0818132566046763
+          }
+        },
+        "all_bonds_outside_20pct": [],
+        "topology_note": "Closed covalent-loop diagnostic under the retained 99-173 disulfide assumption; zero linking number is not a proof against every possible link type",
+        "scope": "preparation snapshot geometry only; no thermodynamic or mechanistic inference"
+      },
+      "last20ps_statistics": {
+        "Potential": {
+          "mean": -1651390.0,
+          "rmsd": 1404.95
+        },
+        "Temperature": {
+          "mean": 303.763,
+          "rmsd": 0.884358
+        },
+        "T-SOLU": {
+          "mean": 304.656,
+          "rmsd": 2.94678
+        },
+        "T-MEMB": {
+          "mean": 304.398,
+          "rmsd": 1.8135
+        },
+        "T-SOLV": {
+          "mean": 303.542,
+          "rmsd": 0.864985
+        }
+      },
+      "runtime_warnings": {
+        "heat": [],
+        "hold": []
+      }
+    }
+  ],
+  "passed": 2,
+  "completed_heatings": 2,
+  "input_rejected": 0,
+  "total": 2,
+  "production_ns": 0
+}

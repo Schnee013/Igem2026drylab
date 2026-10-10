@@ -1,0 +1,32 @@
+requested_executable	/opt/homebrew/Caskroom/miniforge/base/envs/chimeric-md-2025/bin/gmx
+resolved_executable	/opt/homebrew/Caskroom/miniforge/base/envs/chimeric-md-2025/bin/gmx
+sha256	2892b70f5a0338bd918fc1e5c8541c22a7ab97387ab4ad465968573403a87647
+
+                   :-) GROMACS - gmx, 2025.2-conda_forge (-:
+
+Executable:   /opt/homebrew/Caskroom/miniforge/base/envs/chimeric-md-2025/bin.ARM_NEON_ASIMD/gmx
+Data prefix:  /opt/homebrew/Caskroom/miniforge/base/envs/chimeric-md-2025
+Working dir:  /Users/roy/Documents/drylab
+Command line:
+  gmx --version
+
+GROMACS version:     2025.2-conda_forge
+Precision:           mixed
+Memory model:        64 bit
+MPI library:         thread_mpi
+OpenMP support:      enabled (GMX_OPENMP_MAX_THREADS = 128)
+GPU support:         disabled
+SIMD instructions:   ARM_NEON_ASIMD
+CPU FFT library:     fftw-3.3.10
+GPU FFT library:     none
+Multi-GPU FFT:       none
+TNG support:         enabled
+Hwloc support:       disabled
+Tracing support:     disabled
+C compiler:          /Users/runner/miniforge3/conda-bld/gromacs_1751870947258/_build_env/bin/arm64-apple-darwin20.0.0-clang Clang 18.1.8
+C compiler flags:    -Wno-missing-field-initializers -O3 -DNDEBUG
+C++ compiler:        /Users/runner/miniforge3/conda-bld/gromacs_1751870947258/_build_env/bin/arm64-apple-darwin20.0.0-clang++ Clang 18.1.8
+C++ compiler flags:  -Wno-reserved-identifier -Wno-missing-field-initializers -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-source-uses-openmp -Wno-c++17-extensions -Wno-documentation-unknown-command -Wno-covered-switch-default -Wno-switch-enum -Wno-switch-default -Wno-extra-semi-stmt -Wno-weak-vtables -Wno-shadow -Wno-padded -Wno-reserved-id-macro -Wno-double-promotion -Wno-exit-time-destructors -Wno-global-constructors -Wno-documentation -Wno-format-nonliteral -Wno-used-but-marked-unused -Wno-float-equal -Wno-conditional-uninitialized -Wno-conversion -Wno-disabled-macro-expansion -Wno-unused-macros -Wno-unsafe-buffer-usage -Wno-cast-function-type-strict SHELL:-fopenmp=libomp -O3 -DNDEBUG
+BLAS library:        External - detected on the system
+LAPACK library:      External - detected on the system
+

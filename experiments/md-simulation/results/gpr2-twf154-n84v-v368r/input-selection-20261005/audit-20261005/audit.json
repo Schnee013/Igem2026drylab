@@ -1,0 +1,1647 @@
+{
+  "as_of": "2026-10-05T15:08:55.078414+00:00",
+  "scope": "Original six input provenance, current selection availability, direct WT repair diff. Not geometry or production readiness acceptance.",
+  "runtime": {
+    "python": "3.14.6",
+    "numpy": "2.4.4",
+    "platform": "Darwin-25.0.0-arm64-arm-64bit-Mach-O"
+  },
+  "rounding_match_tolerance_A": 0.02,
+  "tolerance_use": "file identity operational heuristic, not scientific go/no-go cutoff",
+  "retained_root": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005",
+  "selection_root": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005",
+  "cases": [
+    {
+      "case": "raw_n84v_ascr18",
+      "selected": {
+        "selected_case_id": "raw_n84v_ascr18",
+        "status": "EXISTING_INPUT_PROVENANCE_MATCHED_NOT_GEOMETRY_ACCEPTED"
+      },
+      "parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+      "pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr18/top1.sdf",
+      "docking_alignment": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/alignment.json",
+      "docking_receptor": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/input.pdb",
+      "docking_frame_shared_atom_match": {
+        "n": 2887,
+        "rmsd_A": 0.0005013032849383294,
+        "max_A": 0.0008222777224655916
+      },
+      "docking_deleted_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "dry": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr18/dry.gro",
+      "selected_em": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/attempt2_double/em.gro",
+      "preheat_endpoint": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/heating_v4/hold.gro",
+      "protein_atoms_with_H": 6402,
+      "receptor_residues": 406,
+      "sequence_differences_from_WT": [
+        "N84V"
+      ],
+      "outside_lid_backbone": {
+        "n": 1563,
+        "rmsd_A": 0.0050500038716360185,
+        "max_A": 0.008339104445366811
+      },
+      "lid_backbone_same_transform": {
+        "n": 60,
+        "rmsd_A": 0.004841067031706699,
+        "max_A": 0.007675567353631292
+      },
+      "parent_heavy_except_terminal_oxygens": {
+        "n": 3156,
+        "rmsd_A": 0.0050317354681960035,
+        "max_A": 0.00842697786780639
+      },
+      "terminal_oxygen_displacements_A": {
+        "(406, 'OT1')": 0.4211593798217162,
+        "(406, 'OT2')": 0.40841689226861044
+      },
+      "terminal_note": "Local C-terminal oxygen changes; consistent with terminal topology preparation. Original pdb2gmx log not retained here.",
+      "donor_control_outside_lid_rmsd_A": {
+        "n84v": 0.0050500038716362215,
+        "v368r": 9.249919676377415,
+        "wt": 6.839466573756654
+      },
+      "ligand_all_atoms": {
+        "n": 54,
+        "rmsd_A": 0.004889371732890851,
+        "max_A": 0.007618359850635317
+      },
+      "ligand_heavy": {
+        "n": 23,
+        "rmsd_A": 0.004732645671924082,
+        "max_A": 0.007339265688512932
+      },
+      "ligand_bond_graph_matches": true,
+      "sdf_atom_1based_to_itp_atom_1based": [
+        18,
+        12,
+        13,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        6,
+        5,
+        2,
+        10,
+        1,
+        11,
+        16,
+        8,
+        4,
+        9,
+        7,
+        3,
+        44,
+        45,
+        46,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        40,
+        41,
+        42,
+        43,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        28,
+        29,
+        37,
+        38,
+        39,
+        25,
+        48,
+        26,
+        27,
+        24,
+        47
+      ],
+      "ligand_relative_pose_fit": "protein-derived transform only; no independent ligand fit",
+      "transform_docking_to_dry": {
+        "rotation": [
+          [
+            -0.4440390662049368,
+            -0.45204668596576963,
+            0.77361689575087
+          ],
+          [
+            -0.15702119650470836,
+            -0.8107841556544827,
+            -0.5638912987339642
+          ],
+          [
+            0.882141514459034,
+            -0.3718640163379785,
+            0.28903892786424135
+          ]
+        ],
+        "translation_A": [
+          44.73899223847293,
+          42.128114597482245,
+          101.28345574660031
+        ]
+      }
+    },
+    {
+      "case": "raw_v368r_ascr3",
+      "selected": {
+        "selected_case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+        "status": "NOT_GENERATED_CANNOT_AUDIT_NEW_LID",
+        "contract": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1.input.json",
+        "planned_files": {
+          "receptor": {
+            "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1_receptor.pdb",
+            "exists": false
+          },
+          "ligand": {
+            "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1_ligand.sdf",
+            "exists": false
+          },
+          "complex": {
+            "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1_complex.pdb",
+            "exists": false
+          }
+        }
+      },
+      "parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+      "pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr3/top1.sdf",
+      "docking_alignment": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/alignment.json",
+      "docking_receptor": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/input.pdb",
+      "docking_frame_shared_atom_match": {
+        "n": 2892,
+        "rmsd_A": 0.0005009158944762167,
+        "max_A": 0.0008344704738131838
+      },
+      "docking_deleted_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "dry": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr3/dry.gro",
+      "selected_em": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/em.gro",
+      "preheat_endpoint": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/heating_v4/hold.gro",
+      "protein_atoms_with_H": 6408,
+      "receptor_residues": 406,
+      "sequence_differences_from_WT": [
+        "V368R"
+      ],
+      "outside_lid_backbone": {
+        "n": 1563,
+        "rmsd_A": 0.005013718130559149,
+        "max_A": 0.008643695411502169
+      },
+      "lid_backbone_same_transform": {
+        "n": 60,
+        "rmsd_A": 0.005441881927720309,
+        "max_A": 0.007951806869082222
+      },
+      "parent_heavy_except_terminal_oxygens": {
+        "n": 3161,
+        "rmsd_A": 0.005031170936126492,
+        "max_A": 0.008643695411502169
+      },
+      "terminal_oxygen_displacements_A": {
+        "(406, 'OT1')": 0.3779512266590351,
+        "(406, 'OT2')": 0.34487251716553885
+      },
+      "terminal_note": "Local C-terminal oxygen changes; consistent with terminal topology preparation. Original pdb2gmx log not retained here.",
+      "donor_control_outside_lid_rmsd_A": {
+        "n84v": 9.250016719339904,
+        "v368r": 0.005013718130558685,
+        "wt": 9.243304699322222
+      },
+      "ligand_all_atoms": {
+        "n": 46,
+        "rmsd_A": 0.004713158218926391,
+        "max_A": 0.006876783052829648
+      },
+      "ligand_heavy": {
+        "n": 21,
+        "rmsd_A": 0.004335655080844387,
+        "max_A": 0.00592707808384435
+      },
+      "ligand_bond_graph_matches": true,
+      "sdf_atom_1based_to_itp_atom_1based": [
+        16,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        6,
+        5,
+        2,
+        10,
+        1,
+        11,
+        14,
+        8,
+        4,
+        9,
+        7,
+        3,
+        36,
+        37,
+        38,
+        28,
+        29,
+        30,
+        34,
+        35,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        26,
+        27,
+        31,
+        32,
+        33,
+        23,
+        40,
+        24,
+        25,
+        22,
+        39
+      ],
+      "ligand_relative_pose_fit": "protein-derived transform only; no independent ligand fit",
+      "transform_docking_to_dry": {
+        "rotation": [
+          [
+            -0.4440422315556299,
+            -0.4520471067811986,
+            0.7736148330053166
+          ],
+          [
+            -0.15702293445762974,
+            -0.8107821436707231,
+            -0.563893707678159
+          ],
+          [
+            0.8821396117675542,
+            -0.37186789153603145,
+            0.28903974916113995
+          ]
+        ],
+        "translation_A": [
+          44.738973510733494,
+          42.128251018816115,
+          101.28342724104569
+        ]
+      }
+    },
+    {
+      "case": "raw_n84v_ascr3",
+      "selected": {
+        "selected_case_id": "raw_n84v_ascr3",
+        "status": "EXISTING_INPUT_PROVENANCE_MATCHED_NOT_GEOMETRY_ACCEPTED"
+      },
+      "parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+      "pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr3/top1.sdf",
+      "docking_alignment": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/alignment.json",
+      "docking_receptor": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/input.pdb",
+      "docking_frame_shared_atom_match": {
+        "n": 2887,
+        "rmsd_A": 0.0005013032849383294,
+        "max_A": 0.0008222777224655916
+      },
+      "docking_deleted_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "dry": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr3/dry.gro",
+      "selected_em": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/attempt4_ligand_constraints/em.gro",
+      "preheat_endpoint": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/heating_v4/hold.gro",
+      "protein_atoms_with_H": 6402,
+      "receptor_residues": 406,
+      "sequence_differences_from_WT": [
+        "N84V"
+      ],
+      "outside_lid_backbone": {
+        "n": 1563,
+        "rmsd_A": 0.0050500038716360185,
+        "max_A": 0.008339104445366811
+      },
+      "lid_backbone_same_transform": {
+        "n": 60,
+        "rmsd_A": 0.004841067031706699,
+        "max_A": 0.007675567353631292
+      },
+      "parent_heavy_except_terminal_oxygens": {
+        "n": 3156,
+        "rmsd_A": 0.0050317354681960035,
+        "max_A": 0.00842697786780639
+      },
+      "terminal_oxygen_displacements_A": {
+        "(406, 'OT1')": 0.4211593798217162,
+        "(406, 'OT2')": 0.40841689226861044
+      },
+      "terminal_note": "Local C-terminal oxygen changes; consistent with terminal topology preparation. Original pdb2gmx log not retained here.",
+      "donor_control_outside_lid_rmsd_A": {
+        "n84v": 0.0050500038716362215,
+        "v368r": 9.249919676377415,
+        "wt": 6.839466573756654
+      },
+      "ligand_all_atoms": {
+        "n": 46,
+        "rmsd_A": 0.005236564496086096,
+        "max_A": 0.008319223654314204
+      },
+      "ligand_heavy": {
+        "n": 21,
+        "rmsd_A": 0.00516402035598528,
+        "max_A": 0.007573331115572287
+      },
+      "ligand_bond_graph_matches": true,
+      "sdf_atom_1based_to_itp_atom_1based": [
+        16,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        6,
+        5,
+        2,
+        10,
+        1,
+        11,
+        14,
+        8,
+        4,
+        9,
+        7,
+        3,
+        36,
+        37,
+        38,
+        28,
+        29,
+        30,
+        34,
+        35,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        26,
+        27,
+        31,
+        32,
+        33,
+        23,
+        40,
+        24,
+        25,
+        22,
+        39
+      ],
+      "ligand_relative_pose_fit": "protein-derived transform only; no independent ligand fit",
+      "transform_docking_to_dry": {
+        "rotation": [
+          [
+            -0.4440390662049368,
+            -0.45204668596576963,
+            0.77361689575087
+          ],
+          [
+            -0.15702119650470836,
+            -0.8107841556544827,
+            -0.5638912987339642
+          ],
+          [
+            0.882141514459034,
+            -0.3718640163379785,
+            0.28903892786424135
+          ]
+        ],
+        "translation_A": [
+          44.73899223847293,
+          42.128114597482245,
+          101.28345574660031
+        ]
+      }
+    },
+    {
+      "case": "raw_v368r_ascr18",
+      "selected": {
+        "selected_case_id": "raw_v368r_ascr18",
+        "status": "EXISTING_INPUT_PROVENANCE_MATCHED_NOT_GEOMETRY_ACCEPTED"
+      },
+      "parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+      "pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr18/top1.sdf",
+      "docking_alignment": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/alignment.json",
+      "docking_receptor": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/input.pdb",
+      "docking_frame_shared_atom_match": {
+        "n": 2892,
+        "rmsd_A": 0.0005009158944762167,
+        "max_A": 0.0008344704738131838
+      },
+      "docking_deleted_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "dry": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr18/dry.gro",
+      "selected_em": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/attempt5_frozen_ligand/em.gro",
+      "preheat_endpoint": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/heating_v4/hold.gro",
+      "protein_atoms_with_H": 6408,
+      "receptor_residues": 406,
+      "sequence_differences_from_WT": [
+        "V368R"
+      ],
+      "outside_lid_backbone": {
+        "n": 1563,
+        "rmsd_A": 0.005013718130559149,
+        "max_A": 0.008643695411502169
+      },
+      "lid_backbone_same_transform": {
+        "n": 60,
+        "rmsd_A": 0.005441881927720309,
+        "max_A": 0.007951806869082222
+      },
+      "parent_heavy_except_terminal_oxygens": {
+        "n": 3161,
+        "rmsd_A": 0.005031170936126492,
+        "max_A": 0.008643695411502169
+      },
+      "terminal_oxygen_displacements_A": {
+        "(406, 'OT1')": 0.3779512266590351,
+        "(406, 'OT2')": 0.34487251716553885
+      },
+      "terminal_note": "Local C-terminal oxygen changes; consistent with terminal topology preparation. Original pdb2gmx log not retained here.",
+      "donor_control_outside_lid_rmsd_A": {
+        "n84v": 9.250016719339904,
+        "v368r": 0.005013718130558685,
+        "wt": 9.243304699322222
+      },
+      "ligand_all_atoms": {
+        "n": 54,
+        "rmsd_A": 0.004995438841405889,
+        "max_A": 0.007800592960634232
+      },
+      "ligand_heavy": {
+        "n": 23,
+        "rmsd_A": 0.004855789759337891,
+        "max_A": 0.006983418250744061
+      },
+      "ligand_bond_graph_matches": true,
+      "sdf_atom_1based_to_itp_atom_1based": [
+        18,
+        12,
+        13,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        6,
+        5,
+        2,
+        10,
+        1,
+        11,
+        16,
+        8,
+        4,
+        9,
+        7,
+        3,
+        44,
+        45,
+        46,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        40,
+        41,
+        42,
+        43,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        28,
+        29,
+        37,
+        38,
+        39,
+        25,
+        48,
+        26,
+        27,
+        24,
+        47
+      ],
+      "ligand_relative_pose_fit": "protein-derived transform only; no independent ligand fit",
+      "transform_docking_to_dry": {
+        "rotation": [
+          [
+            -0.4440422315556299,
+            -0.4520471067811986,
+            0.7736148330053166
+          ],
+          [
+            -0.15702293445762974,
+            -0.8107821436707231,
+            -0.563893707678159
+          ],
+          [
+            0.8821396117675542,
+            -0.37186789153603145,
+            0.28903974916113995
+          ]
+        ],
+        "translation_A": [
+          44.738973510733494,
+          42.128251018816115,
+          101.28342724104569
+        ]
+      }
+    },
+    {
+      "case": "native_wt_ascr18",
+      "selected": {
+        "selected_case_id": "native_wt_ascr18",
+        "status": "EXISTING_INPUT_PROVENANCE_MATCHED_NOT_GEOMETRY_ACCEPTED"
+      },
+      "parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/full_length.pdb",
+      "pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr18/top1.sdf",
+      "docking_alignment": "already aligned WT parent",
+      "docking_receptor": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/deltaN_docking_receptor.pdb",
+      "docking_frame_shared_atom_match": {
+        "n": 2888,
+        "rmsd_A": 0.0,
+        "max_A": 0.0
+      },
+      "docking_deleted_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "dry": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr18/dry.gro",
+      "selected_em": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/em.gro",
+      "preheat_endpoint": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/heating_v4/hold.gro",
+      "protein_atoms_with_H": 6400,
+      "receptor_residues": 406,
+      "sequence_differences_from_WT": [],
+      "outside_lid_backbone": {
+        "n": 1563,
+        "rmsd_A": 0.004955848709073696,
+        "max_A": 0.008062071490647452
+      },
+      "lid_backbone_same_transform": {
+        "n": 60,
+        "rmsd_A": 0.004927031399756671,
+        "max_A": 0.007040140848549533
+      },
+      "parent_heavy_except_terminal_oxygens": {
+        "n": 3157,
+        "rmsd_A": 0.0049806684635960215,
+        "max_A": 0.008322748117028635
+      },
+      "terminal_oxygen_displacements_A": {
+        "(406, 'OT1')": 0.42454958423076616,
+        "(406, 'OT2')": 0.3743895414727579
+      },
+      "terminal_note": "Local C-terminal oxygen changes; consistent with terminal topology preparation. Original pdb2gmx log not retained here.",
+      "donor_control_outside_lid_rmsd_A": {
+        "n84v": 6.8392778204894915,
+        "v368r": 9.243150507593104,
+        "wt": 0.004955848709073696
+      },
+      "ligand_all_atoms": {
+        "n": 54,
+        "rmsd_A": 0.005097441450601583,
+        "max_A": 0.006982279077307758
+      },
+      "ligand_heavy": {
+        "n": 23,
+        "rmsd_A": 0.00487483393909369,
+        "max_A": 0.0068235751706542435
+      },
+      "ligand_bond_graph_matches": true,
+      "sdf_atom_1based_to_itp_atom_1based": [
+        18,
+        12,
+        13,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        6,
+        5,
+        2,
+        10,
+        1,
+        11,
+        16,
+        8,
+        4,
+        9,
+        7,
+        3,
+        44,
+        45,
+        46,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        40,
+        41,
+        42,
+        43,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        28,
+        29,
+        37,
+        38,
+        39,
+        25,
+        48,
+        26,
+        27,
+        24,
+        47
+      ],
+      "ligand_relative_pose_fit": "protein-derived transform only; no independent ligand fit",
+      "transform_docking_to_dry": {
+        "rotation": [
+          [
+            0.4895259863325001,
+            0.3479861748281679,
+            0.7995435765695668
+          ],
+          [
+            0.33753715712507776,
+            0.7698186215063176,
+            -0.5417083694591006
+          ],
+          [
+            -0.8040105573094889,
+            0.5350559896969458,
+            0.2593879558196748
+          ]
+        ],
+        "translation_A": [
+          46.35448074056085,
+          48.039517105305954,
+          101.57742202829697
+        ]
+      }
+    },
+    {
+      "case": "native_wt_ascr3",
+      "selected": {
+        "selected_case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+        "status": "NOT_GENERATED_CANNOT_AUDIT_NEW_LID",
+        "contract": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1.input.json",
+        "planned_files": {
+          "receptor": {
+            "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_receptor.pdb",
+            "exists": false
+          },
+          "ligand": {
+            "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_ligand.sdf",
+            "exists": false
+          },
+          "complex": {
+            "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_complex.pdb",
+            "exists": false
+          }
+        }
+      },
+      "parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/full_length.pdb",
+      "pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr3/top1.sdf",
+      "docking_alignment": "already aligned WT parent",
+      "docking_receptor": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/deltaN_docking_receptor.pdb",
+      "docking_frame_shared_atom_match": {
+        "n": 2888,
+        "rmsd_A": 0.0,
+        "max_A": 0.0
+      },
+      "docking_deleted_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "dry": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr3/dry.gro",
+      "selected_em": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/em.gro",
+      "preheat_endpoint": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/heating_v4/hold.gro",
+      "protein_atoms_with_H": 6400,
+      "receptor_residues": 406,
+      "sequence_differences_from_WT": [],
+      "outside_lid_backbone": {
+        "n": 1563,
+        "rmsd_A": 0.004955848709073696,
+        "max_A": 0.008062071490647452
+      },
+      "lid_backbone_same_transform": {
+        "n": 60,
+        "rmsd_A": 0.004927031399756671,
+        "max_A": 0.007040140848549533
+      },
+      "parent_heavy_except_terminal_oxygens": {
+        "n": 3157,
+        "rmsd_A": 0.0049806684635960215,
+        "max_A": 0.008322748117028635
+      },
+      "terminal_oxygen_displacements_A": {
+        "(406, 'OT1')": 0.42454958423076616,
+        "(406, 'OT2')": 0.3743895414727579
+      },
+      "terminal_note": "Local C-terminal oxygen changes; consistent with terminal topology preparation. Original pdb2gmx log not retained here.",
+      "donor_control_outside_lid_rmsd_A": {
+        "n84v": 6.8392778204894915,
+        "v368r": 9.243150507593104,
+        "wt": 0.004955848709073696
+      },
+      "ligand_all_atoms": {
+        "n": 46,
+        "rmsd_A": 0.005103719449063109,
+        "max_A": 0.007795534353590555
+      },
+      "ligand_heavy": {
+        "n": 21,
+        "rmsd_A": 0.005219519892715481,
+        "max_A": 0.007795534353590555
+      },
+      "ligand_bond_graph_matches": true,
+      "sdf_atom_1based_to_itp_atom_1based": [
+        16,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        6,
+        5,
+        2,
+        10,
+        1,
+        11,
+        14,
+        8,
+        4,
+        9,
+        7,
+        3,
+        36,
+        37,
+        38,
+        28,
+        29,
+        30,
+        34,
+        35,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        26,
+        27,
+        31,
+        32,
+        33,
+        23,
+        40,
+        24,
+        25,
+        22,
+        39
+      ],
+      "ligand_relative_pose_fit": "protein-derived transform only; no independent ligand fit",
+      "transform_docking_to_dry": {
+        "rotation": [
+          [
+            0.4895259863325001,
+            0.3479861748281679,
+            0.7995435765695668
+          ],
+          [
+            0.33753715712507776,
+            0.7698186215063176,
+            -0.5417083694591006
+          ],
+          [
+            -0.8040105573094889,
+            0.5350559896969458,
+            0.2593879558196748
+          ]
+        ],
+        "translation_A": [
+          46.35448074056085,
+          48.039517105305954,
+          101.57742202829697
+        ]
+      }
+    }
+  ],
+  "wt_ascr18_repair_direct_diff": {
+    "before": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/ionized.gro",
+    "after": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/sidechain_repaired.gro",
+    "total_atoms": 145776,
+    "changed_count": 17,
+    "changed_heavy_count": 9,
+    "unchanged_count": 145759,
+    "changes": [
+      {
+        "index_1based": 2704,
+        "resid": 174,
+        "name": "HB1"
+      },
+      {
+        "index_1based": 2705,
+        "resid": 174,
+        "name": "HB2"
+      },
+      {
+        "index_1based": 2706,
+        "resid": 174,
+        "name": "CG"
+      },
+      {
+        "index_1based": 2707,
+        "resid": 174,
+        "name": "CD1"
+      },
+      {
+        "index_1based": 2708,
+        "resid": 174,
+        "name": "HD1"
+      },
+      {
+        "index_1based": 2709,
+        "resid": 174,
+        "name": "NE1"
+      },
+      {
+        "index_1based": 2710,
+        "resid": 174,
+        "name": "HE1"
+      },
+      {
+        "index_1based": 2711,
+        "resid": 174,
+        "name": "CE2"
+      },
+      {
+        "index_1based": 2712,
+        "resid": 174,
+        "name": "CD2"
+      },
+      {
+        "index_1based": 2713,
+        "resid": 174,
+        "name": "CE3"
+      },
+      {
+        "index_1based": 2714,
+        "resid": 174,
+        "name": "HE3"
+      },
+      {
+        "index_1based": 2715,
+        "resid": 174,
+        "name": "CZ3"
+      },
+      {
+        "index_1based": 2716,
+        "resid": 174,
+        "name": "HZ3"
+      },
+      {
+        "index_1based": 2717,
+        "resid": 174,
+        "name": "CZ2"
+      },
+      {
+        "index_1based": 2718,
+        "resid": 174,
+        "name": "HZ2"
+      },
+      {
+        "index_1based": 2719,
+        "resid": 174,
+        "name": "CH2"
+      },
+      {
+        "index_1based": 2720,
+        "resid": 174,
+        "name": "HH2"
+      }
+    ],
+    "backbone_and_ligand_unchanged": true
+  },
+  "all_six_selected_coordinates_ready": false,
+  "all_original_six_provenance_checks_passed": true,
+  "evidence_files": [
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/WT_sequence.fasta",
+      "resolved_path": "/Users/roy/Documents/docking/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+      "sha256": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150",
+      "expected_sha256": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+      "sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+      "expected_sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+      "sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+      "expected_sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/full_length.pdb",
+      "resolved_path": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_0_aligned.pdb",
+      "sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+      "expected_sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/cases.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/cases.json",
+      "sha256": "be68a1259e7ffeb22a949fd5d96b0fff911884d2128ef878fd44d040eec5fee2",
+      "expected_sha256": null,
+      "manifest_or_explicit_hash_match": null
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/manifest.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/manifest.json",
+      "sha256": "04af31a257c87ddd995415dd45accf4125c862ca54f7e268bb757ceb42c75c1b",
+      "expected_sha256": null,
+      "manifest_or_explicit_hash_match": null
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/selection.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/selection.json",
+      "sha256": "4410077e91e38b1859fb446f8a8424481565d652afa3e6680ae395258441229b",
+      "expected_sha256": null,
+      "manifest_or_explicit_hash_match": null
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/alignment.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/alignment.json",
+      "sha256": "4842a275b5d2aea8d25d5483420f17bb1062dec62eaf1ac285e5468443e20da7",
+      "expected_sha256": "4842a275b5d2aea8d25d5483420f17bb1062dec62eaf1ac285e5468443e20da7",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/input.pdb",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/docking_receptor/input.pdb",
+      "sha256": "09d9cb594732b2d8a4d0549b944c4b52cfc8a332f51843b6d075fa4e4b9d1ab3",
+      "expected_sha256": "09d9cb594732b2d8a4d0549b944c4b52cfc8a332f51843b6d075fa4e4b9d1ab3",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr18/input_contract.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/input_contract.json",
+      "sha256": "a9b723fe135eb5c767fe210bf90eb0da86cc704fdcecd92102d0321c950e6233",
+      "expected_sha256": "a9b723fe135eb5c767fe210bf90eb0da86cc704fdcecd92102d0321c950e6233",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr18/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/dry.gro",
+      "sha256": "505513a8909e4f88a8a2faa19fc0e721ebe34e1f2f5cda9a4d6891fc396999e0",
+      "expected_sha256": "505513a8909e4f88a8a2faa19fc0e721ebe34e1f2f5cda9a4d6891fc396999e0",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr18/toppar/PROA.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/toppar/PROA.itp",
+      "sha256": "70831a16fe56f4609000f9e7a3e24183ad01b34b771d020290b6bd9f4746f46d",
+      "expected_sha256": "70831a16fe56f4609000f9e7a3e24183ad01b34b771d020290b6bd9f4746f46d",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr18/toppar/ASCR18.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/toppar/ASCR18.itp",
+      "sha256": "da7a843ad80c9118d0629ff5aad3dcfa9d5f2edb8544f03089dd22dc7cbcfa7d",
+      "expected_sha256": "da7a843ad80c9118d0629ff5aad3dcfa9d5f2edb8544f03089dd22dc7cbcfa7d",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr18/top1.sdf",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr18/top1.sdf",
+      "sha256": "c81504d49f3a92190b53dba3867dded54d1b473d760501b7a730b6a75f94f1ba",
+      "expected_sha256": "c81504d49f3a92190b53dba3867dded54d1b473d760501b7a730b6a75f94f1ba",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/dry.gro",
+      "sha256": "505513a8909e4f88a8a2faa19fc0e721ebe34e1f2f5cda9a4d6891fc396999e0",
+      "expected_sha256": "505513a8909e4f88a8a2faa19fc0e721ebe34e1f2f5cda9a4d6891fc396999e0",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/attempt2_double/em.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/attempt2_double/em.gro",
+      "sha256": "822d6c8f1e620d24dee75df6309381d84b70f69c890b6fc12990bf434c870e2b",
+      "expected_sha256": "822d6c8f1e620d24dee75df6309381d84b70f69c890b6fc12990bf434c870e2b",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/heating_v4/hold.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/heating_v4/hold.gro",
+      "sha256": "ba34cf40e10f4a90bbd45b661215ff6632f0e6bd8038b9281d95ee4eb9094b77",
+      "expected_sha256": "ba34cf40e10f4a90bbd45b661215ff6632f0e6bd8038b9281d95ee4eb9094b77",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/alignment.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/alignment.json",
+      "sha256": "c5f5ec6386321e3aa5436ff8036e7f02a748445a2e5196507821feda92c750fc",
+      "expected_sha256": "c5f5ec6386321e3aa5436ff8036e7f02a748445a2e5196507821feda92c750fc",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/input.pdb",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/docking_receptor/input.pdb",
+      "sha256": "36802565b94833188a4a23bca39d9b76077eaa9614dffd623bad8a6873fde2dd",
+      "expected_sha256": "36802565b94833188a4a23bca39d9b76077eaa9614dffd623bad8a6873fde2dd",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr3/input_contract.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/input_contract.json",
+      "sha256": "8217570f6fd20797f3b25b089155626f219f9d0b3e25b3250b9b339a05624633",
+      "expected_sha256": "8217570f6fd20797f3b25b089155626f219f9d0b3e25b3250b9b339a05624633",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr3/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/dry.gro",
+      "sha256": "378d2aead44377ca03a066885e45937afb60341a01e7ce43af37410cf497bb71",
+      "expected_sha256": "378d2aead44377ca03a066885e45937afb60341a01e7ce43af37410cf497bb71",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr3/toppar/PROA.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/toppar/PROA.itp",
+      "sha256": "b3346a1546f61f00314154543336967fefdf544d32ebd88d0781f13fc3a8e5ed",
+      "expected_sha256": "b3346a1546f61f00314154543336967fefdf544d32ebd88d0781f13fc3a8e5ed",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr3/toppar/ASCR3.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/toppar/ASCR3.itp",
+      "sha256": "a65946001b66674c6e40a23ca4715d56a168f2e223f41f667d432ff58891e2bd",
+      "expected_sha256": "a65946001b66674c6e40a23ca4715d56a168f2e223f41f667d432ff58891e2bd",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr3/top1.sdf",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr3/top1.sdf",
+      "sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506",
+      "expected_sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/dry.gro",
+      "sha256": "378d2aead44377ca03a066885e45937afb60341a01e7ce43af37410cf497bb71",
+      "expected_sha256": "378d2aead44377ca03a066885e45937afb60341a01e7ce43af37410cf497bb71",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/em.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/em.gro",
+      "sha256": "c0cd80d6c475adfb7504062ac9b535a3a1de0bd7cae5a4204281d4ac6f1ae57e",
+      "expected_sha256": "c0cd80d6c475adfb7504062ac9b535a3a1de0bd7cae5a4204281d4ac6f1ae57e",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/heating_v4/hold.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr3/heating_v4/hold.gro",
+      "sha256": "343fb9e7f5db392fda090ff4ad5bfb6b969fbf26b4c4a315a8e823444c2d38a2",
+      "expected_sha256": "343fb9e7f5db392fda090ff4ad5bfb6b969fbf26b4c4a315a8e823444c2d38a2",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1.input.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1.input.json",
+      "sha256": "df2aee4f9ad946db1c8b909328f1fbbf5fa08c776707888b91056cf068ac17c1",
+      "expected_sha256": null,
+      "manifest_or_explicit_hash_match": null
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr3/input_contract.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/input_contract.json",
+      "sha256": "54438d80285eb344966be759827a7171e63715c961853a76d0487b3d8cd6b4ee",
+      "expected_sha256": "54438d80285eb344966be759827a7171e63715c961853a76d0487b3d8cd6b4ee",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr3/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/dry.gro",
+      "sha256": "42492209b93e66d6292b3d60c6ff8bf4f817a22ddc37fb6fd42689351dd5e748",
+      "expected_sha256": "42492209b93e66d6292b3d60c6ff8bf4f817a22ddc37fb6fd42689351dd5e748",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr3/toppar/PROA.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/toppar/PROA.itp",
+      "sha256": "70831a16fe56f4609000f9e7a3e24183ad01b34b771d020290b6bd9f4746f46d",
+      "expected_sha256": "70831a16fe56f4609000f9e7a3e24183ad01b34b771d020290b6bd9f4746f46d",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_n84v_ascr3/toppar/ASCR3.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/toppar/ASCR3.itp",
+      "sha256": "a65946001b66674c6e40a23ca4715d56a168f2e223f41f667d432ff58891e2bd",
+      "expected_sha256": "a65946001b66674c6e40a23ca4715d56a168f2e223f41f667d432ff58891e2bd",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr3/top1.sdf",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr3/top1.sdf",
+      "sha256": "0b0faa6bfc6bdd4c462ae051a576bbf92dd61eb77243c15166751cfe53d66cfb",
+      "expected_sha256": "0b0faa6bfc6bdd4c462ae051a576bbf92dd61eb77243c15166751cfe53d66cfb",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/dry.gro",
+      "sha256": "42492209b93e66d6292b3d60c6ff8bf4f817a22ddc37fb6fd42689351dd5e748",
+      "expected_sha256": "42492209b93e66d6292b3d60c6ff8bf4f817a22ddc37fb6fd42689351dd5e748",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/attempt4_ligand_constraints/em.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/attempt4_ligand_constraints/em.gro",
+      "sha256": "c81b121b42a4bcb748b4c15fcbeea02f81c27c0bf6a6424ed241d42776f582f2",
+      "expected_sha256": "c81b121b42a4bcb748b4c15fcbeea02f81c27c0bf6a6424ed241d42776f582f2",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/heating_v4/hold.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/heating_v4/hold.gro",
+      "sha256": "290497d6bc68b06103268e533d324b033980976b7831eeca15dd30c8198723dc",
+      "expected_sha256": "290497d6bc68b06103268e533d324b033980976b7831eeca15dd30c8198723dc",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr18/input_contract.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/input_contract.json",
+      "sha256": "0d648705f4a186ab1ecbb8568cbc65ae86961e4bede504e7ee848ef8b632767e",
+      "expected_sha256": "0d648705f4a186ab1ecbb8568cbc65ae86961e4bede504e7ee848ef8b632767e",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr18/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/dry.gro",
+      "sha256": "0449a041b4faf242ff79c686dc17491b94b16a09da151d70b7f90b45adfdc224",
+      "expected_sha256": "0449a041b4faf242ff79c686dc17491b94b16a09da151d70b7f90b45adfdc224",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr18/toppar/PROA.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/toppar/PROA.itp",
+      "sha256": "b3346a1546f61f00314154543336967fefdf544d32ebd88d0781f13fc3a8e5ed",
+      "expected_sha256": "b3346a1546f61f00314154543336967fefdf544d32ebd88d0781f13fc3a8e5ed",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/raw_v368r_ascr18/toppar/ASCR18.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/toppar/ASCR18.itp",
+      "sha256": "da7a843ad80c9118d0629ff5aad3dcfa9d5f2edb8544f03089dd22dc7cbcfa7d",
+      "expected_sha256": "da7a843ad80c9118d0629ff5aad3dcfa9d5f2edb8544f03089dd22dc7cbcfa7d",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr18/top1.sdf",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr18/top1.sdf",
+      "sha256": "15413aae5c7ed06b4321f38dfff4a8942cd7da906681d0127c132695ca43ca31",
+      "expected_sha256": "15413aae5c7ed06b4321f38dfff4a8942cd7da906681d0127c132695ca43ca31",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/dry.gro",
+      "sha256": "0449a041b4faf242ff79c686dc17491b94b16a09da151d70b7f90b45adfdc224",
+      "expected_sha256": "0449a041b4faf242ff79c686dc17491b94b16a09da151d70b7f90b45adfdc224",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/attempt5_frozen_ligand/em.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/attempt5_frozen_ligand/em.gro",
+      "sha256": "1c5270fdec1a2a17a2b3e40a589e86737b3a291ce87d914117a33aa58dc5c13c",
+      "expected_sha256": "1c5270fdec1a2a17a2b3e40a589e86737b3a291ce87d914117a33aa58dc5c13c",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/heating_v4/hold.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_v368r_ascr18/heating_v4/hold.gro",
+      "sha256": "eef276797e04042df429f2797ef40dba9d2881bd5adc014d9dfccd98de57115a",
+      "expected_sha256": "eef276797e04042df429f2797ef40dba9d2881bd5adc014d9dfccd98de57115a",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/deltaN_docking_receptor.pdb",
+      "resolved_path": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdb",
+      "sha256": "339a0650fd6dad7c8fa1e9bd245ddb7d4471550892b73ccb3b87838e3be84a46",
+      "expected_sha256": "339a0650fd6dad7c8fa1e9bd245ddb7d4471550892b73ccb3b87838e3be84a46",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr18/input_contract.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/input_contract.json",
+      "sha256": "c634ac95463d1496905f15e6b9339d4f5fd90af8c261fb4a63ba33b5d36267b3",
+      "expected_sha256": "c634ac95463d1496905f15e6b9339d4f5fd90af8c261fb4a63ba33b5d36267b3",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr18/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/dry.gro",
+      "sha256": "590d324a0ab60128257cc3b3b435f63b0e96cfe8100c3b1dfc8c7b19a60d13cf",
+      "expected_sha256": "590d324a0ab60128257cc3b3b435f63b0e96cfe8100c3b1dfc8c7b19a60d13cf",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr18/toppar/PROA.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/toppar/PROA.itp",
+      "sha256": "4fed68f3b9418ad89734dd9ec63af28ce6e1ffc71b4d7009b25b8a6b125f6b3a",
+      "expected_sha256": "4fed68f3b9418ad89734dd9ec63af28ce6e1ffc71b4d7009b25b8a6b125f6b3a",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr18/toppar/ASCR18.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr18/toppar/ASCR18.itp",
+      "sha256": "da7a843ad80c9118d0629ff5aad3dcfa9d5f2edb8544f03089dd22dc7cbcfa7d",
+      "expected_sha256": "da7a843ad80c9118d0629ff5aad3dcfa9d5f2edb8544f03089dd22dc7cbcfa7d",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr18/top1.sdf",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr18/top1.sdf",
+      "sha256": "d481ec509ad39c92a2b01143baa37859972237f85774e6543c0fe1a843f104b3",
+      "expected_sha256": "d481ec509ad39c92a2b01143baa37859972237f85774e6543c0fe1a843f104b3",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/dry.gro",
+      "sha256": "590d324a0ab60128257cc3b3b435f63b0e96cfe8100c3b1dfc8c7b19a60d13cf",
+      "expected_sha256": "590d324a0ab60128257cc3b3b435f63b0e96cfe8100c3b1dfc8c7b19a60d13cf",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/em.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/em.gro",
+      "sha256": "4ea6b9271c6a24adc6a4df5d2116f77143e3d485f8a0ef166391f94d467129f3",
+      "expected_sha256": "4ea6b9271c6a24adc6a4df5d2116f77143e3d485f8a0ef166391f94d467129f3",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/heating_v4/hold.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/heating_v4/hold.gro",
+      "sha256": "ddb12dfed97a3840d3da8b7e4288f7e5fc46a115dd8231ff064e425063d2478a",
+      "expected_sha256": "ddb12dfed97a3840d3da8b7e4288f7e5fc46a115dd8231ff064e425063d2478a",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr3/input_contract.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/input_contract.json",
+      "sha256": "f0a5f8e2322a39e3bba2f05cc32265ed977014ffaad301402ebf85721cb30c0d",
+      "expected_sha256": "f0a5f8e2322a39e3bba2f05cc32265ed977014ffaad301402ebf85721cb30c0d",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr3/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/dry.gro",
+      "sha256": "d9a1ae6bc811d762f630578f45889a857d5556af25be6077e7930445268569ba",
+      "expected_sha256": "d9a1ae6bc811d762f630578f45889a857d5556af25be6077e7930445268569ba",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr3/toppar/PROA.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/toppar/PROA.itp",
+      "sha256": "4fed68f3b9418ad89734dd9ec63af28ce6e1ffc71b4d7009b25b8a6b125f6b3a",
+      "expected_sha256": "4fed68f3b9418ad89734dd9ec63af28ce6e1ffc71b4d7009b25b8a6b125f6b3a",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preparation_inputs/native_wt_ascr3/toppar/ASCR3.itp",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/raw_n84v_ascr3/toppar/ASCR3.itp",
+      "sha256": "a65946001b66674c6e40a23ca4715d56a168f2e223f41f667d432ff58891e2bd",
+      "expected_sha256": "a65946001b66674c6e40a23ca4715d56a168f2e223f41f667d432ff58891e2bd",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr3/top1.sdf",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr3/top1.sdf",
+      "sha256": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+      "expected_sha256": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/dry.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/dry.gro",
+      "sha256": "d9a1ae6bc811d762f630578f45889a857d5556af25be6077e7930445268569ba",
+      "expected_sha256": "d9a1ae6bc811d762f630578f45889a857d5556af25be6077e7930445268569ba",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/em.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/em.gro",
+      "sha256": "43d7597149e658287bb43f0aad683d80fd2ff4e7e93a7a1b057be9d124530e61",
+      "expected_sha256": "43d7597149e658287bb43f0aad683d80fd2ff4e7e93a7a1b057be9d124530e61",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/heating_v4/hold.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr3/heating_v4/hold.gro",
+      "sha256": "77b7e01a80f05dd456cc9c0ff90fcf43924a0aada188ea4435b80c10785a3c9e",
+      "expected_sha256": "77b7e01a80f05dd456cc9c0ff90fcf43924a0aada188ea4435b80c10785a3c9e",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1.input.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1.input.json",
+      "sha256": "fac9bf79351af83fa95deda986cb532a19fa6dca640ce659a1ef6b2dbde1adbe",
+      "expected_sha256": null,
+      "manifest_or_explicit_hash_match": null
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/provenance/trp174_orientation_repair.json",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-audit/20261003/native-wt/trp174_orientation_repair.json",
+      "sha256": "4e50c291fc76756c1fcdf10420442a3d55c9b3abeda90ea95aae6232f6a3edf2",
+      "expected_sha256": "4e50c291fc76756c1fcdf10420442a3d55c9b3abeda90ea95aae6232f6a3edf2",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/ionized.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/ionized.gro",
+      "sha256": "0bfce60e4ae0d116ae744dbc3849eaba5f9f08151af070bc196dde3a274fe714",
+      "expected_sha256": "0bfce60e4ae0d116ae744dbc3849eaba5f9f08151af070bc196dde3a274fe714",
+      "manifest_or_explicit_hash_match": true
+    },
+    {
+      "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/sidechain_repaired.gro",
+      "resolved_path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/data/preheat/native_wt_ascr18/attempt6_trp174_orientation/sidechain_repaired.gro",
+      "sha256": "2860154e6fc8272516b1eebecd28c7a88f5a00d62aa0134824db732c3ee4642c",
+      "expected_sha256": "2860154e6fc8272516b1eebecd28c7a88f5a00d62aa0134824db732c3ee4642c",
+      "manifest_or_explicit_hash_match": true
+    }
+  ],
+  "script_sha256": "346de87661184d02678fc47c0f6e5644211e35cbcd3e51df4515904e025bd61a"
+}

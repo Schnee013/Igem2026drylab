@@ -27,8 +27,10 @@ STATE_EVENTS="$PROD_LOG_DIR/run_state_events.tsv"
 PROD_STATUS="$PROD_LOG_DIR/terminal_status.tsv"
 ATTEMPT_DIR="$OUT_DIR/$ATTEMPT_ID"
 ATTEMPT_STATUS="$ATTEMPT_DIR/postprocess_status.tsv"
-TPR="$PROD_DIR/$PREFIX.tpr"
-XTC="$PROD_DIR/$PREFIX.xtc"
+TPR=${TPR_INPUT:-"$PROD_DIR/$PREFIX.tpr"}
+XTC=${XTC_INPUT:-"$PROD_DIR/$PREFIX.xtc"}
+PRODUCTION_GATE_MODE=${PRODUCTION_GATE_MODE:-archive}
+PBC_ROUTE=${PBC_ROUTE:-cluster}
 ANALYSIS_INDEX="$ATTEMPT_DIR/analysis_index.ndx"
 CLUSTER_XTC="$OUT_DIR/prod_cluster.xtc"
 PROTEIN_XTC="$OUT_DIR/prod_protein.xtc"
@@ -65,6 +67,30 @@ trap on_error ERR
 } > "$ATTEMPT_STATUS"
 
 CURRENT_STAGE=production_terminal_gate
+if [[ $PRODUCTION_GATE_MODE == verified_segments ]]; then
+  : "${SOURCE_VALIDATION_JSON:?set SOURCE_VALIDATION_JSON for verified_segments}"
+  "$PYTHON_CMD" - "$SOURCE_VALIDATION_JSON" "$TPR" "$XTC" \
+    "$EXPECTED_FRAMES" "$EXPECTED_FINAL_TIME_PS" \
+    > "$ATTEMPT_DIR/production_archive_check.log" 2>&1 <<'PY'
+import hashlib, json, sys
+from pathlib import Path
+certificate, tpr, xtc, frames, end_ps = sys.argv[1:]
+data = json.loads(Path(certificate).read_text())
+assert data['status'] == 'PASS'
+assert data['frames'] == int(frames)
+assert data['unique_frames'] == int(frames)
+assert data['first_ps'] == 0 and data['last_ps'] == float(end_ps)
+assert data['missing_grid_points'] == 0
+assert data['topology']['path'] == tpr and data['trajectory']['path'] == xtc
+for item in [data['topology'], data['trajectory'], *data['evidence']]:
+    h = hashlib.sha256()
+    with Path(item['path']).open('rb') as stream:
+        for block in iter(lambda: stream.read(4*1024*1024), b''):
+            h.update(block)
+    assert h.hexdigest() == item['sha256'], item['path']
+    print('PASS', item['path'], item['sha256'])
+PY
+elif [[ $PRODUCTION_GATE_MODE == archive ]]; then
 if ! latest=$(
     awk -F '\t' '
       NR == 1 {
@@ -108,6 +134,11 @@ if ! (
     sha256sum -c "$archive_manifest"
   ) > "$ATTEMPT_DIR/production_archive_check.log" 2>&1; then
   fail_gate "production archive manifest validation failed"
+fi
+
+else
+  echo "ERROR: unknown PRODUCTION_GATE_MODE: $PRODUCTION_GATE_MODE" >&2
+  exit 64
 fi
 
 CURRENT_STAGE=required_inputs
@@ -169,23 +200,44 @@ for name, wanted in expected.items():
 PY
 
 CURRENT_STAGE=trjconv_cluster
+if [[ $PBC_ROUTE == whole_nojump ]]; then
+  # This route requires SOLU to retain source atom order as a contiguous prefix.
+  # The config-driven segmented-input validator checks that correspondence.
+  printf '%s\n' "$SOLUTION_GROUP" | "$GMX_CMD" convert-tpr \
+    -s "$TPR" -n "$ANALYSIS_INDEX" -o "$OUT_DIR/solution.tpr" \
+    > "$ATTEMPT_DIR/convert_solution_tpr.log" 2>&1
+  printf '%s\n%s\n' "$RECEPTOR_GROUP" "$SOLUTION_GROUP" | "$GMX_CMD" trjconv \
+    -s "$TPR" -f "$XTC" -n "$ANALYSIS_INDEX" \
+    -o "$OUT_DIR/prod_whole.xtc" -pbc mol -center \
+    > "$ATTEMPT_DIR/trjconv_1_whole.log" 2>&1
+  printf '%s\n' "$SOLUTION_GROUP" | "$GMX_CMD" trjconv \
+    -s "$OUT_DIR/solution.tpr" -f "$OUT_DIR/prod_whole.xtc" -n "$ANALYSIS_INDEX" \
+    -o "$CLUSTER_XTC" -pbc nojump \
+    > "$ATTEMPT_DIR/trjconv_1_nojump.log" 2>&1
+  PROCESSING_TPR="$OUT_DIR/solution.tpr"
+elif [[ $PBC_ROUTE == cluster ]]; then
 printf '%s\n%s\n' "$SOLUTION_GROUP" "$SOLUTION_GROUP" | \
   "$GMX_CMD" trjconv \
     -s "$TPR" -f "$XTC" -n "$ANALYSIS_INDEX" \
     -o "$CLUSTER_XTC" -pbc cluster \
     > "$ATTEMPT_DIR/trjconv_1_cluster.log" 2>&1
+  PROCESSING_TPR="$TPR"
+else
+  echo "ERROR: unknown PBC_ROUTE: $PBC_ROUTE" >&2
+  exit 64
+fi
 
 CURRENT_STAGE=trjconv_fit
 printf '%s\n%s\n' "$FIT_GROUP" "$SOLUTION_GROUP" | \
   "$GMX_CMD" trjconv \
-    -s "$TPR" -f "$CLUSTER_XTC" -n "$ANALYSIS_INDEX" \
+    -s "$PROCESSING_TPR" -f "$CLUSTER_XTC" -n "$ANALYSIS_INDEX" \
     -o "$PROTEIN_XTC" -fit rot+trans \
     > "$ATTEMPT_DIR/trjconv_2_fit.log" 2>&1
 
 CURRENT_STAGE=trjconv_reference
 printf '%s\n' "$SOLUTION_GROUP" | \
   "$GMX_CMD" trjconv \
-    -s "$TPR" -f "$PROTEIN_XTC" -n "$ANALYSIS_INDEX" \
+    -s "$PROCESSING_TPR" -f "$PROTEIN_XTC" -n "$ANALYSIS_INDEX" \
     -o "$REFERENCE_PDB" -dump 0 \
     > "$ATTEMPT_DIR/trjconv_3_reference.log" 2>&1
 

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-10-10T09:31:40.579666+00:00",
+  "files": 68,
+  "failures": [],
+  "destination": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/delivery",
+  "snapshot_manifest_sha256": "1daf020b319c7c22ce7411df0722dfe2ac768d4dd6f45fbe9f2e508b99f64aaa",
+  "note": "Final acceptance and local_artifacts.tsv are synchronization metadata, sent after this receipt and excluded from the snapshot manifest."
+}

@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-06T03:22:00.652763+08:00",
+  "source": "../archive.json",
+  "allowed_use": "Transfer integrity only, not MD readiness",
+  "update_trigger": "Any original archive or wrapper change",
+  "files": [
+    {
+      "path": "drylab-md-v3-01-of-05.zip",
+      "role": "One required chunk of v3 MD handoff",
+      "owner": "DryLab",
+      "tracked_policy": "local-only transfer archive",
+      "bytes": 18008243,
+      "sha256": "e704d3e3d0bab157720d2402a51a0c0da213b2f777392253e187d6567c7c41ac",
+      "storage_location": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/upload-20mb/drylab-md-v3-01-of-05.zip",
+      "producer": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/gpr2-twf154-dots-20261006-v3-new-access.zip",
+      "consumer": "GPT Dots transfer under per-attachment limit",
+      "stage": "handoff",
+      "required_for": "All five attachments are required to restore the exact archive",
+      "recovery_pointer": "Original archive bytes 0 through 17999999; see SPLIT_MANIFEST.json"
+    },
+    {
+      "path": "drylab-md-v3-02-of-05.zip",
+      "role": "One required chunk of v3 MD handoff",
+      "owner": "DryLab",
+      "tracked_policy": "local-only transfer archive",
+      "bytes": 18000144,
+      "sha256": "866b0118708b75d1d2064a1304bb4f46fd7a5536574572fbf931e1a45c72d742",
+      "storage_location": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/upload-20mb/drylab-md-v3-02-of-05.zip",
+      "producer": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/gpr2-twf154-dots-20261006-v3-new-access.zip",
+      "consumer": "GPT Dots transfer under per-attachment limit",
+      "stage": "handoff",
+      "required_for": "All five attachments are required to restore the exact archive",
+      "recovery_pointer": "Original archive bytes 18000000 through 35999999; see SPLIT_MANIFEST.json"
+    },
+    {
+      "path": "drylab-md-v3-03-of-05.zip",
+      "role": "One required chunk of v3 MD handoff",
+      "owner": "DryLab",
+      "tracked_policy": "local-only transfer archive",
+      "bytes": 18000144,
+      "sha256": "add688870f08c8100a7fe6bee88aa4195ce6030d9633f31a7f044e087826b93e",
+      "storage_location": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/upload-20mb/drylab-md-v3-03-of-05.zip",
+      "producer": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/gpr2-twf154-dots-20261006-v3-new-access.zip",
+      "consumer": "GPT Dots transfer under per-attachment limit",
+      "stage": "handoff",
+      "required_for": "All five attachments are required to restore the exact archive",
+      "recovery_pointer": "Original archive bytes 36000000 through 53999999; see SPLIT_MANIFEST.json"
+    },
+    {
+      "path": "drylab-md-v3-04-of-05.zip",
+      "role": "One required chunk of v3 MD handoff",
+      "owner": "DryLab",
+      "tracked_policy": "local-only transfer archive",
+      "bytes": 18000144,
+      "sha256": "2180b7ef3ee6041127f7f20187d8b8195153f4d2cc9726dc219921964cf34c62",
+      "storage_location": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/upload-20mb/drylab-md-v3-04-of-05.zip",
+      "producer": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/gpr2-twf154-dots-20261006-v3-new-access.zip",
+      "consumer": "GPT Dots transfer under per-attachment limit",
+      "stage": "handoff",
+      "required_for": "All five attachments are required to restore the exact archive",
+      "recovery_pointer": "Original archive bytes 54000000 through 71999999; see SPLIT_MANIFEST.json"
+    },
+    {
+      "path": "drylab-md-v3-05-of-05.zip",
+      "role": "One required chunk of v3 MD handoff",
+      "owner": "DryLab",
+      "tracked_policy": "local-only transfer archive",
+      "bytes": 5483913,
+      "sha256": "18f32c68e40a206e26107bba0df3ea3bb4d1774ffd5730380ee33b4d666f7d4a",
+      "storage_location": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/upload-20mb/drylab-md-v3-05-of-05.zip",
+      "producer": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/gpr2-twf154-dots-20261006-v3-new-access.zip",
+      "consumer": "GPT Dots transfer under per-attachment limit",
+      "stage": "handoff",
+      "required_for": "All five attachments are required to restore the exact archive",
+      "recovery_pointer": "Original archive bytes 72000000 through 77483768; see SPLIT_MANIFEST.json"
+    }
+  ]
+}

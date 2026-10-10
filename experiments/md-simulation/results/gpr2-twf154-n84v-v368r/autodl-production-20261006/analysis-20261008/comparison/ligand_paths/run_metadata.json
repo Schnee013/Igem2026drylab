@@ -1,0 +1,83 @@
+{
+  "reference_arm": "WT_A18",
+  "replicate": 1,
+  "fit_selection": "protein and backbone",
+  "contact_cutoff_A": 4.0,
+  "window_start_ns": 50.0,
+  "stride": 50,
+  "interpretation_boundary": "descriptive structural triage; absolute between-arm positions do not establish a mutation effect when starting poses differ",
+  "arms": {
+    "WT_A18": {
+      "system": "native_wt_ascr18",
+      "config_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/system_config.json",
+      "config_sha256": "07ab8cd0d48b8b22f2b4a132b19b4d44ca3b74cc028597c9953ca99c4d55ffa1",
+      "topology_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "06e08a3a2b814b53dfcdfc3e793b78825214af3692ab454c4b690798fee06206",
+      "trajectory_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "8c7feeb26200f030ce2d45ca411d9232901cb14addb6e8fe71ff5e8ea08604e1",
+      "frames_analyzed": 201,
+      "ligand_selection": "(index 6400:6453) and not name H*",
+      "receptor_selection": "protein"
+    },
+    "N84V_A18": {
+      "system": "raw_n84v_ascr18",
+      "config_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/system_config.json",
+      "config_sha256": "0078c40a050d20d8661f8209f6301339c5fc5bab310771cd3184f23569c9dc79",
+      "topology_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "972ad6977e8510c51d4578bad53162241c4a228c7b098040ccedb44af704d8e9",
+      "trajectory_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "801daf2355b1f64353d8f3b33a843e7a403f6bdd8f90c21c8fe893f65ec2d3a6",
+      "frames_analyzed": 201,
+      "ligand_selection": "(index 6402:6455) and not name H*",
+      "receptor_selection": "protein"
+    },
+    "N84V_A3": {
+      "system": "raw_n84v_ascr3",
+      "config_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/system_config.json",
+      "config_sha256": "d1622651d321582aff00cd7047e7eaea7b2574a820188bbd7e842954f2fb4fa7",
+      "topology_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "20e1e0aa8238f403e20d285f6f5c5bcc4b97c582fe136e2dfecd5d1750b0d4d9",
+      "trajectory_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "76737a106733ed544737fa7579505c7e689ee2e637980c1271ed31bb7d12fc55",
+      "frames_analyzed": 201,
+      "ligand_selection": "(index 6402:6447) and not name H*",
+      "receptor_selection": "protein"
+    },
+    "V368R_A18": {
+      "system": "raw_v368r_ascr18",
+      "config_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/system_config.json",
+      "config_sha256": "2cd98a0a5d551807fb9dd2dd39b8a6107c55b5de7f8f072786a790d25d0896a6",
+      "topology_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "e8be2f00650ddbc25d81d1710347ee8115643be30f8c77c902167ab1c4397804",
+      "trajectory_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "02d3eac3444c598babd50792ef60d1820f5f89a9846805bf4ca8085a77de4ede",
+      "frames_analyzed": 201,
+      "ligand_selection": "(index 6408:6461) and not name H*",
+      "receptor_selection": "protein"
+    },
+    "V368R_A3_newlid": {
+      "system": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "config_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/system_config.json",
+      "config_sha256": "550e0994e4ace6768bdb6464e5635fe756701c8898cfe674e463a3c9b11f3535",
+      "topology_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "2f3b59be827a4b998737e198c235a97200667ddfeba620b246df6229b3da61c2",
+      "trajectory_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "278389de17aa2fcde7c863f6de3546484ef4f84f1a3b54664e0e03c281d11006",
+      "frames_analyzed": 201,
+      "ligand_selection": "(index 6408:6453) and not name H*",
+      "receptor_selection": "protein"
+    },
+    "WT_A3_newlid": {
+      "system": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "config_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/system_config.json",
+      "config_sha256": "8ebf218ef94490fa732885e4e1c944985eb4b884783ae572d508b5434a00ce61",
+      "topology_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/protein_ref.pdb",
+      "topology_sha256": "42ce0e8765b8037124bc054c001a2649afd9c367740fe0586b38e82f90131566",
+      "trajectory_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/prod_protein.xtc",
+      "trajectory_sha256": "974216847e82bba519c6eafacecbc6b6ca21f2643e4702725c56f24cc0801b4b",
+      "frames_analyzed": 201,
+      "ligand_selection": "(index 6400:6445) and not name H*",
+      "receptor_selection": "protein"
+    }
+  }
+}

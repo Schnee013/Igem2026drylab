@@ -1,0 +1,53 @@
+{
+  "as_of": "2026-10-06T03:22:00.652763+08:00",
+  "original_archive": {
+    "filename": "gpr2-twf154-dots-20261006-v3-new-access.zip",
+    "bytes": 77483769,
+    "sha256": "446588a5b342b08f2371b0d0aa6ae763c36b918229765c5a649a2993dac24638"
+  },
+  "parts": [
+    {
+      "number": 1,
+      "attachment": "drylab-md-v3-01-of-05.zip",
+      "member": "drylab-md-v3.part01.bin",
+      "bytes": 18000000,
+      "sha256": "1acbe64fd7d557e5bc922dc7e2a99881a3bfe6405fd7b926193f7271049c26b8",
+      "offset": 0
+    },
+    {
+      "number": 2,
+      "attachment": "drylab-md-v3-02-of-05.zip",
+      "member": "drylab-md-v3.part02.bin",
+      "bytes": 18000000,
+      "sha256": "5cb1903a8dfa4a8ef13db59d53d944d57b3c3e113419198897b5172f23c6d6ba",
+      "offset": 18000000
+    },
+    {
+      "number": 3,
+      "attachment": "drylab-md-v3-03-of-05.zip",
+      "member": "drylab-md-v3.part03.bin",
+      "bytes": 18000000,
+      "sha256": "d6928754729c0ead4ab12a0cf952937468d0d8a62324304b41c042ce9c508c50",
+      "offset": 36000000
+    },
+    {
+      "number": 4,
+      "attachment": "drylab-md-v3-04-of-05.zip",
+      "member": "drylab-md-v3.part04.bin",
+      "bytes": 18000000,
+      "sha256": "3309f67f71f715a2bd2daa751a2abd94d1105d2e4e766e993676bb58c3dfa9a2",
+      "offset": 54000000
+    },
+    {
+      "number": 5,
+      "attachment": "drylab-md-v3-05-of-05.zip",
+      "member": "drylab-md-v3.part05.bin",
+      "bytes": 5483769,
+      "sha256": "cf8af60c8c4a472e340648780ff66c4b8c3b2cba11337bfae0194c4d42d56eaa",
+      "offset": 72000000
+    }
+  ],
+  "restore_tool": "restore_handoff.py",
+  "restore_tool_sha256": "2d83a47458a6877a3d521643c2b71e6ac07014c1ff93fcc05e2d06f504100bee",
+  "credentials_included": false
+}

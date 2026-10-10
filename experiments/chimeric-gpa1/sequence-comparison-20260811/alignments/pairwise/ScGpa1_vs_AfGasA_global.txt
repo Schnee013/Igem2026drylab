@@ -1,0 +1,41 @@
+# ScGpa1 vs AfGasA
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 865.5
+# Length: 473
+# Identity: 178/473 (37.632%)
+# Similarity (BLOSUM62 > 0): 257/473 (54.334%)
+# Gap columns: 121/473 (25.581%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa1      1-60  MGCTVSTQTIGDESDPFLQNKRANDVIEQSLQLEKQRDKNEIKLLLLGAGESGKSTVLKQ
+                  |||::||:.        .:.|:.|:.|...||.:|...:||||:||||||||||||:|||
+AfGasA      1-52  MGCSMSTEE--------KEGKQRNEEINAQLQKDKMLARNEIKMLLLGAGESGKSTILKQ
+
+ScGpa1    61-120  LKLLHQGGFSHQERLQYAQVIWADAIQSMKILIIQARKLGIQLDCDDPINNKDLFACKRI
+                  :||:|:||:|..|:..:.::|:::.:|||::::.....|.:.|                 
+AfGasA     53-95  MKLIHEGGYSRDEKESFKEIIFSNTVQSMRVILEAMETLELPL-----------------
+
+ScGpa1   121-180  LLKAKALDYINASVAGGSDFLNDYVLKYSERYETRRRVQSTGRAKAAFDEDGNISNVKSD
+                                   ||..::|                  ..:..|.:...|      
+AfGasA    96-114  -----------------SDSRSEY------------------HVQTIFMQPAQI------
+
+ScGpa1   181-240  TDRDAETVTQNEDADRNNSSRINLQDICKDLNQEGDDQMFVRKTSREIQGQNRRNLIHED
+                                                   |||.                   :..:
+AfGasA   115-122  ---------------------------------EGDS-------------------LPAE
+
+ScGpa1   241-300  IAKAIKQLWNNDKGIKQCFARSNEFQLEGSAAYYFDNIEKFASPNYVCTDEDILKGRIKT
+                  :..||:.|| .|:|:::||.||.|:||..||.||||:|::.|:|:||.:|:|:|:.|:||
+AfGasA   123-181  VGNAIRALW-QDQGVQECFKRSREYQLNDSAKYYFDSIDRIATPDYVPSDQDVLRSRVKT
+
+ScGpa1   301-360  TGITETEFNIGSSKFKVLDAGGQRSERKKWIHCFEGITAVLFVLAMSEYDQMLFEDERVN
+                  .|||||.|.||...:::.|.|||||||||||||||.:|.:||::|:|||||:|||||.||
+AfGasA   182-241  LGITETTFVIGDLTYRMFDVGGQRSERKKWIHCFENVTTILFLVAISEYDQLLFEDETVN
+
+ScGpa1   361-420  RMHESIMLFDTLLNSKWFKDTPFILFLNKIDLFEEKVKSMPIRKYFPDYQGRVGDAEAGL
+                  ||.|::.|||::.||:||..|..||||||||.|.||:...|::.||||::|. .|..|..
+AfGasA   242-300  RMQEALTLFDSICNSRWFIKTSIILFLNKIDRFREKLPVSPMKNYFPDFEGG-DDYAAAC
+
+ScGpa1   421-472  KYFEKIFLSLNKT-NKPIYVKRTCATDTQTMKFVLSAVTDLIIQQNLKKIGII
+                  .|....|:|||:: .|.||...||||||..:|||::||.|:|||:||:..|:|
+AfGasA   301-353  DYILNRFVSLNQSETKQIYTHFTCATDTTQIKFVMAAVNDIIIQENLRNCGLI

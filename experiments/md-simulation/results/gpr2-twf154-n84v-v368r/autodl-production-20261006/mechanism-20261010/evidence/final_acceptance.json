@@ -1,0 +1,2198 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-10-10T09:32:03.734851+00:00",
+  "scope": "Six existing trajectories; four descriptive mechanism analyses, not biological validation.",
+  "cases": 6,
+  "new_MD_or_FEP": false,
+  "processed_input_hash_matches": 18,
+  "recovered_case_files": 120,
+  "independent_numerical_checks": 1503,
+  "existing_contact_crosschecks": 36,
+  "final_figure_files": 15,
+  "visual_review": [
+    {
+      "file": "figures/alignment_sensitivity.png",
+      "sha256": "62ee89279a083fdaa544d64a48111cbe26d1ae67a5d822dc75ffc83418ff37ce",
+      "review": "Visually inspected: Chinese/Latin labels readable; axes/units and uncertainty captions visible; no material clipping."
+    },
+    {
+      "file": "figures/lid_geometry.png",
+      "sha256": "91b6c5009443f86eb04f6ea3c1183a6d5b17144881e2305543683a3ee098ce84",
+      "review": "Visually inspected: Chinese/Latin labels readable; axes/units and uncertainty captions visible; no material clipping."
+    },
+    {
+      "file": "figures/local_timeline.png",
+      "sha256": "349044d6a38e93a304b44ba2ba8424b18723a4eac330e47d182f190718f86aca",
+      "review": "Visually inspected: Chinese/Latin labels readable; axes/units and uncertainty captions visible; no material clipping."
+    },
+    {
+      "file": "figures/mechanism_evidence_map.png",
+      "sha256": "e292b2152de01b65ca859906cfb6c42280e76a1327c252d8e72f79a0be74a088",
+      "review": "Visually inspected: Chinese/Latin labels readable; axes/units and uncertainty captions visible; no material clipping."
+    },
+    {
+      "file": "figures/representative_structures_75ns.png",
+      "sha256": "f84966f396a1de7f4aec57ae154e0665177f175009ee646a12f715e4180e17b7",
+      "review": "Visually inspected: Chinese/Latin labels readable; axes/units and uncertainty captions visible; no material clipping."
+    }
+  ],
+  "delivery_checks": 431,
+  "failures": [],
+  "checks": [
+    {
+      "check": "queue_status.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pair_queue_status.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: completion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: frozen main source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: input topology",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: input reference",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: input trajectory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: pair completion/source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: sampled times",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr18: six PDB models",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: completion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: frozen main source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: input topology",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: input reference",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: input trajectory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: pair completion/source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: sampled times",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr18: six PDB models",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: completion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: frozen main source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: input topology",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: input reference",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: input trajectory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: pair completion/source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: sampled times",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_n84v_ascr3: six PDB models",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: completion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: frozen main source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: input topology",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: input reference",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: input trajectory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: pair completion/source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: sampled times",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_v368r_ascr18: six PDB models",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: completion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: frozen main source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: input topology",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: input reference",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: input trajectory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: pair completion/source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: sampled times",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "v368r_ascr3_lid_rebuilt_own_pose_v1: six PDB models",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: completion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: frozen main source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: input topology",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: input reference",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: input trajectory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: pair completion/source/config",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: sampled times",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native_wt_ascr3_lid_rebuilt_own_pose_v1: six PDB models",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "delivery_manifest.json: count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pair_delivery_manifest.json: count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr18/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr18/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_n84v_ascr3/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:raw_v368r_ascr18/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "validation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pair_validation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "existing contact crosscheck",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/anchor_distances.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/anchor_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/frame_metrics.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/hbond_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/input_identity.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/ligand_atom_mapping.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/metric_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/numeric_audit.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/proximity_bridge_timeseries.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/representative_coordinates.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/ten_ns_blocks.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr18/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr18/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_n84v_ascr3/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:raw_v368r_ascr18/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/Arg368_Asp70_geometry.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "remote final:native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/completion.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:alignment_sensitivity.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PDF:alignment_sensitivity.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:alignment_sensitivity.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PNG:alignment_sensitivity.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:alignment_sensitivity.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SVG:alignment_sensitivity.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:lid_geometry.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PDF:lid_geometry.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:lid_geometry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PNG:lid_geometry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:lid_geometry.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SVG:lid_geometry.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:local_timeline.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PDF:local_timeline.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:local_timeline.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PNG:local_timeline.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:local_timeline.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SVG:local_timeline.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:mechanism_evidence_map.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PDF:mechanism_evidence_map.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:mechanism_evidence_map.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PNG:mechanism_evidence_map.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:mechanism_evidence_map.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SVG:mechanism_evidence_map.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:representative_structures_75ns.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PDF:representative_structures_75ns.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:representative_structures_75ns.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PNG:representative_structures_75ns.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure recovery:representative_structures_75ns.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SVG:representative_structures_75ns.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 mechanism claims",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N1:tables/local_pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N1:e2_delivery/raw_n84v_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N2:tables/anchor_group_occupancy.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N2:tables/anchor_hbond_union.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N2:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N3:tables/anchor_group_occupancy.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N3:e2_delivery/raw_n84v_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N4:tables/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N5:tables/six_case_local_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:N6:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:V1:tables/Arg368_Asp70_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:V2:tables/local_pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:V2:e2_delivery/v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:V3:tables/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:V4:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:V5:tables/anchor_sensitivity.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:V5:tables/anchor_hbond_union.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:C1:tables/six_case_local_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:C1:figures/lid_geometry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:C2:REPORT_CN.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "claim source:C2:METHODS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:REPORT_CN.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:figures/mechanism_evidence_map.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:EVIDENCE_TABLE.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/local_pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/sidechain_rotamers.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/anchor_group_occupancy.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/anchor_hbond_union.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/anchor_sensitivity.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/six_case_local_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:figures/alignment_sensitivity.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:figures/lid_geometry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:figures/local_timeline.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:tables/Arg368_Asp70_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:figures/representative_structures_75ns.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:structures/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:METHODS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:configs/mechanism_config.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:configs/pair_detail_config.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/final_acceptance.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/validation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/pair_validation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/previous_contact_crosscheck.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/local_artifacts.tsv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/remote_artifacts.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/delivery_manifest.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:evidence/pair_delivery_manifest.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:../analysis-20261008/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:../../input-selection-20261005/provenance.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:../../README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:../README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:../../../../../../docs/INDEX.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:README.md:../../../../../../docs/logs/2026-10-10.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:figures/mechanism_evidence_map.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:figures/mechanism_evidence_map.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:figures/mechanism_evidence_map.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/anchor_group_occupancy.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/anchor_hbond_union.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/anchor_sensitivity.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/local_pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/Arg368_Asp70_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:figures/alignment_sensitivity.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/six_case_local_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:figures/lid_geometry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:figures/local_timeline.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:figures/representative_structures_75ns.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:structures/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:EVIDENCE_TABLE.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:tables/mechanism_evidence.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:METHODS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:REPORT_CN.md:README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:METHODS.md:../analysis-20261008/METHODS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:METHODS.md:../../../../analysis/chctrl/analyze_local_mechanism.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:METHODS.md:configs/mechanism_config.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:METHODS.md:configs/pair_detail_config.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:METHODS.md:../../../../analysis/chctrl/validate_local_mechanism.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:METHODS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/local_pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:e2_delivery/raw_n84v_ascr18/site_neighborhoods.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/anchor_group_occupancy.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/anchor_hbond_union.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/anchor_group_occupancy.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:e2_delivery/raw_n84v_ascr18/atom_contact_events.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/six_case_local_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/Arg368_Asp70_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/local_pair_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:e2_delivery/v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/proximity_bridges.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/event_timeline.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/anchor_sensitivity.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/anchor_hbond_union.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/six_case_local_summary.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:figures/lid_geometry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:REPORT_CN.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:METHODS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "link:EVIDENCE_TABLE.md:tables/mechanism_evidence.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "E2 human delivery recovery snapshot",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

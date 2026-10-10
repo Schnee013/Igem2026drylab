@@ -1,0 +1,1469 @@
+{
+  "method": "Rigid Kabsch fit using the 153 mapped TM CA residues to N84V docking receptor input frame; same two selected ligand seeds for every model. Heavy-atom geometric screen only, no energy evaluation. Below-2 A counts are diagnostic, not full force-field acceptance.",
+  "sources": [
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+      "sha256": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/docking_receptor/input.pdb",
+      "sha256": "09d9cb594732b2d8a4d0549b944c4b52cfc8a332f51843b6d075fa4e4b9d1ab3"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/top1.sdf",
+      "sha256": "c81504d49f3a92190b53dba3867dded54d1b473d760501b7a730b6a75f94f1ba"
+    },
+    {
+      "path": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/top1.sdf",
+      "sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506"
+    }
+  ],
+  "producer": {
+    "path": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-audit/20261003/screen_full_length_wt.py",
+    "sha256": "6064a49b7e746d96d9551a89dce59005421b352f3c7184d93135591a60e2e56f"
+  },
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "numpy": "2.4.4",
+  "models": [
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_0.pdb",
+      "sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.6674304917814161,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.9999999999998719,
+          3.0019801200669647e-07,
+          -4.0702122088029983e-07
+        ],
+        [
+          -3.00197942382884e-07,
+          0.9999999999999399,
+          1.7203834316132004e-07
+        ],
+        [
+          4.070212724086037e-07,
+          -1.7203822102649085e-07,
+          0.9999999999999022
+        ]
+      ],
+      "translation_vector": [
+        2.214263588484755e-06,
+        3.0571672846591014e-05,
+        4.4550574470836324e-05
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.44499265938924304,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 27,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.44499265938924304,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 27,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.44499265938924304,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 6,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.7527366854111723,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.5248037369502043,
+            "pairs_below_2A": 46,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "GLY171:N"
+          },
+          "lid": {
+            "min_distance_A": 0.5248037369502043,
+            "pairs_below_2A": 46,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "GLY171:N"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5248037369502043,
+            "pairs_below_2A": 24,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "GLY171:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.806910500227316,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 87.66199999999999,
+        "min": 75.8,
+        "max": 92.42
+      },
+      "C99_C173_SG_distance_A": 1.9935021946313496
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_1.pdb",
+      "sha256": "933cc7f87165d2202149adc6d89e730aa5fa439af19147d2fbfce1b3f630075f",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.6679708661222462,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.5578422413422733,
+          -0.37647759945737314,
+          -0.739646301201489
+        ],
+        [
+          0.8116139987616847,
+          0.43373784751513506,
+          0.3913492003914244
+        ],
+        [
+          0.17347838709273852,
+          -0.8186184072812882,
+          0.5475117829526139
+        ]
+      ],
+      "translation_vector": [
+        -0.010598807933432042,
+        -1.777199821564226,
+        -3.1927582683011
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5182250558366542,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 27,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.5182250558366542,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 27,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5182250558366542,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 6,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.721336864779395,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.488607974841462,
+            "pairs_below_2A": 44,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid": {
+            "min_distance_A": 0.488607974841462,
+            "pairs_below_2A": 44,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.488607974841462,
+            "pairs_below_2A": 23,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.7413234361698184,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 87.82199999999999,
+        "min": 76.8,
+        "max": 92.42
+      },
+      "C99_C173_SG_distance_A": 1.9890635987821013
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_2.pdb",
+      "sha256": "cfa222789874eecbb7cf6ca2f4c138cc1b4c381c8440be402d0141e5e4d2fcaa",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.6014732502916811,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          -0.19885706745901652,
+          0.8200370396127475,
+          -0.5366517682676168
+        ],
+        [
+          -0.37746341035326036,
+          0.4412551304805313,
+          0.8141346839860677
+        ],
+        [
+          0.9044209421315303,
+          0.36446284239654364,
+          0.22178727633961526
+        ]
+      ],
+      "translation_vector": [
+        -0.5338660961056974,
+        -0.7221816560461427,
+        -0.5765737027310287
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.4539624443473545,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP172:CZ3"
+          },
+          "lid": {
+            "min_distance_A": 0.4539624443473545,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP172:CZ3"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.49007994055463094,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.789105229595646,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.480801372242319,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid": {
+            "min_distance_A": 0.480801372242319,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.480801372242319,
+            "pairs_below_2A": 25,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.815670132935118,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 87.96933333333335,
+        "min": 75.81,
+        "max": 92.83
+      },
+      "C99_C173_SG_distance_A": 2.0122410392395826
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_3.pdb",
+      "sha256": "c52cd51aa98c4b396addc0b4897be5042859475159b41bfc6a3cab0b4581aac3",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.6800768739943017,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          -0.2996855904736511,
+          0.4485662929806224,
+          0.842007617343264
+        ],
+        [
+          0.8182945748475356,
+          -0.33289334797679093,
+          0.4685893806392685
+        ],
+        [
+          0.4904921361628022,
+          0.8294397504788541,
+          -0.26729602445233847
+        ]
+      ],
+      "translation_vector": [
+        -0.249938164255056,
+        -1.1149700142527301,
+        -0.5368841129066562
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.3549318969745519,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP172:CZ3"
+          },
+          "lid": {
+            "min_distance_A": 0.3549318969745519,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP172:CZ3"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.49531417874107475,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.7614976150675807,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.477460040762362,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 23,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid": {
+            "min_distance_A": 0.477460040762362,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 23,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.477460040762362,
+            "pairs_below_2A": 25,
+            "pairs_below_1_5A": 12,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.688362180227748,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 87.81466666666668,
+        "min": 77.9,
+        "max": 92.42
+      },
+      "C99_C173_SG_distance_A": 2.0085430042695114
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_4.pdb",
+      "sha256": "4348d1e07cf774ebc7cdee92534f632c58c4c9635063ef2c103259a36947884f",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.5179898262703658,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.5533315865701038,
+          -0.06299023420429825,
+          0.8305759361423252
+        ],
+        [
+          0.36049850951537926,
+          0.9170224077810896,
+          -0.17061866329498135
+        ],
+        [
+          -0.7509094352456912,
+          0.3938300826781314,
+          0.5301253493625204
+        ]
+      ],
+      "translation_vector": [
+        0.8390797176810825,
+        -0.5566491221812697,
+        1.2283388366007766
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.4866781946853375,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.4866781946853375,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.4866781946853375,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.798251063103011,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.4880134174665935,
+            "pairs_below_2A": 46,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid": {
+            "min_distance_A": 0.4880134174665935,
+            "pairs_below_2A": 46,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.4880134174665935,
+            "pairs_below_2A": 24,
+            "pairs_below_1_5A": 12,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.951473071975428,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 87.56866666666669,
+        "min": 77.4,
+        "max": 92.22
+      },
+      "C99_C173_SG_distance_A": 1.9830040342873758
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_001_alphafold2_ptm_model_3_seed_001.af2-amber-relaxed.pdb",
+      "sha256": "c907b6520a0bf1768752e5b77719c95d713912ab648c0cea2ef3ba61021ef956",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.6200717099607884,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.9401469598932827,
+          0.15536149530708657,
+          -0.30329276216119183
+        ],
+        [
+          -0.2829201809467428,
+          -0.14024256112484246,
+          -0.9488351781327501
+        ],
+        [
+          -0.18994700581078186,
+          0.9778521513117888,
+          -0.08789371512473099
+        ]
+      ],
+      "translation_vector": [
+        7.890140702780247,
+        -9.959295060884653,
+        2.7336864344531424
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5659401626083557,
+            "pairs_below_2A": 51,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP174:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.5659401626083557,
+            "pairs_below_2A": 51,
+            "pairs_below_1_5A": 26,
+            "nearest_receptor_atom": "TRP174:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5942771242815552,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 6,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.715333300696584,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.5316475243643453,
+            "pairs_below_2A": 41,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.5316475243643453,
+            "pairs_below_2A": 41,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5356923250840337,
+            "pairs_below_2A": 21,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.3409375484870374,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:CE"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.40733333333333,
+        "min": 83.81,
+        "max": 93.19
+      },
+      "C99_C173_SG_distance_A": 2.0303445520403707
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_001_alphafold2_ptm_model_3_seed_001.pdb",
+      "sha256": "42ab7de373bf2ba60f3db5b0035c8152eab0ee45f70d6bb72304a33aed35dfd8",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.6313990400237249,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.9401694574013407,
+          0.15539170356842605,
+          -0.3032075359086099
+        ],
+        [
+          -0.2828308444916692,
+          -0.14024555660882165,
+          -0.9488613688287717
+        ],
+        [
+          -0.18996869419406393,
+          0.9778469217181103,
+          -0.08790502211260799
+        ]
+      ],
+      "translation_vector": [
+        7.888847945064163,
+        -9.959586324398396,
+        2.7397506982260653
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5887886181305197,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 25,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.5887886181305197,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 25,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5887886181305197,
+            "pairs_below_2A": 19,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.733078520633452,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.3436023302424323,
+            "pairs_below_2A": 41,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.3436023302424323,
+            "pairs_below_2A": 41,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5094711234677388,
+            "pairs_below_2A": 24,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.036779051497875,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:CE"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.40733333333333,
+        "min": 83.81,
+        "max": 93.19
+      },
+      "C99_C173_SG_distance_A": 2.007784101939252
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_002_alphafold2_ptm_model_3_seed_000.pdb",
+      "sha256": "85586132a3e5323fbf9214bb15a4d2d9e491e0b2b8cedc0b714a25f1a0acc1f5",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.681047064232788,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.9536068440132328,
+          0.28624763498272854,
+          -0.09325383915912121
+        ],
+        [
+          -0.13316157849298332,
+          0.12324219637832827,
+          -0.9834019295512402
+        ],
+        [
+          -0.2700036686128129,
+          0.9501966388588412,
+          0.15564178885178018
+        ]
+      ],
+      "translation_vector": [
+        7.978268202676161,
+        -9.514953962775584,
+        2.2756329694157484
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5704231017816077,
+            "pairs_below_2A": 53,
+            "pairs_below_1_5A": 24,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.5704231017816077,
+            "pairs_below_2A": 53,
+            "pairs_below_1_5A": 24,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5704231017816077,
+            "pairs_below_2A": 20,
+            "pairs_below_1_5A": 6,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.7258512402388213,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.3954040057468333,
+            "pairs_below_2A": 42,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.3954040057468333,
+            "pairs_below_2A": 42,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5170443384102084,
+            "pairs_below_2A": 24,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.0571351762307373,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:CE"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.46999999999998,
+        "min": 84.0,
+        "max": 93.31
+      },
+      "C99_C173_SG_distance_A": 1.991950049574538
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_003_alphafold2_ptm_model_2_seed_000.pdb",
+      "sha256": "4f3767635654a03eafda610539fd315900de6dbdd169b1474256afbf391dbbe7",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.5375260472743338,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.9125734924467583,
+          0.13787858149607682,
+          -0.38496638508856146
+        ],
+        [
+          -0.2515737607691738,
+          -0.5528762363758869,
+          -0.7943793238392397
+        ],
+        [
+          -0.3223666604597621,
+          0.8217769551499131,
+          -0.4698535646438764
+        ]
+      ],
+      "translation_vector": [
+        9.563359890216248,
+        -10.575895479969983,
+        2.8452927639897756
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5435829891733592,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid": {
+            "min_distance_A": 0.5435829891733592,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.6485107097999729,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.656742191874996,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "ASN102:OD1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.18367027023910168,
+            "pairs_below_2A": 39,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.18367027023910168,
+            "pairs_below_2A": 38,
+            "pairs_below_1_5A": 18,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.4003581587045666,
+            "pairs_below_2A": 23,
+            "pairs_below_1_5A": 10,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.195574528582267,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 1,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.77000000000001,
+        "min": 83.06,
+        "max": 94.06
+      },
+      "C99_C173_SG_distance_A": 1.9235753169553849
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_004_alphafold2_ptm_model_1_seed_000.pdb",
+      "sha256": "964727acda371180c6304f346241b469631e635ed3bb93154716d4d66a495787",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.312831306953082,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.49646156549363285,
+          -0.7078979588066215,
+          -0.5024006308764238
+        ],
+        [
+          -0.6463679188217067,
+          -0.6877881192925355,
+          0.3303876760385149
+        ],
+        [
+          -0.5794259465244073,
+          0.16071086732842232,
+          -0.7990228968038651
+        ]
+      ],
+      "translation_vector": [
+        8.024315692440181,
+        -11.856828340611305,
+        1.6449133874816837
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5678616995025758,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.5678616995025758,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5678616995025758,
+            "pairs_below_2A": 20,
+            "pairs_below_1_5A": 6,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.674169801452493,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "ASN102:OD1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.2298596804601457,
+            "pairs_below_2A": 38,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.2298596804601457,
+            "pairs_below_2A": 37,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5518930304730592,
+            "pairs_below_2A": 21,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.6396686091231965,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.35799999999999,
+        "min": 81.88,
+        "max": 93.81
+      },
+      "C99_C173_SG_distance_A": 1.823167298960799
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_005_alphafold2_ptm_model_2_seed_001.pdb",
+      "sha256": "5b103166e649bd9f47ae4cd88b978f005c8c520de0ec65e00421222511fcf3b7",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.5487344400415487,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.06200141019306013,
+          -0.9910437224779528,
+          -0.11827157423114672
+        ],
+        [
+          -0.3831311659187272,
+          -0.1330537527126029,
+          0.9140608341849297
+        ],
+        [
+          -0.9216107284726176,
+          -0.011359534591487752,
+          -0.38794925716907336
+        ]
+      ],
+      "translation_vector": [
+        10.170307415253571,
+        -9.62889986759884,
+        2.794222768387179
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5274226734736229,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid": {
+            "min_distance_A": 0.5274226734736229,
+            "pairs_below_2A": 48,
+            "pairs_below_1_5A": 21,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.6434319295821234,
+            "pairs_below_2A": 17,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "CYS173:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.6521547078314596,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "ASN102:OD1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.2056707577464428,
+            "pairs_below_2A": 37,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.2056707577464428,
+            "pairs_below_2A": 36,
+            "pairs_below_1_5A": 18,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.37204864174635754,
+            "pairs_below_2A": 23,
+            "pairs_below_1_5A": 10,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.2242319288426604,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 1,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.50333333333334,
+        "min": 82.81,
+        "max": 93.94
+      },
+      "C99_C173_SG_distance_A": 1.917319743809048
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_006_alphafold2_ptm_model_1_seed_001.pdb",
+      "sha256": "292e241a69ea9339d36bffec335c056ab0ea8f829eacdd6f925ebde2ca7e29e6",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.31873892575872514,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.7070201163063468,
+          -0.47622198153758805,
+          -0.5228146702595232
+        ],
+        [
+          -0.6104568234746736,
+          -0.7842007405006494,
+          -0.11122798780634342
+        ],
+        [
+          -0.3570224388065446,
+          0.39779620774794877,
+          -0.8451586568745412
+        ]
+      ],
+      "translation_vector": [
+        8.35204095660947,
+        -12.10942136598747,
+        0.2173996268855265
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5886497732329122,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.5886497732329122,
+            "pairs_below_2A": 49,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5886497732329122,
+            "pairs_below_2A": 19,
+            "pairs_below_1_5A": 6,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.6906429124893165,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.22027624899607426,
+            "pairs_below_2A": 39,
+            "pairs_below_1_5A": 20,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.22027624899607426,
+            "pairs_below_2A": 38,
+            "pairs_below_1_5A": 20,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.5442152194380377,
+            "pairs_below_2A": 22,
+            "pairs_below_1_5A": 12,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.5452060719319247,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.73733333333335,
+        "min": 82.19,
+        "max": 94.25
+      },
+      "C99_C173_SG_distance_A": 1.8554406484714097
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_007_alphafold2_ptm_model_4_seed_000.pdb",
+      "sha256": "f54c32b2bccb3222fe06547e30870453f55e4b4e61cf6aa4ce885d21ec2e411d",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.34159572168374247,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.24239247908522202,
+          -0.7052177379278544,
+          0.6662685856280791
+        ],
+        [
+          0.43438754456392603,
+          0.6929548082113706,
+          0.5754312251733195
+        ],
+        [
+          -0.8674983269209482,
+          0.14993857371825325,
+          0.47430483541778534
+        ]
+      ],
+      "translation_vector": [
+        7.886782539706772,
+        -10.154915572965553,
+        3.2821860407701244
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.5498992710079761,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 23,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid": {
+            "min_distance_A": 0.5498992710079761,
+            "pairs_below_2A": 50,
+            "pairs_below_1_5A": 23,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.6538184103798175,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "CYS173:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.587788584052354,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "SER80:OG"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.24631033083907336,
+            "pairs_below_2A": 42,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.24631033083907336,
+            "pairs_below_2A": 41,
+            "pairs_below_1_5A": 18,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.4107099575480571,
+            "pairs_below_2A": 25,
+            "pairs_below_1_5A": 10,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.298351396409602,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 1,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 89.04133333333334,
+        "min": 82.94,
+        "max": 93.5
+      },
+      "C99_C173_SG_distance_A": 2.0105685762987555
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_008_alphafold2_ptm_model_4_seed_001.pdb",
+      "sha256": "c137a3d207268d7637d5afeececfc42230e44c43e1fb08b3882e5ca44a5927fe",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.3308465605961474,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.2666070726193578,
+          -0.6925893348064429,
+          0.6702541921851028
+        ],
+        [
+          0.45203813638819357,
+          0.7040481730405777,
+          0.5477021939785459
+        ],
+        [
+          -0.8512239376803404,
+          0.15695917733790862,
+          0.5007810145855988
+        ]
+      ],
+      "translation_vector": [
+        8.049712649747923,
+        -10.21326023182568,
+        3.464821446198865
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.576235455129704,
+            "pairs_below_2A": 51,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid": {
+            "min_distance_A": 0.576235455129704,
+            "pairs_below_2A": 51,
+            "pairs_below_1_5A": 22,
+            "nearest_receptor_atom": "TRP172:CB"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.6767261925786403,
+            "pairs_below_2A": 19,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "CYS173:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.567258943687471,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "SER80:OG"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.19556323457445304,
+            "pairs_below_2A": 41,
+            "pairs_below_1_5A": 17,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.19556323457445304,
+            "pairs_below_2A": 40,
+            "pairs_below_1_5A": 16,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.4267744978089143,
+            "pairs_below_2A": 24,
+            "pairs_below_1_5A": 9,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.3070127141910333,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 1,
+            "nearest_receptor_atom": "LYS364:NZ"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 88.95,
+        "min": 82.69,
+        "max": 93.5
+      },
+      "C99_C173_SG_distance_A": 2.0100559693700104
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_009_alphafold2_ptm_model_5_seed_001.pdb",
+      "sha256": "a81c026cd3465f80ab33e276f005bc466fe68ed4c62e9223aa430c222aa908e7",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.36927935189466665,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.9671369035433803,
+          0.014486165068320192,
+          0.25384318156321783
+        ],
+        [
+          0.22475892060595987,
+          0.4180442097970241,
+          -0.8801832003982045
+        ],
+        [
+          -0.11886815138028865,
+          0.9083111744753531,
+          0.40105008778285767
+        ]
+      ],
+      "translation_vector": [
+        8.51772163256946,
+        -9.662728839567885,
+        2.8887288349034197
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.6693730601929272,
+            "pairs_below_2A": 54,
+            "pairs_below_1_5A": 27,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid": {
+            "min_distance_A": 0.6693730601929272,
+            "pairs_below_2A": 54,
+            "pairs_below_1_5A": 27,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.6693730601929272,
+            "pairs_below_2A": 18,
+            "pairs_below_1_5A": 7,
+            "nearest_receptor_atom": "TRP172:CA"
+          },
+          "non_lid": {
+            "min_distance_A": 2.7048529313551297,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "THR106:OG1"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.32515774194132924,
+            "pairs_below_2A": 39,
+            "pairs_below_1_5A": 18,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.32515774194132924,
+            "pairs_below_2A": 38,
+            "pairs_below_1_5A": 18,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.4776585352517969,
+            "pairs_below_2A": 22,
+            "pairs_below_1_5A": 10,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.8647791361796913,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:CE"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 85.758,
+        "min": 79.31,
+        "max": 90.81
+      },
+      "C99_C173_SG_distance_A": 1.797040622801836
+    },
+    {
+      "path": "/Users/roy/Documents/docking/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6_unrelaxed_rank_010_alphafold2_ptm_model_5_seed_000.pdb",
+      "sha256": "0ecdd0c6da82688217503b25156e51ba05a05f06c864037340a8782c9e0034ac",
+      "sequence_matches": true,
+      "residue_count": 406,
+      "core_CA_RMSD_A": 0.3947438207303848,
+      "alignment_CA_count": 153,
+      "rotation_matrix": [
+        [
+          0.9792452652786968,
+          0.027861669705890067,
+          0.20075467065663666
+        ],
+        [
+          0.1783853119216127,
+          0.351732532692039,
+          -0.918946628448395
+        ],
+        [
+          -0.09621533619898569,
+          0.9356858194967176,
+          0.339462304642021
+        ]
+      ],
+      "translation_vector": [
+        8.615970382765724,
+        -9.253566120930241,
+        3.1364389025182287
+      ],
+      "ligands": {
+        "ascr18": {
+          "full": {
+            "min_distance_A": 0.6352395715949467,
+            "pairs_below_2A": 56,
+            "pairs_below_1_5A": 29,
+            "nearest_receptor_atom": "CYS173:N"
+          },
+          "lid": {
+            "min_distance_A": 0.6352395715949467,
+            "pairs_below_2A": 56,
+            "pairs_below_1_5A": 29,
+            "nearest_receptor_atom": "CYS173:N"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.6352395715949467,
+            "pairs_below_2A": 19,
+            "pairs_below_1_5A": 8,
+            "nearest_receptor_atom": "CYS173:N"
+          },
+          "non_lid": {
+            "min_distance_A": 2.657333410104758,
+            "pairs_below_2A": 0,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "SER80:OG"
+          }
+        },
+        "ascr3": {
+          "full": {
+            "min_distance_A": 0.3247208663661338,
+            "pairs_below_2A": 42,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid": {
+            "min_distance_A": 0.3247208663661338,
+            "pairs_below_2A": 41,
+            "pairs_below_1_5A": 19,
+            "nearest_receptor_atom": "TRP172:CZ2"
+          },
+          "lid_backbone": {
+            "min_distance_A": 0.4672004668513153,
+            "pairs_below_2A": 23,
+            "pairs_below_1_5A": 11,
+            "nearest_receptor_atom": "TRP172:N"
+          },
+          "non_lid": {
+            "min_distance_A": 1.867308923438697,
+            "pairs_below_2A": 1,
+            "pairs_below_1_5A": 0,
+            "nearest_receptor_atom": "LYS364:CE"
+          }
+        }
+      },
+      "lid_CA_confidence": {
+        "mean": 85.52933333333334,
+        "min": 79.12,
+        "max": 90.44
+      },
+      "C99_C173_SG_distance_A": 1.7857491425169458
+    }
+  ]
+}

@@ -1,317 +1,239 @@
-# Kuo et al. (2024) — Gpr2/Gpr3 文献总结
+---
+paper_id: Kuo2024
+document_role: corrected concise summary
+source: Kuo et al. 2024 version of record and the linked detailed evidence audit
+as_of: 2026-08-11
+allowed_use: quick orientation; use the detailed evidence audit for exact values, source locations, and evidence boundaries
+update_trigger: correction to the version of record or update of the detailed evidence audit
+---
 
-> **原文**: Kuo, C.-Y., Tay, R.J., Lin, H.-C., Juan, S.-C., Vidal-Diez de Ulzurrun, G., Chang, Y.-C., Hoki, J., Schroeder, F.C. & Hsueh, Y.-P. (2024). The nematode-trapping fungus *Arthrobotrys oligospora* detects prey pheromones via G protein-coupled receptors. *Nature Microbiology*, 9, 1738–1751.
-> **DOI**: https://doi.org/10.1038/s41564-024-01679-w
-> **物种**: *Arthrobotrys oligospora* (TWF154 wild isolate)
+# Kuo et al. (2024) — Gpr2/Gpr3 校正版摘要
+
+> **按需查看详细证据**：[Kuo2024-Gpr2Gpr3-detailed-evidence.md](../Kuo2024-Gpr2Gpr3-detailed-evidence.md)
+>
+> 详细稿逐项列出正文、Methods、主图、Extended Data、官方 Source Data、Supplementary Tables 和透明审稿文件的证据位置、原始均值及推论边界。本页只保留经过校正的主线结论。
+
+**论文**：Kuo, C.-Y. et al. *The nematode-trapping fungus Arthrobotrys oligospora detects prey pheromones via G protein-coupled receptors*. *Nature Microbiology* 9, 1738–1751 (2024).
+
+**DOI**：<https://doi.org/10.1038/s41564-024-01679-w>
+
+**研究菌株**：*Arthrobotrys oligospora* TWF154
 
 ---
 
-## 核心发现
+## 一句话结论
 
-*A. oligospora* 使用两类 GPCR 感知不同的线虫来源信号：
-1. **碳受体家族（Carbon receptor family）**：Gpr2 和 Gpr3，负责感知 ascaroside（ascr#3 和 ascr#7），通过 Gpa2 激活 cAMP–PKA 通路
-2. **Pth11-like GPCR 家族**：Gin 受体（GIN1–GIN8 等），负责感知非 ascaroside 的线虫来源信号，部分通过 MAPK 通路
-
-两类受体均激活保守的 cAMP–PKA 信号通路来触发捕陷器发育。
+遗传表型、过表达、受体定位和下游信号结果共同支持：*A. oligospora* 的 yeast-Gpr1-like / carbon-receptor-family GPCR **Gpr2 和 Gpr3 参与 ascr#3/#7 响应**。但论文没有直接测量受体–配体结合，AlphaFold + SwissDock 结果也未经口袋突变或生化实验验证，因此“Gpr2/Gpr3 直接结合 ascr#3/#7”仍是合理模型，而不是已经闭合的机制事实。
 
 ---
 
-## Ascaroside 在捕陷器诱导中的作用
+## 1. Ascaroside 只是活体线虫信号的一部分
 
-### 实验证据
-
-- 比较 WT *C. elegans* 与 *daf-22* 突变体（不能合成生物活性 ascaroside）诱导捕陷器的能力
-- *daf-22* 突变体仍能触发捕陷器形成，但数量显著降低（约 75%）
-- → *A. oligospora* 能感知 ascaroside 以外的其他线虫来源信号
-- 单独 ascr#3 或 ascr#7 即可触发捕陷器形成，但数量远低于活体 *C. elegans*
+- `daf-22` 线虫不能合成已知有生物活性的 ascaroside，但仍能诱导约 WT **75.82%** 的捕陷器；即均值下降约 **24%**，不是“下降 75%”。
+- 单一合成 ascr#3 或 ascr#7 足以诱导捕陷器，但诱导量远低于活体线虫。
+- 因此不能把 Gpr2/Gpr3 表述为真菌感知活体线虫的唯一受体；论文后半部分的 Pth11-like Gin 受体提供了另一组上游输入。
 
 ---
 
-## 基因组分析：*A. oligospora* 中的 GPCR 扩增
+## 2. GPR2/GPR3 的来源及转录变化
 
-### GPCR 鉴定
+作者从 TWF154 基因组中鉴定出 83 个典型 7-TM GPCR 候选，其中 3 个归入 carbon receptor family：
 
-- 对 *A. oligospora* TWF154 基因组进行分析
-- 使用 TMHMM 2.0 和 Phobius 鉴定 83 个含 7 跨膜结构域的蛋白
-- 根据序列同源性和结构相似性分为 **10 个类别**（Supplementary Table 1）
-- 其中 **69 个属于 Pth11-like GPCR 家族** → 该家族在 *A. oligospora* 中大规模扩增
-- Pth11-like GPCR 在 Pezizomycotina 亚门丝状真菌中特有
-- 另有 3 个与酵母碳受体 Gpr1 同源的 GPCR：**Gpr1**（与 *S. cerevisiae* Gpr1 最相似）、**Gpr2** 和 **Gpr3**（两个旁系同源物）
-- 还编码其他 GPCR 类别：推定信息素受体（Ste2, Ste3 同源物）等
+| 基因 | TWF154 位点 |
+|---|---|
+| GPR1 | `EYR41_004122` |
+| GPR2 | `EYR41_005010` |
+| GPR3 | `EYR41_007055` |
 
-### 转录组分析
+Gpr1 与酵母葡萄糖受体 Gpr1 的序列最相近；Gpr2/Gpr3 是另外两个旁系同源物。“GPR”是基因命名前缀，最好不要把所有 GPR 泛称为一个“受 ascr 调控的家族”。
 
-- 分析 *C. elegans* 暴露后不同时间点的 RNA-seq 数据
-- **Pth11-like GPCR（GIN 家族）**：32 个基因在线虫暴露后显著上调（q-value < 0.05, beta > 0.2），命名为 GIN（GPCR Induced by Nematodes）
-- **碳受体家族**：**GPR2** 和 **GPR3** 在线虫暴露后也上调
-- 多数 GIN 基因在暴露前表达极低，暴露后迅速上调
-- 表达量最高的 5 个 GIN：**GIN1, GIN3, GIN7, GIN8** + 一个
-- GPR2 和 GPR3 在暴露 2h 后即上调（与 GIN 类似的时间模式）
-- Ste12 转录因子调控：GPR3, GIN1, GIN7, GIN8 的上调依赖 Ste12；GPR2 和 GIN3 的上调可能不依赖 Ste12
+RNA-seq 的诱导条件是**活体 *C. elegans***，不是纯 ascr#3/#7。官方 Source Data 中的平均 TPM 为：
 
----
+| hpe | 0 | 2 | 4 | 10 | 24 | 48 |
+|---:|---:|---:|---:|---:|---:|---:|
+| GPR2 | 12.79 | 13.43 | 14.74 | 4.02 | 3.92 | 6.33 |
+| GPR3 | 10.95 | 121.37 | 58.78 | 106.11 | 118.43 | 76.97 |
 
-## 碳受体家族 GPCR（Gpr2 和 Gpr3）功能表征
-
-### 基因敲除实验
-
-| 突变体 | 对 ascr#3 的响应 | 对 ascr#7 的响应 | 对活体 C. elegans 的响应 |
-|--------|---------------|---------------|---------------------|
-| WT | ~30 traps/cm² | ~40 traps/cm² | ~500 traps/cm² |
-| Δgpr1 | 正常 | 正常 | 正常 |
-| **Δgpr2** | **显著减少** | **显著减少** | 正常 |
-| **Δgpr3** | **显著减少** | **显著减少** | 正常 |
-| Δgpr2gpr3 | 与单敲除相似，无更严重表型 | 与单敲除相似 | 显著减少（P=0.01） |
-
-- **关键结论**：Gpr2 和 Gpr3 **非冗余地**参与 ascr#3 和 ascr#7 的感应
-- 所有 gpr 突变体对活体 *C. elegans* 仍有部分响应 → 存在额外受体（即 Gin 家族）
-
-### 过表达实验
-
-- 使用 *A. nidulans* gpdA 启动子组成型表达 GPR2 和 GPR3
-- 过表达株系对 ascr#3 和 ascr#7 的捕陷器形成能力**显著增强**
-- → 两个受体的表达量直接影响 ascaroside 感应灵敏度
-
-### 受体内吞（Endocytosis）
-
-- 使用 Gpr2-GFP 和 Gpr3-GFP 融合蛋白观察配体诱导的内吞
-- 无 ascr#7 时：表达低，主要在细胞膜（FM4-64 染色确认）
-- ascr#7 暴露 2h 后：表达迅速增强，受体被内化到液泡（CellTracker Blue CMAC 染色确认）
-- 捕陷器形成后（10h）：两个受体在捕陷器细胞中信号更强，持续内吞
-- → ascr#3 和 ascr#7 触发 Gpr2 和 Gpr3 的配体诱导内吞
+准确解释是：GPR2 在 10 h 明显下降，但 4.02 TPM 不是“消失”；GPR3 在 2–48 h 持续高于基线，但并非单调上升。该结果说明两者的**转录动力学不同**，不能单独推出 Gpr3 的蛋白水平、信号贡献或功能重要性高于 Gpr2。
 
 ---
 
-## Gpr2/Gpr3 与 Gpa2 互作，调控 cAMP–PKA 通路
+## 3. 删除突变：Fig. 2b–c
 
-### Co-IP 实验（在 *S. cerevisiae* 中异源表达）
+### Fig. 2b 的基因型和表型
 
-- Gpr2–3×HA 和 Gpr3–3×HA 分别与 Gpa1–Myc、Gpa2–Myc、Gpa3–Myc 共表达
-- **Gpr2 和 Gpr3 均与 Gpa2 强烈互作**，但不与 Gpa1 或 Gpa3 互作
-- → Gpr2 和 Gpr3 通过 Gpa2 激活下游 cAMP–PKA 通路
+Fig. 2b 从左到右为 `WT`、`gpr1`、`gpr2`、`gpr3`、`gpr2gpr3`。第五组确实是 **gpr2gpr3 双敲**。
 
-### Gpr2 形成异源二聚体
+官方 Source Data 的均值（traps cm⁻²）：
 
-- Gpr2–3×HA 与 Gpr3–Myc 在 *S. cerevisiae* 中 co-IP 证实 **Gpr2 和 Gpr3 形成异源二聚体**
-- → Gpr2 可能通过与 Gpr3 二聚化来介导对 ascr#3 和 ascr#7 的响应
+| 基因型 | ascr#3 | ascr#7 |
+|---|---:|---:|
+| WT | 33.78 | 43.87 |
+| `gpr1` | 40.14 | 51.83 |
+| `gpr2` | 24.00 | 19.60 |
+| `gpr3` | 22.48 | 17.06 |
+| `gpr2gpr3` | 19.19 | 14.83 |
 
-### cAMP 水平测量
+- `gpr2` 和 `gpr3` 单敲对 ascr#3/#7 的响应均显著下降。
+- 双敲仍有响应，且相较两个单敲均未显著进一步降低。
+- 这支持 Gpr2/Gpr3 均参与该响应，但不能仅凭这些数据判定二者的精确协作机制。
+- 论文没有展示 GPR2/GPR3 的同位基因回补株，因此删除表型缺少回补闭环。
 
-- WT 在线虫诱导后 cAMP 水平显著升高
-- Δgpr2 和 Δgpr3 突变体中 cAMP **不升高**
-- → 两个受体均参与激活 cAMP–PKA 通路
+### Fig. 2c 的活体线虫结果
 
-### 遗传学验证
+`gpr2gpr3` 在活体线虫条件下均值为 454.77，WT 为 570.18，WT vs `gpr2gpr3` 的 P = 0.272，**不显著**。图中约 0.01 的 P 值对应 WT vs `gpr1`，且 `gpr1` 的均值是升高。
 
-- 表达显性活化 Gpa2（GPA2^Q208L）：
-  - 在 Δgpr2 背景下：显著增加 ascr#3 和 ascr#7 诱导的捕陷器数量
-  - 在 Δgpr3 背景下：无明显效果（与 Gpr3 与 Gpa2 的互作较弱一致）
-- → Gpr2 和 Gpa2 之间存在强遗传互作
-
----
-
-## Gin 受体（Pth11-like GPCR）感知非 ascaroside 信号
-
-### Gin 受体功能
-
-| 突变体 | 对 ascaroside 的响应 | 对活体 C. elegans 的响应 |
-|--------|-------------------|---------------------|
-| Δgin1 | 正常 | 减少（~200 traps/cm²） |
-| Δgin3 | 正常 | **严重减少**（~4 traps/cm²） |
-| Δgin4 | 正常 | 减少（~200 traps/cm²） |
-| gin1GIN1 回补 | - | 部分恢复 |
-| gin3GIN3 回补 | - | 部分恢复 |
-| gin4GIN4 回补 | - | 部分恢复 |
-
-- **关键结论**：Gin 受体不参与 ascaroside 感应，而是感知其他线虫来源信号
-- **GIN3** 是活体线虫诱导中最关键的 Gin 受体
-
-### Gin 受体的捕陷器形态
-
-- 多数 gin 突变体形成正常的三环菌丝捕陷器（3 hyphal loops）
-- **Δgin3** 只形成单环，形态缺陷最严重
-
-### Gin 受体内吞
-
-- Gin1-GFP 和 Gin3-GFP：无线虫时表达低，定位于细胞膜
-- *C. elegans* 暴露 2h 后迅速上调并内化
-- 10h 后在捕陷器中信号强，且被内吞
-- → 类似于 Gpr2/Gpr3 的配体诱导内吞模式
+所以旧表述“gpr2gpr3 对活体线虫显著减少（P = 0.01）”错误，应删除。
 
 ---
 
-## Gin3 与 Gpa2 互作，调控 cAMP–PKA 通路
+## 4. GFP 重定位：Fig. 2d
 
-### Co-IP 实验
+- Gpr2–GFP、Gpr3–GFP 在 *A. oligospora* 中由包含各自内源上游区的构建表达。
+- Fig. 2d 只展示 **1 mM ascr#7** 处理后的 0、2、10 h；没有展示 ascr#3。
+- ascr#7 后信号增强，并出现与“由膜向液泡内化”相符的分布变化。
+- 图像来自 3 次独立重复，但论文没有提供内吞比例或荧光强度定量。
 
-- Gin3–3×HA 与 Gpa–Myc 共表达
-- Gin3 与 **Gpa2 强烈互作**，与 Gpa1 和 Gpa3 微弱互作
-- → Gin3 主要通过 Gpa2 激活 cAMP–PKA 通路
-
-### cAMP 水平
-
-- Δgin3 突变体中线虫诱导后 cAMP 不显著升高
-- gin3GIN3 回补株部分恢复
-- → Gin3 也参与 cAMP–PKA 通路的激活
+因此可说“ascr#7 触发了与 Gpr2/Gpr3 内吞相符的重定位”，不能说“Fig. 2d 证明 ascr#3/#7 都触发内吞”，更不能把内吞当作直接结合证明。透明审稿中审稿人也明确指出该结果与配体识别一致，但不是证明。
 
 ---
 
-## Gpr2、Gpr3 和 Gin3 调控 MAPK 磷酸化
+## 5. 过表达：Fig. 3a
 
-### 三个 MAP kinase
+作者用 *Aspergillus nidulans gpdA* 强组成型启动子驱动 GPR2 或 GPR3。官方 Source Data：
 
-| MAP kinase | 对应名称 | 功能 |
-|-----------|--------|------|
-| Fus3 | p38 | 高渗透压信号通路；在早期被磷酸化（2-4h） |
-| Slt2 | p44/42 | 细胞壁完整性通路；持续磷酸化 |
-| Hog1 | - | 参与捕陷器形态发生 |
+| 条件 | WT | GPR2-OE | GPR3-OE |
+|---|---:|---:|---:|
+| ascr#3，traps cm⁻² | 23.79 | 39.10（1.64×） | 51.53（2.17×） |
+| ascr#7，traps cm⁻² | 20.01 | 40.95（2.05×） | 38.87（1.94×） |
 
-### 磷酸化分析结果
-
-- **Fus3 和 Slt2**：在 WT、Δgpr2、Δgpr3、Δgin3 和 Δgin3GIN3 中均在线虫暴露后被磷酸化
-- **Hog1**：
-  - WT 中磷酸化水平在线虫暴露后降低
-  - Δgpr2、Δgpr3、Δgin3 中 Hog1 磷酸化水平**不变**（不降低）
-  - → Gpr2、Gpr3 和 Gin3 可能调控 Hog1 的磷酸化动力学
-- 存在复杂的通路间串扰（crosstalk）
+两种过表达株在两个配体条件下都显著高于各自 WT。GPR3 的增幅只在 ascr#3 下更大；ascr#7 下 GPR2 的均值和倍数反而略高。论文也没有做 GPR2-OE vs GPR3-OE 的直接统计比较，不能笼统说“Gpr3 的提升更大”。
 
 ---
 
-## 分子对接结果（与本项目直接相关）
+## 6. 结构比较和 docking：Fig. 3、Extended Data Fig. 5–6
 
-### 方法
+### 图和结论要分开定位
 
-- 使用 **SwissDock** web 服务（非 AutoDock Vina）
-- 受体结构：AlphaFold 预测
-- 配体化学结构：从 **ChemSpider** 获取（ascr#3 和 ascr#7）
-- 使用 **TM-align** 进行蛋白结构比对
+| 内容 | 位置 |
+|---|---|
+| Gpr2 vs Gpr3 预测结构比较 | 主文 p.1741；Extended Data Fig. 5a |
+| Gpr2 vs SRBC-66 预测结构比较 | 主文 p.1741；Fig. 3c |
+| Gpr3 vs SRBC-66 预测结构比较 | 主文 p.1741；Extended Data Fig. 5b |
+| Gpr2–ascr#3/#7 docking | Fig. 3d |
+| Gpr3–ascr#3/#7 docking | Extended Data Fig. 6 |
 
-### Gpr2 与 SRBC-66（*C. elegans* ascaroside 受体）结构比较
+主文 p.1741 写明上述三组结构比较的 TM-score 都约为 0.7；Extended Data Fig. 5 图注自身只给出 `0.5 < TM-score < 1.00` 的相似折叠解释。它们比较的是 **AlphaFold 预测结构**，不是实验解析结构。
 
-- TM-align TM score ≈ 0.7 → 结构高度相似（尽管序列相似性低）
-- Gpr3 与 SRBC-66 的 TM score 也约为 0.7
+### 预测分值和图示残基
 
-### 对接结合能（ΔG 值）
+| 受体–配体 | 预测 ΔG（kcal mol⁻¹） | 图中具名残基 |
+|---|---:|---|
+| Gpr2–ascr#3 | −6.99 | Y166、Y168；正文只点名 Y168 |
+| Gpr2–ascr#7 | −7.07 | Y168 |
+| SRBC-66–ascr#3 | −7.47 | N161 |
+| Gpr3–ascr#3 | −7.05 | 未列出 |
+| Gpr3–ascr#7 | −6.41 | 未列出 |
 
-| 受体 | ascr#3 | ascr#7 |
-|------|--------|--------|
-| **Gpr2** | **−6.99 kcal/mol** | **−7.07 kcal/mol** |
-| SRBC-66 | −7.47 kcal/mol（ascr#3） | - |
-| **Gpr3** | **−7.05 kcal/mol** | **−6.41 kcal/mol** |
+Gpr3 docking 并不在主 Fig. 3d，而在 Extended Data Fig. 6；该图没有列出 Gpr3 的具名接触残基，正文称其未预测到强氢键。Y166/Y168 只属于 Gpr2–ascr 图示，N161 属于线虫受体 SRBC-66。
 
-- Gpr2 对 ascr#3 和 ascr#7 的预测亲和力与 SRBC-66 对 ascr#3 的亲和力相似
+这些 ΔG 是 SwissDock 预测分值，不是实验测得的结合自由能；分值相近也不能用于给 Gpr2/Gpr3 的生物学重要性排序。Y166/Y168 均未做定点突变、表达/定位控制或结合验证，必须称为“预测/图示残基”，不能称为“确认的关键结合残基”。
 
-### 关键结合残基
+### 方法报告到什么程度
 
-| 受体 | ascr#3 结合残基 | ascr#7 结合残基 |
-|------|-------------|-------------|
-| Gpr2 | **Y168** | **Y168** |
-| SRBC-66 | **N161** | - |
+论文 Methods 报告了：
 
-> **注**：原文（p.1741）写的是 "Y168 and N161 in Gpr2 and SRBC-66, **respectively**"，即 Y168 仅属于 Gpr2，N161 仅属于 SRBC-66，两者不共享。
+- 受体使用 AlphaFold 预测；
+- ascr#3/#7 化学结构文件来自 ChemSpider；
+- 使用 SwissDock web service；
+- 使用 default parameters；
+- 搜索整个 target protein；
+- 用 TM-align 做结构比对。
 
-- Gpr2 和 SRBC-66 的 ascaroside 结合口袋位于**胞外结构域**（extracellular domain）
-- 尽管来自进化距离遥远的物种（真菌 vs 线虫），结合口袋在结构上保守
+因此“完全没有 docking 参数”不准确。但严格复现仍缺少：实际输入坐标和校验值、AlphaFold/SwissDock 版本或运行身份、受体与配体的质子化/电荷/构象等预处理、ChemSpider record ID、全部 pose/cluster 输出、展示姿势的选择规则、完整接触残基与距离表，以及对不同模型和设置的稳健性分析。
 
-### 重要说明
-
-- 本文使用的是 **SwissDock**（而非 Hu et al. 中的 AutoDock Vina）
-- 未检测到受体残基与 ascaroside 之间的强氢键 → 结合可能主要通过疏水作用和范德华力
-- 本文**未对 ascr#18 进行对接**（仅对接了 ascr#3 和 ascr#7）
-
----
-
-## Discussion 核心观点
-
-1. **两类 GPCR 分工明确**：碳受体（Gpr2/Gpr3）感知 ascaroside，Pth11-like（Gin）感知非 ascaroside 信号
-2. ascaroside 感知只是线虫检测的一部分；ascr#3 和 ascr#7 可能代表了一个复杂感知网络的冰山一角
-3. 碳受体 GPCR 在真菌中演化出了多样化的配体感知能力（从糖到 ascaroside）
-4. Pth11-like GPCR 的扩增（69 个）是 *A. oligospora* 特有的，可能与其捕食性生活方式的进化相关
-5. Gin3 与多个 Gα 互作可能允许它激活不同的下游通路
-6. Gpr2、Gpr3 和 Gin3 共同调控 Hog1 磷酸化，暗示通路间复杂串扰
+最合适的结论是：**现有信息允许近似重跑，但不足以严格复现论文所用输入、姿势和残基网络；docking 未经实验验证、稳健性未知、证据权重低，适合生成候选口袋假设，不足以证明直接结合。**
 
 ---
 
-## Methods 逐项细节
+## 7. 配体与受体分别来自哪里、如何处理
 
-### 菌株与培养
+### 配体
 
-- *A. oligospora* TWF154（野生分离株，Yang et al. 2020 建立）
-- 基因敲除在 **ku70 突变体**背景下进行（提高同源重组效率）
-- 培养：PDA（常规），LNM（低营养培养基，用于捕陷器诱导）
-- 转化方法：**电穿孔**（protoplast electroporation，非 PEG）
+| 场景 | 来源与处理 |
+|---|---|
+| 捕陷器表型 | ascr#3/#7 按 Zhang et al. 2017 化学合成；每板在菌丝尖端边界约 2 mm 处加入 5 μl、1 mM 单一 ascr，2 d 后计数 |
+| GFP 定位 | 使用 1 mM ascr#7；观察 0、2、10 h；未做 ascr#3 成像 |
+| docking | 使用 ChemSpider 的 ascr#3/#7 chemical structure files；具体记录号、原始文件和预处理未报告 |
 
-### 捕陷器诱导实验
+论文 Methods 没有给出合成批次、分析纯度、NMR/HPLC 质控、溶剂和储存细节，所以宜写“化学合成的单一 ascr”，不宜自行补成“高纯度配体”。
 
-- 3.5 cm LNM plate, 25°C, 48h 预培养
-- 加入 30 只 *C. elegans* N2 **L4 幼虫**
-- 6h 后移除线虫，24h 后在 0.5 cm 范围内计数
-- Ascaroside 处理：**1 mM** ascr#3 或 ascr#7 加在菌丝边缘 2 mm 处，**2 天后**计数
-- *daf-22* 突变体对照：仍触发捕陷器但数量降低 ~75% → ascaroside 仅贡献 ~25% 的信号
+### 受体
 
-### GPCR 鉴定方法
+| 场景 | 来源与处理 |
+|---|---|
+| 基因来源 | TWF154 的 GPR2（`EYR41_005010`）和 GPR3（`EYR41_007055`） |
+| 删除株 | 在 NHEJ-deficient `ku70` 衍生背景 TWF1697 中，以抗性盒替换目标基因；PEG 介导真菌原生质体转化；PCR + Southern blot 验证 |
+| 过表达 | *A. nidulans gpdA* 强组成型启动子驱动 |
+| GFP | 在真菌中使用包含约 2 kb 内源上游区的 GPCR–GFP 构建 |
+| co-IP | *A. oligospora* 受体/Gα cDNA 在 *S. cerevisiae* YDX4 中由 PGK 启动子异源表达 |
+| docking | Gpr2/Gpr3/SRBC-66 的 AlphaFold 预测模型；没有实验结构，也未公开实际 docking 坐标文件 |
 
-- **TMHMM 2.0 + Phobius** 预测 7-TM 蛋白 → 鉴定出 **83 个** putative GPCR
-- 根据序列同源性和结构相似性分为 **10 个类别**
-- 其中 **69 个属于 Pth11-like**（*A. oligospora* 特异性扩增）
-- **3 个碳受体**同源物：Gpr1, Gpr2, Gpr3（与 *S. cerevisiae* Gpr1 同源）
-- RNA-seq 时间序列分析鉴定 32 个 GIN 基因（线虫暴露后上调）
-
-### 对接方法
-
-| 参数 | 值 | 说明 |
-|------|------|------|
-| 对接工具 | **SwissDock** web 服务 | 使用 **EADock DSS** 算法，非 Vina 评分函数 |
-| 受体结构 | **AlphaFold** 预测 | 未指定 AF 版本，推测为 AFDB v2.0 |
-| 配体来源 | **ChemSpider** 3D 结构 | 未经 DFT 优化 |
-| Grid box | **无**（SwissDock 自行搜索结合口袋） | 与 Vina 的显式 grid box 根本不同 |
-| 报告值 | **docking score (corr)** = binding free energy ΔG | 负值越大表示结合越强 |
-| 结构比对 | **TM-align**（TM score > 0.5 视为相似） | Gpr2 vs SRBC-66 TM score ≈ 0.7 |
-| 配体 | ascr#3, ascr#7（**仅 2 种，不含 ascr#18**） | 与 Hu2024 的 5 种配体不同 |
-| 对接受体 | Gpr2, Gpr3, SRBC-66 | Gpr1 也做了但"did not yield reliable results" |
-
-> **SwissDock vs Vina 的根本差异**：SwissDock 使用 CHARMM 力场进行全局搜索，不需要用户定义 grid box，算法全自动定位结合口袋。Vina 需要显式定义 search space。两者的 ΔG 数值**不可直接比较**（评分函数不同），但排名趋势可参考。
-
-### Co-IP 实验（酵母异源表达）
-
-- 在 *S. cerevisiae* 中共表达 Gpr2/Gpr3（3×HA 标签）与 Gpa1/Gpa2/Gpa3（Myc 标签）
-- Gpr2 和 Gpr3 **均仅与 Gpa2 互作**（不与 Gpa1/Gpa3 互作）
-- Gpr2-3×HA 与 Gpr3-Myc 共表达证实**异源二聚体**
-- → **酵母中功能性表达的直接先例**（虽为 co-IP 非信号转导验证）
-
-### AlphaFold 结构中的 ICL3 区域
-
-- Fig. 3c 注释：Gpr2 残基 **217–336** 被 AlphaFold 预测为 **random coil**（无序）
-- 原文图中该区域已被移除（"has been predicted due to its prediction as a random coil"）
-
-### 数据可用性
-
-- *A. oligospora* TWF154 基因组：GenBank **SOZJ00000000**
-- RNA-seq 数据：GEO **GSE233568**
+真菌基因删除使用的是 **PEG 原生质体转化**；电穿孔用于酵母转化。二者不能混写。
 
 ---
 
-## 与本项目的潜在关联
+## 8. Gpa2、cAMP 与受体二聚证据
 
-1. **Gpr2 (G1X9E2) 和 Gpr3 (G1XJN1)** 是 *A. oligospora* 中 ascaroside 感应的核心受体，功能已通过基因敲除/回补/过表达实验验证
-2. 两者通过 **Gpa2** 激活 **cAMP–PKA 通路**（与 Hu et al. 中 GprC 通过 GasA 激活 MAPK 通路不同）
-3. **Gpr2/Gpr3 可形成异源二聚体**（酵母 co-IP 证实）
-4. SwissDock 使用的是 EADock DSS 算法（非 Vina），ΔG 数值来自不同评分函数，与 Vina 结果**不可直接比较**
-5. Gpr2 唯一确认的关键结合残基为 **Y168**（ECL2），属 SwissDock blind docking 结果
-6. **daf-22 实验**：ascaroside 仅贡献 ~25% 的捕陷器信号，其余来自 Gin 受体感知的非 ascaroside 信号
-7. RNA-seq 数据（GEO GSE233568）可用于启动子挖掘
-8. 过表达 Gpr2/Gpr3（*A. nidulans* gpdA 启动子）可增强灵敏度
-9. **Gin3** 感知非 ascaroside 信号，且也通过 Gpa2→cAMP-PKA 通路
-10. AlphaFold 中 Gpr2 ICL3（217-336）为 random coil
-11. **TMHMM 2.0 + Phobius** 用于鉴定 83 个 GPCR
+- 在异源 *S. cerevisiae* 中，Gpr2/Gpr3 与 Gpa2 共沉淀；Gpr2 与 Gpr3 也共沉淀。
+- 这支持受体–Gα 选择性和异源二聚模型，但不证明原生真菌中的直接蛋白接触，也未测试互作是否依赖 ascr。
+- 不能凭条带目测断言“Gpr3–Gpa2 更弱”。
+- 活体线虫诱导后，WT cAMP 增加，而 `gpr2`、`gpr3` 未出现 WT 式增加；这里的刺激仍是活体线虫，不是纯 ascr。
+- 显性活化 GPA2Q208L 只在 `gpr2` 背景产生清晰救援式遗传互作；`gpr3` 背景未显著提高不能简单归因为“Gpr3 与 Gpa2 互作较弱”。
+
+---
+
+## 9. Gin 与 MAPK 主线的必要限定
+
+- Pth11-like Gin 受体参与 ascaroside 以外的活体线虫信号；这与 `gpr2gpr3` 对活体线虫没有显著减少相吻合。
+- phospho-p44/42 抗体用于检测 Fus3/Slt2；phospho-p38 抗体用于检测 Hog1。
+- Fus3 是 pheromone-response MAPK，Hog1 是 high-osmolarity-glycerol MAPK，Slt2 是 cell-wall-integrity MAPK。旧摘要中 Fus3、Hog1 与抗体的对应关系写反。
+- 现有结果更适合表述为 Gpr2/Gpr3/Gin3 可能调节 Hog1 磷酸化动力学，而不是已经证明这些受体直接激活某一 MAPK。
+
+---
+
+## 10. 对“首次提出”的准确说法
+
+Hsueh et al. 2013 已证明 *A. oligospora* 能响应 nematode ascarosides，但没有鉴定上游受体。Kuo2024 的新增贡献是把具体的 carbon-receptor-family GPCR Gpr2/Gpr3 与 ascr#3/#7 响应联系起来，并由作者表述为在非线虫物种中鉴定 ascaroside receptors。
+
+若未另外完成系统优先权检索，建议写：
+
+> Kuo et al. (2024) 首次在这一真菌体系中将具体的 carbon-receptor-family GPCR Gpr2/Gpr3 遗传学地关联到 ascr#3/#7 响应。
+
+不建议写“首次发现 GPR 可以受 ascr 调控”：这会混淆家族范围、受体响应与转录调控，而且绝对的跨物种优先权需要系统检索支持。
+
+---
+
+## 11. 证据分级
+
+| 命题 | 判定 |
+|---|---|
+| Gpr2/Gpr3 参与 ascr#3/#7 诱导捕陷器形成 | 较强支持：单敲降低 + 过表达增强 |
+| ascr#7 触发 Gpr2/Gpr3 内吞 | 支持但未定量 |
+| ascr#3 触发 Gpr2/Gpr3 内吞 | Fig. 2d 未显示 |
+| Gpr2/Gpr3 与 Gpa2 处于同一信号轴 | 中等至较强支持 |
+| Gpr2/Gpr3 在原生真菌中形成异源二聚体 | 未直接证明；只有异源酵母 co-IP |
+| Gpr2/Gpr3 直接结合 ascr#3/#7 | 未直接证明 |
+| Y166/Y168 是真实关键结合残基 | 未验证 |
+| Gpr3 接触残基已经确定 | 不支持 |
+| Gpr3 功能上比 Gpr2 更重要 | 不支持 |
+| 论文 docking 可严格复现 | 不支持；只能近似重跑 |
 
 ---
 
 ## 版本记录
 
 | 日期 | 版本 | 说明 |
-|------|------|------|
-| 2026-04-03 | v1.0 | 初始总结，忠实于原文内容 |
-| 2026-04-06 | v1.1 | 修正 N161 归属：N161 属于 SRBC-66（非 Gpr2），Gpr2 唯一确认结合残基为 Y168 |
-| 2026-04-10 | v2.0 | 全面重写 Methods：SwissDock 算法说明、GPCR 鉴定方法（TMHMM+Phobius→83 GPCRs）、Co-IP 酵母先例、ICL3 random coil 证据、对接参数详表 |
-| 2026-04-10 | v2.1 | 清理项目特定内容（pipeline 对照表、IFP 分析、ΔG 对比表），遵循 DOCMAP 唯一权威源原则 |
+|---|---|---|
+| 2026-04-03 至 2026-04-10 | v1.0–v2.1 | 旧版；包含多处图号、数值、方法和证据强度误读 |
+| 2026-08-11 | v3.0 | 依据版本记录正文、Extended Data、官方 Source Data、Supplementary Tables 与透明审稿文件全面校正；新增详细证据指针 |

@@ -58,3 +58,8 @@ by a human or agent without depending on tool-private storage.
   historical 2026-05-19 docking-repro full refresh plan that used old Slurm;
   read as executed provenance. Current server entries are routed through
   `docs/INDEX.md` and `docs/ops/`.
+
+## Gpr2 TWF154 补充计划
+
+- [AutoDL 吞吐资格](gpr2-autodl-throughput-qualification-20261005.md)
+- [离线执行交接](gpr2-twf154-dots-handoff-20261006.md)

@@ -1,0 +1,9 @@
+{
+  "completed_candidates": 24,
+  "closure_successes": 24,
+  "geometric_screen_passes": 8,
+  "elapsed_s": 946.3299102499996,
+  "candidates_sha256": "e02fc9e15270aec0aedade6597d7a6fe267c2397f99a652feda97f86da637ff3",
+  "production_ready": false,
+  "interpretation": "Bounded local-model pilot; passing geometry still needs energetic and sensitivity review before MD preparation."
+}

@@ -1,0 +1,27 @@
+{
+  "case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+  "receptor": "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_parent_docking_frame.pdb",
+  "fasta": "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/WT_sequence.fasta",
+  "ligands": {
+    "native_wt_ascr3": "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/own_pose_top1.sdf"
+  },
+  "loop": [
+    164,
+    178
+  ],
+  "disulfide": [
+    99,
+    173
+  ],
+  "parent_mutations": {},
+  "seed": 10053104,
+  "candidates": 8,
+  "closure_attempts": 2000,
+  "perturb_degrees": 20,
+  "min_iterations": 1000,
+  "steric_repair_rounds": 3,
+  "method": "disulfide_first",
+  "source_contract": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1.input.json",
+  "source_contract_sha256": "fac9bf79351af83fa95deda986cb532a19fa6dca640ce659a1ef6b2dbde1adbe",
+  "reason": "Original own-WT peptide-first candidates retain high local backbone torsion penalties near 177-178; bounded existing two-stage closure with explicit pivot Ramachandran filters."
+}

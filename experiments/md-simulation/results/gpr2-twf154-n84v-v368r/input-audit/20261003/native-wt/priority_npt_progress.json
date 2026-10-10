@@ -1,0 +1,61 @@
+{
+  "as_of_utc": "2026-10-03T04:32:01.546623+00:00",
+  "processes": [
+    {
+      "pid": 3111011,
+      "cwd": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_n84v_ascr18/rep1",
+      "command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi mdrun -deffnm npt01 -ntomp 8 -pin off -nb gpu -pme gpu -bonded cpu -update cpu -cpt 10"
+    },
+    {
+      "pid": 3111026,
+      "cwd": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_v368r_ascr3/rep1",
+      "command": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi mdrun -deffnm npt01 -ntomp 8 -pin off -nb gpu -pme gpu -bonded cpu -update cpu -cpt 10"
+    }
+  ],
+  "cases": [
+    {
+      "case": "raw_n84v_ascr18",
+      "runner_state": {
+        "as_of_utc": "2026-10-03T04:10:29.410639+00:00",
+        "state": "RUNNING_VERIFIED",
+        "detail": "npt01: NPT 125 ps; restraints (1000, 500, 400, 100, 200)",
+        "source": "npt01.tpr"
+      },
+      "logs": [
+        {
+          "log": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_n84v_ascr18/rep1/npt01.log",
+          "last_step_time": [
+            [
+              "100000",
+              "225.00000"
+            ]
+          ],
+          "finished": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "case": "raw_v368r_ascr3",
+      "runner_state": {
+        "as_of_utc": "2026-10-03T04:10:30.253299+00:00",
+        "state": "RUNNING_VERIFIED",
+        "detail": "npt01: NPT 125 ps; restraints (1000, 500, 400, 100, 200)",
+        "source": "npt01.tpr"
+      },
+      "logs": [
+        {
+          "log": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003/raw_v368r_ascr3/rep1/npt01.log",
+          "last_step_time": [
+            [
+              "100000",
+              "225.00000"
+            ]
+          ],
+          "finished": false,
+          "issues": []
+        }
+      ]
+    }
+  ]
+}

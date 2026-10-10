@@ -1,0 +1,21 @@
+{
+  "as_of": "2026-10-05T15:30:10.187596+00:00",
+  "state": "TERMINAL_NORMAL",
+  "phase": "CANDIDATES_GENERATED_REVIEW_PENDING",
+  "authorized_scope": "Two independent case-specific local lid reconstruction batches; no production MD",
+  "cases": [
+    "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "native_wt_ascr3_lid_rebuilt_own_pose_v1"
+  ],
+  "candidate_attempts_per_case": 24,
+  "processes": 2,
+  "cpu_threads_per_process": 1,
+  "temporary_root": "/private/tmp/gpr2-own-lid-20261005",
+  "script": "/Users/roy/Documents/drylab/experiments/md-simulation/scripts/sample_disulfide_lid.py",
+  "script_sha256": "1dcd5a8c1c2cb3cbb5b085ca20c251efd6ac9846d2fa8d57ac191ed9ca9e69ca",
+  "old_rebuilt_coordinates_used": false,
+  "geometry_screen_is_not_production_acceptance": true,
+  "observed_at": "2026-10-05T16:04:51.159289+00:00",
+  "evidence": "live_status.json, runs/*/summary.json, review_candidates.json",
+  "production_ready": false
+}

@@ -33,7 +33,7 @@ lineplot_by_rep(df, 'time_ns', 'backbone_rmsd_A', replicate_plot_path(out, 'rmsd
 lineplot_by_rep(rg_df, 'time_ns', 'rg_A', replicate_plot_path(out, 'rg'), f'{ctx.label} protein CA Rg', 'Rg (A)')
 lines=[]
 for rep, sub in df.groupby('rep'):
-    tail=sub[sub.time_ns >= max(100, sub.time_ns.max()-100)]
+    tail=ctx.summary(sub) if ctx.window('summary_window_ns') else sub[sub.time_ns >= max(100, sub.time_ns.max()-100)]
     slope=linear_slope(tail.time_ns.to_numpy(), tail.backbone_rmsd_A.to_numpy())
-    lines.append(f"{rep}: final100/after100 RMSD slope = {slope:.4g} A/ns; mean RMSD = {tail.backbone_rmsd_A.mean():.2f} A")
+    lines.append(f"{rep}: {ctx.summary_label} RMSD slope = {slope:.4g} A/ns; mean RMSD = {tail.backbone_rmsd_A.mean():.2f} A")
 write_judgement(out / 'judgement.md', f'{ctx.label} convergence judgement', lines)

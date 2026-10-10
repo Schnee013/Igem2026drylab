@@ -1,0 +1,4692 @@
+{
+  "case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+  "ligand_source": "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/own_pose_top1.sdf",
+  "ligand_sha256": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+  "comparison": "All candidates assessed against this case own fixed parent and own single pose",
+  "topology_method_source": "check_twf154_snapshot.py projection-based signed crossings",
+  "projection_count": 16,
+  "surface_scope": "Open CA163-179 arc plus artificial closing chord; mesh intersections are diagnostics, not proof of a covalent interlock.",
+  "accepted_structure": null,
+  "rows": [
+    {
+      "name": "parent",
+      "path": "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_parent_docking_frame.pdb",
+      "sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": false,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.382039882117846,
+          "max_vdw_overlap_A": 0.6879601178821542,
+          "pairs_overlap_gt_0p6_A": 2
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.421428523002422,
+            "max_vdw_overlap_A": 2.978571476997578,
+            "pairs_below_2_A": 44,
+            "pairs_overlap_gt_0p6_A": 81
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 1.9935021946313487,
+          "CB_SG_SG_deg": 104.79824667630378,
+          "SG_SG_CB_deg": 101.47253769501766,
+          "chi3_deg": -114.17816081034532
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3378310805180167,
+            "CA_C_N_deg": 118.52770898328667,
+            "C_N_CA_deg": 124.1937564996616,
+            "omega_deg": -170.23929382620867
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3263219820239724,
+            "CA_C_N_deg": 117.55530053548271,
+            "C_N_CA_deg": 124.12703883206382,
+            "omega_deg": -172.5156447546061
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3325302998431223,
+            "CA_C_N_deg": 115.7449430711576,
+            "C_N_CA_deg": 123.96743192284967,
+            "omega_deg": 177.0227065980012
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.332240969194388,
+            "CA_C_N_deg": 116.65049732662169,
+            "C_N_CA_deg": 124.79818451253587,
+            "omega_deg": 176.83291221870797
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3188426744687933,
+            "CA_C_N_deg": 116.36051502970426,
+            "C_N_CA_deg": 122.80960038684378,
+            "omega_deg": -179.27402510406733
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3258163522901654,
+            "CA_C_N_deg": 116.98640958372629,
+            "C_N_CA_deg": 123.96049655530062,
+            "omega_deg": -179.00128408159833
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3403533116309285,
+            "CA_C_N_deg": 117.674251161877,
+            "C_N_CA_deg": 124.5662525821058,
+            "omega_deg": -172.54265500997272
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3354018121898739,
+            "CA_C_N_deg": 118.19530590506128,
+            "C_N_CA_deg": 125.82461196043522,
+            "omega_deg": -177.13972344535802
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.331727074140944,
+            "CA_C_N_deg": 118.99590756833113,
+            "C_N_CA_deg": 124.69849599627105,
+            "omega_deg": 175.31496979010433
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3359610772773298,
+            "CA_C_N_deg": 116.21754480224622,
+            "C_N_CA_deg": 123.46756710150476,
+            "omega_deg": 174.99261160861965
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3358356934892859,
+            "CA_C_N_deg": 116.23597561583318,
+            "C_N_CA_deg": 123.55752110591654,
+            "omega_deg": 176.97413262792438
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3334129142917415,
+            "CA_C_N_deg": 118.72523037231927,
+            "C_N_CA_deg": 123.88244387877249,
+            "omega_deg": 172.01831177080172
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3199234826307187,
+            "CA_C_N_deg": 117.39066738374733,
+            "C_N_CA_deg": 123.00755653062673,
+            "omega_deg": -175.21111750503235
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3345062757439539,
+            "CA_C_N_deg": 117.78672424540942,
+            "C_N_CA_deg": 123.14023455748163,
+            "omega_deg": 177.4980232592238
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.332985746360403,
+            "CA_C_N_deg": 117.10236695643296,
+            "C_N_CA_deg": 124.04388875094202,
+            "omega_deg": 176.49843419807434
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3232422302813651,
+            "CA_C_N_deg": 117.87946067766791,
+            "C_N_CA_deg": 123.23878941070089,
+            "omega_deg": 176.7902690982607
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 0.0
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.900187420227258,
+                -17.81965481438229,
+                3.2196840837480623
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.908687265416617,
+                -19.583523250536167,
+                1.767534630729481
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.69492691479233,
+                -17.854076398369447,
+                3.128950691855651
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.810099844085236,
+                -19.553611809713743,
+                1.8486737115811134
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0001",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0001.pdb",
+      "sha256": "a29fa45a8102dc7fd1d148b48c0013a3065bb4694d2c09f304512f9579cf73c4",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.008172116420896103,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5344228139756,
+          "max_vdw_overlap_A": 0.5091664937246816,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.4609403432115691,
+            "max_vdw_overlap_A": 2.9390596567884306,
+            "pairs_below_2_A": 36,
+            "pairs_overlap_gt_0p6_A": 72
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0276432131911184,
+          "CB_SG_SG_deg": 119.22928300699364,
+          "SG_SG_CB_deg": 99.56362917167425,
+          "chi3_deg": 92.97145179479647
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3368949098564182,
+            "CA_C_N_deg": 117.95026972426807,
+            "C_N_CA_deg": 123.65905134523085,
+            "omega_deg": -175.12762112067475
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.325697929394175,
+            "CA_C_N_deg": 117.6845820263305,
+            "C_N_CA_deg": 123.21476354997002,
+            "omega_deg": -177.6722202699967
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3315051633395925,
+            "CA_C_N_deg": 116.3565699737224,
+            "C_N_CA_deg": 122.88500152620651,
+            "omega_deg": -179.57550602514192
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.333237413216414,
+            "CA_C_N_deg": 116.60028066427049,
+            "C_N_CA_deg": 124.76365447772952,
+            "omega_deg": -179.85926406751088
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3199761361479254,
+            "CA_C_N_deg": 115.9754905118276,
+            "C_N_CA_deg": 123.3508722924648,
+            "omega_deg": -177.98633373542378
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3229531359802564,
+            "CA_C_N_deg": 117.56434440789995,
+            "C_N_CA_deg": 120.79279303404905,
+            "omega_deg": -175.6311927812105
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3386653801454662,
+            "CA_C_N_deg": 118.2077755844995,
+            "C_N_CA_deg": 123.93230202058658,
+            "omega_deg": 179.28424921828727
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3366734829418887,
+            "CA_C_N_deg": 118.30063340541261,
+            "C_N_CA_deg": 124.9680713917041,
+            "omega_deg": -178.65742792182434
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3316737588463632,
+            "CA_C_N_deg": 119.39090113932384,
+            "C_N_CA_deg": 122.95559186100606,
+            "omega_deg": 176.86143860405846
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.333285040792103,
+            "CA_C_N_deg": 116.04585782568026,
+            "C_N_CA_deg": 123.40657003288695,
+            "omega_deg": -175.61487734118063
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.335013483077979,
+            "CA_C_N_deg": 117.16173372791025,
+            "C_N_CA_deg": 122.03997773676977,
+            "omega_deg": -179.54562283444352
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3335257777785912,
+            "CA_C_N_deg": 118.84229095630921,
+            "C_N_CA_deg": 123.40395039670746,
+            "omega_deg": -177.90740765547133
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3195264302013825,
+            "CA_C_N_deg": 116.85290603399096,
+            "C_N_CA_deg": 123.32062256391377,
+            "omega_deg": -178.78747022296633
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.334237610023044,
+            "CA_C_N_deg": 117.94439494258312,
+            "C_N_CA_deg": 122.62424457401274,
+            "omega_deg": -179.20888449047249
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.332595212358201,
+            "CA_C_N_deg": 116.82989245064779,
+            "C_N_CA_deg": 124.04642163841284,
+            "omega_deg": 178.48209726451728
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3232116232863145,
+            "CA_C_N_deg": 117.27872455470329,
+            "C_N_CA_deg": 123.92941727817377,
+            "omega_deg": 178.61051235339275
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 2.122870933429539
+      },
+      "ss_loop_sugar_linking_numbers": [
+        -1.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": false,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 1,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                14,
+                15
+              ],
+              "xyz_A": [
+                23.726752924372157,
+                -17.74026955096092,
+                3.378378661399251
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 1,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                14,
+                15
+              ],
+              "xyz_A": [
+                23.59745946363137,
+                -17.71431517447549,
+                3.4874588058910176
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0002",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0002.pdb",
+      "sha256": "0d7a7035386e7b62e6f7c9e5c646beaf93c907b9b97071caa4aeba6a8b1707c6",
+      "geometry": {
+        "geometric_screen_pass": true,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.003508154032281663,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.63857651016604,
+          "max_vdw_overlap_A": 0.43142348983396017,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 7.18185978699111,
+            "max_vdw_overlap_A": -3.920117788822492,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.029824376639515,
+          "CB_SG_SG_deg": 106.16322678647268,
+          "SG_SG_CB_deg": 103.4951830748866,
+          "chi3_deg": -127.63284373961781
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3366805901186711,
+            "CA_C_N_deg": 119.12202973283532,
+            "C_N_CA_deg": 123.068788124633,
+            "omega_deg": -178.3367091593403
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3258431279755516,
+            "CA_C_N_deg": 116.96640931819726,
+            "C_N_CA_deg": 124.45545666028714,
+            "omega_deg": 179.29850712234398
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3326698766011047,
+            "CA_C_N_deg": 116.01735279486941,
+            "C_N_CA_deg": 123.74162709286047,
+            "omega_deg": 179.8964442103368
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3302484730305093,
+            "CA_C_N_deg": 116.89526514560197,
+            "C_N_CA_deg": 124.61326789594426,
+            "omega_deg": -179.95250314916808
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3194275273769291,
+            "CA_C_N_deg": 116.43672880435213,
+            "C_N_CA_deg": 122.37651700059136,
+            "omega_deg": 179.64371500634894
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3249550935786487,
+            "CA_C_N_deg": 117.15715775834288,
+            "C_N_CA_deg": 123.64908469001634,
+            "omega_deg": -179.54307050173318
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3415118337159757,
+            "CA_C_N_deg": 117.41762789469645,
+            "C_N_CA_deg": 124.3490244810956,
+            "omega_deg": 179.1400417127075
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3371768768566117,
+            "CA_C_N_deg": 118.16546290569106,
+            "C_N_CA_deg": 125.465379144546,
+            "omega_deg": -178.93931987416877
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3321674068974976,
+            "CA_C_N_deg": 119.26921351788789,
+            "C_N_CA_deg": 123.8630384441678,
+            "omega_deg": -179.92564132128194
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3345399956539343,
+            "CA_C_N_deg": 115.59219509844225,
+            "C_N_CA_deg": 124.30849159567774,
+            "omega_deg": -178.43690302842512
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3373324194081277,
+            "CA_C_N_deg": 116.45213962078628,
+            "C_N_CA_deg": 123.3823719846112,
+            "omega_deg": -177.9371849803801
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3333885405237278,
+            "CA_C_N_deg": 118.7917010491184,
+            "C_N_CA_deg": 123.09423830061282,
+            "omega_deg": -178.94370120471152
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3202325552719856,
+            "CA_C_N_deg": 117.23259641978393,
+            "C_N_CA_deg": 123.09429560861335,
+            "omega_deg": 177.19828690145454
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3309981217116722,
+            "CA_C_N_deg": 118.04247235772252,
+            "C_N_CA_deg": 122.81394850901,
+            "omega_deg": 179.31158648813857
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3335760195804367,
+            "CA_C_N_deg": 117.2504631549129,
+            "C_N_CA_deg": 123.47265415810841,
+            "omega_deg": 178.4859971346194
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3230449727805942,
+            "CA_C_N_deg": 117.58319922637168,
+            "C_N_CA_deg": 123.64010497349176,
+            "omega_deg": 179.97221968029842
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 12.01378496006428
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": true,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0003",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0003.pdb",
+      "sha256": "d73405dc4d24a069e107e654f2529e88cfc51208ea6595623d1ff3f72f636a77",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.004452909822092677,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.538392601628047,
+          "max_vdw_overlap_A": 0.5067529126015109,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.3671648131289282,
+            "max_vdw_overlap_A": 2.8528351868710717,
+            "pairs_below_2_A": 26,
+            "pairs_overlap_gt_0p6_A": 58
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.014944416106807,
+          "CB_SG_SG_deg": 107.61411402666795,
+          "SG_SG_CB_deg": 102.77471120464999,
+          "chi3_deg": 160.74551849043743
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3356758588819377,
+            "CA_C_N_deg": 117.13938185923541,
+            "C_N_CA_deg": 123.68371680515287,
+            "omega_deg": -174.61369525298167
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3246599563661627,
+            "CA_C_N_deg": 117.38540264205744,
+            "C_N_CA_deg": 123.20567489826293,
+            "omega_deg": -178.5357210866167
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.331012396636484,
+            "CA_C_N_deg": 116.12790731990788,
+            "C_N_CA_deg": 123.03005021912068,
+            "omega_deg": -179.17557351351735
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3344230963229005,
+            "CA_C_N_deg": 116.70064845833147,
+            "C_N_CA_deg": 124.5809490999999,
+            "omega_deg": -177.6786993492043
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3207702298280346,
+            "CA_C_N_deg": 115.58556629660254,
+            "C_N_CA_deg": 124.62719307510736,
+            "omega_deg": -177.63618537950848
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3287686028801264,
+            "CA_C_N_deg": 116.23778704123863,
+            "C_N_CA_deg": 124.4663867216864,
+            "omega_deg": 177.98728705119672
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3406602850834362,
+            "CA_C_N_deg": 118.51756674676454,
+            "C_N_CA_deg": 124.41130599320839,
+            "omega_deg": 176.64524079372933
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3324972795469412,
+            "CA_C_N_deg": 117.61186638388989,
+            "C_N_CA_deg": 125.29029862133953,
+            "omega_deg": -176.257266425728
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3280997703485984,
+            "CA_C_N_deg": 117.42530261204166,
+            "C_N_CA_deg": 124.69391878017753,
+            "omega_deg": 177.10086878273265
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3315081674552371,
+            "CA_C_N_deg": 115.5272574123932,
+            "C_N_CA_deg": 124.29409769388528,
+            "omega_deg": -178.728688102151
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.332998499624061,
+            "CA_C_N_deg": 115.14693802400643,
+            "C_N_CA_deg": 123.86252080040309,
+            "omega_deg": 179.5845256056089
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3323603116274512,
+            "CA_C_N_deg": 119.52547055165338,
+            "C_N_CA_deg": 121.89801734149867,
+            "omega_deg": 179.9239729827364
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3206604408401126,
+            "CA_C_N_deg": 116.99776040851484,
+            "C_N_CA_deg": 123.45544780397712,
+            "omega_deg": -178.01284615058736
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3323265365517574,
+            "CA_C_N_deg": 117.18554170681837,
+            "C_N_CA_deg": 122.78918614044083,
+            "omega_deg": 179.92634248137344
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3329883720423077,
+            "CA_C_N_deg": 117.08830187150718,
+            "C_N_CA_deg": 122.8569589801964,
+            "omega_deg": 178.19264451778952
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.322859024990948,
+            "CA_C_N_deg": 116.85725795000094,
+            "C_N_CA_deg": 123.36913986550913,
+            "omega_deg": 177.7551018884146
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 2.6740023871841756
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [
+        {
+          "residue": 172,
+          "atoms": [
+            "CD2",
+            "CE2",
+            "CZ2",
+            "CH2",
+            "CZ3",
+            "CE3"
+          ],
+          "linking_numbers": [
+            1.0
+          ]
+        }
+      ],
+      "covalent_cycle_link_screen_pass": false,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0004",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0004.pdb",
+      "sha256": "c66e55675ad6c618fbd4527bbc3344ecf19383b9b5138f5dc8dfe578352e107d",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0024162392880033856,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5688857506709026,
+          "max_vdw_overlap_A": 0.5011142493290976,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 2.739513460452421,
+            "max_vdw_overlap_A": 0.6604865395475787,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 1
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0306868296219385,
+          "CB_SG_SG_deg": 106.86733054489157,
+          "SG_SG_CB_deg": 105.84040729574154,
+          "chi3_deg": -140.1646409742478
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3388491326508738,
+            "CA_C_N_deg": 116.72128512875993,
+            "C_N_CA_deg": 125.99457078033551,
+            "omega_deg": 179.32647715381003
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.325811826768792,
+            "CA_C_N_deg": 117.30356442491845,
+            "C_N_CA_deg": 123.78636044204997,
+            "omega_deg": 179.35244799032634
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3317124314205373,
+            "CA_C_N_deg": 115.81844818024027,
+            "C_N_CA_deg": 123.61030394972948,
+            "omega_deg": -177.32241035492575
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3324391168079677,
+            "CA_C_N_deg": 116.77410814790828,
+            "C_N_CA_deg": 124.64690638216717,
+            "omega_deg": 175.93438787357138
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3189912812448752,
+            "CA_C_N_deg": 117.05801953111512,
+            "C_N_CA_deg": 122.37044093748847,
+            "omega_deg": 177.53710686421084
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.32643167935631,
+            "CA_C_N_deg": 117.32949027149463,
+            "C_N_CA_deg": 123.18210228613566,
+            "omega_deg": -178.29505261907735
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3395958345710104,
+            "CA_C_N_deg": 118.03810082281362,
+            "C_N_CA_deg": 123.97746459129293,
+            "omega_deg": 177.88643578272868
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.335025842446504,
+            "CA_C_N_deg": 118.25729720844187,
+            "C_N_CA_deg": 125.37868006984435,
+            "omega_deg": 179.0482869140514
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3322496012384444,
+            "CA_C_N_deg": 118.81020847473025,
+            "C_N_CA_deg": 124.69711173062835,
+            "omega_deg": -179.77998516406356
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3367763462898348,
+            "CA_C_N_deg": 116.55595895443146,
+            "C_N_CA_deg": 123.26340722352417,
+            "omega_deg": 179.903689885852
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3345418689572828,
+            "CA_C_N_deg": 115.62967181163502,
+            "C_N_CA_deg": 124.47089667548663,
+            "omega_deg": 178.30708585061453
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3317916503717857,
+            "CA_C_N_deg": 119.47485580155121,
+            "C_N_CA_deg": 121.84750953365433,
+            "omega_deg": 179.58765260822324
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3197848309478335,
+            "CA_C_N_deg": 117.17418774846567,
+            "C_N_CA_deg": 123.37050662231634,
+            "omega_deg": -176.1735953355932
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3331995349534138,
+            "CA_C_N_deg": 118.16443448273714,
+            "C_N_CA_deg": 122.44363205988967,
+            "omega_deg": -179.28191381379105
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3327828030103022,
+            "CA_C_N_deg": 116.79939395805381,
+            "C_N_CA_deg": 123.63191941025926,
+            "omega_deg": 178.38837277497151
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3227252171180544,
+            "CA_C_N_deg": 117.12545750161847,
+            "C_N_CA_deg": 123.3175566186196,
+            "omega_deg": 177.6434267153834
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 9.401539451955019
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0005",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0005.pdb",
+      "sha256": "dd2ede3bb35ca25e507e63f1bce4a55e2574cc8734bb0be29d62c76b53d21f16",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.003054606977596741,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5649253400440335,
+          "max_vdw_overlap_A": 0.508820710093361,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.5167784825241845,
+            "max_vdw_overlap_A": 2.8832215174758153,
+            "pairs_below_2_A": 44,
+            "pairs_overlap_gt_0p6_A": 90
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0279765777740133,
+          "CB_SG_SG_deg": 116.82314966944757,
+          "SG_SG_CB_deg": 100.40182603168782,
+          "chi3_deg": -164.5835428565351
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3374318674235335,
+            "CA_C_N_deg": 118.02649633314937,
+            "C_N_CA_deg": 123.67194002717149,
+            "omega_deg": -176.3564826911655
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.326282775278335,
+            "CA_C_N_deg": 117.40084231638083,
+            "C_N_CA_deg": 123.64107928441938,
+            "omega_deg": -177.5835821486653
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3312178634618743,
+            "CA_C_N_deg": 116.02105742794934,
+            "C_N_CA_deg": 123.40965317593125,
+            "omega_deg": -178.63906017683118
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.333645005239401,
+            "CA_C_N_deg": 116.92588950829168,
+            "C_N_CA_deg": 124.0123565359839,
+            "omega_deg": -179.0040528030937
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3187543364857637,
+            "CA_C_N_deg": 115.59220617869602,
+            "C_N_CA_deg": 124.52747082789799,
+            "omega_deg": -177.30527199351639
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3276991376061076,
+            "CA_C_N_deg": 116.96800126038418,
+            "C_N_CA_deg": 123.37624235357617,
+            "omega_deg": 179.51031303992485
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3386059913208204,
+            "CA_C_N_deg": 117.85014893709156,
+            "C_N_CA_deg": 123.83353262011512,
+            "omega_deg": -176.22821092152049
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3336813712427729,
+            "CA_C_N_deg": 116.74034279962352,
+            "C_N_CA_deg": 126.3723368330987,
+            "omega_deg": -178.0461037836552
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3304307573113296,
+            "CA_C_N_deg": 119.04026352228178,
+            "C_N_CA_deg": 123.23880957745106,
+            "omega_deg": 178.9910011196791
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3347374273616512,
+            "CA_C_N_deg": 116.47323659874868,
+            "C_N_CA_deg": 122.2491340820742,
+            "omega_deg": -177.4679200761089
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3370086013186315,
+            "CA_C_N_deg": 115.85984219590385,
+            "C_N_CA_deg": 124.01139740635521,
+            "omega_deg": 177.44219506818078
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3334485366897377,
+            "CA_C_N_deg": 117.82020904214974,
+            "C_N_CA_deg": 124.86632457246388,
+            "omega_deg": 179.4833279994804
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3197280022792583,
+            "CA_C_N_deg": 117.527422223588,
+            "C_N_CA_deg": 122.64380008692514,
+            "omega_deg": 179.1382514396637
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3344759270964754,
+            "CA_C_N_deg": 117.66941768371969,
+            "C_N_CA_deg": 123.22776689655181,
+            "omega_deg": 179.52927976398925
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3329778692836551,
+            "CA_C_N_deg": 117.02281553166029,
+            "C_N_CA_deg": 123.49440467670925,
+            "omega_deg": 178.17068757873872
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3231628773510848,
+            "CA_C_N_deg": 117.50484545933331,
+            "C_N_CA_deg": 123.18277923700971,
+            "omega_deg": 177.77365832479248
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 1.5327171624275633
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0006",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0006.pdb",
+      "sha256": "9b2d699b01bc338f56221d1759f66fc56153e74aa7ed43171ca9ae6018b50e5a",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.008547208249299443,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.56710128354921,
+          "max_vdw_overlap_A": 0.5030051527468804,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 1.990935960798339,
+            "max_vdw_overlap_A": 1.2290640392016607,
+            "pairs_below_2_A": 1,
+            "pairs_overlap_gt_0p6_A": 4
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0247930758475055,
+          "CB_SG_SG_deg": 102.97149618180556,
+          "SG_SG_CB_deg": 100.60094477543021,
+          "chi3_deg": 128.61242169043047
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3377241868187941,
+            "CA_C_N_deg": 118.32986170870537,
+            "C_N_CA_deg": 123.18462989165792,
+            "omega_deg": -174.78837429673484
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3245761586258455,
+            "CA_C_N_deg": 117.78553300273542,
+            "C_N_CA_deg": 123.54924281396184,
+            "omega_deg": 179.79201113025823
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3322345889519611,
+            "CA_C_N_deg": 115.69356221046002,
+            "C_N_CA_deg": 123.6204674990497,
+            "omega_deg": -179.17038440420345
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.332436490043709,
+            "CA_C_N_deg": 116.63172593843545,
+            "C_N_CA_deg": 124.6420036118425,
+            "omega_deg": 179.58415145790428
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3193119418848578,
+            "CA_C_N_deg": 116.16637282538227,
+            "C_N_CA_deg": 123.21600480138042,
+            "omega_deg": -179.0077843389801
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3266853432521228,
+            "CA_C_N_deg": 116.72718545144835,
+            "C_N_CA_deg": 124.0456950998141,
+            "omega_deg": 179.61488529751563
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3403036969284237,
+            "CA_C_N_deg": 117.57784693178651,
+            "C_N_CA_deg": 124.3619249085096,
+            "omega_deg": 179.74607810439753
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3353741048859666,
+            "CA_C_N_deg": 118.18852638752311,
+            "C_N_CA_deg": 125.15274350492652,
+            "omega_deg": -179.9405617444255
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3319436925035524,
+            "CA_C_N_deg": 118.52447532576907,
+            "C_N_CA_deg": 124.88076145450684,
+            "omega_deg": -179.21212035212835
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3370927417348428,
+            "CA_C_N_deg": 117.45390309606321,
+            "C_N_CA_deg": 122.14408088846659,
+            "omega_deg": -177.29606593494123
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3317259477835512,
+            "CA_C_N_deg": 116.48893641407949,
+            "C_N_CA_deg": 121.37845327285497,
+            "omega_deg": 177.69881675806334
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3358731227178708,
+            "CA_C_N_deg": 117.42166129787614,
+            "C_N_CA_deg": 124.06450671287574,
+            "omega_deg": 170.99860392798658
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.31703340883973,
+            "CA_C_N_deg": 119.22227070852276,
+            "C_N_CA_deg": 119.17416094707934,
+            "omega_deg": -177.58693853008614
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3281776989544747,
+            "CA_C_N_deg": 114.084472770535,
+            "C_N_CA_deg": 125.29735556102915,
+            "omega_deg": 174.84841364938438
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3361216262002498,
+            "CA_C_N_deg": 115.88886454567596,
+            "C_N_CA_deg": 124.21086475351996,
+            "omega_deg": -179.25618868321376
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3210503396918691,
+            "CA_C_N_deg": 116.92612246984058,
+            "C_N_CA_deg": 122.72455630720042,
+            "omega_deg": 173.78346560341058
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 9.388721921362176
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0007",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0007.pdb",
+      "sha256": "83dfc6a77e3bedbb4b976fcd5fffb757571ca2433a3a0aaf68a8ff2d7435319d",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.00550984337158078,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5368243928187058,
+          "max_vdw_overlap_A": 0.5031756071812943,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.2589671793876579,
+            "max_vdw_overlap_A": 2.991032820612342,
+            "pairs_below_2_A": 37,
+            "pairs_overlap_gt_0p6_A": 94
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.037269987016941,
+          "CB_SG_SG_deg": 105.91482812946036,
+          "SG_SG_CB_deg": 103.58393100995598,
+          "chi3_deg": -110.52746814685852
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3377970698129067,
+            "CA_C_N_deg": 118.52183957504414,
+            "C_N_CA_deg": 123.58437666592692,
+            "omega_deg": -176.7994135248304
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3272034508695325,
+            "CA_C_N_deg": 117.8149353782721,
+            "C_N_CA_deg": 123.7607123178064,
+            "omega_deg": -178.34238074667138
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.333480033596302,
+            "CA_C_N_deg": 116.25527043157696,
+            "C_N_CA_deg": 123.3985045732749,
+            "omega_deg": -179.05924435161123
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3331665312330636,
+            "CA_C_N_deg": 116.62628951120371,
+            "C_N_CA_deg": 124.7652788549396,
+            "omega_deg": 179.12087136644553
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3205960775346874,
+            "CA_C_N_deg": 116.67128726968605,
+            "C_N_CA_deg": 122.22291162338489,
+            "omega_deg": -178.61145915536008
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3249494329973492,
+            "CA_C_N_deg": 116.25287602622295,
+            "C_N_CA_deg": 123.42021188126039,
+            "omega_deg": -175.72293900635532
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.336554899732891,
+            "CA_C_N_deg": 116.32942178241784,
+            "C_N_CA_deg": 124.87521550295872,
+            "omega_deg": -170.597102520946
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.334628787341259,
+            "CA_C_N_deg": 117.21218148476282,
+            "C_N_CA_deg": 125.68737728592545,
+            "omega_deg": -174.71470120527147
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3339452762388724,
+            "CA_C_N_deg": 118.16894094572807,
+            "C_N_CA_deg": 126.04232924104596,
+            "omega_deg": 178.00582842134156
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3364538899640341,
+            "CA_C_N_deg": 116.6726019639792,
+            "C_N_CA_deg": 123.45075290046394,
+            "omega_deg": 178.60475275083746
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.337460653626865,
+            "CA_C_N_deg": 116.7791972855267,
+            "C_N_CA_deg": 123.13393627261335,
+            "omega_deg": 175.6039533262975
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.335301089642331,
+            "CA_C_N_deg": 117.9056685225434,
+            "C_N_CA_deg": 126.40627885182984,
+            "omega_deg": -173.6422920992769
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3203139778098236,
+            "CA_C_N_deg": 118.28183480278739,
+            "C_N_CA_deg": 124.25626684057447,
+            "omega_deg": -177.37668944338628
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3336719986563417,
+            "CA_C_N_deg": 117.87205878532944,
+            "C_N_CA_deg": 122.83046454924049,
+            "omega_deg": 177.43020825281332
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3330348832645011,
+            "CA_C_N_deg": 117.35851801007652,
+            "C_N_CA_deg": 123.1971773912071,
+            "omega_deg": -177.98676269901634
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3230049130672195,
+            "CA_C_N_deg": 117.9499930967429,
+            "C_N_CA_deg": 122.37335284811131,
+            "omega_deg": 177.52180197946365
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 0.7861662038017152
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.720847473285566,
+                -17.849729596829235,
+                3.1404086203395245
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                23.053992777190548,
+                -19.627608968144997,
+                1.6479457875607022
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 4,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.350869151383876,
+                -17.91177387492249,
+                2.9768633343057016
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.951048373450853,
+                -19.596375618100172,
+                1.73267073710758
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                20,
+                13
+              ],
+              "xyz_A": [
+                22.217967145589288,
+                -18.503923440114775,
+                2.722212223788005
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                20,
+                13
+              ],
+              "xyz_A": [
+                22.233753566986444,
+                -18.334783210859523,
+                2.7864261634561394
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0008",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0008.pdb",
+      "sha256": "1e18a62e95fa764c0ed20066011f6c7b812c917bff19180b30c7f44269637a76",
+      "geometry": {
+        "geometric_screen_pass": true,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.006412979778477101,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5670913501470873,
+          "max_vdw_overlap_A": 0.5059280392996355,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 6.394077103069682,
+            "max_vdw_overlap_A": -2.994077103069682,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0466343102762647,
+          "CB_SG_SG_deg": 106.269347231764,
+          "SG_SG_CB_deg": 104.01680158614353,
+          "chi3_deg": -60.33302431122323
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3382230755744737,
+            "CA_C_N_deg": 118.25527541985952,
+            "C_N_CA_deg": 123.99092565047528,
+            "omega_deg": -179.3342530710374
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.326843623039278,
+            "CA_C_N_deg": 117.33332508622934,
+            "C_N_CA_deg": 124.29946682374293,
+            "omega_deg": 179.9821187696389
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3318479642962284,
+            "CA_C_N_deg": 115.73812603934944,
+            "C_N_CA_deg": 123.74759654473357,
+            "omega_deg": 179.48761682842425
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3324721385454923,
+            "CA_C_N_deg": 116.47538435999627,
+            "C_N_CA_deg": 124.66852942967458,
+            "omega_deg": -179.12873589532617
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3196507113626699,
+            "CA_C_N_deg": 116.31076972835137,
+            "C_N_CA_deg": 122.82422768387423,
+            "omega_deg": -179.5395878946604
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3261112321370312,
+            "CA_C_N_deg": 117.16697809275037,
+            "C_N_CA_deg": 123.59790278982989,
+            "omega_deg": -179.63661078122684
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3398425280606687,
+            "CA_C_N_deg": 117.4071029860279,
+            "C_N_CA_deg": 124.56946269251505,
+            "omega_deg": 179.64463326104897
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3358690055540619,
+            "CA_C_N_deg": 118.00016411459042,
+            "C_N_CA_deg": 125.64042409017874,
+            "omega_deg": -179.3946439370258
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3317289514011457,
+            "CA_C_N_deg": 118.49066289027907,
+            "C_N_CA_deg": 124.90207276485108,
+            "omega_deg": -178.7563290193886
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3364464074552331,
+            "CA_C_N_deg": 115.53940247207751,
+            "C_N_CA_deg": 125.96378899348744,
+            "omega_deg": 176.93531552352823
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3381797338175472,
+            "CA_C_N_deg": 115.45377968680893,
+            "C_N_CA_deg": 124.87238817446939,
+            "omega_deg": 179.01606396681007
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.331925673601946,
+            "CA_C_N_deg": 118.15160388957398,
+            "C_N_CA_deg": 122.9195337812065,
+            "omega_deg": -177.56379771856712
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3198249883980808,
+            "CA_C_N_deg": 116.05507536430463,
+            "C_N_CA_deg": 123.94498197910312,
+            "omega_deg": 179.3579042895889
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3328469529544662,
+            "CA_C_N_deg": 118.50571271359253,
+            "C_N_CA_deg": 120.89807798423348,
+            "omega_deg": -176.2077204228087
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3334057896979434,
+            "CA_C_N_deg": 114.75007457863042,
+            "C_N_CA_deg": 127.51533833882156,
+            "omega_deg": 174.58142591436575
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.323181393460474,
+            "CA_C_N_deg": 117.17407816631602,
+            "C_N_CA_deg": 123.63018159055305,
+            "omega_deg": 165.7135816227464
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 12.197176931569043
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": true,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0009",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0009.pdb",
+      "sha256": "8e39f0e0e69fb2ab2faf89dca395baf3e92d702d93a85485a0d9f0adadd28106",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0022859536869987984,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5669875340562145,
+          "max_vdw_overlap_A": 0.5030124659437858,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.6196402181911695,
+            "max_vdw_overlap_A": 2.6375336072980033,
+            "pairs_below_2_A": 44,
+            "pairs_overlap_gt_0p6_A": 86
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.028221141789031,
+          "CB_SG_SG_deg": 105.23522687504324,
+          "SG_SG_CB_deg": 102.42834208371158,
+          "chi3_deg": -111.48793223257077
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3359943862157504,
+            "CA_C_N_deg": 118.44005996539647,
+            "C_N_CA_deg": 123.46117141289078,
+            "omega_deg": -176.77763223263463
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3260018853681919,
+            "CA_C_N_deg": 117.52375804924228,
+            "C_N_CA_deg": 123.84708320080291,
+            "omega_deg": -178.8721167088565
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3323760730364385,
+            "CA_C_N_deg": 115.94986363627005,
+            "C_N_CA_deg": 123.47714466137846,
+            "omega_deg": 179.731552688255
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3310815151597597,
+            "CA_C_N_deg": 116.69849750347471,
+            "C_N_CA_deg": 124.18173445041838,
+            "omega_deg": 179.62678469165954
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3180584205565393,
+            "CA_C_N_deg": 115.93733346666106,
+            "C_N_CA_deg": 123.02101799591753,
+            "omega_deg": -179.78707562879717
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3252916660116736,
+            "CA_C_N_deg": 116.82426177373806,
+            "C_N_CA_deg": 124.1324296159187,
+            "omega_deg": 175.38652426703138
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3395790383549588,
+            "CA_C_N_deg": 116.81709168458026,
+            "C_N_CA_deg": 125.0588967019309,
+            "omega_deg": -177.35537635003982
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3343440335985324,
+            "CA_C_N_deg": 117.88914836564487,
+            "C_N_CA_deg": 125.48765818102913,
+            "omega_deg": -179.10500630245983
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.331668502293269,
+            "CA_C_N_deg": 118.64252428337797,
+            "C_N_CA_deg": 124.5645215667378,
+            "omega_deg": -179.6328826602245
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.335925147603712,
+            "CA_C_N_deg": 116.01250117640649,
+            "C_N_CA_deg": 123.48175862834196,
+            "omega_deg": -178.75368562399004
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3352819926891841,
+            "CA_C_N_deg": 116.02797862971853,
+            "C_N_CA_deg": 123.6253938132466,
+            "omega_deg": 178.68151240855607
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3334110394023295,
+            "CA_C_N_deg": 118.58616594402005,
+            "C_N_CA_deg": 123.52438954689225,
+            "omega_deg": 179.02538052807125
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3207066290437113,
+            "CA_C_N_deg": 117.89746928653408,
+            "C_N_CA_deg": 122.80944134264907,
+            "omega_deg": -176.26267879779905
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.333444412039737,
+            "CA_C_N_deg": 118.34564634731477,
+            "C_N_CA_deg": 122.64265637252616,
+            "omega_deg": -179.5171568514276
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3332955411310743,
+            "CA_C_N_deg": 116.99367674120474,
+            "C_N_CA_deg": 123.52409749028057,
+            "omega_deg": 178.9403417532285
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3234156565493704,
+            "CA_C_N_deg": 117.58813685204854,
+            "C_N_CA_deg": 122.91671691895782,
+            "omega_deg": 176.49809653270586
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 0.5016783830304034
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                23.448314115005573,
+                -17.72773557731359,
+                3.4619781095696966
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                17,
+                19
+              ],
+              "xyz_A": [
+                23.889823785335256,
+                -19.550616975472902,
+                1.7397074379565212
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                23.325004596783963,
+                -17.74841422140485,
+                3.4074703472646264
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                17,
+                19
+              ],
+              "xyz_A": [
+                23.846785582200972,
+                -19.5611218623326,
+                1.7195571549801876
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0010",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0010.pdb",
+      "sha256": "1d77730754d3f3b31a8825db2ef5858db8d5a9b421d99c0cc5942d4930095804",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": false,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.00823824265120332,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5256702080833895,
+          "max_vdw_overlap_A": 0.5158974178784441,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 1.3774588923085869,
+            "max_vdw_overlap_A": 1.8425411076914129,
+            "pairs_below_2_A": 1,
+            "pairs_overlap_gt_0p6_A": 6
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.023077358876819,
+          "CB_SG_SG_deg": 106.40725361943954,
+          "SG_SG_CB_deg": 103.03377133615231,
+          "chi3_deg": -161.87655977201726
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3376161631798544,
+            "CA_C_N_deg": 118.24317573606817,
+            "C_N_CA_deg": 123.83397754547678,
+            "omega_deg": -177.73330375429424
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3264965133764972,
+            "CA_C_N_deg": 117.31108033513296,
+            "C_N_CA_deg": 124.50575549552154,
+            "omega_deg": 177.98026659524137
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3309015741218442,
+            "CA_C_N_deg": 115.74514869921467,
+            "C_N_CA_deg": 124.0472443306421,
+            "omega_deg": -178.788197996923
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3320142641878865,
+            "CA_C_N_deg": 116.68098129503223,
+            "C_N_CA_deg": 124.41775737398407,
+            "omega_deg": 177.13962438706918
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3185317591927774,
+            "CA_C_N_deg": 115.81236879727165,
+            "C_N_CA_deg": 123.23611596383593,
+            "omega_deg": -179.76034192286568
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.325481421974669,
+            "CA_C_N_deg": 117.20834317465047,
+            "C_N_CA_deg": 123.15745088642302,
+            "omega_deg": -179.98849063521803
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3397540819120521,
+            "CA_C_N_deg": 117.40394442508253,
+            "C_N_CA_deg": 124.54088122472538,
+            "omega_deg": 179.58715575826005
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3357174102331684,
+            "CA_C_N_deg": 117.86545706879295,
+            "C_N_CA_deg": 125.25956254863605,
+            "omega_deg": 179.70506278876738
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3321903017211927,
+            "CA_C_N_deg": 119.07865392136215,
+            "C_N_CA_deg": 123.42152328550554,
+            "omega_deg": -178.0878955262115
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3347677700633913,
+            "CA_C_N_deg": 115.90809133013715,
+            "C_N_CA_deg": 123.3429130069501,
+            "omega_deg": 174.17885672706745
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3320424167420488,
+            "CA_C_N_deg": 117.28525893286634,
+            "C_N_CA_deg": 120.37929392466566,
+            "omega_deg": 171.7972223985382
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.334751662295274,
+            "CA_C_N_deg": 116.23389532918151,
+            "C_N_CA_deg": 125.81454357137348,
+            "omega_deg": 176.0512177756736
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3242832023400422,
+            "CA_C_N_deg": 117.35054529050069,
+            "C_N_CA_deg": 122.70846603760172,
+            "omega_deg": 174.68109409761735
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3367007892568918,
+            "CA_C_N_deg": 120.99532662907778,
+            "C_N_CA_deg": 119.22497160136152,
+            "omega_deg": 176.56108677453872
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3371047079417535,
+            "CA_C_N_deg": 116.24122070179996,
+            "C_N_CA_deg": 120.26869279046834,
+            "omega_deg": 171.10117872153438
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.318393340395803,
+            "CA_C_N_deg": 110.70632502725091,
+            "C_N_CA_deg": 128.36301557851834,
+            "omega_deg": 149.27754505729507
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 7.830551608922579
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0011",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0011.pdb",
+      "sha256": "a2fa9344aae9ed7f6c83ce83f361d62c5250d90c32dfcdcc56f0b2be3b406baf",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.002079655323689922,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5868592926558653,
+          "max_vdw_overlap_A": 0.5013163111535013,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.45662019228238226,
+            "max_vdw_overlap_A": 2.9433798077176174,
+            "pairs_below_2_A": 14,
+            "pairs_overlap_gt_0p6_A": 34
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.027776614915953,
+          "CB_SG_SG_deg": 106.86248089549078,
+          "SG_SG_CB_deg": 102.0865590977834,
+          "chi3_deg": -157.9323291893282
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.336097301845941,
+            "CA_C_N_deg": 118.23395496010322,
+            "C_N_CA_deg": 123.27402944819488,
+            "omega_deg": -178.26010615009454
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3258325686149033,
+            "CA_C_N_deg": 117.24432739701696,
+            "C_N_CA_deg": 123.6199426310813,
+            "omega_deg": 179.9696262612418
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3327524151169279,
+            "CA_C_N_deg": 116.01875150779495,
+            "C_N_CA_deg": 123.42037979934184,
+            "omega_deg": -179.33285751742088
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3331290260136108,
+            "CA_C_N_deg": 116.51700377685772,
+            "C_N_CA_deg": 124.63863513364467,
+            "omega_deg": -179.96650339082353
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3188741410763987,
+            "CA_C_N_deg": 116.44542997441816,
+            "C_N_CA_deg": 122.65742865032668,
+            "omega_deg": -179.21365666765325
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.324936979633371,
+            "CA_C_N_deg": 116.69061583915312,
+            "C_N_CA_deg": 123.73763441931202,
+            "omega_deg": -178.74727471593033
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3401414104489127,
+            "CA_C_N_deg": 117.85353533963325,
+            "C_N_CA_deg": 124.38872995099517,
+            "omega_deg": -179.58369039180405
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3357997604431584,
+            "CA_C_N_deg": 118.11984224411277,
+            "C_N_CA_deg": 125.37199628783047,
+            "omega_deg": -179.08165220191157
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3298022409365995,
+            "CA_C_N_deg": 118.02869363918077,
+            "C_N_CA_deg": 125.40696366771958,
+            "omega_deg": 176.83414388365506
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3339583951533127,
+            "CA_C_N_deg": 116.45558773225345,
+            "C_N_CA_deg": 122.63357241335497,
+            "omega_deg": -178.47392780281095
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3347606527014497,
+            "CA_C_N_deg": 115.70099099653284,
+            "C_N_CA_deg": 123.35215968038064,
+            "omega_deg": 176.18623923094717
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.332222954313578,
+            "CA_C_N_deg": 117.62136889766998,
+            "C_N_CA_deg": 124.4942386345021,
+            "omega_deg": 179.51510609408987
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3201462040243876,
+            "CA_C_N_deg": 117.68986728018788,
+            "C_N_CA_deg": 122.91381947418957,
+            "omega_deg": -177.93954502434332
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3338643109402095,
+            "CA_C_N_deg": 117.86111298264309,
+            "C_N_CA_deg": 123.00287985448418,
+            "omega_deg": -179.13414035010368
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.333148153807373,
+            "CA_C_N_deg": 116.8227314776304,
+            "C_N_CA_deg": 123.46113121969628,
+            "omega_deg": 177.77339967886894
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3233185557529237,
+            "CA_C_N_deg": 117.45187437398017,
+            "C_N_CA_deg": 123.04310445862119,
+            "omega_deg": 177.32208800045498
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 3.7350794034397716
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0012",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0012.pdb",
+      "sha256": "3b53bbe2561325d75e0b2102ad7cf52eae4a3d4574395d19c614d394b45abdcc",
+      "geometry": {
+        "geometric_screen_pass": true,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0029098654153607573,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5689190333679277,
+          "max_vdw_overlap_A": 0.5054209794578681,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 3.309767514494031,
+            "max_vdw_overlap_A": 0.09023248550596907,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.037957310642203,
+          "CB_SG_SG_deg": 109.2454518508618,
+          "SG_SG_CB_deg": 108.02665930671652,
+          "chi3_deg": -75.17341939353807
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3377626844848096,
+            "CA_C_N_deg": 117.9723339693747,
+            "C_N_CA_deg": 124.82958895119862,
+            "omega_deg": 179.38282494867866
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3270105500711018,
+            "CA_C_N_deg": 117.5424250069178,
+            "C_N_CA_deg": 123.75260851014104,
+            "omega_deg": -179.4785896968607
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3323862052723308,
+            "CA_C_N_deg": 115.57419636539028,
+            "C_N_CA_deg": 124.22113624726262,
+            "omega_deg": -178.55487912939867
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3330138783973722,
+            "CA_C_N_deg": 116.79971719853772,
+            "C_N_CA_deg": 124.39702791857894,
+            "omega_deg": -179.17946406903985
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3190242605805256,
+            "CA_C_N_deg": 116.22498967610107,
+            "C_N_CA_deg": 122.97413536110224,
+            "omega_deg": -179.44106499017786
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3258868730023687,
+            "CA_C_N_deg": 116.88621829293658,
+            "C_N_CA_deg": 123.6953139949722,
+            "omega_deg": 179.61157139184678
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3393386427636607,
+            "CA_C_N_deg": 117.47347992133605,
+            "C_N_CA_deg": 124.33778049715892,
+            "omega_deg": -179.4598069222584
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3343691393313921,
+            "CA_C_N_deg": 118.13390128798972,
+            "C_N_CA_deg": 125.45606327467704,
+            "omega_deg": -179.26542210574215
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3313091301422075,
+            "CA_C_N_deg": 118.85363779695128,
+            "C_N_CA_deg": 124.32547518434815,
+            "omega_deg": -178.46893831805266
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3361309816032272,
+            "CA_C_N_deg": 115.60535039535942,
+            "C_N_CA_deg": 124.36341218946887,
+            "omega_deg": -176.43382231786606
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.334714201617708,
+            "CA_C_N_deg": 116.51932775707833,
+            "C_N_CA_deg": 123.43407778181843,
+            "omega_deg": -177.01560708168523
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3332659149622015,
+            "CA_C_N_deg": 119.20255175509789,
+            "C_N_CA_deg": 122.9745713475588,
+            "omega_deg": -177.65029824039425
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3199231038208243,
+            "CA_C_N_deg": 116.61851183497325,
+            "C_N_CA_deg": 123.78343060867314,
+            "omega_deg": 176.13666284458418
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.331596410328593,
+            "CA_C_N_deg": 118.14790339524296,
+            "C_N_CA_deg": 122.26970755349988,
+            "omega_deg": 178.8880455394114
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3348887594103114,
+            "CA_C_N_deg": 117.35170193400302,
+            "C_N_CA_deg": 124.14290576422881,
+            "omega_deg": -177.77664552395262
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3215449292400165,
+            "CA_C_N_deg": 116.81242611158446,
+            "C_N_CA_deg": 124.92743623925756,
+            "omega_deg": 178.14468887636235
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 9.6797277587406
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": true,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0013",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0013.pdb",
+      "sha256": "7890fa0d4ceb2abad6c8f9ae09e1c4363653e75118844649123de33f76053431",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.003160936164313899,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.567060575833768,
+          "max_vdw_overlap_A": 0.517523059862937,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.39276583354461847,
+            "max_vdw_overlap_A": 2.973840405481703,
+            "pairs_below_2_A": 38,
+            "pairs_overlap_gt_0p6_A": 80
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0274479031531256,
+          "CB_SG_SG_deg": 120.96150709232533,
+          "SG_SG_CB_deg": 104.97820040604061,
+          "chi3_deg": 82.15579069229089
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3376449454171313,
+            "CA_C_N_deg": 118.16287602623846,
+            "C_N_CA_deg": 123.77822140488303,
+            "omega_deg": -176.94890712894204
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.32565342378768,
+            "CA_C_N_deg": 117.33985075033715,
+            "C_N_CA_deg": 123.87225725310067,
+            "omega_deg": -177.70941848594828
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.331215985480944,
+            "CA_C_N_deg": 116.27716475042796,
+            "C_N_CA_deg": 123.06830099537453,
+            "omega_deg": -179.80577445590845
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.331409403602063,
+            "CA_C_N_deg": 116.55050445782712,
+            "C_N_CA_deg": 124.28894170918218,
+            "omega_deg": 179.70239899093545
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3177382137587095,
+            "CA_C_N_deg": 116.13175699940788,
+            "C_N_CA_deg": 122.64464982746483,
+            "omega_deg": -179.36924279375748
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.325433136751906,
+            "CA_C_N_deg": 116.89513590945097,
+            "C_N_CA_deg": 123.86920373009532,
+            "omega_deg": 177.94118461228425
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.339611884091806,
+            "CA_C_N_deg": 117.20161569000888,
+            "C_N_CA_deg": 124.40752820724262,
+            "omega_deg": -177.40383191631432
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.333567396122146,
+            "CA_C_N_deg": 118.76415032841302,
+            "C_N_CA_deg": 124.21163423655905,
+            "omega_deg": -178.7959005957106
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3320097597240053,
+            "CA_C_N_deg": 118.0953118809259,
+            "C_N_CA_deg": 125.14265619729163,
+            "omega_deg": 178.46367750436016
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3341626587489241,
+            "CA_C_N_deg": 116.16945364866369,
+            "C_N_CA_deg": 123.15442317537322,
+            "omega_deg": -179.86970585218046
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3366469242099803,
+            "CA_C_N_deg": 116.35816620080556,
+            "C_N_CA_deg": 123.49067450019919,
+            "omega_deg": -178.69624784927277
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3331080226298229,
+            "CA_C_N_deg": 118.79668901251131,
+            "C_N_CA_deg": 123.16900009830162,
+            "omega_deg": 179.50004783100593
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3193407444629306,
+            "CA_C_N_deg": 117.67708366661259,
+            "C_N_CA_deg": 122.66657796514998,
+            "omega_deg": -178.89896259026105
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3344999063319543,
+            "CA_C_N_deg": 117.55988932308279,
+            "C_N_CA_deg": 123.20569732231507,
+            "omega_deg": -179.0520937848388
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3326920124319812,
+            "CA_C_N_deg": 116.58918548337316,
+            "C_N_CA_deg": 124.29757464157424,
+            "omega_deg": 178.47531774343136
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.323205955246575,
+            "CA_C_N_deg": 117.31244700133706,
+            "C_N_CA_deg": 123.71234378827087,
+            "omega_deg": 177.4202082044939
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 0.4838537141189128
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.842089770621847,
+                -17.829397619609782,
+                3.194002587941033
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.652256394148793,
+                -19.505722079480194,
+                1.9785814855479869
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.62481178435305,
+                -17.865834499841878,
+                3.0979569865919205
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.437902162986315,
+                -19.440686968368997,
+                2.154998568562266
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0014",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0014.pdb",
+      "sha256": "4234ceb08fe241f86ec739bc76b8d4ca2ff1768695ce94199ba704e1229bf34f",
+      "geometry": {
+        "geometric_screen_pass": true,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0015587059145960591,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.565981683488797,
+          "max_vdw_overlap_A": 0.5040183165112033,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 4.658868317520898,
+            "max_vdw_overlap_A": -1.3613595747433318,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.032896701753435,
+          "CB_SG_SG_deg": 103.23612588776933,
+          "SG_SG_CB_deg": 105.49845884749051,
+          "chi3_deg": 68.47002625898092
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3393897864326128,
+            "CA_C_N_deg": 118.03447942299086,
+            "C_N_CA_deg": 125.27039649076265,
+            "omega_deg": 178.77155920019652
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3271115250799386,
+            "CA_C_N_deg": 117.5055012383121,
+            "C_N_CA_deg": 124.52458816287678,
+            "omega_deg": -179.19383723103704
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3314627294821284,
+            "CA_C_N_deg": 115.61343001176905,
+            "C_N_CA_deg": 124.20764627004857,
+            "omega_deg": 179.39459555323523
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3321189886793114,
+            "CA_C_N_deg": 116.83576918125276,
+            "C_N_CA_deg": 124.55011807963682,
+            "omega_deg": 179.72591768535642
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.318895371134497,
+            "CA_C_N_deg": 116.30243227777704,
+            "C_N_CA_deg": 122.77551787350573,
+            "omega_deg": -179.32132501256393
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3258031528096466,
+            "CA_C_N_deg": 116.79962928058438,
+            "C_N_CA_deg": 124.04664138949283,
+            "omega_deg": -179.84988870147995
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.339955596279217,
+            "CA_C_N_deg": 117.67108716779704,
+            "C_N_CA_deg": 124.19910158156276,
+            "omega_deg": 179.68718559326408
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.335471826733909,
+            "CA_C_N_deg": 118.43401515802626,
+            "C_N_CA_deg": 125.19169990468608,
+            "omega_deg": 179.39097588285512
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.331589276015694,
+            "CA_C_N_deg": 118.85610285890547,
+            "C_N_CA_deg": 124.37209623521143,
+            "omega_deg": -179.7414937585818
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3360875719802185,
+            "CA_C_N_deg": 115.8394066098004,
+            "C_N_CA_deg": 123.88763814547137,
+            "omega_deg": -179.77294788119931
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3355422119873255,
+            "CA_C_N_deg": 116.06490367979441,
+            "C_N_CA_deg": 123.81146246488159,
+            "omega_deg": -178.12952240151301
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.333082518076055,
+            "CA_C_N_deg": 118.3972497830007,
+            "C_N_CA_deg": 123.6824514173662,
+            "omega_deg": 177.79491422605972
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3201624899988604,
+            "CA_C_N_deg": 116.74025031429164,
+            "C_N_CA_deg": 123.73746388001638,
+            "omega_deg": -176.22995636984388
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.333474409203266,
+            "CA_C_N_deg": 118.304180145775,
+            "C_N_CA_deg": 122.43441631707725,
+            "omega_deg": -178.1623982255951
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3341176859632717,
+            "CA_C_N_deg": 116.87454917769152,
+            "C_N_CA_deg": 123.80487987711871,
+            "omega_deg": 179.0354657534141
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3229134514396639,
+            "CA_C_N_deg": 117.25832258097576,
+            "C_N_CA_deg": 123.29110488649164,
+            "omega_deg": 177.25660271173695
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 10.287639022956952
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": true,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0015",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0015.pdb",
+      "sha256": "4f76d7c794cb9de8eafc6f0fecf19240e62b0af533df898962b78ba5ef5f1e7e",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0040460466068026335,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.542787446877933,
+          "max_vdw_overlap_A": 0.5077894624494932,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.5423744094258137,
+            "max_vdw_overlap_A": 2.677625590574186,
+            "pairs_below_2_A": 25,
+            "pairs_overlap_gt_0p6_A": 53
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0202316698834317,
+          "CB_SG_SG_deg": 106.01484815733606,
+          "SG_SG_CB_deg": 101.76285132741494,
+          "chi3_deg": -131.78685029464432
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3376120513811185,
+            "CA_C_N_deg": 118.43858627086367,
+            "C_N_CA_deg": 123.47887899843175,
+            "omega_deg": -173.21167642794796
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3251509347995027,
+            "CA_C_N_deg": 118.23296103423282,
+            "C_N_CA_deg": 123.15572381188542,
+            "omega_deg": -178.9439911895982
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.333790088432209,
+            "CA_C_N_deg": 116.25809340724143,
+            "C_N_CA_deg": 123.19877497785261,
+            "omega_deg": -177.53914980033468
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3320934651892868,
+            "CA_C_N_deg": 115.08664820543518,
+            "C_N_CA_deg": 126.47921810983453,
+            "omega_deg": 175.46807757930475
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3187183171549555,
+            "CA_C_N_deg": 117.38546672569231,
+            "C_N_CA_deg": 122.40822362164971,
+            "omega_deg": -177.18203651009426
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.329862398896968,
+            "CA_C_N_deg": 118.05375573764246,
+            "C_N_CA_deg": 122.54131750809175,
+            "omega_deg": -178.72221438864946
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3389761013550632,
+            "CA_C_N_deg": 118.3207950512224,
+            "C_N_CA_deg": 123.72896234830718,
+            "omega_deg": 179.69080043975308
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3376535425886606,
+            "CA_C_N_deg": 118.21060135207973,
+            "C_N_CA_deg": 125.62668519246017,
+            "omega_deg": 179.55479419529522
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3304946448595723,
+            "CA_C_N_deg": 118.54024763079383,
+            "C_N_CA_deg": 124.72258760703978,
+            "omega_deg": 175.49136794938363
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3359648198960925,
+            "CA_C_N_deg": 116.29493368657238,
+            "C_N_CA_deg": 123.10547878264103,
+            "omega_deg": -179.83810542346868
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3340284854529916,
+            "CA_C_N_deg": 116.58986064042062,
+            "C_N_CA_deg": 122.30878042994688,
+            "omega_deg": -177.82515113572848
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3315216858917487,
+            "CA_C_N_deg": 117.92079256040424,
+            "C_N_CA_deg": 124.04571079474621,
+            "omega_deg": -178.70788898633063
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3198799187804913,
+            "CA_C_N_deg": 117.15424775983725,
+            "C_N_CA_deg": 123.00047284412001,
+            "omega_deg": 178.77064035444485
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3333844156881391,
+            "CA_C_N_deg": 116.98682817116753,
+            "C_N_CA_deg": 123.32319083494095,
+            "omega_deg": 179.4288705359554
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3330240057853433,
+            "CA_C_N_deg": 116.74235335827964,
+            "C_N_CA_deg": 123.86997708366519,
+            "omega_deg": 179.1565773374983
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3223566084835063,
+            "CA_C_N_deg": 116.90321205373019,
+            "C_N_CA_deg": 124.00268689328803,
+            "omega_deg": -179.31382310909424
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 3.3012468578806193
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0016",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0016.pdb",
+      "sha256": "c721ea6f056ac2e546c5e8a170ff6da9c3b359fce0ff5f1a7f65b1a748292015",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0024358784684126444,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5665036528320004,
+          "max_vdw_overlap_A": 0.5034963471679998,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 6.88163156526125,
+            "max_vdw_overlap_A": -3.59299327899005,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.03200836612451,
+          "CB_SG_SG_deg": 105.56755068804098,
+          "SG_SG_CB_deg": 104.0721993546536,
+          "chi3_deg": -165.30085197114587
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3359468552304015,
+            "CA_C_N_deg": 118.42346624232565,
+            "C_N_CA_deg": 123.67990921350062,
+            "omega_deg": 177.48418070886768
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3261862614278568,
+            "CA_C_N_deg": 117.20131202477386,
+            "C_N_CA_deg": 124.7846102070863,
+            "omega_deg": -179.07759232836182
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3330423849225528,
+            "CA_C_N_deg": 116.02497107381242,
+            "C_N_CA_deg": 123.6271715132587,
+            "omega_deg": -179.3159661715319
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.33257645184057,
+            "CA_C_N_deg": 116.64279693799259,
+            "C_N_CA_deg": 124.73111088247607,
+            "omega_deg": 179.90662631262185
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3186273165682574,
+            "CA_C_N_deg": 116.6189097511583,
+            "C_N_CA_deg": 122.63602548845853,
+            "omega_deg": -179.79195347029375
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3258336999789988,
+            "CA_C_N_deg": 117.07433739783876,
+            "C_N_CA_deg": 123.82884572661652,
+            "omega_deg": -178.70595804838564
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3407602321071423,
+            "CA_C_N_deg": 117.4797926767906,
+            "C_N_CA_deg": 124.71114950185554,
+            "omega_deg": 179.11136343069617
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3360669893384831,
+            "CA_C_N_deg": 117.84764501881907,
+            "C_N_CA_deg": 125.85468186989371,
+            "omega_deg": -179.7437416572733
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3320168917847839,
+            "CA_C_N_deg": 119.4902763238453,
+            "C_N_CA_deg": 123.0217821287944,
+            "omega_deg": 179.1326863450428
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.335083892495152,
+            "CA_C_N_deg": 116.45010373698064,
+            "C_N_CA_deg": 123.00040882638767,
+            "omega_deg": -178.14744697998933
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.335863765509044,
+            "CA_C_N_deg": 116.65190807718011,
+            "C_N_CA_deg": 123.34813385059941,
+            "omega_deg": -179.11637367984372
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3337735939806292,
+            "CA_C_N_deg": 119.20944169209108,
+            "C_N_CA_deg": 122.89528762104295,
+            "omega_deg": -177.26254665173647
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3205067209219363,
+            "CA_C_N_deg": 117.75052071409536,
+            "C_N_CA_deg": 121.80493756147769,
+            "omega_deg": 177.5135840696217
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3349985018718193,
+            "CA_C_N_deg": 117.29491273056423,
+            "C_N_CA_deg": 122.95942071175237,
+            "omega_deg": -175.7556678691387
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3327336568121948,
+            "CA_C_N_deg": 116.06480337731021,
+            "C_N_CA_deg": 124.88719703084446,
+            "omega_deg": 177.35990653090244
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.322949734494853,
+            "CA_C_N_deg": 116.75657954120359,
+            "C_N_CA_deg": 124.87686155977289,
+            "omega_deg": -177.86551260730718
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 11.173973816418222
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0017",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0017.pdb",
+      "sha256": "64ecdeef737c6f216d9d8b09382a4ddaacc2ca8aa4528c3298dcc6d7639bbb18",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0027435785612925923,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5694337897676993,
+          "max_vdw_overlap_A": 0.500566210232301,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 1.4921695614104984,
+            "max_vdw_overlap_A": 1.7278304385895014,
+            "pairs_below_2_A": 3,
+            "pairs_overlap_gt_0p6_A": 12
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0301339857260645,
+          "CB_SG_SG_deg": 105.4679630341619,
+          "SG_SG_CB_deg": 105.86608142246328,
+          "chi3_deg": 99.29417638116146
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3376385909504873,
+            "CA_C_N_deg": 118.50608631019205,
+            "C_N_CA_deg": 123.4572952562124,
+            "omega_deg": -178.3879743091086
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3253048705863877,
+            "CA_C_N_deg": 117.37730826875335,
+            "C_N_CA_deg": 123.9474025459041,
+            "omega_deg": 179.76908074657973
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.332016891784786,
+            "CA_C_N_deg": 115.65593254602274,
+            "C_N_CA_deg": 123.8502160469632,
+            "omega_deg": -178.70376494837592
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3313260306927075,
+            "CA_C_N_deg": 116.40398930201245,
+            "C_N_CA_deg": 124.83605248778275,
+            "omega_deg": 179.835319282018
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3181733573396195,
+            "CA_C_N_deg": 116.45195140020496,
+            "C_N_CA_deg": 122.13477589699865,
+            "omega_deg": -179.28937418389046
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3251264090644337,
+            "CA_C_N_deg": 116.80759627278958,
+            "C_N_CA_deg": 123.16714553632063,
+            "omega_deg": 179.88387443594928
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.339212828492916,
+            "CA_C_N_deg": 117.39432115206714,
+            "C_N_CA_deg": 124.75368687065452,
+            "omega_deg": -177.88058923897987
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3350269660197895,
+            "CA_C_N_deg": 118.15513659419024,
+            "C_N_CA_deg": 125.11203010420155,
+            "omega_deg": -176.60257516480698
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3312347651710432,
+            "CA_C_N_deg": 118.09932333465926,
+            "C_N_CA_deg": 125.55241068105295,
+            "omega_deg": -179.6413815479884
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.337863221708408,
+            "CA_C_N_deg": 116.18904308960069,
+            "C_N_CA_deg": 123.86334436423424,
+            "omega_deg": -178.916288156759
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.336398518406841,
+            "CA_C_N_deg": 116.13401263948133,
+            "C_N_CA_deg": 124.65364773422031,
+            "omega_deg": 176.0473975620579
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3337784673625532,
+            "CA_C_N_deg": 119.436546937383,
+            "C_N_CA_deg": 122.89790630128202,
+            "omega_deg": -177.6413136965288
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.320058710815549,
+            "CA_C_N_deg": 115.88913459112024,
+            "C_N_CA_deg": 124.69463165534421,
+            "omega_deg": -177.4946567400862
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3336360073123397,
+            "CA_C_N_deg": 118.5000497297972,
+            "C_N_CA_deg": 122.36201507882762,
+            "omega_deg": -177.49438118793844
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3327329064745106,
+            "CA_C_N_deg": 116.55313596764383,
+            "C_N_CA_deg": 124.20204432459937,
+            "omega_deg": 177.27203122006873
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.322026096565421,
+            "CA_C_N_deg": 116.40242002279561,
+            "C_N_CA_deg": 125.01062545893663,
+            "omega_deg": 178.6816833973692
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 3.5769353805550734
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0018",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0018.pdb",
+      "sha256": "47a4aeec200e61e38f3076401c75b8cefaeed4293731858ee349dbba9b618e63",
+      "geometry": {
+        "geometric_screen_pass": true,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.002513674571746227,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.635327304150284,
+          "max_vdw_overlap_A": 0.5002533801775741,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 3.7994382479519264,
+            "max_vdw_overlap_A": -0.5794382479519267,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.033549851860043,
+          "CB_SG_SG_deg": 103.34104462631785,
+          "SG_SG_CB_deg": 105.25578372475091,
+          "chi3_deg": -83.28912501935386
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3394487672173208,
+            "CA_C_N_deg": 117.78680680011219,
+            "C_N_CA_deg": 125.08829353196847,
+            "omega_deg": -178.90401462298425
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3265345830395832,
+            "CA_C_N_deg": 117.64808852732097,
+            "C_N_CA_deg": 123.99344100187537,
+            "omega_deg": 178.45126669706687
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3320469210954988,
+            "CA_C_N_deg": 116.13657025399172,
+            "C_N_CA_deg": 123.50934581579692,
+            "omega_deg": -179.19424275777044
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3319151624634376,
+            "CA_C_N_deg": 117.1157309285504,
+            "C_N_CA_deg": 123.87631574864281,
+            "omega_deg": -179.61877038600065
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3198499914763056,
+            "CA_C_N_deg": 116.23132002979521,
+            "C_N_CA_deg": 123.00972115933133,
+            "omega_deg": -179.6126280729791
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3264079312187487,
+            "CA_C_N_deg": 117.04242354669373,
+            "C_N_CA_deg": 123.87931024262924,
+            "omega_deg": -179.76751080874013
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3407822343691758,
+            "CA_C_N_deg": 117.6103709530166,
+            "C_N_CA_deg": 124.3235488083808,
+            "omega_deg": -179.4074276554741
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3361807512458783,
+            "CA_C_N_deg": 117.99215772692783,
+            "C_N_CA_deg": 125.56273044456918,
+            "omega_deg": -179.5098131967472
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.331406023720788,
+            "CA_C_N_deg": 118.49843405051558,
+            "C_N_CA_deg": 125.09508501159132,
+            "omega_deg": -179.10396041600154
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.337288301003191,
+            "CA_C_N_deg": 116.25519409398298,
+            "C_N_CA_deg": 123.26232884085549,
+            "omega_deg": 178.13201928365234
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3355725364052666,
+            "CA_C_N_deg": 116.17814951150946,
+            "C_N_CA_deg": 123.04837512701707,
+            "omega_deg": -179.5210168418114
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3332085358262606,
+            "CA_C_N_deg": 118.46244596799177,
+            "C_N_CA_deg": 123.78441158912035,
+            "omega_deg": -177.48363190705055
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3192391746760694,
+            "CA_C_N_deg": 116.29020199591059,
+            "C_N_CA_deg": 124.67300769140537,
+            "omega_deg": -179.0888205640985
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3363809337161332,
+            "CA_C_N_deg": 117.08837478209506,
+            "C_N_CA_deg": 124.54369707426257,
+            "omega_deg": -178.9280377157682
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.332055929756706,
+            "CA_C_N_deg": 117.40130129789623,
+            "C_N_CA_deg": 124.69939912513675,
+            "omega_deg": 176.5170384238431
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.324269232444824,
+            "CA_C_N_deg": 118.76719164998406,
+            "C_N_CA_deg": 122.38146143778897,
+            "omega_deg": 179.68099127122107
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 12.314304436304962
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": true,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0019",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0019.pdb",
+      "sha256": "a0273e9a9f14a965ca8cfc2249b6668f8953314309e4ebf87c8fdc476a73c637",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0035925585138667504,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5391860900690206,
+          "max_vdw_overlap_A": 0.51753358628511,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.46140871253152527,
+            "max_vdw_overlap_A": 2.9385912874684745,
+            "pairs_below_2_A": 40,
+            "pairs_overlap_gt_0p6_A": 86
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0273564067524013,
+          "CB_SG_SG_deg": 122.32579456598765,
+          "SG_SG_CB_deg": 100.9087500715792,
+          "chi3_deg": 86.55176099669315
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3352950984707475,
+            "CA_C_N_deg": 118.81006209325977,
+            "C_N_CA_deg": 122.70028302834763,
+            "omega_deg": -177.2610932789407
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3275643110599211,
+            "CA_C_N_deg": 117.88820233947173,
+            "C_N_CA_deg": 123.930592161294,
+            "omega_deg": 179.870508540415
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3340757099955016,
+            "CA_C_N_deg": 115.96825817833387,
+            "C_N_CA_deg": 123.57191740323334,
+            "omega_deg": 179.2674549866741
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3323306646624922,
+            "CA_C_N_deg": 116.65510952668865,
+            "C_N_CA_deg": 125.30039792047162,
+            "omega_deg": 178.4165675780158
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3174938330026436,
+            "CA_C_N_deg": 117.48816727558656,
+            "C_N_CA_deg": 120.8010391939861,
+            "omega_deg": -179.25698698948196
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3261636399781147,
+            "CA_C_N_deg": 116.77598845050112,
+            "C_N_CA_deg": 123.82981155668192,
+            "omega_deg": -179.02705847240333
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3392882438071352,
+            "CA_C_N_deg": 117.40875206665044,
+            "C_N_CA_deg": 124.56430760367601,
+            "omega_deg": -178.58183479212397
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3340862041112642,
+            "CA_C_N_deg": 118.7258440828838,
+            "C_N_CA_deg": 124.27455950214767,
+            "omega_deg": -178.61787700873754
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.331274201657946,
+            "CA_C_N_deg": 118.21733860913979,
+            "C_N_CA_deg": 125.08469122155668,
+            "omega_deg": 178.8757209591633
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3348659108689547,
+            "CA_C_N_deg": 116.19250341438472,
+            "C_N_CA_deg": 123.60642455912482,
+            "omega_deg": -177.23193050380158
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3361874868445671,
+            "CA_C_N_deg": 116.15594373659086,
+            "C_N_CA_deg": 123.96249001294417,
+            "omega_deg": 176.04546125841205
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.332024774544375,
+            "CA_C_N_deg": 119.23115007203683,
+            "C_N_CA_deg": 123.18706178750621,
+            "omega_deg": -179.69192807481724
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3196548791255982,
+            "CA_C_N_deg": 116.68240354645953,
+            "C_N_CA_deg": 122.72612252157914,
+            "omega_deg": 177.3255112106561
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.334568469581085,
+            "CA_C_N_deg": 117.22280259666323,
+            "C_N_CA_deg": 123.44161932686725,
+            "omega_deg": 179.51990641114918
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3321392569847939,
+            "CA_C_N_deg": 116.87112468690407,
+            "C_N_CA_deg": 123.62147379938975,
+            "omega_deg": 179.30625609284218
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3224783552103998,
+            "CA_C_N_deg": 117.3391272564697,
+            "C_N_CA_deg": 123.06636289785052,
+            "omega_deg": 178.94107553732977
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 0.7139788628990824
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.772503615928787,
+                -17.841067013402977,
+                3.163242711214271
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.84265033373587,
+                -19.563487633949507,
+                1.8218841194013395
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.523861323146782,
+                -17.882763595731955,
+                3.0533328259968777
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.784969276517995,
+                -19.545987191131875,
+                1.869356584975601
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0020",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0020.pdb",
+      "sha256": "5a2f58f11eb709e541d368979af6bb0ef50906f2e511e3495519bd51b66ec635",
+      "geometry": {
+        "geometric_screen_pass": true,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.005535561849717041,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5914169869011823,
+          "max_vdw_overlap_A": 0.5118733412190615,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 6.365379643037798,
+            "max_vdw_overlap_A": -2.965379643037798,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0394616936829197,
+          "CB_SG_SG_deg": 104.64635608708818,
+          "SG_SG_CB_deg": 104.2492621372078,
+          "chi3_deg": -83.48376167486771
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3390328599403387,
+            "CA_C_N_deg": 117.8913266653918,
+            "C_N_CA_deg": 124.62589435433965,
+            "omega_deg": 178.3287039062903
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.326594889180567,
+            "CA_C_N_deg": 117.40684535003393,
+            "C_N_CA_deg": 123.84073548686813,
+            "omega_deg": -179.7766573208812
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3323663159957184,
+            "CA_C_N_deg": 115.91038102039414,
+            "C_N_CA_deg": 123.67999056549168,
+            "omega_deg": -178.4553517586975
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.333148153807372,
+            "CA_C_N_deg": 116.47715696300617,
+            "C_N_CA_deg": 124.69260182743777,
+            "omega_deg": 179.73200794348344
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3196412391252406,
+            "CA_C_N_deg": 116.44973326332965,
+            "C_N_CA_deg": 122.59412771481406,
+            "omega_deg": -179.5289000467022
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.325674545278741,
+            "CA_C_N_deg": 116.74444114369972,
+            "C_N_CA_deg": 124.04363228611746,
+            "omega_deg": -179.29181473143876
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3404070277344866,
+            "CA_C_N_deg": 117.7321530826006,
+            "C_N_CA_deg": 124.05795258882448,
+            "omega_deg": -179.21393238284233
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3355736595186325,
+            "CA_C_N_deg": 118.2292370962405,
+            "C_N_CA_deg": 124.96837211409583,
+            "omega_deg": 179.70626420200543
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3323486780869371,
+            "CA_C_N_deg": 119.2345202213921,
+            "C_N_CA_deg": 124.07381118492442,
+            "omega_deg": -179.71741858087907
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3406748300762574,
+            "CA_C_N_deg": 115.36809396808155,
+            "C_N_CA_deg": 126.75149782725413,
+            "omega_deg": 175.19008853134233
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3362686855569115,
+            "CA_C_N_deg": 116.65671574238391,
+            "C_N_CA_deg": 123.17580534808747,
+            "omega_deg": -176.43354513382545
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3333124165025987,
+            "CA_C_N_deg": 118.11628848566127,
+            "C_N_CA_deg": 124.29415239759163,
+            "omega_deg": 178.44347253245638
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3206104648987163,
+            "CA_C_N_deg": 116.86737191310628,
+            "C_N_CA_deg": 123.05896849806417,
+            "omega_deg": -179.1396047664117
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3337158617936566,
+            "CA_C_N_deg": 117.2726197143922,
+            "C_N_CA_deg": 123.8477934714479,
+            "omega_deg": 179.51136392749805
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3330075018543601,
+            "CA_C_N_deg": 117.86474624037562,
+            "C_N_CA_deg": 122.84632025165575,
+            "omega_deg": -177.5423285506254
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3229009789096093,
+            "CA_C_N_deg": 118.49026674794877,
+            "C_N_CA_deg": 122.53085302184306,
+            "omega_deg": -179.39743294002847
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 11.012245031478974
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": true,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0021",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0021.pdb",
+      "sha256": "66b688763eeaaa757849e907c30a7759b178e34289311efadfde699086aeaa0e",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0023165437946117695,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.5676952700817144,
+          "max_vdw_overlap_A": 0.5023047299182859,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.29573467838588147,
+            "max_vdw_overlap_A": 2.924265321614118,
+            "pairs_below_2_A": 44,
+            "pairs_overlap_gt_0p6_A": 93
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0263716342270506,
+          "CB_SG_SG_deg": 104.21696958324284,
+          "SG_SG_CB_deg": 103.40026010812875,
+          "chi3_deg": -111.14967871243888
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3370785317250449,
+            "CA_C_N_deg": 118.22886832799539,
+            "C_N_CA_deg": 123.62851505656273,
+            "omega_deg": -177.55290078694077
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3257684564055678,
+            "CA_C_N_deg": 117.31823586177195,
+            "C_N_CA_deg": 124.04105063747326,
+            "omega_deg": 179.5042643675898
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.331644847547573,
+            "CA_C_N_deg": 115.60655874724849,
+            "C_N_CA_deg": 123.87180640667772,
+            "omega_deg": 179.51099571229238
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.331177298484316,
+            "CA_C_N_deg": 116.56878840691301,
+            "C_N_CA_deg": 124.37597983544556,
+            "omega_deg": -178.5830843735511
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.317917296342981,
+            "CA_C_N_deg": 116.27080004886882,
+            "C_N_CA_deg": 122.57136423178909,
+            "omega_deg": -179.7936949949802
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3254621835420264,
+            "CA_C_N_deg": 116.89882369849315,
+            "C_N_CA_deg": 123.72441539713654,
+            "omega_deg": -179.38778465591486
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3387370914410321,
+            "CA_C_N_deg": 117.62057183750656,
+            "C_N_CA_deg": 124.39106776125153,
+            "omega_deg": -178.4932612112845
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3348220855230104,
+            "CA_C_N_deg": 118.09794557389341,
+            "C_N_CA_deg": 125.35466213624265,
+            "omega_deg": -179.01544271752482
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.330009774400173,
+            "CA_C_N_deg": 118.46250496235268,
+            "C_N_CA_deg": 124.60666798421869,
+            "omega_deg": 176.64961952476838
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3337829658531386,
+            "CA_C_N_deg": 116.31042851370678,
+            "C_N_CA_deg": 122.54935874866231,
+            "omega_deg": -174.94814120921103
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.334548238169007,
+            "CA_C_N_deg": 114.90349063406066,
+            "C_N_CA_deg": 124.99383146630043,
+            "omega_deg": 178.00617710434824
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3319669665573537,
+            "CA_C_N_deg": 119.45073530390297,
+            "C_N_CA_deg": 122.0389773244895,
+            "omega_deg": 178.47263532781355
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.321221404610142,
+            "CA_C_N_deg": 117.15183727679734,
+            "C_N_CA_deg": 123.56532106136727,
+            "omega_deg": -174.62926155675154
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3328206931166708,
+            "CA_C_N_deg": 118.39943169865634,
+            "C_N_CA_deg": 122.18261133083853,
+            "omega_deg": -179.28138235400732
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3323666912678347,
+            "CA_C_N_deg": 117.02665036812802,
+            "C_N_CA_deg": 123.79121522091197,
+            "omega_deg": 179.98080027855224
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.322438656422295,
+            "CA_C_N_deg": 117.44527310449253,
+            "C_N_CA_deg": 123.72795661421165,
+            "omega_deg": 178.27732334538453
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 1.9882754336358939
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 3,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                14,
+                15
+              ],
+              "xyz_A": [
+                24.508844367034786,
+                -17.89726663057035,
+                2.718556833731984
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                15,
+                17
+              ],
+              "xyz_A": [
+                24.645539683012284,
+                -18.15913749036342,
+                2.5189241891434015
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                17,
+                18
+              ],
+              "xyz_A": [
+                25.344283562875983,
+                -19.48811625218979,
+                1.427644666496287
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 3,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                14,
+                15
+              ],
+              "xyz_A": [
+                24.39265068792782,
+                -17.873941904977187,
+                2.8165851735521077
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                15,
+                17
+              ],
+              "xyz_A": [
+                24.644514950440204,
+                -18.323436279420314,
+                2.4606282917094933
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                17,
+                18
+              ],
+              "xyz_A": [
+                25.317127901214842,
+                -19.483497942383476,
+                1.4531113462854024
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0022",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0022.pdb",
+      "sha256": "e41d0dc46f525e65aad08521ac98cbb4f063c2cb5c4614343c785d965ede0b91",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": false,
+          "peptide_connections": false,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": false,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.20794482971881112,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.153577720910019,
+          "max_vdw_overlap_A": 0.9555061873672086,
+          "pairs_overlap_gt_0p6_A": 9
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 6.317786716881158,
+            "max_vdw_overlap_A": -3.2621664588314907,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0325397905084177,
+          "CB_SG_SG_deg": 102.93854986695858,
+          "SG_SG_CB_deg": 98.03735116060594,
+          "chi3_deg": -63.99956334790887
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.338342258168665,
+            "CA_C_N_deg": 116.26754887072016,
+            "C_N_CA_deg": 123.58216048849708,
+            "omega_deg": 166.70709692004914
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3290601942726288,
+            "CA_C_N_deg": 116.85629052718534,
+            "C_N_CA_deg": 125.00454810198003,
+            "omega_deg": 176.67592061643356
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.334847931413911,
+            "CA_C_N_deg": 116.2346999339867,
+            "C_N_CA_deg": 123.34161609730486,
+            "omega_deg": 178.4874658510316
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3345714668012367,
+            "CA_C_N_deg": 116.36831488960355,
+            "C_N_CA_deg": 125.56566400102346,
+            "omega_deg": -178.76291175151306
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3222726647707677,
+            "CA_C_N_deg": 116.79570439691422,
+            "C_N_CA_deg": 122.14077354098279,
+            "omega_deg": -177.97471906049321
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3280139306498246,
+            "CA_C_N_deg": 117.88093281444911,
+            "C_N_CA_deg": 123.23408168485079,
+            "omega_deg": -178.24708499435548
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3422913245640822,
+            "CA_C_N_deg": 117.66796162836353,
+            "C_N_CA_deg": 124.24333799332554,
+            "omega_deg": -175.39263288714292
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.5096426729527719,
+            "CA_C_N_deg": 124.31547727496357,
+            "C_N_CA_deg": 156.6112924002209,
+            "omega_deg": -175.88895875831307
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.332401591112832,
+            "CA_C_N_deg": 109.8430836553275,
+            "C_N_CA_deg": 126.14075547528608,
+            "omega_deg": 170.0941215972583
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3356560185916138,
+            "CA_C_N_deg": 115.65340814564951,
+            "C_N_CA_deg": 123.29194438572006,
+            "omega_deg": 175.76740553027855
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3353175652255913,
+            "CA_C_N_deg": 115.07948835715963,
+            "C_N_CA_deg": 123.69553047481394,
+            "omega_deg": 177.91741224402816
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3331534045262743,
+            "CA_C_N_deg": 118.22672926389217,
+            "C_N_CA_deg": 123.91632312505686,
+            "omega_deg": -179.1983058122565
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.322917230971007,
+            "CA_C_N_deg": 117.17238541649431,
+            "C_N_CA_deg": 123.63026077572897,
+            "omega_deg": -179.56622860750602
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.332653743475777,
+            "CA_C_N_deg": 117.6358872468713,
+            "C_N_CA_deg": 121.9572530620314,
+            "omega_deg": -177.2550784774601
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3316808927066572,
+            "CA_C_N_deg": 115.9376398431971,
+            "C_N_CA_deg": 124.5787353854637,
+            "omega_deg": 177.12005987845578
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3219856277584878,
+            "CA_C_N_deg": 117.00276966166413,
+            "C_N_CA_deg": 124.54984911886825,
+            "omega_deg": -175.66157308561446
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 10.443820220589782
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0023",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0023.pdb",
+      "sha256": "1308599b7a1baa79aba3193358163d776ddba5784fcc2f16a63958074ebe9ec1",
+      "geometry": {
+        "geometric_screen_pass": false,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": false,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": false
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.003467261762012619,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.568822687536064,
+          "max_vdw_overlap_A": 0.5011773124639363,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 0.45669245669268366,
+            "max_vdw_overlap_A": 2.9433075433073164,
+            "pairs_below_2_A": 42,
+            "pairs_overlap_gt_0p6_A": 90
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.0325407744987563,
+          "CB_SG_SG_deg": 106.0121935984891,
+          "SG_SG_CB_deg": 100.56241487544604,
+          "chi3_deg": 157.41929918644388
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.3378430401209238,
+            "CA_C_N_deg": 118.28230512647899,
+            "C_N_CA_deg": 123.78854781171685,
+            "omega_deg": -175.4298719822733
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3254123886549438,
+            "CA_C_N_deg": 117.74731313521733,
+            "C_N_CA_deg": 123.65849392827077,
+            "omega_deg": -177.6518266905209
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.332487148155659,
+            "CA_C_N_deg": 116.27179774499496,
+            "C_N_CA_deg": 123.22393441553662,
+            "omega_deg": -178.39678271244136
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3331710317884962,
+            "CA_C_N_deg": 116.52979423608764,
+            "C_N_CA_deg": 124.91958920675442,
+            "omega_deg": 179.10330029612868
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.320317007388756,
+            "CA_C_N_deg": 116.51085601547905,
+            "C_N_CA_deg": 122.87425924390253,
+            "omega_deg": -177.1984706382402
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3276818142913602,
+            "CA_C_N_deg": 116.59666298608916,
+            "C_N_CA_deg": 123.95849255374277,
+            "omega_deg": 179.40656323824425
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3397092968252473,
+            "CA_C_N_deg": 117.78253812235172,
+            "C_N_CA_deg": 124.18930508612536,
+            "omega_deg": -177.62803416386075
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.3344980329697018,
+            "CA_C_N_deg": 118.76553165941917,
+            "C_N_CA_deg": 124.45433604665537,
+            "omega_deg": -178.47622851910583
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.330164651462367,
+            "CA_C_N_deg": 117.23187370251271,
+            "C_N_CA_deg": 126.43270115014329,
+            "omega_deg": 176.73140383759403
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.3340933250713767,
+            "CA_C_N_deg": 117.70128027198511,
+            "C_N_CA_deg": 120.16521042241023,
+            "omega_deg": -179.3096210981862
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3361728930044952,
+            "CA_C_N_deg": 115.07981733311668,
+            "C_N_CA_deg": 125.41787359124247,
+            "omega_deg": 179.23787907695453
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3324271087005086,
+            "CA_C_N_deg": 119.77128028995476,
+            "C_N_CA_deg": 122.07459750410861,
+            "omega_deg": -179.8109923957469
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.3200049242332381,
+            "CA_C_N_deg": 117.6945577454351,
+            "C_N_CA_deg": 122.6062453898222,
+            "omega_deg": -178.52619460481307
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3340202397265208,
+            "CA_C_N_deg": 117.72661367632874,
+            "C_N_CA_deg": 122.65678827820342,
+            "omega_deg": 179.68844324829186
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3326856343489246,
+            "CA_C_N_deg": 117.11365599622974,
+            "C_N_CA_deg": 123.21343268599178,
+            "omega_deg": 179.54277524247456
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.322777759111486,
+            "CA_C_N_deg": 117.52240700343435,
+            "C_N_CA_deg": 122.54911146091126,
+            "omega_deg": 177.37222143453943
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 0.4370086955656604
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.825257054700213,
+                -17.83222041663837,
+                3.1865618510730465
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.755497640035944,
+                -19.537045491484314,
+                1.8936122299965725
+              ]
+            }
+          ]
+        },
+        "anchor_midpoint_fan": {
+          "count": 2,
+          "intersections": [
+            {
+              "ligand_bond_1based": [
+                13,
+                14
+              ],
+              "xyz_A": [
+                22.588771001252862,
+                -17.87187843332931,
+                3.0820255121457785
+              ]
+            },
+            {
+              "ligand_bond_1based": [
+                19,
+                20
+              ],
+              "xyz_A": [
+                22.537106718248282,
+                -19.470785647733567,
+                2.073351576262966
+              ]
+            }
+          ]
+        }
+      },
+      "eligible_for_visual_review": false,
+      "production_ready": false
+    },
+    {
+      "name": "candidate_0024",
+      "path": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_0024.pdb",
+      "sha256": "ccd4e52d7e8b262414428619d37cb15931c52cc12675cb9faa855a351dc3bfa0",
+      "geometry": {
+        "geometric_screen_pass": true,
+        "gates": {
+          "outside_fixed": true,
+          "local_bond_lengths": true,
+          "peptide_connections": true,
+          "disulfide_geometry": true,
+          "CA_chirality": true,
+          "protein_sterics": true,
+          "both_ligand_sterics": true
+        },
+        "outside_max_displacement_A": 0.0,
+        "max_bond_length_change_A": 0.0023769641087267868,
+        "inverted_CA": [],
+        "protein_sterics": {
+          "min_nonbonded_heavy_A": 2.579442381601106,
+          "max_vdw_overlap_A": 0.4905576183988942,
+          "pairs_overlap_gt_0p6_A": 0
+        },
+        "ligands": {
+          "native_wt_ascr3": {
+            "min_heavy_A": 6.136864590326237,
+            "max_vdw_overlap_A": -2.736864590326237,
+            "pairs_below_2_A": 0,
+            "pairs_overlap_gt_0p6_A": 0
+          }
+        },
+        "disulfide": {
+          "SG_SG_A": 2.031073361550488,
+          "CB_SG_SG_deg": 103.824595010439,
+          "SG_SG_CB_deg": 103.86470512617136,
+          "chi3_deg": -103.42487227338286
+        },
+        "peptides": [
+          {
+            "res1": 163,
+            "CN_A": 1.338369904025043,
+            "CA_C_N_deg": 119.31810447389826,
+            "C_N_CA_deg": 122.81715987265119,
+            "omega_deg": 179.3296914158453
+          },
+          {
+            "res1": 164,
+            "CN_A": 1.3266050655715123,
+            "CA_C_N_deg": 117.86773289132461,
+            "C_N_CA_deg": 123.68586920065961,
+            "omega_deg": -179.92420814494386
+          },
+          {
+            "res1": 165,
+            "CN_A": 1.3325179173279438,
+            "CA_C_N_deg": 115.86939375445901,
+            "C_N_CA_deg": 123.55486408551297,
+            "omega_deg": -179.5558511668109
+          },
+          {
+            "res1": 166,
+            "CN_A": 1.3324601307356245,
+            "CA_C_N_deg": 116.85552589442281,
+            "C_N_CA_deg": 124.44643896370329,
+            "omega_deg": 179.32688952149994
+          },
+          {
+            "res1": 167,
+            "CN_A": 1.3198499914763049,
+            "CA_C_N_deg": 116.89044748117682,
+            "C_N_CA_deg": 122.25316290980905,
+            "omega_deg": 179.71411337519842
+          },
+          {
+            "res1": 168,
+            "CN_A": 1.3255496972954268,
+            "CA_C_N_deg": 116.96681625148388,
+            "C_N_CA_deg": 123.84436087689353,
+            "omega_deg": 179.54675892783504
+          },
+          {
+            "res1": 169,
+            "CN_A": 1.3404066547134132,
+            "CA_C_N_deg": 117.67525791083875,
+            "C_N_CA_deg": 123.82985833694629,
+            "omega_deg": -178.6737412726316
+          },
+          {
+            "res1": 170,
+            "CN_A": 1.335346022572427,
+            "CA_C_N_deg": 118.12633455223056,
+            "C_N_CA_deg": 125.18849413717544,
+            "omega_deg": 179.00849127013723
+          },
+          {
+            "res1": 171,
+            "CN_A": 1.3330431350860308,
+            "CA_C_N_deg": 119.09037823677127,
+            "C_N_CA_deg": 124.07607813702074,
+            "omega_deg": 179.6657809902596
+          },
+          {
+            "res1": 172,
+            "CN_A": 1.335326926261879,
+            "CA_C_N_deg": 115.67607242266858,
+            "C_N_CA_deg": 124.28948702948993,
+            "omega_deg": 179.50855678801992
+          },
+          {
+            "res1": 173,
+            "CN_A": 1.3349610481208793,
+            "CA_C_N_deg": 116.62039966110994,
+            "C_N_CA_deg": 122.99208393463442,
+            "omega_deg": -178.82102703539803
+          },
+          {
+            "res1": 174,
+            "CN_A": 1.3325119136428012,
+            "CA_C_N_deg": 118.07047691462334,
+            "C_N_CA_deg": 124.07598270552856,
+            "omega_deg": 179.7104569321726
+          },
+          {
+            "res1": 175,
+            "CN_A": 1.319765509475073,
+            "CA_C_N_deg": 117.38971004476251,
+            "C_N_CA_deg": 122.54836934639434,
+            "omega_deg": 179.56241665558053
+          },
+          {
+            "res1": 176,
+            "CN_A": 1.3342192473502987,
+            "CA_C_N_deg": 117.6660041761901,
+            "C_N_CA_deg": 122.88986173992012,
+            "omega_deg": 177.72788282850632
+          },
+          {
+            "res1": 177,
+            "CN_A": 1.3331170241205381,
+            "CA_C_N_deg": 118.02265446616197,
+            "C_N_CA_deg": 122.73261986461753,
+            "omega_deg": -179.28050790380286
+          },
+          {
+            "res1": 178,
+            "CN_A": 1.3230393040269062,
+            "CA_C_N_deg": 117.62141800085374,
+            "C_N_CA_deg": 123.98684056123155,
+            "omega_deg": 179.05293510204874
+          }
+        ],
+        "lid_backbone_rmsd_no_fit_A": 11.008117248194626
+      },
+      "ss_loop_sugar_linking_numbers": [
+        0.0
+      ],
+      "protein_ring_sugar_links": [],
+      "covalent_cycle_link_screen_pass": true,
+      "open_lid_artificial_surface_diagnostic": {
+        "centroid_fan": {
+          "count": 0,
+          "intersections": []
+        },
+        "anchor_midpoint_fan": {
+          "count": 0,
+          "intersections": []
+        }
+      },
+      "eligible_for_visual_review": true,
+      "production_ready": false
+    }
+  ]
+}

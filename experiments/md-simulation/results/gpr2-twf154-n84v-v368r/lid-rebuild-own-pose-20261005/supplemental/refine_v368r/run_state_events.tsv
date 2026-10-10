@@ -1,0 +1,2 @@
+observed_at	state	source	detail
+2026-10-05T15:50:23.761141+00:00	TERMINAL_ABNORMAL	../logs/refine_v368r.log	BoundFunc namespace error before minimization; no refined coordinates generated

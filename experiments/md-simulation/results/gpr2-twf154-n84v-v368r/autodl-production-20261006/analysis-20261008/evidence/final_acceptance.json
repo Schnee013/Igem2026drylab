@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "record_kind": "Derived local acceptance summary of actual evidence; not a production gate",
+  "cases": 6,
+  "source_segments": 77,
+  "duration_ns_each": 100,
+  "processed_unique_frames_each": 10001,
+  "real_shared_driver_exits_zero": 42,
+  "metric_content_checks": 180,
+  "independent_RMSD_checks": 60,
+  "dynamic_contact_cross_checks": 48,
+  "local_files_SHA_PASS": 633,
+  "e2_manifest_files": 657,
+  "e2_retained_trajectories": 24,
+  "e2_retained_trajectory_bytes": 37089081292,
+  "primary_window_ns": [
+    50,
+    100
+  ],
+  "source_manifest_SHA256": "3417813d6ed04aaf4b20e0fbc17bddf12963430eb2cc7ea0010264e7895fe74d",
+  "evidence": [
+    "evidence/input_processed_validation.tsv",
+    "comparison/analysis_validation.tsv",
+    "comparison/independent_rmsd_reproduction.csv",
+    "evidence/ligand_path_validation.tsv",
+    "evidence/local_delivery_validation.tsv"
+  ],
+  "interpretation": "Actual own parent/lid/pose; single-rep exploratory; no mutation causality, affinity rank or established mechanism",
+  "MD_replicates_each": 1
+}

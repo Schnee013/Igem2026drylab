@@ -1,0 +1,28 @@
+observed_at	state	source	detail
+2026-10-05T15:39:10.492886+00:00	UNRESOLVED	config.json	Initializing pilot; runtime not yet verified
+2026-10-05T15:39:43.491716+00:00	RUNNING_VERIFIED	environment.json	Pilot initialized; no production MD
+2026-10-05T15:40:15.989716+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 1/24
+2026-10-05T15:40:39.768064+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 2/24
+2026-10-05T15:41:09.709336+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 3/24
+2026-10-05T15:41:47.849848+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 4/24
+2026-10-05T15:42:12.390667+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 5/24
+2026-10-05T15:42:42.390656+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 6/24
+2026-10-05T15:43:06.362767+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 7/24
+2026-10-05T15:43:51.639692+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 8/24
+2026-10-05T15:44:14.003930+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 9/24
+2026-10-05T15:45:11.720886+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 10/24
+2026-10-05T15:45:52.450057+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 11/24
+2026-10-05T15:47:09.776141+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 12/24
+2026-10-05T15:47:38.382206+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 13/24
+2026-10-05T15:48:18.417102+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 14/24
+2026-10-05T15:48:52.303470+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 15/24
+2026-10-05T15:49:50.505499+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 16/24
+2026-10-05T15:50:19.716042+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 17/24
+2026-10-05T15:51:21.293531+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 18/24
+2026-10-05T15:52:05.076968+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 19/24
+2026-10-05T15:53:15.850493+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 20/24
+2026-10-05T15:53:52.220940+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 21/24
+2026-10-05T15:54:45.713037+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 22/24
+2026-10-05T15:55:19.050431+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 23/24
+2026-10-05T15:55:53.061618+00:00	RUNNING_VERIFIED	candidates.json	Completed pilot candidate 24/24
+2026-10-05T15:55:53.062419+00:00	TERMINAL_NORMAL	summary.json	Pilot finished; geometry passes=7; no MD launched

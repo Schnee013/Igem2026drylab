@@ -1,0 +1,175 @@
+{
+  "status": "PASS",
+  "frames": 10001,
+  "unique_frames": 10001,
+  "first_ps": 0.0,
+  "last_ps": 100000.0,
+  "missing_grid_points": 0,
+  "topology": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/native_wt_ascr18/rep1_npt01_attempt02/production.tpr",
+    "bytes": 5435980,
+    "sha256": "f97d2195e53a51194b1bb27cef6f4794a7771da36836497b3fd3778d4a77d50f"
+  },
+  "trajectory": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/merged_full.xtc",
+    "bytes": 5439253068,
+    "sha256": "048bab3bc78761b059d287889aad91d3971e7915654ff09ebb74bd2e4ad1bd34"
+  },
+  "evidence": [
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/coverage_certificate.json",
+      "bytes": 26321,
+      "sha256": "573ce2c34de9f15f52327a0363180c6cf91b9a41c9dd2ef34a1dfb8327a6d768"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_001.manifest.json",
+      "bytes": 13735,
+      "sha256": "703c2571ec594a5bd1d06a9024611114266840e798ffdb463b4f53af5850869a"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_002.manifest.json",
+      "bytes": 8736,
+      "sha256": "1707379f4df36d622500248ee0a852a022bca7e5fbaef6a1984a5693b320ea3c"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_003.manifest.json",
+      "bytes": 8152,
+      "sha256": "de92f7828ea63436e5a4a301d950017f7d53bbde32836e9d86d511be35287bad"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_004.manifest.json",
+      "bytes": 12034,
+      "sha256": "f7ee61ea894fa7cc3127845d04c1db5837902e862e4a666e703bcfe92b276d8c"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_005.manifest.json",
+      "bytes": 6763,
+      "sha256": "e23ddb672c9dbe7ba4ce4231c0040db1a5ed21ae3fb92274078f98deba4b92bc"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_006.manifest.json",
+      "bytes": 6755,
+      "sha256": "00d04b7db222d736c6a19d0b9bc01518d82bb48250a13e536297e554cddcf250"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_007.manifest.json",
+      "bytes": 6766,
+      "sha256": "0b038e4ec60b8d49b909b97240353ffebab2a9af35dc82de8d195a2cb1863b0a"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_008.manifest.json",
+      "bytes": 6754,
+      "sha256": "954c4e8c4178f24d006b96e4811113d54cdc9657238b06733042f65e52a6e3a9"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_009.manifest.json",
+      "bytes": 6766,
+      "sha256": "4ca9ee5ee60c379d1101ba5fa6d81c9d74c0909a636994d18bfcaac5e8b79bda"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_010.manifest.json",
+      "bytes": 6766,
+      "sha256": "bcaad8011ad6b580dae97a3fb1eefc8fc353ec0ac2f58d48dcefd23d65d52b12"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_011.manifest.json",
+      "bytes": 6766,
+      "sha256": "e16fb8361fb97955dec757a66c330b925a69c5c9100d73ce613f263fa3acb939"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_012.manifest.json",
+      "bytes": 6766,
+      "sha256": "ce5406363604d624476b10f6b147a50ede076bf54b2e3499fc3df8663e9fcec2"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_013.manifest.json",
+      "bytes": 6766,
+      "sha256": "477566fb2833949d5181e5ac2c2e2020c8dd5d5f4d06866d082b2721e45924af"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_014.manifest.json",
+      "bytes": 6766,
+      "sha256": "61f8f876a76a4115908d3393a851663ae9b75f54c39a09bffdb1e4e1a0b07d97"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/codex_takeover_v1_segment_015.manifest.json",
+      "bytes": 6570,
+      "sha256": "8cae010d1190bed7db689a5b46be03a4913392cc5af26ea646f79290ddc9b50a"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_001/closed_segment.json",
+      "bytes": 2692,
+      "sha256": "52216ad7307edbf744c4617b19ae04c3309d10333347185bec66ab313e2e8d6a"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_002/closed_segment.json",
+      "bytes": 3069,
+      "sha256": "42abd5380f58aa79e3985ba038d388c96289e34bb0064d2792c8c484bd947ceb"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_003/closed_segment.json",
+      "bytes": 2674,
+      "sha256": "923bc40109cfca9b3efa15c3531230e5d4ff3d1905fee5db400a2b6498e69eaf"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_004/closed_segment.json",
+      "bytes": 2657,
+      "sha256": "7ef7185b9a7d729af99dd8ffd678750b88fe859411d83bbc04a08ecbd027cb9d"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_005/closed_segment.json",
+      "bytes": 2683,
+      "sha256": "0ef9dbad78273df1e2ae2d320075b8497f3b80f814fa92feccb7f0d339613b29"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_006/closed_segment.json",
+      "bytes": 2678,
+      "sha256": "607c8ae4385255722d35597800f1f341cd24e8af6e88407bd63ce92a78ec7d72"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_007/closed_segment.json",
+      "bytes": 2680,
+      "sha256": "86f0b715487cf881277c5d84afb1dc4d5e96f9ac553f1f908e83c1f65aed53dd"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_008/closed_segment.json",
+      "bytes": 2683,
+      "sha256": "7743df9741cae74dde838d70c2c3874e10693f2ae45210883269cff4e6b6ffae"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_009/closed_segment.json",
+      "bytes": 2656,
+      "sha256": "fcdb60303951ab1743663a404db2116a3d3b327fe162de2ac8ee758c2c6ead86"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_010/closed_segment.json",
+      "bytes": 2681,
+      "sha256": "12b713d9fd27e81f47602136d546ebda4cd3674c8a32671292ab86fc7796261e"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_011/closed_segment.json",
+      "bytes": 2677,
+      "sha256": "4bc016d43ef8019f7a1b2264fbc61a8615f0f91e8191fb7519d08720f856b7dc"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_012/closed_segment.json",
+      "bytes": 2684,
+      "sha256": "5e97e995d5c6253f5d0d4ae773a9faf0011ec4d7d6fb6bde94a7dd0f04aa3f8b"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_013/closed_segment.json",
+      "bytes": 2680,
+      "sha256": "7ef50d5e41a65396419976b435d018d090dbafb2bd56d86c2d7dba3225fc5a52"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_014/closed_segment.json",
+      "bytes": 2681,
+      "sha256": "678e03850842444b93f8caccfb8e8fac4fbfa54b43a310e42685a23ab1006aae"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/codex_takeover_v1/segment_015/closed_segment.json",
+      "bytes": 2681,
+      "sha256": "08b794396a62f3217598ee07eee6c53f283e43ed1930d516f3fec4f98d8ed122"
+    }
+  ]
+}

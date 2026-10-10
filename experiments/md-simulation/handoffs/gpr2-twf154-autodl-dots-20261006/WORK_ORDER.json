@@ -1,0 +1,63 @@
+{
+  "source": "User selected six-case rep1 100 ns production; on 2026-10-06 switched operator from GPT Dots to a local agent and explicitly disabled email notifications",
+  "as_of": "2026-10-06T07:14:42.926975+08:00",
+  "allowed_use": "Current local-agent production work order after qualification; overrides frozen Dots snapshots for operator, SSH, transfer route and notifications",
+  "update_trigger": "User changes production scope, inputs, cost or machine",
+  "status": "AUTHORIZED_6_CASES_REP1_100NS_AFTER_GATES",
+  "cases": [
+    "raw_n84v_ascr18",
+    "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "raw_n84v_ascr3",
+    "raw_v368r_ascr18",
+    "native_wt_ascr18",
+    "native_wt_ascr3_lid_rebuilt_own_pose_v1"
+  ],
+  "reps": [
+    1
+  ],
+  "production_ns_per_rep": 100,
+  "total_production_ns": 600,
+  "prepare_and_equilibrate_separately": true,
+  "production_scope_authorized": true,
+  "operator": "Local agent with direct access to /Users/roy/Documents/drylab",
+  "ssh": {
+    "host": "connect.bjb2.seetacloud.com",
+    "port": 27626,
+    "user": "root",
+    "authentication": "Read only SSH authentication fields on lines 7-9 of /private/tmp/gpr2-dots-handoff-20261006/START_MD_PRODUCTION.md; do not execute its superseded Dots/email/split-upload instructions",
+    "last_live_verification": "New endpoint on port 27626 has not been verified in this handoff task",
+    "credential_status": "USER_PROVIDED_NEW_CREDENTIALS; not live-verified",
+    "when_missing_credentials": "Complete offline checks only; report the missing new credentials; do not attempt old authentication"
+  },
+  "price_cny_per_hour": 2.88,
+  "billing_granularity": "Previously documented per-second; verify current plan",
+  "hard_budget_cny": null,
+  "hard_walltime_hours": null,
+  "old_one_hour_benchmark_limit_applies_to_new_production": false,
+  "completion_shutdown": false,
+  "additional_replicates_or_extensions_authorized": false,
+  "e2_policy": "No stopping/modifying E2 jobs. No credit without validated consistent transferable data and purpose acceptance.",
+  "final_deliverable": "Six qualified 100 ns rep1 trajectories with intact outputs, completion and integrity evidence, actual elapsed time/cost, off-instance verified recovery",
+  "scientific_limit": "Independent AF3/docking starts plus unequal lid/sidechain treatment; single rep is exploratory, 100 ns is not a convergence guarantee.",
+  "handoff_revision": "local-agent-no-email",
+  "notifications": {
+    "email_enabled": false,
+    "user_instruction": "New local agent does not need email notifications",
+    "channel": "current_task_conversation",
+    "notify_on": [
+      "meaningful_progress",
+      "error",
+      "decision_required",
+      "completion"
+    ],
+    "unchanged_status": "Keep quiet",
+    "supersedes": "All earlier Dots email requirements and EMAIL_TEMPLATES instructions for this local-agent execution"
+  },
+  "transfer": {
+    "mode": "direct local filesystem pointers",
+    "frozen_payload": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/bundle",
+    "current_work_order": "/Users/roy/Documents/drylab/experiments/md-simulation/handoffs/gpr2-twf154-autodl-dots-20261006/WORK_ORDER.json",
+    "split_archives_required": false,
+    "rule": "Validate frozen bundle before copying; deploy this current work order with compute/ into an isolated working copy and record differences; do not modify frozen payload or its manifests"
+  }
+}

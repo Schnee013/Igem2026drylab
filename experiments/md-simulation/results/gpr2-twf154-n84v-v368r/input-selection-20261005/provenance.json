@@ -1,0 +1,227 @@
+{
+  "as_of": "2026-10-05",
+  "source": "Direct CIF/PDB coordinate checks, original handoff README and selection.json, retained manifest, independent WT input_manifest.json and original Vina output hashes.",
+  "allowed_use": "Input provenance only; not geometry acceptance or affinity evidence",
+  "update_trigger": "Input identity changes",
+  "cases": [
+    {
+      "comparison_case": "raw_n84v_ascr18",
+      "selected_case_id": "raw_n84v_ascr18",
+      "parent_origin": {
+        "genotype": "n84v",
+        "original_cif": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/fold_gpr2_b05_fl_n84v_model_0.cif",
+        "original_cif_sha256": "bce75fcec858c3c83f9c14ed3fd1779b10824e7a96a506ce47430daa17c17059",
+        "raw_pdb": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+        "raw_pdb_sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+        "retained_parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+        "retained_sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+        "cif_to_raw_max_A": 0.0,
+        "raw_to_retained_rigid_fit": {
+          "n": 3158,
+          "rmsd_A": 1.1299278014623405e-14,
+          "max_A": 3.069485581099818e-14
+        },
+        "original_cif_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/af3_original/fold_gpr2_b05_fl_n84v_model_0.cif",
+        "raw_pdb_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/af3_original/raw_model0.pdb"
+      },
+      "retained_pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr18/top1.sdf",
+      "retained_pose_sha256": "c81504d49f3a92190b53dba3867dded54d1b473d760501b7a730b6a75f94f1ba",
+      "retention_immediate_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/top1.sdf",
+      "pose_origin": {
+        "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_n84v/ascr18/poses.pdbqt",
+        "source_sha256": "8282792029200f9c81708c50ca010fd503a6ab2ef1aea3e1735b6108cb735d17",
+        "selected_original_mode": 1,
+        "vina_score_kcal_mol": -6.856,
+        "tied_minimum_modes": [
+          1
+        ],
+        "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+        "analyzed_pose_count": 1,
+        "unique_contact_residues": 13,
+        "pose_index_in_ifp": 0,
+        "original_file_available": false,
+        "local_handoff_all_poses": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/poses.pdbqt",
+        "local_handoff_sha256_matches_source": true
+      }
+    },
+    {
+      "comparison_case": "raw_v368r_ascr3",
+      "selected_case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "parent_origin": {
+        "genotype": "v368r",
+        "original_cif": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/fold_gpr2_b05_fl_v368r_model_0.cif",
+        "original_cif_sha256": "9f198132781b1ebfa125f47a0b7f15a83d4d825c9917821324df5bfb0c984e35",
+        "raw_pdb": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+        "raw_pdb_sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+        "retained_parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+        "retained_sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+        "cif_to_raw_max_A": 0.0,
+        "raw_to_retained_rigid_fit": {
+          "n": 3163,
+          "rmsd_A": 5.864906209752661e-15,
+          "max_A": 1.3293037379376718e-14
+        },
+        "original_cif_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/af3_original/fold_gpr2_b05_fl_v368r_model_0.cif",
+        "raw_pdb_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/af3_original/raw_model0.pdb"
+      },
+      "retained_pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr3/top1.sdf",
+      "retained_pose_sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506",
+      "retention_immediate_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/top1.sdf",
+      "pose_origin": {
+        "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368r/ascr3/poses.pdbqt",
+        "source_sha256": "bf5d28e2839e4c5937dbe507cbda2655827c8f13a0081e8d6ab1512dd732bf9a",
+        "selected_original_mode": 1,
+        "vina_score_kcal_mol": -7.013,
+        "tied_minimum_modes": [
+          1
+        ],
+        "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+        "analyzed_pose_count": 1,
+        "unique_contact_residues": 8,
+        "pose_index_in_ifp": 0,
+        "original_file_available": false,
+        "local_handoff_all_poses": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/poses.pdbqt",
+        "local_handoff_sha256_matches_source": true
+      }
+    },
+    {
+      "comparison_case": "raw_n84v_ascr3",
+      "selected_case_id": "raw_n84v_ascr3",
+      "parent_origin": {
+        "genotype": "n84v",
+        "original_cif": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/fold_gpr2_b05_fl_n84v_model_0.cif",
+        "original_cif_sha256": "bce75fcec858c3c83f9c14ed3fd1779b10824e7a96a506ce47430daa17c17059",
+        "raw_pdb": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+        "raw_pdb_sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+        "retained_parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/af3_original/raw_model0.pdb",
+        "retained_sha256": "3000864616b60bc4510c8b9a4a5e919a2b61648870717875c994dac95480d92d",
+        "cif_to_raw_max_A": 0.0,
+        "raw_to_retained_rigid_fit": {
+          "n": 3158,
+          "rmsd_A": 1.1299278014623405e-14,
+          "max_A": 3.069485581099818e-14
+        },
+        "original_cif_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/af3_original/fold_gpr2_b05_fl_n84v_model_0.cif",
+        "raw_pdb_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/af3_original/raw_model0.pdb"
+      },
+      "retained_pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/n84v/ascr3/top1.sdf",
+      "retained_pose_sha256": "0b0faa6bfc6bdd4c462ae051a576bbf92dd61eb77243c15166751cfe53d66cfb",
+      "retention_immediate_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr3/top1.sdf",
+      "pose_origin": {
+        "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_n84v/ascr3/poses.pdbqt",
+        "source_sha256": "a6e0856b3805a6d003a51e052231e05f3ae6db91041d4266109291d8c04f7d00",
+        "selected_original_mode": 1,
+        "vina_score_kcal_mol": -6.264,
+        "tied_minimum_modes": [
+          1
+        ],
+        "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+        "analyzed_pose_count": 1,
+        "unique_contact_residues": 7,
+        "pose_index_in_ifp": 0,
+        "original_file_available": false,
+        "local_handoff_all_poses": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr3/poses.pdbqt",
+        "local_handoff_sha256_matches_source": true
+      }
+    },
+    {
+      "comparison_case": "raw_v368r_ascr18",
+      "selected_case_id": "raw_v368r_ascr18",
+      "parent_origin": {
+        "genotype": "v368r",
+        "original_cif": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/fold_gpr2_b05_fl_v368r_model_0.cif",
+        "original_cif_sha256": "9f198132781b1ebfa125f47a0b7f15a83d4d825c9917821324df5bfb0c984e35",
+        "raw_pdb": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+        "raw_pdb_sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+        "retained_parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/af3_original/raw_model0.pdb",
+        "retained_sha256": "b2beffb7ab118c5b7dc674949f9ce23bc9f6bb07e6a3da8ebd5c88e05d2cebca",
+        "cif_to_raw_max_A": 0.0,
+        "raw_to_retained_rigid_fit": {
+          "n": 3163,
+          "rmsd_A": 5.864906209752661e-15,
+          "max_A": 1.3293037379376718e-14
+        },
+        "original_cif_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/af3_original/fold_gpr2_b05_fl_v368r_model_0.cif",
+        "raw_pdb_handoff_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/af3_original/raw_model0.pdb"
+      },
+      "retained_pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/v368r/ascr18/top1.sdf",
+      "retained_pose_sha256": "15413aae5c7ed06b4321f38dfff4a8942cd7da906681d0127c132695ca43ca31",
+      "retention_immediate_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr18/top1.sdf",
+      "pose_origin": {
+        "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368r/ascr18/poses.pdbqt",
+        "source_sha256": "a45e2239a0ea8b9f8d412540e16cf0e55b8d37655b4e5d53fea53bc0d255e042",
+        "selected_original_mode": 1,
+        "vina_score_kcal_mol": -6.293,
+        "tied_minimum_modes": [
+          1
+        ],
+        "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+        "analyzed_pose_count": 1,
+        "unique_contact_residues": 9,
+        "pose_index_in_ifp": 0,
+        "original_file_available": false,
+        "local_handoff_all_poses": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr18/poses.pdbqt",
+        "local_handoff_sha256_matches_source": true
+      }
+    },
+    {
+      "comparison_case": "native_wt_ascr18",
+      "selected_case_id": "native_wt_ascr18",
+      "parent_origin": {
+        "genotype": "native_wt",
+        "original_cif": "/Users/roy/Documents/docking/inputs/receptors/af3/original_cif/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_0.cif",
+        "original_cif_sha256": "cf0dd8e558ffe1e1523418fa9bcdc3c38e616444990b4bd5bb4bb9f1c3e6da68",
+        "raw_pdb": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_0.pdb",
+        "raw_pdb_sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+        "retained_parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/full_length.pdb",
+        "retained_sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+        "cif_to_raw_max_A": 0.0,
+        "raw_to_retained_rigid_fit": {
+          "n": 3159,
+          "rmsd_A": 6.923586354396299e-15,
+          "max_A": 2.5121479338940402e-14
+        }
+      },
+      "retained_pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr18/top1.sdf",
+      "retained_pose_sha256": "d481ec509ad39c92a2b01143baa37859972237f85774e6543c0fe1a843f104b3",
+      "retention_immediate_source": "/private/tmp/gpr2-wt-replacement-20261003-_214_9xd/inputs/matrix02/wt_ascr18/top1.sdf",
+      "pose_origin": {
+        "original_docking_output": "/Users/roy/Documents/docking/outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr18_deprotonated/run_20260823_223248_3240812/poses.pdbqt",
+        "original_docking_output_sha256": "1490d6e9eb9c4c81f71d94e8ef8f80251f859089ac989eb6434bd7d19502b6e4",
+        "mode": 1,
+        "conversion": "PDBQT SMILES IDX restores bond order and stereochemistry; heavy coordinates unchanged; hydrogen coordinates added",
+        "original_file_available": true
+      }
+    },
+    {
+      "comparison_case": "native_wt_ascr3",
+      "selected_case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "parent_origin": {
+        "genotype": "native_wt",
+        "original_cif": "/Users/roy/Documents/docking/inputs/receptors/af3/original_cif/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_0.cif",
+        "original_cif_sha256": "cf0dd8e558ffe1e1523418fa9bcdc3c38e616444990b4bd5bb4bb9f1c3e6da68",
+        "raw_pdb": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gpr2_twf154_wt/wt/gpr2_twf154_wt_model_0.pdb",
+        "raw_pdb_sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+        "retained_parent": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/full_length.pdb",
+        "retained_sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+        "cif_to_raw_max_A": 0.0,
+        "raw_to_retained_rigid_fit": {
+          "n": 3159,
+          "rmsd_A": 6.923586354396299e-15,
+          "max_A": 2.5121479338940402e-14
+        }
+      },
+      "retained_pose": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/retained-20261005/sources/native_wt/ascr3/top1.sdf",
+      "retained_pose_sha256": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+      "retention_immediate_source": "/private/tmp/gpr2-wt-replacement-20261003-_214_9xd/inputs/matrix02/wt_ascr3/top1.sdf",
+      "pose_origin": {
+        "original_docking_output": "/Users/roy/Documents/docking/outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt",
+        "original_docking_output_sha256": "0c178144e0c37006150303475ce152d651ec8bd414614c87adc68fbb08c5b3b7",
+        "mode": 1,
+        "conversion": "PDBQT SMILES IDX restores bond order and stereochemistry; heavy coordinates unchanged; hydrogen coordinates added",
+        "original_file_available": true
+      }
+    }
+  ],
+  "scope_note": "Mutant original workstation paths are recorded provenance; matching handoff all-pose files verified locally. Earlier AF3 server job IDs are not supplied by the handoff."
+}

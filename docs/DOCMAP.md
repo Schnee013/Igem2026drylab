@@ -233,3 +233,7 @@ last_updated: YYYY-MM-DD
 ```
 
 状态枚举与具体含义由 [docs/INDEX.md](INDEX.md) 和方向文档共同约束，不在 DOCMAP 维护项目状态。
+
+### MD 离线材料入口
+
+[MD handoffs](../experiments/md-simulation/handoffs/README.md)保存交付清单、恢复入口与离线执行说明；科学状态仍回 INDEX 和原始结果。

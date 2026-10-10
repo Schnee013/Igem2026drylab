@@ -1,0 +1,91 @@
+{
+  "source": "User decision in this conversation: use a lid-rebuilt starting receptor for V368R-ascr3 and independent WT-ascr3; preserve each case own receptor parent and docking pose as previously required.",
+  "as_of": "2026-10-06",
+  "allowed_use": "Current own-parent input selection and generated review-candidate pointers; not final acceptance or an MD-ready system.",
+  "update_trigger": "Case-specific rebuilt candidate generated and checked, or user changes selected input.",
+  "case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+  "previous_original_case_id": "native_wt_ascr3",
+  "input_variant": "lid_rebuilt_own_pose_v1",
+  "decision_status": "SELECTED",
+  "coordinate_status": "CANDIDATES_GENERATED",
+  "preparation_status": "NOT_STARTED_FOR_THIS_VARIANT",
+  "receptor_parent": {
+    "path": "../retained-20261005/sources/native_wt/full_length.pdb",
+    "sha256": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17"
+  },
+  "ligand_pose": {
+    "path": "../retained-20261005/sources/native_wt/ascr3/top1.sdf",
+    "sha256": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+    "original_mode": 1
+  },
+  "coordinate_frame_contract": {
+    "receptor_source_frame": "already aligned independent WT frame",
+    "ligand_source_frame": "same aligned independent WT docking frame",
+    "receptor_to_ligand_frame": "identity; shared atoms match sources/native_wt/deltaN_docking_receptor.pdb",
+    "apply_before_rebuild": "Use the full_length.pdb coordinates directly with this case top1.sdf.",
+    "invariance_reference": "Own aligned full-length WT receptor and own pose; any later placement transform applies jointly to both.",
+    "planned_coordinate_frame": "aligned independent WT docking frame"
+  },
+  "rebuild_contract": {
+    "movable_receptor_residues": [
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178
+    ],
+    "fixed_flanking_residues": [
+      163,
+      179
+    ],
+    "retain_full_length_residues": [
+      1,
+      406
+    ],
+    "fixed_ligand_heavy_atoms": true,
+    "fixed_receptor_outside_lid": true,
+    "preserve_genotype_sidechains_84_368": true,
+    "preserve_assumed_disulfide_residues": [
+      99,
+      173
+    ],
+    "old_shared_parent_rebuilt_branch_acceptable": false
+  },
+  "planned_coordinate_files": {
+    "receptor": "gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_receptor.pdb",
+    "ligand": "gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_ligand.sdf",
+    "complex": "gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_complex.pdb"
+  },
+  "planned_production_prefix": "gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_rep1_prod",
+  "accepted_receptor_path": null,
+  "accepted_receptor_sha256": null,
+  "production_tpr_path": null,
+  "production_tpr_sha256": null,
+  "old_trajectory_continuation_allowed": false,
+  "required_before_md": [
+    "Generate case-specific lid candidate",
+    "Verify outside-lid and ligand coordinate invariance",
+    "Check chain closure, disulfide, chirality, contacts and lid/ligand crossing",
+    "Rebuild consistent topology/coordinates and repeat minimization/equilibration",
+    "Generate new production TPR and remeasure performance"
+  ],
+  "scientific_limit": "Lid-rebuilt starting geometry is a modeling choice; not a physical unthreading trajectory. Different starting-structure treatments must be reported in between-case comparisons.",
+  "generation_run": "../lid-rebuild-own-pose-20261005/README.md",
+  "candidate_acceptance_status": "STATIC_SCREEN_PASSED_REVIEW_PENDING",
+  "coordinate_status_observed_at": "2026-10-05T16:04:51.159289+00:00",
+  "candidate_receptor_path": "../lid-rebuild-own-pose-20261005/review_candidates/native_wt_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_receptor.pdb",
+  "candidate_receptor_sha256": "7ce371f139c4a601d77b0364cdc8d7c37154ee7e703923a9714fb099735d890a",
+  "candidate_ligand_path": "../lid-rebuild-own-pose-20261005/review_candidates/native_wt_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_ligand.sdf",
+  "candidate_ligand_sha256": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+  "candidate_manifest_path": "../lid-rebuild-own-pose-20261005/review_candidates/native_wt_ascr3_lid_rebuilt_own_pose_v1/candidate_manifest.json"
+}

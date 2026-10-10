@@ -1,0 +1,578 @@
+[
+  {
+    "path": "native_wt_ascr18/anchor_distances.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/anchor_distances.csv",
+    "bytes": 431628,
+    "sha256": "6c6473b3ddd2e41ed686861df211c45950a3946a900cbc990e616da0bc0ac89c"
+  },
+  {
+    "path": "native_wt_ascr18/anchor_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/anchor_summary.csv",
+    "bytes": 2749,
+    "sha256": "8a8222ead83ffed8a56b1024001c8807915bf722d3763debbd163a9bd1633950"
+  },
+  {
+    "path": "native_wt_ascr18/atom_contact_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/atom_contact_events.csv",
+    "bytes": 268367,
+    "sha256": "0d6e71fb29b91175ecb04f8eeedf545e721d86d2f78719cde905b0bba2b46187"
+  },
+  {
+    "path": "native_wt_ascr18/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/completion.json",
+    "bytes": 1285,
+    "sha256": "67a131f1bb66fd6d4a8aef75647f404656850a1e765d075d5c75c6e3f6db2819"
+  },
+  {
+    "path": "native_wt_ascr18/frame_metrics.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/frame_metrics.csv",
+    "bytes": 447046,
+    "sha256": "85b159e929faa5dff0534c1d965bff6ddc2b50991fab0869c6b360b02154cd80"
+  },
+  {
+    "path": "native_wt_ascr18/hbond_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/hbond_events.csv",
+    "bytes": 16425,
+    "sha256": "ff7a508d6e7e970564bd9bb41abe0d0c31aaa8b69cc440046712aec116d4503d"
+  },
+  {
+    "path": "native_wt_ascr18/input_identity.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/input_identity.json",
+    "bytes": 710,
+    "sha256": "7f2a8cdb100be26b2cd174cee2f92095dbde3ffab544aecc5fdf404fc4db255e"
+  },
+  {
+    "path": "native_wt_ascr18/ligand_atom_mapping.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/ligand_atom_mapping.csv",
+    "bytes": 2688,
+    "sha256": "94fd8785a4f8727e83789d688c2d6db217336416a975eaee8230e07f106a68b7"
+  },
+  {
+    "path": "native_wt_ascr18/metric_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/metric_summary.csv",
+    "bytes": 2732,
+    "sha256": "edddf886985e58013796740c9520bc8b2bb77ebfff8504eb3cff2e4258f8ab07"
+  },
+  {
+    "path": "native_wt_ascr18/numeric_audit.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/numeric_audit.npz",
+    "bytes": 6164367,
+    "sha256": "246fdcbdfd48ab33c4016bdc90608cab0375e004f7261f1df8c71b95cbeddd1b"
+  },
+  {
+    "path": "native_wt_ascr18/proximity_bridge_timeseries.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/proximity_bridge_timeseries.csv",
+    "bytes": 138875,
+    "sha256": "9e327ad1f831d40e463ab9540c229f987ca979f9e8f823ff14e0f7d943191a5a"
+  },
+  {
+    "path": "native_wt_ascr18/proximity_bridges.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/proximity_bridges.csv",
+    "bytes": 303,
+    "sha256": "259a4c37d69750d8befe17dde2e13ea181bbf7d7db55a9f40f0ba0f7c9c0999d"
+  },
+  {
+    "path": "native_wt_ascr18/representative_coordinates.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/representative_coordinates.npz",
+    "bytes": 306730,
+    "sha256": "2d4e562b4e7355fabbcd3465c6e51dbe7c2e9632975360ab7e301936328d1b36"
+  },
+  {
+    "path": "native_wt_ascr18/sidechain_rotamers.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/sidechain_rotamers.csv",
+    "bytes": 337,
+    "sha256": "1b09624d80fd09d9bb440a66961b8af4030795b2657eaa48223d0a8bdb105ed7"
+  },
+  {
+    "path": "native_wt_ascr18/site_neighborhoods.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/site_neighborhoods.csv",
+    "bytes": 7079,
+    "sha256": "ebe90150f80849d745f928ecf28ca778a20d5125d2ab51bcf0f352755176377f"
+  },
+  {
+    "path": "native_wt_ascr18/ten_ns_blocks.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/ten_ns_blocks.csv",
+    "bytes": 14578,
+    "sha256": "61bcc61c865154dc4d8961f554f98908a073f5d69e6ad069d038215fd098af78"
+  },
+  {
+    "path": "raw_n84v_ascr18/anchor_distances.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/anchor_distances.csv",
+    "bytes": 416105,
+    "sha256": "d16de555c799e03038172888aab864fe2f50f53de3132e2316ba3b6f45f08e7e"
+  },
+  {
+    "path": "raw_n84v_ascr18/anchor_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/anchor_summary.csv",
+    "bytes": 2789,
+    "sha256": "af9d20d8f074b57d78101b31af9e51ce2857f0adae051c99e5132822288451f2"
+  },
+  {
+    "path": "raw_n84v_ascr18/atom_contact_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/atom_contact_events.csv",
+    "bytes": 706457,
+    "sha256": "6d66d432b052e196fef984c8f423884c5a78ca640370bf97efe0eb533b598718"
+  },
+  {
+    "path": "raw_n84v_ascr18/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/completion.json",
+    "bytes": 1281,
+    "sha256": "7eed5c9be61cdc68993c490614b6b12d9314487193d1e9459ad18e4a37f37c16"
+  },
+  {
+    "path": "raw_n84v_ascr18/frame_metrics.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/frame_metrics.csv",
+    "bytes": 448672,
+    "sha256": "76199794e71a39d548ab32ea91a4f966cc6185c5f4fad1cbd0577275be5becbe"
+  },
+  {
+    "path": "raw_n84v_ascr18/hbond_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/hbond_events.csv",
+    "bytes": 98912,
+    "sha256": "c9d9c7aff4c053479de87e5c50cd52ddab3356e8fa60b360a5b004dde993968b"
+  },
+  {
+    "path": "raw_n84v_ascr18/input_identity.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/input_identity.json",
+    "bytes": 707,
+    "sha256": "d6374e0c8aa819a4479499f74140d4f8974699010e97c37ff19cf7739308d3d2"
+  },
+  {
+    "path": "raw_n84v_ascr18/ligand_atom_mapping.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/ligand_atom_mapping.csv",
+    "bytes": 2688,
+    "sha256": "d0d7d970f845e7cceb5d64a7ef71d8bb5a104a4e8f0b32edf10649f22c863880"
+  },
+  {
+    "path": "raw_n84v_ascr18/metric_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/metric_summary.csv",
+    "bytes": 2715,
+    "sha256": "d53b06e58035869221cae72aef883294e89be5e932e34ee9572a1106281ad954"
+  },
+  {
+    "path": "raw_n84v_ascr18/numeric_audit.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/numeric_audit.npz",
+    "bytes": 6163936,
+    "sha256": "cf44698ab37d063d8ef6e61db1b21e402d2ca5a6c9fc0271f03b260cad835c7d"
+  },
+  {
+    "path": "raw_n84v_ascr18/proximity_bridge_timeseries.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/proximity_bridge_timeseries.csv",
+    "bytes": 209690,
+    "sha256": "3e69893fe413a28e89f61e8c7cd3c015c8e87d24bcf603adea48befea74c87d1"
+  },
+  {
+    "path": "raw_n84v_ascr18/proximity_bridges.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/proximity_bridges.csv",
+    "bytes": 400,
+    "sha256": "c0442fcfd09017b6272ed3ef05cec97e0192d5ba42eb6298754975d4c9d07468"
+  },
+  {
+    "path": "raw_n84v_ascr18/representative_coordinates.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/representative_coordinates.npz",
+    "bytes": 305405,
+    "sha256": "455fc18d8f81e3a5c6228be22dd4f88dd804c6c9119882b876d17bbad2b05fc8"
+  },
+  {
+    "path": "raw_n84v_ascr18/sidechain_rotamers.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/sidechain_rotamers.csv",
+    "bytes": 374,
+    "sha256": "9c8f3e60c5246771a632009a1667b06d03305b718f4c54bcf1b51a9daf13f209"
+  },
+  {
+    "path": "raw_n84v_ascr18/site_neighborhoods.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/site_neighborhoods.csv",
+    "bytes": 7441,
+    "sha256": "6ec995d3cdcd37e21ff707f0395812aac7d8c2f5b710e208a41b1ed0e50f74d0"
+  },
+  {
+    "path": "raw_n84v_ascr18/ten_ns_blocks.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/ten_ns_blocks.csv",
+    "bytes": 14402,
+    "sha256": "21a90b433ba94c1023fcb10dd94d2fa144aa1cccf022fc7ce93dffd0dcbcca59"
+  },
+  {
+    "path": "raw_n84v_ascr3/anchor_distances.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/anchor_distances.csv",
+    "bytes": 412637,
+    "sha256": "1a7f1610d71db392225df683596923b343a11a9ae5b62de50c08f185b5b48360"
+  },
+  {
+    "path": "raw_n84v_ascr3/anchor_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/anchor_summary.csv",
+    "bytes": 2777,
+    "sha256": "26452ec013f83c5a7b0b3fb8a4939f75438277e1c4fcc0706f191430cf173ac7"
+  },
+  {
+    "path": "raw_n84v_ascr3/atom_contact_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/atom_contact_events.csv",
+    "bytes": 164378,
+    "sha256": "1bc852da983a21c060e93ba842ed0a81094195a71c52f30b3b6fe680ac72fcd5"
+  },
+  {
+    "path": "raw_n84v_ascr3/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/completion.json",
+    "bytes": 1277,
+    "sha256": "6776f32ec97833cb9ab0a5c873d0d8bef14c8cbaca28f268f5a622130bbcef03"
+  },
+  {
+    "path": "raw_n84v_ascr3/frame_metrics.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/frame_metrics.csv",
+    "bytes": 445361,
+    "sha256": "4110bcffcd6023c6ca03f293e914dff216507195c4d72b84546b468561756d6b"
+  },
+  {
+    "path": "raw_n84v_ascr3/hbond_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/hbond_events.csv",
+    "bytes": 6214,
+    "sha256": "d441b34aab3ef6dcaf90835948a7c4ee9eb7dd4d79d6eeb88337585655b8153a"
+  },
+  {
+    "path": "raw_n84v_ascr3/input_identity.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/input_identity.json",
+    "bytes": 704,
+    "sha256": "4e39f1ead78318666f0eee979f058568aaec6e01864c1cd1f76bd6210beae028"
+  },
+  {
+    "path": "raw_n84v_ascr3/ligand_atom_mapping.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/ligand_atom_mapping.csv",
+    "bytes": 2318,
+    "sha256": "500c283fd1b053ab0d34dfbca7ceb474b913ce6160eb8d7104e3f4b75919e349"
+  },
+  {
+    "path": "raw_n84v_ascr3/metric_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/metric_summary.csv",
+    "bytes": 2698,
+    "sha256": "9a22b9c5ff844a21f38b9ad81d317bb5ae7970b62862d83219cf8f2662e48938"
+  },
+  {
+    "path": "raw_n84v_ascr3/numeric_audit.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/numeric_audit.npz",
+    "bytes": 6159764,
+    "sha256": "dd48a24c5cf3c67d81d930f12545714443c2dda04fd1d00e1f1fb7e375aa1926"
+  },
+  {
+    "path": "raw_n84v_ascr3/proximity_bridge_timeseries.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/proximity_bridge_timeseries.csv",
+    "bytes": 352469,
+    "sha256": "544ef86bbd930d35eaeccbb423b856a6c5da410bb24c69267501d84a9e7adf66"
+  },
+  {
+    "path": "raw_n84v_ascr3/proximity_bridges.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/proximity_bridges.csv",
+    "bytes": 510,
+    "sha256": "3072c3c2de5be3e8f554a126b395ae29a92fcc58226c6afc0abfcd888765ea94"
+  },
+  {
+    "path": "raw_n84v_ascr3/representative_coordinates.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/representative_coordinates.npz",
+    "bytes": 307619,
+    "sha256": "e4e40eb3f01d6ec429c17dd8be9b8fd59f69657be4276b5be76a64ba268f6f5a"
+  },
+  {
+    "path": "raw_n84v_ascr3/sidechain_rotamers.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/sidechain_rotamers.csv",
+    "bytes": 324,
+    "sha256": "ae78abfe09639151cdcb5de48154d0eda65aced201ab938c5d6f06343d384788"
+  },
+  {
+    "path": "raw_n84v_ascr3/site_neighborhoods.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/site_neighborhoods.csv",
+    "bytes": 6909,
+    "sha256": "e6fa60338d34c7be8273a5577418ea613b624a17c2f7df2d55f759bb1e48e187"
+  },
+  {
+    "path": "raw_n84v_ascr3/ten_ns_blocks.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/ten_ns_blocks.csv",
+    "bytes": 14150,
+    "sha256": "c58d04863a45837025108a87dbaa329d8dcbbacebe3991d6d1f56c304fd531c3"
+  },
+  {
+    "path": "raw_v368r_ascr18/anchor_distances.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/anchor_distances.csv",
+    "bytes": 399264,
+    "sha256": "7db8dbd0ce1dc42e3f14fbc8dde4fb35d1ddeec1bafbe4b601f7f603873794dd"
+  },
+  {
+    "path": "raw_v368r_ascr18/anchor_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/anchor_summary.csv",
+    "bytes": 2701,
+    "sha256": "2824d1d497e6c5ac4024e8acf297aeb122836db6e9c1159544c0fc74ec8dd6b4"
+  },
+  {
+    "path": "raw_v368r_ascr18/atom_contact_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/atom_contact_events.csv",
+    "bytes": 565566,
+    "sha256": "a4750948ceaf595aaedf02e94e8542adfa895d9534c93478860060732790ca5e"
+  },
+  {
+    "path": "raw_v368r_ascr18/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/completion.json",
+    "bytes": 1285,
+    "sha256": "5b437008f5cd359ae3005bf05aeaa8f87bf5dae73a1df4a99f0e1b689e7e154e"
+  },
+  {
+    "path": "raw_v368r_ascr18/frame_metrics.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/frame_metrics.csv",
+    "bytes": 447734,
+    "sha256": "eb186510420a45e9de21bf2d4ef61e18961fe2829e8a787bb6d813a58d3e4b4b"
+  },
+  {
+    "path": "raw_v368r_ascr18/hbond_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/hbond_events.csv",
+    "bytes": 70941,
+    "sha256": "d42830c9e4fc0c585f3681edb20379942e0683d6156b4d36d6d2922d2de0a7fb"
+  },
+  {
+    "path": "raw_v368r_ascr18/input_identity.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/input_identity.json",
+    "bytes": 710,
+    "sha256": "f46d16f9bf7e4383cd7f3c389b24f5f0e01b6ab89c766dd822b088039f8524c1"
+  },
+  {
+    "path": "raw_v368r_ascr18/ligand_atom_mapping.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/ligand_atom_mapping.csv",
+    "bytes": 2688,
+    "sha256": "80f0d0318dba4e913f41aea2f5f1cf0c9beb20804fc8ac2c414cd600402817c6"
+  },
+  {
+    "path": "raw_v368r_ascr18/metric_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/metric_summary.csv",
+    "bytes": 2735,
+    "sha256": "0a974a5c887fb4f8ae36b3bf5376a5a1842b02780ed1e11106d48da6d21828d4"
+  },
+  {
+    "path": "raw_v368r_ascr18/numeric_audit.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/numeric_audit.npz",
+    "bytes": 6162169,
+    "sha256": "738486aab14a294469f0ad32bcbb35dfb01acd424d2888e0455c859955be88cf"
+  },
+  {
+    "path": "raw_v368r_ascr18/proximity_bridge_timeseries.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/proximity_bridge_timeseries.csv",
+    "bytes": 353280,
+    "sha256": "125f46ab497c3f6ee72ff228a31555924a77b2e8f6e56384ffdde0b498b13634"
+  },
+  {
+    "path": "raw_v368r_ascr18/proximity_bridges.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/proximity_bridges.csv",
+    "bytes": 507,
+    "sha256": "a3a603a076938affa0dbd8a6202662042f1e4139dea2a471c862352ed3fcf310"
+  },
+  {
+    "path": "raw_v368r_ascr18/representative_coordinates.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/representative_coordinates.npz",
+    "bytes": 308732,
+    "sha256": "e726a80a9b31a94759a17e5a9815da8ae2d32a6fb5b8d9a2e60423492d972a50"
+  },
+  {
+    "path": "raw_v368r_ascr18/sidechain_rotamers.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/sidechain_rotamers.csv",
+    "bytes": 300,
+    "sha256": "8a0b2ded1f70a5c487db7ff852ebc8ea001b76afa1303830f9c265413c48e5e9"
+  },
+  {
+    "path": "raw_v368r_ascr18/site_neighborhoods.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/site_neighborhoods.csv",
+    "bytes": 7655,
+    "sha256": "c80f6a268678a328f131b41bf680616a8a91ac19ee775dc3df87fb019930ad5b"
+  },
+  {
+    "path": "raw_v368r_ascr18/ten_ns_blocks.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/ten_ns_blocks.csv",
+    "bytes": 14586,
+    "sha256": "9bf61140b71726d5febe53f7ffa490797d403851d0709e33758d8868c0aec43f"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/anchor_distances.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_distances.csv",
+    "bytes": 524275,
+    "sha256": "647ed52ee11a6451c4191cc96358d390a74bc653603e13b04183704ddf45fefd"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/anchor_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_summary.csv",
+    "bytes": 3155,
+    "sha256": "a9c8c36c13b488dc357b6aceea187dc10f3b42bd1d398eab8f191f1cd0715d7f"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/atom_contact_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/atom_contact_events.csv",
+    "bytes": 535819,
+    "sha256": "3c612fd4eb12d43c3cace24498cf9f71e3269e5f179621f8b5c3b20b3df1b8f9"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/completion.json",
+    "bytes": 1361,
+    "sha256": "3622074a26ea36535d19ea17740421b66dcdf2a32466329321e0af3def6a1615"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/frame_metrics.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/frame_metrics.csv",
+    "bytes": 464457,
+    "sha256": "0d3fc5e3322e140e978e206593fb03391e3bdaede61d78aa0ce0462855259eb8"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/hbond_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/hbond_events.csv",
+    "bytes": 71607,
+    "sha256": "5f114f6c6525fbfdb6d9b08fb46387e0a27a73a05bc95961b2b3bf8ac8f75f9b"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/input_identity.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/input_identity.json",
+    "bytes": 767,
+    "sha256": "f9deaf988c5a98e0853e460347c01a51242ec52c541bbce50715f763e014a3a7"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/ligand_atom_mapping.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ligand_atom_mapping.csv",
+    "bytes": 2318,
+    "sha256": "413fa5a42b29db4e8dfdd804be47156f64f643a25e4000adb78724d077815a09"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/metric_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/metric_summary.csv",
+    "bytes": 3124,
+    "sha256": "eb83c1f257333df81cb0c015cab6ad6b6fcb48c9c3e8009534e2f2aa150bfbc9"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/numeric_audit.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/numeric_audit.npz",
+    "bytes": 6165186,
+    "sha256": "09d40efe37fb6003e683673b9c9b839459321dd21f1ec1e2d41ae12f4939e6a2"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/proximity_bridge_timeseries.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridge_timeseries.csv",
+    "bytes": 566364,
+    "sha256": "82bf7999c4be54a230070e4b4151d5f6d5af0df3c4e15b874ff444ef50af5d47"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/proximity_bridges.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridges.csv",
+    "bytes": 909,
+    "sha256": "f91cac0a5aba4bcfab3739c1d657377020e97be8b2a3212c9156a1b95ba57fda"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/representative_coordinates.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/representative_coordinates.npz",
+    "bytes": 304716,
+    "sha256": "934fc455477b52b463daf41270d71fc3b4a96f8848f2dc1b9739280ab2994b71"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/sidechain_rotamers.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/sidechain_rotamers.csv",
+    "bytes": 447,
+    "sha256": "242a1b4eb73e5a6d0786c9df3068509ca52ea1a0329ad00e8bc0a0b90f4eea94"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/site_neighborhoods.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/site_neighborhoods.csv",
+    "bytes": 9815,
+    "sha256": "4f0e1fb16d42a4738a12821d3e18cde298b69dbbd951475bacfb0b294a172bd8"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/ten_ns_blocks.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ten_ns_blocks.csv",
+    "bytes": 18555,
+    "sha256": "8f603bbe256d1c5cb8843ad657fe6c983a971a839623a5804b2882e5c8e7eb72"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/anchor_distances.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_distances.csv",
+    "bytes": 559684,
+    "sha256": "f895a7e025ed84c5689f960718c425841498ef62803945c7eba0e3ef1cdab483"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/anchor_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_summary.csv",
+    "bytes": 3175,
+    "sha256": "233669284673c5961848259b85b51c463619171cddc3861f6023c99c6072e752"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/atom_contact_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/atom_contact_events.csv",
+    "bytes": 663145,
+    "sha256": "57fd8c24fd4162ba1a8090e997e03bbb2897b95e47ad3956e91b9a516f19bfa4"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/completion.json",
+    "bytes": 1377,
+    "sha256": "2fc760c940eeafdeddce0edee0724bbb5778209f72018a085bf2a563b7c76be5"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/frame_metrics.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/frame_metrics.csv",
+    "bytes": 467259,
+    "sha256": "c6fe4e1044b10d2c3211aab12b4564c7c1a1d08bd3813905d010e2d73f0bd6e4"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/hbond_events.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/hbond_events.csv",
+    "bytes": 56597,
+    "sha256": "63a07dc6387b10eabc0bf6c9d3331f1afeacf00ca888d3fc1f14a2cd3ddda308"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/input_identity.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/input_identity.json",
+    "bytes": 779,
+    "sha256": "62f86de5940fdb92a5c612c1706b98d790c6fd01dc9c218ceb10989712840315"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/ligand_atom_mapping.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ligand_atom_mapping.csv",
+    "bytes": 2318,
+    "sha256": "6c3bcadf45087ea698e6c1d294968771c7360abc8e09b512576c001d69cb3e57"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/metric_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/metric_summary.csv",
+    "bytes": 3205,
+    "sha256": "336325adf333a28f2a0fbb6a2d9e956bf4182449373991cb2feba82bf21bebf9"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/numeric_audit.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/numeric_audit.npz",
+    "bytes": 6164050,
+    "sha256": "013f77340f28efa5c95032056d41a279c0c739bea0e0babf474f4eb80570da9c"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/proximity_bridge_timeseries.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridge_timeseries.csv",
+    "bytes": 211682,
+    "sha256": "f03daabe9f4e2d59a6fb428642a9f24ae0643f21faabc80dd92fff56081e9702"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/proximity_bridges.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridges.csv",
+    "bytes": 492,
+    "sha256": "d4e2939ff929ae2015fc6d925ef0ea9fa92493bacc731916f9037cf9d281c0c9"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/representative_coordinates.npz",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/representative_coordinates.npz",
+    "bytes": 305097,
+    "sha256": "2d76af33ef94cb491dcc7cc50f68890b3834a0682ddba577fd7a5f286cd0dc0d"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/sidechain_rotamers.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/sidechain_rotamers.csv",
+    "bytes": 488,
+    "sha256": "caa853615f1db4eb37294d0dc8da420fcc7a812d9d98042ad14a9f421adbc129"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/site_neighborhoods.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/site_neighborhoods.csv",
+    "bytes": 8272,
+    "sha256": "41c4d2ec528c399b644f7b37e902ba2e51234cfbc9e31b9270159cbd3e6110d9"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/ten_ns_blocks.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ten_ns_blocks.csv",
+    "bytes": 19388,
+    "sha256": "a2d038bf40491c8bdba2acc559b17112da8dad384790e2bc50645265db647c93"
+  }
+]

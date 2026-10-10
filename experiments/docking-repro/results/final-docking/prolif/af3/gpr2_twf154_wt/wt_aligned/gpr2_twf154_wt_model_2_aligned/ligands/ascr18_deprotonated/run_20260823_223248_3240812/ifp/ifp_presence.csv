@@ -1,0 +1,13 @@
+ligand,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1
+protein,ARG10.A,ARG10.A,ARG11.A,GLY13.A,ALA14.A,LEU90.A,ALA91.A,ALA91.A,LEU92.A,GLU93.A,ARG96.A,ARG96.A,ARG96.A,ARG96.A,CYS99.A,CYS99.A,SER100.A,SER100.A,LEU164.A,GLY165.A,TYR166.A,TYR166.A,GLY167.A,TYR168.A,THR176.A
+interaction,Hydrophobic,VdWContact,VdWContact,VdWContact,VdWContact,VdWContact,HBDonor,VdWContact,VdWContact,VdWContact,Hydrophobic,HBAcceptor,Anionic,VdWContact,Hydrophobic,VdWContact,HBAcceptor,VdWContact,VdWContact,VdWContact,HBDonor,VdWContact,VdWContact,VdWContact,VdWContact
+Pose,,,,,,,,,,,,,,,,,,,,,,,,,
+0,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,True,True,True
+1,False,False,False,False,False,True,False,True,True,False,False,True,True,True,False,True,False,False,False,True,True,True,True,True,True
+2,False,True,True,False,False,False,False,True,False,False,True,True,True,True,True,False,True,True,False,True,False,True,True,True,False
+3,False,True,False,False,False,False,False,False,False,False,True,True,True,True,False,False,True,True,False,True,False,True,True,True,False
+4,False,True,True,False,False,False,False,True,False,False,True,False,False,True,False,False,False,False,False,True,False,False,True,True,True
+5,False,False,False,False,False,False,True,True,False,False,False,True,True,True,False,False,True,True,True,True,False,True,False,False,True
+6,False,True,False,False,False,False,False,True,True,True,True,False,False,True,False,False,False,False,False,False,False,True,True,False,True
+7,False,True,False,True,True,False,False,True,False,False,True,True,True,True,False,False,True,True,False,True,False,False,True,True,True
+8,True,True,False,True,False,False,False,True,True,False,False,False,False,True,False,True,False,False,False,False,False,False,True,True,True

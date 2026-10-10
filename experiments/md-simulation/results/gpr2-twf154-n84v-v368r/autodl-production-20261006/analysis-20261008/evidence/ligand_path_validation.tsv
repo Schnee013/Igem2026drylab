@@ -1,0 +1,49 @@
+arm	check	status	detail
+WT_A18	grid_and_windows	PASS	0-100 ns at 0.5 ns
+WT_A18	finite	PASS	['x_A', 'y_A', 'z_A', 'fit_rmsd_A', 'minimum_receptor_ligand_distance_A', 'centroid_displacement_from_arm_initial_in_common_frame_A']
+WT_A18	centroid_displacement_reproduction	PASS	distance from stored common-frame initial centroid
+WT_A18	dynamic_contact_count	PASS	distinct residue contact tokens per frame
+WT_A18	occupancy_residue_coverage	PASS	all residues ever observed in the sampled frame records
+WT_A18	dynamic_occupancy_reproduction	PASS	early denominator 100; late denominator 101; initial flags
+WT_A18	shared_initial_contacts_cross_driver	PASS	seven-driver persistence vs independent path contact records
+WT_A18	initial_occupancies_cross_driver	PASS	same 101 sampled late frames
+N84V_A18	grid_and_windows	PASS	0-100 ns at 0.5 ns
+N84V_A18	finite	PASS	['x_A', 'y_A', 'z_A', 'fit_rmsd_A', 'minimum_receptor_ligand_distance_A', 'centroid_displacement_from_arm_initial_in_common_frame_A']
+N84V_A18	centroid_displacement_reproduction	PASS	distance from stored common-frame initial centroid
+N84V_A18	dynamic_contact_count	PASS	distinct residue contact tokens per frame
+N84V_A18	occupancy_residue_coverage	PASS	all residues ever observed in the sampled frame records
+N84V_A18	dynamic_occupancy_reproduction	PASS	early denominator 100; late denominator 101; initial flags
+N84V_A18	shared_initial_contacts_cross_driver	PASS	seven-driver persistence vs independent path contact records
+N84V_A18	initial_occupancies_cross_driver	PASS	same 101 sampled late frames
+N84V_A3	grid_and_windows	PASS	0-100 ns at 0.5 ns
+N84V_A3	finite	PASS	['x_A', 'y_A', 'z_A', 'fit_rmsd_A', 'minimum_receptor_ligand_distance_A', 'centroid_displacement_from_arm_initial_in_common_frame_A']
+N84V_A3	centroid_displacement_reproduction	PASS	distance from stored common-frame initial centroid
+N84V_A3	dynamic_contact_count	PASS	distinct residue contact tokens per frame
+N84V_A3	occupancy_residue_coverage	PASS	all residues ever observed in the sampled frame records
+N84V_A3	dynamic_occupancy_reproduction	PASS	early denominator 100; late denominator 101; initial flags
+N84V_A3	shared_initial_contacts_cross_driver	PASS	seven-driver persistence vs independent path contact records
+N84V_A3	initial_occupancies_cross_driver	PASS	same 101 sampled late frames
+V368R_A18	grid_and_windows	PASS	0-100 ns at 0.5 ns
+V368R_A18	finite	PASS	['x_A', 'y_A', 'z_A', 'fit_rmsd_A', 'minimum_receptor_ligand_distance_A', 'centroid_displacement_from_arm_initial_in_common_frame_A']
+V368R_A18	centroid_displacement_reproduction	PASS	distance from stored common-frame initial centroid
+V368R_A18	dynamic_contact_count	PASS	distinct residue contact tokens per frame
+V368R_A18	occupancy_residue_coverage	PASS	all residues ever observed in the sampled frame records
+V368R_A18	dynamic_occupancy_reproduction	PASS	early denominator 100; late denominator 101; initial flags
+V368R_A18	shared_initial_contacts_cross_driver	PASS	seven-driver persistence vs independent path contact records
+V368R_A18	initial_occupancies_cross_driver	PASS	same 101 sampled late frames
+V368R_A3_newlid	grid_and_windows	PASS	0-100 ns at 0.5 ns
+V368R_A3_newlid	finite	PASS	['x_A', 'y_A', 'z_A', 'fit_rmsd_A', 'minimum_receptor_ligand_distance_A', 'centroid_displacement_from_arm_initial_in_common_frame_A']
+V368R_A3_newlid	centroid_displacement_reproduction	PASS	distance from stored common-frame initial centroid
+V368R_A3_newlid	dynamic_contact_count	PASS	distinct residue contact tokens per frame
+V368R_A3_newlid	occupancy_residue_coverage	PASS	all residues ever observed in the sampled frame records
+V368R_A3_newlid	dynamic_occupancy_reproduction	PASS	early denominator 100; late denominator 101; initial flags
+V368R_A3_newlid	shared_initial_contacts_cross_driver	PASS	seven-driver persistence vs independent path contact records
+V368R_A3_newlid	initial_occupancies_cross_driver	PASS	same 101 sampled late frames
+WT_A3_newlid	grid_and_windows	PASS	0-100 ns at 0.5 ns
+WT_A3_newlid	finite	PASS	['x_A', 'y_A', 'z_A', 'fit_rmsd_A', 'minimum_receptor_ligand_distance_A', 'centroid_displacement_from_arm_initial_in_common_frame_A']
+WT_A3_newlid	centroid_displacement_reproduction	PASS	distance from stored common-frame initial centroid
+WT_A3_newlid	dynamic_contact_count	PASS	distinct residue contact tokens per frame
+WT_A3_newlid	occupancy_residue_coverage	PASS	all residues ever observed in the sampled frame records
+WT_A3_newlid	dynamic_occupancy_reproduction	PASS	early denominator 100; late denominator 101; initial flags
+WT_A3_newlid	shared_initial_contacts_cross_driver	PASS	seven-driver persistence vs independent path contact records
+WT_A3_newlid	initial_occupancies_cross_driver	PASS	same 101 sampled late frames

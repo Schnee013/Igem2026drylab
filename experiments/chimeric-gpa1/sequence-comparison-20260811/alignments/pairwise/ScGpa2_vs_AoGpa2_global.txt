@@ -1,0 +1,41 @@
+# ScGpa2 vs AoGpa2
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 956.0
+# Length: 457
+# Identity: 194/457 (42.451%)
+# Similarity (BLOSUM62 > 0): 275/457 (60.175%)
+# Gap columns: 109/457 (23.851%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa2      1-60  MGLCASSEKNGSTPDTQTASAGSDNVGKAKVPPKQEPQKTVRTVNTANQQEKQQQRQQQP
+                  ||.|.|.|.:                                       :|.:|:::.|.
+AoGpa2      1-21  MGGCMSREAS---------------------------------------EEMEQRKKSQA
+
+ScGpa2    61-120  SPHNVKDRKEQNGSINNAISPTATANTSGSQQINIDSALRDRSSNVAAQPSLSDASSGSN
+                                                    ||..:.|.|..:.             
+AoGpa2     22-34  ----------------------------------IDREIMDDSRRLR-------------
+
+ScGpa2   121-180  DKELKVLLLGAGESGKSTVLQQLKILHQNGFSEQEIKEYIPLIYQNLLEIGRNLIQARTR
+                   :|.|:||||:|||||||:::|:||:||||::..|::.|...:|:||::..:.||.|..:
+AoGpa2     35-93  -RECKILLLGSGESGKSTIVKQMKIIHQNGYTVDELQHYRLTVYKNLVDCAKALIDAMRQ
+
+ScGpa2   181-232  FNVNLEPECELTQQDLSRTMSYEM---PNNYTGQFPEDI--AGVISTLW---ALPSTQDL
+                  |::  .||.|..::.:....::::   ||     .|.||  :..::.||   |:||..: 
+AoGpa2    94-145  FDI--VPEHEANKEHMEFLYTFQVDPDPN-----VPLDIHVSKAVAALWDDPAVPSVLE-
+
+ScGpa2   233-292  VNGPNASKFYLMDSTPYFMENFTRITSPNYRPTQQDILRSRQMTSGIFDTVIDMGSDIKM
+                      :.|:||:|||.|||.....||.||.|.|::.|:||:|..|:||::|...|| .:.:
+AoGpa2   146-200  ----HQSEFYIMDSAPYFFAEAARIGSPEYIPSEADVLRARTKTTGIYETRFTMG-QLNI
+
+ScGpa2   293-352  HIYDVGGQRSERKKWIHCFDNVTLVIFCVSLSEYDQTLMEDKNQNRFQESLVLFDNIVNS
+                  |::||||||||||||||||::||.:||||:||||||.|:|::||||..|||||||::|||
+AoGpa2   201-260  HMFDVGGQRSERKKWIHCFESVTSIIFCVALSEYDQVLLEEQNQNRMLESLVLFDSVVNS
+
+ScGpa2   353-412  RWFARTSVVLFLNKIDLFAEKLSKVPMENYFPDYTGGSDINKAAKYILWRFVQLNRANLS
+                  |||.|||::|||||:|||.:||.:.|:.||||||:||.|:|:||||:||||.|:|||:|:
+AoGpa2   261-320  RWFVRTSIILFLNKVDLFRQKLPRTPLSNYFPDYSGGPDVNRAAKYLLWRFNQVNRAHLN
+
+ScGpa2   413-449  IYPHVTQATDTSNIRLVFAAIKETILENTLKDSGVLQ
+                  :|||:|||||||||||||||:|||||:|.|||||:| 
+AoGpa2   321-356  LYPHLTQATDTSNIRLVFAAVKETILQNALKDSGIL-

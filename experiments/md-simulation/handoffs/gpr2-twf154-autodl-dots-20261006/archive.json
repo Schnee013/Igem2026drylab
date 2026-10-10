@@ -1,0 +1,20 @@
+{
+  "path": "gpr2-twf154-dots-20261006-v3-new-access.zip",
+  "bytes": 77483769,
+  "sha256": "446588a5b342b08f2371b0d0aa6ae763c36b918229765c5a649a2993dac24638",
+  "as_of": "2026-10-06T03:22:00.652763+08:00",
+  "packaged_files": 368,
+  "manifest_covered_files": 366,
+  "uncompressed_bytes": 217074897,
+  "root_folder": "gpr2-twf154-dots-20261006",
+  "credentials_included": false,
+  "historical_production_trajectory_or_midrun_cpt_included": false,
+  "restoration": "Extract ZIP, preserve its relative hierarchy, then python3 compute/scripts/verify_bundle.py --root .",
+  "source_manifest": "bundle/SOURCE_FILES.json",
+  "local_validation": "upload-20mb/validation.json",
+  "remote_md_acceptance": "Not performed in this handoff task",
+  "supersedes": {
+    "path": "gpr2-twf154-dots-20261006-v2-email.zip",
+    "sha256": "2f8a738ad6c67a807df1f43616916799af088302a24aa99cfe444bafbf9f28e3"
+  }
+}

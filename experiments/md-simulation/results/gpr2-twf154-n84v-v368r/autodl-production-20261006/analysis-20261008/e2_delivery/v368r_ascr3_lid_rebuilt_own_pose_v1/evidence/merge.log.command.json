@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi",
+    "trjcat",
+    "-f",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0002.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0003.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0004.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0005.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0006.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0007.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0008.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0009.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0010.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0011.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/v368r_ascr3_lid_rebuilt_own_pose_v1_rep1_production.part0012.xtc",
+    "-o",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/merged_full.xtc",
+    "-tu",
+    "ps"
+  ],
+  "stdin": null,
+  "observed_at": "2026-10-08T18:44:16.594756+00:00"
+}

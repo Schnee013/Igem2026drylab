@@ -1,0 +1,106 @@
+{
+  "case": "native_wt_ascr18",
+  "snapshot": "em.gro",
+  "finite_coordinates": true,
+  "protein_chirality_inversions": [],
+  "ligand_chirality_inversions": [],
+  "popc_chirality_inversions": [],
+  "ss_distance_A": 1.991306104043276,
+  "peptide_bond_range_A": [
+    1.328269550957184,
+    1.3634515026211993
+  ],
+  "ligand_max_bond_ratio_vs_seed": 1.091357895280675,
+  "ligand_worst_bond": {
+    "atoms": [
+      "C17",
+      "O5"
+    ],
+    "seed_A": 1.357414085679093,
+    "snapshot_A": 1.243784547258893,
+    "ratio": 1.091357895280675
+  },
+  "ligand_bond_ratio_limit": 1.2,
+  "water_max_distance_error_nm": 0.0014911104761188704,
+  "lid_ligand_min_heavy_A": 2.9605911571846537,
+  "ligand_heavy_no_fit_rmsd_vs_start_A": 1.245368812143965,
+  "pass": true,
+  "ss_loop_sugar_linking_numbers": [
+    0.0
+  ],
+  "topology_views": 30,
+  "protein_ring_pairs_checked": 72,
+  "protein_ring_sugar_links": [],
+  "all_bond_count": 30466,
+  "all_bond_worst_by_molecule": {
+    "PROA": {
+      "molecule": "PROA",
+      "atom_indices_1based": [
+        194,
+        195
+      ],
+      "atoms": [
+        [
+          11,
+          "ARG",
+          "CZ"
+        ],
+        [
+          11,
+          "ARG",
+          "NH1"
+        ]
+      ],
+      "equilibrium_A": 1.3650000000000002,
+      "snapshot_A": 1.3006536818077274,
+      "ratio": 1.0494722915809842
+    },
+    "ASCR18": {
+      "molecule": "ASCR18",
+      "atom_indices_1based": [
+        6412,
+        6430
+      ],
+      "atoms": [
+        [
+          407,
+          "ASCR1",
+          "C6"
+        ],
+        [
+          407,
+          "ASCR1",
+          "H7"
+        ]
+      ],
+      "equilibrium_A": 1.111,
+      "snapshot_A": 1.0775435026021036,
+      "ratio": 1.0310488600386936
+    },
+    "POPC": {
+      "molecule": "POPC",
+      "atom_indices_1based": [
+        18487,
+        18490
+      ],
+      "atoms": [
+        [
+          497,
+          "POPC",
+          "C38"
+        ],
+        [
+          497,
+          "POPC",
+          "C39"
+        ]
+      ],
+      "equilibrium_A": 1.53,
+      "snapshot_A": 1.6378644632569586,
+      "ratio": 1.0704996491875547
+    }
+  },
+  "all_bonds_outside_20pct": [],
+  "topology_note": "Closed covalent-loop diagnostic under the retained 99-173 disulfide assumption; zero linking number is not a proof against every possible link type",
+  "scope": "preparation snapshot geometry only; no thermodynamic or mechanistic inference"
+}

@@ -1,0 +1,67 @@
+{
+  "as_of": "2026-10-05",
+  "old_wt_sequence_from_actual_processed_structure": "MTQLPYLLDRRGGALAAPATAWGDMMLNRALFSVALLSSVGSAWVVLSYACIKELRSYRHQLILGLAISDLLMSLNFMFSAGWNVAGGDLALEESRTACSVNGFLTQVFVVQTDWWILVIAIATYIILGNFKTQSQFIQTHVWIPWVGPWVLSIIIAAICHGVLGYGYIGGWCWLTSDLMRLLINFIPRWLIVIAIALIYIRLYMIVRKARKWDIEGVSPDPGDDMADTSVILMSVGKKDRERQGSGVLVSRDVSVSFGRKGSTAPTFVTMVTTSGAGDSREAISSCSAREEGSRARTVNVNSSRSLSLGMRQPLNAAQLKRIAKKMMVYPVAYAIIWACPTAIRIYQGTTGSRAPLWITIVDKSCIVIQGLVDAVVYGLNERAWQGWRDHIRRIIYKNEGGRIIG",
+  "current_wt_fasta": "/Users/roy/Documents/docking/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+  "current_wt_fasta_sha256": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150",
+  "current_wt_sequence": "MTQLPYLLDRRGGALAAPATAWGDMMLNRALFSVALLSSVGSAWVVLSYVCIKELRSYRHQLILGLAISDLLMALNFMFSAGWNVAGGDLALEESRTACSVNGFLTQVFVVQTDWWILVIAIATYIILGNFKTQSQFIQTHVWIPWVGPWVLSIIIAAICHGVLGYGYIGGWCWLTSDLMRLLVNFIPRWLIVIAIALIYIRLYMIVRKARKWDIEGVSPDPGDDMADTSVILVPVGKKDRERQGSGVLVSRDVSVSFGRKGSTAPTFVTMVTTSGTGDSREAISSCSAREEGSRARTVNVNSSRSLSLGMRQPLNAAQLKRIAKKMMVYPVAYAIIWACPTAIRIYQGTTGSRAPLWITIVDKSCIVIQGLVDAVVYGLNERAWQGWRDHVRRIIYKNEGGRIIG",
+  "length_old": 406,
+  "length_current": 406,
+  "same_sequence": false,
+  "differences": [
+    {
+      "residue": 50,
+      "historical_WT": "A",
+      "TWF154_WT": "V"
+    },
+    {
+      "residue": 74,
+      "historical_WT": "S",
+      "TWF154_WT": "A"
+    },
+    {
+      "residue": 184,
+      "historical_WT": "I",
+      "TWF154_WT": "V"
+    },
+    {
+      "residue": 234,
+      "historical_WT": "M",
+      "TWF154_WT": "V"
+    },
+    {
+      "residue": 235,
+      "historical_WT": "S",
+      "TWF154_WT": "P"
+    },
+    {
+      "residue": 277,
+      "historical_WT": "A",
+      "TWF154_WT": "T"
+    },
+    {
+      "residue": 392,
+      "historical_WT": "I",
+      "TWF154_WT": "V"
+    }
+  ],
+  "processed_payload": {
+    "protein_ref.pdb": {
+      "path": "/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr2-wt-ascr18/processed/rep1/protein_ref.pdb",
+      "sha256": "da9d97802756ed9ee46bab237fa6a250b91145f012efa5f2389835eab9d98260",
+      "matches_archive_manifest": true
+    },
+    "prod_protein.xtc": {
+      "path": "/Users/roy/Documents/drylab-payloads/experiments/md-simulation/results/gpr2-wt-ascr18/processed/rep1/prod_protein.xtc",
+      "sha256": "e286ee56f5889146a86befb111dda401637162249d05d0397a4ef793c657371b",
+      "matches_archive_manifest": true
+    }
+  },
+  "processed_trajectory": {
+    "frames": 2001,
+    "atoms": 6451,
+    "first_time_ps": 0.0,
+    "last_time_ps": 200000.0
+  },
+  "completion_record": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-wt-ascr18/analysis/gpr2_wt_ascr18_rep1_chctrl_metric_analysis_20260709.md",
+  "allowed_use": "确认历史WT–ascr18 200ns rep1的本地轨迹可读取及序列差异；不能直接当作TWF154同背景WT对照。未重新分析结合机制，未现场复核整个远端48项归档。"
+}

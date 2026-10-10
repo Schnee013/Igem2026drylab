@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "case": "native_wt_ascr18",
+  "n_frames": 1001,
+  "source_sha256": "6e13033ca67daf26befeebec58da64274f3f4b9ea129a3667fa393ad85701edb",
+  "config_sha256": "5c1339989ac60196ff1aadaad0eb0d222da95901b0af912a3538d67742b0ea61"
+}

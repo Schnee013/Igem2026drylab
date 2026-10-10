@@ -1,0 +1,81 @@
+{
+  "input_root": "/ifs1/User/dengwei/igem/md/gpr2-autodl",
+  "output_root": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis",
+  "source_root": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3",
+  "gmx": "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi",
+  "python": "/ifs1/User/dengwei/igem/envs/roy_md-analysis-py311/bin/python",
+  "coverage_certificate": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/coverage_certificate.json",
+  "run_id": "analysis_recovery_20261009",
+  "cases": [
+    {
+      "id": "native_wt_ascr18",
+      "genotype": "wt",
+      "ligand": "ascr18",
+      "segments": 15,
+      "full_atoms": 145776,
+      "run_dir": "runs/native_wt_ascr18/rep1_npt01_attempt02",
+      "record_dir": "operator_records/codex_takeover_v1",
+      "legal_duplicate_ps": [],
+      "label": "WT + ascr18 (native lid)"
+    },
+    {
+      "id": "raw_n84v_ascr18",
+      "genotype": "n84v",
+      "ligand": "ascr18",
+      "segments": 12,
+      "full_atoms": 146032,
+      "run_dir": "runs/raw_n84v_ascr18/rep1_codex_v1",
+      "record_dir": "operator_records/n84v_production_v1",
+      "legal_duplicate_ps": [
+        1030.0
+      ],
+      "label": "N84V + ascr18 (raw lid)"
+    },
+    {
+      "id": "raw_n84v_ascr3",
+      "genotype": "n84v",
+      "ligand": "ascr3",
+      "segments": 13,
+      "full_atoms": 146021,
+      "run_dir": "runs/raw_n84v_ascr3/rep1_codex_v1",
+      "record_dir": "operator_records/production_raw_n84v_ascr3_v1",
+      "legal_duplicate_ps": [],
+      "label": "N84V + ascr3 (raw lid)"
+    },
+    {
+      "id": "raw_v368r_ascr18",
+      "genotype": "v368r",
+      "ligand": "ascr18",
+      "segments": 13,
+      "full_atoms": 145979,
+      "run_dir": "runs/raw_v368r_ascr18/rep1_codex_v1",
+      "record_dir": "operator_records/production_raw_v368r_ascr18_v1",
+      "legal_duplicate_ps": [],
+      "label": "V368R + ascr18 (raw lid)"
+    },
+    {
+      "id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "genotype": "v368r",
+      "ligand": "ascr3",
+      "segments": 12,
+      "full_atoms": 145905,
+      "run_dir": "runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1",
+      "record_dir": "operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1",
+      "legal_duplicate_ps": [],
+      "label": "V368R + ascr3 (rebuilt own lid)"
+    },
+    {
+      "id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "genotype": "wt",
+      "ligand": "ascr3",
+      "segments": 12,
+      "full_atoms": 145681,
+      "run_dir": "runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1",
+      "record_dir": "operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1",
+      "legal_duplicate_ps": [
+        26970.0
+      ],
+      "label": "WT + ascr3 (rebuilt own lid)"
+    }
+  ]
+}

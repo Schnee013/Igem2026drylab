@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+  "input_contract": {
+    "atoms": 6408,
+    "charge": 15.0,
+    "ss_atom_indices": [
+      1513,
+      2696
+    ],
+    "lid_position_restraints": false,
+    "genotype": "v368r",
+    "ligand": "ascr3",
+    "pose_mapping": "v368r_ascr3",
+    "id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "lid": "lid_rebuilt_own_pose_v1",
+    "source_original_case": "raw_v368r_ascr3",
+    "production_authority": "../../../../WORK_ORDER.json",
+    "production_ns": 100,
+    "replicate": 1
+  },
+  "topology": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/production.tpr",
+    "bytes": 5438632,
+    "sha256": "aae3a81fba9c1780509208e419e604cdaa5fa7d3f87c945dc08cc60b9c219180"
+  },
+  "full_atoms": 145905,
+  "protein_atoms": 6408,
+  "protein_residues": 406,
+  "ligand_atoms": 46,
+  "ligand_heavy_atoms": 21,
+  "solution_atoms": 6454,
+  "fit_atoms": 1623,
+  "receptor_segids": [
+    "seg_0_PROA"
+  ],
+  "ligand_segids": [
+    "seg_1_ASCR3"
+  ],
+  "stored_frames": 10001,
+  "unique_frames": 10001,
+  "duplicates": [],
+  "source_integrity": "Retained independent per-file E2 SHA receipts; current manifest/closed-record/TPR SHA and XTC byte/time/atom checks",
+  "evidence": [
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/coverage_certificate.json",
+      "bytes": 26321,
+      "sha256": "573ce2c34de9f15f52327a0363180c6cf91b9a41c9dd2ef34a1dfb8327a6d768"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_001.manifest.json",
+      "bytes": 7670,
+      "sha256": "9a809672d5e889132003ac56c61686aae9aeeefee3f26ed215ce3705dbeac2b7"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_002.manifest.json",
+      "bytes": 7704,
+      "sha256": "f5b67f56e8060df08009db9256ea053ea15108de1d0bbd20a1a2041ebe60ce22"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_003.manifest.json",
+      "bytes": 7714,
+      "sha256": "1e32ccd4ed1d62b218c7c89fa35b7545ba23b72b010f8789cda0bae58aed9617"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_004.manifest.json",
+      "bytes": 7714,
+      "sha256": "f71704b768937dbd34ebd76aec2f5112b71dbb35de5dd256e1437ac9ee163912"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_005.manifest.json",
+      "bytes": 7702,
+      "sha256": "fb23ec0efe0b32b9a640722e280d669723b0dc18aa9c9529e406b0ae3c866e84"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_006.manifest.json",
+      "bytes": 7714,
+      "sha256": "60bd9296e00e991f2df87ce680b881183a573aaabe25e209b03aac73f1f833a0"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_007.manifest.json",
+      "bytes": 7702,
+      "sha256": "707f7888bfce6c5e36f7b773300e373d98c4546204e3de33a0c0f8ebd907b6df"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_008.manifest.json",
+      "bytes": 7714,
+      "sha256": "970e667cbf33f00d220984044628c4a73e5c9607cfee73a72a08eba184b8b44c"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_009.manifest.json",
+      "bytes": 7714,
+      "sha256": "ddfce073c840f378014aba6885b6fff787c96f4e46b7b60e3fa78e257af9c65d"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_010.manifest.json",
+      "bytes": 7714,
+      "sha256": "520ee4667faa5122e289a1a094f36897bba12329a93daf63c05d468e78f3c9c9"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_011.manifest.json",
+      "bytes": 7702,
+      "sha256": "12c19ac0cdd7941dfb2cacffd64212870286d6b5213d29772763c0e09281db30"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1_segment_012.manifest.json",
+      "bytes": 7485,
+      "sha256": "f66b3d1550fc353de0fa37ec31f0a182e3f39d9834d9b6d8c48026734b9ef5b2"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_001/closed_segment.json",
+      "bytes": 2848,
+      "sha256": "24c6014c0ce2ac36ffedab58dfc469949a881ae83eb2a96c86d8651517ac3d1c"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_002/closed_segment.json",
+      "bytes": 2868,
+      "sha256": "e359a4e1a2aa0ee2168066465c27703c03c1525f1339f4da1901d5858a9a686b"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_003/closed_segment.json",
+      "bytes": 2889,
+      "sha256": "9c8345fbe7765d342904c11011d338d6fee29627ca3f64a196a205378eccf55b"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_004/closed_segment.json",
+      "bytes": 2866,
+      "sha256": "991189f201d379201dfd7bd1b963ca8a029294e4be21a9e1a368e267a1be7750"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_005/closed_segment.json",
+      "bytes": 2890,
+      "sha256": "04534854a6554998cd732100f7cf35afcc6d251a7af628afb237a6f3505ea2e7"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_006/closed_segment.json",
+      "bytes": 2870,
+      "sha256": "ffe8fe2be80caca0d671ceea6540abfb947d1ba193a5bc6b569820e6412d8131"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_007/closed_segment.json",
+      "bytes": 2871,
+      "sha256": "3e9e3bed456bdb182e91468debabf3bbe53b19da7716b8f1e9da7971faa55e75"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_008/closed_segment.json",
+      "bytes": 2889,
+      "sha256": "f572176a957af50808d564367cf35c023c8fa4a95762100705f03cb1b6e96235"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_009/closed_segment.json",
+      "bytes": 2890,
+      "sha256": "26e97adbe7543a8009a5efee26ed8504ddbc007603153e0bf0f34ac679167801"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_010/closed_segment.json",
+      "bytes": 2888,
+      "sha256": "7387863dcef16175b96344fa22ca5db92e526a4f2b71d04460cdf141d158ddec"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_011/closed_segment.json",
+      "bytes": 2886,
+      "sha256": "5cc7b6075ee53e918f87c8824deee83e13cb2edae751441cb300a35e4b26239a"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_v368r_ascr3_lid_rebuilt_own_pose_v1_v1/segment_012/closed_segment.json",
+      "bytes": 2886,
+      "sha256": "5d839a3b9103b26b9fcd553e3fb77052a2c8b8305335e603d5db4fa5140f4cd8"
+    }
+  ],
+  "observed_at": "2026-10-08T18:44:16.591797+00:00"
+}

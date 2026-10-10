@@ -1,0 +1,52 @@
+313 c7xmsA_ Probab=99.95  E-value=6.9e-26  Score=181.26  Aligned_cols=265  Identities=9%  Similarity=0.007  Sum_probs=0.0  Template_Neff=13.181
+
+Q ss_pred             HHHHHHHHHHHHHHHHHHHHHHHHHHhcCccCCccHHHHHHHHHHHHHHHHHhhHHHHHH
+Q TrEMBL_entry_S    7 ILNNFLSVVFSQTTCILNFYLLFSIFYSKRIAWKSELSLIYTRFAFDMFYTFFVPHNKIY   66 (289)
+Q Consensus         7 ~~~~~~~~~~~v~~~~~N~~vl~~i~~~k~lr~~~~~~li~~Lav~Dll~~~~~~~~~~~   66 (289)
+                      +...++..+++++|+++|.+++.++.++|++|++.+ .++.+||++|++.++..++....
+T Consensus         2 ~~~~~~~~~~~~~~~~~n~~~i~~~~~~~~~~~~~~-~~l~~l~~~d~~~~~~~~~~~~~   60 (276)
+T c7xmsA_           2 VAIQCIYALVCLVGLVGNALVIFVILRYAKMKTATN-IYLLNLAVADELFMLSVPFVASS   60 (276)
+T ss_dssp             HHHHHHHHHHHHHHHHHHHHHHHHCCCCCSSCSHHH-HHHHHHHHHHHHHHHHHHHHHHH
+T ss_pred             chHHHHHHHHHHHHHHHHHHHHHHhhcccccCcccH-HHHHHHHHHHHHHHHHhHHHHHH
+
+
+Q ss_pred             HHhccccccchHHHHHHHHHHHHHHHHHHHHHHHHHHHHHhHHHHhhhHHhhccCchhHH
+Q TrEMBL_entry_S   67 YIIRQIFPGFVVKNLSFYLIWPTIPLGCIRATLVFLITLDRVIALFFPISYHNHRFKISL  126 (289)
+Q Consensus        67 ~~~~~~~~~~~~~~~C~~~~~~~~~~~~~S~~~l~~ISiDRy~aI~~P~~~~~~~~~~~~  126 (289)
+                      ....+...   ++..|+...+........|.+.++++|+|||.++++|.++++..+++..
+T Consensus        61 ~~~~~~~~---~~~~c~~~~~~~~~~~~~~~~~~~~~~~~R~~~i~~p~~~~~~~~~~~~  117 (276)
+T c7xmsA_          61 AALRHWPF---GSVLCRAVLSVDGLNMFTSVFCLTVLSVDRYVAVVHPLRAATYRRPSVA  117 (276)
+T ss_dssp             HHHTSCCS---CHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHCHHHHTTTSSHHHH
+T ss_pred             HHcCCccc---cccchhhHHHHHHHHHHHHHHHHHHHHHHHHeeEeecceeeecccccHH
+
+
+Q ss_pred             HHHHHHHHHHHHHHhhHHHhhcccccccCcceeeecccccchH------HHHHHHHHHHH
+Q TrEMBL_entry_S  127 SAIIISVSCFGASDHLILFGYCRYTVDVPLECDNFNCVIKTCF------YSYWVSRDQIQ  180 (289)
+Q Consensus       127 ~~i~~~~w~~~i~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~------~~~~~~~~~~~  180 (289)
+                      .......|..++....|.....+....................      .........+.
+T Consensus       118 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  177 (276)
+T c7xmsA_         118 KLINLGVWLASLLVTLPIAIFADTRPARGGQAVACNLQWPHPAWSAVFVVYTFLLGFLLP  177 (276)
+T ss_dssp             HHHHHHHHHHHHHHHSHHHHSEEECCCSSSSCCCEEECCSSHHHHHHHHHHHHCCCCCHH
+T ss_pred             HHHHHHHHHHHHHHHhhHHHHcccccCCCCCceEEecCCCchhhHHHHHHHHHHHHHHHH
+
+
+Q ss_pred             HHHHHHHHHHHHHHHHHHHHhhhhhhhhhHHHHHHHHHHHHHHHHHHHHHHHHHHHHHhh
+Q TrEMBL_entry_S  181 YILTGTFSVILLFRLVIWNNFVASQRNQNLSRATRIALLESIVIICFSIIPSLIFSTFPS  240 (289)
+Q Consensus       181 ~~i~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ivf~~~~~P~~i~~~~~~  240 (289)
+                      .............+.....++.+++++++++++..+....+.+.+++||.|..+......
+T Consensus       178 ~~~~~~~~~~i~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~p~~~~~~~~~  237 (276)
+T c7xmsA_         178 VLAIGLCYLLIVGKMRAVALRAGWQQRRRSEKKITRLVLMFVVVFVLCWMPFYVVQLLNL  237 (276)
+T ss_dssp             HHHHHHHHHHHHHHHHHHHHHTTCCSCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTT
+T ss_pred             HHHHHHHHHHHHHHHHHhhhhccHHHHHHHHHHHHHHHHHHHHHHHHHHhHHHHHHHHHH
+
+
+Q ss_pred             c---chhhhhHHHHHHHHHhhHhhHHHHHHHHHhhhhc
+Q TrEMBL_entry_S  241 L---NFVSVGPWTIVLKHAGFMIEALIICKFLLKRKSK  275 (289)
+Q Consensus       241 ~---~~~~~~~~~~~~~~~~~~in~~i~~~~~~k~~~~  275 (289)
+                      .   ..+........+...++++||++|....++-++.
+T Consensus       238 ~~~~~~~~~~~~~~~~~~~~~~~np~iy~~~~~~~r~~  275 (276)
+T c7xmsA_         238 FVTSLDATVNHVSLILSYANSCANPILYGFLSDNFRRF  275 (276)
+T ss_dssp             TCCTTTTSSHHHHHHHHHHHHHHHHHHHHTTSHHHHHH
+T ss_pred             HHhhchHhHhHHHHHHHHHHhhhhHHHHHHcCHHHHhc
+
+

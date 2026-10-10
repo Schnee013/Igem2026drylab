@@ -1,0 +1,21 @@
+{
+  "receptor_atoms": 6408,
+  "receptor_residues": 406,
+  "fit_atoms": 1623,
+  "ligand_atoms": 46,
+  "ligand_heavy_atoms": 21,
+  "own_initial_contact_resids": [
+    28,
+    31,
+    77,
+    80,
+    84,
+    89,
+    90,
+    174,
+    181,
+    364
+  ],
+  "whole_receptor_com": "same residue set across cases",
+  "own_contact_com_caveat": "Different own frame0 residue clusters; use as within-case motion, not matched pocket comparison"
+}

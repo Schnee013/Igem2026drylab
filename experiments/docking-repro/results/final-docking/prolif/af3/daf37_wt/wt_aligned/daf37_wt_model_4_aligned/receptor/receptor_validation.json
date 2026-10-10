@@ -1,0 +1,10 @@
+{
+  "model_rel": "daf37_wt/wt_aligned/daf37_wt_model_4_aligned",
+  "source_receptor_pdb": "experiments/docking-repro/prepared/final-docking/receptors/af3/pdb/daf37_wt/wt_aligned/daf37_wt_model_4_aligned.pdb",
+  "source_receptor_pdbqt": "experiments/docking-repro/prepared/final-docking/receptors/af3/pdbqt/daf37_wt/wt_aligned/daf37_wt_model_4_aligned.pdbqt",
+  "pdbqt_byte_identical": true,
+  "residue_count": 482,
+  "atom_count": 7690,
+  "explicit_hydrogens": 3861,
+  "formal_charge": 0
+}

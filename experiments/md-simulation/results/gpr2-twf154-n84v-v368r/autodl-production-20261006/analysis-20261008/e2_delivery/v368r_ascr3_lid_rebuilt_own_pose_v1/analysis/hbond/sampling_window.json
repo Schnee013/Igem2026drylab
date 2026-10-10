@@ -1,0 +1,11 @@
+{
+  "window_ns": [
+    50.0,
+    100.0
+  ],
+  "frame_counts": {
+    "('rep1', 'Gpr2 V368R_iface_to_ASCR3')": 101,
+    "('rep1', 'ASCR3_to_Gpr2 V368R_iface')": 101
+  },
+  "stride": 50
+}

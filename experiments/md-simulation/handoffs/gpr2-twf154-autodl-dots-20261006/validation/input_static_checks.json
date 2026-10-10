@@ -1,0 +1,92 @@
+[
+  {
+    "case_id": "native_wt_ascr18",
+    "atoms": 145776,
+    "molecules": {
+      "PROA": 1,
+      "ASCR18": 1,
+      "POPC": 180,
+      "SOL": 38327,
+      "POT": 104,
+      "CLA": 117
+    },
+    "source_and_pose_paths_resolve": true,
+    "finite_coordinates": true,
+    "topology_coordinate_atomcount_match": true,
+    "coordinate_scope": "Prepared ionized and preheated coordinates"
+  },
+  {
+    "case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+    "atoms": 30566,
+    "molecules": {
+      "PROA": 1,
+      "ASCR3": 1,
+      "POPC": 180
+    },
+    "source_and_pose_paths_resolve": true,
+    "finite_coordinates": true,
+    "topology_coordinate_atomcount_match": true,
+    "coordinate_scope": "Historical own dry membrane reference, not prepared new lid system"
+  },
+  {
+    "case_id": "raw_n84v_ascr18",
+    "atoms": 146032,
+    "molecules": {
+      "PROA": 1,
+      "ASCR18": 1,
+      "POPC": 177,
+      "SOL": 38545,
+      "POT": 105,
+      "CLA": 118
+    },
+    "source_and_pose_paths_resolve": true,
+    "finite_coordinates": true,
+    "topology_coordinate_atomcount_match": true,
+    "coordinate_scope": "Prepared ionized and preheated coordinates"
+  },
+  {
+    "case_id": "raw_n84v_ascr3",
+    "atoms": 146021,
+    "molecules": {
+      "PROA": 1,
+      "ASCR3": 1,
+      "POPC": 177,
+      "SOL": 38544,
+      "POT": 105,
+      "CLA": 118
+    },
+    "source_and_pose_paths_resolve": true,
+    "finite_coordinates": true,
+    "topology_coordinate_atomcount_match": true,
+    "coordinate_scope": "Prepared ionized and preheated coordinates"
+  },
+  {
+    "case_id": "raw_v368r_ascr18",
+    "atoms": 145979,
+    "molecules": {
+      "PROA": 1,
+      "ASCR18": 1,
+      "POPC": 177,
+      "SOL": 38525,
+      "POT": 105,
+      "CLA": 119
+    },
+    "source_and_pose_paths_resolve": true,
+    "finite_coordinates": true,
+    "topology_coordinate_atomcount_match": true,
+    "coordinate_scope": "Prepared ionized and preheated coordinates"
+  },
+  {
+    "case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "atoms": 30172,
+    "molecules": {
+      "PROA": 1,
+      "ASCR3": 1,
+      "POPC": 177
+    },
+    "source_and_pose_paths_resolve": true,
+    "finite_coordinates": true,
+    "topology_coordinate_atomcount_match": true,
+    "coordinate_scope": "Historical own dry membrane reference, not prepared new lid system"
+  }
+]

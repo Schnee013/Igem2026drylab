@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/ifs1/User/dengwei/igem/envs/gromacs-2025.4-mpi-cuda/bin.AVX2_256/gmx_mpi",
+    "trjcat",
+    "-f",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0002.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0003.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0004.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0005.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0006.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0007.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0008.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0009.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0010.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0011.xtc",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/raw_n84v_ascr18_rep1_production.part0012.xtc",
+    "-o",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/merged_full.xtc",
+    "-tu",
+    "ps"
+  ],
+  "stdin": null,
+  "observed_at": "2026-10-08T18:22:58.433835+00:00"
+}

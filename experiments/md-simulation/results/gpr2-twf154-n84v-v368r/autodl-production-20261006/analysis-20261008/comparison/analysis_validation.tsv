@@ -1,0 +1,181 @@
+case_id	check	status	detail
+native_wt_ascr18	processed_gate	PASS	{'status': 'PASS', 'frames': 10001, 'first_ps': 0.0, 'last_ps': 100000.0, 'processed_atoms': 6454, 'protein_atoms': 6400, 'ligand_atoms': 54, 'heavy_bond_max_A': 2.1742630004882812, 'adjacent_CA_max_A': 4.1482977867126465, 'max_ligand_relative_com_10ps_step_A': 1.3562210944921074, 'screen_limits': {'heavy_bond_A': 3.0, 'adjacent_CA_A': 4.5, 'relative_COM_step_A': 10.0}, 'screen_scope': 'Numerical atom mapping and PBC discontinuity screens; not pose-stability classification', 'source_order_and_names_resids_resnames': 'PASS', 'pdb_ligand_resname_serialization': {'source_TPR': 'ASCR18', 'PDB': 'ASCR', 'rule': 'exact first four characters; all other atom identities checked'}}
+native_wt_ascr18	seven_real_driver_exits	PASS	{'status': 'PASS', 'drivers': ['convergence', 'selection_rmsd', 'hbond', 'com_distance', 'rmsf', 'bsa', 'contacts'], 'replicate_selector': '1', 'summary_window_ns': [50, 100], 'sparse_sample_spacing_ns': 0.5, 'finished_at': '2026-10-08T18:28:15.752285+00:00'}
+native_wt_ascr18	receptor_backbone_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+native_wt_ascr18	receptor_backbone_rmsd_A_finite	PASS	backbone_rmsd_A
+native_wt_ascr18	receptor_backbone_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+native_wt_ascr18	receptor_CA_Rg_A_time_grid	PASS	rows=10001; expected=10001
+native_wt_ascr18	receptor_CA_Rg_A_finite	PASS	rg_A
+native_wt_ascr18	ligand_heavy_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+native_wt_ascr18	ligand_heavy_rmsd_A_finite	PASS	selection_rmsd_A
+native_wt_ascr18	ligand_heavy_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+native_wt_ascr18	receptor_ligand_BSA_A2_time_grid	PASS	rows=201; expected=201
+native_wt_ascr18	receptor_ligand_BSA_A2_finite	PASS	bsa_A2
+native_wt_ascr18	BSA_fraction_of_own_initial_time_grid	PASS	rows=201; expected=201
+native_wt_ascr18	BSA_fraction_of_own_initial_finite	PASS	bsa_fraction_of_initial
+native_wt_ascr18	own_initial_contact_retained_fraction_time_grid	PASS	rows=201; expected=201
+native_wt_ascr18	own_initial_contact_retained_fraction_finite	PASS	retained_fraction
+native_wt_ascr18	BSA_fraction_reproduction	PASS	absolute SASA-derived BSA versus stored normalization
+native_wt_ascr18	contact_fraction_reproduction	PASS	initial-contact counts versus fractions
+native_wt_ascr18	COM_own_initial_4A_contacts_grid	PASS	rows=10001
+native_wt_ascr18	COM_own_initial_4A_contacts_finite	PASS	distance_A
+native_wt_ascr18	COM_whole_receptor_grid	PASS	rows=10001
+native_wt_ascr18	COM_whole_receptor_finite	PASS	distance_A
+native_wt_ascr18	COM_cluster_count	PASS	['own_initial_4A_contacts' 'whole_receptor']
+native_wt_ascr18	rmsf_residue_mapping	PASS	residues=406
+native_wt_ascr18	rmsf_finite	PASS	rmsf_A
+native_wt_ascr18	hbond_window	PASS	"{'window_ns': [50.0, 100.0], 'frame_counts': {""('rep1', 'Gpr2 WT_iface_to_ASCR18')"": 101, ""('rep1', 'ASCR18_to_Gpr2 WT_iface')"": 101}, 'stride': 50}"
+native_wt_ascr18	hbond_occupancy	PASS	pairs=8
+native_wt_ascr18	hbond_denominator_reproduction	PASS	events / sampled window frames
+native_wt_ascr18	hbond_event_times	PASS	events=295
+native_wt_ascr18	initial_contact_occupancy	PASS	initial residue pairs=14
+raw_n84v_ascr18	processed_gate	PASS	{'status': 'PASS', 'frames': 10001, 'first_ps': 0.0, 'last_ps': 100000.0, 'processed_atoms': 6456, 'protein_atoms': 6402, 'ligand_atoms': 54, 'heavy_bond_max_A': 2.1997478008270264, 'adjacent_CA_max_A': 4.19010591506958, 'max_ligand_relative_com_10ps_step_A': 1.251434492024983, 'screen_limits': {'heavy_bond_A': 3.0, 'adjacent_CA_A': 4.5, 'relative_COM_step_A': 10.0}, 'screen_scope': 'Numerical atom mapping and PBC discontinuity screens; not pose-stability classification', 'source_order_and_names_resids_resnames': 'PASS', 'pdb_ligand_resname_serialization': {'source_TPR': 'ASCR18', 'PDB': 'ASCR', 'rule': 'exact first four characters; all other atom identities checked'}}
+raw_n84v_ascr18	seven_real_driver_exits	PASS	{'status': 'PASS', 'drivers': ['convergence', 'selection_rmsd', 'hbond', 'com_distance', 'rmsf', 'bsa', 'contacts'], 'replicate_selector': '1', 'summary_window_ns': [50, 100], 'sparse_sample_spacing_ns': 0.5, 'finished_at': '2026-10-08T18:30:33.894648+00:00'}
+raw_n84v_ascr18	receptor_backbone_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+raw_n84v_ascr18	receptor_backbone_rmsd_A_finite	PASS	backbone_rmsd_A
+raw_n84v_ascr18	receptor_backbone_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+raw_n84v_ascr18	receptor_CA_Rg_A_time_grid	PASS	rows=10001; expected=10001
+raw_n84v_ascr18	receptor_CA_Rg_A_finite	PASS	rg_A
+raw_n84v_ascr18	ligand_heavy_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+raw_n84v_ascr18	ligand_heavy_rmsd_A_finite	PASS	selection_rmsd_A
+raw_n84v_ascr18	ligand_heavy_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+raw_n84v_ascr18	receptor_ligand_BSA_A2_time_grid	PASS	rows=201; expected=201
+raw_n84v_ascr18	receptor_ligand_BSA_A2_finite	PASS	bsa_A2
+raw_n84v_ascr18	BSA_fraction_of_own_initial_time_grid	PASS	rows=201; expected=201
+raw_n84v_ascr18	BSA_fraction_of_own_initial_finite	PASS	bsa_fraction_of_initial
+raw_n84v_ascr18	own_initial_contact_retained_fraction_time_grid	PASS	rows=201; expected=201
+raw_n84v_ascr18	own_initial_contact_retained_fraction_finite	PASS	retained_fraction
+raw_n84v_ascr18	BSA_fraction_reproduction	PASS	absolute SASA-derived BSA versus stored normalization
+raw_n84v_ascr18	contact_fraction_reproduction	PASS	initial-contact counts versus fractions
+raw_n84v_ascr18	COM_own_initial_4A_contacts_grid	PASS	rows=10001
+raw_n84v_ascr18	COM_own_initial_4A_contacts_finite	PASS	distance_A
+raw_n84v_ascr18	COM_whole_receptor_grid	PASS	rows=10001
+raw_n84v_ascr18	COM_whole_receptor_finite	PASS	distance_A
+raw_n84v_ascr18	COM_cluster_count	PASS	['own_initial_4A_contacts' 'whole_receptor']
+raw_n84v_ascr18	rmsf_residue_mapping	PASS	residues=406
+raw_n84v_ascr18	rmsf_finite	PASS	rmsf_A
+raw_n84v_ascr18	hbond_window	PASS	"{'window_ns': [50.0, 100.0], 'frame_counts': {""('rep1', 'Gpr2 N84V_iface_to_ASCR18')"": 101, ""('rep1', 'ASCR18_to_Gpr2 N84V_iface')"": 101}, 'stride': 50}"
+raw_n84v_ascr18	hbond_occupancy	PASS	pairs=11
+raw_n84v_ascr18	hbond_denominator_reproduction	PASS	events / sampled window frames
+raw_n84v_ascr18	hbond_event_times	PASS	events=303
+raw_n84v_ascr18	initial_contact_occupancy	PASS	initial residue pairs=13
+raw_n84v_ascr3	processed_gate	PASS	{'status': 'PASS', 'frames': 10001, 'first_ps': 0.0, 'last_ps': 100000.0, 'processed_atoms': 6448, 'protein_atoms': 6402, 'ligand_atoms': 46, 'heavy_bond_max_A': 2.1960628032684326, 'adjacent_CA_max_A': 4.125361919403076, 'max_ligand_relative_com_10ps_step_A': 1.7307254956706961, 'screen_limits': {'heavy_bond_A': 3.0, 'adjacent_CA_A': 4.5, 'relative_COM_step_A': 10.0}, 'screen_scope': 'Numerical atom mapping and PBC discontinuity screens; not pose-stability classification', 'source_order_and_names_resids_resnames': 'PASS', 'pdb_ligand_resname_serialization': {'source_TPR': 'ASCR3', 'PDB': 'ASCR', 'rule': 'exact first four characters; all other atom identities checked'}}
+raw_n84v_ascr3	seven_real_driver_exits	PASS	{'status': 'PASS', 'drivers': ['convergence', 'selection_rmsd', 'hbond', 'com_distance', 'rmsf', 'bsa', 'contacts'], 'replicate_selector': '1', 'summary_window_ns': [50, 100], 'sparse_sample_spacing_ns': 0.5, 'finished_at': '2026-10-08T18:37:48.355557+00:00'}
+raw_n84v_ascr3	receptor_backbone_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+raw_n84v_ascr3	receptor_backbone_rmsd_A_finite	PASS	backbone_rmsd_A
+raw_n84v_ascr3	receptor_backbone_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+raw_n84v_ascr3	receptor_CA_Rg_A_time_grid	PASS	rows=10001; expected=10001
+raw_n84v_ascr3	receptor_CA_Rg_A_finite	PASS	rg_A
+raw_n84v_ascr3	ligand_heavy_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+raw_n84v_ascr3	ligand_heavy_rmsd_A_finite	PASS	selection_rmsd_A
+raw_n84v_ascr3	ligand_heavy_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+raw_n84v_ascr3	receptor_ligand_BSA_A2_time_grid	PASS	rows=201; expected=201
+raw_n84v_ascr3	receptor_ligand_BSA_A2_finite	PASS	bsa_A2
+raw_n84v_ascr3	BSA_fraction_of_own_initial_time_grid	PASS	rows=201; expected=201
+raw_n84v_ascr3	BSA_fraction_of_own_initial_finite	PASS	bsa_fraction_of_initial
+raw_n84v_ascr3	own_initial_contact_retained_fraction_time_grid	PASS	rows=201; expected=201
+raw_n84v_ascr3	own_initial_contact_retained_fraction_finite	PASS	retained_fraction
+raw_n84v_ascr3	BSA_fraction_reproduction	PASS	absolute SASA-derived BSA versus stored normalization
+raw_n84v_ascr3	contact_fraction_reproduction	PASS	initial-contact counts versus fractions
+raw_n84v_ascr3	COM_own_initial_4A_contacts_grid	PASS	rows=10001
+raw_n84v_ascr3	COM_own_initial_4A_contacts_finite	PASS	distance_A
+raw_n84v_ascr3	COM_whole_receptor_grid	PASS	rows=10001
+raw_n84v_ascr3	COM_whole_receptor_finite	PASS	distance_A
+raw_n84v_ascr3	COM_cluster_count	PASS	['own_initial_4A_contacts' 'whole_receptor']
+raw_n84v_ascr3	rmsf_residue_mapping	PASS	residues=406
+raw_n84v_ascr3	rmsf_finite	PASS	rmsf_A
+raw_n84v_ascr3	hbond_window	PASS	"{'window_ns': [50.0, 100.0], 'frame_counts': {""('rep1', 'Gpr2 N84V_iface_to_ASCR3')"": 101, ""('rep1', 'ASCR3_to_Gpr2 N84V_iface')"": 101}, 'stride': 50}"
+raw_n84v_ascr3	hbond_occupancy	PASS	pairs=11
+raw_n84v_ascr3	hbond_denominator_reproduction	PASS	events / sampled window frames
+raw_n84v_ascr3	hbond_event_times	PASS	events=144
+raw_n84v_ascr3	initial_contact_occupancy	PASS	initial residue pairs=13
+raw_v368r_ascr18	processed_gate	PASS	{'status': 'PASS', 'frames': 10001, 'first_ps': 0.0, 'last_ps': 100000.0, 'processed_atoms': 6462, 'protein_atoms': 6408, 'ligand_atoms': 54, 'heavy_bond_max_A': 2.1662912368774414, 'adjacent_CA_max_A': 4.172576904296875, 'max_ligand_relative_com_10ps_step_A': 1.5444805293151385, 'screen_limits': {'heavy_bond_A': 3.0, 'adjacent_CA_A': 4.5, 'relative_COM_step_A': 10.0}, 'screen_scope': 'Numerical atom mapping and PBC discontinuity screens; not pose-stability classification', 'source_order_and_names_resids_resnames': 'PASS', 'pdb_ligand_resname_serialization': {'source_TPR': 'ASCR18', 'PDB': 'ASCR', 'rule': 'exact first four characters; all other atom identities checked'}}
+raw_v368r_ascr18	seven_real_driver_exits	PASS	{'status': 'PASS', 'drivers': ['convergence', 'selection_rmsd', 'hbond', 'com_distance', 'rmsf', 'bsa', 'contacts'], 'replicate_selector': '1', 'summary_window_ns': [50, 100], 'sparse_sample_spacing_ns': 0.5, 'finished_at': '2026-10-08T18:45:17.489598+00:00'}
+raw_v368r_ascr18	receptor_backbone_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+raw_v368r_ascr18	receptor_backbone_rmsd_A_finite	PASS	backbone_rmsd_A
+raw_v368r_ascr18	receptor_backbone_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+raw_v368r_ascr18	receptor_CA_Rg_A_time_grid	PASS	rows=10001; expected=10001
+raw_v368r_ascr18	receptor_CA_Rg_A_finite	PASS	rg_A
+raw_v368r_ascr18	ligand_heavy_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+raw_v368r_ascr18	ligand_heavy_rmsd_A_finite	PASS	selection_rmsd_A
+raw_v368r_ascr18	ligand_heavy_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+raw_v368r_ascr18	receptor_ligand_BSA_A2_time_grid	PASS	rows=201; expected=201
+raw_v368r_ascr18	receptor_ligand_BSA_A2_finite	PASS	bsa_A2
+raw_v368r_ascr18	BSA_fraction_of_own_initial_time_grid	PASS	rows=201; expected=201
+raw_v368r_ascr18	BSA_fraction_of_own_initial_finite	PASS	bsa_fraction_of_initial
+raw_v368r_ascr18	own_initial_contact_retained_fraction_time_grid	PASS	rows=201; expected=201
+raw_v368r_ascr18	own_initial_contact_retained_fraction_finite	PASS	retained_fraction
+raw_v368r_ascr18	BSA_fraction_reproduction	PASS	absolute SASA-derived BSA versus stored normalization
+raw_v368r_ascr18	contact_fraction_reproduction	PASS	initial-contact counts versus fractions
+raw_v368r_ascr18	COM_own_initial_4A_contacts_grid	PASS	rows=10001
+raw_v368r_ascr18	COM_own_initial_4A_contacts_finite	PASS	distance_A
+raw_v368r_ascr18	COM_whole_receptor_grid	PASS	rows=10001
+raw_v368r_ascr18	COM_whole_receptor_finite	PASS	distance_A
+raw_v368r_ascr18	COM_cluster_count	PASS	['own_initial_4A_contacts' 'whole_receptor']
+raw_v368r_ascr18	rmsf_residue_mapping	PASS	residues=406
+raw_v368r_ascr18	rmsf_finite	PASS	rmsf_A
+raw_v368r_ascr18	hbond_window	PASS	"{'window_ns': [50.0, 100.0], 'frame_counts': {""('rep1', 'Gpr2 V368R_iface_to_ASCR18')"": 101, ""('rep1', 'ASCR18_to_Gpr2 V368R_iface')"": 101}, 'stride': 50}"
+raw_v368r_ascr18	hbond_occupancy	PASS	pairs=10
+raw_v368r_ascr18	hbond_denominator_reproduction	PASS	events / sampled window frames
+raw_v368r_ascr18	hbond_event_times	PASS	events=198
+raw_v368r_ascr18	initial_contact_occupancy	PASS	initial residue pairs=13
+v368r_ascr3_lid_rebuilt_own_pose_v1	processed_gate	PASS	{'status': 'PASS', 'frames': 10001, 'first_ps': 0.0, 'last_ps': 100000.0, 'processed_atoms': 6454, 'protein_atoms': 6408, 'ligand_atoms': 46, 'heavy_bond_max_A': 2.1633589267730713, 'adjacent_CA_max_A': 4.138129234313965, 'max_ligand_relative_com_10ps_step_A': 1.8804955756373622, 'screen_limits': {'heavy_bond_A': 3.0, 'adjacent_CA_A': 4.5, 'relative_COM_step_A': 10.0}, 'screen_scope': 'Numerical atom mapping and PBC discontinuity screens; not pose-stability classification', 'source_order_and_names_resids_resnames': 'PASS', 'pdb_ligand_resname_serialization': {'source_TPR': 'ASCR3', 'PDB': 'ASCR', 'rule': 'exact first four characters; all other atom identities checked'}}
+v368r_ascr3_lid_rebuilt_own_pose_v1	seven_real_driver_exits	PASS	{'status': 'PASS', 'drivers': ['convergence', 'selection_rmsd', 'hbond', 'com_distance', 'rmsf', 'bsa', 'contacts'], 'replicate_selector': '1', 'summary_window_ns': [50, 100], 'sparse_sample_spacing_ns': 0.5, 'finished_at': '2026-10-08T18:51:51.281831+00:00'}
+v368r_ascr3_lid_rebuilt_own_pose_v1	receptor_backbone_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+v368r_ascr3_lid_rebuilt_own_pose_v1	receptor_backbone_rmsd_A_finite	PASS	backbone_rmsd_A
+v368r_ascr3_lid_rebuilt_own_pose_v1	receptor_backbone_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+v368r_ascr3_lid_rebuilt_own_pose_v1	receptor_CA_Rg_A_time_grid	PASS	rows=10001; expected=10001
+v368r_ascr3_lid_rebuilt_own_pose_v1	receptor_CA_Rg_A_finite	PASS	rg_A
+v368r_ascr3_lid_rebuilt_own_pose_v1	ligand_heavy_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+v368r_ascr3_lid_rebuilt_own_pose_v1	ligand_heavy_rmsd_A_finite	PASS	selection_rmsd_A
+v368r_ascr3_lid_rebuilt_own_pose_v1	ligand_heavy_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+v368r_ascr3_lid_rebuilt_own_pose_v1	receptor_ligand_BSA_A2_time_grid	PASS	rows=201; expected=201
+v368r_ascr3_lid_rebuilt_own_pose_v1	receptor_ligand_BSA_A2_finite	PASS	bsa_A2
+v368r_ascr3_lid_rebuilt_own_pose_v1	BSA_fraction_of_own_initial_time_grid	PASS	rows=201; expected=201
+v368r_ascr3_lid_rebuilt_own_pose_v1	BSA_fraction_of_own_initial_finite	PASS	bsa_fraction_of_initial
+v368r_ascr3_lid_rebuilt_own_pose_v1	own_initial_contact_retained_fraction_time_grid	PASS	rows=201; expected=201
+v368r_ascr3_lid_rebuilt_own_pose_v1	own_initial_contact_retained_fraction_finite	PASS	retained_fraction
+v368r_ascr3_lid_rebuilt_own_pose_v1	BSA_fraction_reproduction	PASS	absolute SASA-derived BSA versus stored normalization
+v368r_ascr3_lid_rebuilt_own_pose_v1	contact_fraction_reproduction	PASS	initial-contact counts versus fractions
+v368r_ascr3_lid_rebuilt_own_pose_v1	COM_own_initial_4A_contacts_grid	PASS	rows=10001
+v368r_ascr3_lid_rebuilt_own_pose_v1	COM_own_initial_4A_contacts_finite	PASS	distance_A
+v368r_ascr3_lid_rebuilt_own_pose_v1	COM_whole_receptor_grid	PASS	rows=10001
+v368r_ascr3_lid_rebuilt_own_pose_v1	COM_whole_receptor_finite	PASS	distance_A
+v368r_ascr3_lid_rebuilt_own_pose_v1	COM_cluster_count	PASS	['own_initial_4A_contacts' 'whole_receptor']
+v368r_ascr3_lid_rebuilt_own_pose_v1	rmsf_residue_mapping	PASS	residues=406
+v368r_ascr3_lid_rebuilt_own_pose_v1	rmsf_finite	PASS	rmsf_A
+v368r_ascr3_lid_rebuilt_own_pose_v1	hbond_window	PASS	"{'window_ns': [50.0, 100.0], 'frame_counts': {""('rep1', 'Gpr2 V368R_iface_to_ASCR3')"": 101, ""('rep1', 'ASCR3_to_Gpr2 V368R_iface')"": 101}, 'stride': 50}"
+v368r_ascr3_lid_rebuilt_own_pose_v1	hbond_occupancy	PASS	pairs=20
+v368r_ascr3_lid_rebuilt_own_pose_v1	hbond_denominator_reproduction	PASS	events / sampled window frames
+v368r_ascr3_lid_rebuilt_own_pose_v1	hbond_event_times	PASS	events=266
+v368r_ascr3_lid_rebuilt_own_pose_v1	initial_contact_occupancy	PASS	initial residue pairs=10
+native_wt_ascr3_lid_rebuilt_own_pose_v1	processed_gate	PASS	{'status': 'PASS', 'frames': 10001, 'first_ps': 0.0, 'last_ps': 100000.0, 'processed_atoms': 6446, 'protein_atoms': 6400, 'ligand_atoms': 46, 'heavy_bond_max_A': 2.188903570175171, 'adjacent_CA_max_A': 4.135756015777588, 'max_ligand_relative_com_10ps_step_A': 2.3072863951942266, 'screen_limits': {'heavy_bond_A': 3.0, 'adjacent_CA_A': 4.5, 'relative_COM_step_A': 10.0}, 'screen_scope': 'Numerical atom mapping and PBC discontinuity screens; not pose-stability classification', 'source_order_and_names_resids_resnames': 'PASS', 'pdb_ligand_resname_serialization': {'source_TPR': 'ASCR3', 'PDB': 'ASCR', 'rule': 'exact first four characters; all other atom identities checked'}}
+native_wt_ascr3_lid_rebuilt_own_pose_v1	seven_real_driver_exits	PASS	{'status': 'PASS', 'drivers': ['convergence', 'selection_rmsd', 'hbond', 'com_distance', 'rmsf', 'bsa', 'contacts'], 'replicate_selector': '1', 'summary_window_ns': [50, 100], 'sparse_sample_spacing_ns': 0.5, 'finished_at': '2026-10-08T19:01:03.944009+00:00'}
+native_wt_ascr3_lid_rebuilt_own_pose_v1	receptor_backbone_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+native_wt_ascr3_lid_rebuilt_own_pose_v1	receptor_backbone_rmsd_A_finite	PASS	backbone_rmsd_A
+native_wt_ascr3_lid_rebuilt_own_pose_v1	receptor_backbone_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+native_wt_ascr3_lid_rebuilt_own_pose_v1	receptor_CA_Rg_A_time_grid	PASS	rows=10001; expected=10001
+native_wt_ascr3_lid_rebuilt_own_pose_v1	receptor_CA_Rg_A_finite	PASS	rg_A
+native_wt_ascr3_lid_rebuilt_own_pose_v1	ligand_heavy_rmsd_A_time_grid	PASS	rows=10001; expected=10001
+native_wt_ascr3_lid_rebuilt_own_pose_v1	ligand_heavy_rmsd_A_finite	PASS	selection_rmsd_A
+native_wt_ascr3_lid_rebuilt_own_pose_v1	ligand_heavy_rmsd_A_initial_zero	PASS	frame0 RMSD relative to own frame0
+native_wt_ascr3_lid_rebuilt_own_pose_v1	receptor_ligand_BSA_A2_time_grid	PASS	rows=201; expected=201
+native_wt_ascr3_lid_rebuilt_own_pose_v1	receptor_ligand_BSA_A2_finite	PASS	bsa_A2
+native_wt_ascr3_lid_rebuilt_own_pose_v1	BSA_fraction_of_own_initial_time_grid	PASS	rows=201; expected=201
+native_wt_ascr3_lid_rebuilt_own_pose_v1	BSA_fraction_of_own_initial_finite	PASS	bsa_fraction_of_initial
+native_wt_ascr3_lid_rebuilt_own_pose_v1	own_initial_contact_retained_fraction_time_grid	PASS	rows=201; expected=201
+native_wt_ascr3_lid_rebuilt_own_pose_v1	own_initial_contact_retained_fraction_finite	PASS	retained_fraction
+native_wt_ascr3_lid_rebuilt_own_pose_v1	BSA_fraction_reproduction	PASS	absolute SASA-derived BSA versus stored normalization
+native_wt_ascr3_lid_rebuilt_own_pose_v1	contact_fraction_reproduction	PASS	initial-contact counts versus fractions
+native_wt_ascr3_lid_rebuilt_own_pose_v1	COM_own_initial_4A_contacts_grid	PASS	rows=10001
+native_wt_ascr3_lid_rebuilt_own_pose_v1	COM_own_initial_4A_contacts_finite	PASS	distance_A
+native_wt_ascr3_lid_rebuilt_own_pose_v1	COM_whole_receptor_grid	PASS	rows=10001
+native_wt_ascr3_lid_rebuilt_own_pose_v1	COM_whole_receptor_finite	PASS	distance_A
+native_wt_ascr3_lid_rebuilt_own_pose_v1	COM_cluster_count	PASS	['own_initial_4A_contacts' 'whole_receptor']
+native_wt_ascr3_lid_rebuilt_own_pose_v1	rmsf_residue_mapping	PASS	residues=406
+native_wt_ascr3_lid_rebuilt_own_pose_v1	rmsf_finite	PASS	rmsf_A
+native_wt_ascr3_lid_rebuilt_own_pose_v1	hbond_window	PASS	"{'window_ns': [50.0, 100.0], 'frame_counts': {""('rep1', 'Gpr2 WT_iface_to_ASCR3')"": 101, ""('rep1', 'ASCR3_to_Gpr2 WT_iface')"": 101}, 'stride': 50}"
+native_wt_ascr3_lid_rebuilt_own_pose_v1	hbond_occupancy	PASS	pairs=13
+native_wt_ascr3_lid_rebuilt_own_pose_v1	hbond_denominator_reproduction	PASS	events / sampled window frames
+native_wt_ascr3_lid_rebuilt_own_pose_v1	hbond_event_times	PASS	events=411
+native_wt_ascr3_lid_rebuilt_own_pose_v1	initial_contact_occupancy	PASS	initial residue pairs=13

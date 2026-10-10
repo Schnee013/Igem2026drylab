@@ -1,0 +1,17 @@
+{
+  "topology": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/solution.tpr",
+    "sha256": "b8a0ded8fc9b33ad6b9a7fe894329ab3c86e806c255bb889fe9758f6cee9aafb",
+    "bytes": 2056196
+  },
+  "reference": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/protein_ref.pdb",
+    "sha256": "20e1e0aa8238f403e20d285f6f5c5bcc4b97c582fe136e2dfecd5d1750b0d4d9",
+    "bytes": 509610
+  },
+  "trajectory": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/prod_protein.xtc",
+    "sha256": "76737a106733ed544737fa7579505c7e689ee2e637980c1271ed31bb7d12fc55",
+    "bytes": 245696760
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "atoms": 6400,
+  "charge": 14.0,
+  "ss_atom_indices": [
+    1513,
+    2696
+  ],
+  "lid_position_restraints": false,
+  "genotype": "wt",
+  "ligand": "ascr3",
+  "pose_mapping": "wt_ascr3",
+  "id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+  "lid": "lid_rebuilt_own_pose_v1",
+  "source_original_case": "native_wt_ascr3",
+  "production_authority": "../../../../WORK_ORDER.json",
+  "production_ns": 100,
+  "replicate": 1
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "path": "native_wt_ascr18/pair_details/receptor_pair_atoms.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+    "bytes": 478678,
+    "sha256": "163c4c442e3644db3f7155735ba757b55cd506e9df41b15ad4c117e1b9883802"
+  },
+  {
+    "path": "native_wt_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+    "bytes": 83,
+    "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+  },
+  {
+    "path": "native_wt_ascr18/pair_details/pair_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/pair_summary.csv",
+    "bytes": 1847,
+    "sha256": "583d0460719f43cd6799ccfbc59b8f8d6ab35d60e8c0bcaa314bc69917828dd9"
+  },
+  {
+    "path": "native_wt_ascr18/pair_details/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/completion.json",
+    "bytes": 251,
+    "sha256": "b6796eb5e6dd450ddb0cd59c2ab963d4a1602b7632d23e5fceb71e4eda7dc26b"
+  },
+  {
+    "path": "raw_n84v_ascr18/pair_details/receptor_pair_atoms.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+    "bytes": 483487,
+    "sha256": "91405c8e65559fa64e68a56032363ff3f5864d46ed9eafa29b808b01779aec84"
+  },
+  {
+    "path": "raw_n84v_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+    "bytes": 83,
+    "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+  },
+  {
+    "path": "raw_n84v_ascr18/pair_details/pair_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/pair_summary.csv",
+    "bytes": 1865,
+    "sha256": "83f6e2a71803aefbb98652df26cea3f86811f221ad836a0cd8153aa3166ab7e6"
+  },
+  {
+    "path": "raw_n84v_ascr18/pair_details/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/completion.json",
+    "bytes": 250,
+    "sha256": "086cfa7e462dec5e0893947fd0fa773a6108812361652c7ed98461e5ecb42911"
+  },
+  {
+    "path": "raw_n84v_ascr3/pair_details/receptor_pair_atoms.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+    "bytes": 482888,
+    "sha256": "64f50f86d18de33086d4439660e2e9a51ddc8669556db086bc74e5b4de6a3df7"
+  },
+  {
+    "path": "raw_n84v_ascr3/pair_details/Arg368_Asp70_geometry.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+    "bytes": 83,
+    "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+  },
+  {
+    "path": "raw_n84v_ascr3/pair_details/pair_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/pair_summary.csv",
+    "bytes": 1839,
+    "sha256": "5760e8e86a16d62d1624bed515838295e8ed9d9de9ed7d244fbde98066f4ccbe"
+  },
+  {
+    "path": "raw_n84v_ascr3/pair_details/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/completion.json",
+    "bytes": 249,
+    "sha256": "3a631dd34f099a3cce820a1b5bd06ae6b6020ea9673c94bb5ef011ee12d73468"
+  },
+  {
+    "path": "raw_v368r_ascr18/pair_details/receptor_pair_atoms.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+    "bytes": 481320,
+    "sha256": "bdc093dcd8cb3b6b2eec091422e9cfee80943043d57b7d35d6a405b5c097c63e"
+  },
+  {
+    "path": "raw_v368r_ascr18/pair_details/Arg368_Asp70_geometry.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+    "bytes": 85697,
+    "sha256": "9c2f3a70f8e7f8dff120e7eba609657133492c86c73d8fdf1531a5bce9dc85c2"
+  },
+  {
+    "path": "raw_v368r_ascr18/pair_details/pair_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/pair_summary.csv",
+    "bytes": 1867,
+    "sha256": "63deb13246264d58645376b29608c48912771e666891efde3afdbd62086da0dc"
+  },
+  {
+    "path": "raw_v368r_ascr18/pair_details/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/completion.json",
+    "bytes": 251,
+    "sha256": "28273c2c2bb0f2d7a36980046dc569694e363a8ccb7b7e18200acae6f5fb0e3e"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+    "bytes": 479724,
+    "sha256": "751df4f95f76d3a5a73f288a8d848bbc1b7c2d4bc713c5f18781f9b2e3d2c040"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/Arg368_Asp70_geometry.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+    "bytes": 84207,
+    "sha256": "6d61096ad54542d7b8462c9e23571bd96285f4f71b8c8a07a0b977666c40d868"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/pair_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/pair_summary.csv",
+    "bytes": 2133,
+    "sha256": "bc50894a2eab5c8d60553a7f68ca73f422c7aa71be17279a0bfe65e974b22d47"
+  },
+  {
+    "path": "v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/completion.json",
+    "bytes": 270,
+    "sha256": "17626ba1fb41f2dd2e7f46ba90253b922a4ddf5387cc3d57d0c1db121e35fecf"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+    "bytes": 480291,
+    "sha256": "293fce4bb540b50eae86d788fb4b485dba6d301104f0c597275a595e185e9bd8"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/Arg368_Asp70_geometry.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+    "bytes": 83,
+    "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/pair_summary.csv",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/pair_summary.csv",
+    "bytes": 2179,
+    "sha256": "12f09c305075977e6d53a75c4490f3e7a60847bad80154c2dcf8c4fc2eef9394"
+  },
+  {
+    "path": "native_wt_ascr3_lid_rebuilt_own_pose_v1/pair_details/completion.json",
+    "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/completion.json",
+    "bytes": 274,
+    "sha256": "6a6f08933c38f4c3749a07d9ef5d378f27986334ee6d6f33e9e3f3f6cea428eb"
+  }
+]

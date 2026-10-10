@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "frames": 10001,
+  "first_ps": 0.0,
+  "last_ps": 100000.0,
+  "processed_atoms": 6454,
+  "protein_atoms": 6400,
+  "ligand_atoms": 54,
+  "heavy_bond_max_A": 2.1742630004882812,
+  "adjacent_CA_max_A": 4.1482977867126465,
+  "max_ligand_relative_com_10ps_step_A": 1.3562210944921074,
+  "screen_limits": {
+    "heavy_bond_A": 3.0,
+    "adjacent_CA_A": 4.5,
+    "relative_COM_step_A": 10.0
+  },
+  "screen_scope": "Numerical atom mapping and PBC discontinuity screens; not pose-stability classification",
+  "source_order_and_names_resids_resnames": "PASS",
+  "pdb_ligand_resname_serialization": {
+    "source_TPR": "ASCR18",
+    "PDB": "ASCR",
+    "rule": "exact first four characters; all other atom identities checked"
+  }
+}

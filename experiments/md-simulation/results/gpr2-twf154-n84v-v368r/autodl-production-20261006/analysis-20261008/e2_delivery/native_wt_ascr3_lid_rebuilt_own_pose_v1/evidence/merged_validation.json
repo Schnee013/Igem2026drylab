@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "frames": 10001,
+  "unique_frames": 10001,
+  "first_ps": 0.0,
+  "last_ps": 100000.0,
+  "missing_grid_points": 0,
+  "topology": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/production.tpr",
+    "bytes": 5431576,
+    "sha256": "3b67faf960679417d98a49e0783e2100572c6e72f960cc0d97ec0e1710f2d189"
+  },
+  "trajectory": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/merged_full.xtc",
+    "bytes": 5435745568,
+    "sha256": "d92fcda7e22fc9d139f48cf112bff48f73352612635bee9179e40e2a4dc718ac"
+  },
+  "evidence": [
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/coverage_certificate.json",
+      "bytes": 26321,
+      "sha256": "573ce2c34de9f15f52327a0363180c6cf91b9a41c9dd2ef34a1dfb8327a6d768"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_001.manifest.json",
+      "bytes": 7819,
+      "sha256": "423da04edb8b47eded31916ae77c59133fac140ca20aee9660ada176f230f21b"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_002.manifest.json",
+      "bytes": 7839,
+      "sha256": "736fabaf3119f736ee8e651191f94d3dc844864fc1c3fc30dfa475306b46ce93"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_003.manifest.json",
+      "bytes": 7842,
+      "sha256": "e480b82c9a82c81819fc49d0b01fdda5e6744e8a932d729ee2539dfff4d4b734"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_004.manifest.json",
+      "bytes": 7842,
+      "sha256": "0118fbe026d05189b199628428f422053cd64890a878378a0ac32b7c499447d0"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_005.manifest.json",
+      "bytes": 7843,
+      "sha256": "f8d4b19e65e2d765ebb1b341bfe7f5623cd80561287e765ea559ec4f37f6e76e"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_006.manifest.json",
+      "bytes": 7854,
+      "sha256": "7d112a421e99b310bc23f46ff0a68c6b4b1bd489ddf7635376c03b39e906ffe7"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_007.manifest.json",
+      "bytes": 7854,
+      "sha256": "bbc7cb7b19c8762838d1c588c9976b5b1f7bb6396efd952dddce114307b6b09b"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_008.manifest.json",
+      "bytes": 7843,
+      "sha256": "386cb26a0271a69c29ab09251a2dfe09f8821adc0ae44d2c8e61ba41ec940e6f"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_009.manifest.json",
+      "bytes": 7854,
+      "sha256": "2c57ce642be090c81948894580ee7b48edab9fe2e7394fbb0375f39c9df52859"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_010.manifest.json",
+      "bytes": 7842,
+      "sha256": "c3374c99051b3f7f5cb1adb7ff0499adbc42eeb40d89876ad97035b27a0275d4"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_011.manifest.json",
+      "bytes": 7855,
+      "sha256": "e6c8e7efde8d044414bb5e67cc4b4a1cfd8c3b6381266a98ac4c0cb6e8b949cb"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1_segment_012.manifest.json",
+      "bytes": 7626,
+      "sha256": "2435f11c4666c530271d140f5d7632411efc4f0b201156bce97809cc466813dc"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_001/closed_segment.json",
+      "bytes": 2884,
+      "sha256": "182dff29c9e0505909fb620e5a140b5524f72cec8b09b43d8524c669be122594"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_002/closed_segment.json",
+      "bytes": 2923,
+      "sha256": "71a31b628707b2c081ef7b5a2b1c4351ce60689b063e3352b995a64d4ccadab3"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_003/closed_segment.json",
+      "bytes": 2907,
+      "sha256": "832110388e5489136be45dc548f9ef5fb1ef82a129d355bedc817c7a0600b433"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_004/closed_segment.json",
+      "bytes": 2909,
+      "sha256": "b2018d1d5efdae8e84f43c83a9a54d8b72d3dd3c3d0e7578a82456189977825d"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_005/closed_segment.json",
+      "bytes": 2926,
+      "sha256": "b991ecf8a909d9b3fa0544f2130df60c2d55fdf386f8bd9e84b9cef9d8e3bdec"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_006/closed_segment.json",
+      "bytes": 2926,
+      "sha256": "6a1e07167887721dc00e8abe8346787fa0586ae2e3028c68315de39f1f965152"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_007/closed_segment.json",
+      "bytes": 2926,
+      "sha256": "2423e373e4b59060047e58b8a2357064a5f79c10df66421d7023ad368024b9b7"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_008/closed_segment.json",
+      "bytes": 2931,
+      "sha256": "bd4d39fca1af605ea401b0995a2bb1e74e2214ec3e1563429da1df901ea7c741"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_009/closed_segment.json",
+      "bytes": 2928,
+      "sha256": "93e0e3cc7b5e6cc6bbcca49e2a7f8b2b321745722bce451934eb408c8319cf31"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_010/closed_segment.json",
+      "bytes": 2928,
+      "sha256": "c69c2d9f1503986c6a41b74cabec01dac172eb574aa80ba2b48d76e048623c3f"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_011/closed_segment.json",
+      "bytes": 2930,
+      "sha256": "0acab03073382ebdae75d2789cb40f222df57931324518ab3d8123624562a97c"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_native_wt_ascr3_lid_rebuilt_own_pose_v1_v1/segment_012/closed_segment.json",
+      "bytes": 2932,
+      "sha256": "d9a1a3c24ffa957bc706f591fc0c3d2eed6e75632631da618b41bd1c8d75efe0"
+    }
+  ]
+}

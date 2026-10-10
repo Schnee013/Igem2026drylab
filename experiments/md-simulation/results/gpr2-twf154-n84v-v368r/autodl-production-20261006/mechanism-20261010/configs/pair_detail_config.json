@@ -1,0 +1,197 @@
+{
+  "analysis_id": "mechanism-20261010",
+  "source_root": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source",
+  "shared_output": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010",
+  "stride_frames": 10,
+  "window_ns": [
+    50,
+    100
+  ],
+  "sites": [
+    84,
+    368
+  ],
+  "anchors": [
+    102,
+    186,
+    189,
+    345
+  ],
+  "lid_resids": [
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178
+  ],
+  "pocket_radius_A": 6.0,
+  "contact_cutoffs_A": [
+    3.5,
+    4.0,
+    4.5
+  ],
+  "bridge_cutoff_A": 4.5,
+  "minimum_helix_run": 7,
+  "cases": [
+    {
+      "id": "native_wt_ascr18",
+      "label": "WT + ascr18 (native lid)",
+      "genotype": "wt",
+      "ligand": "ascr18",
+      "topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/solution.tpr",
+      "reference": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/protein_ref.pdb",
+      "trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/prod_protein.xtc",
+      "output": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010",
+      "expected_trajectory_bytes": 246077240,
+      "expected_trajectory_sha256": "8c7feeb26200f030ce2d45ca411d9232901cb14addb6e8fe71ff5e8ea08604e1",
+      "expected_topology_sha256": "0a07710aad6e31433474f96553d4115e3852a0fcc3d2d946fcff019714eecd74",
+      "expected_reference_sha256": "06e08a3a2b814b53dfcdfc3e793b78825214af3692ab454c4b690798fee06206",
+      "full_topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/native_wt_ascr18/rep1_npt01_attempt02/production.tpr",
+      "full_trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/merged_full.xtc"
+    },
+    {
+      "id": "raw_n84v_ascr18",
+      "label": "N84V + ascr18 (raw lid)",
+      "genotype": "n84v",
+      "ligand": "ascr18",
+      "topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/processed/rep1/solution.tpr",
+      "reference": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/processed/rep1/protein_ref.pdb",
+      "trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/processed/rep1/prod_protein.xtc",
+      "output": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010",
+      "expected_trajectory_bytes": 245867112,
+      "expected_trajectory_sha256": "801daf2355b1f64353d8f3b33a843e7a403f6bdd8f90c21c8fe893f65ec2d3a6",
+      "expected_topology_sha256": "9b52ee6faf979b1ef188d4d1586b23484d4b3b958d15ae29db4b1182e47411c2",
+      "expected_reference_sha256": "972ad6977e8510c51d4578bad53162241c4a228c7b098040ccedb44af704d8e9",
+      "full_topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr18/rep1_codex_v1/production.tpr",
+      "full_trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/merged_full.xtc"
+    },
+    {
+      "id": "raw_n84v_ascr3",
+      "label": "N84V + ascr3 (raw lid)",
+      "genotype": "n84v",
+      "ligand": "ascr3",
+      "topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/solution.tpr",
+      "reference": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/protein_ref.pdb",
+      "trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/processed/rep1/prod_protein.xtc",
+      "output": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010",
+      "expected_trajectory_bytes": 245696760,
+      "expected_trajectory_sha256": "76737a106733ed544737fa7579505c7e689ee2e637980c1271ed31bb7d12fc55",
+      "expected_topology_sha256": "b8a0ded8fc9b33ad6b9a7fe894329ab3c86e806c255bb889fe9758f6cee9aafb",
+      "expected_reference_sha256": "20e1e0aa8238f403e20d285f6f5c5bcc4b97c582fe136e2dfecd5d1750b0d4d9",
+      "full_topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr3/rep1_codex_v1/production.tpr",
+      "full_trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/merged_full.xtc"
+    },
+    {
+      "id": "raw_v368r_ascr18",
+      "label": "V368R + ascr18 (raw lid)",
+      "genotype": "v368r",
+      "ligand": "ascr18",
+      "topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/processed/rep1/solution.tpr",
+      "reference": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/processed/rep1/protein_ref.pdb",
+      "trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/processed/rep1/prod_protein.xtc",
+      "output": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010",
+      "expected_trajectory_bytes": 246313944,
+      "expected_trajectory_sha256": "02d3eac3444c598babd50792ef60d1820f5f89a9846805bf4ca8085a77de4ede",
+      "expected_topology_sha256": "07e29cc4a2bbd07b1e65e3bc7f716ce7a61df134f0e5b32fa36e48862822de18",
+      "expected_reference_sha256": "e8be2f00650ddbc25d81d1710347ee8115643be30f8c77c902167ab1c4397804",
+      "full_topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_v368r_ascr18/rep1_codex_v1/production.tpr",
+      "full_trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/merged_full.xtc"
+    },
+    {
+      "id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "label": "V368R + ascr3 (rebuilt own lid)",
+      "genotype": "v368r",
+      "ligand": "ascr3",
+      "topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/solution.tpr",
+      "reference": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/protein_ref.pdb",
+      "trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/prod_protein.xtc",
+      "output": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010",
+      "expected_trajectory_bytes": 245985312,
+      "expected_trajectory_sha256": "278389de17aa2fcde7c863f6de3546484ef4f84f1a3b54664e0e03c281d11006",
+      "expected_topology_sha256": "4d4ce65a48b454636975b440039332d0944d89df4978a210d7b17b8b7e76a179",
+      "expected_reference_sha256": "2f3b59be827a4b998737e198c235a97200667ddfeba620b246df6229b3da61c2",
+      "full_topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/v368r_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/production.tpr",
+      "full_trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/merged_full.xtc"
+    },
+    {
+      "id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "label": "WT + ascr3 (rebuilt own lid)",
+      "genotype": "wt",
+      "ligand": "ascr3",
+      "topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/solution.tpr",
+      "reference": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/protein_ref.pdb",
+      "trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/prod_protein.xtc",
+      "output": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010",
+      "expected_trajectory_bytes": 245531476,
+      "expected_trajectory_sha256": "974216847e82bba519c6eafacecbc6b6ca21f2643e4702725c56f24cc0801b4b",
+      "expected_topology_sha256": "f78c8fc60b9aa6b1d09ee420b4e0f823574c7954f76456d9484876769d30a2f8",
+      "expected_reference_sha256": "42ce0e8765b8037124bc054c001a2649afd9c367740fe0586b38e82f90131566",
+      "full_topology": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1/rep1_codex_v1/production.tpr",
+      "full_trajectory": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/merged_full.xtc"
+    }
+  ],
+  "receptor_pairs": [
+    [
+      84,
+      25
+    ],
+    [
+      84,
+      28
+    ],
+    [
+      84,
+      80
+    ],
+    [
+      84,
+      90
+    ],
+    [
+      84,
+      171
+    ],
+    [
+      84,
+      186
+    ],
+    [
+      84,
+      189
+    ],
+    [
+      368,
+      38
+    ],
+    [
+      368,
+      70
+    ],
+    [
+      368,
+      77
+    ],
+    [
+      368,
+      364
+    ],
+    [
+      368,
+      345
+    ],
+    [
+      364,
+      345
+    ]
+  ]
+}

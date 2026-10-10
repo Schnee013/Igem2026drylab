@@ -210,3 +210,17 @@ tmp_papers/
 *.pfx
 credentials*
 *secret*
+
+# Accepted Docking inputs and reviewed results.
+!experiments/docking-repro/prepared/
+experiments/docking-repro/prepared/*
+!experiments/docking-repro/prepared/final-docking/
+!experiments/docking-repro/results/
+experiments/docking-repro/results/*
+!experiments/docking-repro/results/final-docking/
+!experiments/docking/receptors/final-docking/source-archives/**/*.ipynb
+!experiments/docking-repro/analysis/final-docking/archive/**/*.ipynb
+
+# Include accepted descendants beneath the historical broad payload exclusions.
+!experiments/docking-repro/prepared/final-docking/**
+!experiments/docking-repro/results/final-docking/**

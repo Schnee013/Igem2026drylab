@@ -1,0 +1,33 @@
+# ScGpa2_core vs AfGasA_core
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 725.5
+# Length: 331
+# Identity: 146/331 (44.109%)
+# Similarity (BLOSUM62 > 0): 211/331 (63.746%)
+# Gap columns: 12/331 (3.625%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa2_core      1-60  KELKVLLLGAGESGKSTVLQQLKILHQNGFSEQEIKEYIPLIYQNLLEIGRNLIQARTRF
+                       .|:|:||||||||||||:|:|:|::|:.|:|..|.:.:..:|:.|.::..|.:::|....
+AfGasA_core      1-60  NEIKMLLLGAGESGKSTILKQMKLIHEGGYSRDEKESFKEIIFSNTVQSMRVILEAMETL
+
+ScGpa2_core    61-118  NVNL-EPECELTQQDLSRTMSYEMPNNYTG-QFPEDIAGVISTLWALPSTQDLVNGPNAS
+                       .:.| :...|...|.:     :..|....| ..|.::...|..||.....|:...  .:.
+AfGasA_core    61-113  ELPLSDSRSEYHVQTI-----FMQPAQIEGDSLPAEVGNAIRALWQDQGVQECFK--RSR
+
+ScGpa2_core   119-178  KFYLMDSTPYFMENFTRITSPNYRPTQQDILRSRQMTSGIFDTVIDMGSDIKMHIYDVGG
+                       ::.|.||..|:.::..||.:|:|.|:.||:||||..|.||.:|...:| |:...::||||
+AfGasA_core   114-172  EYQLNDSAKYYFDSIDRIATPDYVPSDQDVLRSRVKTLGITETTFVIG-DLTYRMFDVGG
+
+ScGpa2_core   179-238  QRSERKKWIHCFDNVTLVIFCVSLSEYDQTLMEDKNQNRFQESLVLFDNIVNSRWFARTS
+                       ||||||||||||:|||.::|.|::|||||.|.||:..||.||:|.|||:|.|||||.:||
+AfGasA_core   173-232  QRSERKKWIHCFENVTTILFLVAISEYDQLLFEDETVNRMQEALTLFDSICNSRWFIKTS
+
+ScGpa2_core   239-297  VVLFLNKIDLFAEKLSKVPMENYFPDYTGGSDINKAAKYILWRFVQLNRANL-SIYPHVT
+                       ::|||||||.|.|||...||:|||||:.||.|...|..|||.|||.||::.. .||.|.|
+AfGasA_core   233-292  IILFLNKIDRFREKLPVSPMKNYFPDFEGGDDYAAACDYILNRFVSLNQSETKQIYTHFT
+
+ScGpa2_core   298-328  QATDTSNIRLVFAAIKETILENTLKDSGVLQ
+                       .||||:.|:.|.||:.:.|::..|::.|:: 
+AfGasA_core   293-322  CATDTTQIKFVMAAVNDIIIQENLRNCGLI-

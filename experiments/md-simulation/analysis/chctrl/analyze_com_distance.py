@@ -53,14 +53,14 @@ for cluster, sub in df.groupby('cluster'):
 lines=[]
 context_note = ctx.com_distance_context_note
 for (rep, cluster), sub in df.groupby(['rep','cluster']):
-    tail=sub[sub.time_ns >= 100] if sub.time_ns.max() >= 100 else sub
+    tail=ctx.summary(sub)
     slope=linear_slope(tail.time_ns.to_numpy(), tail.distance_A.to_numpy())
     if context_note is None:
         suffix = 'descriptive only (no configured COM-distance slope interpretation)'
     else:
         suffix = context_note
     lines.append(
-        f"{rep} {cluster}: after100 slope={slope:.4g} A/ns; "
+        f"{rep} {cluster}: {ctx.summary_label} slope={slope:.4g} A/ns; "
         f"mean={tail.distance_A.mean():.2f} A; {suffix}"
     )
 write_judgement(out/'judgement.md', f'{ctx.label} COM distance descriptive summary', lines)

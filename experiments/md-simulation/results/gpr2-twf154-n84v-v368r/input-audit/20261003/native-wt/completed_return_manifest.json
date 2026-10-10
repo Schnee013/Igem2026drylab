@@ -1,0 +1,211 @@
+{
+  "as_of_utc": "2026-10-03T04:26:09.124516+00:00",
+  "scope": "Original starting coordinates and completed WT preheat endpoints/hold trajectories; topology includes remain in original input roots.",
+  "files": [
+    {
+      "path": "runs/native_wt_ascr18/ionized.gro",
+      "bytes": 6559984,
+      "sha256": "0bfce60e4ae0d116ae744dbc3849eaba5f9f08151af070bc196dde3a274fe714"
+    },
+    {
+      "path": "runs/native_wt_ascr18/input_contract.json",
+      "bytes": 2442,
+      "sha256": "c634ac95463d1496905f15e6b9339d4f5fd90af8c261fb4a63ba33b5d36267b3"
+    },
+    {
+      "path": "runs/native_wt_ascr18/topol.top",
+      "bytes": 372,
+      "sha256": "2822bdd0decf77443e358fd2e82df14296cdc8bc8b8ca5cc4c315c854aef968f"
+    },
+    {
+      "path": "runs/native_wt_ascr18/index.ndx",
+      "bytes": 1818692,
+      "sha256": "aa5dcfb3aa1d71de66a380ec07baba34ea5062a6560defe23f07e0689d2bc12b"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heat.mdp",
+      "bytes": 853,
+      "sha256": "96b0190ac5fd4e3632c269a4090b1d09c447e5936066ab4c778b7d06eda58e26"
+    },
+    {
+      "path": "runs/native_wt_ascr18/hold.mdp",
+      "bytes": 689,
+      "sha256": "cc5edee759c4efd06f60b25a2f8d173754a85241e71e5fce1a478c7a319909a6"
+    },
+    {
+      "path": "runs/native_wt_ascr18/run_state_events.tsv",
+      "bytes": 1096,
+      "sha256": "c6848a4c7ee694d82f7a54bad08d82329ba63dcdb47697312b91e5ab0bb2357e"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/heat_snapshot_qc.json",
+      "bytes": 2529,
+      "sha256": "bcddad1e1c356d3f68b4ef7f3eda92ab861643f0227335096ae629cbf31bdea5"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold_snapshot_qc.json",
+      "bytes": 2501,
+      "sha256": "609cbf195dcf857dd873e56931c6045d8c7c3a707a8508a472129d125de62711"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold_snapshot_qc_v5.json",
+      "bytes": 2501,
+      "sha256": "609cbf195dcf857dd873e56931c6045d8c7c3a707a8508a472129d125de62711"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/preheat_audit.json",
+      "bytes": 3432,
+      "sha256": "e1fb24fd6271287444c6b8bad3d600bc172d29885809393fb5d4e1a14a5ef931"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/heat.gro",
+      "bytes": 10058608,
+      "sha256": "48cd8cb8a22eeda09674a50a384903fe7ab44038743dcf0124fa805ef13579e8"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold.gro",
+      "bytes": 10058608,
+      "sha256": "ddb12dfed97a3840d3da8b7e4288f7e5fc46a115dd8231ff064e425063d2478a"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold.cpt",
+      "bytes": 3501044,
+      "sha256": "09f163ac74a15cf434555985836a73011f57f5544135cb25449e45e0253d896e"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold.tpr",
+      "bytes": 6353692,
+      "sha256": "2aeb72ec94c051471db15e0ead7593d73ccbb35a49c09afa8da9fefb9bdea317"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold.edr",
+      "bytes": 91308,
+      "sha256": "fe505513fcc1dc57fbb7cb2b43b252c96e400a621363a68077657cab312ead5b"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold.xtc",
+      "bytes": 41357900,
+      "sha256": "5a99f805cb49206601d9601532f82d9268f95852f5633516a00a87a106e4026d"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/heat.log",
+      "bytes": 106007,
+      "sha256": "16dd80a25c804ef37b7c78449a91a5e3345d94a67e9bed51cfd9637489806c6d"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/hold.log",
+      "bytes": 126597,
+      "sha256": "c8acaf0869a205e7db5b3b5081398fab14abca9f89f020d8835e8ae841aaa20f"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/em_source.txt",
+      "bytes": 35,
+      "sha256": "c144cb84a6a112a0431ce5700e651a8b40d4734ede540bffab08f3a3cb326c9a"
+    },
+    {
+      "path": "runs/native_wt_ascr18/heating_v4/output.sha256",
+      "bytes": 830,
+      "sha256": "59927b6253411664a4eebf6abfb34a15fc302abeff748f2fea37e63703f74b49"
+    },
+    {
+      "path": "runs/native_wt_ascr3/ionized.gro",
+      "bytes": 6559488,
+      "sha256": "e2a8eb32c36c1eaa20a0a8f5d8a936d8bfa7bdfea3d0ee08835d58159b204ab5"
+    },
+    {
+      "path": "runs/native_wt_ascr3/input_contract.json",
+      "bytes": 2438,
+      "sha256": "f0a5f8e2322a39e3bba2f05cc32265ed977014ffaad301402ebf85721cb30c0d"
+    },
+    {
+      "path": "runs/native_wt_ascr3/topol.top",
+      "bytes": 368,
+      "sha256": "bd8ecd5b2c2511042b0743efe4ef450ee9fda292c18e7310170b0d269507f35a"
+    },
+    {
+      "path": "runs/native_wt_ascr3/index.ndx",
+      "bytes": 1818538,
+      "sha256": "05f2121189ba2027c892d2a6c8c8db12afe0c1c4a2f3e2e2bda2af00c3a6de08"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heat.mdp",
+      "bytes": 853,
+      "sha256": "96b0190ac5fd4e3632c269a4090b1d09c447e5936066ab4c778b7d06eda58e26"
+    },
+    {
+      "path": "runs/native_wt_ascr3/hold.mdp",
+      "bytes": 689,
+      "sha256": "cc5edee759c4efd06f60b25a2f8d173754a85241e71e5fce1a478c7a319909a6"
+    },
+    {
+      "path": "runs/native_wt_ascr3/run_state_events.tsv",
+      "bytes": 987,
+      "sha256": "4903552acd11a77e51060730cd9e388f3a91b1c7effe9d2835ea24478f9cfad8"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold_snapshot_qc.json",
+      "bytes": 2516,
+      "sha256": "31831cf93c37a3fafee674c09004b1ac28b7792ed0d076dc26e73f0eae259b6f"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold_snapshot_qc_v5.json",
+      "bytes": 2516,
+      "sha256": "31831cf93c37a3fafee674c09004b1ac28b7792ed0d076dc26e73f0eae259b6f"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/preheat_audit.json",
+      "bytes": 3444,
+      "sha256": "021286876ff2cff86896d124b61af7c38a3f73aeed349e9bec0cf831fbfa5358"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/heat.gro",
+      "bytes": 10057848,
+      "sha256": "4c4ad47b9be15827fecb44d7226fca9ae6cb625d65ddaaa9421e60f06af934ca"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold.gro",
+      "bytes": 10057848,
+      "sha256": "77b7e01a80f05dd456cc9c0ff90fcf43924a0aada188ea4435b80c10785a3c9e"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold.cpt",
+      "bytes": 3500780,
+      "sha256": "523488dc9d4d7c98925a7fe1e395d0d98b38704dd4a9ae3f015b1aa08f72d3a4"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold.tpr",
+      "bytes": 6351076,
+      "sha256": "592016b4e1acb096bd2ae9e81ca2649b78d99acd5cc94bfa529f7c7c1e2ca8ae"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold.edr",
+      "bytes": 91308,
+      "sha256": "34be82e0089f1eec40b8d039b224031d217316025836d2b7c0f6b6da6a0a7a59"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold.xtc",
+      "bytes": 41346408,
+      "sha256": "816bee554d6b494bb00db9f5a323c3afb9b768caef6d5ae3859b12f1b7f498af"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/heat.log",
+      "bytes": 105924,
+      "sha256": "5adf9a58734f60e0375f13dc4e8b7bd5214487b40673e3463075b3084042c47d"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/hold.log",
+      "bytes": 126595,
+      "sha256": "2c6063895df35675ca10bf4ca23af1104b8497186b68fd63cc7b1d3ec087a1b9"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/em_source.txt",
+      "bytes": 7,
+      "sha256": "9fc9f2c33394db0777ba6f74dd4ffbc90cefc65874d7ae642309fd54e99fbb02"
+    },
+    {
+      "path": "runs/native_wt_ascr3/heating_v4/output.sha256",
+      "bytes": 825,
+      "sha256": "978bb58c38902527bda337569ec3ed8d62a09087cd5327a4cf77c3a17685f2f3"
+    }
+  ]
+}

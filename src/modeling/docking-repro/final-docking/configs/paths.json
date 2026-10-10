@@ -1,0 +1,10 @@
+{
+  "box_config": "src/modeling/docking-repro/final-docking/configs/boxes.tsv",
+  "receptor_inputs": "experiments/docking/receptors/final-docking",
+  "ligand_inputs": "experiments/docking-repro/ligands/final-docking",
+  "receptor_pdb": "experiments/docking-repro/prepared/final-docking/receptors/af3/pdb",
+  "receptor_pdbqt": "experiments/docking-repro/prepared/final-docking/receptors/af3/pdbqt",
+  "ligand_pdbqt": "experiments/docking-repro/prepared/final-docking/ligands/deprotonated-minus1/pdbqt",
+  "vina_results": "experiments/docking-repro/results/final-docking/vina",
+  "prolif_results": "experiments/docking-repro/results/final-docking/prolif/af3"
+}

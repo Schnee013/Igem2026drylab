@@ -1,0 +1,361 @@
+ID   GPA2_YEAST              Reviewed;         449 AA.
+AC   P10823; D3DLR9;
+DT   01-JUL-1989, integrated into UniProtKB/Swiss-Prot.
+DT   01-FEB-1995, sequence version 2.
+DT   10-JUN-2026, entry version 228.
+DE   RecName: Full=Guanine nucleotide-binding protein alpha-2 subunit;
+DE   AltName: Full=GP2-alpha;
+GN   Name=GPA2; Synonyms=SSP101; OrderedLocusNames=YER020W;
+OS   Saccharomyces cerevisiae (strain ATCC 204508 / S288c) (Baker's yeast).
+OC   Eukaryota; Fungi; Dikarya; Ascomycota; Saccharomycotina; Saccharomycetes;
+OC   Saccharomycetales; Saccharomycetaceae; Saccharomyces.
+OX   NCBI_TaxID=559292;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RX   PubMed=2830616; DOI=10.1073/pnas.85.5.1374;
+RA   Nakafuku M., Obara T., Kaibuchi K., Miyajima I., Miyajima A., Itoh H.,
+RA   Nakamura S., Arai K., Matsumoto K., Kaziro Y.;
+RT   "Isolation of a second yeast Saccharomyces cerevisiae gene (GPA2) coding
+RT   for guanine nucleotide-binding regulatory protein: studies on its structure
+RT   and possible functions.";
+RL   Proc. Natl. Acad. Sci. U.S.A. 85:1374-1378(1988).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=ATCC 204508 / S288c;
+RX   PubMed=9169868; DOI=10.1038/387s078;
+RA   Dietrich F.S., Mulligan J.T., Hennessy K.M., Yelton M.A., Allen E.,
+RA   Araujo R., Aviles E., Berno A., Brennan T., Carpenter J., Chen E.,
+RA   Cherry J.M., Chung E., Duncan M., Guzman E., Hartzell G., Hunicke-Smith S.,
+RA   Hyman R.W., Kayser A., Komp C., Lashkari D., Lew H., Lin D., Mosedale D.,
+RA   Nakahara K., Namath A., Norgren R., Oefner P., Oh C., Petel F.X.,
+RA   Roberts D., Sehl P., Schramm S., Shogren T., Smith V., Taylor P., Wei Y.,
+RA   Botstein D., Davis R.W.;
+RT   "The nucleotide sequence of Saccharomyces cerevisiae chromosome V.";
+RL   Nature 387:78-81(1997).
+RN   [3]
+RP   GENOME REANNOTATION.
+RC   STRAIN=ATCC 204508 / S288c;
+RX   PubMed=24374639; DOI=10.1534/g3.113.008995;
+RA   Engel S.R., Dietrich F.S., Fisk D.G., Binkley G., Balakrishnan R.,
+RA   Costanzo M.C., Dwight S.S., Hitz B.C., Karra K., Nash R.S., Weng S.,
+RA   Wong E.D., Lloyd P., Skrzypek M.S., Miyasato S.R., Simison M., Cherry J.M.;
+RT   "The reference genome sequence of Saccharomyces cerevisiae: Then and now.";
+RL   G3 (Bethesda) 4:389-398(2014).
+RN   [4]
+RP   FUNCTION, INTERACTION WITH RGS2, AND MUTAGENESIS OF GLY-132.
+RX   PubMed=10523302; DOI=10.1093/emboj/18.20.5577;
+RA   Versele M., de Winde J.H., Thevelein J.M.;
+RT   "A novel regulator of G protein signalling in yeast, Rgs2, downregulates
+RT   glucose-activation of the cAMP pathway through direct inhibition of Gpa2.";
+RL   EMBO J. 18:5577-5591(1999).
+RN   [5]
+RP   INTERACTION WITH GPG1; GPB1 AND GPB2, AND MUTAGENESIS OF GLY-132; GLY-299
+RP   AND GLN-300.
+RX   PubMed=12150916; DOI=10.1016/s1097-2765(02)00569-5;
+RA   Harashima T., Heitman J.;
+RT   "The Galpha protein Gpa2 controls yeast differentiation by interacting with
+RT   kelch repeat proteins that mimic Gbeta subunits.";
+RL   Mol. Cell 10:163-173(2002).
+RN   [6]
+RP   SUBCELLULAR LOCATION [LARGE SCALE ANALYSIS].
+RX   PubMed=14562095; DOI=10.1038/nature02026;
+RA   Huh W.-K., Falvo J.V., Gerke L.C., Carroll A.S., Howson R.W.,
+RA   Weissman J.S., O'Shea E.K.;
+RT   "Global analysis of protein localization in budding yeast.";
+RL   Nature 425:686-691(2003).
+RN   [7]
+RP   LEVEL OF PROTEIN EXPRESSION [LARGE SCALE ANALYSIS].
+RX   PubMed=14562106; DOI=10.1038/nature02046;
+RA   Ghaemmaghami S., Huh W.-K., Bower K., Howson R.W., Belle A., Dephoure N.,
+RA   O'Shea E.K., Weissman J.S.;
+RT   "Global analysis of protein expression in yeast.";
+RL   Nature 425:737-741(2003).
+RN   [8]
+RP   FUNCTION, MYRISTOYLATION AT GLY-2, PALMITOYLATION AT CYS-4, MUTAGENESIS OF
+RP   GLY-2; CYS-4; SER-6 AND GLY-299, SUBCELLULAR LOCATION, AND INTERACTION WITH
+RP   GPB2 AND GPR1.
+RX   PubMed=16030250; DOI=10.1091/mbc.e05-05-0403;
+RA   Harashima T., Heitman J.;
+RT   "Galpha subunit Gpa2 recruits kelch repeat subunits that inhibit receptor-G
+RT   protein coupling during cAMP-induced dimorphic transitions in Saccharomyces
+RT   cerevisiae.";
+RL   Mol. Biol. Cell 16:4557-4571(2005).
+RN   [9]
+RP   IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS].
+RX   PubMed=18407956; DOI=10.1074/mcp.m700468-mcp200;
+RA   Albuquerque C.P., Smolka M.B., Payne S.H., Bafna V., Eng J., Zhou H.;
+RT   "A multidimensional chromatography technology for in-depth phosphoproteome
+RT   analysis.";
+RL   Mol. Cell. Proteomics 7:1389-1396(2008).
+RN   [10]
+RP   IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS].
+RX   PubMed=19779198; DOI=10.1126/science.1172867;
+RA   Holt L.J., Tuch B.B., Villen J., Johnson A.D., Gygi S.P., Morgan D.O.;
+RT   "Global analysis of Cdk1 substrate phosphorylation sites provides insights
+RT   into evolution.";
+RL   Science 325:1682-1686(2009).
+CC   -!- FUNCTION: Alpha subunit of the heterotrimeric guanine nucleotide-
+CC       binding protein (G protein) involved in glucose-induced cAMP signaling.
+CC       Binds to its cognate transmembrane receptor GPR1, which senses
+CC       extracellular carbon sources, and activates cAMP-PKA signaling and
+CC       governs diploid pseudohyphal differentiation and haploid invasive
+CC       growth. The G protein beta-mimic proteins GPB1 and GPB2 inhibit GPA2-
+CC       GPR1 coupling, probably to reduce signaling in the absence of glucose.
+CC       {ECO:0000269|PubMed:10523302, ECO:0000269|PubMed:16030250}.
+CC   -!- COFACTOR:
+CC       Name=Mg(2+); Xref=ChEBI:CHEBI:18420;
+CC         Evidence={ECO:0000250|UniProtKB:P18064};
+CC   -!- ACTIVITY REGULATION: Alternates between an inactive form bound to GDP
+CC       and an active form bound to GTP. Activated by the G protein-coupled
+CC       receptor (GPCR) GPR1, which serves as a guanine nucleotide-exchange
+CC       factor (GEF), and inactivated by RGS2, acting as a GTPase-activating
+CC       protein (GAP) for GPA2.
+CC   -!- SUBUNIT: G proteins are composed of 3 units; alpha, beta and gamma. The
+CC       alpha chain contains the guanine nucleotide binding site. GPA2
+CC       interacts with the kelch repeat beta-mimic proteins GPB1 and GPB2 and
+CC       with the gamma subunit GPG1. Interacts with the G protein-coupled
+CC       receptor GPR1. Also interacts with regulators of G protein signaling
+CC       (RGS) protein RGS2. {ECO:0000269|PubMed:10523302,
+CC       ECO:0000269|PubMed:12150916, ECO:0000269|PubMed:16030250}.
+CC   -!- INTERACTION:
+CC       P10823; P08678: CYR1; NbExp=3; IntAct=EBI-7382, EBI-5364;
+CC       P10823; P39717: GPB2; NbExp=4; IntAct=EBI-7382, EBI-20711;
+CC   -!- SUBCELLULAR LOCATION: Cell membrane {ECO:0000269|PubMed:14562095,
+CC       ECO:0000269|PubMed:16030250}; Lipid-anchor
+CC       {ECO:0000269|PubMed:14562095, ECO:0000269|PubMed:16030250}; Cytoplasmic
+CC       side {ECO:0000269|PubMed:14562095, ECO:0000269|PubMed:16030250}.
+CC   -!- PTM: Myristoylation at Gly-2 and palmitoylation at Cys-4 are required
+CC       for membrane localization and function of the protein.
+CC       {ECO:0000269|PubMed:16030250}.
+CC   -!- MISCELLANEOUS: Present with 4570 molecules/cell in log phase SD medium.
+CC       {ECO:0000269|PubMed:14562106}.
+CC   -!- SIMILARITY: Belongs to the G-alpha family. G(q) subfamily.
+CC       {ECO:0000305}.
+CC   ---------------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   ---------------------------------------------------------------------------
+DR   EMBL; J03609; AAA34651.1; -; Genomic_DNA.
+DR   EMBL; U18778; AAB64553.1; -; Genomic_DNA.
+DR   EMBL; BK006939; DAA07673.1; -; Genomic_DNA.
+DR   PIR; S50478; S50478.
+DR   RefSeq; NP_010937.3; NM_001178911.3.
+DR   AlphaFoldDB; P10823; -.
+DR   SMR; P10823; -.
+DR   BioGRID; 36754; 93.
+DR   DIP; DIP-4346N; -.
+DR   FunCoup; P10823; 509.
+DR   IntAct; P10823; 51.
+DR   MINT; P10823; -.
+DR   STRING; 4932.YER020W; -.
+DR   TCDB; 8.A.92.1.15; the g-protein AlphaBetaGama complex (gpc) family.
+DR   GlyGen; P10823; 1 site.
+DR   iPTMnet; P10823; -.
+DR   SwissPalm; P10823; -.
+DR   PaxDb; 4932-YER020W; -.
+DR   PeptideAtlas; P10823; -.
+DR   EnsemblFungi; YER020W_mRNA; YER020W; YER020W.
+DR   GeneID; 856741; -.
+DR   KEGG; sce:YER020W; -.
+DR   AGR; SGD:S000000822; -.
+DR   SGD; S000000822; GPA2.
+DR   VEuPathDB; FungiDB:YER020W; -.
+DR   eggNOG; KOG0082; Eukaryota.
+DR   HOGENOM; CLU_014184_0_2_1; -.
+DR   InParanoid; P10823; -.
+DR   OMA; FMAIQAM; -.
+DR   OrthoDB; 5817230at2759; -.
+DR   BioCyc; YEAST:G3O-30204-MONOMER; -.
+DR   Reactome; R-SCE-2514859; Inactivation, recovery and regulation of the phototransduction cascade.
+DR   Reactome; R-SCE-418594; G alpha (i) signalling events.
+DR   BioGRID-ORCS; 856741; 3 hits in 10 CRISPR screens.
+DR   PRO; PR:P10823; -.
+DR   Proteomes; UP000002311; Chromosome V.
+DR   RNAct; P10823; protein.
+DR   GO; GO:0005737; C:cytoplasm; IDA:SGD.
+DR   GO; GO:0005829; C:cytosol; HDA:SGD.
+DR   GO; GO:0005834; C:heterotrimeric G-protein complex; IBA:GO_Central.
+DR   GO; GO:0005739; C:mitochondrion; HDA:SGD.
+DR   GO; GO:0005886; C:plasma membrane; IDA:SGD.
+DR   GO; GO:0001664; F:G protein-coupled receptor binding; IBA:GO_Central.
+DR   GO; GO:0031683; F:G-protein beta/gamma-subunit complex binding; IBA:GO_Central.
+DR   GO; GO:0005525; F:GTP binding; IEA:UniProtKB-KW.
+DR   GO; GO:0003924; F:GTPase activity; IDA:SGD.
+DR   GO; GO:0046872; F:metal ion binding; IEA:UniProtKB-KW.
+DR   GO; GO:0007189; P:adenylate cyclase-activating G protein-coupled receptor signaling pathway; IMP:SGD.
+DR   GO; GO:0030437; P:ascospore formation; IMP:SGD.
+DR   GO; GO:0010255; P:glucose mediated signaling pathway; IMP:SGD.
+DR   GO; GO:0009757; P:hexose mediated signaling; IMP:SGD.
+DR   GO; GO:0001403; P:invasive growth in response to glucose limitation; IMP:SGD.
+DR   GO; GO:0007124; P:pseudohyphal growth; IMP:SGD.
+DR   GO; GO:0008361; P:regulation of cell size; HMP:SGD.
+DR   GO; GO:0007165; P:signal transduction; IMP:SGD.
+DR   CDD; cd00066; G-alpha; 1.
+DR   FunFam; 1.10.400.10:FF:000007; Guanine nucleotide-binding protein subunit alpha; 1.
+DR   FunFam; 3.40.50.300:FF:000181; Guanine nucleotide-binding protein subunit alpha; 1.
+DR   Gene3D; 1.10.400.10; GI Alpha 1, domain 2-like; 1.
+DR   Gene3D; 3.40.50.300; P-loop containing nucleotide triphosphate hydrolases; 1.
+DR   InterPro; IPR002975; Fungi_Gprotein_alpha.
+DR   InterPro; IPR001019; Gprotein_alpha_su.
+DR   InterPro; IPR011025; GproteinA_insert.
+DR   InterPro; IPR027417; P-loop_NTPase.
+DR   PANTHER; PTHR10218; GTP-BINDING PROTEIN ALPHA SUBUNIT; 1.
+DR   PANTHER; PTHR10218:SF369; GUANINE NUCLEOTIDE-BINDING PROTEIN ALPHA-2 SUBUNIT; 1.
+DR   Pfam; PF00503; G-alpha; 1.
+DR   PRINTS; PR00318; GPROTEINA.
+DR   PRINTS; PR01241; GPROTEINAFNG.
+DR   SMART; SM00275; G_alpha; 1.
+DR   SUPFAM; SSF52540; P-loop containing nucleoside triphosphate hydrolases; 1.
+DR   SUPFAM; SSF47895; Transducin (alpha subunit), insertion domain; 1.
+DR   PROSITE; PS51882; G_ALPHA; 1.
+PE   1: Evidence at protein level;
+KW   Cell membrane; GTP-binding; Hydrolase; Lipoprotein; Magnesium; Membrane;
+KW   Metal-binding; Myristate; Nucleotide-binding; Palmitate;
+KW   Reference proteome; Transducer.
+FT   INIT_MET        1
+FT                   /note="Removed"
+FT   CHAIN           2..449
+FT                   /note="Guanine nucleotide-binding protein alpha-2 subunit"
+FT                   /id="PRO_0000203617"
+FT   DOMAIN          122..448
+FT                   /note="G-alpha"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU01230"
+FT   REGION          1..91
+FT                   /note="Disordered"
+FT                   /evidence="ECO:0000256|SAM:MobiDB-lite"
+FT   REGION          125..138
+FT                   /note="G1 motif"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU01230"
+FT   REGION          268..276
+FT                   /note="G2 motif"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU01230"
+FT   REGION          292..301
+FT                   /note="G3 motif"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU01230"
+FT   REGION          361..368
+FT                   /note="G4 motif"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU01230"
+FT   REGION          418..423
+FT                   /note="G5 motif"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU01230"
+FT   COMPBIAS        7..23
+FT                   /note="Polar residues"
+FT                   /evidence="ECO:0000256|SAM:MobiDB-lite"
+FT   COMPBIAS        38..48
+FT                   /note="Polar residues"
+FT                   /evidence="ECO:0000256|SAM:MobiDB-lite"
+FT   COMPBIAS        49..59
+FT                   /note="Low complexity"
+FT                   /evidence="ECO:0000256|SAM:MobiDB-lite"
+FT   COMPBIAS        72..91
+FT                   /note="Polar residues"
+FT                   /evidence="ECO:0000256|SAM:MobiDB-lite"
+FT   BINDING         133
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         134
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         135
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         136
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         137
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         137
+FT                   /ligand="Mg(2+)"
+FT                   /ligand_id="ChEBI:CHEBI:18420"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         138
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         245
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         270
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         276
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         276
+FT                   /ligand="Mg(2+)"
+FT                   /ligand_id="ChEBI:CHEBI:18420"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         299
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         365
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         366
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         368
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   BINDING         420
+FT                   /ligand="GTP"
+FT                   /ligand_id="ChEBI:CHEBI:37565"
+FT                   /evidence="ECO:0000250|UniProtKB:P18064"
+FT   LIPID           2
+FT                   /note="N-myristoyl glycine"
+FT                   /evidence="ECO:0000269|PubMed:16030250"
+FT   LIPID           4
+FT                   /note="S-palmitoyl cysteine"
+FT                   /evidence="ECO:0000269|PubMed:16030250"
+FT   MUTAGEN         2
+FT                   /note="G->A: Abolishes both palmitoylation and
+FT                   N-myristoylation."
+FT                   /evidence="ECO:0000269|PubMed:16030250"
+FT   MUTAGEN         4
+FT                   /note="C->A: Abolishes palmitoylation but not
+FT                   N-myristoylation."
+FT                   /evidence="ECO:0000269|PubMed:16030250"
+FT   MUTAGEN         6
+FT                   /note="S->A: Abolishes both palmitoylation and
+FT                   N-myristoylation."
+FT                   /evidence="ECO:0000269|PubMed:16030250"
+FT   MUTAGEN         132
+FT                   /note="G->V: Locks GPA2 in its activated GTP-bound form and
+FT                   abrogates the negative control by RGS2."
+FT                   /evidence="ECO:0000269|PubMed:10523302,
+FT                   ECO:0000269|PubMed:12150916"
+FT   MUTAGEN         299
+FT                   /note="G->A: Dominant negative allele unable to undergo the
+FT                   GTP-induced conformational change."
+FT                   /evidence="ECO:0000269|PubMed:12150916,
+FT                   ECO:0000269|PubMed:16030250"
+FT   MUTAGEN         300
+FT                   /note="Q->L: Dominant active allele that abolishes
+FT                   intrinsic GTPase activity."
+FT                   /evidence="ECO:0000269|PubMed:12150916"
+FT   CONFLICT        375
+FT                   /note="S -> R (in Ref. 1; AAA34651)"
+FT                   /evidence="ECO:0000305"
+SQ   SEQUENCE   449 AA;  50448 MW;  881B91792AE91748 CRC64;
+     MGLCASSEKN GSTPDTQTAS AGSDNVGKAK VPPKQEPQKT VRTVNTANQQ EKQQQRQQQP
+     SPHNVKDRKE QNGSINNAIS PTATANTSGS QQINIDSALR DRSSNVAAQP SLSDASSGSN
+     DKELKVLLLG AGESGKSTVL QQLKILHQNG FSEQEIKEYI PLIYQNLLEI GRNLIQARTR
+     FNVNLEPECE LTQQDLSRTM SYEMPNNYTG QFPEDIAGVI STLWALPSTQ DLVNGPNASK
+     FYLMDSTPYF MENFTRITSP NYRPTQQDIL RSRQMTSGIF DTVIDMGSDI KMHIYDVGGQ
+     RSERKKWIHC FDNVTLVIFC VSLSEYDQTL MEDKNQNRFQ ESLVLFDNIV NSRWFARTSV
+     VLFLNKIDLF AEKLSKVPME NYFPDYTGGS DINKAAKYIL WRFVQLNRAN LSIYPHVTQA
+     TDTSNIRLVF AAIKETILEN TLKDSGVLQ
+//

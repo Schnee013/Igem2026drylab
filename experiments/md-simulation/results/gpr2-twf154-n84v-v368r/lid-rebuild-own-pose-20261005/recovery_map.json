@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-10-05T16:04:51.159289+00:00",
+  "runtime_root": "/private/tmp/gpr2-own-lid-20261005",
+  "recovered_root": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/lid-rebuild-own-pose-20261005",
+  "identity_preserving_paths": [
+    "inputs",
+    "runs",
+    "logs"
+  ],
+  "supplemental_runtime_directories": [
+    "refine_v368r02",
+    "refine_wt24"
+  ],
+  "note": "Runtime JSON retains the original absolute paths as historical evidence; use recovered matching files, not deleted temp paths."
+}

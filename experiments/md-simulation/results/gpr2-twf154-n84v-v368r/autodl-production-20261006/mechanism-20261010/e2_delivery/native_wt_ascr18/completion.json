@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "case": "native_wt_ascr18",
+  "n_source_frames": 10001,
+  "n_sampled_frames": 1001,
+  "n_late_frames": 501,
+  "n_atoms": 6454,
+  "core_fit_atoms": 492,
+  "pocket_fit_atoms": 148,
+  "source_sha256": "420e0fe290245e3bd739261067fc1cb3edb8e1d7f783991a1a9b9354ec9e9bb4",
+  "config_sha256": "038d3a988631778072978dc406d0c443290380bb36729ceba419c312dcec5a56",
+  "input_identity": {
+    "topology": {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/solution.tpr",
+      "sha256": "0a07710aad6e31433474f96553d4115e3852a0fcc3d2d946fcff019714eecd74",
+      "bytes": 2057508
+    },
+    "reference": {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/protein_ref.pdb",
+      "sha256": "06e08a3a2b814b53dfcdfc3e793b78825214af3692ab454c4b690798fee06206",
+      "bytes": 510086
+    },
+    "trajectory": {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/processed/rep1/prod_protein.xtc",
+      "sha256": "8c7feeb26200f030ce2d45ca411d9232901cb14addb6e8fe71ff5e8ea08604e1",
+      "bytes": 246077240
+    }
+  },
+  "interpretation": "Single trajectory; correlated timepoints; distinct initial models/poses. Geometric adjacency is not causal coupling."
+}

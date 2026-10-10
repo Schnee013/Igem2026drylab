@@ -1,0 +1,10 @@
+{
+  "model_rel": "gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned",
+  "source_receptor_pdb": "experiments/docking-repro/prepared/final-docking/receptors/af3/pdb/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned.pdb",
+  "source_receptor_pdbqt": "experiments/docking-repro/prepared/final-docking/receptors/af3/pdbqt/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned.pdbqt",
+  "pdbqt_byte_identical": true,
+  "residue_count": 406,
+  "atom_count": 6398,
+  "explicit_hydrogens": 3239,
+  "formal_charge": 13
+}

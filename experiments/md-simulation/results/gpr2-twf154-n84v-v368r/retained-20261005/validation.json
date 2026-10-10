@@ -1,0 +1,135 @@
+{
+  "files_checked": 1237,
+  "all_sha256_match": true,
+  "no_tmp_symlink_targets": true,
+  "retained_preheat_cases": [
+    "raw_n84v_ascr18",
+    "raw_v368r_ascr3",
+    "raw_n84v_ascr3",
+    "raw_v368r_ascr18",
+    "native_wt_ascr18",
+    "native_wt_ascr3"
+  ],
+  "retired_or_backmutant_case_files": 0,
+  "trajectories": [
+    {
+      "case": "raw_n84v_ascr18",
+      "stage": "heat.xtc",
+      "frames": 51,
+      "start_ps": 0.0,
+      "end_ps": 50.0,
+      "last_step": 50000
+    },
+    {
+      "case": "raw_n84v_ascr18",
+      "stage": "hold.xtc",
+      "frames": 76,
+      "start_ps": 50.0,
+      "end_ps": 125.0,
+      "last_step": 75000
+    },
+    {
+      "case": "raw_v368r_ascr3",
+      "stage": "heat.xtc",
+      "frames": 51,
+      "start_ps": 0.0,
+      "end_ps": 50.0,
+      "last_step": 50000
+    },
+    {
+      "case": "raw_v368r_ascr3",
+      "stage": "hold.xtc",
+      "frames": 76,
+      "start_ps": 50.0,
+      "end_ps": 125.0,
+      "last_step": 75000
+    },
+    {
+      "case": "raw_n84v_ascr3",
+      "stage": "heat.xtc",
+      "frames": 51,
+      "start_ps": 0.0,
+      "end_ps": 50.0,
+      "last_step": 50000
+    },
+    {
+      "case": "raw_n84v_ascr3",
+      "stage": "hold.xtc",
+      "frames": 76,
+      "start_ps": 50.0,
+      "end_ps": 125.0,
+      "last_step": 75000
+    },
+    {
+      "case": "raw_v368r_ascr18",
+      "stage": "heat.xtc",
+      "frames": 51,
+      "start_ps": 0.0,
+      "end_ps": 50.0,
+      "last_step": 50000
+    },
+    {
+      "case": "raw_v368r_ascr18",
+      "stage": "hold.xtc",
+      "frames": 76,
+      "start_ps": 50.0,
+      "end_ps": 125.0,
+      "last_step": 75000
+    },
+    {
+      "case": "native_wt_ascr18",
+      "stage": "heat.xtc",
+      "frames": 51,
+      "start_ps": 0.0,
+      "end_ps": 50.0,
+      "last_step": 50000
+    },
+    {
+      "case": "native_wt_ascr18",
+      "stage": "hold.xtc",
+      "frames": 76,
+      "start_ps": 50.0,
+      "end_ps": 125.0,
+      "last_step": 75000
+    },
+    {
+      "case": "native_wt_ascr3",
+      "stage": "heat.xtc",
+      "frames": 51,
+      "start_ps": 0.0,
+      "end_ps": 50.0,
+      "last_step": 50000
+    },
+    {
+      "case": "native_wt_ascr3",
+      "stage": "hold.xtc",
+      "frames": 76,
+      "start_ps": 50.0,
+      "end_ps": 125.0,
+      "last_step": 75000
+    },
+    {
+      "case": "raw_n84v_ascr18",
+      "stage": "production.xtc",
+      "frames": 1645,
+      "start_ps": 0.0,
+      "end_ps": 16440.0,
+      "last_step": 8220000
+    },
+    {
+      "case": "raw_v368r_ascr3",
+      "stage": "production.xtc",
+      "frames": 1683,
+      "start_ps": 0.0,
+      "end_ps": 16820.0,
+      "last_step": 8410000
+    }
+  ],
+  "physical_bytes": 3397519749,
+  "file_modes": {
+    "copy_unique": 726,
+    "symlink_existing": 65,
+    "symlink_retained": 446
+  },
+  "production_note": "Live-run snapshots acquired file by file; not 100 ns completion archives or a guarantee of append-compatible checkpoint/output state."
+}

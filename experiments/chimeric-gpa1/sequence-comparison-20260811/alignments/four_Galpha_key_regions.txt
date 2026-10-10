@@ -1,0 +1,41 @@
+[G1_P_loop] MSA columns 127-148
+feature                             ^^^^^^^^^^^^^^    
+ScGpa1                   39-60  KNEIKLLLLGAGESGKSTVLKQ
+ScGpa2                 121-142  DKELKVLLLGAGESGKSTVLQQ
+AoGpa2                   34-55  RRECKILLLGSGESGKSTIVKQ
+AfGasA                   31-52  RNEIKMLLLGAGESGKSTILKQ
+
+[Switch_I_G2] MSA columns 378-397
+feature                             ^^^^^^^^^^^^    
+ScGpa1                 288-307  CTDEDILKGRIKTTGITETE
+ScGpa2                 264-283  PTQQDILRSRQMTSGIFDTV
+AoGpa2                 173-192  PSEADVLRARTKTTGIYETR
+AfGasA                 169-188  PSDQDVLRSRVKTLGITETT
+
+[Switch_II (Ao CDD direct; Sc MSA-mapped)] MSA columns 408-430
+feature                            ^^^^^^^^^^^^^^^^^   
+ScGpa1                 317-339  VLDAGGQRSERKKWIHCFEGITA
+ScGpa2                 294-316  IYDVGGQRSERKKWIHCFDNVTL
+AoGpa2                 202-224  MFDVGGQRSERKKWIHCFESVTS
+AfGasA                 198-220  MFDVGGQRSERKKWIHCFENVTT
+
+[G3] MSA columns 402-419
+feature                             ^^^^^^^^^^    
+ScGpa1                 312-328  S-SKFKVLDAGGQRSERK
+ScGpa2                 288-305  SDIKMHIYDVGGQRSERK
+AoGpa2                 197-213  Q-LNIHMFDVGGQRSERK
+AfGasA                 193-209  D-LTYRMFDVGGQRSERK
+
+[G4] MSA columns 471-486
+feature                             ^^^^^^^^    
+ScGpa1                 380-395  DTPFILFLNKIDLFEE
+ScGpa2                 357-372  RTSVVLFLNKIDLFAE
+AoGpa2                 265-280  RTSIILFLNKVDLFRQ
+AfGasA                 261-276  KTSIILFLNKIDRFRE
+
+[G5] MSA columns 530-543
+feature                             ^^^^^^    
+ScGpa1                 438-451  YVKRTCATDTQTMK
+ScGpa2                 414-427  YPHVTQATDTSNIR
+AoGpa2                 322-335  YPHLTQATDTSNIR
+AfGasA                 319-332  YTHFTCATDTTQIK

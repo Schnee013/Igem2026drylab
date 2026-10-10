@@ -1,0 +1,22 @@
+{
+  "as_of": "2026-10-05",
+  "archive_root": "/private/tmp/gpr2-lid-archive-20261005",
+  "archived_data_file_count": 1356,
+  "archived_data_bytes": 1517020726,
+  "retired_cases": [
+    "rebuilt_n84v_ascr18",
+    "rebuilt_v368r_ascr3",
+    "rebuilt_n84v_ascr3",
+    "rebuilt_v368r_ascr18",
+    "rebuilt_wt_ascr18",
+    "rebuilt_wt_ascr3"
+  ],
+  "scope": "已存在的14组查看轨迹包、预热结构/结果，旧输入及lid采样，新WT已回收结果和坐标分析。原目录和E2原始运行目录不移动不删除；本包不含持续增长的100ns生产轨迹及完整运行环境。",
+  "manifests": {
+    "archive_manifest.json": "e186f15193d8d5e8c1c920df05d3cb103b586d77fddd2996fad09dac1d58cef3",
+    "archive_validation.json": "daf9fe4788ede0e42afefa36be8456728c9365c4fd4630be824626e6f7dcfcd6",
+    "decision_documents.json": "dc6134144f019ecb11ebc4fc834b2bc95a69e830033c1a0397b91db6e269a01d"
+  },
+  "original_sources_preserved": true,
+  "production_jobs_modified": false
+}

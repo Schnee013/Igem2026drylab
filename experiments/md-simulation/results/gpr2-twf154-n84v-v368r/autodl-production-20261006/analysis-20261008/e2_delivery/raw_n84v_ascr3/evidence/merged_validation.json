@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "frames": 10001,
+  "unique_frames": 10001,
+  "first_ps": 0.0,
+  "last_ps": 100000.0,
+  "missing_grid_points": 0,
+  "topology": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/runs/raw_n84v_ascr3/rep1_codex_v1/production.tpr",
+    "bytes": 5440692,
+    "sha256": "fb1f8da690b7d2a3d714ad16e9e1d527181c58e3a246a5e688d360cca31ecc23"
+  },
+  "trajectory": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/merged_full.xtc",
+    "bytes": 5448251704,
+    "sha256": "9717130b8c7d5a45eac9b945f5522d9078523fefdbab3dd364266e3ad43fa46d"
+  },
+  "evidence": [
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/coverage_certificate.json",
+      "bytes": 26321,
+      "sha256": "573ce2c34de9f15f52327a0363180c6cf91b9a41c9dd2ef34a1dfb8327a6d768"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_001.manifest.json",
+      "bytes": 6944,
+      "sha256": "d7fbd1553f1525995443e0b0ef7daa795bef042ba90def38618ec8625b01b989"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_002.manifest.json",
+      "bytes": 6977,
+      "sha256": "b956b67b1a661174c26cdde843e161dc67beb5de7ed053f54654465e61cb3cda"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_003.manifest.json",
+      "bytes": 6978,
+      "sha256": "bb6aefe892cf11745b395a1245d5bb8595a779a8b8747e35b084562422623082"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_004.manifest.json",
+      "bytes": 6967,
+      "sha256": "71cb9dc84abc228145f8c27707ae425e90f3ee03933f4d0361cb8106ca7a93d5"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_005.manifest.json",
+      "bytes": 6968,
+      "sha256": "9e3ac96c546d69ee65a92260d8df5bd6031fb7a905e42cc8d8c3ceb26e0a24fb"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_006.manifest.json",
+      "bytes": 6979,
+      "sha256": "60c48f0078ac9cd910432fbaa62fc2ac24ea7cb3c158f941a6877144769b9788"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_007.manifest.json",
+      "bytes": 6979,
+      "sha256": "d5bf2278432e743ea93d68be6702b255ce149c31ff3c48f3b279d0a98c37ee0c"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_008.manifest.json",
+      "bytes": 6967,
+      "sha256": "a2cd319f820ba3822bc476eb9db49b19890e42eca25aefd7414e2ec704ac7d49"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_009.manifest.json",
+      "bytes": 6979,
+      "sha256": "16d82381e91a86f4cc1841baa490d7ecf2f78f6c502e7ad6dada516c80c8c432"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_010.manifest.json",
+      "bytes": 6979,
+      "sha256": "56573fa130150fef750fd6b16f26627d41500483f4dfcef5e42ecd5becf0575b"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_011.manifest.json",
+      "bytes": 6967,
+      "sha256": "7aa27931ab588aca8e12ebb7e51441c2eca6f66e13d331cf4e35fb27eaa5a281"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_012.manifest.json",
+      "bytes": 6967,
+      "sha256": "0bb7784c8d695daddfc3e096b75bac699c92ab9ebf77e7561adbef972a5eff4f"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/e2_archive_v1/production_raw_n84v_ascr3_v1_segment_013.manifest.json",
+      "bytes": 6750,
+      "sha256": "09211d09f9df3efd289952b15c4179790b5c3a3f80da1373a75aa5a3b3f8eb9e"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_001/closed_segment.json",
+      "bytes": 2638,
+      "sha256": "c93b5ca481a14f7b896f3115e0550ba3f0bba98f1e342010ae480dec129982d3"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_002/closed_segment.json",
+      "bytes": 2671,
+      "sha256": "159627551fdcf3cb9c3ee245aea1d487804e52d5b92994af3c4e7517c30f843e"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_003/closed_segment.json",
+      "bytes": 2656,
+      "sha256": "f77208b7fd576723a882fb7815147ec17fe6f52f8cbb5a7aa85a71c83123f0a4"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_004/closed_segment.json",
+      "bytes": 2660,
+      "sha256": "ce7d12d9a21e92eb03c3232a7e4817a2847b0d09bb07448cdb54a488802fcd4c"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_005/closed_segment.json",
+      "bytes": 2679,
+      "sha256": "ebcf7bf49d21c908fc915c87cae3dd5f93880e86a975157f5f7195e82092a53b"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_006/closed_segment.json",
+      "bytes": 2679,
+      "sha256": "0023b8e01d12a0706da8d4aa543e7ab14411ee2e83db987ed11511b6b882ae01"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_007/closed_segment.json",
+      "bytes": 2677,
+      "sha256": "af495b0d6f86cb878504ab4624b0b5f36fbbc590b69bcc7e0fa054be6854107d"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_008/closed_segment.json",
+      "bytes": 2678,
+      "sha256": "cd5a69ee703c4262e766de872ca9347d5e31dca5ae3bc5e434ca2a22b5cae60a"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_009/closed_segment.json",
+      "bytes": 2674,
+      "sha256": "40d87fe954cb9cbe9a56f7e0e8734d42bbc86527bd400ac2d114082458830116"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_010/closed_segment.json",
+      "bytes": 2678,
+      "sha256": "412db3de6c54c9c26c15afe21bcc7314884be39196282ccee7ad5fa7dcd9b835"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_011/closed_segment.json",
+      "bytes": 2678,
+      "sha256": "62f8a069a629fe3842a734defb465ce8a0cbd88038ba618e07ca425a7fdc9f4f"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_012/closed_segment.json",
+      "bytes": 2682,
+      "sha256": "6d897e8aef0000243be257718e9ecbeca540fb3d6b4b73c12ca33132139758f9"
+    },
+    {
+      "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/operator_records/production_raw_n84v_ascr3_v1/segment_013/closed_segment.json",
+      "bytes": 2656,
+      "sha256": "43c362103a2d91d1147b2570db25d2cd6960361e7c04c4f1f27a727b003ea7cd"
+    }
+  ]
+}

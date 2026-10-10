@@ -1,0 +1,6 @@
+{
+  "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_native_wt_ascr3_lid_rebuilt_own_pose_v1_parent_docking_frame.pdb": "c50c00b42163ec2d4e7e0f3972ab7d62156b66f79ca2ba3b6f1c367ff0f3ad17",
+  "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/WT_sequence.fasta": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150",
+  "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/own_pose_top1.sdf": "f4baef10dd496dd4fa06d42bf011136255a807837930e182949474d017291698",
+  "/Users/roy/Documents/drylab/experiments/md-simulation/scripts/sample_disulfide_lid.py": "1dcd5a8c1c2cb3cbb5b085ca20c251efd6ac9846d2fa8d57ac191ed9ca9e69ca"
+}

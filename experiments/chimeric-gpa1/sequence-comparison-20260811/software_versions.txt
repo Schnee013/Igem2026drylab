@@ -1,0 +1,6 @@
+python: 3.14.4
+biopython: 1.87
+pairwise_implementation: Bio.Align.PairwiseAligner global mode (Needleman-Wunsch equivalent)
+clustal_omega: 1.2.4
+clustal_omega_executable: /opt/homebrew/Caskroom/miniforge/base/envs/chimeric/bin/clustalo
+platform: macOS-26.0.1-arm64-arm-64bit-Mach-O

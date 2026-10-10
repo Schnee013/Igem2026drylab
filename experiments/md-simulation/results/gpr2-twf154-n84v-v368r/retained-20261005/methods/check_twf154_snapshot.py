@@ -1,0 +1,1 @@
+../../../../scripts/check_twf154_snapshot.py

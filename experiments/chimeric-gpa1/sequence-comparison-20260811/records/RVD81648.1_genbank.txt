@@ -1,0 +1,119 @@
+LOCUS       RVD81648                 353 aa            linear   PLN 08-JAN-2019
+DEFINITION  hypothetical protein DFL_009501 [Arthrobotrys flagrans].
+ACCESSION   RVD81648
+VERSION     RVD81648.1
+DBLINK      BioProject: PRJNA494930
+            BioSample: SAMN10185917
+DBSOURCE    accession SAEB01000012.1
+KEYWORDS    .
+SOURCE      Arthrobotrys flagrans
+  ORGANISM  Arthrobotrys flagrans
+            Eukaryota; Fungi; Dikarya; Ascomycota; Pezizomycotina;
+            Orbiliomycetes; Orbiliales; Orbiliaceae; Arthrobotrys.
+REFERENCE   1  (residues 1 to 353)
+  AUTHORS   Youssar,L., Wernet,V., Hensel,N., Yu,X., Hildebrand,H.G.,
+            Schreckenberger,B., Kriegler,M., Hetzer,B., Frankino,P., Dillin,A.
+            and Fischer,R.
+  TITLE     Intercellular communication is required for trap formation in the
+            nematode-trapping fungus Duddingtonia flagrans
+  JOURNAL   PLoS Genet. 15 (3), e1008029 (2019)
+   PUBMED   30917129
+  REMARK    Publication Status: Available-Online prior to print
+REFERENCE   2  (residues 1 to 353)
+  AUTHORS   Youssar,L., Wernet,V., Hensel,N., Hildebrandt,H.-G. and Fischer,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (04-JAN-2019) Dept. of Microbiology, Institute for
+            Applied Biosciences, Fritz-Haber-Weg 4, Karlsruhe 76131, Germany
+COMMENT     ##Genome-Assembly-Data-START##
+            Assembly Date          :: 2017
+            Assembly Method        :: GS De Novo Assembler v. April-2017
+            Assembly Name          :: DF_1.0
+            Genome Representation  :: Full
+            Expected Final Version :: Yes
+            Genome Coverage        :: 102.0x
+            Sequencing Technology  :: PacBio RS; Illumina
+            ##Genome-Assembly-Data-END##
+            Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..353
+                     /organism="Arthrobotrys flagrans"
+                     /strain="CBS H-5679"
+                     /isolation_source="Soil"
+                     /culture_collection="CBS:H-5679"
+                     /db_xref="taxon:97331"
+                     /ecotype="Germany"
+                     /geo_loc_name="Germany"
+                     /collection_date="Apr-1991"
+     Protein         1..353
+                     /product="hypothetical protein"
+     Region          34..347
+                     /region_name="G-alpha"
+                     /note="Alpha subunit of G proteins (guanine nucleotide
+                     binding); cd00066"
+                     /db_xref="CDD:206639"
+     Site            order(40,45..47,181,200,203,269..270,272,324..325)
+                     /site_type="other"
+                     /note="GTP/Mg2+ binding site [chemical binding]"
+                     /db_xref="CDD:206639"
+     Site            40..47
+                     /site_type="other"
+                     /note="G1 box"
+                     /db_xref="CDD:206639"
+     Site            order(41..43,71,75,79,82,85..86,104,107,149,178,203,211,
+                     215)
+                     /site_type="active"
+                     /note="GoLoco binding site [active]"
+                     /db_xref="CDD:206639"
+     Site            176..184
+                     /site_type="other"
+                     /note="Switch I region"
+                     /db_xref="CDD:206639"
+     Site            181
+                     /site_type="other"
+                     /note="G2 box"
+                     /db_xref="CDD:206639"
+     Site            order(182,184,186,197,199,203..205,207,210..211,213..216)
+                     /site_type="other"
+                     /note="beta - gamma complex interaction site [polypeptide
+                     binding]"
+                     /db_xref="CDD:206639"
+     Site            order(184,209,212..213,216)
+                     /site_type="other"
+                     /note="adenylyl cyclase interaction site [polypeptide
+                     binding]"
+                     /db_xref="CDD:206639"
+     Site            200..203
+                     /site_type="other"
+                     /note="G3 box"
+                     /db_xref="CDD:206639"
+     Site            201..217
+                     /site_type="other"
+                     /note="Switch II region"
+                     /db_xref="CDD:206639"
+     Site            269..272
+                     /site_type="other"
+                     /note="G4 box"
+                     /db_xref="CDD:206639"
+     Site            order(316..327,329..332)
+                     /site_type="active"
+                     /note="putative receptor binding site [active]"
+                     /db_xref="CDD:206639"
+     Site            324..326
+                     /site_type="other"
+                     /note="G5 box"
+                     /db_xref="CDD:206639"
+     CDS             1..353
+                     /locus_tag="DFL_009501"
+                     /coded_by="complement(join(SAEB01000012.1:5081083..5081126
+                     ,SAEB01000012.1:5081188..5081331,
+                     SAEB01000012.1:5081404..5082159,
+                     SAEB01000012.1:5082232..5082349))"
+ORIGIN      
+        1 mgcsmsteek egkqrneein aqlqkdkmla rneikmlllg agesgkstil kqmklihegg
+       61 ysrdekesfk eiifsntvqs mrvileamet lelplsdsrs eyhvqtifmq paqiegdslp
+      121 aevgnairal wqdqgvqecf krsreyqlnd sakyyfdsid riatpdyvps dqdvlrsrvk
+      181 tlgitettfv igdltyrmfd vggqrserkk wihcfenvtt ilflvaisey dqllfedetv
+      241 nrmqealtlf dsicnsrwfi ktsiilflnk idrfreklpv spmknyfpdf eggddyaaac
+      301 dyilnrfvsl nqsetkqiyt hftcatdttq ikfvmaavnd iiiqenlrnc gli
+//
+

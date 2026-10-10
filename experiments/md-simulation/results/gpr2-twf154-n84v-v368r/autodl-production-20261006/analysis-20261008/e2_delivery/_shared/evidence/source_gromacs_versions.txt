@@ -1,0 +1,18 @@
+                 :-) GROMACS - gmx_mpi, 2025.4-conda_forge (-:
+
+Executable:   /opt/drylab/gromacs-2025.4/bin.AVX2_256/gmx_mpi
+Data prefix:  /opt/drylab/gromacs-2025.4
+Working dir:  /root
+Command line:
+  gmx_mpi --version
+
+GROMACS version:     2025.4-conda_forge
+Precision:           mixed
+Memory model:        64 bit
+MPI library:         MPI
+MPI library version: Open MPI v5.0.8, package: Open MPI conda@e2c916615969 Distribution, ident: 5.0.8, repo rev: v5.0.8, May 30, 2025
+OpenMP support:      enabled (GMX_OPENMP_MAX_THREADS = 128)
+GPU support:         CUDA
+NBNxM GPU setup:     super-cluster 2x2x2 / cluster 8 (cluster-pair splitting on)
+SIMD instructions:   AVX2_256
+CPU FFT library:     fftw-3.3.11-sse2-avx

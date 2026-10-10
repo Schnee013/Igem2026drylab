@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-"""Compute receptor-Galpha buried surface area from protein-only trajectories.
+"""Compute configured receptor-partner BSA from retained-complex trajectories.
 
 Uses MDTraj Shrake-Rupley SASA on stride-sampled frames:
-BSA = SASA(Galpha) + SASA(receptor) - SASA(complex)
+BSA = SASA(partner) + SASA(receptor) - SASA(complex)
 Units are converted from nm^2 to A^2.
 """
 from pathlib import Path
@@ -72,12 +72,12 @@ if heuristic is not None:
         )
 lines = []
 for rep, sub in df.groupby('rep'):
-    tail = sub[sub.time_ns >= 100] if sub.time_ns.max() >= 100 else sub
+    tail = ctx.summary(sub)
     mean_frac = tail.bsa_fraction_of_initial.mean()
     min_frac = tail.bsa_fraction_of_initial.min()
     if heuristic is None:
         lines.append(
-            f'{rep}: after100 mean fraction={mean_frac:.3f}, min fraction={min_frac:.3f}; '
+            f'{rep}: {ctx.summary_label} mean fraction={mean_frac:.3f}, min fraction={min_frac:.3f}; '
             'descriptive only (no configured retention threshold)'
         )
         continue
@@ -86,7 +86,7 @@ for rep, sub in df.groupby('rep'):
         if mean_frac >= retention_at_or_above
         else f'caveat under configured project operational >={retention_at_or_above:g} heuristic'
     )
-    lines.append(f'{rep}: after100 mean fraction={mean_frac:.3f}, min fraction={min_frac:.3f}; {status}')
+    lines.append(f'{rep}: {ctx.summary_label} mean fraction={mean_frac:.3f}, min fraction={min_frac:.3f}; {status}')
 title_suffix = 'judgement' if heuristic is not None else 'descriptive summary'
 write_judgement(out / 'judgement.md', f'{ctx.label} BSA {title_suffix}', lines)
 print('[bsa] done', flush=True)

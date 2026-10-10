@@ -1,0 +1,898 @@
+{
+  "method": {
+    "global_algorithm": "Needleman-Wunsch equivalent via Biopython PairwiseAligner mode=global",
+    "substitution_matrix": "BLOSUM62",
+    "gap_open": -10.0,
+    "gap_extend": -0.5,
+    "terminal_gaps_penalized": true,
+    "identity_denominator": "all global alignment columns, including gap columns",
+    "similarity_definition": "all nongap residue pairs with BLOSUM62 score > 0, including exact matches",
+    "gap_definition": "columns containing a gap in either sequence",
+    "optimal_path_tie_rule": "report the first score-tied optimal path returned by Biopython; all optimal paths are audited separately",
+    "msa": "Clustal Omega protein MSA, one thread, input order retained"
+  },
+  "software": {
+    "python": "3.14.4",
+    "biopython": "1.87",
+    "pairwise_implementation": "Bio.Align.PairwiseAligner global mode (Needleman-Wunsch equivalent)",
+    "clustal_omega": "1.2.4",
+    "clustal_omega_executable": "/opt/homebrew/Caskroom/miniforge/base/envs/chimeric/bin/clustalo",
+    "platform": "macOS-26.0.1-arm64-arm-64bit-Mach-O"
+  },
+  "validation": {
+    "metadata": [
+      {
+        "protein": "ScGpa1",
+        "species": "Saccharomyces cerevisiae (S288c)",
+        "protein_name": "Gpa1 / guanine nucleotide-binding protein alpha-1 subunit",
+        "database": "UniProtKB/Swiss-Prot (reviewed)",
+        "accession": "P08539",
+        "length": 472,
+        "fasta_header": ">sp|P08539|GPA1_YEAST Guanine nucleotide-binding protein alpha-1 subunit OS=Saccharomyces cerevisiae (strain ATCC 204508 / S288c) OX=559292 GN=GPA1 PE=1 SV=3",
+        "url": "https://www.uniprot.org/uniprotkb/P08539/entry",
+        "sha256": "1737d0116e06108c4613f504e92ed747bf46dcbc86b62d362fda9668458387bb",
+        "fasta_path": "sequences/ScGpa1_P08539.fasta"
+      },
+      {
+        "protein": "ScGpa2",
+        "species": "Saccharomyces cerevisiae (S288c)",
+        "protein_name": "Gpa2 / guanine nucleotide-binding protein alpha-2 subunit",
+        "database": "UniProtKB/Swiss-Prot (reviewed)",
+        "accession": "P10823",
+        "length": 449,
+        "fasta_header": ">sp|P10823|GPA2_YEAST Guanine nucleotide-binding protein alpha-2 subunit OS=Saccharomyces cerevisiae (strain ATCC 204508 / S288c) OX=559292 GN=GPA2 PE=1 SV=2",
+        "url": "https://www.uniprot.org/uniprotkb/P10823/entry",
+        "sha256": "f6b1b72091c6dd0cb93109714556908a8e4d469f0c1f981c1a4ff2b93b7f47a0",
+        "fasta_path": "sequences/ScGpa2_P10823.fasta"
+      },
+      {
+        "protein": "AoGpa2",
+        "species": "Arthrobotrys oligospora TWF154 (NCBI record: Orbilia oligospora)",
+        "protein_name": "Gpa2 / guanine nucleotide-binding protein alpha-2 subunit",
+        "database": "NCBI Protein/GenBank",
+        "accession": "TGJ64397.1",
+        "length": 356,
+        "fasta_header": ">TGJ64397.1 Guanine nucleotide-binding protein alpha-2 subunit [Orbilia oligospora]",
+        "url": "https://www.ncbi.nlm.nih.gov/protein/TGJ64397.1",
+        "sha256": "da014c9cde006fedac16398ec2cd149a9a3029a53c666b2a883e3fcf3dce2fc3",
+        "fasta_path": "sequences/AoGpa2_TGJ64397.1.fasta"
+      },
+      {
+        "protein": "AfGasA",
+        "species": "Arthrobotrys flagrans (sequence-database strain label: CBS H-5679; Hu2024 experimental strain: CBS 349.94; equivalence unresolved)",
+        "protein_name": "GasA / guanine nucleotide-binding protein alpha subunit A",
+        "database": "UniProtKB/Swiss-Prot (reviewed); cross-checked with NCBI RVD81648.1",
+        "accession": "A0A436ZRX2",
+        "length": 353,
+        "fasta_header": ">sp|A0A436ZRX2|GASA_ARTFL Guanine nucleotide binding protein alpha subunit A OS=Arthrobotrys flagrans OX=97331 GN=gasA PE=1 SV=1",
+        "url": "https://www.uniprot.org/uniprotkb/A0A436ZRX2/entry",
+        "sha256": "872b7ea0fce717601ad315513b9b8b927704dae839631ca720527c6b7a252796",
+        "fasta_path": "sequences/AfGasA_A0A436ZRX2.fasta"
+      }
+    ],
+    "record_identity_checks": {
+      "P08539": "pass: reviewed S. cerevisiae Gpa1 and G-alpha domain record",
+      "P10823": "pass: reviewed S. cerevisiae Gpa2 and G-alpha domain record",
+      "TGJ64397.1": "pass: NCBI record links GPA2, EYR41_010456, TWF154, Orbilia oligospora, complete G-alpha CDD domain and receptor-binding feature",
+      "A0A436ZRX2_RVD81648.1": "pass: Hu2024 gasA/dfl_009501 links to reviewed UniProt A0A436ZRX2; UniProt cross-references NCBI RVD81648.1, whose record and protein sequence carry the same DFL_009501 locus tag and complete G-alpha CDD domain"
+    },
+    "AoGpa2_CDS_translation": {
+      "cds_length_nt": 1071,
+      "translation_length_before_stop": 356,
+      "terminal_stop": "*",
+      "exactly_matches_TGJ64397.1": true
+    },
+    "AfGasA_CDS_translation": {
+      "cds_length_nt": 1062,
+      "translation_length_before_stop": 353,
+      "terminal_stop": "*",
+      "exactly_matches_A0A436ZRX2": true,
+      "exactly_matches_RVD81648.1": true
+    },
+    "AfGasA_strain_provenance": {
+      "Hu2024_experimental_strain": "CBS 349.94",
+      "Hu2024_genome_database": "PRJNA494930",
+      "RVD81648.1_BioProject": "PRJNA494930",
+      "RVD81648.1_BioSample": "SAMN10185917",
+      "sequence_database_strain_label": "CBS H-5679",
+      "equivalence_status": "unresolved: the inspected primary articles and sequence records do not provide an authoritative cross-reference equating CBS 349.94 and CBS H-5679",
+      "sequence_identity_impact": "none: DFL_009501, A0A436ZRX2, RVD81648.1, scaffold SAEB01000012, the genomic CDS translation, and the protein residues remain directly linked"
+    },
+    "Kuo2024_primer_matches": {
+      "primer_4207_full": "ATATAAAACAGCTAGCATGGGTGGCTGCATGTCG",
+      "primer_4207_gene_specific_3prime": "ATGGGTGGCTGCATGTCG",
+      "primer_4207_match_length_nt": 18,
+      "primer_4207_matches_CDS_start": true,
+      "primer_4208_full": "AATTCAATTCAATGGCGCGCCGAGGTCTTCTTCGGAAATCAACTTCTGTTCTGACCCACCGCCACCTAATATACCGGAGTCCTTGAGGGC",
+      "primer_4208_gene_specific_3prime": "TAATATACCGGAGTCCTTGAGGGC",
+      "primer_4208_match_length_nt": 24,
+      "primer_4208_reverse_complement": "GCCCTCAAGGACTCCGGTATATTA",
+      "primer_4208_matches_coding_end_before_stop": true
+    },
+    "motif_checks": {
+      "ScGpa1": {
+        "G1_signature_hits": [
+          [
+            48,
+            "GAGESGKS"
+          ]
+        ],
+        "G3_DxxG_hits": [
+          [
+            169,
+            "DEDG"
+          ],
+          [
+            319,
+            "DAGG"
+          ],
+          [
+            408,
+            "DYQG"
+          ]
+        ],
+        "G4_NKxD_hits": [
+          [
+            388,
+            "NKID"
+          ]
+        ],
+        "annotated_features": {
+          "G1_P_loop": {
+            "start": 43,
+            "end": 56,
+            "sequence": "KLLLLGAGESGKST"
+          },
+          "Switch_I_G2": {
+            "start": 292,
+            "end": 300,
+            "sequence": "DILKGRIKT"
+          },
+          "G3": {
+            "start": 315,
+            "end": 324,
+            "sequence": "FKVLDAGGQR"
+          },
+          "G4": {
+            "start": 384,
+            "end": 391,
+            "sequence": "ILFLNKID"
+          },
+          "G5": {
+            "start": 442,
+            "end": 447,
+            "sequence": "TCATDT"
+          },
+          "ScGpa1_insert": {
+            "start": 127,
+            "end": 235,
+            "sequence": "LDYINASVAGGSDFLNDYVLKYSERYETRRRVQSTGRAKAAFDEDGNISNVKSDTDRDAETVTQNEDADRNNSSRINLQDICKDLNQEGDDQMFVRKTSREIQGQNRRN"
+          }
+        },
+        "sequence_level_truncation_check": "pass: canonical amino acids, expected length, G1/G3/G4/G5 and native C terminus present"
+      },
+      "ScGpa2": {
+        "G1_signature_hits": [
+          [
+            130,
+            "GAGESGKS"
+          ]
+        ],
+        "G3_DxxG_hits": [
+          [
+            24,
+            "DNVG"
+          ],
+          [
+            215,
+            "DIAG"
+          ],
+          [
+            296,
+            "DVGG"
+          ],
+          [
+            385,
+            "DYTG"
+          ]
+        ],
+        "G4_NKxD_hits": [
+          [
+            365,
+            "NKID"
+          ]
+        ],
+        "annotated_features": {
+          "G1_P_loop": {
+            "start": 125,
+            "end": 138,
+            "sequence": "KVLLLGAGESGKST"
+          },
+          "Switch_I_G2": {
+            "start": 268,
+            "end": 276,
+            "sequence": "DILRSRQMT"
+          },
+          "G3": {
+            "start": 292,
+            "end": 301,
+            "sequence": "MHIYDVGGQR"
+          },
+          "G4": {
+            "start": 361,
+            "end": 368,
+            "sequence": "VLFLNKID"
+          },
+          "G5": {
+            "start": 418,
+            "end": 423,
+            "sequence": "TQATDT"
+          },
+          "N_terminal_disordered": {
+            "start": 1,
+            "end": 91,
+            "sequence": "MGLCASSEKNGSTPDTQTASAGSDNVGKAKVPPKQEPQKTVRTVNTANQQEKQQQRQQQPSPHNVKDRKEQNGSINNAISPTATANTSGSQ"
+          }
+        },
+        "sequence_level_truncation_check": "pass: canonical amino acids, expected length, G1/G3/G4/G5 and native C terminus present"
+      },
+      "AoGpa2": {
+        "G1_signature_hits": [
+          [
+            43,
+            "GSGESGKS"
+          ]
+        ],
+        "G3_DxxG_hits": [
+          [
+            204,
+            "DVGG"
+          ],
+          [
+            293,
+            "DYSG"
+          ]
+        ],
+        "G4_NKxD_hits": [
+          [
+            273,
+            "NKVD"
+          ]
+        ],
+        "annotated_features": {
+          "G1_P_loop": {
+            "start": 43,
+            "end": 50,
+            "sequence": "GSGESGKS"
+          },
+          "Switch_I_G2": {
+            "start": 180,
+            "end": 188,
+            "sequence": "RARTKTTGI"
+          },
+          "G3": {
+            "start": 204,
+            "end": 207,
+            "sequence": "DVGG"
+          },
+          "Switch_II": {
+            "start": 205,
+            "end": 221,
+            "sequence": "VGGQRSERKKWIHCFES"
+          },
+          "G4": {
+            "start": 273,
+            "end": 276,
+            "sequence": "NKVD"
+          },
+          "G5": {
+            "start": 327,
+            "end": 329,
+            "sequence": "QAT"
+          },
+          "CDD_receptor_binding": {
+            "start": 319,
+            "end": 335,
+            "sequence": "LNLYPHLTQATDTSNIR"
+          }
+        },
+        "sequence_level_truncation_check": "pass: canonical amino acids, expected length, G1/G3/G4/G5 and native C terminus present"
+      },
+      "AfGasA": {
+        "G1_signature_hits": [
+          [
+            40,
+            "GAGESGKS"
+          ]
+        ],
+        "G3_DxxG_hits": [
+          [
+            200,
+            "DVGG"
+          ],
+          [
+            289,
+            "DFEG"
+          ]
+        ],
+        "G4_NKxD_hits": [
+          [
+            269,
+            "NKID"
+          ]
+        ],
+        "annotated_features": {
+          "G1_P_loop": {
+            "start": 40,
+            "end": 47,
+            "sequence": "GAGESGKS"
+          },
+          "Switch_I_G2": {
+            "start": 176,
+            "end": 184,
+            "sequence": "RSRVKTLGI"
+          },
+          "G3": {
+            "start": 200,
+            "end": 203,
+            "sequence": "DVGG"
+          },
+          "Switch_II": {
+            "start": 201,
+            "end": 217,
+            "sequence": "VGGQRSERKKWIHCFEN"
+          },
+          "G4": {
+            "start": 269,
+            "end": 272,
+            "sequence": "NKID"
+          },
+          "G5": {
+            "start": 324,
+            "end": 326,
+            "sequence": "CAT"
+          },
+          "CDD_receptor_binding_span": {
+            "start": 316,
+            "end": 332,
+            "sequence": "KQIYTHFTCATDTTQIK"
+          }
+        },
+        "sequence_level_truncation_check": "pass: canonical amino acids, expected length, G1/G3/G4/G5 and native C terminus present"
+      }
+    }
+  },
+  "global_pairwise": {
+    "ScGpa1_vs_ScGpa2": {
+      "aligned_length": 565,
+      "identity_n": 160,
+      "identity_pct": 28.31858407079646,
+      "similarity_n": 229,
+      "similarity_pct": 40.530973451327434,
+      "gap_columns_n": 209,
+      "gap_columns_pct": 36.991150442477874,
+      "aligned_residue_columns": 356,
+      "aligned_residue_identity_pct": 44.943820224719104,
+      "score": 610.5,
+      "independently_recalculated_score": 610.5
+    },
+    "ScGpa1_vs_AoGpa2": {
+      "aligned_length": 472,
+      "identity_n": 145,
+      "identity_pct": 30.720338983050848,
+      "similarity_n": 224,
+      "similarity_pct": 47.45762711864407,
+      "gap_columns_n": 116,
+      "gap_columns_pct": 24.576271186440678,
+      "aligned_residue_columns": 356,
+      "aligned_residue_identity_pct": 40.73033707865169,
+      "score": 640.5,
+      "independently_recalculated_score": 640.5
+    },
+    "ScGpa2_vs_AoGpa2": {
+      "aligned_length": 457,
+      "identity_n": 194,
+      "identity_pct": 42.4507658643326,
+      "similarity_n": 275,
+      "similarity_pct": 60.17505470459518,
+      "gap_columns_n": 109,
+      "gap_columns_pct": 23.85120350109409,
+      "aligned_residue_columns": 348,
+      "aligned_residue_identity_pct": 55.747126436781606,
+      "score": 956.0,
+      "independently_recalculated_score": 956.0
+    },
+    "ScGpa1_vs_AfGasA": {
+      "aligned_length": 473,
+      "identity_n": 178,
+      "identity_pct": 37.63213530655391,
+      "similarity_n": 257,
+      "similarity_pct": 54.33403805496829,
+      "gap_columns_n": 121,
+      "gap_columns_pct": 25.58139534883721,
+      "aligned_residue_columns": 352,
+      "aligned_residue_identity_pct": 50.56818181818182,
+      "score": 865.5,
+      "independently_recalculated_score": 865.5
+    },
+    "ScGpa2_vs_AfGasA": {
+      "aligned_length": 452,
+      "identity_n": 158,
+      "identity_pct": 34.95575221238938,
+      "similarity_n": 229,
+      "similarity_pct": 50.663716814159294,
+      "gap_columns_n": 102,
+      "gap_columns_pct": 22.56637168141593,
+      "aligned_residue_columns": 350,
+      "aligned_residue_identity_pct": 45.142857142857146,
+      "score": 707.0,
+      "independently_recalculated_score": 707.0
+    },
+    "AoGpa2_vs_AfGasA": {
+      "aligned_length": 359,
+      "identity_n": 168,
+      "identity_pct": 46.796657381615596,
+      "similarity_n": 241,
+      "similarity_pct": 67.13091922005572,
+      "gap_columns_n": 9,
+      "gap_columns_pct": 2.5069637883008355,
+      "aligned_residue_columns": 350,
+      "aligned_residue_identity_pct": 48.0,
+      "score": 877.5,
+      "independently_recalculated_score": 877.5
+    }
+  },
+  "global_optimal_path_tie_audit": {
+    "ScGpa1_vs_ScGpa2": {
+      "optimal_path_count": 24,
+      "reported_path": "first optimal path returned by Biopython PairwiseAligner",
+      "metric_variants": [
+        {
+          "path_count": 3,
+          "aligned_length": 565,
+          "identity_n": 160,
+          "identity_pct": 28.31858407079646,
+          "similarity_n": 229,
+          "similarity_pct": 40.530973451327434,
+          "gap_columns_n": 209,
+          "gap_columns_pct": 36.991150442477874
+        },
+        {
+          "path_count": 3,
+          "aligned_length": 565,
+          "identity_n": 160,
+          "identity_pct": 28.31858407079646,
+          "similarity_n": 230,
+          "similarity_pct": 40.70796460176991,
+          "gap_columns_n": 209,
+          "gap_columns_pct": 36.991150442477874
+        },
+        {
+          "path_count": 1,
+          "aligned_length": 565,
+          "identity_n": 161,
+          "identity_pct": 28.495575221238937,
+          "similarity_n": 227,
+          "similarity_pct": 40.176991150442475,
+          "gap_columns_n": 209,
+          "gap_columns_pct": 36.991150442477874
+        },
+        {
+          "path_count": 1,
+          "aligned_length": 565,
+          "identity_n": 161,
+          "identity_pct": 28.495575221238937,
+          "similarity_n": 228,
+          "similarity_pct": 40.35398230088496,
+          "gap_columns_n": 209,
+          "gap_columns_pct": 36.991150442477874
+        },
+        {
+          "path_count": 6,
+          "aligned_length": 566,
+          "identity_n": 163,
+          "identity_pct": 28.79858657243816,
+          "similarity_n": 232,
+          "similarity_pct": 40.98939929328622,
+          "gap_columns_n": 211,
+          "gap_columns_pct": 37.2791519434629
+        },
+        {
+          "path_count": 6,
+          "aligned_length": 566,
+          "identity_n": 163,
+          "identity_pct": 28.79858657243816,
+          "similarity_n": 233,
+          "similarity_pct": 41.1660777385159,
+          "gap_columns_n": 211,
+          "gap_columns_pct": 37.2791519434629
+        },
+        {
+          "path_count": 2,
+          "aligned_length": 566,
+          "identity_n": 164,
+          "identity_pct": 28.975265017667844,
+          "similarity_n": 230,
+          "similarity_pct": 40.63604240282685,
+          "gap_columns_n": 211,
+          "gap_columns_pct": 37.2791519434629
+        },
+        {
+          "path_count": 2,
+          "aligned_length": 566,
+          "identity_n": 164,
+          "identity_pct": 28.975265017667844,
+          "similarity_n": 231,
+          "similarity_pct": 40.812720848056536,
+          "gap_columns_n": 211,
+          "gap_columns_pct": 37.2791519434629
+        }
+      ]
+    },
+    "ScGpa1_vs_AoGpa2": {
+      "optimal_path_count": 4,
+      "reported_path": "first optimal path returned by Biopython PairwiseAligner",
+      "metric_variants": [
+        {
+          "path_count": 4,
+          "aligned_length": 472,
+          "identity_n": 145,
+          "identity_pct": 30.720338983050848,
+          "similarity_n": 224,
+          "similarity_pct": 47.45762711864407,
+          "gap_columns_n": 116,
+          "gap_columns_pct": 24.576271186440678
+        }
+      ]
+    },
+    "ScGpa2_vs_AoGpa2": {
+      "optimal_path_count": 4,
+      "reported_path": "first optimal path returned by Biopython PairwiseAligner",
+      "metric_variants": [
+        {
+          "path_count": 2,
+          "aligned_length": 457,
+          "identity_n": 194,
+          "identity_pct": 42.4507658643326,
+          "similarity_n": 275,
+          "similarity_pct": 60.17505470459518,
+          "gap_columns_n": 109,
+          "gap_columns_pct": 23.85120350109409
+        },
+        {
+          "path_count": 2,
+          "aligned_length": 457,
+          "identity_n": 194,
+          "identity_pct": 42.4507658643326,
+          "similarity_n": 276,
+          "similarity_pct": 60.393873085339166,
+          "gap_columns_n": 109,
+          "gap_columns_pct": 23.85120350109409
+        }
+      ]
+    },
+    "ScGpa1_vs_AfGasA": {
+      "optimal_path_count": 4,
+      "reported_path": "first optimal path returned by Biopython PairwiseAligner",
+      "metric_variants": [
+        {
+          "path_count": 4,
+          "aligned_length": 473,
+          "identity_n": 178,
+          "identity_pct": 37.63213530655391,
+          "similarity_n": 257,
+          "similarity_pct": 54.33403805496829,
+          "gap_columns_n": 121,
+          "gap_columns_pct": 25.58139534883721
+        }
+      ]
+    },
+    "ScGpa2_vs_AfGasA": {
+      "optimal_path_count": 12,
+      "reported_path": "first optimal path returned by Biopython PairwiseAligner",
+      "metric_variants": [
+        {
+          "path_count": 12,
+          "aligned_length": 452,
+          "identity_n": 158,
+          "identity_pct": 34.95575221238938,
+          "similarity_n": 229,
+          "similarity_pct": 50.663716814159294,
+          "gap_columns_n": 102,
+          "gap_columns_pct": 22.56637168141593
+        }
+      ]
+    },
+    "AoGpa2_vs_AfGasA": {
+      "optimal_path_count": 4,
+      "reported_path": "first optimal path returned by Biopython PairwiseAligner",
+      "metric_variants": [
+        {
+          "path_count": 4,
+          "aligned_length": 359,
+          "identity_n": 168,
+          "identity_pct": 46.796657381615596,
+          "similarity_n": 241,
+          "similarity_pct": 67.13091922005572,
+          "gap_columns_n": 9,
+          "gap_columns_pct": 2.5069637883008355
+        }
+      ]
+    }
+  },
+  "ScGpa1_insertion_deleted_diagnostic": {
+    "definition": "delete ScGpa1 residues 127-235, then globally align to each complete comparator; not whole-protein identity",
+    "ScGpa1_delta_length": 363,
+    "pairs": {
+      "ScGpa1_delta127_235_vs_ScGpa2": {
+        "aligned_length": 467,
+        "identity_n": 155,
+        "identity_pct": 33.190578158458244,
+        "similarity_n": 222,
+        "similarity_pct": 47.53747323340471,
+        "gap_columns_n": 122,
+        "gap_columns_pct": 26.124197002141326,
+        "aligned_residue_columns": 345,
+        "aligned_residue_identity_pct": 44.927536231884055,
+        "score": 643.0,
+        "independently_recalculated_score": 643.0
+      },
+      "ScGpa1_delta127_235_vs_AoGpa2": {
+        "aligned_length": 382,
+        "identity_n": 140,
+        "identity_pct": 36.64921465968586,
+        "similarity_n": 215,
+        "similarity_pct": 56.282722513089006,
+        "gap_columns_n": 45,
+        "gap_columns_pct": 11.780104712041885,
+        "aligned_residue_columns": 337,
+        "aligned_residue_identity_pct": 41.54302670623145,
+        "score": 678.0,
+        "independently_recalculated_score": 678.0
+      },
+      "ScGpa1_delta127_235_vs_AfGasA": {
+        "aligned_length": 368,
+        "identity_n": 171,
+        "identity_pct": 46.46739130434783,
+        "similarity_n": 254,
+        "similarity_pct": 69.02173913043478,
+        "gap_columns_n": 20,
+        "gap_columns_pct": 5.434782608695652,
+        "aligned_residue_columns": 348,
+        "aligned_residue_identity_pct": 49.13793103448276,
+        "score": 901.0,
+        "independently_recalculated_score": 901.0
+      }
+    }
+  },
+  "G_alpha_core_diagnostic": {
+    "definition": "directly annotated G-alpha domain start through native C terminus; ScGpa1 residues 127-235 deleted; not whole-protein identity",
+    "sequence_lengths": {
+      "ScGpa1": 324,
+      "ScGpa2": 328,
+      "AoGpa2": 320,
+      "AfGasA": 322
+    },
+    "pairs": {
+      "ScGpa1_vs_ScGpa2": {
+        "aligned_length": 346,
+        "identity_n": 139,
+        "identity_pct": 40.17341040462428,
+        "similarity_n": 200,
+        "similarity_pct": 57.80346820809248,
+        "gap_columns_n": 40,
+        "gap_columns_pct": 11.560693641618498,
+        "aligned_residue_columns": 306,
+        "aligned_residue_identity_pct": 45.42483660130719,
+        "score": 656.5,
+        "independently_recalculated_score": 656.5
+      },
+      "ScGpa1_vs_AoGpa2": {
+        "aligned_length": 343,
+        "identity_n": 133,
+        "identity_pct": 38.775510204081634,
+        "similarity_n": 195,
+        "similarity_pct": 56.85131195335277,
+        "gap_columns_n": 42,
+        "gap_columns_pct": 12.244897959183673,
+        "aligned_residue_columns": 301,
+        "aligned_residue_identity_pct": 44.18604651162791,
+        "score": 642.5,
+        "independently_recalculated_score": 642.5
+      },
+      "ScGpa2_vs_AoGpa2": {
+        "aligned_length": 336,
+        "identity_n": 181,
+        "identity_pct": 53.86904761904762,
+        "similarity_n": 253,
+        "similarity_pct": 75.29761904761905,
+        "gap_columns_n": 24,
+        "gap_columns_pct": 7.142857142857143,
+        "aligned_residue_columns": 312,
+        "aligned_residue_identity_pct": 58.01282051282051,
+        "score": 950.5,
+        "independently_recalculated_score": 950.5
+      },
+      "ScGpa1_vs_AfGasA": {
+        "aligned_length": 329,
+        "identity_n": 160,
+        "identity_pct": 48.632218844984806,
+        "similarity_n": 235,
+        "similarity_pct": 71.42857142857143,
+        "gap_columns_n": 12,
+        "gap_columns_pct": 3.6474164133738602,
+        "aligned_residue_columns": 317,
+        "aligned_residue_identity_pct": 50.473186119873816,
+        "score": 856.5,
+        "independently_recalculated_score": 856.5
+      },
+      "ScGpa2_vs_AfGasA": {
+        "aligned_length": 331,
+        "identity_n": 146,
+        "identity_pct": 44.10876132930514,
+        "similarity_n": 211,
+        "similarity_pct": 63.74622356495468,
+        "gap_columns_n": 12,
+        "gap_columns_pct": 3.6253776435045317,
+        "aligned_residue_columns": 319,
+        "aligned_residue_identity_pct": 45.76802507836991,
+        "score": 725.5,
+        "independently_recalculated_score": 725.5
+      },
+      "AoGpa2_vs_AfGasA": {
+        "aligned_length": 325,
+        "identity_n": 157,
+        "identity_pct": 48.30769230769231,
+        "similarity_n": 221,
+        "similarity_pct": 68.0,
+        "gap_columns_n": 8,
+        "gap_columns_pct": 2.4615384615384617,
+        "aligned_residue_columns": 317,
+        "aligned_residue_identity_pct": 49.526813880126184,
+        "score": 823.0,
+        "independently_recalculated_score": 823.0
+      }
+    }
+  },
+  "alpha5_C_terminal": {
+    "boundary_definition": "conserved Asp immediately after the aligned three-residue G5 core through native C terminus",
+    "regions": {
+      "ScGpa1": {
+        "start": 446,
+        "end": 472,
+        "length": 27,
+        "sequence": "DTQTMKFVLSAVTDLIIQQNLKKIGII"
+      },
+      "ScGpa2": {
+        "start": 422,
+        "end": 449,
+        "length": 28,
+        "sequence": "DTSNIRLVFAAIKETILENTLKDSGVLQ"
+      },
+      "AoGpa2": {
+        "start": 330,
+        "end": 356,
+        "length": 27,
+        "sequence": "DTSNIRLVFAAVKETILQNALKDSGIL"
+      },
+      "AfGasA": {
+        "start": 327,
+        "end": 353,
+        "length": 27,
+        "sequence": "DTTQIKFVMAAVNDIIIQENLRNCGLI"
+      }
+    },
+    "pairs": {
+      "ScGpa1_vs_ScGpa2": {
+        "aligned_length": 28,
+        "identity_n": 8,
+        "identity_pct": 28.571428571428573,
+        "similarity_n": 17,
+        "similarity_pct": 60.714285714285715,
+        "gap_columns_n": 1,
+        "gap_columns_pct": 3.5714285714285716,
+        "aligned_residue_columns": 27,
+        "aligned_residue_identity_pct": 29.62962962962963,
+        "score": 41.0,
+        "independently_recalculated_score": 41.0
+      },
+      "ScGpa1_vs_AoGpa2": {
+        "aligned_length": 27,
+        "identity_n": 11,
+        "identity_pct": 40.74074074074074,
+        "similarity_n": 17,
+        "similarity_pct": 62.96296296296296,
+        "gap_columns_n": 0,
+        "gap_columns_pct": 0.0,
+        "aligned_residue_columns": 27,
+        "aligned_residue_identity_pct": 40.74074074074074,
+        "score": 54.0,
+        "independently_recalculated_score": 54.0
+      },
+      "ScGpa2_vs_AoGpa2": {
+        "aligned_length": 28,
+        "identity_n": 23,
+        "identity_pct": 82.14285714285714,
+        "similarity_n": 26,
+        "similarity_pct": 92.85714285714286,
+        "gap_columns_n": 1,
+        "gap_columns_pct": 3.5714285714285716,
+        "aligned_residue_columns": 27,
+        "aligned_residue_identity_pct": 85.18518518518519,
+        "score": 108.0,
+        "independently_recalculated_score": 108.0
+      },
+      "ScGpa1_vs_AfGasA": {
+        "aligned_length": 27,
+        "identity_n": 15,
+        "identity_pct": 55.55555555555556,
+        "similarity_n": 22,
+        "similarity_pct": 81.48148148148148,
+        "gap_columns_n": 0,
+        "gap_columns_pct": 0.0,
+        "aligned_residue_columns": 27,
+        "aligned_residue_identity_pct": 55.55555555555556,
+        "score": 82.0,
+        "independently_recalculated_score": 82.0
+      },
+      "ScGpa2_vs_AfGasA": {
+        "aligned_length": 28,
+        "identity_n": 9,
+        "identity_pct": 32.142857142857146,
+        "similarity_n": 19,
+        "similarity_pct": 67.85714285714286,
+        "gap_columns_n": 1,
+        "gap_columns_pct": 3.5714285714285716,
+        "aligned_residue_columns": 27,
+        "aligned_residue_identity_pct": 33.333333333333336,
+        "score": 47.0,
+        "independently_recalculated_score": 47.0
+      },
+      "AoGpa2_vs_AfGasA": {
+        "aligned_length": 27,
+        "identity_n": 11,
+        "identity_pct": 40.74074074074074,
+        "similarity_n": 19,
+        "similarity_pct": 70.37037037037037,
+        "gap_columns_n": 0,
+        "gap_columns_pct": 0.0,
+        "aligned_residue_columns": 27,
+        "aligned_residue_identity_pct": 40.74074074074074,
+        "score": 60.0,
+        "independently_recalculated_score": 60.0
+      }
+    }
+  },
+  "mapped_switch_II": {
+    "ScGpa1": {
+      "start": 320,
+      "end": 336,
+      "basis": "Ao CDD 205-221 mapped through four-way MSA"
+    },
+    "ScGpa2": {
+      "start": 297,
+      "end": 313,
+      "basis": "Ao CDD 205-221 mapped through four-way MSA"
+    },
+    "AoGpa2": {
+      "start": 205,
+      "end": 221,
+      "basis": "Ao CDD 205-221 mapped through four-way MSA"
+    },
+    "AfGasA": {
+      "start": 201,
+      "end": 217,
+      "basis": "Ao CDD 205-221 mapped through four-way MSA"
+    }
+  },
+  "artifacts": {
+    "combined_fasta": "sequences/four_Galpha_combined.fasta",
+    "msa_fasta": "alignments/four_Galpha_clustalo.fasta",
+    "msa_human_readable": "alignments/four_Galpha_clustalo.clustal",
+    "msa_key_regions": "alignments/four_Galpha_key_regions.txt",
+    "alpha5_alignment": "alignments/alpha5_C_terminal_alignment.txt",
+    "pairwise_directory": "alignments/pairwise",
+    "motifs_tsv": "results/motifs.tsv",
+    "global_optimal_path_tie_audit": "results/global_optimal_path_tie_audit.tsv"
+  }
+}

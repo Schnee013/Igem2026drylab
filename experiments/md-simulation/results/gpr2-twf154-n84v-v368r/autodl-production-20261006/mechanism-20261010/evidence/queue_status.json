@@ -1,0 +1,32 @@
+[
+  {
+    "case": "native_wt_ascr18",
+    "exit_code": 0,
+    "finished_utc": "2026-10-10T09:02:07Z"
+  },
+  {
+    "case": "raw_n84v_ascr18",
+    "exit_code": 0,
+    "finished_utc": "2026-10-10T09:02:33Z"
+  },
+  {
+    "case": "raw_n84v_ascr3",
+    "exit_code": 0,
+    "finished_utc": "2026-10-10T09:03:03Z"
+  },
+  {
+    "case": "raw_v368r_ascr18",
+    "exit_code": 0,
+    "finished_utc": "2026-10-10T09:03:36Z"
+  },
+  {
+    "case": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+    "exit_code": 0,
+    "finished_utc": "2026-10-10T09:04:06Z"
+  },
+  {
+    "case": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+    "exit_code": 0,
+    "finished_utc": "2026-10-10T09:04:36Z"
+  }
+]

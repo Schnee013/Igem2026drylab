@@ -1,0 +1,14 @@
+observed_at	state	source	detail
+2026-10-08T18:49:47.319343+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	current input validation or verified derived inputs
+2026-10-08T18:55:03.622070+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	merged exact grid PASS; PBC processing
+2026-10-08T18:58:49.743849+00:00	TERMINAL_ABNORMAL	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	processed/source atom-order mapping failed: resnames
+2026-10-08T18:58:51.578016+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	current input validation or verified derived inputs
+2026-10-08T18:59:11.965721+00:00	POSTPROCESS_VALIDATED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	recovered PDB serialization mapping; grid/bond/COM sanity PASS
+2026-10-08T18:59:11.966012+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	shared metric convergence; reps=1
+2026-10-08T18:59:23.805046+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	shared metric selection_rmsd; reps=1
+2026-10-08T18:59:31.838772+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	shared metric hbond; reps=1
+2026-10-08T18:59:35.033193+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	shared metric com_distance; reps=1
+2026-10-08T18:59:44.315243+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	shared metric rmsf; reps=1
+2026-10-08T18:59:51.619789+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	shared metric bsa; reps=1
+2026-10-08T19:01:01.507320+00:00	RUNNING_VERIFIED	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	shared metric contacts; reps=1
+2026-10-08T19:01:03.944247+00:00	TERMINAL_NORMAL	/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/source_v3/experiments/md-simulation/scripts/run_segmented_gpr_analysis.py	seven shared drivers exited0; content acceptance remains separate

@@ -1,0 +1,40 @@
+{
+  "observed_at": "2026-10-05T15:39:02.598573+00:00",
+  "jobs": [
+    {
+      "case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "command": [
+        "/private/tmp/gpr2-own-lid-20261005/env/bin/python",
+        "-u",
+        "/Users/roy/Documents/drylab/experiments/md-simulation/scripts/sample_disulfide_lid.py",
+        "--config",
+        "/private/tmp/gpr2-own-lid-20261005/inputs/v368r_ascr3_lid_rebuilt_own_pose_v1/pilot_config.json",
+        "--output",
+        "/private/tmp/gpr2-own-lid-20261005/runs/v368r_ascr3_lid_rebuilt_own_pose_v1"
+      ],
+      "log": "/private/tmp/gpr2-own-lid-20261005/logs/v368r_ascr3_lid_rebuilt_own_pose_v1.log",
+      "output": "/private/tmp/gpr2-own-lid-20261005/runs/v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "started_utc": "2026-10-05T15:39:02.596154+00:00",
+      "pid": 21798
+    },
+    {
+      "case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "command": [
+        "/private/tmp/gpr2-own-lid-20261005/env/bin/python",
+        "-u",
+        "/Users/roy/Documents/drylab/experiments/md-simulation/scripts/sample_disulfide_lid.py",
+        "--config",
+        "/private/tmp/gpr2-own-lid-20261005/inputs/native_wt_ascr3_lid_rebuilt_own_pose_v1/pilot_config.json",
+        "--output",
+        "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1"
+      ],
+      "log": "/private/tmp/gpr2-own-lid-20261005/logs/native_wt_ascr3_lid_rebuilt_own_pose_v1.log",
+      "output": "/private/tmp/gpr2-own-lid-20261005/runs/native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "started_utc": "2026-10-05T15:39:02.598516+00:00",
+      "pid": 21799
+    }
+  ],
+  "launcher_pid": 21797,
+  "max_wall_seconds": 2400,
+  "threads_per_process": 1
+}

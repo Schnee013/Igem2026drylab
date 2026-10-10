@@ -1,0 +1,4 @@
+bundle/
+*.zip
+*.tar.gz
+*.part

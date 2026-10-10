@@ -1,8 +1,27 @@
 # docking-repro directory contract
 
+## 结构准备、五受体对接与 ProLIF
+
+各类 `final-docking/` 子目录分别保存代码、受体/配体输入、准备后结构、
+Vina/ProLIF 结果、残基比较和研究说明。先读
+[研究与数据入口](../../docs/modeling/final-docking/README.md)，
+执行入口见[工具说明](../../src/modeling/docking-repro/final-docking/README.md)。
+Gpr2 TWF154 的相关 MD 引用使用仓库内同内容结构和姿态。
+
+以下部分保留旧 Hu2024 复现与 mutant frame-repair 批次的范围和门禁，
+不将其状态套用于上述五受体材料。
+
 This directory contains historical Hu2024-compatible docking reproduction and
 mutant-scan artifacts plus the code used to repair the mutant coordinate-frame
 defect. It is an experiment-output tree, not an MD package authority.
+
+Historical untracked structure batches, poses, logs and intermediate files are
+stored at `nkuliulab-e2:/ifs1/User/dengwei/igem/backups/wiki-freeze-abc-20261010/`,
+under their repository-relative paths. `MANIFEST.tsv` lists their identities.
+MD-referenced structures/poses and canonical prepared WT/ligand inputs remain
+local. Restoring the old full mutant matrix is required for data-dependent
+frame-repair reproduction and its 162-mutant input checks. See the
+[archive route](../../docs/research/local-remote-sync-20261008/README.md).
 
 ## Local execution
 

@@ -1,0 +1,141 @@
+LOCUS       TGJ64397                 356 aa            linear   PLN 10-APR-2019
+DEFINITION  Guanine nucleotide-binding protein alpha-2 subunit [Orbilia
+            oligospora].
+ACCESSION   TGJ64397
+VERSION     TGJ64397.1
+DBLINK      BioProject: PRJNA523398
+            BioSample: SAMN10976819
+DBSOURCE    accession SOZJ01000007.1
+KEYWORDS    .
+SOURCE      Orbilia oligospora
+  ORGANISM  Orbilia oligospora
+            Eukaryota; Fungi; Dikarya; Ascomycota; Pezizomycotina;
+            Orbiliomycetes; Orbiliales; Orbiliaceae; Orbilia.
+REFERENCE   1  (residues 1 to 356)
+  AUTHORS   Vidal-Diez De Ulzurrun,G.
+  TITLE     Nematode-trapping fungi genome
+  JOURNAL   Unpublished
+REFERENCE   2  (residues 1 to 356)
+  AUTHORS   Vidal-Diez De Ulzurrun,G.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (26-MAR-2019) Institute of Molecular Biology, Academia
+            Sinica, 128 Academia Road, Section 2, Nankang, Taipei 115, Taiwan
+COMMENT     Annotated using funannotate v. 1.5.2.
+            
+            ##Genome-Assembly-Data-START##
+            Assembly Date          :: FEB-2019
+            Assembly Method        :: CANU v. FEB-2019; FALCON v. FEB-2019
+            Genome Representation  :: Full
+            Expected Final Version :: No
+            Genome Coverage        :: 130.0x
+            Sequencing Technology  :: PacBio
+            ##Genome-Assembly-Data-END##
+            Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..356
+                     /organism="Orbilia oligospora"
+                     /strain="TWF154"
+                     /isolation_source="soil"
+                     /db_xref="taxon:2813651"
+                     /geo_loc_name="Taiwan"
+                     /lat_lon="25.0330 N 121.5654 E"
+                     /collection_date="2017"
+     Protein         1..356
+                     /product="Guanine nucleotide-binding protein alpha-2
+                     subunit"
+     Region          37..350
+                     /region_name="G-alpha"
+                     /note="Alpha subunit of G proteins (guanine nucleotide
+                     binding); cd00066"
+                     /db_xref="CDD:206639"
+     Site            order(43,48..50,185,204,207,273..274,276,327..328)
+                     /site_type="other"
+                     /note="GTP/Mg2+ binding site [chemical binding]"
+                     /db_xref="CDD:206639"
+     Site            43..50
+                     /site_type="other"
+                     /note="G1 box"
+                     /db_xref="CDD:206639"
+     Site            order(44..46,74,78,82,85,88..89,109,153,182,207,215,219)
+                     /site_type="active"
+                     /note="GoLoco binding site [active]"
+                     /db_xref="CDD:206639"
+     Site            180..188
+                     /site_type="other"
+                     /note="Switch I region"
+                     /db_xref="CDD:206639"
+     Site            185
+                     /site_type="other"
+                     /note="G2 box"
+                     /db_xref="CDD:206639"
+     Site            order(186,188,190,201,203,207..209,211,214..215,217..220)
+                     /site_type="other"
+                     /note="beta - gamma complex interaction site [polypeptide
+                     binding]"
+                     /db_xref="CDD:206639"
+     Site            order(188,213,216..217,220)
+                     /site_type="other"
+                     /note="adenylyl cyclase interaction site [polypeptide
+                     binding]"
+                     /db_xref="CDD:206639"
+     Site            204..207
+                     /site_type="other"
+                     /note="G3 box"
+                     /db_xref="CDD:206639"
+     Site            205..221
+                     /site_type="other"
+                     /note="Switch II region"
+                     /db_xref="CDD:206639"
+     Site            273..276
+                     /site_type="other"
+                     /note="G4 box"
+                     /db_xref="CDD:206639"
+     Site            order(319..330,332..335)
+                     /site_type="active"
+                     /note="putative receptor binding site [active]"
+                     /db_xref="CDD:206639"
+     Site            327..329
+                     /site_type="other"
+                     /note="G5 box"
+                     /db_xref="CDD:206639"
+     CDS             1..356
+                     /gene="GPA2"
+                     /locus_tag="EYR41_010456"
+                     /coded_by="complement(join(SOZJ01000007.1:1703549..1703648
+                     ,SOZJ01000007.1:1703702..1703940,
+                     SOZJ01000007.1:1704001..1704130,
+                     SOZJ01000007.1:1704187..1704315,
+                     SOZJ01000007.1:1704388..1704548,
+                     SOZJ01000007.1:1704616..1704800,
+                     SOZJ01000007.1:1704933..1705059))"
+                     /note="EggNog:ENOG410PFYM;
+                     COG:D,T;
+                     GO_component: GO:0005834 - heterotrimeric G-protein
+                     complex [Evidence IEA];
+                     GO_function: GO:0031683 - G-protein beta/gamma-subunit
+                     complex binding [Evidence IEA];
+                     GO_function: GO:0003924 - GTPase activity [Evidence IEA];
+                     GO_function: GO:0019001 - guanyl nucleotide binding
+                     [Evidence IEA];
+                     GO_function: GO:0005525 - GTP binding [Evidence IEA];
+                     GO_function: GO:0001664 - G-protein coupled receptor
+                     binding [Evidence IEA];
+                     GO_process: GO:0007186 - G-protein coupled receptor
+                     signaling pathway [Evidence IEA];
+                     GO_process: GO:0007165 - signal transduction [Evidence
+                     IEA]"
+                     /db_xref="InterPro:IPR001019"
+                     /db_xref="InterPro:IPR002975"
+                     /db_xref="InterPro:IPR011025"
+                     /db_xref="InterPro:IPR027417"
+                     /db_xref="PFAM:PF00025"
+                     /db_xref="PFAM:PF00503"
+ORIGIN      
+        1 mggcmsreas eemeqrkksq aidreimdds rrlrreckil llgsgesgks tivkqmkiih
+       61 qngytvdelq hyrltvyknl vdcakalida mrqfdivpeh eankehmefl ytfqvdpdpn
+      121 vpldihvska vaalwddpav psvlehqsef yimdsapyff aeaarigspe yipseadvlr
+      181 artkttgiye trftmgqlni hmfdvggqrs erkkwihcfe svtsiifcva lseydqvlle
+      241 eqnqnrmles lvlfdsvvns rwfvrtsiil flnkvdlfrq klprtplsny fpdysggpdv
+      301 nraakyllwr fnqvnrahln lyphltqatd tsnirlvfaa vketilqnal kdsgil
+//
+

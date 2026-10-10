@@ -1,0 +1,41 @@
+# ScGpa1_delta127_235 vs ScGpa2
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 643.0
+# Length: 467
+# Identity: 155/467 (33.191%)
+# Similarity (BLOSUM62 > 0): 222/467 (47.537%)
+# Gap columns: 122/467 (26.124%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa1_delta127_235      1-36  MG-C--------TVSTQTIGDESD------------PFLQNKRANDVIEQSLQLEKQ---
+                               || |        |..|||....||            |....:..|...:|..|.::|   
+ScGpa2                   1-60  MGLCASSEKNGSTPDTQTASAGSDNVGKAKVPPKQEPQKTVRTVNTANQQEKQQQRQQQP
+
+ScGpa1_delta127_235     37-40  ---------------------------------------RDKN-----------------
+                                                                      ||::                 
+ScGpa2                 61-120  SPHNVKDRKEQNGSINNAISPTATANTSGSQQINIDSALRDRSSNVAAQPSLSDASSGSN
+
+ScGpa1_delta127_235     41-98  --EIKLLLLGAGESGKSTVLKQLKLLHQGGFSHQERLQYAQVIWADAIQSMKILIIQARK
+                                 |:|:||||||||||||||:|||:|||.|||.||..:|..:|:.:.::..:.||....:
+ScGpa2                121-180  DKELKVLLLGAGESGKSTVLQQLKILHQNGFSEQEIKEYIPLIYQNLLEIGRNLIQARTR
+
+ScGpa1_delta127_235    99-140  LGIQLDCDDPINNKDLFACKRILLKAKALIH-----------EDIAKAIKQLW-------
+                               ..:.|:.:..:..:||         ::.:.:           ||||..|..||       
+ScGpa2                181-231  FNVNLEPECELTQQDL---------SRTMSYEMPNNYTGQFPEDIAGVISTLWALPSTQD
+
+ScGpa1_delta127_235   141-198  --NNDKGIKQCFARSNEFQLEGSAAYYFDNIEKFASPNYVCTDEDILKGRIKTTGITETE
+                                 |.        ..:::|.|..|..|:.:|..:..||||..|.:|||:.|..|:||.:|.
+ScGpa2                232-283  LVNG--------PNASKFYLMDSTPYFMENFTRITSPNYRPTQQDILRSRQMTSGIFDTV
+
+ScGpa1_delta127_235   199-257  FNIGSS-KFKVLDAGGQRSERKKWIHCFEGITAVLFVLAMSEYDQMLFEDERVNRMHESI
+                               .::||. |..:.|.||||||||||||||:.:|.|:|.:::|||||.|.||:..||..||:
+ScGpa2                284-343  IDMGSDIKMHIYDVGGQRSERKKWIHCFDNVTLVIFCVSLSEYDQTLMEDKNQNRFQESL
+
+ScGpa1_delta127_235   258-317  MLFDTLLNSKWFKDTPFILFLNKIDLFEEKVKSMPIRKYFPDYQGRVGDAEAGLKYFEKI
+                               :|||.::||:||..|..:|||||||||.||:..:|:..|||||.|. .|.....||....
+ScGpa2                344-402  VLFDNIVNSRWFARTSVVLFLNKIDLFAEKLSKVPMENYFPDYTGG-SDINKAAKYILWR
+
+ScGpa1_delta127_235   318-363  FLSLNKTNKPIYVKRTCATDTQTMKFVLSAVTDLIIQQNLKKIGII-
+                               |:.||:.|..||...|.||||..::.|.:|:.:.|::..||..|:: 
+ScGpa2                403-449  FVQLNRANLSIYPHVTQATDTSNIRLVFAAIKETILENTLKDSGVLQ

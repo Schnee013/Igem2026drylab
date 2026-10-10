@@ -7,12 +7,12 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
-def lineplot_by_rep(df, x, y, out: Path, title: str, ylabel: str):
+def lineplot_by_rep(df, x, y, out: Path, title: str, ylabel: str, xlabel: str = 'Time (ns)'):
     fig, ax = plt.subplots(figsize=(7, 4), dpi=160)
     for rep, sub in df.groupby('rep'):
         ax.plot(sub[x], sub[y], lw=1.0, label=rep)
     ax.set_title(title)
-    ax.set_xlabel('Time (ns)')
+    ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.legend(frameon=False)
     ax.grid(alpha=0.25)

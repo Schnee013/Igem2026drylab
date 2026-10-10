@@ -1,0 +1,35 @@
+{
+  "as_of": "2026-10-03T21:12:38+08:00/2026-10-03T21:14:20+08:00",
+  "source": "Read-only SSH live observations on nkuliulab-e2: nvidia-smi query-gpu, query-compute-apps, pmon, -q -d PERFORMANCE,TEMPERATURE,CLOCK,POWER; vmstat; /proc/PID/task/TID/schedstat; production.log",
+  "allowed_use": "Explain current production resource contention and thermal limitation; not a benchmark of exclusive A100 performance or a measured attribution of slowdown",
+  "update_trigger": "GPU co-tenancy, clocks/thermal status, CPU load, launch configuration or measured production speed changes",
+  "production_root": "/ifs1/User/dengwei/igem/md/gpr2_twf154_production_20261003",
+  "runs": [
+    {"case": "raw_n84v_ascr18/rep1", "pid": 3328118, "production_ns_at_first_observation": 2.16, "openmp_threads": 8, "gpu_memory_mib": 504, "atoms": 146032, "cpu_running_core_equivalent_over_10s": 5.605573223002382},
+    {"case": "raw_v368r_ascr3/rep1", "pid": 1152800, "production_ns_at_first_observation": 1.99, "openmp_threads": 8, "gpu_memory_mib": 496, "atoms": 145971, "cpu_running_core_equivalent_over_10s": 5.808917510595602}
+  ],
+  "gpu": {
+    "count": 1,
+    "name": "NVIDIA A100-SXM4-80GB",
+    "utilization_percent_at_first_observation": 100,
+    "temperature_c": 84,
+    "sm_clock_mhz_two_observations": [660, 525],
+    "reported_max_sm_clock_mhz": 1410,
+    "SW_Thermal_Slowdown": "Active",
+    "HW_Thermal_Slowdown": "Not Active",
+    "SW_Power_Cap": "Not Active",
+    "other_compute_processes_at_first_observation": 3,
+    "other_compute_process_memory_mib": [51892, 24076, 660],
+    "pmon_interpretation": "Repeated 1-second samples show both MD and other Python processes using GPU execution. Memory size is not compute share; missing pmon values are not assumed zero."
+  },
+  "cpu": {
+    "visible_logical_cpus": 224,
+    "load_average_1_5_15min": [279.04052734375, 290.3994140625, 275.00830078125],
+    "vmstat_two_interval_idle_percent": [9, 16],
+    "vmstat_two_interval_iowait_percent": [0, 0],
+    "schedstat_sample_seconds": 10.002290657255799
+  },
+  "configuration": {"nonbonded": "gpu", "pme": "gpu", "bonded": "cpu", "update": "cpu", "pin": "off"},
+  "interpretation": "The two production runs are concurrent on the same shared GPU. GPU thermal clock reduction and active competing GPU jobs are directly observed; CPU is also busy. Their separate contributions to MD slowdown and the gain from thread/offload tuning have not been benchmarked.",
+  "actions": "Read-only diagnosis; no job stopped/restarted, no other user's process altered, no replica or simulation length added."
+}

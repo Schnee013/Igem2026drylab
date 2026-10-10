@@ -1,0 +1,6 @@
+# receptor center_x center_y center_z size_x size_y size_z
+gprc_wt_model_0 -20 -22 15 26 26 26
+daf37_wt_model_0 5 5 20 26 26 26
+gpr2_twf154_wt_model_0 20 -20 5 26 26 26
+gpr3_twf154_wt_model_0 15 20 15 26 26 26
+srbc64_wt_model_0 10 0 -5 26 26 26

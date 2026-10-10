@@ -1,0 +1,4 @@
+observed_at	state	source	detail
+2026-10-05T15:54:00.084156+00:00	UNRESOLVED	config.json	Initializing pilot; runtime not yet verified
+2026-10-05T15:54:16.994399+00:00	RUNNING_VERIFIED	environment.json	Pilot initialized; no production MD
+2026-10-05T15:54:17.833720+00:00	TERMINAL_ABNORMAL	error.json	  File: /Volumes/scratch/w/rosetta/commits/rosetta/source/src/protocols/generalized_kinematic_closure/perturber/GeneralizedKICperturber.cc:450 [ ERROR ] UtilityExitException ERROR: Error in GeneralizedKICperturber::apply_set_dihedral.  The dihedral angle specified was not found in the chain of atoms to be closed.  

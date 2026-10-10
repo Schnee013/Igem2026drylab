@@ -1,0 +1,19 @@
+##gff-version 3
+# TGJ68930.1 Length: 406
+# TGJ68930.1 Number of predicted TMRs: 7
+TGJ68930.1	signal	1	10				
+TGJ68930.1	outside	11	29				
+TGJ68930.1	TMhelix	30	50				
+TGJ68930.1	inside	51	61				
+TGJ68930.1	TMhelix	62	83				
+TGJ68930.1	outside	84	100				
+TGJ68930.1	TMhelix	101	126				
+TGJ68930.1	inside	127	143				
+TGJ68930.1	TMhelix	144	164				
+TGJ68930.1	outside	165	181				
+TGJ68930.1	TMhelix	182	201				
+TGJ68930.1	inside	202	325				
+TGJ68930.1	TMhelix	326	346				
+TGJ68930.1	outside	347	357				
+TGJ68930.1	TMhelix	358	380				
+TGJ68930.1	inside	381	406				

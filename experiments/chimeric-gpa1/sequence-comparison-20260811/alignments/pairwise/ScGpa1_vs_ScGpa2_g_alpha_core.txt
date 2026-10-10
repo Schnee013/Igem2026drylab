@@ -1,0 +1,33 @@
+# ScGpa1_core vs ScGpa2_core
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 656.5
+# Length: 346
+# Identity: 139/346 (40.173%)
+# Similarity (BLOSUM62 > 0): 200/346 (57.803%)
+# Gap columns: 40/346 (11.561%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa1_core      1-60  NEIKLLLLGAGESGKSTVLKQLKLLHQGGFSHQERLQYAQVIWADAIQSMKILIIQARKL
+                       .|:|:||||||||||||||:|||:|||.|||.||..:|..:|:.:.::..:.||....:.
+ScGpa2_core      1-60  KELKVLLLGAGESGKSTVLQQLKILHQNGFSEQEIKEYIPLIYQNLLEIGRNLIQARTRF
+
+ScGpa1_core    61-101  GIQLDCDDPINNKDLFACKRILLKAKALIH-----------EDIAKAIKQLW--------
+                       .:.|:.:..:..:||         ::.:.:           ||||..|..||        
+ScGpa2_core    61-111  NVNLEPECELTQQDL---------SRTMSYEMPNNYTGQFPEDIAGVISTLWALPSTQDL
+
+ScGpa1_core   102-160  -NNDKGIKQCFARSNEFQLEGSAAYYFDNIEKFASPNYVCTDEDILKGRIKTTGITETEF
+                        |.        ..:::|.|..|..|:.:|..:..||||..|.:|||:.|..|:||.:|..
+ScGpa2_core   112-163  VNG--------PNASKFYLMDSTPYFMENFTRITSPNYRPTQQDILRSRQMTSGIFDTVI
+
+ScGpa1_core   161-219  NIGSS-KFKVLDAGGQRSERKKWIHCFEGITAVLFVLAMSEYDQMLFEDERVNRMHESIM
+                       ::||. |..:.|.||||||||||||||:.:|.|:|.:::|||||.|.||:..||..||::
+ScGpa2_core   164-223  DMGSDIKMHIYDVGGQRSERKKWIHCFDNVTLVIFCVSLSEYDQTLMEDKNQNRFQESLV
+
+ScGpa1_core   220-279  LFDTLLNSKWFKDTPFILFLNKIDLFEEKVKSMPIRKYFPDYQGRVGDAEAGLKYFEKIF
+                       |||.::||:||..|..:|||||||||.||:..:|:..|||||.|. .|.....||....|
+ScGpa2_core   224-282  LFDNIVNSRWFARTSVVLFLNKIDLFAEKLSKVPMENYFPDYTGG-SDINKAAKYILWRF
+
+ScGpa1_core   280-324  LSLNKTNKPIYVKRTCATDTQTMKFVLSAVTDLIIQQNLKKIGII-
+                       :.||:.|..||...|.||||..::.|.:|:.:.|::..||..|:: 
+ScGpa2_core   283-328  VQLNRANLSIYPHVTQATDTSNIRLVFAAIKETILENTLKDSGVLQ

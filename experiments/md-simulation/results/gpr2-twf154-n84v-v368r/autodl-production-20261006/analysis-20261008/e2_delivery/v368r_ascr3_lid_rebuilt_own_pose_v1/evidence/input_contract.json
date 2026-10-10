@@ -1,0 +1,18 @@
+{
+  "atoms": 6408,
+  "charge": 15.0,
+  "ss_atom_indices": [
+    1513,
+    2696
+  ],
+  "lid_position_restraints": false,
+  "genotype": "v368r",
+  "ligand": "ascr3",
+  "pose_mapping": "v368r_ascr3",
+  "id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+  "lid": "lid_rebuilt_own_pose_v1",
+  "source_original_case": "raw_v368r_ascr3",
+  "production_authority": "../../../../WORK_ORDER.json",
+  "production_ns": 100,
+  "replicate": 1
+}

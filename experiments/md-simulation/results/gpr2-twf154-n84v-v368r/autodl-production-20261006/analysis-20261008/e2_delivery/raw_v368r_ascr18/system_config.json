@@ -1,0 +1,82 @@
+{
+  "default": "raw_v368r_ascr18",
+  "systems": {
+    "raw_v368r_ascr18": {
+      "label": "V368R + ascr18 (raw lid)",
+      "result_dir": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18",
+      "interaction_partner_role": "ligand",
+      "backbone_selection": "protein and backbone",
+      "ca_selection": "protein and name CA",
+      "summary_window_ns": [
+        50,
+        100
+      ],
+      "occupancy_window_ns": [
+        50,
+        100
+      ],
+      "rmsf_window_ns": [
+        50,
+        100
+      ],
+      "selection_rmsd_label": "ASCR18 heavy-atom RMSD",
+      "selection_rmsd_selection_label": "ligand heavy atoms",
+      "selection_rmsd_selection": "(index 6408:6461) and not name H*",
+      "com_target_label": "ligand heavy atoms",
+      "plot_segids": [
+        "SYSTEM"
+      ],
+      "receptor": {
+        "name": "Gpr2 V368R",
+        "selection": "protein",
+        "interface_selection": "protein",
+        "interface_clusters": {
+          "own_initial_4A_contacts": "protein and resid 17 27 31 80 106 170 172 174 181 186 345 364 367",
+          "whole_receptor": "protein"
+        }
+      },
+      "galpha": {
+        "name": "ASCR18",
+        "selection": "index 6408:6461",
+        "alpha5_selection": "(index 6408:6461) and not name H*",
+        "ect_selection": "(index 6408:6461) and not name H*",
+        "core_backbone_selection": "(index 6408:6461) and not name H*"
+      },
+      "junction_rmsf_regions": {},
+      "initial_contact_resids": [
+        17,
+        27,
+        31,
+        80,
+        106,
+        170,
+        172,
+        174,
+        181,
+        186,
+        345,
+        364,
+        367
+      ],
+      "input_provenance": {
+        "atoms": 6408,
+        "charge": 15.0,
+        "ss_atom_indices": [
+          1513,
+          2696
+        ],
+        "lid_position_restraints": false,
+        "genotype": "v368r",
+        "ligand": "ascr18",
+        "pose_mapping": "v368r_ascr18",
+        "id": "raw_v368r_ascr18",
+        "lid": "raw",
+        "source_original_case": "raw_v368r_ascr18",
+        "production_authority": "../../../../WORK_ORDER.json",
+        "production_ns": 100,
+        "replicate": 1
+      },
+      "interpretation_boundary": "single_rep_exploratory_only; different parent/lid/pose; no mutation causality/affinity ranking/mechanistic proof"
+    }
+  }
+}

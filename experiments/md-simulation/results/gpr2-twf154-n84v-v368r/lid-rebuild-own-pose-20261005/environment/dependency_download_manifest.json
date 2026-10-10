@@ -1,0 +1,74 @@
+[
+  {
+    "comment_text": null,
+    "core-metadata": {
+      "sha256": "451a9b8028000588e66b0b415587b6aef0bbc51a96d8e8a0cba0dc23acf64f99"
+    },
+    "digests": {
+      "blake2b_256": "9c59a312e95696e5f601914dd8b6dd844692ba61670807417e24b68e337b5c70",
+      "md5": "42dbae0b60c018496d67c241295be0a6",
+      "sha256": "a72f874bc9e10e4b8f80426fb49716d5141f64442a0c8418065093ec8017fbb0"
+    },
+    "downloads": -1,
+    "filename": "numpy-2.5.3-cp312-cp312-macosx_14_0_arm64.whl",
+    "has_sig": false,
+    "md5_digest": "42dbae0b60c018496d67c241295be0a6",
+    "packagetype": "bdist_wheel",
+    "python_version": "cp312",
+    "requires_python": ">=3.12",
+    "size": 5445405,
+    "upload_time": "2026-09-06T16:24:35",
+    "upload_time_iso_8601": "2026-09-06T16:24:35.071958Z",
+    "url": "https://files.pythonhosted.org/packages/9c/59/a312e95696e5f601914dd8b6dd844692ba61670807417e24b68e337b5c70/numpy-2.5.3-cp312-cp312-macosx_14_0_arm64.whl",
+    "yanked": false,
+    "yanked_reason": null
+  },
+  {
+    "comment_text": null,
+    "core-metadata": {
+      "sha256": "80d457cad3c9d1b8a5775cf0408c0537c4739b34d5025eaae99e1c16ffc0e268"
+    },
+    "digests": {
+      "blake2b_256": "12584e1a050773da8359067e45fc9c1706f43ca9c085b742fbb8fd512eb9dfe0",
+      "md5": "4d49731ff12b571d978268a9745e9b22",
+      "sha256": "b490da262688b9b16528d592752ab7838d4df4d7ffaacdb3c42d07e769a97552"
+    },
+    "downloads": -1,
+    "filename": "rdkit-2026.3.6-cp312-cp312-macosx_11_0_arm64.whl",
+    "has_sig": false,
+    "md5_digest": "4d49731ff12b571d978268a9745e9b22",
+    "packagetype": "bdist_wheel",
+    "python_version": "cp312",
+    "requires_python": null,
+    "size": 30281966,
+    "upload_time": "2026-09-03T20:09:37",
+    "upload_time_iso_8601": "2026-09-03T20:09:37.391759Z",
+    "url": "https://files.pythonhosted.org/packages/12/58/4e1a050773da8359067e45fc9c1706f43ca9c085b742fbb8fd512eb9dfe0/rdkit-2026.3.6-cp312-cp312-macosx_11_0_arm64.whl",
+    "yanked": false,
+    "yanked_reason": null
+  },
+  {
+    "comment_text": null,
+    "core-metadata": {
+      "sha256": "8fc07146cab33ef7582361dab6eac596d340b03ec648f18217da7894f73838c8"
+    },
+    "digests": {
+      "blake2b_256": "d8669a386a92561f402389a4fc70c18838bf6d35eb5eb5c6850b4b2dc64f5048",
+      "md5": "e3ccdb1fd35ffdaca4d4f3e1ef1922b3",
+      "sha256": "ffd0c5368496f41b0944be820fcb7a838aa6e623d250b01acf2643939c3f99d7"
+    },
+    "downloads": -1,
+    "filename": "pillow-12.3.0-cp312-cp312-macosx_11_0_arm64.whl",
+    "has_sig": false,
+    "md5_digest": "e3ccdb1fd35ffdaca4d4f3e1ef1922b3",
+    "packagetype": "bdist_wheel",
+    "python_version": "cp312",
+    "requires_python": ">=3.10",
+    "size": 4780323,
+    "upload_time": "2026-07-01T11:54:09",
+    "upload_time_iso_8601": "2026-07-01T11:54:09.351673Z",
+    "url": "https://files.pythonhosted.org/packages/d8/66/9a386a92561f402389a4fc70c18838bf6d35eb5eb5c6850b4b2dc64f5048/pillow-12.3.0-cp312-cp312-macosx_11_0_arm64.whl",
+    "yanked": false,
+    "yanked_reason": null
+  }
+]

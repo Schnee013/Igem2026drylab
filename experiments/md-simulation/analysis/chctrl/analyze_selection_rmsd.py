@@ -12,16 +12,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path('src/modeling/md-analysis').resolve()))
 import MDAnalysis as mda
-from common import (
-    add_system_argument,
-    analysis_context,
-    ensure_dir,
-    equal_weight_kabsch_coordinates,
-    replicate_plot_path,
-    save_csv,
-    time_ns,
-    write_judgement,
-)
+from common import add_system_argument, analysis_context, ensure_dir, equal_weight_kabsch_coordinates, time_ns, replicate_plot_path, save_csv, write_judgement
 from plotting import lineplot_by_rep
 
 parser = argparse.ArgumentParser()
@@ -100,11 +91,11 @@ if heuristic is not None:
 
 lines=[]
 for rep, sub in df.groupby('rep'):
-    tail=sub[sub.time_ns >= 100] if (sub.time_ns.max() >= 100) else sub
+    tail=ctx.summary(sub)
     m=tail.selection_rmsd_A.mean(); mx=tail.selection_rmsd_A.max()
     if heuristic is None:
         lines.append(
-            f"{rep}: {metric_selection_label} after100 mean={m:.2f} A, "
+            f"{rep}: {metric_selection_label} {ctx.summary_label} mean={m:.2f} A, "
             f"max={mx:.2f} A; descriptive only (no configured interpretation threshold)"
         )
         continue
@@ -117,6 +108,6 @@ for rep, sub in df.groupby('rep'):
         )
     else:
         status = f'SEVERE by configured project operational >={severe_at_or_above:g} A heuristic'
-    lines.append(f"{rep}: {metric_selection_label} after100 mean={m:.2f} A, max={mx:.2f} A => {status}")
+    lines.append(f"{rep}: {metric_selection_label} {ctx.summary_label} mean={m:.2f} A, max={mx:.2f} A => {status}")
 title_suffix = 'judgement' if heuristic is not None else 'descriptive summary'
 write_judgement(out / 'judgement.md', f'{ctx.label} {metric_label} {title_suffix}', lines)

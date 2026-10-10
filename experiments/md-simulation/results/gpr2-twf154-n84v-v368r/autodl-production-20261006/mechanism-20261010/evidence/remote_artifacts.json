@@ -1,0 +1,866 @@
+{
+  "created_utc": "2026-10-10T09:28:16.909787+00:00",
+  "scope": "This analysis only; original trajectories are identified by input_identity.json, not rehashed here.",
+  "files": [
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/delivery_manifest.json",
+      "bytes": 28790,
+      "sha256": "2dc4f0b1c368bf10c900f327aaff565908988eab1aec84231c844a42d0fb4a98"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures.log",
+      "bytes": 58093,
+      "sha256": "7030c9ff1432d38540fa59b96a9c537ed98201ae67027270c718d5669fbeb7f3"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/alignment_sensitivity.pdf",
+      "bytes": 156648,
+      "sha256": "d260a6c974deffd6ff3df9730d972e3217bc75f2df1b7b7f44f476a46b545d2e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/alignment_sensitivity.png",
+      "bytes": 372832,
+      "sha256": "62ee89279a083fdaa544d64a48111cbe26d1ae67a5d822dc75ffc83418ff37ce"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/alignment_sensitivity.svg",
+      "bytes": 424937,
+      "sha256": "b17b97b0ca0932078ee63c79760b068088c16da90b10afda8bb9d71e7cc946b0"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/lid_geometry.pdf",
+      "bytes": 127320,
+      "sha256": "aba8515520d01f72ec3b2b2bd466e2b79abf2c5b17615afc67ddd7fd15117513"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/lid_geometry.png",
+      "bytes": 389927,
+      "sha256": "91b6c5009443f86eb04f6ea3c1183a6d5b17144881e2305543683a3ee098ce84"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/lid_geometry.svg",
+      "bytes": 328240,
+      "sha256": "dba749f9baa1e42e9ca887fda96ad8761d8bbfc1e80a2d49cbde09140ec01269"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/local_timeline.pdf",
+      "bytes": 125366,
+      "sha256": "3d5702d85ab926862aaf96f3c42c1da78926de860ba339a14f2eaf69e5f4641a"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/local_timeline.png",
+      "bytes": 363616,
+      "sha256": "349044d6a38e93a304b44ba2ba8424b18723a4eac330e47d182f190718f86aca"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/local_timeline.svg",
+      "bytes": 339440,
+      "sha256": "16e2103f74b18db7810ea8e3384045268198653d2c0ea44d5dab5d764881ed93"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/mechanism_evidence_map.pdf",
+      "bytes": 92653,
+      "sha256": "5ac2e67b552f338c1a4dbd1cd5c7749bfafaceaf52a07382c7228c4958e72bfa"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/mechanism_evidence_map.png",
+      "bytes": 331966,
+      "sha256": "e292b2152de01b65ca859906cfb6c42280e76a1327c252d8e72f79a0be74a088"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/mechanism_evidence_map.svg",
+      "bytes": 191180,
+      "sha256": "c0376927223afb702c298d092e4b2481168476899674abfa0a7b6ad29246822c"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/representative_structures_75ns.pdf",
+      "bytes": 186936,
+      "sha256": "8e40e7afda67a3ac25e68e91f1395443a45b4d733bc0bb94f0129eefdb4531d5"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/representative_structures_75ns.png",
+      "bytes": 624952,
+      "sha256": "f84966f396a1de7f4aec57ae154e0665177f175009ee646a12f715e4180e17b7"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final/representative_structures_75ns.svg",
+      "bytes": 300949,
+      "sha256": "b5028fa49eb22157ccb7747c196368c07840b5e8d1c444f110b917b63d47b214"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_final.log",
+      "bytes": 195,
+      "sha256": "3cc056efb857da1ac52574e3a7052352f3a37a89f6a05c6e29d437f91d100783"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/figures_v2.log",
+      "bytes": 58093,
+      "sha256": "7030c9ff1432d38540fa59b96a9c537ed98201ae67027270c718d5669fbeb7f3"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/manifest_remote.py",
+      "bytes": 1378,
+      "sha256": "1512ffa7eb30cbf47a7276573ca98a62b89d3a4558ffede9b1f0c01043c0939c"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/mechanism_config.json",
+      "bytes": 8012,
+      "sha256": "038d3a988631778072978dc406d0c443290380bb36729ceba419c312dcec5a56"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/native_wt_ascr18.log",
+      "bytes": 55,
+      "sha256": "fc032a163b414c0497c37ade39fd970c05c5e42ce732543d87327d048022270d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/native_wt_ascr18.pair.log",
+      "bytes": 39,
+      "sha256": "59ddabfac68b20a246c6283e80cafb8c672800f32d1c4b910f771d0da55d87f6"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/native_wt_ascr3_lid_rebuilt_own_pose_v1.log",
+      "bytes": 78,
+      "sha256": "a27eeb1bafdf9e2f09ab18d1a1656ed2b0e943a7005b69f9dac863578597704c"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/native_wt_ascr3_lid_rebuilt_own_pose_v1.pair.log",
+      "bytes": 62,
+      "sha256": "7339f1e60a9975ce5fd3e5418f4f9a2a9033eb046be3b5a1f7cb36605bc48a8f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/pair_delivery_manifest.json",
+      "bytes": 7767,
+      "sha256": "a30858b7a624915a16b8a007d4144db487e99563782b082743118ce1a74777b8"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/pair_detail_config.json",
+      "bytes": 8466,
+      "sha256": "5c1339989ac60196ff1aadaad0eb0d222da95901b0af912a3538d67742b0ea61"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/pair_queue.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/pair_queue_status.json",
+      "bytes": 402,
+      "sha256": "c758ec158ecaeb290b4efa728a2a9ed9007516a597f19d5bf40906f4f517d197"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/prepare.log",
+      "bytes": 757,
+      "sha256": "0fed9cc8aa2168bd32645ecda49023b0cf2654836f1d23198fb1cae44e03d9cf"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/queue.log",
+      "bytes": 556,
+      "sha256": "2fd36205e577757612d668725225946448dc45c0365dcdd6fa8f367390c06d58"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/queue_status.json",
+      "bytes": 666,
+      "sha256": "24a729cf169110a5a73be711f1eab50f428ae8c31809c6a6cbaa02799e3fce36"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/raw_n84v_ascr18.log",
+      "bytes": 54,
+      "sha256": "9d7e1666c0fc62ce94f8e03541660366c14fe5af6d64e4d3c3377611cf5c99b7"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/raw_n84v_ascr18.pair.log",
+      "bytes": 38,
+      "sha256": "05d8faa5452b6b60dc9b47e3a54addfe3b5f8abd131c729b1757456acf468fcc"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/raw_n84v_ascr3.log",
+      "bytes": 53,
+      "sha256": "ea51c7d62369eab493221d61490775c0bf622f754dfad2be21364c62ea873c7d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/raw_n84v_ascr3.pair.log",
+      "bytes": 37,
+      "sha256": "9b62dcee53dbda5371a61ee19861c480f6b5d6106002635c91b8940958153f23"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/raw_v368r_ascr18.log",
+      "bytes": 55,
+      "sha256": "a1ae648a0ea9c1ddbfe1ba4e3363a8eee8a9a5c25043694fafebfe1dba40416e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/raw_v368r_ascr18.pair.log",
+      "bytes": 39,
+      "sha256": "54388ab9f4abe1a2245cb3e7b4221ee4d53e35f6b1069dde283795ec18cb9505"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/render_figures.py",
+      "bytes": 10068,
+      "sha256": "a0eff748bd7b6b9a5ad76b1e98ed4996dc1753b12cac28738b3a081d7c87a908"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/render_figures_final.py",
+      "bytes": 10084,
+      "sha256": "1492b18bf53a09f4ad52e4e5a3e3d0528181d2681cdef67ee8eb01f4cf29065d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/run_pair_queue.py",
+      "bytes": 786,
+      "sha256": "f4a37a146d68dc6861cba3a946a7eca967aeef227c7749cb84443f5951b6b45b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/run_queue.py",
+      "bytes": 1158,
+      "sha256": "a7e3726642ddcf49c288a1e1fde13973189b2be97572984deedca17e8b0cb41a"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/selections.json",
+      "bytes": 37939,
+      "sha256": "7084ac471c777d71f656aa247ffe3a62f091a3bb14d6dacf3a2e269f842429ac"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source/experiments/md-simulation/analysis/chctrl/analyze_local_mechanism.py",
+      "bytes": 19834,
+      "sha256": "420e0fe290245e3bd739261067fc1cb3edb8e1d7f783991a1a9b9354ec9e9bb4"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source/src/modeling/md-analysis/common.py",
+      "bytes": 12148,
+      "sha256": "0cd9f081323aa9660012a4031e8b00557a92ab44232091807d9aede1f4be475d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source/src/modeling/md-analysis/plotting.py",
+      "bytes": 974,
+      "sha256": "f784352114e4c188a632dd6c84398e52ce28cf11a22077f7dd9667b96b28e108"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source_v2/experiments/md-simulation/analysis/chctrl/analyze_local_mechanism.py",
+      "bytes": 23197,
+      "sha256": "6e13033ca67daf26befeebec58da64274f3f4b9ea129a3667fa393ad85701edb"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source_v2/experiments/md-simulation/analysis/chctrl/validate_local_mechanism.py",
+      "bytes": 5577,
+      "sha256": "bd134c9654da6f4107bd8b814a3e9c06e98746566c60096f94f8a84b59fc7690"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source_v2/src/modeling/md-analysis/common.py",
+      "bytes": 12148,
+      "sha256": "0cd9f081323aa9660012a4031e8b00557a92ab44232091807d9aede1f4be475d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/source_v2/src/modeling/md-analysis/plotting.py",
+      "bytes": 974,
+      "sha256": "f784352114e4c188a632dd6c84398e52ce28cf11a22077f7dd9667b96b28e108"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/v368r_ascr3_lid_rebuilt_own_pose_v1.log",
+      "bytes": 74,
+      "sha256": "895321f392ed87ce42965e2421e4a85ace09c90ffd880b3d9d27f0fb6e3b8fca"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_mechanism_20261010/v368r_ascr3_lid_rebuilt_own_pose_v1.pair.log",
+      "bytes": 58,
+      "sha256": "216aca441fe728be6cec18d3d4044378cde66206dbb6fe1b0380e168d07c0296"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/anchor_distances.csv",
+      "bytes": 431628,
+      "sha256": "6c6473b3ddd2e41ed686861df211c45950a3946a900cbc990e616da0bc0ac89c"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/anchor_summary.csv",
+      "bytes": 2749,
+      "sha256": "8a8222ead83ffed8a56b1024001c8807915bf722d3763debbd163a9bd1633950"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/atom_contact_events.csv",
+      "bytes": 268367,
+      "sha256": "0d6e71fb29b91175ecb04f8eeedf545e721d86d2f78719cde905b0bba2b46187"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/completion.json",
+      "bytes": 1285,
+      "sha256": "67a131f1bb66fd6d4a8aef75647f404656850a1e765d075d5c75c6e3f6db2819"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/frame_metrics.csv",
+      "bytes": 447046,
+      "sha256": "85b159e929faa5dff0534c1d965bff6ddc2b50991fab0869c6b360b02154cd80"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/hbond_events.csv",
+      "bytes": 16425,
+      "sha256": "ff7a508d6e7e970564bd9bb41abe0d0c31aaa8b69cc440046712aec116d4503d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/input_identity.json",
+      "bytes": 710,
+      "sha256": "7f2a8cdb100be26b2cd174cee2f92095dbde3ffab544aecc5fdf404fc4db255e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/ligand_atom_mapping.csv",
+      "bytes": 2688,
+      "sha256": "94fd8785a4f8727e83789d688c2d6db217336416a975eaee8230e07f106a68b7"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/metric_summary.csv",
+      "bytes": 2732,
+      "sha256": "edddf886985e58013796740c9520bc8b2bb77ebfff8504eb3cff2e4258f8ab07"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/numeric_audit.npz",
+      "bytes": 6164367,
+      "sha256": "246fdcbdfd48ab33c4016bdc90608cab0375e004f7261f1df8c71b95cbeddd1b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+      "bytes": 83,
+      "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/completion.json",
+      "bytes": 251,
+      "sha256": "b6796eb5e6dd450ddb0cd59c2ab963d4a1602b7632d23e5fceb71e4eda7dc26b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/pair_summary.csv",
+      "bytes": 1847,
+      "sha256": "583d0460719f43cd6799ccfbc59b8f8d6ab35d60e8c0bcaa314bc69917828dd9"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+      "bytes": 478678,
+      "sha256": "163c4c442e3644db3f7155735ba757b55cd506e9df41b15ad4c117e1b9883802"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/proximity_bridge_timeseries.csv",
+      "bytes": 138875,
+      "sha256": "9e327ad1f831d40e463ab9540c229f987ca979f9e8f823ff14e0f7d943191a5a"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/proximity_bridges.csv",
+      "bytes": 303,
+      "sha256": "259a4c37d69750d8befe17dde2e13ea181bbf7d7db55a9f40f0ba0f7c9c0999d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/representative_coordinates.npz",
+      "bytes": 306730,
+      "sha256": "2d4e562b4e7355fabbcd3465c6e51dbe7c2e9632975360ab7e301936328d1b36"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/sidechain_rotamers.csv",
+      "bytes": 337,
+      "sha256": "1b09624d80fd09d9bb440a66961b8af4030795b2657eaa48223d0a8bdb105ed7"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/site_neighborhoods.csv",
+      "bytes": 7079,
+      "sha256": "ebe90150f80849d745f928ecf28ca778a20d5125d2ab51bcf0f352755176377f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr18/mechanism-20261010/ten_ns_blocks.csv",
+      "bytes": 14578,
+      "sha256": "61bcc61c865154dc4d8961f554f98908a073f5d69e6ad069d038215fd098af78"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_distances.csv",
+      "bytes": 559684,
+      "sha256": "f895a7e025ed84c5689f960718c425841498ef62803945c7eba0e3ef1cdab483"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_summary.csv",
+      "bytes": 3175,
+      "sha256": "233669284673c5961848259b85b51c463619171cddc3861f6023c99c6072e752"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/atom_contact_events.csv",
+      "bytes": 663145,
+      "sha256": "57fd8c24fd4162ba1a8090e997e03bbb2897b95e47ad3956e91b9a516f19bfa4"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/completion.json",
+      "bytes": 1377,
+      "sha256": "2fc760c940eeafdeddce0edee0724bbb5778209f72018a085bf2a563b7c76be5"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/frame_metrics.csv",
+      "bytes": 467259,
+      "sha256": "c6fe4e1044b10d2c3211aab12b4564c7c1a1d08bd3813905d010e2d73f0bd6e4"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/hbond_events.csv",
+      "bytes": 56597,
+      "sha256": "63a07dc6387b10eabc0bf6c9d3331f1afeacf00ca888d3fc1f14a2cd3ddda308"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/input_identity.json",
+      "bytes": 779,
+      "sha256": "62f86de5940fdb92a5c612c1706b98d790c6fd01dc9c218ceb10989712840315"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ligand_atom_mapping.csv",
+      "bytes": 2318,
+      "sha256": "6c3bcadf45087ea698e6c1d294968771c7360abc8e09b512576c001d69cb3e57"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/metric_summary.csv",
+      "bytes": 3205,
+      "sha256": "336325adf333a28f2a0fbb6a2d9e956bf4182449373991cb2feba82bf21bebf9"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/numeric_audit.npz",
+      "bytes": 6164050,
+      "sha256": "013f77340f28efa5c95032056d41a279c0c739bea0e0babf474f4eb80570da9c"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+      "bytes": 83,
+      "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/completion.json",
+      "bytes": 274,
+      "sha256": "6a6f08933c38f4c3749a07d9ef5d378f27986334ee6d6f33e9e3f3f6cea428eb"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/pair_summary.csv",
+      "bytes": 2179,
+      "sha256": "12f09c305075977e6d53a75c4490f3e7a60847bad80154c2dcf8c4fc2eef9394"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+      "bytes": 480291,
+      "sha256": "293fce4bb540b50eae86d788fb4b485dba6d301104f0c597275a595e185e9bd8"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridge_timeseries.csv",
+      "bytes": 211682,
+      "sha256": "f03daabe9f4e2d59a6fb428642a9f24ae0643f21faabc80dd92fff56081e9702"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridges.csv",
+      "bytes": 492,
+      "sha256": "d4e2939ff929ae2015fc6d925ef0ea9fa92493bacc731916f9037cf9d281c0c9"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/representative_coordinates.npz",
+      "bytes": 305097,
+      "sha256": "2d76af33ef94cb491dcc7cc50f68890b3834a0682ddba577fd7a5f286cd0dc0d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/sidechain_rotamers.csv",
+      "bytes": 488,
+      "sha256": "caa853615f1db4eb37294d0dc8da420fcc7a812d9d98042ad14a9f421adbc129"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/site_neighborhoods.csv",
+      "bytes": 8272,
+      "sha256": "41c4d2ec528c399b644f7b37e902ba2e51234cfbc9e31b9270159cbd3e6110d9"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ten_ns_blocks.csv",
+      "bytes": 19388,
+      "sha256": "a2d038bf40491c8bdba2acc559b17112da8dad384790e2bc50645265db647c93"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/anchor_distances.csv",
+      "bytes": 416105,
+      "sha256": "d16de555c799e03038172888aab864fe2f50f53de3132e2316ba3b6f45f08e7e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/anchor_summary.csv",
+      "bytes": 2789,
+      "sha256": "af9d20d8f074b57d78101b31af9e51ce2857f0adae051c99e5132822288451f2"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/atom_contact_events.csv",
+      "bytes": 706457,
+      "sha256": "6d66d432b052e196fef984c8f423884c5a78ca640370bf97efe0eb533b598718"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/completion.json",
+      "bytes": 1281,
+      "sha256": "7eed5c9be61cdc68993c490614b6b12d9314487193d1e9459ad18e4a37f37c16"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/frame_metrics.csv",
+      "bytes": 448672,
+      "sha256": "76199794e71a39d548ab32ea91a4f966cc6185c5f4fad1cbd0577275be5becbe"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/hbond_events.csv",
+      "bytes": 98912,
+      "sha256": "c9d9c7aff4c053479de87e5c50cd52ddab3356e8fa60b360a5b004dde993968b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/input_identity.json",
+      "bytes": 707,
+      "sha256": "d6374e0c8aa819a4479499f74140d4f8974699010e97c37ff19cf7739308d3d2"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/ligand_atom_mapping.csv",
+      "bytes": 2688,
+      "sha256": "d0d7d970f845e7cceb5d64a7ef71d8bb5a104a4e8f0b32edf10649f22c863880"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/metric_summary.csv",
+      "bytes": 2715,
+      "sha256": "d53b06e58035869221cae72aef883294e89be5e932e34ee9572a1106281ad954"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/numeric_audit.npz",
+      "bytes": 6163936,
+      "sha256": "cf44698ab37d063d8ef6e61db1b21e402d2ca5a6c9fc0271f03b260cad835c7d"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+      "bytes": 83,
+      "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/completion.json",
+      "bytes": 250,
+      "sha256": "086cfa7e462dec5e0893947fd0fa773a6108812361652c7ed98461e5ecb42911"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/pair_summary.csv",
+      "bytes": 1865,
+      "sha256": "83f6e2a71803aefbb98652df26cea3f86811f221ad836a0cd8153aa3166ab7e6"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+      "bytes": 483487,
+      "sha256": "91405c8e65559fa64e68a56032363ff3f5864d46ed9eafa29b808b01779aec84"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/proximity_bridge_timeseries.csv",
+      "bytes": 209690,
+      "sha256": "3e69893fe413a28e89f61e8c7cd3c015c8e87d24bcf603adea48befea74c87d1"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/proximity_bridges.csv",
+      "bytes": 400,
+      "sha256": "c0442fcfd09017b6272ed3ef05cec97e0192d5ba42eb6298754975d4c9d07468"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/representative_coordinates.npz",
+      "bytes": 305405,
+      "sha256": "455fc18d8f81e3a5c6228be22dd4f88dd804c6c9119882b876d17bbad2b05fc8"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/sidechain_rotamers.csv",
+      "bytes": 374,
+      "sha256": "9c8f3e60c5246771a632009a1667b06d03305b718f4c54bcf1b51a9daf13f209"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/site_neighborhoods.csv",
+      "bytes": 7441,
+      "sha256": "6ec995d3cdcd37e21ff707f0395812aac7d8c2f5b710e208a41b1ed0e50f74d0"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr18/mechanism-20261010/ten_ns_blocks.csv",
+      "bytes": 14402,
+      "sha256": "21a90b433ba94c1023fcb10dd94d2fa144aa1cccf022fc7ce93dffd0dcbcca59"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/anchor_distances.csv",
+      "bytes": 412637,
+      "sha256": "1a7f1610d71db392225df683596923b343a11a9ae5b62de50c08f185b5b48360"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/anchor_summary.csv",
+      "bytes": 2777,
+      "sha256": "26452ec013f83c5a7b0b3fb8a4939f75438277e1c4fcc0706f191430cf173ac7"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/atom_contact_events.csv",
+      "bytes": 164378,
+      "sha256": "1bc852da983a21c060e93ba842ed0a81094195a71c52f30b3b6fe680ac72fcd5"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/completion.json",
+      "bytes": 1277,
+      "sha256": "6776f32ec97833cb9ab0a5c873d0d8bef14c8cbaca28f268f5a622130bbcef03"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/frame_metrics.csv",
+      "bytes": 445361,
+      "sha256": "4110bcffcd6023c6ca03f293e914dff216507195c4d72b84546b468561756d6b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/hbond_events.csv",
+      "bytes": 6214,
+      "sha256": "d441b34aab3ef6dcaf90835948a7c4ee9eb7dd4d79d6eeb88337585655b8153a"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/input_identity.json",
+      "bytes": 704,
+      "sha256": "4e39f1ead78318666f0eee979f058568aaec6e01864c1cd1f76bd6210beae028"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/ligand_atom_mapping.csv",
+      "bytes": 2318,
+      "sha256": "500c283fd1b053ab0d34dfbca7ceb474b913ce6160eb8d7104e3f4b75919e349"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/metric_summary.csv",
+      "bytes": 2698,
+      "sha256": "9a22b9c5ff844a21f38b9ad81d317bb5ae7970b62862d83219cf8f2662e48938"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/numeric_audit.npz",
+      "bytes": 6159764,
+      "sha256": "dd48a24c5cf3c67d81d930f12545714443c2dda04fd1d00e1f1fb7e375aa1926"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+      "bytes": 83,
+      "sha256": "317df5acee0db6a91b2afd49da3ab62cd4983e51dd042a4e94d7ff8f18d7954f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/completion.json",
+      "bytes": 249,
+      "sha256": "3a631dd34f099a3cce820a1b5bd06ae6b6020ea9673c94bb5ef011ee12d73468"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/pair_summary.csv",
+      "bytes": 1839,
+      "sha256": "5760e8e86a16d62d1624bed515838295e8ed9d9de9ed7d244fbde98066f4ccbe"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+      "bytes": 482888,
+      "sha256": "64f50f86d18de33086d4439660e2e9a51ddc8669556db086bc74e5b4de6a3df7"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/proximity_bridge_timeseries.csv",
+      "bytes": 352469,
+      "sha256": "544ef86bbd930d35eaeccbb423b856a6c5da410bb24c69267501d84a9e7adf66"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/proximity_bridges.csv",
+      "bytes": 510,
+      "sha256": "3072c3c2de5be3e8f554a126b395ae29a92fcc58226c6afc0abfcd888765ea94"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/representative_coordinates.npz",
+      "bytes": 307619,
+      "sha256": "e4e40eb3f01d6ec429c17dd8be9b8fd59f69657be4276b5be76a64ba268f6f5a"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/sidechain_rotamers.csv",
+      "bytes": 324,
+      "sha256": "ae78abfe09639151cdcb5de48154d0eda65aced201ab938c5d6f06343d384788"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/site_neighborhoods.csv",
+      "bytes": 6909,
+      "sha256": "e6fa60338d34c7be8273a5577418ea613b624a17c2f7df2d55f759bb1e48e187"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_n84v_ascr3/mechanism-20261010/ten_ns_blocks.csv",
+      "bytes": 14150,
+      "sha256": "c58d04863a45837025108a87dbaa329d8dcbbacebe3991d6d1f56c304fd531c3"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/anchor_distances.csv",
+      "bytes": 399264,
+      "sha256": "7db8dbd0ce1dc42e3f14fbc8dde4fb35d1ddeec1bafbe4b601f7f603873794dd"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/anchor_summary.csv",
+      "bytes": 2701,
+      "sha256": "2824d1d497e6c5ac4024e8acf297aeb122836db6e9c1159544c0fc74ec8dd6b4"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/atom_contact_events.csv",
+      "bytes": 565566,
+      "sha256": "a4750948ceaf595aaedf02e94e8542adfa895d9534c93478860060732790ca5e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/completion.json",
+      "bytes": 1285,
+      "sha256": "5b437008f5cd359ae3005bf05aeaa8f87bf5dae73a1df4a99f0e1b689e7e154e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/frame_metrics.csv",
+      "bytes": 447734,
+      "sha256": "eb186510420a45e9de21bf2d4ef61e18961fe2829e8a787bb6d813a58d3e4b4b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/hbond_events.csv",
+      "bytes": 70941,
+      "sha256": "d42830c9e4fc0c585f3681edb20379942e0683d6156b4d36d6d2922d2de0a7fb"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/input_identity.json",
+      "bytes": 710,
+      "sha256": "f46d16f9bf7e4383cd7f3c389b24f5f0e01b6ab89c766dd822b088039f8524c1"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/ligand_atom_mapping.csv",
+      "bytes": 2688,
+      "sha256": "80f0d0318dba4e913f41aea2f5f1cf0c9beb20804fc8ac2c414cd600402817c6"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/metric_summary.csv",
+      "bytes": 2735,
+      "sha256": "0a974a5c887fb4f8ae36b3bf5376a5a1842b02780ed1e11106d48da6d21828d4"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/numeric_audit.npz",
+      "bytes": 6162169,
+      "sha256": "738486aab14a294469f0ad32bcbb35dfb01acd424d2888e0455c859955be88cf"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+      "bytes": 85697,
+      "sha256": "9c2f3a70f8e7f8dff120e7eba609657133492c86c73d8fdf1531a5bce9dc85c2"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/completion.json",
+      "bytes": 251,
+      "sha256": "28273c2c2bb0f2d7a36980046dc569694e363a8ccb7b7e18200acae6f5fb0e3e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/pair_summary.csv",
+      "bytes": 1867,
+      "sha256": "63deb13246264d58645376b29608c48912771e666891efde3afdbd62086da0dc"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+      "bytes": 481320,
+      "sha256": "bdc093dcd8cb3b6b2eec091422e9cfee80943043d57b7d35d6a405b5c097c63e"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/proximity_bridge_timeseries.csv",
+      "bytes": 353280,
+      "sha256": "125f46ab497c3f6ee72ff228a31555924a77b2e8f6e56384ffdde0b498b13634"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/proximity_bridges.csv",
+      "bytes": 507,
+      "sha256": "a3a603a076938affa0dbd8a6202662042f1e4139dea2a471c862352ed3fcf310"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/representative_coordinates.npz",
+      "bytes": 308732,
+      "sha256": "e726a80a9b31a94759a17e5a9815da8ae2d32a6fb5b8d9a2e60423492d972a50"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/sidechain_rotamers.csv",
+      "bytes": 300,
+      "sha256": "8a0b2ded1f70a5c487db7ff852ebc8ea001b76afa1303830f9c265413c48e5e9"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/site_neighborhoods.csv",
+      "bytes": 7655,
+      "sha256": "c80f6a268678a328f131b41bf680616a8a91ac19ee775dc3df87fb019930ad5b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/raw_v368r_ascr18/mechanism-20261010/ten_ns_blocks.csv",
+      "bytes": 14586,
+      "sha256": "9bf61140b71726d5febe53f7ffa490797d403851d0709e33758d8868c0aec43f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_distances.csv",
+      "bytes": 524275,
+      "sha256": "647ed52ee11a6451c4191cc96358d390a74bc653603e13b04183704ddf45fefd"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/anchor_summary.csv",
+      "bytes": 3155,
+      "sha256": "a9c8c36c13b488dc357b6aceea187dc10f3b42bd1d398eab8f191f1cd0715d7f"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/atom_contact_events.csv",
+      "bytes": 535819,
+      "sha256": "3c612fd4eb12d43c3cace24498cf9f71e3269e5f179621f8b5c3b20b3df1b8f9"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/completion.json",
+      "bytes": 1361,
+      "sha256": "3622074a26ea36535d19ea17740421b66dcdf2a32466329321e0af3def6a1615"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/frame_metrics.csv",
+      "bytes": 464457,
+      "sha256": "0d3fc5e3322e140e978e206593fb03391e3bdaede61d78aa0ce0462855259eb8"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/hbond_events.csv",
+      "bytes": 71607,
+      "sha256": "5f114f6c6525fbfdb6d9b08fb46387e0a27a73a05bc95961b2b3bf8ac8f75f9b"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/input_identity.json",
+      "bytes": 767,
+      "sha256": "f9deaf988c5a98e0853e460347c01a51242ec52c541bbce50715f763e014a3a7"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ligand_atom_mapping.csv",
+      "bytes": 2318,
+      "sha256": "413fa5a42b29db4e8dfdd804be47156f64f643a25e4000adb78724d077815a09"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/metric_summary.csv",
+      "bytes": 3124,
+      "sha256": "eb83c1f257333df81cb0c015cab6ad6b6fcb48c9c3e8009534e2f2aa150bfbc9"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/numeric_audit.npz",
+      "bytes": 6165186,
+      "sha256": "09d40efe37fb6003e683673b9c9b839459321dd21f1ec1e2d41ae12f4939e6a2"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/Arg368_Asp70_geometry.csv",
+      "bytes": 84207,
+      "sha256": "6d61096ad54542d7b8462c9e23571bd96285f4f71b8c8a07a0b977666c40d868"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/completion.json",
+      "bytes": 270,
+      "sha256": "17626ba1fb41f2dd2e7f46ba90253b922a4ddf5387cc3d57d0c1db121e35fecf"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/pair_summary.csv",
+      "bytes": 2133,
+      "sha256": "bc50894a2eab5c8d60553a7f68ca73f422c7aa71be17279a0bfe65e974b22d47"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/pair_details/receptor_pair_atoms.csv",
+      "bytes": 479724,
+      "sha256": "751df4f95f76d3a5a73f288a8d848bbc1b7c2d4bc713c5f18781f9b2e3d2c040"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridge_timeseries.csv",
+      "bytes": 566364,
+      "sha256": "82bf7999c4be54a230070e4b4151d5f6d5af0df3c4e15b874ff444ef50af5d47"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/proximity_bridges.csv",
+      "bytes": 909,
+      "sha256": "f91cac0a5aba4bcfab3739c1d657377020e97be8b2a3212c9156a1b95ba57fda"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/representative_coordinates.npz",
+      "bytes": 304716,
+      "sha256": "934fc455477b52b463daf41270d71fc3b4a96f8848f2dc1b9739280ab2994b71"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/sidechain_rotamers.csv",
+      "bytes": 447,
+      "sha256": "242a1b4eb73e5a6d0786c9df3068509ca52ea1a0329ad00e8bc0a0b90f4eea94"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/site_neighborhoods.csv",
+      "bytes": 9815,
+      "sha256": "4f0e1fb16d42a4738a12821d3e18cde298b69dbbd951475bacfb0b294a172bd8"
+    },
+    {
+      "e2_path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/v368r_ascr3_lid_rebuilt_own_pose_v1/mechanism-20261010/ten_ns_blocks.csv",
+      "bytes": 18555,
+      "sha256": "8f603bbe256d1c5cb8843ad657fe6c983a971a839623a5804b2882e5c8e7eb72"
+    }
+  ]
+}

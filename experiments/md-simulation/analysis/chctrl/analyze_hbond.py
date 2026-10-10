@@ -11,13 +11,13 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path("src/modeling/md-analysis").resolve()))
-from common import add_system_argument, analysis_context, ensure_dir, write_judgement
+from common import add_system_argument, analysis_context, ensure_dir, write_judgement, in_time_window, time_ns
 from plotting import barplot
 
 
 DONOR_HEAVY = {"N", "O", "S"}
 ACCEPTOR_HEAVY = {"N", "O", "S"}
-EVENT_COLUMNS = ["rep", "direction", "pair", "distance_A", "angle_deg"]
+EVENT_COLUMNS = ["rep", "direction", "pair", "distance_A", "angle_deg", "time_ns"]
 SUMMARY_COLUMNS = [
     "rep",
     "direction",
@@ -81,7 +81,7 @@ def acceptors(group):
     return [(atom.ix, atom_label(atom)) for atom in group if elem(atom) in ACCEPTOR_HEAVY]
 
 
-def scan_direction(universe, donor_selection, acceptor_selection, rep, tag, step):
+def scan_direction(universe, donor_selection, acceptor_selection, rep, tag, step, window=None):
     donors = donor_h_pairs(donor_selection)
     acceptor_atoms = acceptors(acceptor_selection)
     events = []
@@ -95,7 +95,9 @@ def scan_direction(universe, donor_selection, acceptor_selection, rep, tag, step
     donor_labels = [item[2] for item in donors]
     acceptor_labels = [item[1] for item in acceptor_atoms]
 
-    for _ in universe.trajectory[::step]:
+    for ts in universe.trajectory[::step]:
+        if not in_time_window(ts, window):
+            continue
         frame_count += 1
         donor_positions = universe.atoms[donor_indexes].positions
         hydrogen_positions = universe.atoms[hydrogen_indexes].positions
@@ -127,6 +129,7 @@ def scan_direction(universe, donor_selection, acceptor_selection, rep, tag, step
                         + acceptor_labels[acceptor_index],
                         "distance_A": float(donor_acceptor_distances[donor_index, acceptor_index]),
                         "angle_deg": float(angle),
+                        "time_ns": time_ns(ts),
                     }
                 )
     return events, frame_count
@@ -287,6 +290,7 @@ def main():
             rep.rep,
             receptor_to_partner,
             args.step,
+            context.window('occupancy_window_ns'),
         )
         all_events.extend(events)
         frame_counts[(rep.rep, receptor_to_partner)] = frame_count
@@ -301,11 +305,18 @@ def main():
             rep.rep,
             partner_to_receptor,
             args.step,
+            context.window('occupancy_window_ns'),
         )
         all_events.extend(events)
         frame_counts[(rep.rep, partner_to_receptor)] = frame_count
 
     raw, summary = summarize_events(all_events, frame_counts)
+    if context.window('occupancy_window_ns') is not None:
+        (out / 'sampling_window.json').write_text(
+            __import__('json').dumps({'window_ns': context.window('occupancy_window_ns'),
+                                     'frame_counts': {str(k): v for k,v in frame_counts.items()},
+                                     'stride': args.step}, indent=2) + '\n'
+        )
     aggregate = aggregate_pair_occupancy(summary, rep_labels)
     write_outputs(
         out,

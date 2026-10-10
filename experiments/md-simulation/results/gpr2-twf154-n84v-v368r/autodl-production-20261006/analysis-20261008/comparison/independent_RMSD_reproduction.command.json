@@ -1,0 +1,9 @@
+{
+  "name": "independent_RMSD_reproduction",
+  "argv": [
+    "/ifs1/User/dengwei/igem/envs/roy_md-analysis-py311/bin/python",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/validate_metric_samples.py",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_shared/batch_config_v3.json",
+    "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/_comparison/independent_rmsd_reproduction.csv"
+  ]
+}

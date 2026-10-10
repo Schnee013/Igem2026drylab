@@ -1,0 +1,23 @@
+# 逐环节机制证据表
+
+所有数值默认50–100 ns；每组一条轨迹。详细阈值、选区和事件定义见 [方法](METHODS.md)。
+
+| 编号／命题 | 判断与直接观察 | 限制、反例及允许表述 |
+|---|---|---|
+| **N1 N84V附近与lid更接近** | **支持组内结构描述**。Val84—Gly171后半程4.33 Å；WT–ascr18为9.26 Å | 起点已有4.37/6.63 Å差异；接触占有率对3.5/4/4.5 Å阈值敏感。不能归因为N84V诱导的闭合。所引：[local_pair_summary.csv](tables/local_pair_summary.csv)；[site_neighborhoods.csv](e2_delivery/raw_n84v_ascr18/site_neighborhoods.csv) |
+| **N2 N84V–ascr18具有明确羧酸端锚点** | **支持结构观察**。Arg189—羧酸端接触100%；任一候选几何氢键93.6% | t=0已存在；单重复、不同pose。可解释该构象中的局部锚定；不能证明突变增强亲和力。所引：[anchor_group_occupancy.csv](tables/anchor_group_occupancy.csv)；[anchor_hbond_union.csv](tables/anchor_hbond_union.csv)；[event_timeline.csv](tables/event_timeline.csv) |
+| **N3 Phe186接触模式随体系改变** | **支持结构观察**。N84V–ascr18羧酸端接触87.4%；WT–ascr18糖环相关接触25.1% | 接触的是不同基团；芳环碳近氧不自动等于氢键或疏水增强。保留具体原子几何，不换算能量。所引：[anchor_group_occupancy.csv](tables/anchor_group_occupancy.csv)；[atom_contact_events.csv](e2_delivery/raw_n84v_ascr18/atom_contact_events.csv) |
+| **N4 84位通过短路径驱动Phe186/Arg189锚定** | **本次未获支持**。未发现符合两步非相邻残基近接定义的84→186/189路径 | 仅检查两条边；未检查更长或水介导路径。不能补画已经成立的传递链。所引：[proximity_bridges.csv](tables/proximity_bridges.csv) |
+| **N5 N84V–ascr18的较小配体移动来自局部位姿保持** | **与观察相容**。核心拟合配体RMSD 1.70 Å，口袋拟合1.73 Å；WT–ascr18为2.65/2.62 Å | 均相对自身起点，母体和pose不同。差异对拟合区域稳健，但不等于选择性或亲和力。所引：[six_case_local_summary.csv](tables/six_case_local_summary.csv) |
+| **N6 84位先变化再产生Arg189锚点** | **本次未获支持**。Arg189锚定起点已存在；Phe186首个1 ns区段从0.1 ns开始 | 准备阶段与不同起始模型可能决定这些接触。不能从生产轨迹补出该时间因果顺序。所引：[event_timeline.csv](tables/event_timeline.csv) |
+| **V1 V368R局部带电联系呈配体/起点相关分化** | **支持结构观察**。Arg368带电端—Asp70：ascr18为2.74 Å/92.6%候选氢键；ascr3为6.49 Å/0% | 两条轨迹的lid和pose不同；并非隔离配体因素的对照。提出局部重排候选解释。所引：[Arg368_Asp70_summary.csv](tables/Arg368_Asp70_summary.csv) |
+| **V2 Arg368转而靠近Lys364** | **支持结构观察**。ascr3组≤4 Å近接97.4%，ascr18为0.4%；最常见Arg368 CG—Lys364主链O | 是侧链近端—主链羰基几何，不是两个正电侧链的盐桥。说明局部堆积变化，不声称能量增强。所引：[local_pair_summary.csv](tables/local_pair_summary.csv)；[receptor_pair_atoms.csv](e2_delivery/v368r_ascr3_lid_rebuilt_own_pose_v1/pair_details/receptor_pair_atoms.csv) |
+| **V3 368—364—345—配体构成空间联系** | **支持几何邻接，未证明传递**。V368R–ascr3联合近接60.5%；WT–ascr3为44.3% | WT也有该路径；距离阈值定义的邻接不能证明别构。可画实测几何节点，因果联系保留未验证。所引：[proximity_bridges.csv](tables/proximity_bridges.csv) |
+| **V4 带电端分离与Arg345锚定时间相容** | **有限相容**。带电端>4 Å首个1 ns区段从8.0 ns开始；Arg345接触首个1 ns区段从8.6 ns开始 | 相差0.6 ns；事件来自同一相关轨迹，不能证明触发关系。可提出相伴重排假说。所引：[event_timeline.csv](tables/event_timeline.csv) |
+| **V5 V368R特异新增或增强Arg345锚定** | **现有对照不支持**。WT–ascr3接触100%/候选氢键94.0%；V368R–ascr3为90.4%/87.0% | 并非自由能测量；不能据此反向判定突变必然减弱结合。不能作为V368R增强ascr3选择性的证据。所引：[anchor_sensitivity.csv](tables/anchor_sensitivity.csv)；[anchor_hbond_union.csv](tables/anchor_hbond_union.csv) |
+| **C1 全受体参考下lid运动等同局部开合** | **不支持直接等同**。N84V–ascr3 lid RMSD由全受体拟合6.41 Å降为核心拟合1.34 Å | 局部拟合会吸收整体运动；两种量都需展示。不能把原大幅lid运动直接解释为局部开口失稳。所引：[six_case_local_summary.csv](tables/six_case_local_summary.csv)；[lid_geometry.png](figures/lid_geometry.png) |
+| **C2 两种突变增强配体选择性机制已建立** | **尚未建立**。已有局部锚定、堆积及时间过程观察，但缺少完整位点归因链 | 不同母体/lid/pose，单重复；没有功能或亲和力验证。结论限定候选机制与结构解释。所引：[REPORT_CN.md](REPORT_CN.md)；[METHODS.md](METHODS.md) |
+
+机器可读版本：[CSV](tables/mechanism_evidence.csv)。
+
+本表所引为本轮真实数值与方法；被引为中文报告、交付入口和机制图。

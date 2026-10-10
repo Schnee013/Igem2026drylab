@@ -1,0 +1,30 @@
+{
+  "purpose": "Unchanged upstream source snapshot for a versioned local controller; original remote files remain unchanged",
+  "files": [
+    {
+      "remote_relative_path": "operator_records/equilibration_prep_v2_3/prepare_equilibration.py",
+      "local_file": "prepare_equilibration.py",
+      "sha256": "a765ed0af887479b92dbae8215f7416c70941c0e30289c46bb8dc8354b7b4cb1"
+    },
+    {
+      "remote_relative_path": "operator_records/equilibration_prep_next_gate_v1_1/refresh_native_wt_later_gate.py",
+      "local_file": "refresh_native_wt_later_gate.py",
+      "sha256": "8b03a17c6abbaa45e76dcb463f6039c11ae20dbb20e92bd79752d1f7f52eed3b"
+    },
+    {
+      "remote_relative_path": "operator_records/production_transition_plan_v1/qualify_wt_production_restart.py",
+      "local_file": "qualify_wt_production_restart.py",
+      "sha256": "7bf784ea9ad4f3137b51069c9bdadbd6d3aea04caee44778ef96311666c0bbd4"
+    },
+    {
+      "remote_relative_path": "operator_records/production_transition_plan_v1/run_stage_production_v1.py",
+      "local_file": "run_stage_production_v1.py",
+      "sha256": "7a9283da61edb1323245392eaa3758345b9471ebf73e8aede38fa6e38519133a"
+    },
+    {
+      "remote_relative_path": "operator_records/equilibration_prep_v2_3/run_stage_v3_locked.py",
+      "local_file": "run_stage_v3_locked.py",
+      "sha256": "c38ccbd32a6a38f62185935a0da774d7fe9eb4749ee3ca5191c20b880b1c0aae"
+    }
+  ]
+}

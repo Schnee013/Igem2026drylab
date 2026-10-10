@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-10-05T15:56:03.612425+00:00",
+  "elapsed_s": 1021.0,
+  "jobs": [
+    {
+      "case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+      "pid": 21798,
+      "process_alive": false,
+      "exit_code": 0,
+      "completed_attempts": 24,
+      "geometry_screen_passes": 8,
+      "environment_record_exists": true
+    },
+    {
+      "case_id": "native_wt_ascr3_lid_rebuilt_own_pose_v1",
+      "pid": 21799,
+      "process_alive": false,
+      "exit_code": 0,
+      "completed_attempts": 24,
+      "geometry_screen_passes": 7,
+      "environment_record_exists": true
+    }
+  ],
+  "production_ready": false
+}

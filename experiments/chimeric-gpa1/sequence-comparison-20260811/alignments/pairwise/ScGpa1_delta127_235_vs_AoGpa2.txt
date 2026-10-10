@@ -1,0 +1,37 @@
+# ScGpa1_delta127_235 vs AoGpa2
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 678.0
+# Length: 382
+# Identity: 140/382 (36.649%)
+# Similarity (BLOSUM62 > 0): 215/382 (56.283%)
+# Gap columns: 45/382 (11.780%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa1_delta127_235      1-60  MGCTVSTQTIGDESDPFLQNKRANDVIEQSLQLEKQRDKNEIKLLLLGAGESGKSTVLKQ
+                               ||..:|.     |:...::.::.:..|::.:..:.:|.:.|.|:||||:|||||||::||
+AoGpa2                   1-55  MGGCMSR-----EASEEMEQRKKSQAIDREIMDDSRRLRRECKILLLGSGESGKSTIVKQ
+
+ScGpa1_delta127_235    61-103  LKLLHQGGFSHQERLQYAQVIWADAIQSMKILIIQARKLGI-----------------QL
+                               :|::||.|::..|...|...::.:.:...|.||...|:..|                 |:
+AoGpa2                 56-115  MKIIHQNGYTVDELQHYRLTVYKNLVDCAKALIDAMRQFDIVPEHEANKEHMEFLYTFQV
+
+ScGpa1_delta127_235   104-161  DCDD--PINNKDLFACKRILLKAKALIHEDIAKAIKQLWNNDKGIKQCFARSNEFQLEGS
+                               |.|.  |::                 ||  ::||:..|| :|..:.......:||.:..|
+AoGpa2                116-155  DPDPNVPLD-----------------IH--VSKAVAALW-DDPAVPSVLEHQSEFYIMDS
+
+ScGpa1_delta127_235   162-221  AAYYFDNIEKFASPNYVCTDEDILKGRIKTTGITETEFNIGSSKFKVLDAGGQRSERKKW
+                               |.|:|....:..||.|:.::.|:|:.|.|||||.||.|.:|.....:.|.||||||||||
+AoGpa2                156-215  APYFFAEAARIGSPEYIPSEADVLRARTKTTGIYETRFTMGQLNIHMFDVGGQRSERKKW
+
+ScGpa1_delta127_235   222-281  IHCFEGITAVLFVLAMSEYDQMLFEDERVNRMHESIMLFDTLLNSKWFKDTPFILFLNKI
+                               |||||.:|:::|.:|:|||||:|.|::..|||.||::|||:::||:||..|..||||||:
+AoGpa2                216-275  IHCFESVTSIIFCVALSEYDQVLLEEQNQNRMLESLVLFDSVVNSRWFVRTSIILFLNKV
+
+ScGpa1_delta127_235   282-341  DLFEEKVKSMPIRKYFPDYQGRVGDAEAGLKYFEKIFLSLNKTNKPIYVKRTCATDTQTM
+                               |||.:|:...|:..|||||.|. .|.....||....|..:|:.:..:|...|.||||..:
+AoGpa2                276-334  DLFRQKLPRTPLSNYFPDYSGG-PDVNRAAKYLLWRFNQVNRAHLNLYPHLTQATDTSNI
+
+ScGpa1_delta127_235   342-363  KFVLSAVTDLIIQQNLKKIGII
+                               :.|.:||.:.|:|..||..||:
+AoGpa2                335-356  RLVFAAVKETILQNALKDSGIL

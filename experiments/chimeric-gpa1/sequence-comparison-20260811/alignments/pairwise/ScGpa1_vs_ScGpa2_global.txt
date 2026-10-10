@@ -1,0 +1,49 @@
+# ScGpa1 vs ScGpa2
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 610.5
+# Length: 565
+# Identity: 160/565 (28.319%)
+# Similarity (BLOSUM62 > 0): 229/565 (40.531%)
+# Gap columns: 209/565 (36.991%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+ScGpa1      1-36  MG-C--------TVSTQTIGDESD------------PFLQNKRANDVIEQSLQLEKQ---
+                  || |        |..|||....||            |....:..|...:|..|.::|   
+ScGpa2      1-60  MGLCASSEKNGSTPDTQTASAGSDNVGKAKVPPKQEPQKTVRTVNTANQQEKQQQRQQQP
+
+ScGpa1     37-40  ---------------------------------------RDKN-----------------
+                                                         ||::                 
+ScGpa2    61-120  SPHNVKDRKEQNGSINNAISPTATANTSGSQQINIDSALRDRSSNVAAQPSLSDASSGSN
+
+ScGpa1     41-98  --EIKLLLLGAGESGKSTVLKQLKLLHQGGFSHQERLQYAQVIWADAIQSMKILIIQARK
+                    |:|:||||||||||||||:|||:|||.|||.||..:|..:|:.:.::..:.||....:
+ScGpa2   121-180  DKELKVLLLGAGESGKSTVLQQLKILHQNGFSEQEIKEYIPLIYQNLLEIGRNLIQARTR
+
+ScGpa1    99-158  LGIQLDCDDPINNKDLFACKRILLKAKALDYINASVAGGSDFLNDYVLKYSERYETRRRV
+                  ..:.|:.:..:..:||         ::.:.|         :..|:|              
+ScGpa2   181-208  FNVNLEPECELTQQDL---------SRTMSY---------EMPNNY--------------
+
+ScGpa1   159-218  QSTGRAKAAFDEDGNISNVKSDTDRDAETVTQNEDADRNNSSRINLQDICKDLNQEGDDQ
+                    ||:                                                       
+ScGpa2   209-211  --TGQ-------------------------------------------------------
+
+ScGpa1   219-269  MFVRKTSREIQGQNRRNLIHEDIAKAIKQLW---------NNDKGIKQCFARSNEFQLEG
+                                    ..||||..|..||         |.        ..:::|.|..
+ScGpa2   212-245  ------------------FPEDIAGVISTLWALPSTQDLVNG--------PNASKFYLMD
+
+ScGpa1   270-328  SAAYYFDNIEKFASPNYVCTDEDILKGRIKTTGITETEFNIGSS-KFKVLDAGGQRSERK
+                  |..|:.:|..:..||||..|.:|||:.|..|:||.:|..::||. |..:.|.||||||||
+ScGpa2   246-305  STPYFMENFTRITSPNYRPTQQDILRSRQMTSGIFDTVIDMGSDIKMHIYDVGGQRSERK
+
+ScGpa1   329-388  KWIHCFEGITAVLFVLAMSEYDQMLFEDERVNRMHESIMLFDTLLNSKWFKDTPFILFLN
+                  ||||||:.:|.|:|.:::|||||.|.||:..||..||::|||.::||:||..|..:||||
+ScGpa2   306-365  KWIHCFDNVTLVIFCVSLSEYDQTLMEDKNQNRFQESLVLFDNIVNSRWFARTSVVLFLN
+
+ScGpa1   389-448  KIDLFEEKVKSMPIRKYFPDYQGRVGDAEAGLKYFEKIFLSLNKTNKPIYVKRTCATDTQ
+                  |||||.||:..:|:..|||||.|. .|.....||....|:.||:.|..||...|.||||.
+ScGpa2   366-424  KIDLFAEKLSKVPMENYFPDYTGG-SDINKAAKYILWRFVQLNRANLSIYPHVTQATDTS
+
+ScGpa1   449-472  TMKFVLSAVTDLIIQQNLKKIGII-
+                  .::.|.:|:.:.|::..||..|:: 
+ScGpa2   425-449  NIRLVFAAIKETILENTLKDSGVLQ

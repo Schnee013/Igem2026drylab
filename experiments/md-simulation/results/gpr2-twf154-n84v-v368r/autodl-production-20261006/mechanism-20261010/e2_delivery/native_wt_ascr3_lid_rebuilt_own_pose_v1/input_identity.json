@@ -1,0 +1,17 @@
+{
+  "topology": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/solution.tpr",
+    "sha256": "f78c8fc60b9aa6b1d09ee420b4e0f823574c7954f76456d9484876769d30a2f8",
+    "bytes": 2055192
+  },
+  "reference": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/protein_ref.pdb",
+    "sha256": "42ce0e8765b8037124bc054c001a2649afd9c367740fe0586b38e82f90131566",
+    "bytes": 509453
+  },
+  "trajectory": {
+    "path": "/ifs1/User/dengwei/igem/md/gpr2-autodl/analysis/native_wt_ascr3_lid_rebuilt_own_pose_v1/processed/rep1/prod_protein.xtc",
+    "sha256": "974216847e82bba519c6eafacecbc6b6ca21f2643e4702725c56f24cc0801b4b",
+    "bytes": 245531476
+  }
+}

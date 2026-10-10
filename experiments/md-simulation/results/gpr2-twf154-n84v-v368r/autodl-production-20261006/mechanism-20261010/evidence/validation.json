@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "checks": 975,
+  "failures": [],
+  "methods": "Independent NumPy SVD and broadcast distances, existing shared-driver comparison, occupancy reconstruction"
+}

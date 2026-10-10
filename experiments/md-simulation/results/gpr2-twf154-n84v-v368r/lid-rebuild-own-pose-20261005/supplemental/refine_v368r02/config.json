@@ -1,0 +1,28 @@
+{
+  "case_id": "v368r_ascr3_lid_rebuilt_own_pose_v1",
+  "receptor": "/private/tmp/gpr2-own-lid-20261005/inputs/v368r_ascr3_lid_rebuilt_own_pose_v1/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1_parent_docking_frame.pdb",
+  "fasta": "/private/tmp/gpr2-own-lid-20261005/inputs/v368r_ascr3_lid_rebuilt_own_pose_v1/WT_sequence.fasta",
+  "ligands": {
+    "v368r_ascr3": "/private/tmp/gpr2-own-lid-20261005/inputs/v368r_ascr3_lid_rebuilt_own_pose_v1/own_pose_top1.sdf"
+  },
+  "loop": [
+    164,
+    178
+  ],
+  "disulfide": [
+    99,
+    173
+  ],
+  "parent_mutations": {
+    "368": "R"
+  },
+  "seed": 36831005,
+  "candidates": 24,
+  "closure_attempts": 2000,
+  "perturb_degrees": 20,
+  "min_iterations": 1000,
+  "steric_repair_rounds": 3,
+  "method": "peptide_first",
+  "source_contract": "/Users/roy/Documents/drylab/experiments/md-simulation/results/gpr2-twf154-n84v-v368r/input-selection-20261005/gpr2_twf154_v368r_ascr3_lid_rebuilt_own_pose_v1.input.json",
+  "source_contract_sha256": "df2aee4f9ad946db1c8b909328f1fbbf5fa08c776707888b91056cf068ac17c1"
+}

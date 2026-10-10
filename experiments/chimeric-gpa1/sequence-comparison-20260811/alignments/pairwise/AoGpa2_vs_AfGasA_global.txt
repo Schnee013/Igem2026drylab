@@ -1,0 +1,33 @@
+# AoGpa2 vs AfGasA
+# Algorithm: global Needleman-Wunsch equivalent (Biopython PairwiseAligner)
+# Matrix: BLOSUM62; gap open: -10.0; gap extend: -0.5; terminal gaps penalized
+# Score: 877.5
+# Length: 359
+# Identity: 168/359 (46.797%)
+# Similarity (BLOSUM62 > 0): 241/359 (67.131%)
+# Gap columns: 9/359 (2.507%)
+# Markers: | exact; : conservative/positive; . non-conservative; blank gap
+
+AoGpa2      1-60  MGGCMSREASEEMEQRKKSQAIDREIMDDSRRLRRECKILLLGSGESGKSTIVKQMKIIH
+                  ||..||   :||.|.:::::.|:.::..|....|.|.|:||||:||||||||:||||:||
+AfGasA      1-57  MGCSMS---TEEKEGKQRNEEINAQLQKDKMLARNEIKMLLLGAGESGKSTILKQMKLIH
+
+AoGpa2    61-118  QNGYTVDELQHYRLTVYKNLVDCAKALIDAMRQFDIVPEHEANKEHME--FLYTFQVDPD
+                  :.||:.||.:.::..::.|.|...:.:::||...::......::.|::  |:...|::.|
+AfGasA    58-117  EGGYSRDEKESFKEIIFSNTVQSMRVILEAMETLELPLSDSRSEYHVQTIFMQPAQIEGD
+
+AoGpa2   119-178  PNVPLDIHVSKAVAALWDDPAVPSVLEHQSEFYIMDSAPYFFAEAARIGSPEYIPSEADV
+                     .|...|..|:.|||.|..|....:...|:.:.|||.|:|....||.:|:|:||:.||
+AfGasA   118-174  ---SLPAEVGNAIRALWQDQGVQECFKRSREYQLNDSAKYYFDSIDRIATPDYVPSDQDV
+
+AoGpa2   179-238  LRARTKTTGIYETRFTMGQLNIHMFDVGGQRSERKKWIHCFESVTSIIFCVALSEYDQVL
+                  ||:|.||.||.||.|.:|.|...|||||||||||||||||||:||:|:|.||:|||||:|
+AfGasA   175-234  LRSRVKTLGITETTFVIGDLTYRMFDVGGQRSERKKWIHCFENVTTILFLVAISEYDQLL
+
+AoGpa2   239-298  LEEQNQNRMLESLVLFDSVVNSRWFVRTSIILFLNKVDLFRQKLPRTPLSNYFPDYSGGP
+                  .|::..|||.|:|.||||:.|||||::|||||||||:|.||:|||.:|:.|||||:.||.
+AfGasA   235-294  FEDETVNRMQEALTLFDSICNSRWFIKTSIILFLNKIDRFREKLPVSPMKNYFPDFEGGD
+
+AoGpa2   299-356  DVNRAAKYLLWRFNQVNRAHL-NLYPHLTQATDTSNIRLVFAAVKETILQNALKDSGIL
+                  |...|..|:|.||..:|::.. .:|.|.|.||||:.|:.|.|||.:.|:|..|::.|::
+AfGasA   295-353  DYAAACDYILNRFVSLNQSETKQIYTHFTCATDTTQIKFVMAAVNDIIIQENLRNCGLI

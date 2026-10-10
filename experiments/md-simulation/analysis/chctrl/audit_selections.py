@@ -27,8 +27,8 @@ from common import (
     Replicate,
     analysis_context,
     configured_replicate_numbers,
-    ensure_dir,
     equal_weight_kabsch_coordinates,
+    ensure_dir,
     time_ns,
 )
 

@@ -1,0 +1,6 @@
+COMMAND
+/opt/homebrew/Caskroom/miniforge/base/envs/chimeric/bin/clustalo --infile /Users/roy/Documents/drylab/experiments/chimeric-gpa1/sequence-comparison-20260811/sequences/four_Galpha_combined.fasta --outfile /Users/roy/Documents/drylab/experiments/chimeric-gpa1/sequence-comparison-20260811/alignments/four_Galpha_clustalo.clustal --outfmt=clu --seqtype=Protein --threads=1 --output-order=input-order --force
+
+STDOUT
+
+STDERR

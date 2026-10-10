@@ -1,0 +1,41 @@
+# Operational alpha5 / GPCR-contacting C-terminal region
+# Boundary: conserved Asp immediately after aligned three-residue G5 core through native C terminus
+# Coordinates: ScGpa1 446-472; ScGpa2 422-449; AoGpa2 330-356; AfGasA 327-353
+# The four rows below are the corresponding Clustal Omega MSA columns.
+
+ScGpa1   446-472  DTQTMKFVLSAVTDLIIQQNLKKIGII-
+ScGpa2   422-449  DTSNIRLVFAAIKETILENTLKDSGVLQ
+AoGpa2   330-356  DTSNIRLVFAAVKETILQNALKDSGIL-
+AfGasA   327-353  DTTQIKFVMAAVNDIIIQENLRNCGLI-
+
+# Pairwise regional alignments use: | exact; : BLOSUM62 > 0; . non-conservative; blank gap
+
+ScGpa1    DTQTMKFVLSAVTDLIIQQNLKKIGII-
+          ||..::.|.:|:.:.|::..||..|:: 
+ScGpa2    DTSNIRLVFAAIKETILENTLKDSGVLQ
+identity 8/28 (28.571%); positive similarity 17/28 (60.714%)
+
+ScGpa1    DTQTMKFVLSAVTDLIIQQNLKKIGII
+          ||..::.|.:||.:.|:|..||..||:
+AoGpa2    DTSNIRLVFAAVKETILQNALKDSGIL
+identity 11/27 (40.741%); positive similarity 17/27 (62.963%)
+
+ScGpa2    DTSNIRLVFAAIKETILENTLKDSGVLQ
+          |||||||||||:|||||:|.|||||:| 
+AoGpa2    DTSNIRLVFAAVKETILQNALKDSGIL-
+identity 23/28 (82.143%); positive similarity 26/28 (92.857%)
+
+ScGpa1    DTQTMKFVLSAVTDLIIQQNLKKIGII
+          ||..:|||::||.|:|||:||:..|:|
+AfGasA    DTTQIKFVMAAVNDIIIQENLRNCGLI
+identity 15/27 (55.556%); positive similarity 22/27 (81.481%)
+
+ScGpa2    DTSNIRLVFAAIKETILENTLKDSGVLQ
+          ||:.|:.|.||:.:.|::..|::.|:: 
+AfGasA    DTTQIKFVMAAVNDIIIQENLRNCGLI-
+identity 9/28 (32.143%); positive similarity 19/28 (67.857%)
+
+AoGpa2    DTSNIRLVFAAVKETILQNALKDSGIL
+          ||:.|:.|.|||.:.|:|..|::.|::
+AfGasA    DTTQIKFVMAAVNDIIIQENLRNCGLI
+identity 11/27 (40.741%); positive similarity 19/27 (70.370%)

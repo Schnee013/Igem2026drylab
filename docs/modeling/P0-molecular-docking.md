@@ -8,6 +8,11 @@ last_updated: 2026-07-31
 
 # P0: 受体-配体分子对接与 In Silico 突变扫描
 
+**五受体结构、对接与残基比较材料**：见 [final-docking 研究入口](final-docking/README.md)。
+输入、代码、Vina/ProLIF 输出和报告分别位于既有 Docking 分类下；
+Gpr2 TWF154 的结构与姿态连接到六组 MD 的输入来源。
+以下撤回和恢复门禁描述旧 mutant frame-repair 批次，不代表五受体材料的新实验状态。
+
 > 来源: PRD v3 §3.1 | iGEM 评审定位: 候选体系生成与 MD 验证前证据
 >
 > **2026-07-31 撤回与恢复门禁**：AF3 mutant 在 docking 前未刚体叠合到 WT docking frame，却复用了 WT frame 的绝对搜索框。受影响的 Gpr2/Gpr3 mutant score、ratio、IFP、排名和旧湿实验交付均已撤回；当前无 active shortlist 或 wetlab handoff。seed 42 + 43 WT evidence 已用于冻结 `docking-geometry-gate-v3`，随后独立 seed-44 8-job holdout 的 docking、IFP 和 geometry 全部技术完成，但 `Gpr3/R167Y` 两臂未通过冻结门，终态为 `TERMINAL_ABNORMAL / fail_stop_before_full`。不得用 holdout 结果放宽门；328-job full-run 未启动。

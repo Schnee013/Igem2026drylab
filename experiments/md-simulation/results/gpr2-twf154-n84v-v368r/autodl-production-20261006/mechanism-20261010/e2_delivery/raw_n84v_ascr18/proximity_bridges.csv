@@ -1,0 +1,4 @@
+case,site,neighbor,anchor,initial_bridge,early_bridge_occupancy,late_bridge_occupancy,late_bridge_and_anchor_ligand_occupancy,first_1ns_bridge_ns,first_1ns_joint_ns
+raw_n84v_ascr18,84,80,102,True,0.966,0.8263473053892215,0.003992015968063872,0.0,1.5
+raw_n84v_ascr18,84,90,102,False,0.572,0.24750499001996007,0.003992015968063872,7.1,
+raw_n84v_ascr18,368,77,102,False,0.028,0.023952095808383235,0.0,,

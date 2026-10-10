@@ -1,0 +1,5 @@
+INFO:absl:alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 405 (GLY) of chain 0>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+INFO:absl:Minimizing protein, attempt 1 of 100.
+INFO:absl:Restraining 3159 / 6400 particles.
+INFO:absl:alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+INFO:absl:Iteration completed: Einit 32339.88 Efinal -6085.56 Time 6.69 s num residue violations 0 num residue exclusions 0 

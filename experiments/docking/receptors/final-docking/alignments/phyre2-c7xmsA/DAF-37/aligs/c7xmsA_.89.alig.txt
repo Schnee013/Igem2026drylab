@@ -1,0 +1,62 @@
+89 c7xmsA_ Probab=99.97  E-value=1.1e-29  Score=235.34  Aligned_cols=274  Identities=19%  Similarity=0.261  Sum_probs=0.0  Template_Neff=13.181
+
+Q ss_pred             hhHHHHHHHHHHHHHHhhHheeeEeec-cccCCHHHHHHHHHHHHHHHHHHHHHHHHHHH
+Q Swiss-Prot_ent   34 FLISVVGTLIGLFGLFGNATTALILTR-PSMRNPNNLFLTALAVFDSCLLITAFFIYAME   92 (482)
+Q Consensus        34 ~l~~iv~~ii~i~Gi~GN~lvi~Vl~r-~~lRs~~n~~l~nLAiaDll~~~~~ip~~~~~   92 (482)
+                      ..+.++..+++++|++||+++++++.+ +++|++.++++.+||++|++.++...+.....
+T Consensus         2 ~~~~~~~~~~~~~~~~~n~~~i~~~~~~~~~~~~~~~~l~~l~~~d~~~~~~~~~~~~~~   61 (276)
+T c7xmsA_           2 VAIQCIYALVCLVGLVGNALVIFVILRYAKMKTATNIYLLNLAVADELFMLSVPFVASSA   61 (276)
+T ss_dssp             HHHHHHHHHHHHHHHHHHHHHHHHCCCCCSSCSHHHHHHHHHHHHHHHHHHHHHHHHHHH
+T ss_pred             chHHHHHHHHHHHHHHHHHHHHHHhhcccccCcccHHHHHHHHHHHHHHHHHhHHHHHHH
+
+
+Q ss_pred             HhhccccccCcchhHHHHHHHHHHHHHHHHHHHHHHHHHHHHhhhhheecccccccccCh
+Q Swiss-Prot_ent   93 YIIEYTAAFDLYVAWLTYLRFAFALSHISQTGSVYITVAVTIERYLAVCHPKSSKNMCGP  152 (482)
+Q Consensus        93 ~~~~~~~~~~~~~~~~~~C~~~~~l~~~~~~~Sv~~l~~IsieRylaI~~Pl~~~~~~t~  152 (482)
+                      ..       +.+..+...|+...++.......+.+.++++++|||++|++|+++++..++
+T Consensus        62 ~~-------~~~~~~~~~c~~~~~~~~~~~~~~~~~~~~~~~~R~~~i~~p~~~~~~~~~  114 (276)
+T c7xmsA_          62 AL-------RHWPFGSVLCRAVLSVDGLNMFTSVFCLTVLSVDRYVAVVHPLRAATYRRP  114 (276)
+T ss_dssp             HH-------TSCCSCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHCHHHHTTTSSH
+T ss_pred             Hc-------CCccccccchhhHHHHHHHHHHHHHHHHHHHHHHHHeeEeecceeeecccc
+
+
+Q ss_pred             hHHHHHHHHHHHHHHHHhhHHHHheeeecccccCCCccceeeeeeccccccchHHHHHHH
+Q Swiss-Prot_ent  153 GGAAWTILGVTTFAVVFNCTKFFELQVTVNPSCPDGSNWQSYILLPSAMASNPIYQQVYS  212 (482)
+Q Consensus       153 ~~a~~ii~~iWi~s~l~~~p~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  212 (482)
+                      +++...++..|+.+++..+|..+......         ........+............+
+T Consensus       115 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~---------~~~~~~~~~~~~~~~~~~~~~~  165 (276)
+T c7xmsA_         115 SVAKLINLGVWLASLLVTLPIAIFADTRP---------ARGGQAVACNLQWPHPAWSAVF  165 (276)
+T ss_dssp             HHHHHHHHHHHHHHHHHHSHHHHSEEECC---------CSSSSCCCEEECCSSHHHHHHH
+T ss_pred             cHHHHHHHHHHHHHHHHHhhHHHHccccc---------CCCCCceEEecCCCchhhHHHH
+
+
+Q ss_pred             HHHHHHHHHHHHHHHHHHHHHHHHHHHHHhhhhhhhhccccccccccccccccccccccc
+Q Swiss-Prot_ent  213 LWVTNFVMVFFPFLTLLLFNAIIAYTIRQSLEKYDFHNQKSVVAALSASVNLPRNIAGIS  272 (482)
+Q Consensus       213 ~~~~~i~~~~iP~~ii~~~y~~I~~~lrk~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  272 (482)
+                      .....+..+++|++++..+|..+.++.++..++                          .
+T Consensus       166 ~~~~~~~~~~~~~~~~~~~~~~i~~~~~~~~~~--------------------------~  199 (276)
+T c7xmsA_         166 VVYTFLLGFLLPVLAIGLCYLLIVGKMRAVALR--------------------------A  199 (276)
+T ss_dssp             HHHHHCCCCCHHHHHHHHHHHHHHHHHHHHHHH--------------------------T
+T ss_pred             HHHHHHHHHHHHHHHHHHHHHHHHHHHHHhhhh--------------------------c
+
+
+Q ss_pred             hhHHHHHhhHHHHHHHHHHHHHHHHHhhHHHHHHHHHHhhcccccccchhhHHHHHHHHH
+Q Swiss-Prot_ent  273 SRNELKEKSREATLVLVIIVFIFLGCNFWGFVLTLLERIMGQETLMVEHHIFYTFSREAI  332 (482)
+Q Consensus       273 ~~~~~~~~~~k~t~ml~~vv~~F~icw~P~~i~~i~~~~~~~~~~~~~~~~~~~~~~~i~  332 (482)
+                      .+++++++++|..++++.+++.|++||+|+.+..++........         .....+.
+T Consensus       200 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~p~~~~~~~~~~~~~~~---------~~~~~~~  250 (276)
+T c7xmsA_         200 GWQQRRRSEKKITRLVLMFVVVFVLCWMPFYVVQLLNLFVTSLD---------ATVNHVS  250 (276)
+T ss_dssp             TCCSCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTTTCCTTT---------TSSHHHH
+T ss_pred             cHHHHHHHHHHHHHHHHHHHHHHHHHHhHHHHHHHHHHHHhhch---------HhHhHHH
+
+
+Q ss_pred             HHHHHHHhhHHHHHHHhcCHHHHHHH
+Q Swiss-Prot_ent  333 NFLAIINSSINFVIYLLFGKDFRKEL  358 (482)
+Q Consensus       333 ~~L~~~NS~iNPiIY~l~~~~FRk~l  358 (482)
+                      .++..+|+++||++|.+++++||+++
+T Consensus       251 ~~~~~~~~~~np~iy~~~~~~~r~~~  276 (276)
+T c7xmsA_         251 LILSYANSCANPILYGFLSDNFRRFF  276 (276)
+T ss_dssp             HHHHHHHHHHHHHHHHTTSHHHHHHC
+T ss_pred             HHHHHHHhhhhHHHHHHcCHHHHhcC
+
+

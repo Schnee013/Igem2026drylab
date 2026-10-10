@@ -1,0 +1,62 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+ScGpa1      ------------------------------------------------------------
+ScGpa2      MGLCASSEKNGSTPDTQTASAGSDNVGKAKVPPKQEPQKTVRTVNTANQQEKQQQRQQQP
+AoGpa2      ------------------------------------------------------------
+AfGasA      ------------------------------------------------------------
+                                                                        
+
+ScGpa1      ---------------------------MGCTVSTQTIGDESDPFLQNKRANDVIEQSL-Q
+ScGpa2      SPHNVKDRKEQNGSINNAISPTATANTSGSQQINIDS------ALRDRSSNVAAQPSLSD
+AoGpa2      --------------------------MGGCMSREASE------EMEQRKKSQAIDREIM-
+AfGasA      ---------------------------MGCSMSTEEK------EGKQRN--EEINAQL-Q
+                                        *.               .::      : .:  
+
+ScGpa1      LEKQRDKNEIKLLLLGAGESGKSTVLKQLKLLHQGGFSHQERLQYAQVIWADAIQSMKIL
+ScGpa2      ASSGSNDKELKVLLLGAGESGKSTVLQQLKILHQNGFSEQEIKEYIPLIYQNLLEIGRNL
+AoGpa2      DDSRRLRRECKILLLGSGESGKSTIVKQMKIIHQNGYTVDELQHYRLTVYKNLVDCAKAL
+AfGasA      KDKMLARNEIKMLLLGAGESGKSTILKQMKLIHEGGYSRDEKESFKEIIFSNTVQSMRVI
+             ..    .* *:****:*******:::*:*::*:.*:: :*   :   :: : ::  : :
+
+ScGpa1      IIQARKLGIQLDCDDPINNKDLFACKRILLKAKALDYINASVAGGSDFLNDYVLKYSERY
+ScGpa2      IQARTRFNVNLEPECELTQQDLS------------------------RTMS---------
+AoGpa2      IDAMRQFDIVPEHEANKEH--ME------------------------FLYT---------
+AfGasA      LEAMETLELPLSDSRSEYHVQTI------------------------FMQ----------
+            :     : :  . .    :                                         
+
+ScGpa1      ETRRRVQSTGRAKAAFDEDGNISNVKSDTDRDAETVTQNEDADRNNSSRINLQDICKDLN
+ScGpa2      ------------------------------------------------------------
+AoGpa2      ------------------------------------------------------------
+AfGasA      ------------------------------------------------------------
+                                                                        
+
+ScGpa1      QEGDDQMFVRKTSREIQGQNRRNLIHEDIAKAIKQLWNNDKGIKQCFA--RSNEFQLEGS
+ScGpa2      --------------YEMPNNYTGQFPEDIAGVISTLWA-LPSTQDLVNGPNASKFYLMDS
+AoGpa2      --------------FQVDPDPNVPLDIHVSKAVAALWD-DPAVPSVLE--HQSEFYIMDS
+AfGasA      ----------------PAQIEGDSLPAEVGNAIRALWQ-DQGVQECFK--RSREYQLNDS
+                                    :  .:. .:  **    .  . .   .  :: : .*
+
+ScGpa1      AAYYFDNIEKFASPNYVCTDEDILKGRIKTTGITETEFNIGS-SKFKVLDAGGQRSERKK
+ScGpa2      TPYFMENFTRITSPNYRPTQQDILRSRQMTSGIFDTVIDMGSDIKMHIYDVGGQRSERKK
+AoGpa2      APYFFAEAARIGSPEYIPSEADVLRARTKTTGIYETRFTMGQ-LNIHMFDVGGQRSERKK
+AfGasA      AKYYFDSIDRIATPDYVPSDQDVLRSRVKTLGITETTFVIGD-LTYRMFDVGGQRSERKK
+            : *:: .  :: :*:*  :: *:*:.*  * ** :* : :*.  . :: *.*********
+
+ScGpa1      WIHCFEGITAVLFVLAMSEYDQMLFEDERVNRMHESIMLFDTLLNSKWFKDTPFILFLNK
+ScGpa2      WIHCFDNVTLVIFCVSLSEYDQTLMEDKNQNRFQESLVLFDNIVNSRWFARTSVVLFLNK
+AoGpa2      WIHCFESVTSIIFCVALSEYDQVLLEEQNQNRMLESLVLFDSVVNSRWFVRTSIILFLNK
+AfGasA      WIHCFENVTTILFLVAISEYDQLLFEDETVNRMQEALTLFDSICNSRWFIKTSIILFLNK
+            *****:.:* ::* :::***** *:*::  **: *:: ***.: **:**  * .:*****
+
+ScGpa1      IDLFEEKVKSMPIRKYFPDYQGRVGDAEAGLKYFEKIFLSLNKTN-KPIYVKRTCATDTQ
+ScGpa2      IDLFAEKLSKVPMENYFPDYTGGSD-INKAAKYILWRFVQLNRAN-LSIYPHVTQATDTS
+AoGpa2      VDLFRQKLPRTPLSNYFPDYSGGPD-VNRAAKYLLWRFNQVNRAH-LNLYPHLTQATDTS
+AfGasA      IDRFREKLPVSPMKNYFPDFEGGDD-YAAACDYILNRFVSLNQSETKQIYTHFTCATDTT
+            :* * :*:   *: :****: *  .    . .*:   * .:*::.   :* : * **** 
+
+ScGpa1      TMKFVLSAVTDLIIQQNLKKIGII-
+ScGpa2      NIRLVFAAIKETILENTLKDSGVLQ
+AoGpa2      NIRLVFAAVKETILQNALKDSGIL-
+AfGasA      QIKFVMAAVNDIIIQENLRNCGLI-
+             :::*::*:.: *::: *:. *:: 

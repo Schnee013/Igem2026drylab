@@ -1,0 +1,6 @@
+observed_at	state	source	detail
+2026-10-05T15:50:30.756114+00:00	RUNNING_VERIFIED	source_checksums.json	Own candidate loaded; fixed exterior verified; bounded local refinement
+2026-10-05T15:50:44.972579+00:00	RUNNING_VERIFIED	refinement.json	Refinement round 1/3 completed
+2026-10-05T15:50:59.490472+00:00	RUNNING_VERIFIED	refinement.json	Refinement round 2/3 completed
+2026-10-05T15:51:12.290504+00:00	RUNNING_VERIFIED	refinement.json	Refinement round 3/3 completed
+2026-10-05T15:51:12.291008+00:00	TERMINAL_NORMAL	refinement.json	Bounded refinement completed; independent topology/visual review still required

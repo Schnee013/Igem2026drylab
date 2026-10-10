@@ -1,0 +1,26 @@
+{
+  "python_syntax": {
+    "pass": true,
+    "files": 7
+  },
+  "shell_syntax": {
+    "pass": true
+  },
+  "normal_segment_does_not_claim_production_completion": {
+    "pass": true
+  },
+  "lincs_stops_own_mock_process": {
+    "pass": true,
+    "child_exit_code": -15
+  },
+  "existing_outputs_refused": {
+    "pass": true
+  },
+  "production_without_gate_refused": {
+    "pass": true
+  },
+  "credential_not_in_payload": {
+    "pass": true
+  },
+  "scope": "Local static and mock process validation only; no AutoDL/GROMACS scientific acceptance claimed."
+}

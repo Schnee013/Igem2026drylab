@@ -1,0 +1,6 @@
+{
+  "pyrosetta": "┌───────────────────────────────────────────────────────────────────────────────┐\n│                                  PyRosetta-4                                  │\n│               Created in JHU by Sergey Lyskov and PyRosetta Team              │\n│               (C) Copyright Rosetta Commons Member Institutions               │\n│                                                                               │\n│ NOTE: USE OF PyRosetta FOR COMMERCIAL PURPOSES REQUIRES PURCHASE OF A LICENSE │\n│          See LICENSE.PyRosetta.md or email license@uw.edu for details         │\n└───────────────────────────────────────────────────────────────────────────────┘\nPyRosetta-4 2026 [Rosetta PyRosetta4.Release.python312.m1 2026.29+releasequarterly.80a0635615099e1b918474a63acba7b1de6fd107 2026-07-14T16:24:11] retrieved from: http://www.pyrosetta.org",
+  "seed": 10053103,
+  "protein_only_score": "ref2015_cart+disulfide constraints",
+  "note": "Ligands evaluated separately by geometry only; no binding-energy or MD-readiness claim."
+}

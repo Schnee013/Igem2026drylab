@@ -1,0 +1,82 @@
+147 c7xmsA_ Probab=99.82  E-value=9.4e-19  Score=161.25  Aligned_cols=268  Identities=14%  Similarity=0.137  Sum_probs=0.0  Template_Neff=13.181
+
+Q ss_pred             HHHHHHHHHHHHHHHHHHHHHHHHHHhccccccchHHHHHHHHHHHHHHHHHHHHHHHHH
+Q Swiss-Prot_ent    8 FTIAVLNLIGSLSSFFGSGFIVVTYLLLPIKRHFRHSLILNLAIADFINSSNNSTSGLWR   67 (538)
+Q Consensus         8 ~ti~ii~~i~sl~SivGn~lVIlt~~~~~~lR~~~~~LIlnLaiaDll~al~~~i~~~~~   67 (538)
+                      ..+.++..+.++++++||++++.++...+++|+..+.++++|+++|++.++...+.... 
+T Consensus         2 ~~~~~~~~~~~~~~~~~n~~~i~~~~~~~~~~~~~~~~l~~l~~~d~~~~~~~~~~~~~-   60 (276)
+T c7xmsA_           2 VAIQCIYALVCLVGLVGNALVIFVILRYAKMKTATNIYLLNLAVADELFMLSVPFVASS-   60 (276)
+T ss_dssp             HHHHHHHHHHHHHHHHHHHHHHHHCCCCCSSCSHHHHHHHHHHHHHHHHHHHHHHHHHH-
+T ss_pred             chHHHHHHHHHHHHHHHHHHHHHHhhcccccCcccHHHHHHHHHHHHHHHHHhHHHHHH-
+
+
+Q ss_pred             HhccCCcCCchhHHHHHHHHHHHHHHHHHHHHHHHHHHHHhhhccccccccCcceeeeeh
+Q Swiss-Prot_ent   68 LLKRREIPDSPGCVTNGFLGQLSVQATDTSILAIAIVTVWSLTRKTTICETLPRTTTALI  127 (538)
+Q Consensus        68 l~~~~~~~~~~~C~~~g~l~~~~~~aS~l~ilaIAi~ryl~I~~p~~~~~~~~~~~~~~~  127 (538)
+                      .....+..+...|.+++++..++..++.+.++++|+|||+++.+|.++.+..+.+....+
+T Consensus        61 ~~~~~~~~~~~~c~~~~~~~~~~~~~~~~~~~~~~~~R~~~i~~p~~~~~~~~~~~~~~~  120 (276)
+T c7xmsA_          61 AALRHWPFGSVLCRAVLSVDGLNMFTSVFCLTVLSVDRYVAVVHPLRAATYRRPSVAKLI  120 (276)
+T ss_dssp             HHHTSCCSCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHCHHHHTTTSSHHHHHHH
+T ss_pred             HHcCCccccccchhhHHHHHHHHHHHHHHHHHHHHHHHHeeEeecceeeecccccHHHHH
+
+
+Q ss_pred             hhHhHHHHHHHHHHhhhcCCCCccccc---eeecccCCceeEeehHHHHHHHHHHHHHHH
+Q Swiss-Prot_ent  128 CATTWILPITTSFIALGMNRYGPVSGN---WCWIKAEPSYFRYVMTHGWRFAFILSEIVM  184 (538)
+Q Consensus       128 ~~~~W~lplila~ia~~~~~~~~~~g~---wCwI~~~~~~~Rl~ls~~~~~~~~~~ii~i  184 (538)
+                      ++..|+++++.+...+......+..+.   .|..............+....+..++.+++
+T Consensus       121 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  180 (276)
+T c7xmsA_         121 NLGVWLASLLVTLPIAIFADTRPARGGQAVACNLQWPHPAWSAVFVVYTFLLGFLLPVLA  180 (276)
+T ss_dssp             HHHHHHHHHHHHSHHHHSEEECCCSSSSCCCEEECCSSHHHHHHHHHHHHCCCCCHHHHH
+T ss_pred             HHHHHHHHHHHHhhHHHHcccccCCCCCceEEecCCCchhhHHHHHHHHHHHHHHHHHHH
+
+
+Q ss_pred             HHHHhhhhhhhhhhhhcccccccccccccccccccccccccccccccceeeecccccccc
+Q Swiss-Prot_ent  185 YTYLHFYIRKRFGAFLDASRCSSHTGRSTVRDVGTEFRNDSMAIRLDSVAIRNDSLAPAE  244 (538)
+Q Consensus       185 Y~~I~~~irrr~~~~~~~s~~s~~s~r~~a~~~~~~~~~~~~a~~~~s~~~~~~~~~~~~  244 (538)
+                      .+..|..+.++.++.                                             
+T Consensus       181 ~~~~~~~i~~~~~~~---------------------------------------------  195 (276)
+T c7xmsA_         181 IGLCYLLIVGKMRAV---------------------------------------------  195 (276)
+T ss_dssp             HHHHHHHHHHHHHHH---------------------------------------------
+T ss_pred             HHHHHHHHHHHHHHh---------------------------------------------
+
+
+Q ss_pred             cccccccccccccccccccCCccccCCCCCccccccccccccccCCccccccccccccCc
+Q Swiss-Prot_ent  245 EPQRSDSQMPFSITDEGDIRPIGARGQDLESGEAFVRTEVWISETYDDKTLPAHAVTTTI  304 (538)
+Q Consensus       245 ~~~~~~s~~~~~~~~~~~~sp~~~~~~~~~s~~~~~~~~~~~s~~~~~~~~~~~~~~~s~  304 (538)
+                                                                                  
+T Consensus       196 ------------------------------------------------------------  195 (276)
+T c7xmsA_         196 ------------------------------------------------------------  195 (276)
+T ss_dssp             ------------------------------------------------------------
+T ss_pred             ------------------------------------------------------------
+
+
+Q ss_pred             CCCCCCccCccccccCCCCCcccccCCcccCCCCcccCCCccccccccccchhhhhhhHH
+Q Swiss-Prot_ent  305 SSGNNSLEQPNTDLRPETANTIESRRPKFSNPFAHRRADEDDLADVDVNDENERKIRQQN  364 (538)
+Q Consensus       305 ~~s~~s~e~~~~~~~p~~~~~~~~~~p~~s~p~~~~~~~~~~~~~~~~s~~~~r~~~r~~  364 (538)
+                                                                           +...+++
+T Consensus       196 -----------------------------------------------------~~~~~~~  202 (276)
+T c7xmsA_         196 -----------------------------------------------------ALRAGWQ  202 (276)
+T ss_dssp             -----------------------------------------------------HHHTTCC
+T ss_pred             -----------------------------------------------------hhhccHH
+
+
+Q ss_pred             HHHHHHHHHHHHHHHHHHHHHHHhhhHHHHHHHhhcCC--chHHHHHHhhhHHHhhhHHH
+Q Swiss-Prot_ent  365 ASRSRRVRRILLLNAYPAMYILLWIPGIINRLIEASGG--KSSVMQIMQASTQFVGLANA  422 (538)
+Q Consensus       365 ~~~ereiR~i~lLfiYP~vYIilWIP~~inrl~~~~~~--~~~~~~~~q~~~~~~Gl~na  422 (538)
+                      +..++++|..+.+.+..++|++||+|..+..++.....  ......+........+..|+
+T Consensus       203 ~~~~~~~~~~~~~~~~~~~~~~~~~p~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~np  262 (276)
+T c7xmsA_         203 QRRRSEKKITRLVLMFVVVFVLCWMPFYVVQLLNLFVTSLDATVNHVSLILSYANSCANP  262 (276)
+T ss_dssp             SCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTTTCCTTTTSSHHHHHHHHHHHHHHHH
+T ss_pred             HHHHHHHHHHHHHHHHHHHHHHHHhHHHHHHHHHHHHhhchHhHhHHHHHHHHHHhhhhH
+
+
+Q ss_pred             HHHHhhhhhHHH
+Q Swiss-Prot_ent  423 ITYGWNERVWRQ  434 (538)
+Q Consensus       423 ~~y~~~~~~~~~  434 (538)
+                      ++|.+..+.-|+
+T Consensus       263 ~iy~~~~~~~r~  274 (276)
+T c7xmsA_         263 ILYGFLSDNFRR  274 (276)
+T ss_dssp             HHHHTTSHHHHH
+T ss_pred             HHHHHcCHHHHh
+
+

@@ -1,0 +1,153 @@
+{
+  "cases": [
+    {
+      "case": "raw_n84v_ascr18",
+      "display_name": "N84V–ascr18 / 原始全长 lid",
+      "pose_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr18/top1.sdf",
+      "selected_preparation": {
+        "case": "raw_n84v_ascr18",
+        "genotype": "n84v",
+        "ligand": "ascr18",
+        "lid_input": "raw",
+        "pose_mapping": "n84v_ascr18",
+        "em_source": "attempt2_double/em.gro",
+        "em_Fmax_kJ_mol_nm": 973.395711527433,
+        "em_sha256": "822d6c8f1e620d24dee75df6309381d84b70f69c890b6fc12990bf434c870e2b",
+        "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_lid_preheat_20261003/runs/raw_n84v_ascr18/heating_v4",
+        "final_gro_sha256": "ba34cf40e10f4a90bbd45b661215ff6632f0e6bd8038b9281d95ee4eb9094b77"
+      },
+      "input": "data/preparation_inputs/raw_n84v_ascr18",
+      "preheat": "data/preheat/raw_n84v_ascr18",
+      "heating_files": {
+        "heat.xtc": "data/preheat/raw_n84v_ascr18/heating_v4/heat.xtc",
+        "hold.xtc": "data/preheat/raw_n84v_ascr18/heating_v4/hold.xtc",
+        "hold.gro": "data/preheat/raw_n84v_ascr18/heating_v4/hold.gro"
+      }
+    },
+    {
+      "case": "raw_v368r_ascr3",
+      "display_name": "V368R–ascr3 / 原始全长 lid",
+      "pose_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr3/top1.sdf",
+      "selected_preparation": {
+        "case": "raw_v368r_ascr3",
+        "genotype": "v368r",
+        "ligand": "ascr3",
+        "lid_input": "raw",
+        "pose_mapping": "v368r_ascr3",
+        "em_source": "em.gro",
+        "em_Fmax_kJ_mol_nm": 983.48926,
+        "em_sha256": "c0cd80d6c475adfb7504062ac9b535a3a1de0bd7cae5a4204281d4ac6f1ae57e",
+        "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_lid_preheat_20261003/runs/raw_v368r_ascr3/heating_v4",
+        "final_gro_sha256": "343fb9e7f5db392fda090ff4ad5bfb6b969fbf26b4c4a315a8e823444c2d38a2"
+      },
+      "input": "data/preparation_inputs/raw_v368r_ascr3",
+      "preheat": "data/preheat/raw_v368r_ascr3",
+      "heating_files": {
+        "heat.xtc": "data/preheat/raw_v368r_ascr3/heating_v4/heat.xtc",
+        "hold.xtc": "data/preheat/raw_v368r_ascr3/heating_v4/hold.xtc",
+        "hold.gro": "data/preheat/raw_v368r_ascr3/heating_v4/hold.gro"
+      }
+    },
+    {
+      "case": "raw_n84v_ascr3",
+      "display_name": "N84V–ascr3 / 原始全长 lid",
+      "pose_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_n84v/ascr3/top1.sdf",
+      "selected_preparation": {
+        "case": "raw_n84v_ascr3",
+        "genotype": "n84v",
+        "ligand": "ascr3",
+        "lid_input": "raw",
+        "pose_mapping": "n84v_ascr3",
+        "em_source": "attempt4_ligand_constraints/em.gro",
+        "em_Fmax_kJ_mol_nm": 757.447878490372,
+        "em_sha256": "c81b121b42a4bcb748b4c15fcbeea02f81c27c0bf6a6424ed241d42776f582f2",
+        "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_lid_preheat_20261003/runs/raw_n84v_ascr3/heating_v4",
+        "final_gro_sha256": "290497d6bc68b06103268e533d324b033980976b7831eeca15dd30c8198723dc"
+      },
+      "input": "data/preparation_inputs/raw_n84v_ascr3",
+      "preheat": "data/preheat/raw_n84v_ascr3",
+      "heating_files": {
+        "heat.xtc": "data/preheat/raw_n84v_ascr3/heating_v4/heat.xtc",
+        "hold.xtc": "data/preheat/raw_n84v_ascr3/heating_v4/hold.xtc",
+        "hold.gro": "data/preheat/raw_n84v_ascr3/heating_v4/hold.gro"
+      }
+    },
+    {
+      "case": "raw_v368r_ascr18",
+      "display_name": "V368R–ascr18 / 原始全长 lid",
+      "pose_source": "/Users/roy/Downloads/md-handoff-n84v-v368r/05_v368r/ascr18/top1.sdf",
+      "selected_preparation": {
+        "case": "raw_v368r_ascr18",
+        "genotype": "v368r",
+        "ligand": "ascr18",
+        "lid_input": "raw",
+        "pose_mapping": "v368r_ascr18",
+        "em_source": "attempt5_frozen_ligand/em.gro",
+        "em_Fmax_kJ_mol_nm": 998.787593568167,
+        "em_sha256": "1c5270fdec1a2a17a2b3e40a589e86737b3a291ce87d914117a33aa58dc5c13c",
+        "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_lid_preheat_20261003/runs/raw_v368r_ascr18/heating_v4",
+        "final_gro_sha256": "eef276797e04042df429f2797ef40dba9d2881bd5adc014d9dfccd98de57115a"
+      },
+      "input": "data/preparation_inputs/raw_v368r_ascr18",
+      "preheat": "data/preheat/raw_v368r_ascr18",
+      "heating_files": {
+        "heat.xtc": "data/preheat/raw_v368r_ascr18/heating_v4/heat.xtc",
+        "hold.xtc": "data/preheat/raw_v368r_ascr18/heating_v4/hold.xtc",
+        "hold.gro": "data/preheat/raw_v368r_ascr18/heating_v4/hold.gro"
+      }
+    },
+    {
+      "case": "native_wt_ascr18",
+      "display_name": "独立 WT–ascr18 / 原始全长 lid",
+      "pose_source": "/private/tmp/gpr2-wt-replacement-20261003-_214_9xd/inputs/matrix02/wt_ascr18/top1.sdf",
+      "selected_preparation": {
+        "case": "native_wt_ascr18",
+        "genotype": "wt",
+        "ligand": "ascr18",
+        "lid_input": "native",
+        "pose_mapping": "wt_ascr18",
+        "em_source": "attempt6_trp174_orientation/em.gro",
+        "em_Fmax_kJ_mol_nm": 983.462363238901,
+        "em_sha256": "4ea6b9271c6a24adc6a4df5d2116f77143e3d485f8a0ef166391f94d467129f3",
+        "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr18/heating_v4",
+        "final_gro_sha256": "ddb12dfed97a3840d3da8b7e4288f7e5fc46a115dd8231ff064e425063d2478a"
+      },
+      "input": "data/preparation_inputs/native_wt_ascr18",
+      "preheat": "data/preheat/native_wt_ascr18",
+      "heating_files": {
+        "heat.xtc": "data/preheat/native_wt_ascr18/heating_v4/heat.xtc",
+        "hold.xtc": "data/preheat/native_wt_ascr18/heating_v4/hold.xtc",
+        "hold.gro": "data/preheat/native_wt_ascr18/heating_v4/hold.gro"
+      }
+    },
+    {
+      "case": "native_wt_ascr3",
+      "display_name": "独立 WT–ascr3 / 原始全长 lid",
+      "pose_source": "/private/tmp/gpr2-wt-replacement-20261003-_214_9xd/inputs/matrix02/wt_ascr3/top1.sdf",
+      "selected_preparation": {
+        "case": "native_wt_ascr3",
+        "genotype": "wt",
+        "ligand": "ascr3",
+        "lid_input": "native",
+        "pose_mapping": "wt_ascr3",
+        "em_source": "em.gro",
+        "em_Fmax_kJ_mol_nm": 979.10596,
+        "em_sha256": "43d7597149e658287bb43f0aad683d80fd2ff4e7e93a7a1b057be9d124530e61",
+        "heating_directory": "/ifs1/User/dengwei/igem/md/gpr2_twf154_native_wt_20261003/runs/native_wt_ascr3/heating_v4",
+        "final_gro_sha256": "77b7e01a80f05dd456cc9c0ff90fcf43924a0aada188ea4435b80c10785a3c9e"
+      },
+      "input": "data/preparation_inputs/native_wt_ascr3",
+      "preheat": "data/preheat/native_wt_ascr3",
+      "heating_files": {
+        "heat.xtc": "data/preheat/native_wt_ascr3/heating_v4/heat.xtc",
+        "hold.xtc": "data/preheat/native_wt_ascr3/heating_v4/hold.xtc",
+        "hold.gro": "data/preheat/native_wt_ascr3/heating_v4/hold.gro"
+      }
+    }
+  ],
+  "excluded": [
+    "all rebuilt_*",
+    "all raw_wt_*"
+  ],
+  "old_200ns_wt": "out_of_scope_unchanged"
+}

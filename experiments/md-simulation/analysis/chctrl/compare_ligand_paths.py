@@ -12,6 +12,7 @@ when the starting poses or construction chains differ.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import hashlib
 import json
 from pathlib import Path
@@ -59,6 +60,19 @@ def parse_named_paths(values: list[str], option: str) -> dict[str, Path]:
             raise ValueError(f"duplicate {option} label: {name}")
         parsed[name] = Path(path)
     return parsed
+
+
+def equal_weight_fit(
+    mobile_fit_positions: np.ndarray,
+    reference_fit_positions: np.ndarray,
+    coordinates: np.ndarray,
+) -> tuple[np.ndarray, float]:
+    """Align coordinates using an equal-weight receptor Kabsch transform."""
+    return equal_weight_kabsch_coordinates(
+        mobile_fit_positions,
+        reference_fit_positions,
+        coordinates,
+    )
 
 
 def validate_arm_mappings(
@@ -234,8 +248,8 @@ def plot_timeseries(
 def plot_common_frame_paths(
     path_rows: pd.DataFrame,
     reference_ca_positions: np.ndarray,
-    reference_arm: str,
     output_dir: Path,
+    reference_label: str = "reference",
 ) -> None:
     projections = (("x_A", "y_A"), ("x_A", "z_A"), ("y_A", "z_A"))
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
@@ -248,7 +262,7 @@ def plot_common_frame_paths(
             s=3,
             color="0.75",
             alpha=0.35,
-            label=f"{reference_arm} receptor CA frame 0",
+            label=f"{reference_label} receptor CA frame 0",
         )
         for arm_index, (arm, sub) in enumerate(
             path_rows.groupby("arm", sort=False)
@@ -290,8 +304,8 @@ def plot_common_frame_paths(
         ncol=len(labels),
     )
     fig.suptitle(
-        f"Ligand centroid paths in the {reference_arm} frame-0 receptor "
-        "reference (circle=start, x=end)"
+        f"Ligand centroid paths in the {reference_label} frame-0 receptor reference "
+        "(circle=start, x=end)"
     )
     fig.tight_layout(rect=(0, 0.08, 1, 0.94))
     fig.savefig(output_dir / "matched_centroid_path_common_frame.png", dpi=180)
@@ -301,8 +315,9 @@ def plot_common_frame_paths(
 def plot_contact_heatmap(
     occupancy: pd.DataFrame,
     output_dir: Path,
-    cutoff_A: float,
     top_n: int = 30,
+    arm_order: list[str] | None = None,
+    cutoff_A: float = 4.0,
 ) -> None:
     if occupancy.empty:
         return
@@ -341,7 +356,8 @@ def plot_contact_heatmap(
         .fillna(0.0)
     )
     matrix = matrix.loc[[residue for residue in ranking if residue in matrix.index]]
-    arm_order = list(occupancy["arm"].drop_duplicates())
+    if arm_order is None:
+        arm_order = list(occupancy["arm"].drop_duplicates())
     column_order = [
         f"{arm} {window}"
         for arm in arm_order
@@ -354,9 +370,7 @@ def plot_contact_heatmap(
     image = axis.imshow(matrix.to_numpy(), aspect="auto", vmin=0, vmax=1)
     axis.set_xticks(range(len(matrix.columns)), labels=matrix.columns, rotation=30)
     axis.set_yticks(range(len(matrix.index)), labels=matrix.index)
-    axis.set_title(
-        f"Receptor residue contact occupancy ({cutoff_A:g} A direct contact)"
-    )
+    axis.set_title(f"Receptor residue contact occupancy ({cutoff_A:g} A direct contact)")
     fig.colorbar(image, ax=axis, label="Frame occupancy")
     fig.tight_layout()
     fig.savefig(output_dir / "matched_residue_contact_occupancy.png", dpi=180)
@@ -470,7 +484,7 @@ def main() -> None:
         times: list[float] = []
         centroids: list[np.ndarray] = []
         for timestep in universe.trajectory[:: args.stride]:
-            aligned_ligand, fit_rmsd = equal_weight_kabsch_coordinates(
+            aligned_ligand, fit_rmsd = equal_weight_fit(
                 mobile_fit.positions,
                 reference_fit_positions,
                 ligand.positions,
@@ -584,22 +598,17 @@ def main() -> None:
     plot_common_frame_paths(
         path_table,
         reference_ca.positions.copy(),
-        args.reference_arm,
         args.output_dir,
+        reference_label=args.reference_arm,
     )
-    plot_contact_heatmap(
-        occupancy_table,
-        args.output_dir,
-        args.contact_cutoff_A,
-    )
+    plot_contact_heatmap(occupancy_table, args.output_dir, arm_order=list(configs), cutoff_A=args.contact_cutoff_A)
 
     for arm, sub in path_table.groupby("arm", sort=False):
         late = sub[sub["time_ns"] >= args.window_start_ns]
         print(
             f"{arm}: final centroid displacement="
             f"{sub.iloc[-1]['centroid_displacement_from_arm_initial_in_common_frame_A']:.3f} A; "
-            f"late mean="
-            f"{late['centroid_displacement_from_arm_initial_in_common_frame_A'].mean():.3f} A; "
+            f"late mean={late['centroid_displacement_from_arm_initial_in_common_frame_A'].mean():.3f} A; "
             f"late mean contact residues="
             f"{late['contacting_receptor_residues'].mean():.3f}"
         )
