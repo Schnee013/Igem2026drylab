@@ -1,0 +1,37 @@
+{
+  "alias": "05_v368n",
+  "residues": 370,
+  "heavy_atoms": 2889,
+  "sequence_verified": true,
+  "heavy_atom_coordinates_preserved": true,
+  "terminal_oxygen_name_swap_allowed": true,
+  "charge_model": "gasteiger",
+  "versions": {
+    "meeko": "0.7.1",
+    "rdkit": "2025.9.5"
+  },
+  "command": [
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/python",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/src/prepare_receptor_pdbqt.py",
+    "--receptor-pdb",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/input.pdb",
+    "--output-pdbqt",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/receptor.pdbqt",
+    "--meeko-executable",
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/python",
+    "--charge-model",
+    "gasteiger",
+    "--meeko-arg=-j",
+    "--meeko-arg=/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/receptor.json",
+    "--meeko-arg=--write_pdb",
+    "--meeko-arg=/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/prepared.pdb"
+  ],
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368N.fasta": "f0ed5b41fb614a6305cc67abaf4a32029920e00ff8f8b7fa8289892a1ecc79f4",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/input.pdb": "5eae7f57be014828a7a31d6aa196e2381c1eee9619af7672dc6a38875e2586d5",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/receptor.pdbqt": "6a4e4a68341850847286f115608b31cb7c8b79c1517076c206babf80ba219660",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/receptor.json": "2edad18689cb1fc61f4e0d71c35c4f3056aa81a6b181f26ca7f069583ac1e5aa",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/prepared.pdb": "ac717320baf0bd68399e9ff635cef7828ebcec5e67bb75cc5f3b5a69f40e5250",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368n/preparation.log": "781c6fec0a071fcbd1668de53aae33d386d234787bc5e59c05f59097ba74e536"
+  }
+}

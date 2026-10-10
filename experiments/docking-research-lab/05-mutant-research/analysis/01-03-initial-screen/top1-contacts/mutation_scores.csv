@@ -1,0 +1,12 @@
+batch,mutant,deltaS3,deltaS18,D_deltaS18_minus_deltaS3
+gpr2-single-af3-run01,N84A,-0.225,0.316,0.541
+gpr2-single-af3-run01,L90A,-0.264,-0.087,0.177
+gpr2-single-af3-run01,R345A,-0.243,-0.142,0.101
+gpr2-single-af3-run01,V110A,-0.359,0.358,0.717
+gpr2-single-af3-run01,R181A,-0.296,-0.148,0.148
+gpr2-single-af3-run01,W338A,-0.278,-0.018,0.26
+gpr2-single-af3-run01,V368A,-0.323,0.261,0.584
+gpr2-af3-combination-run01,N84A_L90A_R345A,0.111,0.355,0.244
+gpr2-af3-combination-run01,V110A_R181A_W338A_V368A,0.461,0.227,-0.234
+gpr2-combination-run01,N84A_L90A_R345A,0.23,0.548,0.318
+gpr2-combination-run01,V110A_R181A_W338A_V368A,-0.187,0.011,0.198

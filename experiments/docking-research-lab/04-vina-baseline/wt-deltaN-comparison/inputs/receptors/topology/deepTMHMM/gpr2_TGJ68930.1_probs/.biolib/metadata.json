@@ -1,0 +1,11 @@
+{
+    "exit_code": 0,
+    "arguments": [
+        "--fasta",
+        "Gpr2_TWF154_TGJ68930.1.fasta"
+    ],
+    "app_uri": "DTU/DeepTMHMM:1.0.57",
+    "ended_at": "2026-08-13T09:02:33.658907Z",
+    "job_uuid": "3636ac43-43fe-461d-97c8-098e6b05ab85",
+    "started_at": "2026-08-13T09:01:26.433184Z"
+}

@@ -1,0 +1,13 @@
+ligand,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1
+protein,ALA14.A,VAL17.A,VAL17.A,PHE63.A,PHE63.A,PRO66.A,SER67.A,SER67.A,SER67.A,SER86.A,GLY89.A,PHE90.A,PHE90.A,MET92.A,MET92.A,GLN93.A,GLN93.A,PHE96.A,PHE96.A,ALA146.A,PHE147.A,ARG167.A,ARG167.A,ARG167.A,ASN171.A,ASN171.A,ASN171.A,TYR172.A,TYR172.A,TYR172.A,TYR172.A,ARG175.A,TRP306.A,PRO309.A,VAL312.A,MET313.A,GLN316.A,GLU329.A,ALA332.A,LYS333.A,LYS333.A,LEU336.A,LEU336.A
+interaction,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,VdWContact,HBDonor,HBAcceptor,VdWContact,VdWContact,VdWContact,HBAcceptor,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,VdWContact,VdWContact,Hydrophobic,Anionic,VdWContact,Hydrophobic,HBDonor,VdWContact,Hydrophobic,HBDonor,HBAcceptor,VdWContact,Anionic,VdWContact,VdWContact,VdWContact,VdWContact,VdWContact,VdWContact,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact
+Pose,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+0,0,1,3,5,6,0,0,2,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,8,0,0,7,0,1,1,4,0,4,0,0,0,0,0,0,8,4,2,10
+1,0,2,4,5,4,1,0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,1,0,5,0,0,1,1,3,0,0,5,10,5,0,1
+2,0,2,3,9,5,1,0,2,5,0,0,0,0,0,0,0,0,0,4,0,0,0,0,4,0,0,1,0,0,0,4,0,0,0,0,0,0,0,0,8,3,0,2
+3,0,0,0,0,0,0,0,0,0,0,0,0,2,5,0,0,4,8,1,4,2,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0
+4,0,0,4,5,5,1,0,2,4,0,0,0,0,0,0,0,0,4,1,0,0,0,3,2,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,4,0,7
+5,1,2,3,7,5,1,0,3,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,1,3,0,0,0,0,0,5,1,0,5,3,0,0
+6,0,1,3,12,8,0,0,0,0,0,0,0,0,0,2,0,2,2,2,0,0,0,0,0,0,1,5,0,0,0,0,0,0,0,0,0,0,0,0,8,4,2,4
+7,0,0,0,0,0,0,0,0,0,1,3,1,4,3,2,2,2,9,2,2,4,2,0,0,2,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+8,1,0,7,1,6,0,1,1,6,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,7,1,4

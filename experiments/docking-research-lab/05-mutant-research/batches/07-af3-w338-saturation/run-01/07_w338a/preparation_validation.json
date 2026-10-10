@@ -1,0 +1,37 @@
+{
+  "alias": "07_w338a",
+  "residues": 370,
+  "heavy_atoms": 2879,
+  "sequence_verified": true,
+  "heavy_atom_coordinates_preserved": true,
+  "terminal_oxygen_name_swap_allowed": true,
+  "charge_model": "gasteiger",
+  "versions": {
+    "meeko": "0.7.1",
+    "rdkit": "2025.9.5"
+  },
+  "command": [
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/python",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/src/prepare_receptor_pdbqt.py",
+    "--receptor-pdb",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/input.pdb",
+    "--output-pdbqt",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/receptor.pdbqt",
+    "--meeko-executable",
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/python",
+    "--charge-model",
+    "gasteiger",
+    "--meeko-arg=-j",
+    "--meeko-arg=/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/receptor.json",
+    "--meeko-arg=--write_pdb",
+    "--meeko-arg=/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/prepared.pdb"
+  ],
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_batch07_20260918/fasta_full_length/07_w338a.fasta": "2371381778bea098c89109a4567cd327ff7193e6875659c6de636a44cea00ca2",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/input.pdb": "a190185ac88e18ac93c134ba54215fdadf27dfe059f1a1c6c0c11d3f8661b18c",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/receptor.pdbqt": "c20935cdaa70044a1dc6076417ea79cd961903027bcb4a93c66bb3921f827b55",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/receptor.json": "d9a2967bc966ef297ee1024836f24038bb691d6234187300dbf9b178f561ff2e",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/prepared.pdb": "e1ce9eb586aa585de1a235145509458fdbfb645fa67f226105b07be59e14085e",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338a/preparation.log": "51398ecb27fa1cd0aebda8c32727c0bdc85f690af366f5ced1b3a205b40d82bd"
+  }
+}

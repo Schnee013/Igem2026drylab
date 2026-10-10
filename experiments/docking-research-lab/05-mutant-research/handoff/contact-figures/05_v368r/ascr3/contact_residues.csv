@@ -1,0 +1,9 @@
+residue,original_number,interaction_types
+ASN28.A,28,HBAcceptor;HBDonor;VdWContact
+LEU31.A,31,Hydrophobic;VdWContact
+PHE77.A,77,Hydrophobic;VdWContact
+SER80.A,80,VdWContact
+ALA81.A,81,VdWContact
+LEU90.A,90,VdWContact
+LYS364.A,364,Anionic;HBAcceptor;Hydrophobic;VdWContact
+ILE367.A,367,Hydrophobic;VdWContact

@@ -1,0 +1,1 @@
+These 370-aa sequences were generated under an incorrect interpretation. Do not submit them for the current AF3 comparison. Use ../fasta_full_length/ (406 aa); remove residues 1-21 and 164-178 only after full-length prediction.

@@ -1,0 +1,17 @@
+Allowed overlap: -0.4
+H-bond overlap reduction: 0.4
+Ignore contacts between atoms separated by 4 bonds or less
+Detect intra-residue contacts: False
+Detect intra-molecule contacts: True
+
+9 contacts
+               residue1                         residue2           overlap  distance
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? ASP 100   0.303    1.777
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? PHE 170   -0.053    2.753
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? VAL 101   -0.080    3.480
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? ALA 97    -0.081    2.581
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? ILE 141   -0.149    3.329
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? PRO 174   -0.163    2.163
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? ALA 142   -0.164    2.164
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? PHE 145   -0.228    3.628
+result.dock4 #2.1//chain_id='1 ' LIG 1  receptor.pdb #1/? VAL 138   -0.297    2.997

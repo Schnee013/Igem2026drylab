@@ -1,0 +1,40 @@
+{
+  "alias": "08_n84v_v110c",
+  "residues": 370,
+  "heavy_atoms": 2886,
+  "sequence_verified": true,
+  "heavy_atom_coordinates_preserved": true,
+  "terminal_oxygen_name_swap_allowed": true,
+  "charge_model": "gasteiger",
+  "versions": {
+    "meeko": "0.7.1",
+    "rdkit": "2025.9.5"
+  },
+  "command": [
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/python",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/src/prepare_receptor_pdbqt.py",
+    "--receptor-pdb",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/input.pdb",
+    "--output-pdbqt",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/receptor.pdbqt",
+    "--meeko-executable",
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/python",
+    "--charge-model",
+    "gasteiger",
+    "--meeko-arg=-j",
+    "--meeko-arg=/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/receptor.json",
+    "--meeko-arg=--write_pdb",
+    "--meeko-arg=/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/prepared.pdb"
+  ],
+  "af_model": 0,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/inputs/receptors/af3/08-af3-double-mutants/fasta_full_length/08_n84v_v110c.fasta": "84e82144d7c62652503eb9ec5bb0e7ccd33d6b771f5a619d22579d1d7aeb156f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/input.pdb": "99f7ec3c85feefb0e73e548d43729961e90e89dfa7bda7a6eb1a72c50f1d5e8e",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/receptor.pdbqt": "78655df122e0689f0c593d58cb26fce1972ca1b18cf04bcf7a9db8f03016dfbd",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/receptor.json": "1749e4a854308ad2ada9f14c2045970a08c853276f92398a031ea0fc184ec5cb",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/prepared.pdb": "1ae2d0b5165ce8698c66e62d21c4b242e2287461f10676e91fb5ae8777d5b3fa",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/preparation.log": "a4802411fa03eb26984b363dc61a00e6a59ad1d59cb08ada4d3e9342f94f1fb6",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/af_model_selection.json": "a861027114db78f4b681b1aca7c391a43d76ad0698e136b5ccf6482d8944eba4",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/inputs/receptors/af3/08-af3-double-mutants/original_cif/folds_2026_09_18_08_05/08_n84v_v110c/fold_08_n84v_v110c_model_0.cif": "029ec9a3b61026c922daf1a7ece69c7d2d08179cd9fe551ea1511757b7888753"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "command": [
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/vina",
+    "--config",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/vina.conf",
+    "--out",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/.poses.pdbqt.91r0xzcs.tmp",
+    "--cpu",
+    "4",
+    "--spacing",
+    "0.375",
+    "--min_rmsd",
+    "1.0",
+    "--max_evals",
+    "0"
+  ],
+  "cwd": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab",
+  "vina_version": "AutoDock Vina v1.2.5",
+  "return_code": 0,
+  "elapsed_seconds": 17.713236808776855,
+  "config": {
+    "path": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/vina.conf",
+    "sha256": "100874740b6b604449ed771f6aaf94e73bf55dd2f50046b9ad278ef68b751d48",
+    "values": {
+      "receptor": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/receptor.pdbqt",
+      "ligand": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/ligands/deprotonated-minus1/pdbqt/ascr3_deprotonated.pdbqt",
+      "center_x": "20",
+      "center_y": "-20",
+      "center_z": "5",
+      "size_x": "26",
+      "size_y": "26",
+      "size_z": "26",
+      "exhaustiveness": "8",
+      "num_modes": "9",
+      "energy_range": "3",
+      "seed": "1919"
+    }
+  },
+  "inputs": {
+    "receptor": {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/receptor.pdbqt",
+      "sha256": "bb8defde7a523ba008f9ce72108b408b85a7021112b3246e89ccae8fc12a2aef"
+    },
+    "ligand": {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/ligands/deprotonated-minus1/pdbqt/ascr3_deprotonated.pdbqt",
+      "sha256": "4723f74d7e952a0e1b048f0ee10c023815da58fd2ed72c7e92bdf3533ac20a7e"
+    }
+  },
+  "runtime_overrides": {
+    "cpu": 4,
+    "spacing": 0.375,
+    "min_rmsd": 1.0,
+    "max_evals": 0
+  },
+  "output": {
+    "path": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/poses.pdbqt",
+    "sha256": "110582f6844d3d988280db309d45816d06f0a1cfefa37fe6e094108e9ca73266"
+  }
+}

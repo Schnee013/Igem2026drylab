@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 11,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/contact_residues.csv": "1521b5f20d73517134efcea49da2a710a8c300a60ba19d38a0e349e4c8dfd1e9",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/ifp/ifp_presence.csv": "670343a48f31ad7d687f06f63c82cfa48236196c39e52ff53aa38d04b39e9270",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/ifp/metadata.json": "8a8e3c1ff308c1110b6819df3ca34ba736483f5e5e9f1632a077b06e089f0877",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/ifp/residue_counts.csv": "89aac31d83c117568b5fc92752a5339e7611d8cb23e999647d8d7890ae3acac8",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/ifp/residue_presence.csv": "3205ea08667ae0cb11b295e3cbbcea933e96a66536fe6a3b3b45df926c90276c",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/selection.json": "3e1056784320d294781a515aadfd3ffdc248b6b4551ff32828f0c4cd2f435de5",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/top1.pdbqt": "b04dbefcafc312edecd61d812d65388b5142fdf27c099b482ccfd190ab5762c3",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/top1.sdf": "e0e0e0dc7f9ae28d4c0aeb01370c6362105fc2f8c0151d0b76fec9fa5ea66c36",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/view_contacts.pml": "247d5a56b359fc5899b463f6ac2103fe1b527ec7ccc0978a97a47e70797a9240"
+  }
+}

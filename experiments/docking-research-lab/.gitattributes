@@ -1,0 +1,10 @@
+# Preserve exact bytes of archived SwissDock parameters and PLIP evidence.
+# Whitespace exceptions apply only to the original formatting shown below.
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/results/gpr2-ascr3/contacts/plip-top1/report.txt -text whitespace=-blank-at-eol,-blank-at-eof
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/results/gpr2-ascr3/scores/Gpr2_ascr3_neutral_AC_all_poses.tsv -text whitespace=cr-at-eol
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/results/gpr3-ascr3/scores/Gpr3_ascr3_neutral_AC_all_poses.tsv -text whitespace=cr-at-eol
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr2-ascr3/swissdock-af3-model0-deprot-ph7-93592351/parameters -text whitespace=-blank-at-eol
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr2-ascr3/swissdock-af3-model0-neutral-96443616/parameters -text whitespace=-blank-at-eol
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr2-ascr3/swissdock-neutral-rerun-20260811/parameters -text whitespace=-blank-at-eol
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr3-ascr3/swissdock-af3-model0-neutral-32488314/parameters -text whitespace=-blank-at-eol
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr3-ascr3/swissdock-job-13135222/parameters -text whitespace=-blank-at-eol

@@ -1,0 +1,13 @@
+ligand,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1
+protein,ASP9.A,ARG10.A,ARG11.A,GLY12.A,GLY12.A,GLY13.A,LEU90.A,ALA91.A,LEU92.A,ARG96.A,ARG96.A,ARG96.A,ARG96.A,CYS99.A,SER100.A,SER100.A,LEU164.A,GLY165.A,TYR166.A,TYR166.A,GLY167.A,TYR168.A,TYR168.A,TYR168.A,THR176.A,THR176.A
+interaction,VdWContact,VdWContact,VdWContact,HBAcceptor,VdWContact,VdWContact,VdWContact,VdWContact,VdWContact,Hydrophobic,HBAcceptor,Anionic,VdWContact,VdWContact,HBAcceptor,VdWContact,VdWContact,VdWContact,HBDonor,VdWContact,VdWContact,Hydrophobic,HBDonor,VdWContact,HBDonor,VdWContact
+Pose,,,,,,,,,,,,,,,,,,,,,,,,,,
+0,False,True,False,False,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,True,False,False,True,False,True
+1,False,True,False,False,False,False,False,True,False,True,False,False,True,False,False,False,False,False,False,False,True,False,False,True,False,True
+2,False,True,False,False,False,False,False,True,False,True,True,True,True,True,True,True,False,False,False,True,True,False,False,True,False,False
+3,False,True,True,False,False,False,False,True,False,True,True,True,True,False,True,True,False,False,False,True,True,False,False,True,False,False
+4,False,True,True,False,False,False,False,True,False,True,False,False,True,True,False,False,False,False,False,False,True,False,False,True,False,True
+5,False,False,False,False,False,False,False,True,False,False,False,False,True,False,False,False,True,True,False,True,False,True,False,True,True,True
+6,False,False,True,False,False,False,False,True,False,True,False,False,True,True,False,False,False,False,False,False,False,False,False,True,False,True
+7,True,True,False,True,True,True,True,True,True,False,False,False,True,False,False,False,False,False,True,True,True,False,False,True,False,True
+8,False,False,False,False,False,False,False,True,False,False,True,True,True,False,True,True,False,False,False,False,False,False,True,True,False,True

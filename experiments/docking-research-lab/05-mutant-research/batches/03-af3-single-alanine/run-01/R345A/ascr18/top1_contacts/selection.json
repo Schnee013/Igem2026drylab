@@ -1,0 +1,13 @@
+{
+  "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R345A/ascr18/poses.pdbqt",
+  "source_sha256": "730d80c116c5883505594f47706d5bc13674b0546cff9e061a7798501fe8034a",
+  "selected_original_mode": 1,
+  "vina_score_kcal_mol": -6.82,
+  "tied_minimum_modes": [
+    1
+  ],
+  "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+  "analyzed_pose_count": 1,
+  "unique_contact_residues": 9,
+  "pose_index_in_ifp": 0
+}

@@ -1,0 +1,11 @@
+{
+    "exit_code": 0,
+    "arguments": [
+        "--fasta",
+        "Celegans_DAF37_NP_001309490.1.fasta"
+    ],
+    "app_uri": "DTU/DeepTMHMM:1.0.57",
+    "ended_at": "2026-08-16T06:58:55.674148Z",
+    "job_uuid": "dd485548-e601-40ed-bfd6-0ed2d5637444",
+    "started_at": "2026-08-16T06:57:30.665645Z"
+}

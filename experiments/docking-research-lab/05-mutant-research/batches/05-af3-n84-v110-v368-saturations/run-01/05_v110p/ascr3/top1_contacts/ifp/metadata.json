@@ -1,0 +1,20 @@
+{
+  "prolif_version": "2.1.0",
+  "n_poses": 1,
+  "interactions": [
+    "Anionic",
+    "CationPi",
+    "Cationic",
+    "HBAcceptor",
+    "HBDonor",
+    "Hydrophobic",
+    "PiCation",
+    "PiStacking",
+    "VdWContact"
+  ],
+  "vicinity_cutoff_A": 6.0,
+  "receptor_json": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110p/receptor.json",
+  "poses_sdf": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110p/ascr3/top1_contacts/top1.sdf",
+  "receptor_sha256": "e2770c1251e5a03ce45a0239b2c8c6b7be2ab7dabdd241fa054b61a9c902062f",
+  "sdf_sha256": "15ffd749d047bbcb3e9f0701d49342b05acd75b0d47f2f571d95e13c2b86558b"
+}

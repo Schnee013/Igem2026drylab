@@ -1,0 +1,13 @@
+{
+  "source": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/V368L/ascr18/poses.pdbqt",
+  "source_sha256": "151e82c66b71dec5c1284e9d94cd6f88a206ca99c39ac2d61d180d1e94f800aa",
+  "selected_original_mode": 1,
+  "vina_score_kcal_mol": -6.665,
+  "tied_minimum_modes": [
+    1
+  ],
+  "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+  "analyzed_pose_count": 1,
+  "unique_contact_residues": 11,
+  "pose_index_in_ifp": 0
+}

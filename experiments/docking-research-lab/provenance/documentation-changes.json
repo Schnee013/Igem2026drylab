@@ -1,0 +1,247 @@
+[
+  {
+    "source": "MINIMAL_VINA_ROADMAP.md",
+    "destination": "01-literature-and-methods/method-development/MINIMAL_VINA_ROADMAP.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "c9635c143e41a6539ad95ecdf3864ad2683df78f2d530bb0aeb8f6ec84d1cca1",
+    "delivery_sha256": "09ec74c1cc545c9d5cb032c56017ea83d1fcc307a3e064022bcfe0e21fb03573"
+  },
+  {
+    "source": "outputs/file-organization/analysis-layout-review.md",
+    "destination": "provenance/previous-organization/analysis-layout-review.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "f103e920589ac8dc57509b96b71654cbd947bff09db4db5edab9b976153ff1ec",
+    "delivery_sha256": "8ab447b25981dbe40f93795e330a242fc9d1126c4b5558fe8b96fdab642f615e"
+  },
+  {
+    "source": "outputs/phase1-analysis/residue-priorities.md",
+    "destination": "05-mutant-research/analysis/01-03-initial-screen/residue-priorities.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "c2f032b30d814c77e3cc3614bfad538a97e33930b69a555df0656acf76978a67",
+    "delivery_sha256": "525a7b490205445f747e8ab68e1b6c08732b2b9dfc5a02abde1c8a4a6132834c"
+  },
+  {
+    "source": "outputs/phase1-analysis/statistics.md",
+    "destination": "05-mutant-research/analysis/01-03-initial-screen/statistics.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "f7bce127e7b9fe325e0a098c59ff92e5e236d0100ceb12f9c82cd516da221aaf",
+    "delivery_sha256": "3b7a04b9a04cfd30eb936708d2499a08d95c804f8296a647bbaf5a5039d64036"
+  },
+  {
+    "source": "outputs/phase2-analysis/double-mutant-analysis.md",
+    "destination": "05-mutant-research/analysis/08-double-mutants/double-mutant-analysis.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "793b42da0de59afb3f8ac2f1c668d7d630bcf332faacdd4363b8a7df0a358cc7",
+    "delivery_sha256": "55658152194227f2043aaabf0e8981a8d78deae78b314099292addb4e51f3df0"
+  },
+  {
+    "source": "outputs/phase2-analysis/double-mutant-scores.md",
+    "destination": "05-mutant-research/analysis/08-double-mutants/double-mutant-scores.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "255ede00f6c40f748350e20bcd45d8ab92c1b7950d6ca6033db812de18f18845",
+    "delivery_sha256": "1197d451bfe14c32afe07acd78fa6b2b91623e3fff1e0e420e3287c0e5974674"
+  },
+  {
+    "source": "outputs/phase2-analysis/saturation-analysis.md",
+    "destination": "05-mutant-research/analysis/04-07-single-mutants/saturation-analysis.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "4059e0b9e957628ac0793c7ed1f4fa5cb522be484b0a2c874ba00fc479896643",
+    "delivery_sha256": "7fa4167c847635df582f8fcdf9a9af720906881bf6cbf3ca0834f32f72f28ead"
+  },
+  {
+    "source": "outputs/phase2-analysis/single-mutant-contact-candidates.md",
+    "destination": "05-mutant-research/analysis/04-07-single-mutants/single-mutant-contact-candidates.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "860928d80a1750b27086c054fb769b6ad722971730ab8ebb7e4903888f28a814",
+    "delivery_sha256": "0c198121e65810ebcb285aaaabb9c0424d72bc752ea8032f1eec1126433546ff"
+  },
+  {
+    "source": "outputs/phase2-analysis/single-mutant-roles.md",
+    "destination": "05-mutant-research/analysis/04-07-single-mutants/single-mutant-roles.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "858072ad77f03c87e14c85a085f7de35f52d076dbc2a0287ba739e99a74672e1",
+    "delivery_sha256": "a4f9f7dd001ccadcb1d8e489bb62057bc604b8dd3f66e9b5bd19dd8124e32181"
+  },
+  {
+    "source": "outputs/phase2-analysis/supporting-evidence/multi-pose-contacts/batch04/README.md",
+    "destination": "05-mutant-research/analysis/04-07-single-mutants/supporting-evidence/multi-pose-contacts/batch04/README.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "ab091443323cb29c9955f43b8677083cd389374f2bab3e99f65a2fefe1c72d3a",
+    "delivery_sha256": "ae3c67bebe64180e8bc2121a2ef2fe4e56b45a302bea9b81bda4bdb9f5e1cf89"
+  },
+  {
+    "source": "outputs/phase2-design/combination-plan-v1.md",
+    "destination": "05-mutant-research/design/combination-plan-v1.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "f32e02512f9e7781bc876b77e3c7d6cb44be91d31c28e76f99ee352ccf4edaca",
+    "delivery_sha256": "1094d4d4822a7f819e918c5198374fdb432c119cb177c1d660153a112c625c9e"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/ATCC24927_Gpr2_G1X9E2/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/ATCC24927_Gpr2_G1X9E2/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "c78292a5a727dd13dc9f29d19c2a8d1826b7ceffb921c11fc5746f4ea0408ccf",
+    "delivery_sha256": "49c367d446dd306146c88afabd2f0382b27b77ad87a073ea1ff6f8ee5faa9833"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/ATCC24927_Gpr3_G1XJN1/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/ATCC24927_Gpr3_G1XJN1/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "c285f4726144d1a31e38b2fa75c045a3aa9548ff52eb382dd6ae074f1d560227",
+    "delivery_sha256": "d41e72428c594fcd58a1f3ed51b217ca2f098ed3a34b9eb05f27f2d3dbc8bc30"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/Aflagrans_GprC_A0A437AGY2/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/Aflagrans_GprC_A0A437AGY2/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "511307d32422fe6f9cffe251b80fa401067b11d1149d69e98a6a8d4e22b54643",
+    "delivery_sha256": "006a61604c03c3162bc335ace202f4218687843d7278afffea61f93bfc2a38c8"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/Celegans_N2_DAF37_Q18321/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/Celegans_N2_DAF37_Q18321/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "1d2e109016f9ee987b310ab8761986e9f31080ab70f535915b9a61ce26265dde",
+    "delivery_sha256": "33b2f618bdf3062b92e6c0b9b70a108771334b03639fdf1c64d5ab40773f47eb"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/Celegans_N2_DAF38_Q9U320/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/Celegans_N2_DAF38_Q9U320/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "2e71d555cd750d0e543f27ceb5f11da1c9808e9bddb76bf5939b60946ab6f6a6",
+    "delivery_sha256": "55fcc8ab71e48484304e3b6729ade5d20e7b5863b715d76e823c8bb03d362eab"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/Celegans_N2_SRBC64_G5ECV4/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/Celegans_N2_SRBC64_G5ECV4/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "50486a2099fc38f3ed411f45bc86714cc6a65b5a6bacb0d86000b1f72a97b205",
+    "delivery_sha256": "a6b5547793735c80aec593666540bf4553f8c36269979656c36441ca80cd9ae5"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/TWF154_Gpr2_TGJ68930.1/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/TWF154_Gpr2_TGJ68930.1/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "495da4013e71d5b23e150476cfd36cbe13ba75dda0e562d6526849f7ec77666d",
+    "delivery_sha256": "df771f9b9ff13f4513155fa1857ddbef84f20069792f4119b3a792671425d6bf"
+  },
+  {
+    "source": "projects-done/alignment/topology/raw/TWF154_Gpr3_TGJ67963.1/DeepTMHMM/deeptmhmm_results.md",
+    "destination": "03-structure-and-pocket/topology/raw/TWF154_Gpr3_TGJ67963.1/DeepTMHMM/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "f1749edc01171dc685b9451f83d65840e8ccefc0716a403c43c037b11a42cc1b",
+    "delivery_sha256": "ec0e6bbe196f0c776b1d76bb163841d825e68481e69c3b4aa7b70171581a5755"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "465b91e3c504fb57552980378477ae44e3c755fe3f8e02b8a2b058ab7681da55",
+    "delivery_sha256": "20c956c73ff5c42c4c06deb4893e85f8c5bd52f70366c620215299b6548adcee"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "511307d32422fe6f9cffe251b80fa401067b11d1149d69e98a6a8d4e22b54643",
+    "delivery_sha256": "04db865e6fbbd8ab6d999b4b933b85316261b1e79d6df8bce0c42da2bc0b3f47"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "50486a2099fc38f3ed411f45bc86714cc6a65b5a6bacb0d86000b1f72a97b205",
+    "delivery_sha256": "743fcc2c63e28f307eaaf9ef59d0aae45347796409d685d2780fc22456ba5cc8"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "495da4013e71d5b23e150476cfd36cbe13ba75dda0e562d6526849f7ec77666d",
+    "delivery_sha256": "c5aef6bf447c58f74bbbecbebc775a10a1c21f7c6f1be15be0be21e81142a2d8"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "f1749edc01171dc685b9451f83d65840e8ccefc0716a403c43c037b11a42cc1b",
+    "delivery_sha256": "716ced780142d2d315210ece7b93378f4f8457d08a5edf5e6de97d4886239f4d"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/README.md",
+    "destination": "02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/README.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "42b79ca3dd38d24f5cd27d58e937f7b85ef2d1ed03b7287d511eeccd22e07610",
+    "delivery_sha256": "58d6d0ea337e1d20876828e9f467a343a0b6fd47ba914fd36c90708cd08f3b71"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "465b91e3c504fb57552980378477ae44e3c755fe3f8e02b8a2b058ab7681da55",
+    "delivery_sha256": "20c956c73ff5c42c4c06deb4893e85f8c5bd52f70366c620215299b6548adcee"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "511307d32422fe6f9cffe251b80fa401067b11d1149d69e98a6a8d4e22b54643",
+    "delivery_sha256": "04db865e6fbbd8ab6d999b4b933b85316261b1e79d6df8bce0c42da2bc0b3f47"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "50486a2099fc38f3ed411f45bc86714cc6a65b5a6bacb0d86000b1f72a97b205",
+    "delivery_sha256": "743fcc2c63e28f307eaaf9ef59d0aae45347796409d685d2780fc22456ba5cc8"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "495da4013e71d5b23e150476cfd36cbe13ba75dda0e562d6526849f7ec77666d",
+    "delivery_sha256": "c5aef6bf447c58f74bbbecbebc775a10a1c21f7c6f1be15be0be21e81142a2d8"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md",
+    "destination": "04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "f1749edc01171dc685b9451f83d65840e8ccefc0716a403c43c037b11a42cc1b",
+    "delivery_sha256": "716ced780142d2d315210ece7b93378f4f8457d08a5edf5e6de97d4886239f4d"
+  },
+  {
+    "source": "vina/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md",
+    "destination": "shared/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "465b91e3c504fb57552980378477ae44e3c755fe3f8e02b8a2b058ab7681da55",
+    "delivery_sha256": "20c956c73ff5c42c4c06deb4893e85f8c5bd52f70366c620215299b6548adcee"
+  },
+  {
+    "source": "vina/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md",
+    "destination": "shared/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "511307d32422fe6f9cffe251b80fa401067b11d1149d69e98a6a8d4e22b54643",
+    "delivery_sha256": "04db865e6fbbd8ab6d999b4b933b85316261b1e79d6df8bce0c42da2bc0b3f47"
+  },
+  {
+    "source": "vina/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md",
+    "destination": "shared/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "50486a2099fc38f3ed411f45bc86714cc6a65b5a6bacb0d86000b1f72a97b205",
+    "delivery_sha256": "743fcc2c63e28f307eaaf9ef59d0aae45347796409d685d2780fc22456ba5cc8"
+  },
+  {
+    "source": "vina/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md",
+    "destination": "shared/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "495da4013e71d5b23e150476cfd36cbe13ba75dda0e562d6526849f7ec77666d",
+    "delivery_sha256": "c5aef6bf447c58f74bbbecbebc775a10a1c21f7c6f1be15be0be21e81142a2d8"
+  },
+  {
+    "source": "vina/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md",
+    "destination": "shared/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md",
+    "change": "adapt relative Markdown links and label missing source references",
+    "source_sha256": "f1749edc01171dc685b9451f83d65840e8ccefc0716a403c43c037b11a42cc1b",
+    "delivery_sha256": "716ced780142d2d315210ece7b93378f4f8457d08a5edf5e6de97d4886239f4d"
+  }
+]

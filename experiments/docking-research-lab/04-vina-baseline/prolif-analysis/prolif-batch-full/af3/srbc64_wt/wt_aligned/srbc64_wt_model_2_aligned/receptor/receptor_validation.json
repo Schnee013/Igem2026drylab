@@ -1,0 +1,10 @@
+{
+  "model_rel": "srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned",
+  "source_receptor_pdb": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned.pdb",
+  "source_receptor_pdbqt": "/Users/roy/Documents/docking/inputs/receptors/af3/pdbqt/srbc64_wt/wt_aligned/srbc64_wt_model_2_aligned.pdbqt",
+  "pdbqt_byte_identical": true,
+  "residue_count": 289,
+  "atom_count": 4822,
+  "explicit_hydrogens": 2444,
+  "formal_charge": 13
+}

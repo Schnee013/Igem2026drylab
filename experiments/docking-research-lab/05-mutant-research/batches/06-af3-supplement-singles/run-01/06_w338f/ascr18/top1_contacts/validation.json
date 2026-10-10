@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 11,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/contact_residues.csv": "55311a8c9f223343d749a865dcf39dd3c39c4ac1fb91ea31c474d8128823afe7",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/ifp/ifp_presence.csv": "daf9649f0d5d6a39440121828bb3f953ab6c1c694ccbc542928dc357c2a31474",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/ifp/metadata.json": "d0128193b2db1af192e5ee83e4d95ac8dae999efb79e4b80e0669596d184616f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/ifp/residue_counts.csv": "d4a6fb00feba3314f9c4d50097ead08dd34c3b6b432c8001c9b7a61ec4929fc4",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/ifp/residue_presence.csv": "f42bd5e745bda557fc26ffdaccd0dd10515eb5920b70be1dc40f443e0075dc2a",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/selection.json": "8f27bffd3dd55a93a3ac3395b0b941491b63d7c5c3c56a1a293df23c6c42b15f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/top1.pdbqt": "8dc6e251d4ee02accf2f2858bd671b35997aaaf9b3248d2cd3b95895e1f70546",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/top1.sdf": "7117637ce4ad94bc7e9a2682d368b36d3487d6be2f1fde7393d1865743b8fa6d",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/view_contacts.pml": "42ee9ebd48516bbec3905d354f778094a2a9dc2f0df8c5d5cf1868fcd45eec16"
+  }
+}

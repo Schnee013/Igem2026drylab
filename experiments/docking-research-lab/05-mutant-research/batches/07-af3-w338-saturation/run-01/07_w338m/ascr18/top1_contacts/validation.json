@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 14,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/contact_residues.csv": "af297d6576b2b45555b80c170688b37239749b8a2cff0b3f846240c813d575a8",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/ifp/ifp_presence.csv": "179a67615586ba9e726328e3e90f97e86fb65c10f0aa28b01a29bfec6a0c7f9b",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/ifp/metadata.json": "35b190553b4f728a66517e693af6bf0eef4644877fed5e49e69fdf164bba1695",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/ifp/residue_counts.csv": "ad1ce8baa540e80c356348680d51ec156fff0797ae45bd25731ad24d5dd9b09e",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/ifp/residue_presence.csv": "03c0b095ed163fc55cc1b86cc9545696c1f9dc5a441c1662bfd2b627917fb161",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/selection.json": "64e127ce82787e0b529832a8f48c1b428bab72c0c50a8a08afd885d3cef64895",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/top1.pdbqt": "8d0b4465042124f6a684d4a7bebe95684a82692a55b20c30d56a5a65d500a7a0",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/top1.sdf": "e7afc21ef303976244ca250c4d2b981a8014f523bcad61007da73cedff2855c3",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338m/ascr18/top1_contacts/view_contacts.pml": "478a1d91c35597b63355d32d1b96bd6854d1bccfb55c0d4a3d703d0a133c9afd"
+  }
+}

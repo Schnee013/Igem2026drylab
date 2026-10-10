@@ -1,0 +1,167 @@
+{
+  "run_count": 14,
+  "baseline": {
+    "variant": "baseline",
+    "alias": "06_baseline",
+    "rmsd_A": 0.20509698463498688,
+    "ascr3": {
+      "score": "-6.932",
+      "model": 1,
+      "poses": 9,
+      "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3"
+    },
+    "ascr18": {
+      "score": "-7.027",
+      "model": 1,
+      "poses": 9,
+      "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18"
+    },
+    "deltaS3": "0.000",
+    "deltaS18": "0.000",
+    "D": "0.000"
+  },
+  "records": [
+    {
+      "variant": "baseline",
+      "alias": "06_baseline",
+      "rmsd_A": 0.20509698463498688,
+      "ascr3": {
+        "score": "-6.932",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3"
+      },
+      "ascr18": {
+        "score": "-7.027",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18"
+      },
+      "deltaS3": "0.000",
+      "deltaS18": "0.000",
+      "D": "0.000"
+    },
+    {
+      "variant": "R181K",
+      "alias": "06_r181k",
+      "rmsd_A": 0.3873299544009801,
+      "ascr3": {
+        "score": "-6.548",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr3"
+      },
+      "ascr18": {
+        "score": "-6.613",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr18"
+      },
+      "deltaS3": "0.384",
+      "deltaS18": "0.414",
+      "D": "0.030"
+    },
+    {
+      "variant": "R181Q",
+      "alias": "06_r181q",
+      "rmsd_A": 0.319703685529028,
+      "ascr3": {
+        "score": "-6.493",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3"
+      },
+      "ascr18": {
+        "score": "-6.617",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr18"
+      },
+      "deltaS3": "0.439",
+      "deltaS18": "0.410",
+      "D": "-0.029"
+    },
+    {
+      "variant": "T106S",
+      "alias": "06_t106s",
+      "rmsd_A": 0.6333187261687467,
+      "ascr3": {
+        "score": "-6.745",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr3"
+      },
+      "ascr18": {
+        "score": "-6.730",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr18"
+      },
+      "deltaS3": "0.187",
+      "deltaS18": "0.297",
+      "D": "0.110"
+    },
+    {
+      "variant": "T106V",
+      "alias": "06_t106v",
+      "rmsd_A": 0.30351373158899314,
+      "ascr3": {
+        "score": "-6.608",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3"
+      },
+      "ascr18": {
+        "score": "-6.695",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr18"
+      },
+      "deltaS3": "0.324",
+      "deltaS18": "0.332",
+      "D": "0.008"
+    },
+    {
+      "variant": "W338F",
+      "alias": "06_w338f",
+      "rmsd_A": 0.26981559494153917,
+      "ascr3": {
+        "score": "-6.639",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr3"
+      },
+      "ascr18": {
+        "score": "-6.909",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18"
+      },
+      "deltaS3": "0.293",
+      "deltaS18": "0.118",
+      "D": "-0.175"
+    },
+    {
+      "variant": "W338L",
+      "alias": "06_w338l",
+      "rmsd_A": 0.47327170068584706,
+      "ascr3": {
+        "score": "-6.752",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr3"
+      },
+      "ascr18": {
+        "score": "-6.620",
+        "model": 1,
+        "poses": 9,
+        "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr18"
+      },
+      "deltaS3": "0.180",
+      "deltaS18": "0.407",
+      "D": "0.227"
+    }
+  ],
+  "stderr_logs_to_review": [],
+  "definition": "D=deltaS18-deltaS3; minimum-score pose per run; lowest MODEL breaks ties"
+}

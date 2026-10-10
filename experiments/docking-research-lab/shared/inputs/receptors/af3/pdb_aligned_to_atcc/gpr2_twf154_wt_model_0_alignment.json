@@ -1,0 +1,34 @@
+{
+  "moving_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/pdb/gpr2_twf154_wt/fold_gpr2_twf154_wt_model_0.pdb",
+  "reference_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/alignment/inputs/structures/ATCC24927_Gpr2_G1X9E2_AFDB_v6.pdb",
+  "output_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/pdb_aligned_to_atcc/gpr2_twf154_wt_model_0_aligned_to_atcc.pdb",
+  "moving_chain": "A",
+  "reference_chain": "A",
+  "moving_ranges": "30-50,62-83,101-126,144-164,182-201,326-346,358-380",
+  "reference_ranges": "30-50,62-83,101-126,144-164,182-201,326-346,358-380",
+  "matched_ca_count": 154,
+  "ca_rmsd_before_angstrom": 29.18895149230957,
+  "ca_rmsd_after_angstrom": 0.2779898143573046,
+  "rotation_matrix": [
+    [
+      0.9641446486850089,
+      -0.10994820866300442,
+      -0.24152947609734576
+    ],
+    [
+      0.1205512713916274,
+      -0.6293531756196916,
+      0.7677121669631606
+    ],
+    [
+      -0.2364159203140177,
+      -0.7693022629299922,
+      -0.5935331000650854
+    ]
+  ],
+  "translation_vector": [
+    -12.642372944856891,
+    -0.8707848523265143,
+    7.746243745911263
+  ]
+}

@@ -1,0 +1,13 @@
+ligand,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1
+protein,VAL17.A,VAL17.A,PHE63.A,PHE63.A,PRO66.A,SER67.A,SER67.A,MET70.A,ILE76.A,SER86.A,ASN88.A,ASN88.A,GLY89.A,PHE90.A,PHE90.A,MET92.A,MET92.A,GLN93.A,GLN93.A,PHE96.A,PHE96.A,ALA143.A,PHE145.A,PHE145.A,ALA146.A,PHE147.A,PHE149.A,ILE166.A,ARG167.A,ARG167.A,ARG167.A,ARG167.A,PHE170.A,PHE170.A,PHE170.A,ASN171.A,ASN171.A,ASN171.A,TYR172.A,TYR172.A,TYR172.A,ARG175.A,TRP306.A,LYS333.A,LYS333.A,LYS333.A,LEU336.A,LEU336.A
+interaction,Hydrophobic,VdWContact,Hydrophobic,VdWContact,VdWContact,HBAcceptor,VdWContact,VdWContact,VdWContact,VdWContact,HBDonor,VdWContact,VdWContact,HBAcceptor,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,VdWContact,Hydrophobic,VdWContact,VdWContact,VdWContact,Hydrophobic,VdWContact,Hydrophobic,HBAcceptor,Anionic,VdWContact,Hydrophobic,HBAcceptor,VdWContact,Hydrophobic,HBDonor,VdWContact,Hydrophobic,HBAcceptor,VdWContact,Anionic,Hydrophobic,Hydrophobic,HBAcceptor,VdWContact,Hydrophobic,VdWContact
+Pose,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,8,4,1,2,5,7,2,1,0,0,1,4,0,0,2,0,1,0,0,0,0,1,0,2,1,1,1,0,0,0,0,0,0,0
+1,1,4,9,6,1,1,5,0,0,0,0,0,0,0,0,0,4,0,2,2,3,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,5,0,0,0,0,0,8,0,3,0,2
+2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,4,3,1,8,6,1,0,0,0,2,2,0,0,5,0,3,5,0,0,0,1,0,1,1,1,6,0,0,0,0,0,0,0
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,15,3,0,0,0,0,0,0,1,2,1,2,5,0,0,0,3,0,1,4,0,0,0,4,0,0,0,0,1
+4,0,4,5,9,0,1,3,1,0,0,0,0,0,0,0,0,0,0,0,6,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,2,1,15,1,3
+5,0,3,0,11,2,0,3,0,3,0,1,1,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,3,0,2
+6,0,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,0,0,3,0,0,0,4,1,8,1,1,3,0,0,0,0,20,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0
+7,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,4,0,0,0,0,0,0,0,3,0,0,2,0,0,0,3,0,1,5,0,1,0,4,0,1,6,1,4
+8,0,0,0,0,0,0,0,0,0,1,0,0,0,1,9,0,0,0,0,0,0,0,5,2,10,5,0,7,0,0,0,0,16,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0

@@ -1,0 +1,990 @@
+[
+  {
+    "source": ".DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "PUSH_PREPARATION.md",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "README.md",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "outputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/README.md",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "outputs/batches/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/01-sidechain-combination/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/01-sidechain-combination/cli/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/01-sidechain-combination/cli/__pycache__/helpers.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/01-sidechain-combination/cli/__pycache__/helpers.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/01-sidechain-combination/run-01/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/02-af3-combination/run-01/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/02-af3-combination/run-01/N84A_L90A_R345A/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/02-af3-combination/run-01/baseline/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/03-af3-single-alanine/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/03-af3-single-alanine/run-01/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/04-af3-more-single-alanine/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/04-af3-more-single-alanine/run-01/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/04-af3-more-single-alanine/run-01/N84A_V110A_V368A/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/04-af3-more-single-alanine/run-01/N84A_V110A_V368A/ascr3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/04-af3-more-single-alanine/run-01/N84A_V110A_V368A/ascr3/top1_contacts/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/cli/__pycache__/compare_contacts_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/cli/__pycache__/configure_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/cli/__pycache__/contacts_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/06-af3-supplement-singles/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/06-af3-supplement-singles/cli/__pycache__/configure_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/06-af3-supplement-singles/cli/__pycache__/contacts_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/06-af3-supplement-singles/cli/__pycache__/prepare_received.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/07-af3-w338-saturation/cli/__pycache__/configure_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/07-af3-w338-saturation/cli/__pycache__/contacts_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/07-af3-w338-saturation/cli/__pycache__/model_selection.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/07-af3-w338-saturation/cli/__pycache__/prepare_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/08-af3-double-mutants/cli/__pycache__/configure_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/08-af3-double-mutants/cli/__pycache__/contacts_received.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/08-af3-double-mutants/cli/__pycache__/model_selection.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/batches/08-af3-double-mutants/cli/__pycache__/prepare_fastas.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/contact-figures-handoff-01/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/contact-figures-handoff-01/05_baseline/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/contact-figures-handoff-01/05_baseline/ascr18/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/md-handoff-n84v-v368r/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/md-handoff-n84v-v368r/05_n84v/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase1-analysis/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase1-analysis/candidate-allposes/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-analysis/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-analysis/__pycache__/summarize.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-analysis/supporting-evidence/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-analysis/supporting-evidence/multi-pose-contacts/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-analysis/supporting-evidence/multi-pose-contacts/batch04/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-analysis/supporting-evidence/multi-pose-contacts/batch04/R181A/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-analysis/supporting-evidence/multi-pose-contacts/batch04/R181A/ascr3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "outputs/phase2-design/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/ATCC results/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/ATCC results/Gpr2_ascr3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/alignment/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/alignment/alignments/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/alignment/inputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/alignment/sources/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/alignment/tools/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/alignment/tools/tmalign/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/alignment/topology/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/2026-08-11-galpha-sequence-comparison.md",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/fasta/alignments/four_Galpha_clustalo.fasta",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/fasta/checksums.sha256",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/fasta/sequences/AfGasA_A0A436ZRX2.fasta",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/fasta/sequences/AoGpa2_TGJ64397.1.fasta",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/fasta/sequences/ScGpa1_P08539.fasta",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/fasta/sequences/ScGpa2_P10823.fasta",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/galpha-sequence-comparison-report-20260909/report.md",
+    "reason": "Galpha excluded by user"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/display/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/display/input/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/display/output/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/display/output/twf154_deltaN_af3_model0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/display/output/twf154_wt_af3_model0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/ligands/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/ligands/deprotonated-minus1/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/ligands/deprotonated-minus1/pdbqt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af2/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af2/GPR2_TWF154_WT_AF2ptm_ColabOnline_a28e6/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/original_cif/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/original_cif/gpr2_twf154_deltan1_16/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/original_cif/gpr3_twf154_deltan1_5/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/daf37_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr2_twf154_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr3_twf154_deltan1_5/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr3_twf154_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gprc_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/srbc64_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/daf37_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/gpr2_twf154_deltan1_16/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/gpr2_twf154_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/gpr3_twf154_deltan1_5/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/gpr3_twf154_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/gprc_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdbqt/srbc64_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/topology/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/daf37_wt/wt_aligned/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr2_twf154_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr2_twf154_wt/deltaN_aligned/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned/ligands/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr2_twf154_wt/wt_aligned/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_3_aligned/ligands/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr3_twf154_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr3_twf154_wt/deltaN_aligned/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/inputs&outputs-deltaNlid/outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/prolif/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/prolif/prolif-batch-full/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/prolif/prolif-batch-full/af3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/prolif/prolif-batch-full/af3/gpr2_twf154_wt/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/prolif/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/prolif/prolif-batch-full/af3/gpr2_twf154_wt/wt_aligned/gpr2_twf154_wt_model_2_aligned/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/inputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/inputs/receptors/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/results/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/results/gpr2-ascr3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/results/gpr3-ascr3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/results/gpr3-ascr3/figures/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/results/visualization-matrix/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr2-ascr3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr2-ascr3/swissdock-af3-model0-deprot-ph7-93592351/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr3-ascr3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/runs/gpr3-ascr3/swissdock-af3-model0-neutral-32488314/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/scripts/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/scripts/__pycache__/extract_swissdock_ac_pose.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/swissdock-Kuo2024/tasks/001-gpr2-gpr3-ascr3-reproduction/scripts/__pycache__/list_swissdock_cluster_leaders.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/receptors/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/inputs/receptors/af3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/outputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/outputs/poses_ascr18_deprotonated_fold_gpr3_twf154_wt_model_0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/outputs/poses_ascr3_deprotonated_fold_daf37_wt_model_0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/outputs/poses_ascr3_deprotonated_fold_gpr3_twf154_deltan1_5_model_0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "projects-done/vina-results-deltaNaa/outputs/poses_ascr3_deprotonated_fold_gpr3_twf154_wt_model_0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af2/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af3/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af3/gpr2_batch05_20260916/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af3/gpr2_batch06_20260917/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/af3/pdb/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/fasta/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/fasta/04-af3-more-single-alanine/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/fasta/05-af3-n84-v110-v368-saturations/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/fasta/06-af3-supplement-singles/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/fasta/07-af3-w338-saturation/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/fasta/08-af3-double-mutants/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/prepared/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/inputs/receptors/topology/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/results/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/results/twf154_deltaN_af3_model0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/results/twf154_wt_af3_model0/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/.DS_Store",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/align_pdb_to_reference.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/atomic_publish.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/atomic_publish.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/check_sdf_pdbqt_mapping.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/docking_tool_result.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/docking_tool_result.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/export_ligand_pdbqt_to_sdf.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/export_ligand_pdbqt_to_sdf.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/export_receptor_pdbqt_to_pdb.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/export_receptor_pdbqt_to_pdb.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/external_process.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/external_process.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/run_vina.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/transient_paths.cpython-311.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src/__pycache__/transient_paths.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/atomic_publish.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/check_sdf_pdbqt_mapping.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/cif_to_pdb.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/compare_raw_relaxed.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/define_vina_box.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/docking_gui.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/docking_tool_result.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/docking_tool_specs.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/export_ligand_pdbqt_to_sdf.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/export_receptor_pdbqt_to_pdb.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/external_process.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/extract_ppm_protein_pdb.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/generate_maestro_lid.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/make_ppm_review_pml.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/make_raw_relaxed_review_pml.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/make_tm_review_pml.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/make_tm_topology_review_pml.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/parse_tm_topology.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/prepare_ligand_pdbqt.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/prepare_receptor_pdbqt.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/report_af_confidence.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/report_ligand_chemistry.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/report_receptor_chemistry.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/run_geometry_validation.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/run_restrained_minimization.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/summarize_geometry_validation.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/summarize_vina_results.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/__pycache__/transient_paths.cpython-314.pyc",
+    "reason": "system metadata or Python cache"
+  },
+  {
+    "source": "vina/src 2/atomic_publish.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/check_sdf_pdbqt_mapping.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/cif_to_pdb.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/compare_raw_relaxed.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/define_vina_box.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/docking_gui.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/docking_tool_result.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/docking_tool_specs.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/export_ligand_pdbqt_to_sdf.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/export_receptor_pdbqt_to_pdb.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/external_process.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/extract_ppm_protein_pdb.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/generate_maestro_lid.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/make_ppm_review_pml.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/make_raw_relaxed_review_pml.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/make_tm_review_pml.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/make_tm_topology_review_pml.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/parse_tm_topology.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/prepare_ligand_pdbqt.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/prepare_receptor_pdbqt.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/report_af_confidence.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/report_ligand_chemistry.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/report_receptor_chemistry.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/run_geometry_validation.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/run_restrained_minimization.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/summarize_geometry_validation.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/summarize_vina_results.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  },
+  {
+    "source": "vina/src 2/transient_paths.py",
+    "reason": "duplicate tools, backup bundle, or superseded navigation"
+  }
+]

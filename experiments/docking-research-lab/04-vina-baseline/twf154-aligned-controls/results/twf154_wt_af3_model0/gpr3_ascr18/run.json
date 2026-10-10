@@ -1,0 +1,59 @@
+{
+  "command": [
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/vina",
+    "--config",
+    "vina/configs/twf154_wt_af3_model0_aligned_to_atcc/gpr3_ascr18.conf",
+    "--out",
+    "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/results/twf154_wt_af3_model0/gpr3_ascr18/.poses.pdbqt.hrjmul68.tmp",
+    "--cpu",
+    "4",
+    "--spacing",
+    "0.1",
+    "--min_rmsd",
+    "1.0",
+    "--max_evals",
+    "0"
+  ],
+  "cwd": "/Users/yangruoxi/Projects/Docking-Research-Lab",
+  "vina_version": "AutoDock Vina v1.2.5",
+  "return_code": 0,
+  "elapsed_seconds": 568.9075949192047,
+  "config": {
+    "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/configs/twf154_wt_af3_model0_aligned_to_atcc/gpr3_ascr18.conf",
+    "sha256": "ffa80f4a03023ec7aff7d01545cd5c2e204bd23168a25d80480bde67f56d5940",
+    "values": {
+      "receptor": "vina/inputs/receptors/prepared/twf154_wt_af3_model0_aligned_to_atcc/gpr3_twf154_wt_af3_model0_prepared.pdbqt",
+      "ligand": "vina/inputs/ligands/prepared/deprotonated-minus1/ascr18_deprotonated_meeko071.pdbqt",
+      "center_x": "0.42",
+      "center_y": "7.16",
+      "center_z": "-17.11",
+      "size_x": "20",
+      "size_y": "20",
+      "size_z": "20",
+      "exhaustiveness": "200",
+      "num_modes": "20",
+      "energy_range": "5",
+      "seed": "44"
+    }
+  },
+  "inputs": {
+    "receptor": {
+      "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/prepared/twf154_wt_af3_model0_aligned_to_atcc/gpr3_twf154_wt_af3_model0_prepared.pdbqt",
+      "sha256": "478efdd36cddd1e66dfeb220b9337c5e16580288497fae82645d855bce95c7ea"
+    },
+    "ligand": {
+      "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/ligands/prepared/deprotonated-minus1/ascr18_deprotonated_meeko071.pdbqt",
+      "sha256": "5ba010aba5295154610f0a6e84b5dc682b7e408c23fbf6d159ce87518a52cf39"
+    }
+  },
+  "runtime_overrides": {
+    "cpu": 4,
+    "spacing": 0.1,
+    "min_rmsd": 1.0,
+    "max_evals": 0
+  },
+  "output": {
+    "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/results/twf154_wt_af3_model0/gpr3_ascr18/poses.pdbqt",
+    "sha256": "165c4195fe023bf30b21d269225fd9c1c0fc4ab54488cfda9093eb711072b814"
+  }
+}

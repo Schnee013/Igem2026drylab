@@ -1,0 +1,10 @@
+{
+  "model_rel": "gprc_wt/wt_aligned/gprc_wt_model_4_aligned",
+  "source_receptor_pdb": "/Users/roy/Documents/docking/inputs/receptors/af3/pdb/gprc_wt/wt_aligned/gprc_wt_model_4_aligned.pdb",
+  "source_receptor_pdbqt": "/Users/roy/Documents/docking/inputs/receptors/af3/pdbqt/gprc_wt/wt_aligned/gprc_wt_model_4_aligned.pdbqt",
+  "pdbqt_byte_identical": true,
+  "residue_count": 538,
+  "atom_count": 8544,
+  "explicit_hydrogens": 4252,
+  "formal_charge": 3
+}

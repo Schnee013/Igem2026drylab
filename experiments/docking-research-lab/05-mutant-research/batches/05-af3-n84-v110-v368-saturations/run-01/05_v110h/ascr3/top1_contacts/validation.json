@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 7,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/contact_residues.csv": "cbb3f6d1b3e5091b49b928595f29241d499d524c8ece0ab6bce26eed33493fa5",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/ifp/ifp_presence.csv": "1c2e81e6114e679ca8199a634198d45ee57ef48cb67ddc30b11b0f5f2205a704",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/ifp/metadata.json": "19c9224afc355e3852c25f7fd8a66d16c423ad08b050339a5b6237bce2ebb9c7",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/ifp/residue_counts.csv": "72995e75c70c41ccff73053bc2c116d1fcd9cf4b74aacfba769bcc436e3f8856",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/ifp/residue_presence.csv": "7989a2a1cd58cd00dacce2215abaf1e42db5a6a1dad5f671b702ad1e79529a24",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/selection.json": "d66f8e28f5a35fe10aeec6b2200a2bcd2066fb73c002b17e51eedb1c14d6fff4",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/top1.pdbqt": "f213e5935997023b1d4e0046064baae9ce56b30ef921e56257aaa8c48319e5ba",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/top1.sdf": "3b049a46609124ab8757b6c4c95e6b045732b60ad2294c005a9fedc584741da6",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v110h/ascr3/top1_contacts/view_contacts.pml": "2afe0af2de1cbb70b72d7a0b4efb4d881acf74be29b1acf59a6483b3bd5349e6"
+  }
+}

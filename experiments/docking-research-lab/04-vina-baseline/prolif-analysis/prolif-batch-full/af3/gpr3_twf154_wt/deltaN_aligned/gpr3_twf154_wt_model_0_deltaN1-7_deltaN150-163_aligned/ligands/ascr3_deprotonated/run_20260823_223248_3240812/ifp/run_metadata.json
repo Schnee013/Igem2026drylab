@@ -1,0 +1,48 @@
+{
+  "prolif_version": "2.1.0",
+  "rdkit_version": "2025.09.5",
+  "pandas_version": "3.0.2",
+  "receptor_json": "/Users/roy/Documents/docking/outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/receptor/receptor.json",
+  "poses": "/Users/roy/Documents/docking/outputs/prolif-batch-full/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.sdf",
+  "n_poses": 9,
+  "protein_residue_count": 380,
+  "protein_formal_charge": 4,
+  "protein_explicit_hydrogens": 3019,
+  "pose_explicit_hydrogens": [
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25
+  ],
+  "vicinity_cutoff_A": 6.0,
+  "n_jobs": 1,
+  "configured_interactions": [
+    "Anionic",
+    "CationPi",
+    "Cationic",
+    "HBAcceptor",
+    "HBDonor",
+    "Hydrophobic",
+    "PiCation",
+    "PiStacking",
+    "VdWContact"
+  ],
+  "observed_interactions": [
+    "Anionic",
+    "HBAcceptor",
+    "HBDonor",
+    "Hydrophobic",
+    "VdWContact"
+  ],
+  "feature_count": 41,
+  "total_geometries": 426,
+  "source_poses_pdbqt": "/Users/roy/Documents/docking/outputs/af3/gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt",
+  "model_rel": "gpr3_twf154_wt/deltaN_aligned/gpr3_twf154_wt_model_0_deltaN1-7_deltaN150-163_aligned",
+  "ligand": "ascr3_deprotonated",
+  "run_name": "run_20260823_223248_3240812"
+}

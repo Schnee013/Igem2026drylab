@@ -1,0 +1,14 @@
+{
+  "manifest_sha256": "650fc4a050aa7c517c11dc13e2db6bd66062a3d5c7cf59553aaf373f1edaf435",
+  "files": {
+    "all_7.fasta": "1d15074e09a5a35c220fcd13c3d4931f20912d4f313681ef8377b3f4c289355e",
+    "individual/06_baseline.fasta": "5937dd3bc166434a1618a3ca69c705e443f12222dfc17b393db6a9071054c876",
+    "individual/06_r181k.fasta": "c971a4b28e5e5d0b0f7d472c6fbea33e2d4233a3561a5bb67cd9ec0925cb1a3b",
+    "individual/06_r181q.fasta": "c0f9a3fe11af6b0fa02e466cd991eaa14d5cc0ec94612d7be5b2af437ecfc85d",
+    "individual/06_t106s.fasta": "860628f17dc69d33635d2e37420097e5fe9a90ad8f52df86d6a2667f7be699d1",
+    "individual/06_t106v.fasta": "3bc4862962f0808dab51b6595baf200a7babc642b006c148d608580f2a2548e5",
+    "individual/06_w338f.fasta": "0202649ca45a684049c9b9548864a7d9ff377dbb26a5554f04a4070c7fd01275",
+    "individual/06_w338l.fasta": "df8e5bd68d9b7750e117e2c14184ed05a47cae64e9fbf09892c26494eec30c65",
+    "submission_jobs.tsv": "ef26a2b9d11c0a62afb014b8288f2f2fdf8831778799b6cbc34f5ca2d14b5b17"
+  }
+}

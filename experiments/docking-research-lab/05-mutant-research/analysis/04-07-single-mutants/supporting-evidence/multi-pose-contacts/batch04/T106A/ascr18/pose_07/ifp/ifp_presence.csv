@@ -1,0 +1,5 @@
+ligand,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1
+protein,ASN28.A,LEU31.A,LEU31.A,PHE77.A,PHE77.A,ASN84.A,LEU90.A,LYS364.A,LYS364.A,ILE367.A,ILE367.A
+interaction,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,VdWContact,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact
+Frame,,,,,,,,,,,
+0,True,True,True,True,True,True,True,True,True,True,True

@@ -1,0 +1,7 @@
+# Preserve the exact bytes of imported records and generated evidence.
+# Exceptions match observed original whitespace; other checks retain defaults.
+inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol

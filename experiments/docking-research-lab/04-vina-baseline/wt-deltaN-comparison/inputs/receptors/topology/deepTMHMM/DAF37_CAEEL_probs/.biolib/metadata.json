@@ -1,0 +1,11 @@
+{
+    "exit_code": 0,
+    "arguments": [
+        "--fasta",
+        "DAF-37_Caenorhabditis_elegans_N2_Q18321.fasta"
+    ],
+    "app_uri": "DTU/DeepTMHMM:1.0.57",
+    "ended_at": "2026-08-13T09:01:45.748929Z",
+    "job_uuid": "56c5c671-58e4-4cab-9489-07ab5118c5ca",
+    "started_at": "2026-08-13T09:00:46.891718Z"
+}

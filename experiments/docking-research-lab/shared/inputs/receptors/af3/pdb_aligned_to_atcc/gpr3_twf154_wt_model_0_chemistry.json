@@ -1,0 +1,587 @@
+{
+  "atom_record_count": {
+    "ATOM": 3160
+  },
+  "cysteines": [
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:41",
+      "residue_name": "CYS"
+    },
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:85",
+      "residue_name": "CYS"
+    },
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:159",
+      "residue_name": "CYS"
+    },
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:182",
+      "residue_name": "CYS"
+    }
+  ],
+  "hetero_components": [],
+  "histidines": [
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:12",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:46",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:195",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:263",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:327",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:345",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:380",
+      "residue_name": "HIS"
+    }
+  ],
+  "ionizable_residues": [
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:6",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:11",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:12",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:30",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:39",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:40",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:41",
+      "residue_name": "CYS"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:42",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:45",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:46",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:47",
+      "residue_name": "LYS"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:56",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:74",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:75",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:82",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:85",
+      "residue_name": "CYS"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:100",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:122",
+      "residue_name": "LYS"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:125",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:126",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:151",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:152",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:159",
+      "residue_name": "CYS"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:164",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:167",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:169",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:172",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:175",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 6,
+      "observable_group": "thiol_or_thiolate_side_chain",
+      "residue_id": "A:CYS:182",
+      "residue_name": "CYS"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:186",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:190",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:191",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:195",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:197",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:198",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:199",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:204",
+      "residue_name": "LYS"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:206",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:207",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:209",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:212",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:213",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:229",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:231",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:232",
+      "residue_name": "LYS"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:236",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:237",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:248",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:251",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:263",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:264",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:276",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:277",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:280",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:281",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:283",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:286",
+      "residue_name": "LYS"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:289",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:290",
+      "residue_name": "LYS"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:298",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:302",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:319",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:322",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:327",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:329",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:333",
+      "residue_name": "LYS"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:343",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:345",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 12,
+      "observable_group": "phenol_side_chain",
+      "residue_id": "A:TYR:347",
+      "residue_name": "TYR"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:351",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:352",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:358",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:360",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:362",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:367",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:368",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 8,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:ASP:369",
+      "residue_name": "ASP"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:370",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:371",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 10,
+      "observable_group": "imidazole_side_chain",
+      "residue_id": "A:HIS:380",
+      "residue_name": "HIS"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:381",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 11,
+      "observable_group": "guanidinium_side_chain",
+      "residue_id": "A:ARG:385",
+      "residue_name": "ARG"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "carboxylate_side_chain",
+      "residue_id": "A:GLU:387",
+      "residue_name": "GLU"
+    },
+    {
+      "atom_count": 9,
+      "observable_group": "amine_side_chain",
+      "residue_id": "A:LYS:391",
+      "residue_name": "LYS"
+    }
+  ],
+  "residue_count": 401,
+  "scope": "This report lists chemistry features present in the input structure. It does not choose microstates, protonation or tautomer states, decide which waters to retain, or accept or reject components.",
+  "source_file": "vina/inputs/receptors/af3/pdb_aligned_to_atcc/gpr3_twf154_wt_model_0_aligned_to_atcc.pdb",
+  "water_residue_count": 0,
+  "water_residues": []
+}

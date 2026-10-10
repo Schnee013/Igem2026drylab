@@ -1,0 +1,19 @@
+{
+  "source": "/Users/yangruoxi/Projects/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdb",
+  "source_sha256": "339a0650fd6dad7c8fa1e9bd245ddb7d4471550892b73ccb3b87838e3be84a46",
+  "method": "Fixed heavy-atom coordinates; alanine retains N CA C O CB; all groups rehydrogenated by Meeko; no relaxation",
+  "groups": {
+    "baseline": {},
+    "N84A_L90A_R345A": {
+      "84": "ASN",
+      "90": "LEU",
+      "345": "ARG"
+    },
+    "V110A_R181A_W338A_V368A": {
+      "110": "VAL",
+      "181": "ARG",
+      "338": "TRP",
+      "368": "VAL"
+    }
+  }
+}

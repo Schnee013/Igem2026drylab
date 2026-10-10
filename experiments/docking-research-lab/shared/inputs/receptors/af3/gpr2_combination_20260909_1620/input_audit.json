@@ -1,0 +1,144 @@
+{
+  "protocol": "Full-length 406-aa AF3 prediction followed by removal of original residues 1-21,164-178 for docking; retain original numbering and all other coordinates.",
+  "archive_sha256": "d22697ee82e5940d293a6ec59c09634f1771f2861b718c043aaf10680dc6f724",
+  "jobs": [
+    {
+      "group": "baseline",
+      "length": 406,
+      "changed_original_positions": [],
+      "sequence_and_all_five_models_verified": true,
+      "job_request": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_combination_20260909_1620/original_cif/gpr2_deltan_baseline/fold_gpr2_deltan_baseline_job_request.json",
+      "modelSeeds": [
+        "1408681757"
+      ],
+      "useStructureTemplate": true,
+      "models": [
+        {
+          "model": 0,
+          "ranking_score": 0.83,
+          "ptm": 0.67,
+          "sha256": "2e12e4b0c2d38bd0109296cf1f0330ae0bcdf092535194931decb7e1fd867dc3"
+        },
+        {
+          "model": 1,
+          "ranking_score": 0.83,
+          "ptm": 0.68,
+          "sha256": "27a25461d3ec264f8efcbfe296cd7e7d9938467d992374fee62b27653186bcdb"
+        },
+        {
+          "model": 2,
+          "ranking_score": 0.82,
+          "ptm": 0.68,
+          "sha256": "d1bdf9f285bd741b11fa0863cad9f44000e478b6daa002f706702b3688d1c33c"
+        },
+        {
+          "model": 3,
+          "ranking_score": 0.82,
+          "ptm": 0.68,
+          "sha256": "a54548f1afc8ab2f8db8e95edaf546ec1ccb193518c75ffede63f3f903311268"
+        },
+        {
+          "model": 4,
+          "ranking_score": 0.81,
+          "ptm": 0.68,
+          "sha256": "fa4bf32ce3779ec74c25593013183af71a454383618769b3cd89b1a04d970876"
+        }
+      ]
+    },
+    {
+      "group": "N84A_L90A_R345A",
+      "length": 406,
+      "changed_original_positions": [
+        84,
+        90,
+        345
+      ],
+      "sequence_and_all_five_models_verified": true,
+      "job_request": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_combination_20260909_1620/original_cif/gpr2_deltan_n84a_l90a_r345a/fold_gpr2_deltan_n84a_l90a_r345a_job_request.json",
+      "modelSeeds": [
+        "789264689"
+      ],
+      "useStructureTemplate": true,
+      "models": [
+        {
+          "model": 0,
+          "ranking_score": 0.83,
+          "ptm": 0.68,
+          "sha256": "ef2e874c6ddc15fe3e86c4ff30966a3388c765d83aafe06b1b70e09d8e9f1ddf"
+        },
+        {
+          "model": 1,
+          "ranking_score": 0.82,
+          "ptm": 0.68,
+          "sha256": "248eda7d40d62bee08155d690156dd6c9891c6d7bd304fcd8214898e418106d5"
+        },
+        {
+          "model": 2,
+          "ranking_score": 0.82,
+          "ptm": 0.68,
+          "sha256": "f4e478a270d05c23056680e919da0b4d8805e10b1689c8688107b2177a310387"
+        },
+        {
+          "model": 3,
+          "ranking_score": 0.82,
+          "ptm": 0.67,
+          "sha256": "6b171a38c3513f24aaf0a66fa05aa6905bd1170babfc0136acaedcd3d91998e5"
+        },
+        {
+          "model": 4,
+          "ranking_score": 0.82,
+          "ptm": 0.68,
+          "sha256": "9e47fd3a1eb99a0c021fc6674861af07653853cea93e7f1aebdd70f67a7d4555"
+        }
+      ]
+    },
+    {
+      "group": "V110A_R181A_W338A_V368A",
+      "length": 406,
+      "changed_original_positions": [
+        110,
+        181,
+        338,
+        368
+      ],
+      "sequence_and_all_five_models_verified": true,
+      "job_request": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_combination_20260909_1620/original_cif/gpr2_deltan_v110a_r181a_w338a_v368a/fold_gpr2_deltan_v110a_r181a_w338a_v368a_job_request.json",
+      "modelSeeds": [
+        "1199080054"
+      ],
+      "useStructureTemplate": true,
+      "models": [
+        {
+          "model": 0,
+          "ranking_score": 0.82,
+          "ptm": 0.67,
+          "sha256": "40f57c124a87b5fd8e31e3a1e3c77c788aee5fab6022580ebc0381fa89151cea"
+        },
+        {
+          "model": 1,
+          "ranking_score": 0.82,
+          "ptm": 0.67,
+          "sha256": "6e82882c381fa5f6798a2511624e0af11ce53f5aaea80cde4662a5f63ade0def"
+        },
+        {
+          "model": 2,
+          "ranking_score": 0.82,
+          "ptm": 0.67,
+          "sha256": "b20055571d97b9d2071fabe12c9bd1110e55ee6b8789e139235700dcd0ce1ed8"
+        },
+        {
+          "model": 3,
+          "ranking_score": 0.81,
+          "ptm": 0.68,
+          "sha256": "fc741405d653b2555c2adf89334629c26e047016a50028f3124d4d71b40241ee"
+        },
+        {
+          "model": 4,
+          "ranking_score": 0.8,
+          "ptm": 0.67,
+          "sha256": "00c73cb1bd4075e2dc51046dcdfacdfa07ac7350d5757dc1e0f017ec64fb546f"
+        }
+      ]
+    }
+  ]
+}

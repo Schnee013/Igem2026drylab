@@ -1,0 +1,216 @@
+{
+  "source": "/Users/yangruoxi/Projects/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+  "source_sha256": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150",
+  "protocol": "Submit full-length 406-aa sequences to AF3 as separate single-protein jobs; remove original residues 1-21 and 164-178 only after prediction for docking.",
+  "variants": [
+    {
+      "requested_variant": "V110I",
+      "category": "directed_single",
+      "length": 406,
+      "changed_positions": [
+        110
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/directed_single/V110I.fasta",
+      "sequence_sha256": "1daee99130ed6472c7f4b248e7210b10c678d074b1743e4d03302b6c46c96ea1"
+    },
+    {
+      "requested_variant": "V110L",
+      "category": "directed_single",
+      "length": 406,
+      "changed_positions": [
+        110
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/directed_single/V110L.fasta",
+      "sequence_sha256": "546848ac3b065eb2a8f9066cf0d4e0746c0dc2d0466f81740da190bf008c1203"
+    },
+    {
+      "requested_variant": "V110T",
+      "category": "directed_single",
+      "length": 406,
+      "changed_positions": [
+        110
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/directed_single/V110T.fasta",
+      "sequence_sha256": "dcb606c212ee9806530de0e11fe2a2632a3efa00aeb66ebada22f03bc64dc166"
+    },
+    {
+      "requested_variant": "N84Q",
+      "category": "directed_single",
+      "length": 406,
+      "changed_positions": [
+        84
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/directed_single/N84Q.fasta",
+      "sequence_sha256": "1eb92c3b01c02a7699df0d8420d556ebe3a3aff88840d878b325a721ff764eb0"
+    },
+    {
+      "requested_variant": "N84S",
+      "category": "directed_single",
+      "length": 406,
+      "changed_positions": [
+        84
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/directed_single/N84S.fasta",
+      "sequence_sha256": "78eee67c9be716a6521b541a6e6e1aae9e90e98ab6cdd01ec234b3335bbbdd02"
+    },
+    {
+      "requested_variant": "V368I",
+      "category": "directed_single",
+      "length": 406,
+      "changed_positions": [
+        368
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/directed_single/V368I.fasta",
+      "sequence_sha256": "3a190281ec47e16ea4519bf8701667c9a429f2c0b0ce454e3807c352963c090c"
+    },
+    {
+      "requested_variant": "V368L",
+      "category": "directed_single",
+      "length": 406,
+      "changed_positions": [
+        368
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/directed_single/V368L.fasta",
+      "sequence_sha256": "98c2504eec04fbfa5f80e9f54b03d4d405b65f28c78d29644275f4d8eb1cb3b5"
+    },
+    {
+      "requested_variant": "S80A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        80
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/S80A.fasta",
+      "sequence_sha256": "02b08b8581fa8c1cc29726232599f029c7d0e8ea630dace605ba4ca1e5bac314"
+    },
+    {
+      "requested_variant": "A81A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [],
+      "identical_to_WT": true,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/A81A.fasta",
+      "sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9"
+    },
+    {
+      "requested_variant": "N102A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        102
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/N102A.fasta",
+      "sequence_sha256": "535c43f8f049c8601eada339eb78a8453bfb2bc3522ba0ce8d33960a63c691b1"
+    },
+    {
+      "requested_variant": "G103A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        103
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/G103A.fasta",
+      "sequence_sha256": "965b6ac0112aab972e528871d87d9e72d566108e2823ba5e686e40b986af75f2"
+    },
+    {
+      "requested_variant": "T106A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        106
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/T106A.fasta",
+      "sequence_sha256": "f47525f38c515d0424ad8ced9623426b51c609c3c5d991b9cd8c0e0e8d7f62b9"
+    },
+    {
+      "requested_variant": "V368A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        368
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/V368A.fasta",
+      "sequence_sha256": "42a49dce2b1bcdd2d70340c87cf9b65d3a8092d3dc25afc6313d33a3cdb6d381"
+    },
+    {
+      "requested_variant": "L27A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        27
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/L27A.fasta",
+      "sequence_sha256": "ca336ef5a5fe490cb8a63bec26cebb9ab24fe15b0ae99b7f7d401627d29208a0"
+    },
+    {
+      "requested_variant": "N28A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        28
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/N28A.fasta",
+      "sequence_sha256": "63fb06442d9fbb566364aebfbd1cd824553e2804184a728237e45157534ddb2d"
+    },
+    {
+      "requested_variant": "V110A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        110
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/V110A.fasta",
+      "sequence_sha256": "5cd2f40ac5b9f057238362b08ef49297227dda76e428b4a98191e27fa1a9b557"
+    },
+    {
+      "requested_variant": "R181A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        181
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/R181A.fasta",
+      "sequence_sha256": "ef69603bf8244e9ccd3d00fb29a815eec6ef9a36e5ff1b179515d47349a5c197"
+    },
+    {
+      "requested_variant": "W338A",
+      "category": "alanine_single",
+      "length": 406,
+      "changed_positions": [
+        338
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/alanine_single/W338A.fasta",
+      "sequence_sha256": "a9cbc8fe3105b3b03b138b726fbf70dcf86eb7d4b5983f5ec40b5791f379b446"
+    },
+    {
+      "requested_variant": "N84A-V110A-V368A",
+      "category": "combination",
+      "length": 406,
+      "changed_positions": [
+        84,
+        110,
+        368
+      ],
+      "identical_to_WT": false,
+      "file": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/fasta/gpr2_design_round2_full_length/combination/N84A_V110A_V368A.fasta",
+      "sequence_sha256": "340bc0ba69fc74ecbfbfdbe169ef907bd8318d3e2cdfd5e8f4fbe464be8a61c7"
+    }
+  ]
+}

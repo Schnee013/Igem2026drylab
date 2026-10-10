@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "source_fasta": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+  "source_sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9",
+  "length": 406,
+  "fasta_output": "vina/inputs/receptors/fasta/gpr2_batch07_w338_saturation_full_length",
+  "variants": [
+    {
+      "id": "baseline",
+      "af_job_name": "07_baseline",
+      "position": null,
+      "from": null,
+      "to": null
+    },
+    {
+      "id": "W338A",
+      "af_job_name": "07_w338a",
+      "position": 338,
+      "from": "W",
+      "to": "A"
+    },
+    {
+      "id": "W338C",
+      "af_job_name": "07_w338c",
+      "position": 338,
+      "from": "W",
+      "to": "C"
+    },
+    {
+      "id": "W338D",
+      "af_job_name": "07_w338d",
+      "position": 338,
+      "from": "W",
+      "to": "D"
+    },
+    {
+      "id": "W338E",
+      "af_job_name": "07_w338e",
+      "position": 338,
+      "from": "W",
+      "to": "E"
+    },
+    {
+      "id": "W338F",
+      "af_job_name": "07_w338f",
+      "position": 338,
+      "from": "W",
+      "to": "F"
+    },
+    {
+      "id": "W338G",
+      "af_job_name": "07_w338g",
+      "position": 338,
+      "from": "W",
+      "to": "G"
+    },
+    {
+      "id": "W338H",
+      "af_job_name": "07_w338h",
+      "position": 338,
+      "from": "W",
+      "to": "H"
+    },
+    {
+      "id": "W338I",
+      "af_job_name": "07_w338i",
+      "position": 338,
+      "from": "W",
+      "to": "I"
+    },
+    {
+      "id": "W338K",
+      "af_job_name": "07_w338k",
+      "position": 338,
+      "from": "W",
+      "to": "K"
+    },
+    {
+      "id": "W338L",
+      "af_job_name": "07_w338l",
+      "position": 338,
+      "from": "W",
+      "to": "L"
+    },
+    {
+      "id": "W338M",
+      "af_job_name": "07_w338m",
+      "position": 338,
+      "from": "W",
+      "to": "M"
+    },
+    {
+      "id": "W338N",
+      "af_job_name": "07_w338n",
+      "position": 338,
+      "from": "W",
+      "to": "N"
+    },
+    {
+      "id": "W338P",
+      "af_job_name": "07_w338p",
+      "position": 338,
+      "from": "W",
+      "to": "P"
+    },
+    {
+      "id": "W338Q",
+      "af_job_name": "07_w338q",
+      "position": 338,
+      "from": "W",
+      "to": "Q"
+    },
+    {
+      "id": "W338R",
+      "af_job_name": "07_w338r",
+      "position": 338,
+      "from": "W",
+      "to": "R"
+    },
+    {
+      "id": "W338S",
+      "af_job_name": "07_w338s",
+      "position": 338,
+      "from": "W",
+      "to": "S"
+    },
+    {
+      "id": "W338T",
+      "af_job_name": "07_w338t",
+      "position": 338,
+      "from": "W",
+      "to": "T"
+    },
+    {
+      "id": "W338V",
+      "af_job_name": "07_w338v",
+      "position": 338,
+      "from": "W",
+      "to": "V"
+    },
+    {
+      "id": "W338Y",
+      "af_job_name": "07_w338y",
+      "position": 338,
+      "from": "W",
+      "to": "Y"
+    }
+  ],
+  "baseline": "07_baseline",
+  "counts": {
+    "new_mutants": 19,
+    "new_WT": 1,
+    "retained_mutants": 0,
+    "total_W338_substitutions": 19
+  },
+  "analysis": "D=deltaS18-deltaS3; minimum-score pose per run; main and source WT comparisons kept separate",
+  "note": "All 19 W338 substitutions and WT are newly predicted in batch07, including A/F/L. Batch06 records are historical references only.",
+  "historical_batch06_sources": [
+    {
+      "id": "baseline",
+      "alias": "06_baseline",
+      "original_job_name": "06_baseline",
+      "source_zip": "folds_2026_09_17_10_20.zip",
+      "source": "new_batch06_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_baseline/fold_06_baseline_model_0.cif",
+          "sha256": "013b7e7de9addaf3c378059cd02fdfdb12b32790ebef6c4970e990da976ac7c8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_baseline/fold_06_baseline_model_1.cif",
+          "sha256": "ef493af44daab69f66990cade8e45ec7764345b89ffe096bc6c2a68facddfcfa"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_baseline/fold_06_baseline_model_2.cif",
+          "sha256": "7fea326ba9cfec68257924e5f555c9afae7f47e24af8f603d856156b57bc1141"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_baseline/fold_06_baseline_model_3.cif",
+          "sha256": "260efe657f0ddb616c6eec4e5eaca7397c0b8f9a41571c019f231c449201569e"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_baseline/fold_06_baseline_model_4.cif",
+          "sha256": "14640ce346a618ab6610aaa2ba39964111b5a173ee50b279b01fa410703667d1"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_baseline/fold_06_baseline_job_request.json",
+      "job_request_sha256": "6e159effcc93c1f613521ae8dcb4544537c0de26fbb61b5f2abf8b5dd56b2083",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch06_20260917/fasta_full_length/06_baseline.fasta",
+      "fasta_sha256": "5937dd3bc166434a1618a3ca69c705e443f12222dfc17b393db6a9071054c876",
+      "sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9",
+      "historical_source": null
+    },
+    {
+      "id": "W338F",
+      "alias": "06_w338f",
+      "original_job_name": "06_w338f",
+      "source_zip": "folds_2026_09_17_10_20.zip",
+      "source": "new_batch06_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338f/fold_06_w338f_model_0.cif",
+          "sha256": "7567ed14cf7509c2fd3f30d6f250dd1dba79923b5aee09cd2b8fab0f8e90dabd"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338f/fold_06_w338f_model_1.cif",
+          "sha256": "1b13a1963158d651692d4ac0fb4d57eac0ed730e1fe87ab928bd2dba979f5d16"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338f/fold_06_w338f_model_2.cif",
+          "sha256": "b9b10a87aac0cdaeee647f2339e649fe7d10d01bcc060ddbe03de3b25f2b5997"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338f/fold_06_w338f_model_3.cif",
+          "sha256": "6d676386ec8f41b63cd19d6854dc9318f011b5db35ce2ab58f0e0147bc78a2d8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338f/fold_06_w338f_model_4.cif",
+          "sha256": "892bfde3403d4bd92be85f5b1487fee0eb33e1cfb3a2fcf5bd9eb6b7b52598cf"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338f/fold_06_w338f_job_request.json",
+      "job_request_sha256": "220dcf47a78057d2650aa0ca72c59102deecb469a393796491700b859cb52a81",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch06_20260917/fasta_full_length/06_w338f.fasta",
+      "fasta_sha256": "0202649ca45a684049c9b9548864a7d9ff377dbb26a5554f04a4070c7fd01275",
+      "sequence_sha256": "9b6969d96b2772a9491eae22c0b500fdb60bbb110af8a87505403e49739fa1e3",
+      "historical_source": null
+    },
+    {
+      "id": "W338L",
+      "alias": "06_w338l",
+      "original_job_name": "06_w338l",
+      "source_zip": "folds_2026_09_17_10_20.zip",
+      "source": "new_batch06_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338l/fold_06_w338l_model_0.cif",
+          "sha256": "3f4108c37d4e1c8f967a9c243f41f6376928bb99861db175c8162d9bbf4780f6"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338l/fold_06_w338l_model_1.cif",
+          "sha256": "b846869ea8866de99390173e2c24eaa5c54b9e4ec11d00f6f17682b361fdf108"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338l/fold_06_w338l_model_2.cif",
+          "sha256": "75369e97efce9c9f733ee6ccdbbf47106d2995d08126b3590ec316c7acbf7130"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338l/fold_06_w338l_model_3.cif",
+          "sha256": "7eb764d3bccc29887c0593136edee67230106b600246198df2524db3cc31dcd3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338l/fold_06_w338l_model_4.cif",
+          "sha256": "283f933a2c432c23d4a09a2b2998904816e43ec684f1e459bd186d614758a044"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch06_20260917/original_cif/folds_2026_09_17_10_20/06_w338l/fold_06_w338l_job_request.json",
+      "job_request_sha256": "a35c35edded0d06ef179073b9be6c7693e5412db5fe52f945a6ce4db7eab9bcb",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch06_20260917/fasta_full_length/06_w338l.fasta",
+      "fasta_sha256": "df8e5bd68d9b7750e117e2c14184ed05a47cae64e9fbf09892c26494eec30c65",
+      "sequence_sha256": "5a5181d0cde25e14277b65c2092abaad27b6f1d1a4fc6c1b9dde58cf4534f3a4",
+      "historical_source": null
+    }
+  ]
+}

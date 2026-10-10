@@ -1,0 +1,8 @@
+{
+  "af_model": 1,
+  "source": {
+    "path": "vina/inputs/receptors/af3/gpr2_batch07_20260918/original_cif/folds_2026_09_18_02_12/07_w338c/fold_07_w338c_model_1.cif",
+    "sha256": "417f7f1df7371c919e5834e8b4cc31edf13a6ca84cfb44e250d31bf86959e621"
+  },
+  "reason": "model_0 ARG181 NH1 / ARG345 NH1 1.5568 A overlap and Meeko inter-residue bond failure; model_1 selected before docking by geometry QC, not docking score"
+}

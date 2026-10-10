@@ -1,0 +1,2300 @@
+{
+  "status": "validated",
+  "counts": {
+    "jobs": 58,
+    "mutants": 57,
+    "baseline": 1,
+    "models_checked": 290
+  },
+  "archive": "vina/inputs/receptors/af3/gpr2_batch05_20260916",
+  "source_zips": [
+    {
+      "path": "/Users/yangruoxi/Downloads/folds_2026_09_16_11_15.zip",
+      "sha256": "4232e3bb609ecd2e2a7ecbb9f88e613225f17cf0d1491d17c95d71b9bcf4538b",
+      "members": 691
+    },
+    {
+      "path": "/Users/yangruoxi/Downloads/folds_2026_09_16_11_16.zip",
+      "sha256": "b0d65fdebc66b0abffec96fa552d5c243aa8652c70c3ab9244365e7bcaeae2ed",
+      "members": 645
+    }
+  ],
+  "jobs": [
+    {
+      "id": "baseline",
+      "alias": "05_baseline",
+      "original_job_name": "gpr2_b05_fl_baseline",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_baseline/fold_gpr2_b05_fl_baseline_model_0.cif",
+          "sha256": "898a7dace7a405101217b6b0a76df22cfb0c428decc9bab68b375c7a08511f8b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_baseline/fold_gpr2_b05_fl_baseline_model_1.cif",
+          "sha256": "2a6c9942fe1759e7ba624a358ce84efa6c6f339061379e2aa0763bc805aa311d"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_baseline/fold_gpr2_b05_fl_baseline_model_2.cif",
+          "sha256": "c86e6c7bdb49edc85b78e9a5dd2fb186fe2b5839860a50dc081ddd75133017df"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_baseline/fold_gpr2_b05_fl_baseline_model_3.cif",
+          "sha256": "a7f23b973e681d65cd0ea996705163d38c1d5269c29cad2962b1ab6125ce40d0"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_baseline/fold_gpr2_b05_fl_baseline_model_4.cif",
+          "sha256": "19d35a33c881d9a299d651990fef34c271ccfc3749b4c8147eca77f4e7e0bbfa"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_baseline/fold_gpr2_b05_fl_baseline_job_request.json",
+      "job_request_sha256": "6f5c87206b0357186e779d0bbb952c55eb1089ff07ab992ad78cdcc5b20b9083",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/baseline.fasta",
+      "fasta_sha256": "42f3d43cba03cfb2bf7955d91ee4a7f6bc7eaa80673e43247456527c1ae17d85",
+      "sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9",
+      "historical_source": null
+    },
+    {
+      "id": "N84A",
+      "alias": "05_n84a",
+      "original_job_name": "gpr2_b05_fl_n84a",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84a/fold_gpr2_b05_fl_n84a_model_0.cif",
+          "sha256": "461e93eeddeb405b9327cdf5ea1ce430497a236194b018f785cc0516a96e1208"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84a/fold_gpr2_b05_fl_n84a_model_1.cif",
+          "sha256": "7499136230436bf6a11b5ece8de41a96f196a0143d5fdc182dadd0da6e0bc899"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84a/fold_gpr2_b05_fl_n84a_model_2.cif",
+          "sha256": "cd994d976b7494b7a8e4120e889d9641477289ee4050186633c3322a687cdfe8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84a/fold_gpr2_b05_fl_n84a_model_3.cif",
+          "sha256": "403b513f4a2239797be60da58af386fb802da0e24278cb4f23750b53a74071ab"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84a/fold_gpr2_b05_fl_n84a_model_4.cif",
+          "sha256": "f720acabdf85de6a569ec961f84d2a7f6638dc87e41b236a6fd4a4daa2d8c32d"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84a/fold_gpr2_b05_fl_n84a_job_request.json",
+      "job_request_sha256": "f82740be3748f78da33520dc73f2c084c1d36ca0590919fc1bd17e5c26646a5f",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84A.fasta",
+      "fasta_sha256": "8210dcc35ccbc173a11a339ca8876f0b883ab544d5609291047efa64d7668e9e",
+      "sequence_sha256": "1a5a2f366a7a284bce8cbeadb1d26092a4e88b18cece54f0dcb02a7e6cd55781",
+      "historical_source": {
+        "batch": "03",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/fasta_full_length/Gpr2_full_length_N84A.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/original_cif/gpr2_n84a/fold_gpr2_n84a_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/original_cif/gpr2_n84a/fold_gpr2_n84a_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "dafa45f310cd22db0e3fd0fac3cef46da0a157fed0134095babfc763a37ad95f",
+          "model_0": "9abbedab3ba239215f659f8abad00d5bed8045208312d9236b1e3ea099245ecc",
+          "job_request": "b0057aabd415b03bbe19a839cfba9cf3bbc73643f28f067ebb0bde951da30cd3"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "N84C",
+      "alias": "05_n84c",
+      "original_job_name": "gpr2_b05_fl_n84c",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84c/fold_gpr2_b05_fl_n84c_model_0.cif",
+          "sha256": "b8ced12983f57c70ac9ff9b9f375b522d0ed808981c5673776d0ac36f53d1872"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84c/fold_gpr2_b05_fl_n84c_model_1.cif",
+          "sha256": "bf33f02d01e4659ac41e3231d465c7968ab9299928938cba3e1d8bb69cebf7e6"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84c/fold_gpr2_b05_fl_n84c_model_2.cif",
+          "sha256": "121c4d8cde5e1458d8f060ed0be2ace6a6e1aa455a886c23d470b996cbcfdcba"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84c/fold_gpr2_b05_fl_n84c_model_3.cif",
+          "sha256": "1129d1e06207fbf16bff0a753c6ca9d4dc83358f47c6f1039ccf582845090699"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84c/fold_gpr2_b05_fl_n84c_model_4.cif",
+          "sha256": "475890943d65c94b42427b3bc1e0190eef7142a85044bea864deab372bed325e"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84c/fold_gpr2_b05_fl_n84c_job_request.json",
+      "job_request_sha256": "5465ed5563c35a5afd5ace9e1d224805e69a74f52ec9b4df3589dc52c7b761fa",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84C.fasta",
+      "fasta_sha256": "dcd8b5abbe8f82f4eb938891a97264de4ec3520b1fc4fe8591ffe8303c0eea71",
+      "sequence_sha256": "8b87db42b9f344ab0f8565a6c037eb82228dc5da7134594b38a44a255c5bc89e",
+      "historical_source": null
+    },
+    {
+      "id": "N84D",
+      "alias": "05_n84d",
+      "original_job_name": "gpr2_b05_fl_n84d",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84d/fold_gpr2_b05_fl_n84d_model_0.cif",
+          "sha256": "793b599b0fad22081995e60ca28737da07807f2c6a387f9436a89c5f92d137df"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84d/fold_gpr2_b05_fl_n84d_model_1.cif",
+          "sha256": "68c16d657f0175f247e9f4d358d8bf762d2a2245f0c465435e6f3c45a5663a9b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84d/fold_gpr2_b05_fl_n84d_model_2.cif",
+          "sha256": "f19dcbc7fb5cace85663092c03424523beb122bc059cf8af294cda261c32cb30"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84d/fold_gpr2_b05_fl_n84d_model_3.cif",
+          "sha256": "6cce55b4fd1c58e22c114b84ea4f93f20ad3d539d036009dbe73ec2843802423"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84d/fold_gpr2_b05_fl_n84d_model_4.cif",
+          "sha256": "e8bf442d6261b30c5b8f473d3db68ed55e2a81ed5801285abed5913f2020b826"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84d/fold_gpr2_b05_fl_n84d_job_request.json",
+      "job_request_sha256": "3a378a7be322468296387d8fcc17013706b9d699257f358ec42b104193f5fe15",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84D.fasta",
+      "fasta_sha256": "5377e9484b4e4e606a2c2f7942e582d883cb0227d9e720f811cdba635872c404",
+      "sequence_sha256": "48d4ce0e0dfacaa668b69b2a1e4c5f03fed89099b45f4328fa691603c7878a0d",
+      "historical_source": null
+    },
+    {
+      "id": "N84E",
+      "alias": "05_n84e",
+      "original_job_name": "gpr2_b05_fl_n84e",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84e/fold_gpr2_b05_fl_n84e_model_0.cif",
+          "sha256": "d088dbf9c678bd8bc029595c843d1d7dcb48c1334fd6da13c916ff156741c0f8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84e/fold_gpr2_b05_fl_n84e_model_1.cif",
+          "sha256": "0809896fd8516960be0657576996615975e044eb2c21f93f8431274f6f70eaf6"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84e/fold_gpr2_b05_fl_n84e_model_2.cif",
+          "sha256": "dbdad53efcbdb6ddfe5cb32c59f5fa7bc21968b8fff6d3346d69070dcae3465b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84e/fold_gpr2_b05_fl_n84e_model_3.cif",
+          "sha256": "dcecd9064fb0c276b8180aa38ba077f5b1993a5f8e0a229821f7effd70a4e952"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84e/fold_gpr2_b05_fl_n84e_model_4.cif",
+          "sha256": "8f67d1ff99cb65524d77d30072042047218abb70ba89d43089b793ce8b6aefa1"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84e/fold_gpr2_b05_fl_n84e_job_request.json",
+      "job_request_sha256": "e63f2b6fb258a34969d5bb62a62487b99fb8d382a7b12a7af6ea796a5500e9ee",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84E.fasta",
+      "fasta_sha256": "d5fadcbcfb66828ae901f5f4a7902c51a06de914eb65049bb50ca53ba1bdc955",
+      "sequence_sha256": "32d94ec608f5e3523764afce5c5bb122847bbcfdec51a2ddc39614cf6f84525a",
+      "historical_source": null
+    },
+    {
+      "id": "N84F",
+      "alias": "05_n84f",
+      "original_job_name": "gpr2_b05_fl_n84f",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84f/fold_gpr2_b05_fl_n84f_model_0.cif",
+          "sha256": "8fe76d8526ae68dc4244a8397c5a8d9b80db47b0eeeb565c85e7b58a4fec7f19"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84f/fold_gpr2_b05_fl_n84f_model_1.cif",
+          "sha256": "6dd052795e696d548783a0238eb529b9ec5af2b81b6f12473ff2e506d347bb20"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84f/fold_gpr2_b05_fl_n84f_model_2.cif",
+          "sha256": "fa591317b174316f3a9238134b670eabaf0d0554f861cf3db68e46a5bb208da7"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84f/fold_gpr2_b05_fl_n84f_model_3.cif",
+          "sha256": "aac1384fe685331679233692649f0ba7c2103b9cbe04977ccd5798f3afc37bf2"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84f/fold_gpr2_b05_fl_n84f_model_4.cif",
+          "sha256": "477744e0c85a422d5b522850fc476bf37510d9b95dfb644739dc1e04db3f03ce"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84f/fold_gpr2_b05_fl_n84f_job_request.json",
+      "job_request_sha256": "f3cef722a51c701406270ec3a897576a172d734899d741158e65056dcad81447",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84F.fasta",
+      "fasta_sha256": "701ae03ea7c5f214b702439172becd82ca74b491eb029eb10ada0a2d0fdba6ab",
+      "sequence_sha256": "30cce8157099d107bc2b897e0c6df9097dc73861062619b8534ef4674c6b6e3a",
+      "historical_source": null
+    },
+    {
+      "id": "N84G",
+      "alias": "05_n84g",
+      "original_job_name": "gpr2_b05_fl_n84g",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84g/fold_gpr2_b05_fl_n84g_model_0.cif",
+          "sha256": "6d47501149ed943b9bff62125c0cd2adc0cdb52fae931020b54ab94b59ab3b06"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84g/fold_gpr2_b05_fl_n84g_model_1.cif",
+          "sha256": "28f12da1fdc2f5bf453067875e07189f74c159e9b98cdb0a264a060da984a3c3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84g/fold_gpr2_b05_fl_n84g_model_2.cif",
+          "sha256": "5e2bbb78dad8abb6544933cc0fa441397083770fd2bee5fdb1cb3799c00346f0"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84g/fold_gpr2_b05_fl_n84g_model_3.cif",
+          "sha256": "b07121dc737eab7bd738a3136246876a2d56782fe0b1be771ca2e870b7927621"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84g/fold_gpr2_b05_fl_n84g_model_4.cif",
+          "sha256": "46d8bb95e77fc823f407ebfd1cd116db0127ef5a9c2845d45d9663d5ea308310"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84g/fold_gpr2_b05_fl_n84g_job_request.json",
+      "job_request_sha256": "4bd97c5e23ca070c5755faf291ca3519f596d64756824e07e1fd0b1ed1defb5d",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84G.fasta",
+      "fasta_sha256": "ad8cda41ca893649eeb29b69a8c517285f9ff99a047b26c2f2a0abc8410d5a43",
+      "sequence_sha256": "63cdff3f40927cfd99fe4ee4f52dad5a258c632fd904eda7a062086f54e33f12",
+      "historical_source": null
+    },
+    {
+      "id": "N84H",
+      "alias": "05_n84h",
+      "original_job_name": "gpr2_b05_fl_n84h",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84h/fold_gpr2_b05_fl_n84h_model_0.cif",
+          "sha256": "a2f39749d5a2f7c7ce6f0a2622c2e1cd69b53b9f5343db8792b352ff36208b15"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84h/fold_gpr2_b05_fl_n84h_model_1.cif",
+          "sha256": "7f141bd0e99d447596abcd8760dfa3c07b17f32085e3229f375fee20479997fb"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84h/fold_gpr2_b05_fl_n84h_model_2.cif",
+          "sha256": "de67e2840bbcb699d5ffa5c4b3705df6ecaf412ed271a3a0884e38dcf97c2a43"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84h/fold_gpr2_b05_fl_n84h_model_3.cif",
+          "sha256": "df12e2c90d9ecd30a7064d4b8289a39a830d47135b20395b78f853bd7dd61796"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84h/fold_gpr2_b05_fl_n84h_model_4.cif",
+          "sha256": "7f54746ea6939415dc548ec15050658a77104ecc3b253c4867b77f61f9b0aa51"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84h/fold_gpr2_b05_fl_n84h_job_request.json",
+      "job_request_sha256": "913a57e930f55415097d2fbd21823454da8cd8f74c17cb28907210e218b9202e",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84H.fasta",
+      "fasta_sha256": "d61eb35621539be6391b9cb9dcde11436d712c6063a244e6db0c55382ef3dcf2",
+      "sequence_sha256": "81c4328f78e39ce3d1a9eb3560626881272c68c4d7971f3bcbae1ab88cd81111",
+      "historical_source": null
+    },
+    {
+      "id": "N84I",
+      "alias": "05_n84i",
+      "original_job_name": "gpr2_b05_fl_n84i",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84i/fold_gpr2_b05_fl_n84i_model_0.cif",
+          "sha256": "2f45a85cfd9ccd2afd063a62900e6afdff203a5c9aac540ada665c1bb8ca7b33"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84i/fold_gpr2_b05_fl_n84i_model_1.cif",
+          "sha256": "e6bf6b686764a12f19562a87d642a61bd9b82f4d5bd2710fa6a019577a0b339d"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84i/fold_gpr2_b05_fl_n84i_model_2.cif",
+          "sha256": "d106cdd48b70edca59c88d88dd11d2d598d2e0ff25381a221c05685d707615a1"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84i/fold_gpr2_b05_fl_n84i_model_3.cif",
+          "sha256": "06bfc63d98dccb3f9e8ff4de2c3049cb5ee5b04fc216b733b3f4962f47e6cc38"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84i/fold_gpr2_b05_fl_n84i_model_4.cif",
+          "sha256": "94834cc66dfeb9e7d769ae99aeaa4ec007fdfcd0307428918c7181a5adf4f4d9"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84i/fold_gpr2_b05_fl_n84i_job_request.json",
+      "job_request_sha256": "699b2e12171ce39e721f3be8da2d3da9286a0cdd0b30d2b0e5ce018af6d9e443",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84I.fasta",
+      "fasta_sha256": "4d49c5ead954657abec27ac9106ded13d2034357918722ba0f54dcc8ca78ee16",
+      "sequence_sha256": "fb28cdf9da2706f9630a46f6e1f41b3276907dcb1fc8abfc24089715bfe5183c",
+      "historical_source": null
+    },
+    {
+      "id": "N84K",
+      "alias": "05_n84k",
+      "original_job_name": "gpr2_b05_fl_n84k",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84k/fold_gpr2_b05_fl_n84k_model_0.cif",
+          "sha256": "cd2eefb1d8745bae69614239074f77012335bee47974deaa04e94ca18296eedf"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84k/fold_gpr2_b05_fl_n84k_model_1.cif",
+          "sha256": "d81942b1ed59b06617a809b844b16c07243935794ef3cd97dda9467be3dd5a7d"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84k/fold_gpr2_b05_fl_n84k_model_2.cif",
+          "sha256": "826e712ecc1653d3ecc66ef5d5dd91b7fc163fb015d0a6859aa99bff07e77fb4"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84k/fold_gpr2_b05_fl_n84k_model_3.cif",
+          "sha256": "6cc72213927ac7462760156c6ed5f42c839eeebe8a628b9a2a0dd48bcc4c2654"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84k/fold_gpr2_b05_fl_n84k_model_4.cif",
+          "sha256": "9abfc4fcbef85d2d8368ac264d9252285386cbc93c8f562deceb653cabfda429"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84k/fold_gpr2_b05_fl_n84k_job_request.json",
+      "job_request_sha256": "e9178dd7dcdf65634d48a26f9f72ad667e2453e6ad3668e975fdbae86eb3ab1b",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84K.fasta",
+      "fasta_sha256": "14d188f7f311a04870879cb7bf8a9ea668c0a17f36691cb28a2c3ab5e1d9b454",
+      "sequence_sha256": "6cabf8aa48c76e0f69f4c691ad81f39db26306632a6f5feccfb284b475ce6602",
+      "historical_source": null
+    },
+    {
+      "id": "N84L",
+      "alias": "05_n84l",
+      "original_job_name": "gpr2_b05_fl_n84l",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84l/fold_gpr2_b05_fl_n84l_model_0.cif",
+          "sha256": "04890f0cdf6a1f3eb4cf7807264addc0b8e8c9126f39cb139c569ce07185865d"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84l/fold_gpr2_b05_fl_n84l_model_1.cif",
+          "sha256": "4797cfdf857f5e4aa6ed38c533d5fff6f15b2adc23b5dfaa3bf2ba78c0f8be12"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84l/fold_gpr2_b05_fl_n84l_model_2.cif",
+          "sha256": "463169c04ffe7393c9a6b5959c46e9d031381a479747e3123fc56d19e6a8803c"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84l/fold_gpr2_b05_fl_n84l_model_3.cif",
+          "sha256": "4a5ee0f768682570bed448e1a1fd4613c454647da2361f3ae8e40a7cb9ff79c5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84l/fold_gpr2_b05_fl_n84l_model_4.cif",
+          "sha256": "dc32e5bc0cb07336f6e09242c83e392718b1640a00241d465edbb9dcd20c14bb"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84l/fold_gpr2_b05_fl_n84l_job_request.json",
+      "job_request_sha256": "42594fed8d4e73372c96c902268462a8d644b225d797c3366f332f82985107b1",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84L.fasta",
+      "fasta_sha256": "760e5ebbaf8cb5a5dbeb40a3a7b53e48c17ad6e9231cd05ae78e5b7c25ddfc89",
+      "sequence_sha256": "e31b69890ea54bb4ca985a2d1965be1118f85a1818cf4c82f478c20a506e06fc",
+      "historical_source": null
+    },
+    {
+      "id": "N84M",
+      "alias": "05_n84m",
+      "original_job_name": "gpr2_b05_fl_n84m",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84m/fold_gpr2_b05_fl_n84m_model_0.cif",
+          "sha256": "6574a79ae661902d61f3e40423094eb65dba5277d8ac7a9dd1ed51fe2b9189ea"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84m/fold_gpr2_b05_fl_n84m_model_1.cif",
+          "sha256": "4a1379760e69f9c8181ddf41fd50428010dab9d828abc325748179739cc95dda"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84m/fold_gpr2_b05_fl_n84m_model_2.cif",
+          "sha256": "4236d2582dbae728098e5ad7d1c5e973421540e0c9ca4f09ff9342aafd96360c"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84m/fold_gpr2_b05_fl_n84m_model_3.cif",
+          "sha256": "d310d30712ab75c47a52aac8164b088fbc88e9e7e2e77ee3f7ea723686e06461"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84m/fold_gpr2_b05_fl_n84m_model_4.cif",
+          "sha256": "c34178da52bba62b63640641c915ff665d54730262e6e1baa1734acedf6c38d3"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84m/fold_gpr2_b05_fl_n84m_job_request.json",
+      "job_request_sha256": "14a1d67032c13a63498923c83c3e35444dcbb8de03d6eb58ed4b5355804dc6a9",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84M.fasta",
+      "fasta_sha256": "afb4da95375940e7de5d6378f292d6f63df4c496df5ea21872b7e6d7e6f447f8",
+      "sequence_sha256": "efc5719fceb6c44b9af337ccceff47993dfbae0f3d6394b53b9115ca9b7122c7",
+      "historical_source": null
+    },
+    {
+      "id": "N84P",
+      "alias": "05_n84p",
+      "original_job_name": "gpr2_b05_fl_n84p",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84p/fold_gpr2_b05_fl_n84p_model_0.cif",
+          "sha256": "84ce42c78ef5c9e9a7207273a73ded394992eeea6f1f48ac0c150a25bac50a30"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84p/fold_gpr2_b05_fl_n84p_model_1.cif",
+          "sha256": "225b9335461dc126a0433247385e4dd7235870c18bcfd9d0e7201dee757becb3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84p/fold_gpr2_b05_fl_n84p_model_2.cif",
+          "sha256": "213ac75dd53f034685c29a5e6afb34d5628e796f11513e58a6faba96cefc546b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84p/fold_gpr2_b05_fl_n84p_model_3.cif",
+          "sha256": "12ebde71fdc75b718b8cde5f06123586bd3dcd089e1375d7688f43498183757f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84p/fold_gpr2_b05_fl_n84p_model_4.cif",
+          "sha256": "39e445a9b7938cf53547153b45fc453ef17c39f3332c29b81bef4b0632cc237c"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84p/fold_gpr2_b05_fl_n84p_job_request.json",
+      "job_request_sha256": "608b4e8f1ffedfae010ff6d597aab9a9a83a58c27b136feccd0fb9de0325af29",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84P.fasta",
+      "fasta_sha256": "42860366455405ebb6ce1265847523da09bf6b3ea6ec20066db2c7cffd1fccdd",
+      "sequence_sha256": "c661f68548ddf6f218b2fc7b0e1b86eb96c2322ee6491c09b3532b99fce39095",
+      "historical_source": null
+    },
+    {
+      "id": "N84Q",
+      "alias": "05_n84q",
+      "original_job_name": "gpr2_b05_fl_n84q",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84q/fold_gpr2_b05_fl_n84q_model_0.cif",
+          "sha256": "07ffb18f776e86fcd2667cb02220fc4e962b25d77282be676c2bbeb4f6496761"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84q/fold_gpr2_b05_fl_n84q_model_1.cif",
+          "sha256": "dddce28fa3fe2f273ba94c7afcc9a560682d82c08c55c0166c27e6cd3ea788c0"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84q/fold_gpr2_b05_fl_n84q_model_2.cif",
+          "sha256": "7dd7b17281aaa46d22e50ec11cdd89e747efd8a3855ce0e9e0e80f547d6da223"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84q/fold_gpr2_b05_fl_n84q_model_3.cif",
+          "sha256": "52eeb2cc04bc20112bb52e963a9b03a64d8a909645d0afe793d8e793180e060f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84q/fold_gpr2_b05_fl_n84q_model_4.cif",
+          "sha256": "0eb84a6c869cc5d4562543745eef3baed5a35b9f88d17ad419a097ae571dc1a6"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84q/fold_gpr2_b05_fl_n84q_job_request.json",
+      "job_request_sha256": "7556fe1c3e6f3818e05099bab25ab45458c3e53974b2f5d88f0da8fa5d33b846",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84Q.fasta",
+      "fasta_sha256": "46056889c94c722340c0027b46e2ec3171219daa57d78d67cca6181355117098",
+      "sequence_sha256": "1eb92c3b01c02a7699df0d8420d556ebe3a3aff88840d878b325a721ff764eb0",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_N84Q.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84q/fold_n84q_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84q/fold_n84q_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "91a3ce1572e16e1d8a5866ba17e66f050b9b705d9977c964f14ea0cbe3d1e311",
+          "model_0": "75155f6193f61d4c30f70965c917a6406285be25a0f95341da42e0db7f7bcc44",
+          "job_request": "ab30179512ac614b40a2fd6b47d9015068eddf4021ec1b7803f97cffebc6ed16"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "N84R",
+      "alias": "05_n84r",
+      "original_job_name": "gpr2_b05_fl_n84r",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84r/fold_gpr2_b05_fl_n84r_model_0.cif",
+          "sha256": "6940a5c7b0193069de4d5cdd88268f417b3c9993ea427f952ed69de5e3a2bb37"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84r/fold_gpr2_b05_fl_n84r_model_1.cif",
+          "sha256": "32b4c863c32bf4dde43c3fbf3bc16b193a84433c5378784c87956eaa8aba98c6"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84r/fold_gpr2_b05_fl_n84r_model_2.cif",
+          "sha256": "77fe4bed5fd500f66bcde7ad310efcd78713465a34f5f651dcd1c923bf97abb8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84r/fold_gpr2_b05_fl_n84r_model_3.cif",
+          "sha256": "ad8edee4c7bb4d316121684dabb7a7340c109099f8bbad090d4e41b65bca5719"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84r/fold_gpr2_b05_fl_n84r_model_4.cif",
+          "sha256": "b09000dee25d01e4b8a609b5594317ae3ddaf4fb391b5ffd295e6c3096ecacf7"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84r/fold_gpr2_b05_fl_n84r_job_request.json",
+      "job_request_sha256": "eef772739bdcc8074bae80a868688cc59adf4d43a1713858db037e44b75e2b1c",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84R.fasta",
+      "fasta_sha256": "05a7528cdc08dedf760e5eca9840d607fc49ac3dea4654fda9b2116cb71cfa13",
+      "sequence_sha256": "e11d4f60075b0becdac8e15f24777b99afaff2e7faa3f8a8319852157b3a2693",
+      "historical_source": null
+    },
+    {
+      "id": "N84S",
+      "alias": "05_n84s",
+      "original_job_name": "gpr2_b05_fl_n84s",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84s/fold_gpr2_b05_fl_n84s_model_0.cif",
+          "sha256": "52124ab96a37a77d9b1804d3bbad3f7a2bb2b23c08777bf30620d9c8e630d44b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84s/fold_gpr2_b05_fl_n84s_model_1.cif",
+          "sha256": "a95fe0a06451aa1fe2f96fbc8226e548975e075862d95e13c8379a96124c6764"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84s/fold_gpr2_b05_fl_n84s_model_2.cif",
+          "sha256": "4dd83c90e5f435dfed76d91d53591d699ea5e496ac16f7e1bda3464626b41975"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84s/fold_gpr2_b05_fl_n84s_model_3.cif",
+          "sha256": "41c6805f3ada01514b3a1745e5aafd8278bcf8eba7f1284ebf0db0e9a3dba2e5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84s/fold_gpr2_b05_fl_n84s_model_4.cif",
+          "sha256": "4f485542429d705ebf3b10f8ff2f0d94bd855a28c0c6e501230e4ac9a8d88d16"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84s/fold_gpr2_b05_fl_n84s_job_request.json",
+      "job_request_sha256": "4c042621146006261de5a38c9981b580f69290ec365beed8973c20c513fffa45",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84S.fasta",
+      "fasta_sha256": "dd0e5b45ca71538d949fe96bdba84309de1e96e0f6a3d81b3d96704dcc17b8a0",
+      "sequence_sha256": "78eee67c9be716a6521b541a6e6e1aae9e90e98ab6cdd01ec234b3335bbbdd02",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_N84S.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84s/fold_n84s_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84s/fold_n84s_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "f5c2d9336edb8110fe8866c1d2ed5aca313aec7b481ce7bed3ef3fa70df06705",
+          "model_0": "f9527c910f9d5f06a67e4ca81b300f481bc682bd0a0c66574078aa7f45c3c4f6",
+          "job_request": "1e954c483e8492d05118dd7380b3410fd3e2080c83623916079700f24ad2aa7f"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "N84T",
+      "alias": "05_n84t",
+      "original_job_name": "gpr2_b05_fl_n84t",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84t/fold_gpr2_b05_fl_n84t_model_0.cif",
+          "sha256": "7fedddb082abd23859b69d385dbe305304bd6735f2a1811f21ee7e28e79ef3b5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84t/fold_gpr2_b05_fl_n84t_model_1.cif",
+          "sha256": "6e47fcccd9e75fa2dad560b0a4a89899028ec34cade253b15a5680e138209b7f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84t/fold_gpr2_b05_fl_n84t_model_2.cif",
+          "sha256": "217bf74e14f0bd4860eb6fd451a08ae2541de3ffdd51ffd7535a7a30f8f3d868"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84t/fold_gpr2_b05_fl_n84t_model_3.cif",
+          "sha256": "a88f9ea81a10fc0a15e56f229324c51b877fca640a28621febb68b5e25200c88"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84t/fold_gpr2_b05_fl_n84t_model_4.cif",
+          "sha256": "f55243a36725e2c1fba438d91e57edb761d480d949c31e46d529d0a9a1cb1ee4"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84t/fold_gpr2_b05_fl_n84t_job_request.json",
+      "job_request_sha256": "b0724def33ed6dba7c48deaf4188771e6f6694a4c47c1d3275131d0eade7808b",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84T.fasta",
+      "fasta_sha256": "eae4804db3f6ab6c088f54354bfa1a4cd03325dc3d640c2d133dfc1a62a58a4b",
+      "sequence_sha256": "d2ca6bc86f1869d6f8789f4a17579dd2342535f95d737d3ce145b04ce73112ed",
+      "historical_source": null
+    },
+    {
+      "id": "N84V",
+      "alias": "05_n84v",
+      "original_job_name": "gpr2_b05_fl_n84v",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84v/fold_gpr2_b05_fl_n84v_model_0.cif",
+          "sha256": "bce75fcec858c3c83f9c14ed3fd1779b10824e7a96a506ce47430daa17c17059"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84v/fold_gpr2_b05_fl_n84v_model_1.cif",
+          "sha256": "968ebd9f85c9a6c6fe2ea4ad5dd36f6bddcc0d20eb01aad80509ae641de2d772"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84v/fold_gpr2_b05_fl_n84v_model_2.cif",
+          "sha256": "1163382d3cb2b8f9e60c285706b71495adb91e672cec30aa4482470de660feda"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84v/fold_gpr2_b05_fl_n84v_model_3.cif",
+          "sha256": "89cf83ed068395faa2a4fd22d20d9c7c6d57a9aaf9a07a7fc49f9b8c20bebbeb"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84v/fold_gpr2_b05_fl_n84v_model_4.cif",
+          "sha256": "a91cdfd61e7b6757d3f1efa89312364e1a931416ad3a5b32d99fd4e73c0d12f4"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84v/fold_gpr2_b05_fl_n84v_job_request.json",
+      "job_request_sha256": "c6ca074bd4b0196190b454f93e2fd33c9e9f80d7797f335a10bf566e3c99296c",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84V.fasta",
+      "fasta_sha256": "ba144a08a538b7301b752d202c40b32de1dc4e30c37b6ae53ac1c1dd1838b790",
+      "sequence_sha256": "ee24408db99ce95bd11bbfe42e3125aa1fd02e4b3d30005d24d766dfe14fac7b",
+      "historical_source": null
+    },
+    {
+      "id": "N84W",
+      "alias": "05_n84w",
+      "original_job_name": "gpr2_b05_fl_n84w",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84w/fold_gpr2_b05_fl_n84w_model_0.cif",
+          "sha256": "3d8ada0cd14395f398f427302932ea87471653cb35a95f62005aa0a2abd56fc7"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84w/fold_gpr2_b05_fl_n84w_model_1.cif",
+          "sha256": "8c0862ce5f57e9f32831eb22bde219337eb49d93ebf1af77975cc9a229e4e84a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84w/fold_gpr2_b05_fl_n84w_model_2.cif",
+          "sha256": "d3c8d6dabe20ff71443577b223ceeb11a06fcf6cabc8bf3a313bc4d1ae7b76b5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84w/fold_gpr2_b05_fl_n84w_model_3.cif",
+          "sha256": "be4ded1bbaeebdc9b80d3f601eebc8560d7df0315354396e8ace2f2ece6139ca"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84w/fold_gpr2_b05_fl_n84w_model_4.cif",
+          "sha256": "256354e3446d525b5f90445640ddbd0b1ac4557e9c25c1af250ac1f8de62adf4"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84w/fold_gpr2_b05_fl_n84w_job_request.json",
+      "job_request_sha256": "8e6c39ae0955652fde093d075bf44bf1f19fd2d676db4878d49c8b8de7d270cf",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84W.fasta",
+      "fasta_sha256": "bbf3486c371e2bd1e999de9236e1c75cadad6c10d3ec208788060ddea9393564",
+      "sequence_sha256": "6ca9cfc982dd1f015507b0fee93d83358daa9d9e1d6ecba0805b4507580676a5",
+      "historical_source": null
+    },
+    {
+      "id": "N84Y",
+      "alias": "05_n84y",
+      "original_job_name": "gpr2_b05_fl_n84y",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84y/fold_gpr2_b05_fl_n84y_model_0.cif",
+          "sha256": "036c9c21894a99daf666b7b10e6187ccf0bda1aafde6ba5aef1f04cbb92db4bd"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84y/fold_gpr2_b05_fl_n84y_model_1.cif",
+          "sha256": "020e8fc1da84fc7c71e23e378a282375c00c1bfc6b4515f8f5e15ca72c216894"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84y/fold_gpr2_b05_fl_n84y_model_2.cif",
+          "sha256": "b3843e840ddb61a0f62bd7881541474c30ef0b831cc7624d3142f50f83f37ebb"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84y/fold_gpr2_b05_fl_n84y_model_3.cif",
+          "sha256": "fa5e73b3feccce11c9179db675f6751203df9c65880cd3094952921a9ca4323b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84y/fold_gpr2_b05_fl_n84y_model_4.cif",
+          "sha256": "8ec3d58ca38e5485f7ac2c71aee0fe4f5feb741a17c98ac8126454b8578fdc90"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_n84y/fold_gpr2_b05_fl_n84y_job_request.json",
+      "job_request_sha256": "8823ba060a7566958bb9475be0717b04a46ddcf56805bbd1ff6b5986eda50028",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/N84Y.fasta",
+      "fasta_sha256": "bdb7d57c175006e6af5222054876533134b6d1fcf2edee7cef568c1343c734c8",
+      "sequence_sha256": "8179a50cfe13a24b0d55d684d24713fc82349de4c1bb0ee578b5b4726179ce33",
+      "historical_source": null
+    },
+    {
+      "id": "V110A",
+      "alias": "05_v110a",
+      "original_job_name": "gpr2_b05_fl_v110a",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110a/fold_gpr2_b05_fl_v110a_model_0.cif",
+          "sha256": "7fd62684964c3b9f1622972ff388077ebaa8df0b13bde2bcb23b1ae83da5c724"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110a/fold_gpr2_b05_fl_v110a_model_1.cif",
+          "sha256": "89e1e567c1d6ac5e84ff9f89b9d21d67056d986220482e52309c2fe56762d855"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110a/fold_gpr2_b05_fl_v110a_model_2.cif",
+          "sha256": "e191e0417ecd7392345d25720c98240bb1a422345a7bcc05ed8765d684d1fc0d"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110a/fold_gpr2_b05_fl_v110a_model_3.cif",
+          "sha256": "64234928470251cd2a33b51f239cf5f9acce06ea21e6f5293e5aee02dde1bda1"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110a/fold_gpr2_b05_fl_v110a_model_4.cif",
+          "sha256": "861514219d9b3f8a5d17764a5ad5555fb7d7084ddc5e984aaf9fb5c50ebfbe88"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110a/fold_gpr2_b05_fl_v110a_job_request.json",
+      "job_request_sha256": "9366ea7d764db424c34a7d13a4d84122ba8a850f4ea4ba92f13e0119347ebff3",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110A.fasta",
+      "fasta_sha256": "efc51e4e84e02cc0ae3fc2ab84ec28b95d02e7bc720ffbeb1c025b641018fd55",
+      "sequence_sha256": "5cd2f40ac5b9f057238362b08ef49297227dda76e428b4a98191e27fa1a9b557",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110A.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110a/fold_v110a_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110a/fold_v110a_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "ad67aef903635b1c323e6939f88634fbd628957ea6fc5b2b0c90f0dbd2c3802d",
+          "model_0": "0159cc1f3818a5fc85eb341c6eed064596b44bdbded05b2e9cef23373b3a89e4",
+          "job_request": "65684bb0fc10ed9abb5a84c11a92ed8a7ca1d3ddae52203d6b02b2689df4f43f"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "V110C",
+      "alias": "05_v110c",
+      "original_job_name": "gpr2_b05_fl_v110c",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110c/fold_gpr2_b05_fl_v110c_model_0.cif",
+          "sha256": "207f2c2b6317b2ecbefdb866c2f34a2bbb299fa74ef17d244a2accafbbd786d8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110c/fold_gpr2_b05_fl_v110c_model_1.cif",
+          "sha256": "35412a368553eb352087dacc7c2034a287f6240f6e4acb73fb9091a7c1b760cc"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110c/fold_gpr2_b05_fl_v110c_model_2.cif",
+          "sha256": "46997baf1fc510b5da3959d4af701b0b23cdb8b411e3908263d6519b641dc3d6"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110c/fold_gpr2_b05_fl_v110c_model_3.cif",
+          "sha256": "6904e85faaa4a0df113c18476ca98591e2f1038e3d6c199b4a1a4b1666009fbe"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110c/fold_gpr2_b05_fl_v110c_model_4.cif",
+          "sha256": "ab962c6aa1fcffc302b3659e5967f5873c1eb0ff2fdb64920e92e9a69012af27"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110c/fold_gpr2_b05_fl_v110c_job_request.json",
+      "job_request_sha256": "d8f31951aaceb7ef12a0acb67a80538868d3297b0f4c7d0723d3247196064cca",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110C.fasta",
+      "fasta_sha256": "b05f2f78b88c7f46b5bf6d43c0be8370ef005dc6c3d1a5b207a65651cfe14ef8",
+      "sequence_sha256": "c5f954392cbfd03af5cbda68127e9c0ce6605f53614aa3db074a06332dba9b80",
+      "historical_source": null
+    },
+    {
+      "id": "V110D",
+      "alias": "05_v110d",
+      "original_job_name": "gpr2_b05_fl_v110d",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110d/fold_gpr2_b05_fl_v110d_model_0.cif",
+          "sha256": "32ca411032e7161a19aba00f65a4ff206d6b6012a58705cfbbc7f75ecbab90e8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110d/fold_gpr2_b05_fl_v110d_model_1.cif",
+          "sha256": "25801852e17e1ce43cb847b255d66193faa16d9b82dc0df41e575b4d0aee1f04"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110d/fold_gpr2_b05_fl_v110d_model_2.cif",
+          "sha256": "44343e53b0edc139705c7960365e3a1d75151451273a50a5b45140aa8e9552c4"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110d/fold_gpr2_b05_fl_v110d_model_3.cif",
+          "sha256": "76bba0ec61538cbccba9f042b4aed4b9ebe8d11fa35204e3e378d1e30b3d905b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110d/fold_gpr2_b05_fl_v110d_model_4.cif",
+          "sha256": "147fac3b102afdc6f304b27371c546dca1ccb486c18e0403e1c74a730ac24728"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110d/fold_gpr2_b05_fl_v110d_job_request.json",
+      "job_request_sha256": "8195ee7d80e41b60fe87bbe95c3cd633a89df495d53e3f137b63f17ee075d6e4",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110D.fasta",
+      "fasta_sha256": "534c82828fa467820b6c1be7d435c3680b3d31e07d94bc0e52d5554d8104ba61",
+      "sequence_sha256": "34651d0f1ffddc3ddbf137d8aae93e8b41d3dd59a6ab25fde1c34e9a17e0f842",
+      "historical_source": null
+    },
+    {
+      "id": "V110E",
+      "alias": "05_v110e",
+      "original_job_name": "gpr2_b05_fl_v110e",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110e/fold_gpr2_b05_fl_v110e_model_0.cif",
+          "sha256": "6e674344f8c65aea53eb2bd166762810b391f6762d719258e47b29c2e8e88936"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110e/fold_gpr2_b05_fl_v110e_model_1.cif",
+          "sha256": "895e3acf62bf2004685cb5604ada6e6ae6130153d1e0300cab566ae88b3cc950"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110e/fold_gpr2_b05_fl_v110e_model_2.cif",
+          "sha256": "3bd69722bc4c5e2803a60087828ac78464a8656d64b13166ad4be8178335dab2"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110e/fold_gpr2_b05_fl_v110e_model_3.cif",
+          "sha256": "d9df20b62b574fc8c078241699415194787357fafe1df20615ec09525e10f4b0"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110e/fold_gpr2_b05_fl_v110e_model_4.cif",
+          "sha256": "00e8ecd89f023f7a577930d597ce18118c2235b90f7f1462ca642b85e0b2137d"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110e/fold_gpr2_b05_fl_v110e_job_request.json",
+      "job_request_sha256": "eca8c03047b8c89016b10def01a0b639f2fae11abc0cf352c777dfee75d4b71f",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110E.fasta",
+      "fasta_sha256": "1f5dddb170c0d07763a5aaf6b704c87fec733a85ef9dbd401abdfe87dbc0507b",
+      "sequence_sha256": "a9bba14c938a47991c438d58c357fa8f12d1af1f399b73b6adb7b575a56a6c82",
+      "historical_source": null
+    },
+    {
+      "id": "V110F",
+      "alias": "05_v110f",
+      "original_job_name": "gpr2_b05_fl_v110f",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110f/fold_gpr2_b05_fl_v110f_model_0.cif",
+          "sha256": "1743f9d658ee13be93a0f279826fe4740eb282dbb7be9220dcb551db496d4118"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110f/fold_gpr2_b05_fl_v110f_model_1.cif",
+          "sha256": "d72d3acaca637804057d93fc3882e5a0856411e764a5497280804325ee5b5181"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110f/fold_gpr2_b05_fl_v110f_model_2.cif",
+          "sha256": "8c684c540192f47f3284de0542cae877285474cada3c8f7aecd4e3c50b0cfe9b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110f/fold_gpr2_b05_fl_v110f_model_3.cif",
+          "sha256": "3071ec3bc2e706c2b0b778ac0ada325605e2d1cfb7c0cff9783b39de9bd289e2"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110f/fold_gpr2_b05_fl_v110f_model_4.cif",
+          "sha256": "a122de8e1be16bec57584d706dfcb5afb93788946006718c70d7a2387866da4a"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110f/fold_gpr2_b05_fl_v110f_job_request.json",
+      "job_request_sha256": "d05eda9990efb56ec943225f85f6019bfa262248fe10472e92463b2ce5a45407",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110F.fasta",
+      "fasta_sha256": "dde7cfae6c82394fc8d506daf2a8d63ab50fc653a8af925fa8ef02d7cfbad9c8",
+      "sequence_sha256": "9771014b4db17962e6655b9074a5999f9f8cd6ef76e54e6ff86ee8bbfc5e67ee",
+      "historical_source": null
+    },
+    {
+      "id": "V110G",
+      "alias": "05_v110g",
+      "original_job_name": "gpr2_b05_fl_v110g",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110g/fold_gpr2_b05_fl_v110g_model_0.cif",
+          "sha256": "541d3bded6996b93c53bfc35f2ec6e4eceefebe53d5ce448ff7ece364c1cff15"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110g/fold_gpr2_b05_fl_v110g_model_1.cif",
+          "sha256": "6333081ad3e20735fac23964b07a8b9891fb02bb6e7b155f5a95880964e99866"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110g/fold_gpr2_b05_fl_v110g_model_2.cif",
+          "sha256": "125ffa5506d6ddd07604da04132d99e09306900532ef2c2ade77d00c32c19252"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110g/fold_gpr2_b05_fl_v110g_model_3.cif",
+          "sha256": "da45920f51e7ab2a2718653cf6d6a6d1bb54d48d043fee98fd2f7e4d9d8b431a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110g/fold_gpr2_b05_fl_v110g_model_4.cif",
+          "sha256": "4432451475d6e9d2a9f8ad89b952d7e081bb426fe3ab0f7b965ed5b36621ca82"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110g/fold_gpr2_b05_fl_v110g_job_request.json",
+      "job_request_sha256": "743fdf1c0e7196fe2efbd99eb80b1da7ec7411a5c68a76ea47cb8f57b99cbce7",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110G.fasta",
+      "fasta_sha256": "649a9a4b2b73ffe4c191faa7c6f1eff41c01c04617a4a75d6a6c0dc22f152e46",
+      "sequence_sha256": "302a93d1643fa09057c77517cea6ff5134999b2f9e3d9c33dea1f29f9c68284a",
+      "historical_source": null
+    },
+    {
+      "id": "V110H",
+      "alias": "05_v110h",
+      "original_job_name": "gpr2_b05_fl_v110h",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110h/fold_gpr2_b05_fl_v110h_model_0.cif",
+          "sha256": "e616506c158db2b2202f285695e050255c2e84eba766192040f01b9be9b6ae98"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110h/fold_gpr2_b05_fl_v110h_model_1.cif",
+          "sha256": "16d0d7d7206906dbac287e102a1f6478389145bdf2eee711eb3e17b637cd662e"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110h/fold_gpr2_b05_fl_v110h_model_2.cif",
+          "sha256": "869c35af3d9c4b91a8b35be36ff94f31f85610f325377e89455b6b917586904d"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110h/fold_gpr2_b05_fl_v110h_model_3.cif",
+          "sha256": "c2b8ff8b25330400a24aeaefd531a2637e535c208ab1779091c0b5e914df37ec"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110h/fold_gpr2_b05_fl_v110h_model_4.cif",
+          "sha256": "538f6328e3443ddac12cc905261f6323c849c6caf742786f5266e155b34d4bfb"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110h/fold_gpr2_b05_fl_v110h_job_request.json",
+      "job_request_sha256": "9e34d3270ada7451f350b257691334ab3b2094e9d203605653a2dbb5b02f0f40",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110H.fasta",
+      "fasta_sha256": "67f4a5e56f919bf50b82aed0e8484aa9e730f3c60d8ce772ecd7faf3ec3b4b4d",
+      "sequence_sha256": "739f57dbcf7764e5fb53122a24e7792b40d5f9eabff0ace1f71b11ddce4af2b8",
+      "historical_source": null
+    },
+    {
+      "id": "V110I",
+      "alias": "05_v110i",
+      "original_job_name": "gpr2_b05_fl_v110i",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110i/fold_gpr2_b05_fl_v110i_model_0.cif",
+          "sha256": "005f0e0515b6ff7f3b0866413f2110bccbd5baef73effb06ce35c57c70fb8429"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110i/fold_gpr2_b05_fl_v110i_model_1.cif",
+          "sha256": "df9cf24b8c05b9471b6761215bb6077f57a8a11cc119f874e8d16c8992d49c3a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110i/fold_gpr2_b05_fl_v110i_model_2.cif",
+          "sha256": "06b416cc23290ac657024305675744163627e30f45463788b5c5a3a8cfbc27eb"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110i/fold_gpr2_b05_fl_v110i_model_3.cif",
+          "sha256": "df982dac79a3f762b8a2266b95b383387974fa74d84cf99375a5e15c25fd0cb0"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110i/fold_gpr2_b05_fl_v110i_model_4.cif",
+          "sha256": "536018212fe61b48a6b00382657efd9b03ccae13f4511fe58de9ef84f28e9f86"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110i/fold_gpr2_b05_fl_v110i_job_request.json",
+      "job_request_sha256": "09ea1b10f1144491f3fedf1e76e9ccf3facd59b9cd4bbf1d26bb362d281029a5",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110I.fasta",
+      "fasta_sha256": "e72221e6aec897e47aa2ddfd2db9157497e6149e039715894c49007eb9db9a93",
+      "sequence_sha256": "1daee99130ed6472c7f4b248e7210b10c678d074b1743e4d03302b6c46c96ea1",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110I.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110i/fold_v110i_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110i/fold_v110i_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "bbdddad594a47a9e3d9c528e69bcf432873f45334d018bac004213d2ed5c656c",
+          "model_0": "5f39abeacc46d6450d8e9205bcbd164d44a4b90bbbcd21030979bf3d3f25561d",
+          "job_request": "1d1e7adbb0780558d13194e3b8d0054747f9053b604ed25fea3689840053ed0b"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "V110K",
+      "alias": "05_v110k",
+      "original_job_name": "gpr2_b05_fl_v110k",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110k/fold_gpr2_b05_fl_v110k_model_0.cif",
+          "sha256": "f914fb541e614e35ed9bc04b25d7fc1dd637b6bb0b4df4b97527f964901a2e97"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110k/fold_gpr2_b05_fl_v110k_model_1.cif",
+          "sha256": "d4e704b51129814cf4efce884698be75310e371e73a8706617fc1617e2f95157"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110k/fold_gpr2_b05_fl_v110k_model_2.cif",
+          "sha256": "e1f4ee1f40c3deee43a77cd988ee692312f2e6fe9e372b02779399900465072f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110k/fold_gpr2_b05_fl_v110k_model_3.cif",
+          "sha256": "e2a7a3c4e55a9b56216b00c4b70cb2f1bb1dc14f68ad0ceca2b72dac874ecac3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110k/fold_gpr2_b05_fl_v110k_model_4.cif",
+          "sha256": "078f984a04bcf065125e651c2a4e70584ede86068174cee2963d1a383733eee4"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110k/fold_gpr2_b05_fl_v110k_job_request.json",
+      "job_request_sha256": "571ceb9865c1b97c4fafbde30cfb32cd37b6d1ffa29e6086eb9868d052d6749a",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110K.fasta",
+      "fasta_sha256": "4479853338b5675c53b26c7b73bf33cd450bee5ab363c7cc7d253b194b383858",
+      "sequence_sha256": "06d937202c5e11e08dcc658d1c26bc80fc202bf04cc490f74390bdf262c659d0",
+      "historical_source": null
+    },
+    {
+      "id": "V110L",
+      "alias": "05_v110l",
+      "original_job_name": "gpr2_b05_fl_v110l",
+      "source_zip": "folds_2026_09_16_11_15.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110l/fold_gpr2_b05_fl_v110l_model_0.cif",
+          "sha256": "13a8127bf988c22be2a90dfe08ad6406ec5a035239a27ef53cab4a1165f014f9"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110l/fold_gpr2_b05_fl_v110l_model_1.cif",
+          "sha256": "8e63d9a4b8086cc8b76f2c0275e83423dfaaf2fa7319a70c7190772d81f69608"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110l/fold_gpr2_b05_fl_v110l_model_2.cif",
+          "sha256": "99a38e5e0ab233eb80faa735c4e7175a33a803f1a6983a0dc207dad5dea5fcfe"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110l/fold_gpr2_b05_fl_v110l_model_3.cif",
+          "sha256": "8c84fe78e98c7726b00a372704a5028b9cb32431ff8adaaec9576c97b4cf3519"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110l/fold_gpr2_b05_fl_v110l_model_4.cif",
+          "sha256": "e839f35118743fcc2b43097eb1204ae28397fb6bb364222ca966a9d97d891cad"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_15/gpr2_b05_fl_v110l/fold_gpr2_b05_fl_v110l_job_request.json",
+      "job_request_sha256": "72708243ad33546f10bb7799f5ac87b5fa8bde044e24ac3e30a4777c6fe4948f",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110L.fasta",
+      "fasta_sha256": "d65e2c673447a8a1019996685d40a8f94234ccff87522bfcb3a10cfab0caaf45",
+      "sequence_sha256": "546848ac3b065eb2a8f9066cf0d4e0746c0dc2d0466f81740da190bf008c1203",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110L.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110l/fold_v110l_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110l/fold_v110l_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "c8bb47ce8cce2a60b92a6070da65aa9c0f0b13c715d797a571bc7798879daf28",
+          "model_0": "5558a2c45ebd95fb8d2fa2a3a151740c9c86f89aa38154e52e16897c35c6d074",
+          "job_request": "43b5e9c0e21116933d126e3f9be1d14d9657f8162c8669c8d40876707fe77c61"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "V110M",
+      "alias": "05_v110m",
+      "original_job_name": "gpr2_b05_fl_v110m",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110m/fold_gpr2_b05_fl_v110m_model_0.cif",
+          "sha256": "fb4d088af5da9cf9f49f58fd4fa1fb0cabcb8ae8725641b7b749684dffe6a49f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110m/fold_gpr2_b05_fl_v110m_model_1.cif",
+          "sha256": "8cf692554953d09dc930e6ce0423c0515a625ee6d787c23f906881471afe4fa1"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110m/fold_gpr2_b05_fl_v110m_model_2.cif",
+          "sha256": "a22a0411aa343ff271be3dfe60efdd246eaf518dcf9afc56271bf14ed65dc0f9"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110m/fold_gpr2_b05_fl_v110m_model_3.cif",
+          "sha256": "1a6ce1276d1ee2886448eea319a2c70806ba0163828d1297821923917c7fd186"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110m/fold_gpr2_b05_fl_v110m_model_4.cif",
+          "sha256": "0656e8957cf24949130c001c420dd651414a16499ae285610858e7a42c96e67c"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110m/fold_gpr2_b05_fl_v110m_job_request.json",
+      "job_request_sha256": "fe3d70bf1e21f8c8da6842e08d9f29e34c52acef303b8afd1d818970c98ff2de",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110M.fasta",
+      "fasta_sha256": "2ed00ec03222739b768a02ef4bd0b9d859476a350c1501953cfbe6fed3205551",
+      "sequence_sha256": "faeb7a9f84834101e3c3e405dc665042086af6e110332c384755b12e7d1b5c72",
+      "historical_source": null
+    },
+    {
+      "id": "V110N",
+      "alias": "05_v110n",
+      "original_job_name": "gpr2_b05_fl_v110n",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110n/fold_gpr2_b05_fl_v110n_model_0.cif",
+          "sha256": "13a8d09a8cd2dba261472e9ec56ce718b4813b45ed32e27a5305a55e2be8eb3c"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110n/fold_gpr2_b05_fl_v110n_model_1.cif",
+          "sha256": "5214605189e15f3cbfbe5809d44df14a39f5bb3759e799923aa58b9d9145d57e"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110n/fold_gpr2_b05_fl_v110n_model_2.cif",
+          "sha256": "0446863e0087b2a5349561118fd67483af538e2c14524e8be5a1d1d7c09d78e7"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110n/fold_gpr2_b05_fl_v110n_model_3.cif",
+          "sha256": "7fb6afa4f2e3fb9ed2a8d7e0615cacf205c7d88341688696b6854dc9e9f0b2ce"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110n/fold_gpr2_b05_fl_v110n_model_4.cif",
+          "sha256": "abf0b9516ee9c524ab71af1ef3a8c57892222a8a968591c185f3e01d365f973e"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110n/fold_gpr2_b05_fl_v110n_job_request.json",
+      "job_request_sha256": "f7c1b2af48323f932d5c0279b88e59b0c55b963d6b80099cd750fd950a3370d2",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110N.fasta",
+      "fasta_sha256": "de5eac825f6d6c62a50a7ec72b5c2fdc89595fa14c64896765bcefbca8461ab4",
+      "sequence_sha256": "45e38118bf06a190ed13916b45097ea87efaafd5a98ad1321494b738bd75253a",
+      "historical_source": null
+    },
+    {
+      "id": "V110P",
+      "alias": "05_v110p",
+      "original_job_name": "gpr2_b05_fl_v110p",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110p/fold_gpr2_b05_fl_v110p_model_0.cif",
+          "sha256": "e15440b9f59abab4493fd2ed1a25013a1008255f667496a079bf97a178b1d136"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110p/fold_gpr2_b05_fl_v110p_model_1.cif",
+          "sha256": "9d96ea641d52e15d7cb4fc41833e0252b757b11d5bc317cc7af86dbe06da9eb2"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110p/fold_gpr2_b05_fl_v110p_model_2.cif",
+          "sha256": "216049b832fd4c1ceb44269127863a46a44ee8492d561c2fd340b3ecfe786fc9"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110p/fold_gpr2_b05_fl_v110p_model_3.cif",
+          "sha256": "36984957cb99bd8973bf40914f9bb8ddf8516153a4ce7882ea7a657bd3a253d0"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110p/fold_gpr2_b05_fl_v110p_model_4.cif",
+          "sha256": "d73eaddbd76cdda9b03a91329782922e9271c03c3d27cb3149f9a9a523c601bc"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110p/fold_gpr2_b05_fl_v110p_job_request.json",
+      "job_request_sha256": "012d36173cb354db9af7351a984e95945208646bd531f2842c8e09d8d9366c82",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110P.fasta",
+      "fasta_sha256": "de371789fba0ddff08cd26e0d5a186a46600c6bf32d73d3cdbb0d6694a47c457",
+      "sequence_sha256": "4721216b6d2ebcbde89b8da8676e267c5e0dd5f9d43a938d7740c6cc0ae65a0a",
+      "historical_source": null
+    },
+    {
+      "id": "V110Q",
+      "alias": "05_v110q",
+      "original_job_name": "gpr2_b05_fl_v110q",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110q/fold_gpr2_b05_fl_v110q_model_0.cif",
+          "sha256": "d565ec21a8ec845490d784232df7e065bf6c756ed33a751fc330c8a3bb99d06b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110q/fold_gpr2_b05_fl_v110q_model_1.cif",
+          "sha256": "c2ebe88973eb8478a0eeccd3dbcb968e0088eb4f76b3e042e282622392b8f036"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110q/fold_gpr2_b05_fl_v110q_model_2.cif",
+          "sha256": "435f1060e4a2338c8787248f9d5ac19c9c6d7e3a88ec78635fa5599c36805d42"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110q/fold_gpr2_b05_fl_v110q_model_3.cif",
+          "sha256": "21ce3baede887f58f2106c097a847ca8afa5ffc313b2bb03e21d93dd950c7c40"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110q/fold_gpr2_b05_fl_v110q_model_4.cif",
+          "sha256": "499d8d88ce0625f1b2fda906934003eeaa5f53235bd04705398a078d62fb8f3f"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110q/fold_gpr2_b05_fl_v110q_job_request.json",
+      "job_request_sha256": "1b8df72913f13f0f3af9cb478862fca3098cc99323aa20bf51db4600506fff9d",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110Q.fasta",
+      "fasta_sha256": "fd5b33863281c1d1af1b8d9043232a17277221b8d8f1a1e74b4bd6372ef9935f",
+      "sequence_sha256": "598ceb6e3d06d9dedf4f614b9850a8ce267ab6fbea6f8b02f642f623cea4bc67",
+      "historical_source": null
+    },
+    {
+      "id": "V110R",
+      "alias": "05_v110r",
+      "original_job_name": "gpr2_b05_fl_v110r",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110r/fold_gpr2_b05_fl_v110r_model_0.cif",
+          "sha256": "4a722d5336aa0930432fc1a2143fa3c5ebd7c14931096c7b565a25f2078f1812"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110r/fold_gpr2_b05_fl_v110r_model_1.cif",
+          "sha256": "584ca6ecd54d19ccd9048de0f438509c08647abef5f28489d17ac9e1c662f3c5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110r/fold_gpr2_b05_fl_v110r_model_2.cif",
+          "sha256": "4f313a0815aba98effe2e675914612775bedeedc4cca3395e39e3c38a6736a3f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110r/fold_gpr2_b05_fl_v110r_model_3.cif",
+          "sha256": "613db9fe456f6a013239fe8914596f321aa77a70d22d54c6994543487e6cb3a3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110r/fold_gpr2_b05_fl_v110r_model_4.cif",
+          "sha256": "2af8d02d015258f05e270346812d6fe026b12575ba97d5ce8bc22dff251a571c"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110r/fold_gpr2_b05_fl_v110r_job_request.json",
+      "job_request_sha256": "fc2514c8a89510cb99b86d5808f45ea12324d68405cdb9c9ca67e3897aa82bf4",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110R.fasta",
+      "fasta_sha256": "e2164c75d270b19785ff6d441e53ccf4740eb900c15295e481756ce065408e49",
+      "sequence_sha256": "48d145e581a9b4100a73502137ba8bb488bef35c06f23eef570fa6c1aea78f6a",
+      "historical_source": null
+    },
+    {
+      "id": "V110S",
+      "alias": "05_v110s",
+      "original_job_name": "gpr2_b05_fl_v110s",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110s/fold_gpr2_b05_fl_v110s_model_0.cif",
+          "sha256": "c7a049b5ee98ff612ce410bed3de18208ca6b013f98b236faefd950c99659438"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110s/fold_gpr2_b05_fl_v110s_model_1.cif",
+          "sha256": "57bb70ecf8a28b5018267626689892085f5fb06a4500708de5d3e5810abbf7e3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110s/fold_gpr2_b05_fl_v110s_model_2.cif",
+          "sha256": "6c631cfb3fe23146f2df3821e534b7a3f3a3ca71bd86f4845dbb95dbd7b791ec"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110s/fold_gpr2_b05_fl_v110s_model_3.cif",
+          "sha256": "81416e0a2e3e6c6bbdebaa670bd8faec13719ed7c4fb0216835ecee3a8d3be17"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110s/fold_gpr2_b05_fl_v110s_model_4.cif",
+          "sha256": "97e698c236feb1555cacd2dbf3878b834e8505beaab4f21ad020e2aa70fa9629"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110s/fold_gpr2_b05_fl_v110s_job_request.json",
+      "job_request_sha256": "8fbddec2fc69965aa2b38c6f3906b34883fddd58b43a18dc65d6f33c1dc6206a",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110S.fasta",
+      "fasta_sha256": "63fd260a26e7a780eb7e8626995df84f2823c68cbcc3d26abea4a8a2da6f91a4",
+      "sequence_sha256": "5d3c04c2438cb72ab074cb86bf460850f64cec242aa1789c4df57601fbd7723a",
+      "historical_source": null
+    },
+    {
+      "id": "V110T",
+      "alias": "05_v110t",
+      "original_job_name": "gpr2_b05_fl_v110t",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110t/fold_gpr2_b05_fl_v110t_model_0.cif",
+          "sha256": "a4992fd8bffc444c31dbd83b2ef877815bd1e0349704247afa09b914aefbfd3f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110t/fold_gpr2_b05_fl_v110t_model_1.cif",
+          "sha256": "1656490489e86facbe63c06c05e66508022c4f42fa19311f66709f9661439310"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110t/fold_gpr2_b05_fl_v110t_model_2.cif",
+          "sha256": "d34e39ef81943d54578b67e9764fd9835b25498602225b20654345146a17dadd"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110t/fold_gpr2_b05_fl_v110t_model_3.cif",
+          "sha256": "75d2fc60b0be5bdbd5a69eec09d1f711bf1eaf652e8cbe83dcc519c8b6260cb3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110t/fold_gpr2_b05_fl_v110t_model_4.cif",
+          "sha256": "9bd1f2194954ae78e4921d8e55bced91138128d27e2525df8aa084ba6e3eef44"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110t/fold_gpr2_b05_fl_v110t_job_request.json",
+      "job_request_sha256": "6815ca98f4f2e3bd542185b50cdf2e320917eaa86d7046b0bf2ebf3aab565e44",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110T.fasta",
+      "fasta_sha256": "d66aea38c517115aa3c13d49bb38484c1921ec34e4f90eca0a34018fd6379156",
+      "sequence_sha256": "dcb606c212ee9806530de0e11fe2a2632a3efa00aeb66ebada22f03bc64dc166",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110T.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110t/fold_v110t_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110t/fold_v110t_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "f557580b4284a9b80c21287058d9eea5cda1f82d4f6de205c5151d5cf4ae4bda",
+          "model_0": "eff5fe772dc2f4ce36d951fb3b4cba09e90848897e9ad153928d250f7f61ef4c",
+          "job_request": "04df47625e9498bde70e581ce2eda2e50f5262380e5c960f203ad73be5f0376f"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "V110W",
+      "alias": "05_v110w",
+      "original_job_name": "gpr2_b05_fl_v110w",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110w/fold_gpr2_b05_fl_v110w_model_0.cif",
+          "sha256": "6f2b6c80910d52b58099589654b369f1699cfc899c1feec13d5d6d6d57a7b327"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110w/fold_gpr2_b05_fl_v110w_model_1.cif",
+          "sha256": "fe4bd38cd7da77071a38190587c6f8d66672748eb2fef840c17677a94777e536"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110w/fold_gpr2_b05_fl_v110w_model_2.cif",
+          "sha256": "6322b90c4b43849eba6d2befd673f4add09947fbb2655c1032eaa92a768d9e02"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110w/fold_gpr2_b05_fl_v110w_model_3.cif",
+          "sha256": "d0907d8a4fbff01426815827d74bc34b0ac34ee1f1c2a9a966c306f8c2bd1ecf"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110w/fold_gpr2_b05_fl_v110w_model_4.cif",
+          "sha256": "01520e347e3fa65275ba760f99021cea4b7be7602416b892520200afd5c936f2"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110w/fold_gpr2_b05_fl_v110w_job_request.json",
+      "job_request_sha256": "b8a8414e6918fc4c16d7da82090b3d9fa848ae3392809fa03247684d6ecf2e49",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110W.fasta",
+      "fasta_sha256": "2d12f146590e3a2af2ac0d21e5cc168ed8eccddb8719bedfd07b9a78a09bc1fe",
+      "sequence_sha256": "cb73a25aa38687d42a44b146a8c2fc8be09a988f7e1f6ba2663b7a0c1705579b",
+      "historical_source": null
+    },
+    {
+      "id": "V110Y",
+      "alias": "05_v110y",
+      "original_job_name": "gpr2_b05_fl_v110y",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110y/fold_gpr2_b05_fl_v110y_model_0.cif",
+          "sha256": "1d2076129dffd362a688822741d654626f3bea746b947aafe26269fc136a0c45"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110y/fold_gpr2_b05_fl_v110y_model_1.cif",
+          "sha256": "f9afa8c9cc7ac6c19bde49237f7a116fa8531b498eea7d3da3c152833ae79d1e"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110y/fold_gpr2_b05_fl_v110y_model_2.cif",
+          "sha256": "1ab41bd5484d19924bb04061eb279dc8db9c473bd06f7186a76e48a812d52062"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110y/fold_gpr2_b05_fl_v110y_model_3.cif",
+          "sha256": "311f986aa9d46dc3e5c8cadd23d571a661ac90a6683499bbbc88c053e2b26515"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110y/fold_gpr2_b05_fl_v110y_model_4.cif",
+          "sha256": "bb8bc4c154955d0c96496c7c84e62147a5257ac486ba5f6a9810476e120e2da8"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v110y/fold_gpr2_b05_fl_v110y_job_request.json",
+      "job_request_sha256": "f83f4ae109843b4c02b70921d2675a9def7fcd79fd887e2679bf16f7a3de7e0c",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V110Y.fasta",
+      "fasta_sha256": "3aa73441fd6586c3385e96122240f1dab0e1cfe1789e8741d94f801160b0c499",
+      "sequence_sha256": "d03e8f698615a2796409cf0595eb4ca3717cff847f0657a2e9f2d481fe476cf8",
+      "historical_source": null
+    },
+    {
+      "id": "V368A",
+      "alias": "05_v368a",
+      "original_job_name": "gpr2_b05_fl_v368a",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368a/fold_gpr2_b05_fl_v368a_model_0.cif",
+          "sha256": "455fa0bf266d2484bdfc426ea063c40fc2ba3ef2b9ac1cdbc998e10d45c2d2e8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368a/fold_gpr2_b05_fl_v368a_model_1.cif",
+          "sha256": "f61f66f953d3c8edb3fa1a5622c14e7889fc7b1b54ecc162e9826da1e4362442"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368a/fold_gpr2_b05_fl_v368a_model_2.cif",
+          "sha256": "549bc05fc69ec5eb8cc71191476321f1dd34ad0df4f262a27034423569a36c59"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368a/fold_gpr2_b05_fl_v368a_model_3.cif",
+          "sha256": "98c2e8a50a5d884a9e34b0e2034259eb8e43f50855a2ac8d00bcff94e9e2e4a8"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368a/fold_gpr2_b05_fl_v368a_model_4.cif",
+          "sha256": "02c4f354b5e86147185b7ca8ed25e22c3be3bdbccc5f02cd310317ba0f02e588"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368a/fold_gpr2_b05_fl_v368a_job_request.json",
+      "job_request_sha256": "a7077c4e40a459186e18c9e2668ea1662b4df64ec2c6e54d9654ddaba3a5b812",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368A.fasta",
+      "fasta_sha256": "d7e18592391eb0c97689ff2b5df0d29c26909de9ea581fe94fa43e9d95b87842",
+      "sequence_sha256": "42a49dce2b1bcdd2d70340c87cf9b65d3a8092d3dc25afc6313d33a3cdb6d381",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V368A.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368a/fold_v368a_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368a/fold_v368a_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "e4ef1bafa31f8093bab5e7cae880f29b5a64dc53619a1c4caf1d43872c21787e",
+          "model_0": "d83b6dce6eb51872e6ec4d9e85af8f0e653251a34144a5f0dc347a02f6fab306",
+          "job_request": "59509b21234ce4fe92c779abc692682ef5414a86d54e11cc9a2ee04b8e524d46"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "V368C",
+      "alias": "05_v368c",
+      "original_job_name": "gpr2_b05_fl_v368c",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368c/fold_gpr2_b05_fl_v368c_model_0.cif",
+          "sha256": "cd3df0478ef110bc98cb8afb244cc041489e43cab95b3ec2940ba3991ae93ad4"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368c/fold_gpr2_b05_fl_v368c_model_1.cif",
+          "sha256": "76a7b0cc11e188527bf3fd10f162fb9c6cc76eb89c894a9b57a730e0bb531113"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368c/fold_gpr2_b05_fl_v368c_model_2.cif",
+          "sha256": "65d5fdc535e73ef379573f3cb77cb6f075656e715a527e9f6cfaea55445a1a94"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368c/fold_gpr2_b05_fl_v368c_model_3.cif",
+          "sha256": "8dffcaa040554725f2e7c8247c453dcf428d49b27cc9352e60e12756a1eede64"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368c/fold_gpr2_b05_fl_v368c_model_4.cif",
+          "sha256": "17bb147cbba6f8ac4b3c5ed66f297cb9ad1883c63dfaa9f67019fbdb44a74a4c"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368c/fold_gpr2_b05_fl_v368c_job_request.json",
+      "job_request_sha256": "c326eed7060448879f4b370dc59b2f04c1230ae39737ba5a799816032456a590",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368C.fasta",
+      "fasta_sha256": "52c17b30b38ef128e2145bd97375684c27ea8f7c0c242079fa9f8e3b10b56d50",
+      "sequence_sha256": "a521f64cf7ad90b95dcff1514cc8a74f406c8768b2d2bc34a8d202d03deb9acd",
+      "historical_source": null
+    },
+    {
+      "id": "V368D",
+      "alias": "05_v368d",
+      "original_job_name": "gpr2_b05_fl_v368d",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368d/fold_gpr2_b05_fl_v368d_model_0.cif",
+          "sha256": "fc7f250bdb41fe3d672787290d0a78850baf7f7deca7f257dcf1251963040ec0"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368d/fold_gpr2_b05_fl_v368d_model_1.cif",
+          "sha256": "8756677c4d20d83f7c2177214c5e662c4ffd888c767b5026121777f83e72afeb"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368d/fold_gpr2_b05_fl_v368d_model_2.cif",
+          "sha256": "91e250d5549e263e38e96e7042148c9770d1ca13bc898068f7fef68b2d636ceb"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368d/fold_gpr2_b05_fl_v368d_model_3.cif",
+          "sha256": "b9cd5c243da49506d87d7a0b7ab38237f8f2be5dbcaa46ef9b18373d175de8c1"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368d/fold_gpr2_b05_fl_v368d_model_4.cif",
+          "sha256": "bfb36d8770b393973a5a6282d3ea15e7954b8f3ca0e7efb37e7a9ed03afc8464"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368d/fold_gpr2_b05_fl_v368d_job_request.json",
+      "job_request_sha256": "8affb5f81689647bfae51d1ebc16c68bc01138f777918f098a41f888bba07513",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368D.fasta",
+      "fasta_sha256": "74c3b3ed6977648d5c373bcf9901bd253029ad27718e2954afff4538849d4b62",
+      "sequence_sha256": "7a42634d76d52203910a169460ff78789dae8dbfe07a4b43d7535aa5c3e2a95d",
+      "historical_source": null
+    },
+    {
+      "id": "V368E",
+      "alias": "05_v368e",
+      "original_job_name": "gpr2_b05_fl_v368e",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368e/fold_gpr2_b05_fl_v368e_model_0.cif",
+          "sha256": "d11537a4a579ea5515fbf9449490874ae434f818a99c496a474933d51eb5faf3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368e/fold_gpr2_b05_fl_v368e_model_1.cif",
+          "sha256": "3eb092726daef93f7c4e656fd03ce94e8c51f4e2267d38598577e73f7f02c73a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368e/fold_gpr2_b05_fl_v368e_model_2.cif",
+          "sha256": "104de33487994d31e1fcb76eb59098d284886ce9180f76c99b3b572095fe93ef"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368e/fold_gpr2_b05_fl_v368e_model_3.cif",
+          "sha256": "c42a764f0f41b93856647a2bf8f7779789ea1afd96ba9f1b618372a9da457303"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368e/fold_gpr2_b05_fl_v368e_model_4.cif",
+          "sha256": "0eea87c339bdc98c3c26171b937b086f0290312f5f6b2db7bf1d734b6aa46a82"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368e/fold_gpr2_b05_fl_v368e_job_request.json",
+      "job_request_sha256": "171dfb7675a6bc29a4ee9d90819e8fb00734e9748b70ee06b2dad9305ca80fe2",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368E.fasta",
+      "fasta_sha256": "14820c2687cb7ce1be67820aa01fee569908e235a3758a0bfaedab5108fc1ba6",
+      "sequence_sha256": "d54b3f0fc313c5ae8c78d87794933b7d74babeff38a0ad8603da408dad804fd0",
+      "historical_source": null
+    },
+    {
+      "id": "V368F",
+      "alias": "05_v368f",
+      "original_job_name": "gpr2_b05_fl_v368f",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368f/fold_gpr2_b05_fl_v368f_model_0.cif",
+          "sha256": "6b7872c1f8ad2977b2aa96987ea5797393a96bb69bc98850b90016c271e9f553"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368f/fold_gpr2_b05_fl_v368f_model_1.cif",
+          "sha256": "1b2c0750b774700cd11a0402b120ad197c7543d05da6ca257844ca132b80ff40"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368f/fold_gpr2_b05_fl_v368f_model_2.cif",
+          "sha256": "f96120511ac8556237ac0be10335cace053e10a8199eda8548a0be5597fcffdb"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368f/fold_gpr2_b05_fl_v368f_model_3.cif",
+          "sha256": "83ca9453826c91afc08ff1fd17f286fd4a5e8506fe59ccb5bca92a1629e99c9c"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368f/fold_gpr2_b05_fl_v368f_model_4.cif",
+          "sha256": "a4a6821c1d4faf23e13aa5237497736417a48563f68530454c39007832b4a090"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368f/fold_gpr2_b05_fl_v368f_job_request.json",
+      "job_request_sha256": "5dd2f1eca503298923c29f8c7654c51d8e9ed787f82408523bc2f2d6d21e70d9",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368F.fasta",
+      "fasta_sha256": "b2402b0ccec9cd875aaba9a0b6ccc024f4a0a467eb4027609aef572d88c8ef2b",
+      "sequence_sha256": "787a0835feb424fa7cd91d551083a8b0f98a2c8fa27ab40d7c7537cadc42b4a4",
+      "historical_source": null
+    },
+    {
+      "id": "V368G",
+      "alias": "05_v368g",
+      "original_job_name": "gpr2_b05_fl_v368g",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368g/fold_gpr2_b05_fl_v368g_model_0.cif",
+          "sha256": "c7728dacc726c15371badc635268c971f863f09e813be29351a7a70820795417"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368g/fold_gpr2_b05_fl_v368g_model_1.cif",
+          "sha256": "ea9dd41a413fd74e197c543e7ef3c131b9e947c55256c29a3b72949745021d3a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368g/fold_gpr2_b05_fl_v368g_model_2.cif",
+          "sha256": "71684b5f3749d599bc1f5e2be49695756557b35549f9757cd669321532ea55c4"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368g/fold_gpr2_b05_fl_v368g_model_3.cif",
+          "sha256": "fa43d9f1bf0a9913fc1bc6a3397cc32437663b719ea7628185fa97508109e7a6"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368g/fold_gpr2_b05_fl_v368g_model_4.cif",
+          "sha256": "30a50308e11e132fb3d699cd53d9997d10f3a863af71169ef7df2475f307fe75"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368g/fold_gpr2_b05_fl_v368g_job_request.json",
+      "job_request_sha256": "e81587af5e20c7dfac4d4673a75c19444287213a4356c870f1f9678194863423",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368G.fasta",
+      "fasta_sha256": "10e25628f1d1fb951811ea44fdddb8cd34cd0157eb763fbe4ca800e98ce3a875",
+      "sequence_sha256": "48c390d51fc9579696c451bd1d75ca89c8944985da7684317fef30498ca29c83",
+      "historical_source": null
+    },
+    {
+      "id": "V368H",
+      "alias": "05_v368h",
+      "original_job_name": "gpr2_b05_fl_v368h",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368h/fold_gpr2_b05_fl_v368h_model_0.cif",
+          "sha256": "817540ac78b8095e709404ea18d2f0dd4f11a3715d2fe58badbf2e8cc1d6e4d9"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368h/fold_gpr2_b05_fl_v368h_model_1.cif",
+          "sha256": "963a71ad5fc60747218eff7728ddfd6cf9a06b7580ed1a31ebf0853ec8ac87ec"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368h/fold_gpr2_b05_fl_v368h_model_2.cif",
+          "sha256": "c720996f85e0300888f69021d4929b6272f15411a2c50f2423bad25c55a80381"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368h/fold_gpr2_b05_fl_v368h_model_3.cif",
+          "sha256": "ae92a1eae07333979150831d50a9773f07747954e030b7ba3e39dc00e52a63d2"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368h/fold_gpr2_b05_fl_v368h_model_4.cif",
+          "sha256": "a8f5b915e78f50192394cc260d4dc51304dd38f7321ec58a96f3e20df4848705"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368h/fold_gpr2_b05_fl_v368h_job_request.json",
+      "job_request_sha256": "7eda82bff2859ad4813c3a6b18f0477c452a8829db094066f874fdfdd031d3ae",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368H.fasta",
+      "fasta_sha256": "7f0abba44bb24b0a7ecd2e5728e3f0a9b729191fc376cffdfc778991e724ccdb",
+      "sequence_sha256": "59f0c5807c67d369a1ab872e768c8c5f994106399586f2e0cf0e652b651aed22",
+      "historical_source": null
+    },
+    {
+      "id": "V368I",
+      "alias": "05_v368i",
+      "original_job_name": "gpr2_b05_fl_v368i",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368i/fold_gpr2_b05_fl_v368i_model_0.cif",
+          "sha256": "29a4cbba761dc8b91e0ce57f44a14bc14344c8ca19b54e452d4a05aad0a25e80"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368i/fold_gpr2_b05_fl_v368i_model_1.cif",
+          "sha256": "125109af47f991376275b230d5dee60982641502249a3c568ecb9cc7750e8c23"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368i/fold_gpr2_b05_fl_v368i_model_2.cif",
+          "sha256": "a5e07db8b0efdfe0acef928d5475e05b745dcbd386bd17ddc1d6d93d50f6ad63"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368i/fold_gpr2_b05_fl_v368i_model_3.cif",
+          "sha256": "b8820d57502c77886b0739ed8d4d1bfd5e6d7ceda5fa2778c9bcb981bc1deab4"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368i/fold_gpr2_b05_fl_v368i_model_4.cif",
+          "sha256": "1683c82dfdc2d3acfac64964116cd40352ccb586c89ea2dd9063ea2e2aa86769"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368i/fold_gpr2_b05_fl_v368i_job_request.json",
+      "job_request_sha256": "5d246323fe84a359b080d3885eafd9e1457adcf6d9e967b84b99325521652863",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368I.fasta",
+      "fasta_sha256": "10628dd946fb61c8bb8dc4d8afc066348c0061623cc9b435f18994d681dc6175",
+      "sequence_sha256": "3a190281ec47e16ea4519bf8701667c9a429f2c0b0ce454e3807c352963c090c",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V368I.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368i/fold_v368i_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368i/fold_v368i_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "767b6cef098d7bce86ad05cc72c3ae937a2947c15e4f4adede0a8dc2deb517e8",
+          "model_0": "8895648b53bde1e35f783441123fd57bc456a04145bbe3e6451da09b6897efa0",
+          "job_request": "4f4b9c6b56aa167ae35e615adfe14f2caaca23f661968f92028f9ae02bc6f937"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "V368K",
+      "alias": "05_v368k",
+      "original_job_name": "gpr2_b05_fl_v368k",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368k/fold_gpr2_b05_fl_v368k_model_0.cif",
+          "sha256": "a32c6b1115d365d5534a6f25e98e5b325f07dfa93ce7c89cb861d978da8ff118"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368k/fold_gpr2_b05_fl_v368k_model_1.cif",
+          "sha256": "a1197860ae7e36d424db02fdf1966f8a2ba5d31f2f80eae5ac969e7b12f0cc08"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368k/fold_gpr2_b05_fl_v368k_model_2.cif",
+          "sha256": "6e53ce94fbe084ba8e1aa660d035c1258d102ab60667acea0fb8ed3a6ea804f9"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368k/fold_gpr2_b05_fl_v368k_model_3.cif",
+          "sha256": "d9f8d2f6fa10710763a4b4ddbb6967652af1e5a1ff2ced416ef9d5a7ba4b4b3c"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368k/fold_gpr2_b05_fl_v368k_model_4.cif",
+          "sha256": "cf7be96128623b3ea40d8a03bd6d168ede4873fea7214e46c961c6352efa370d"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368k/fold_gpr2_b05_fl_v368k_job_request.json",
+      "job_request_sha256": "5b636a1e8ca9df5650ddf72cabb51641fc0d2e3d0b949041f2509940d2ea6f43",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368K.fasta",
+      "fasta_sha256": "a258f73d3bee4bc9dc6428325c4f2f81798312f898432c9c792b1dbe358c7f17",
+      "sequence_sha256": "55f5c7d419889eaf66eb9de1fb783bd95d525142d3be29167a6d9f68134b9b4b",
+      "historical_source": null
+    },
+    {
+      "id": "V368L",
+      "alias": "05_v368l",
+      "original_job_name": "gpr2_b05_fl_v368l",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368l/fold_gpr2_b05_fl_v368l_model_0.cif",
+          "sha256": "e8b7277a258235ccfba96467c00471744be162e918786fce9b42c9d0fb3f95d5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368l/fold_gpr2_b05_fl_v368l_model_1.cif",
+          "sha256": "9c3549d98b84858f6da20cd717936a634b0f1271b0c975d72a31df0126217cc6"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368l/fold_gpr2_b05_fl_v368l_model_2.cif",
+          "sha256": "7352b55c550ecbbb704a531f3f5f3435a6ca3e373ae89419418a5a89acb193c9"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368l/fold_gpr2_b05_fl_v368l_model_3.cif",
+          "sha256": "b1070170c94a43a0eeba001480e941eab171d0bc2871ac3fbe97a447f38c86e4"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368l/fold_gpr2_b05_fl_v368l_model_4.cif",
+          "sha256": "27885fcdb2771df2399d6bfb63bbd712f60ea664624f01f5324745f5a264ec43"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368l/fold_gpr2_b05_fl_v368l_job_request.json",
+      "job_request_sha256": "5cacdccbb003c06e0846c48f21cbecd35864fc0f80a8fc0fd439ef9897f6501f",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368L.fasta",
+      "fasta_sha256": "2d2058f2084921e62e5a3c9283f9cf168ed5e16a3a9421a13f8eddfbf255e646",
+      "sequence_sha256": "98c2504eec04fbfa5f80e9f54b03d4d405b65f28c78d29644275f4d8eb1cb3b5",
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V368L.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368l/fold_v368l_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368l/fold_v368l_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "ce6b8f4713a5b677fe8c15a89fec3369f6a1b365181c5041b3523b6f8b7fc7fc",
+          "model_0": "96d5b39d50f10aeffad05a1f9155d7b7a3a37f3e86538393f3966474573891de",
+          "job_request": "4d9566d58e7083338b7af24df8e9eba506cd663596fb7ccc143ab82e9d769b97"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      }
+    },
+    {
+      "id": "V368M",
+      "alias": "05_v368m",
+      "original_job_name": "gpr2_b05_fl_v368m",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368m/fold_gpr2_b05_fl_v368m_model_0.cif",
+          "sha256": "f50d5a0dd81b0a963ab5c3d3f91bf02d40091e012e7fb5f9125533c3a11d3a89"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368m/fold_gpr2_b05_fl_v368m_model_1.cif",
+          "sha256": "719527dd53926a3f091fc97cc91dbcf1e242eed0141619fe693b03c16e7c823a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368m/fold_gpr2_b05_fl_v368m_model_2.cif",
+          "sha256": "e5374f4ca8d133addb90ecdec85bfc8417326e0d6a41aeb650067a37da842d42"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368m/fold_gpr2_b05_fl_v368m_model_3.cif",
+          "sha256": "a20e38bdc195b7e44da6de09dfab44852e72850aabd2ccb46bf131371d8a808d"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368m/fold_gpr2_b05_fl_v368m_model_4.cif",
+          "sha256": "f8cbfe23803e0c66708ecc294ccd810fd5fa99aeb1c28ee2a77561f974440fa8"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368m/fold_gpr2_b05_fl_v368m_job_request.json",
+      "job_request_sha256": "0c57d05f73d1cd5792f68e6da75edabfb0991acdc7c9bf4e05133aede62ee21a",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368M.fasta",
+      "fasta_sha256": "a94bf83722462e1257b0c181c3ef807d3e4a6c5790b6c5d923af8d45c2f1ee05",
+      "sequence_sha256": "76cfbbf714f84d302f838ed396dacfbd27a9fdd7f99d822bfd816b0baae226ca",
+      "historical_source": null
+    },
+    {
+      "id": "V368N",
+      "alias": "05_v368n",
+      "original_job_name": "gpr2_b05_fl_v368n",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368n/fold_gpr2_b05_fl_v368n_model_0.cif",
+          "sha256": "3ba663149b9b3de0b26e4303507fe4965b1d046b8c314a539bb7cbb490c8179b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368n/fold_gpr2_b05_fl_v368n_model_1.cif",
+          "sha256": "d04751bbcab4083f91737352dd34f53b97e3163b42bf4ab159c07675a12cc5e1"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368n/fold_gpr2_b05_fl_v368n_model_2.cif",
+          "sha256": "c8237cb6cf9b54b5b09bb80fdc08c8325e93c33c865be77f8910b8c480e8312a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368n/fold_gpr2_b05_fl_v368n_model_3.cif",
+          "sha256": "3f8c24b22e47949642ef23f92c850b25488eefd94bffa624088531d8af5abeec"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368n/fold_gpr2_b05_fl_v368n_model_4.cif",
+          "sha256": "1161794ffc4643af7b76012e8e309de0d96ba35a511a0dcc3af47bb01c1e3b64"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368n/fold_gpr2_b05_fl_v368n_job_request.json",
+      "job_request_sha256": "0a6eaababf1f4a8bb2356a8100d6e787c94833a1a9b69f62ff1450352b3c81fd",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368N.fasta",
+      "fasta_sha256": "f0ed5b41fb614a6305cc67abaf4a32029920e00ff8f8b7fa8289892a1ecc79f4",
+      "sequence_sha256": "4f9bdbc1cbb0a197a8563618708463a87a89709de22b2aba2a58ca0d716af4e4",
+      "historical_source": null
+    },
+    {
+      "id": "V368P",
+      "alias": "05_v368p",
+      "original_job_name": "gpr2_b05_fl_v368p",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368p/fold_gpr2_b05_fl_v368p_model_0.cif",
+          "sha256": "51fdfd7e449e2245fa926c46c6e94af893141c8a5fb53133fb00c72bc7f72ba5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368p/fold_gpr2_b05_fl_v368p_model_1.cif",
+          "sha256": "e5b852567284e2d2188e9b9cfd280adf4e2df7fb4833b65813e92b3068595470"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368p/fold_gpr2_b05_fl_v368p_model_2.cif",
+          "sha256": "d2e148666e8ad024f11498f9ea364f8dba2b2c20169577ffea04b356a8dd1a98"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368p/fold_gpr2_b05_fl_v368p_model_3.cif",
+          "sha256": "786021d757981d8da0a95ec0f2ebff697f31f2d8895f17bdc2159b236e6d99fc"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368p/fold_gpr2_b05_fl_v368p_model_4.cif",
+          "sha256": "1238f2652623f401e87d6bbf21f44a891331945dfbdcbae19d647d6c5c955bb4"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368p/fold_gpr2_b05_fl_v368p_job_request.json",
+      "job_request_sha256": "29d09eac80a714ffb6ff463d5eb1391106f938cfcc42cc3c0d0b9ae36bafd345",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368P.fasta",
+      "fasta_sha256": "782631e13acb3c49b85940551fe516002874196bebb5e4049d49e08fe5869e46",
+      "sequence_sha256": "a947efe7f91732ad736cd774f990b6d10ef05abf7add66a4a17d579d1e34683b",
+      "historical_source": null
+    },
+    {
+      "id": "V368Q",
+      "alias": "05_v368q",
+      "original_job_name": "gpr2_b05_fl_v368q",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368q/fold_gpr2_b05_fl_v368q_model_0.cif",
+          "sha256": "494b13412514000304f9363c81c328431934fa2544e356f52417a3fc6b301f49"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368q/fold_gpr2_b05_fl_v368q_model_1.cif",
+          "sha256": "8a331f558189d3ec9ae1884298fce014e930f68982833ce08566409a27106b3e"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368q/fold_gpr2_b05_fl_v368q_model_2.cif",
+          "sha256": "c8a0797ce322b0ff62e49efe62c5ce4b3dcf8ec22b2d55bac5ef784e12e00f07"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368q/fold_gpr2_b05_fl_v368q_model_3.cif",
+          "sha256": "6f2124c56cfd47dac864a48ea2374b0b3d70dbfed17e92e57233e1c0cca62093"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368q/fold_gpr2_b05_fl_v368q_model_4.cif",
+          "sha256": "833f7a5ee646c90e9490cd6ea6c750074bdd0537e9b555b45950b04d993af21e"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368q/fold_gpr2_b05_fl_v368q_job_request.json",
+      "job_request_sha256": "0d051d69528b73fd669812ff80a0ca9370f40ee41202981e817a9f57b932e6d5",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368Q.fasta",
+      "fasta_sha256": "c92f3168ae20962a3fcd05a8cdbabff93db08e16bc33e834fef3c3b8d9cbf13c",
+      "sequence_sha256": "8dcfb25f4dd9dc1b8b2efc0eb5daf30a9811aa119b14c2754671035210c20b32",
+      "historical_source": null
+    },
+    {
+      "id": "V368R",
+      "alias": "05_v368r",
+      "original_job_name": "gpr2_b05_fl_v368r",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368r/fold_gpr2_b05_fl_v368r_model_0.cif",
+          "sha256": "9f198132781b1ebfa125f47a0b7f15a83d4d825c9917821324df5bfb0c984e35"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368r/fold_gpr2_b05_fl_v368r_model_1.cif",
+          "sha256": "ebeff27993c21cc36654d7cbcf3e9e44e03f2fa732e45ada320ea2715c87fa39"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368r/fold_gpr2_b05_fl_v368r_model_2.cif",
+          "sha256": "dd3a1c7a865a3f335038ff36aab9328155d486e90e7e3cd80b607d10113d57d7"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368r/fold_gpr2_b05_fl_v368r_model_3.cif",
+          "sha256": "c3cff07d9d00b53e97b617009c24c4893ee37d3a6483a4e32a7c0d00b3d5b89a"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368r/fold_gpr2_b05_fl_v368r_model_4.cif",
+          "sha256": "e39a15d681df09c52cac136ec2062d30dd18a630a643b93babf2c4f2dad3dd7d"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368r/fold_gpr2_b05_fl_v368r_job_request.json",
+      "job_request_sha256": "fb826460ed89ac2a87e7f7374feeb4a36cf504238bfa2dff657ededb0b2040bc",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368R.fasta",
+      "fasta_sha256": "12629a868b1f1b3be0b953d6ea7e545312ac4331c6dfc80787977e69a7ff860f",
+      "sequence_sha256": "52eef8bb0bfc10e0a2dec5ac5c0a815ec35c4a4d2aa704f9a1d88bd332b1934a",
+      "historical_source": null
+    },
+    {
+      "id": "V368S",
+      "alias": "05_v368s",
+      "original_job_name": "gpr2_b05_fl_v368s",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368s/fold_gpr2_b05_fl_v368s_model_0.cif",
+          "sha256": "38534669bce9139238cf783581bcc1308856a7a4249df43b8238acd744aa303b"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368s/fold_gpr2_b05_fl_v368s_model_1.cif",
+          "sha256": "d991fc387486c3303d76e0b87291fb9d8acb4e888fcfc353ff35f30e430357c3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368s/fold_gpr2_b05_fl_v368s_model_2.cif",
+          "sha256": "7d2eb826085baab65f356325d5a4ac116e4b16adae73c6286633f0f975155a4f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368s/fold_gpr2_b05_fl_v368s_model_3.cif",
+          "sha256": "203cc142e2e478c9260cc5145eda0dee33b2a2415db8c98a90948af4e7d457ea"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368s/fold_gpr2_b05_fl_v368s_model_4.cif",
+          "sha256": "bc81b31967d9f840b78d5e1b737372c2da1fddeb7bd1aeb0d0774f8b957a6b30"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368s/fold_gpr2_b05_fl_v368s_job_request.json",
+      "job_request_sha256": "c3d8ad3c57b5cbd6c8c822f1d7f9da54a7d0caad69b389184121bcb7d5185851",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368S.fasta",
+      "fasta_sha256": "85f556f316357efa261044b1bc7c4149b236cbc745a2c84669c5416e36ee28b1",
+      "sequence_sha256": "772c08d939c7864970dd023247a4e9284e92e291e25f908706d70715e5e6a365",
+      "historical_source": null
+    },
+    {
+      "id": "V368T",
+      "alias": "05_v368t",
+      "original_job_name": "gpr2_b05_fl_v368t",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368t/fold_gpr2_b05_fl_v368t_model_0.cif",
+          "sha256": "a7f12b4d6470421958fb406804e78a29873ac6b64d833dc8295e4e153b66cc31"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368t/fold_gpr2_b05_fl_v368t_model_1.cif",
+          "sha256": "c34018a52f607b2ea26ad794713445904fa2c3d30285eba3115c8e11ed9d0826"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368t/fold_gpr2_b05_fl_v368t_model_2.cif",
+          "sha256": "e78e4cbb692559ffb43cfe2229cf39e760d13d67b1af0723a03ab8bb571f15c2"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368t/fold_gpr2_b05_fl_v368t_model_3.cif",
+          "sha256": "2669b8226610d79e2434545dd40145db9f0314cb9f99673bd296cb6a463babdf"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368t/fold_gpr2_b05_fl_v368t_model_4.cif",
+          "sha256": "aeee9c84899a2ce86401e6b9d51f41bbc79679143b393cf8e67ca944dc57125e"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368t/fold_gpr2_b05_fl_v368t_job_request.json",
+      "job_request_sha256": "7fe82f5721664cb41eb41021ddf401ef72897ef29c4d7d346fb77ebb725fdb01",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368T.fasta",
+      "fasta_sha256": "f3744e57a19b8baf96a9e33f8cb15a526aca9a9937a22b263e9f4d113ac49a68",
+      "sequence_sha256": "7f00e7250aee80cde4804be13e4f1da4a1ef40b232b8e5873326ae429effd56a",
+      "historical_source": null
+    },
+    {
+      "id": "V368W",
+      "alias": "05_v368w",
+      "original_job_name": "gpr2_b05_fl_v368w",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368w/fold_gpr2_b05_fl_v368w_model_0.cif",
+          "sha256": "06be185cae2424ab9fb252b54ac21f98e5a6a29199fef393b3f4a8468f3ad5a5"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368w/fold_gpr2_b05_fl_v368w_model_1.cif",
+          "sha256": "ef22a536444f5200edf77d5a09732fe3a1e62121fb3ee62cf4d06788e155b675"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368w/fold_gpr2_b05_fl_v368w_model_2.cif",
+          "sha256": "2623cd8ab4764e47f88e05db82067dc7a3145a4cbc6639e732890987f2db4ff3"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368w/fold_gpr2_b05_fl_v368w_model_3.cif",
+          "sha256": "5cf6131735c10bd252ab6c6cd0a8787e5bbfc88ce554268b2b48f733415488ea"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368w/fold_gpr2_b05_fl_v368w_model_4.cif",
+          "sha256": "740d36ebf110bda09db69d549ab8584ac9fffd9b56dff2bf490b08d741777da6"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368w/fold_gpr2_b05_fl_v368w_job_request.json",
+      "job_request_sha256": "e69f153d79fb64d9a433e970b894dd23bb455a5bb30f63346353ba49f6929bf8",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368W.fasta",
+      "fasta_sha256": "bae2b17ca3f0acb58c2600316c5b3f962a83be822d6c3a6fb49475d91331b9da",
+      "sequence_sha256": "2cb9f77ed263817fe1789d6f2f875dcd34e61ef5c319aa0283c68117e529411f",
+      "historical_source": null
+    },
+    {
+      "id": "V368Y",
+      "alias": "05_v368y",
+      "original_job_name": "gpr2_b05_fl_v368y",
+      "source_zip": "folds_2026_09_16_11_16.zip",
+      "source": "new_batch05_prediction",
+      "baseline": "baseline",
+      "selected_model": 0,
+      "models": [
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368y/fold_gpr2_b05_fl_v368y_model_0.cif",
+          "sha256": "6e5c00cd085c19aa563513742d6b0c659bae35c2073d38a4aec75c30b5c3d383"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368y/fold_gpr2_b05_fl_v368y_model_1.cif",
+          "sha256": "2c676296ad2f2e9018b09953f788bddebdfecc301c826ef0b16726a8d6971922"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368y/fold_gpr2_b05_fl_v368y_model_2.cif",
+          "sha256": "bceb7cebd39ca359e2b67244d3bc1df778e7e668a5f0bd3045d812a1188a8e1f"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368y/fold_gpr2_b05_fl_v368y_model_3.cif",
+          "sha256": "2efdcae53caee391df1caa94e367929d03215dd47a7007a95c9e1cdfd6c501bc"
+        },
+        {
+          "path": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368y/fold_gpr2_b05_fl_v368y_model_4.cif",
+          "sha256": "2dc8b94281efd9a448aa6242e3a889f601c9338a1769db1dba310752d253e554"
+        }
+      ],
+      "job_request": "vina/inputs/receptors/af3/gpr2_batch05_20260916/original_cif/folds_2026_09_16_11_16/gpr2_b05_fl_v368y/fold_gpr2_b05_fl_v368y_job_request.json",
+      "job_request_sha256": "ab5b1601dd2c8ca85e0e1cfba0f8241b3099634761c9e2b7fc3b6d7f3a96fc3b",
+      "expected_fasta": "vina/inputs/receptors/af3/gpr2_batch05_20260916/fasta_full_length/V368Y.fasta",
+      "fasta_sha256": "4b8ba1b74c501d7b52c36d659fbbf7b65831ceea1046d9029cda2b85fddbc74a",
+      "sequence_sha256": "00a1abae57b06e927e8e8e5a480515f2e4e1bae6ff09150693943bb82e7bb062",
+      "historical_source": null
+    }
+  ]
+}

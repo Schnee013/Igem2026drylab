@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 10,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/contact_residues.csv": "421f323b27e2b98d648d0d43f9f28e17934ff3b88b348916213d35d01a946871",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/ifp/ifp_presence.csv": "43eff903f6b9e7c6b3269d1b84f8d265a7133f2207f17a92c105ddc57fdfac3e",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/ifp/metadata.json": "517deeb051fe72b9b011395d48e7a83a4b6e6892c9161bfdc8c814deaae70412",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/ifp/residue_counts.csv": "c1b55c0a62156765e3d29138e05ca3d3b5fc2df40408ccafbf48682be4ea0161",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/ifp/residue_presence.csv": "31d5a2874f92d56c8f615a18c2ad844ae02531c56647b1f17534ce877d7eb1eb",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/selection.json": "ca38b4031b820d283e3cac3badbe6d80db48c807b4c44bb0d2e15e82ea948f73",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/top1.pdbqt": "c6bfa3764fd3450523aecde05c38b7e34253765efb4efc6c9066349d96d464d0",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/top1.sdf": "7cf4507e19b12de1d1f709f7c564e1c94b1b0af6cb7351095dfb01f63b9fe5ed",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338e/ascr3/top1_contacts/view_contacts.pml": "342fc7171efc6d878c25d8f58792eba6b20c7b85db9f8b2f87b9dd08f27a7584"
+  }
+}

@@ -1,0 +1,9 @@
+batch,name,receptors,docking_results,readme
+01,01-sidechain-combination,3,6,05-mutant-research/batches/01-sidechain-combination/README.md
+02,02-af3-combination,3,6,05-mutant-research/batches/02-af3-combination/README.md
+03,03-af3-single-alanine,8,16,05-mutant-research/batches/03-af3-single-alanine/README.md
+04,04-af3-more-single-alanine,19,38,05-mutant-research/batches/04-af3-more-single-alanine/README.md
+05,05-af3-n84-v110-v368-saturations,58,116,05-mutant-research/batches/05-af3-n84-v110-v368-saturations/README.md
+06,06-af3-supplement-singles,7,14,05-mutant-research/batches/06-af3-supplement-singles/README.md
+07,07-af3-w338-saturation,20,40,05-mutant-research/batches/07-af3-w338-saturation/README.md
+08,08-af3-double-mutants,18,36,05-mutant-research/batches/08-af3-double-mutants/README.md

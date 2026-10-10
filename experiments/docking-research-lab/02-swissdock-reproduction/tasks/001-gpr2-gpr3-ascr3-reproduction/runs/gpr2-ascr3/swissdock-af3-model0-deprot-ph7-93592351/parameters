@@ -1,0 +1,11 @@
+Date: Wed 12 Aug 2026 10:42:27 
+Ligand: C[C@H](CCCC/C=C/C(=O)[O-])O[C@@H]1O[C@@H](C)[C@H](O)C[C@H]1O
+Method: AC
+pH: 7
+Target: Gpr2_TGJ68930.1_AF3_model0_full.pdb
+Docking name: Gpr2_AF3_m0_ascr3_deprot_pH7_AC_full
+Sampling exhaustivity: 90
+Cavity prioritization: 70
+Random Initial Conditions: 1
+Box size: 78.6 81.7 125.8
+Box center: -2.7 -3.7 -11.0

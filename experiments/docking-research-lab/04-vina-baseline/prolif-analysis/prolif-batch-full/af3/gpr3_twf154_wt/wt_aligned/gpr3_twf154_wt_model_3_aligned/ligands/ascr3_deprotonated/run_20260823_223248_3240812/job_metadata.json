@@ -1,0 +1,38 @@
+{
+  "model_rel": "gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned",
+  "ligand": "ascr3_deprotonated",
+  "run_name": "run_20260823_223248_3240812",
+  "source_poses_pdbqt": "/Users/roy/Documents/docking/outputs/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/ligands/ascr3_deprotonated/run_20260823_223248_3240812/poses.pdbqt",
+  "receptor_json": "/Users/roy/Documents/docking/outputs/prolif-batch-full/af3/gpr3_twf154_wt/wt_aligned/gpr3_twf154_wt_model_3_aligned/receptor/receptor.json",
+  "expected_poses_from_pdbqt": 9,
+  "n_poses": 9,
+  "pose_explicit_hydrogens": [
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25
+  ],
+  "expected_formal_charge_from_pdbqt_smiles": -1,
+  "pose_formal_charges": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+  ],
+  "receptor": {
+    "residue_count": 401,
+    "atom_count": 6314,
+    "explicit_hydrogens": 3154,
+    "formal_charge": 2
+  }
+}

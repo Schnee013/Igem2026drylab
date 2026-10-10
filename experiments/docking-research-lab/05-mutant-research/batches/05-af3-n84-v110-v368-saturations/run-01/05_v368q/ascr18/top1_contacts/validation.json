@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 12,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/contact_residues.csv": "37b912377c6723137d45f702f7a580789d53e02ad4c91f727982fc4c6351d4c6",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/ifp/ifp_presence.csv": "981591d15af5c507fb444cafe760913dca5ef9071ff2acf4260cfe18de3fb611",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/ifp/metadata.json": "e3c9a338bdbecfd210734930d4054653ed9a7c5d4e77163acd49b3294a927cb5",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/ifp/residue_counts.csv": "2a0a732fdf440eb9139ee0360a7b10616681318c400bab6e8b9f55a60655e904",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/ifp/residue_presence.csv": "a5288c606fddeabeaaedc89fec612e73eb50110b74ae885b0113bb6e014e44b3",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/selection.json": "feadf4aff3b454efd5fe1942408ce5b8d27e0f985bb6c85a7acaa2ab2b1475e6",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/top1.pdbqt": "c38df60dec712deed8ccf4592a10181ed8579e3dca476d7203e37cc630a71201",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/top1.sdf": "d6359524ecd6b2995b5e0fcfea659726a15397a68a5231daeb705ead68b8db1e",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368q/ascr18/top1_contacts/view_contacts.pml": "ecadacf5c5c912c1df7c7c602727b2742f9c2d49f6d47565ea5b1502e6c8aba2"
+  }
+}

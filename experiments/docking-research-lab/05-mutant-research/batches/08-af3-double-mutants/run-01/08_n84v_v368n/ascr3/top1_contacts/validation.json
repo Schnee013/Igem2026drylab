@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 12,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/contact_residues.csv": "1d748350011f6f524e277e0ea9dd5242158ff379047fe68fbb642889673ee438",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/ifp/ifp_presence.csv": "1cb92bf867958d3d0b85d1ff9910e7b2ac072c6c6112f643a66d6f6dc0d3f840",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/ifp/metadata.json": "24eb0e26c86dc0a8fc1cba5ace469026c2cd2feb5fcaf3adc03a75631347db72",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/ifp/residue_counts.csv": "657c12425af13010a987c731358466e7ffc49e1961c4289f9ad46c2bcdcbfde4",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/ifp/residue_presence.csv": "9666f5ee800e25fed2d1c001ffe7da1567e2c0a2e01ff49e9b1d612c7ad6b8ea",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/selection.json": "d8f1a8abc234549ffe947f759d6eb11a969e67e1b510c09e316cdb27a00b50f9",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/top1.pdbqt": "e4eb331fc0235051a43ad9342c25be46fb4e02cae5a0273352ad4370b7e19ed3",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/top1.sdf": "777cd5fbe0e11e4367b8a11cfdf20bc270f33255ad0fef0912bf6d3556424323",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v368n/ascr3/top1_contacts/view_contacts.pml": "a6e1c39be24c8de1f759fdf0945fb51e0202949e8f4e134540b89a45300882f3"
+  }
+}

@@ -1,0 +1,11 @@
+# Preserve the exact bytes of imported records and generated evidence.
+# Exceptions match observed original whitespace; other checks retain defaults.
+analysis-publication-dependencies.csv -text whitespace=cr-at-eol
+commit-files.csv -text whitespace=cr-at-eol
+exact-duplicate-groups.csv -text whitespace=cr-at-eol
+feishu-files.csv -text whitespace=cr-at-eol
+file-map.csv -text whitespace=cr-at-eol
+historical-link-issues.csv -text whitespace=cr-at-eol
+large-files.csv -text whitespace=cr-at-eol
+payload_manifest.tsv -text whitespace=cr-at-eol
+publication-file-classification.csv -text whitespace=cr-at-eol

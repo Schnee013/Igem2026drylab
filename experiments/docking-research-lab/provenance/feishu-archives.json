@@ -1,0 +1,47 @@
+{
+  "delivery": "docking-2026-10-10",
+  "transport": "Feishu file transfer; local packages prepared, not uploaded",
+  "archives": [
+    {
+      "name": "docking-analysis-objects.zip",
+      "files": 70,
+      "bytes": 918330,
+      "sha256": "6c40be8b0cc036a510af3a53660cd81c10db270190e6ffad6855d61ae9cee22c",
+      "unpacked_bytes": 4858584
+    },
+    {
+      "name": "docking-prepared-receptors.zip",
+      "files": 176,
+      "bytes": 131746806,
+      "sha256": "8157c22e1d1fdd6df57c9d891f2c0f233ed74898161419496cc95cba1311fe87",
+      "unpacked_bytes": 1600891223
+    },
+    {
+      "name": "docking-source-archives.zip",
+      "files": 36,
+      "bytes": 354681441,
+      "sha256": "f68e9ddeebc9a84edbcd80cfbd7b0d2e42958ccd43552643f2a2e71e238c7f70",
+      "unpacked_bytes": 354671933
+    },
+    {
+      "name": "docking-structure-predictions.zip",
+      "files": 3698,
+      "bytes": 342526179,
+      "sha256": "dc75425b00c352b219157a973c17daf37d578bd8a934d4e800aa53d1c776d400",
+      "unpacked_bytes": 1992862889
+    },
+    {
+      "name": "docking-supporting-copies.zip",
+      "files": 34,
+      "bytes": 1162813,
+      "sha256": "22f9b60c49015265c6208124d687881a3f4827329881c1af57254850035ad58c",
+      "unpacked_bytes": 1582224
+    },
+    {
+      "name": "docking-runtime-payloads.zip",
+      "files": 4698,
+      "bytes": 76194077,
+      "sha256": "695d89e0eb6f81ee77e505491df6cfa8364f3abd515ac2b8a8800b28fd724347"
+    }
+  ]
+}

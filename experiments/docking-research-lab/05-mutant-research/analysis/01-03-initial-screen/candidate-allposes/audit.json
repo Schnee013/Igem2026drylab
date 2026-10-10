@@ -1,0 +1,60 @@
+{
+  "prolif_version": "2.1.0",
+  "interactions": [
+    "Anionic",
+    "CationPi",
+    "Cationic",
+    "HBAcceptor",
+    "HBDonor",
+    "Hydrophobic",
+    "PiCation",
+    "PiStacking",
+    "VdWContact"
+  ],
+  "vicinity_cutoff_A": 6.0,
+  "helper_sha256": "2a89de050259c6ae3ee936db826741d95a16b623334598c80a8176b09fed9c2e",
+  "exporter_sha256": "8c4d87d2a0aa14095e4f42a59760e40f7cab981c693b9cb8108305a8b17209d9",
+  "inputs": [
+    {
+      "batch": "gpr2-single-af3-run01",
+      "group": "baseline",
+      "ligand": "ascr3",
+      "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/baseline/ascr3/poses.pdbqt",
+      "source_sha256": "17869e5c68eaddb50c0a48c808ab5969787b95083065349beeba0f5ea5a75106",
+      "receptor": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/baseline/receptor.json",
+      "receptor_sha256": "83736332c297054a41a8a58d4196bf85c434d11d37d52aff30a31850e66f467d",
+      "n_poses": 9
+    },
+    {
+      "batch": "gpr2-single-af3-run01",
+      "group": "baseline",
+      "ligand": "ascr18",
+      "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/baseline/ascr18/poses.pdbqt",
+      "source_sha256": "2742e2cb5403f61447567c86a83a732668fb74961049e27818e1965c23e57733",
+      "receptor": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/baseline/receptor.json",
+      "receptor_sha256": "83736332c297054a41a8a58d4196bf85c434d11d37d52aff30a31850e66f467d",
+      "n_poses": 9
+    },
+    {
+      "batch": "gpr2-single-af3-run01",
+      "group": "R181A",
+      "ligand": "ascr3",
+      "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/ascr3/poses.pdbqt",
+      "source_sha256": "77f8d65ef3919bd9c3722952d148bcbb8fcfb80b7981bc245b82f4b99ba59d31",
+      "receptor": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/receptor.json",
+      "receptor_sha256": "4d46a219b223f39a7882a9b892f88bfc0c3657f2aa32f4ab199f2c84d036e3a1",
+      "n_poses": 9
+    },
+    {
+      "batch": "gpr2-single-af3-run01",
+      "group": "R181A",
+      "ligand": "ascr18",
+      "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/ascr18/poses.pdbqt",
+      "source_sha256": "2d1ae9ab7034cc1d78368d1fdc3b7492b82e7028a8d2439abcf30e0497e896a6",
+      "receptor": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/receptor.json",
+      "receptor_sha256": "4d46a219b223f39a7882a9b892f88bfc0c3657f2aa32f4ab199f2c84d036e3a1",
+      "n_poses": 9
+    }
+  ],
+  "organization_note": "Filtered by batch during analysis reorganization; original complete audit preserved in outputs/file-organization/analysis-reorganization-backup.zip. Historical input paths unchanged."
+}

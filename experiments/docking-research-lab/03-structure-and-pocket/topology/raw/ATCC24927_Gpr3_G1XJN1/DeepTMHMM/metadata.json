@@ -1,0 +1,11 @@
+{
+    "exit_code": 0,
+    "arguments": [
+        "--fasta",
+        "ATCC24927_Gpr3_G1XJN1.fasta"
+    ],
+    "app_uri": "DTU/DeepTMHMM:1.0.57",
+    "ended_at": "2026-08-16T06:56:47.720254Z",
+    "job_uuid": "bd223d57-8ab5-4d00-970b-a88fd15f86be",
+    "started_at": "2026-08-16T06:55:30.554362Z"
+}

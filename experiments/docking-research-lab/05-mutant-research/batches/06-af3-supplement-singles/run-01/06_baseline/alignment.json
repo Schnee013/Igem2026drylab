@@ -1,0 +1,34 @@
+{
+  "moving_pdb": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/trimmed.pdb",
+  "reference_pdb": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdb",
+  "output_pdb": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/input.pdb",
+  "moving_chain": "A",
+  "reference_chain": "A",
+  "moving_ranges": "30-50,62-83,101-126,144-163,182-201,326-346,358-380",
+  "reference_ranges": "30-50,62-83,101-126,144-163,182-201,326-346,358-380",
+  "matched_ca_count": 153,
+  "ca_rmsd_before_angstrom": 27.809078216552734,
+  "ca_rmsd_after_angstrom": 0.20509698463498688,
+  "rotation_matrix": [
+    [
+      0.8961004579768443,
+      -0.43884352666441,
+      0.06648554969641018
+    ],
+    [
+      -0.34939296766182376,
+      -0.7898175129800817,
+      -0.5040960725282659
+    ],
+    [
+      0.2737307497563147,
+      0.4284911379418511,
+      -0.8610846772200419
+    ]
+  ],
+  "translation_vector": [
+    0.1279183467535958,
+    1.2192387537835288,
+    -1.5272941327086693
+  ]
+}

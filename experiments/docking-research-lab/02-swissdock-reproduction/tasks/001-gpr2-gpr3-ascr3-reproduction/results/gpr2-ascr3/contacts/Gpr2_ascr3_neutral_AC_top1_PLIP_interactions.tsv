@@ -1,0 +1,9 @@
+interaction_type	residue	chain	distance_A	distance_definition	donor_angle_deg	protein_role	protein_part	AF2_pLDDT
+hydrophobic	ARG96	A	3.82	carbon-carbon	NA	NA	sidechain	88.44
+hydrophobic	TYR168	A	3.51	carbon-carbon	NA	NA	sidechain	89.69
+hydrophobic	THR176	A	3.77	carbon-carbon	NA	NA	sidechain	86.56
+hydrogen_bond	ASP9	A	2.71	donor-acceptor	160.26	acceptor	sidechain	52.78
+hydrogen_bond	LEU92	A	3.74	donor-acceptor	137.37	acceptor	backbone	82.19
+hydrogen_bond	ARG96	A	4.06	donor-acceptor	134.31	donor	sidechain	88.44
+hydrogen_bond	TYR166	A	3.01	donor-acceptor	173.20	acceptor	backbone	92.75
+hydrogen_bond	TYR168	A	3.71	donor-acceptor	161.95	donor	backbone	89.69

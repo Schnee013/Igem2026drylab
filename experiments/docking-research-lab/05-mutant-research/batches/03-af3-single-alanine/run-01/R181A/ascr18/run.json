@@ -1,0 +1,59 @@
+{
+  "command": [
+    "/Users/yangruoxi/miniconda3/envs/docking/bin/vina",
+    "--config",
+    "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/ascr18/vina.conf",
+    "--out",
+    "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/ascr18/.poses.pdbqt.hx5cbpdz.tmp",
+    "--cpu",
+    "16",
+    "--spacing",
+    "0.375",
+    "--min_rmsd",
+    "1.0",
+    "--max_evals",
+    "0"
+  ],
+  "cwd": "/Users/yangruoxi/Projects/Docking-Research-Lab",
+  "vina_version": "AutoDock Vina v1.2.5",
+  "return_code": 0,
+  "elapsed_seconds": 6.877665996551514,
+  "config": {
+    "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/ascr18/vina.conf",
+    "sha256": "9776620e42f2b2b85e3b7325d6633bca0a687e83e6476a720574b8848f6b4e90",
+    "values": {
+      "receptor": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/receptor.pdbqt",
+      "ligand": "/Users/yangruoxi/Projects/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/ligands/deprotonated-minus1/pdbqt/ascr18_deprotonated.pdbqt",
+      "center_x": "20",
+      "center_y": "-20",
+      "center_z": "5",
+      "size_x": "26",
+      "size_y": "26",
+      "size_z": "26",
+      "exhaustiveness": "8",
+      "num_modes": "9",
+      "energy_range": "3",
+      "seed": "1919"
+    }
+  },
+  "inputs": {
+    "receptor": {
+      "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/receptor.pdbqt",
+      "sha256": "61d073d8b705f169ab80d63933d2aff026bf69a927bc57f40eb5f06abe04560d"
+    },
+    "ligand": {
+      "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/ligands/deprotonated-minus1/pdbqt/ascr18_deprotonated.pdbqt",
+      "sha256": "5ba010aba5295154610f0a6e84b5dc682b7e408c23fbf6d159ce87518a52cf39"
+    }
+  },
+  "runtime_overrides": {
+    "cpu": 16,
+    "spacing": 0.375,
+    "min_rmsd": 1.0,
+    "max_evals": 0
+  },
+  "output": {
+    "path": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/R181A/ascr18/poses.pdbqt",
+    "sha256": "2d1ae9ab7034cc1d78368d1fdc3b7492b82e7028a8d2439abcf30e0497e896a6"
+  }
+}

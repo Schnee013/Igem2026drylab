@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "source_fasta": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+  "source_sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9",
+  "length": 406,
+  "fasta_output": "vina/inputs/receptors/fasta/gpr2_batch06_supplement_full_length",
+  "variants": [
+    {
+      "id": "baseline",
+      "af_job_name": "06_baseline",
+      "position": null,
+      "from": null,
+      "to": null
+    },
+    {
+      "id": "R181K",
+      "af_job_name": "06_r181k",
+      "position": 181,
+      "from": "R",
+      "to": "K"
+    },
+    {
+      "id": "R181Q",
+      "af_job_name": "06_r181q",
+      "position": 181,
+      "from": "R",
+      "to": "Q"
+    },
+    {
+      "id": "T106S",
+      "af_job_name": "06_t106s",
+      "position": 106,
+      "from": "T",
+      "to": "S"
+    },
+    {
+      "id": "T106V",
+      "af_job_name": "06_t106v",
+      "position": 106,
+      "from": "T",
+      "to": "V"
+    },
+    {
+      "id": "W338F",
+      "af_job_name": "06_w338f",
+      "position": 338,
+      "from": "W",
+      "to": "F"
+    },
+    {
+      "id": "W338L",
+      "af_job_name": "06_w338l",
+      "position": 338,
+      "from": "W",
+      "to": "L"
+    }
+  ],
+  "baseline": "06_baseline",
+  "af_input": "one full-length protein, count=1, independent job",
+  "historical_anchors": {
+    "R181A": "04-af3-round2",
+    "T106A": "04-af3-round2",
+    "W338A": "04-af3-round2"
+  },
+  "historical_anchor_status": "reference only; re-docking under common conditions required before joint comparison",
+  "analysis": "D=deltaS18-deltaS3; minimum-score pose per run; lowest MODEL breaks ties"
+}

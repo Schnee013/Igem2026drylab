@@ -1,0 +1,11 @@
+{
+    "exit_code": 0,
+    "arguments": [
+        "--fasta",
+        "SRBC-64_Caenorhabditis_elegans_N2_G5ECV4.fasta"
+    ],
+    "app_uri": "DTU/DeepTMHMM:1.0.57",
+    "ended_at": "2026-08-13T09:03:00.949801Z",
+    "job_uuid": "0708c848-9bea-406a-8bc3-7518308192b1",
+    "started_at": "2026-08-13T09:02:06.326926Z"
+}

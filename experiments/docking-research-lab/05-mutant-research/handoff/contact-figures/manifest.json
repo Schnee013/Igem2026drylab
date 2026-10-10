@@ -1,0 +1,687 @@
+{
+  "purpose": "First-round 2D contact figure handoff",
+  "receptors": [
+    "05_baseline",
+    "05_v368r",
+    "05_n84v",
+    "05_v110m",
+    "05_v110c"
+  ],
+  "figure_tasks": [
+    {
+      "receptor": "05_baseline",
+      "ligand": "ascr3",
+      "receptor_pdb": "05_baseline/prepared.pdb",
+      "prolif_receptor_json": "05_baseline/receptor.json",
+      "ligand_sdf": "05_baseline/ascr3/top1.sdf",
+      "contact_table": "05_baseline/ascr3/contact_residues.csv",
+      "score_kcal_mol": "-6.625",
+      "selected_vina_model": 1,
+      "contact_residue_count": 8,
+      "heavy_atoms": 21,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_baseline",
+      "ligand": "ascr18",
+      "receptor_pdb": "05_baseline/prepared.pdb",
+      "prolif_receptor_json": "05_baseline/receptor.json",
+      "ligand_sdf": "05_baseline/ascr18/top1.sdf",
+      "contact_table": "05_baseline/ascr18/contact_residues.csv",
+      "score_kcal_mol": "-6.492",
+      "selected_vina_model": 1,
+      "contact_residue_count": 11,
+      "heavy_atoms": 23,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_v368r",
+      "ligand": "ascr3",
+      "receptor_pdb": "05_v368r/prepared.pdb",
+      "prolif_receptor_json": "05_v368r/receptor.json",
+      "ligand_sdf": "05_v368r/ascr3/top1.sdf",
+      "contact_table": "05_v368r/ascr3/contact_residues.csv",
+      "score_kcal_mol": "-7.013",
+      "selected_vina_model": 1,
+      "contact_residue_count": 8,
+      "heavy_atoms": 21,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_v368r",
+      "ligand": "ascr18",
+      "receptor_pdb": "05_v368r/prepared.pdb",
+      "prolif_receptor_json": "05_v368r/receptor.json",
+      "ligand_sdf": "05_v368r/ascr18/top1.sdf",
+      "contact_table": "05_v368r/ascr18/contact_residues.csv",
+      "score_kcal_mol": "-6.293",
+      "selected_vina_model": 1,
+      "contact_residue_count": 9,
+      "heavy_atoms": 23,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_n84v",
+      "ligand": "ascr3",
+      "receptor_pdb": "05_n84v/prepared.pdb",
+      "prolif_receptor_json": "05_n84v/receptor.json",
+      "ligand_sdf": "05_n84v/ascr3/top1.sdf",
+      "contact_table": "05_n84v/ascr3/contact_residues.csv",
+      "score_kcal_mol": "-6.264",
+      "selected_vina_model": 1,
+      "contact_residue_count": 7,
+      "heavy_atoms": 21,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_n84v",
+      "ligand": "ascr18",
+      "receptor_pdb": "05_n84v/prepared.pdb",
+      "prolif_receptor_json": "05_n84v/receptor.json",
+      "ligand_sdf": "05_n84v/ascr18/top1.sdf",
+      "contact_table": "05_n84v/ascr18/contact_residues.csv",
+      "score_kcal_mol": "-6.856",
+      "selected_vina_model": 1,
+      "contact_residue_count": 13,
+      "heavy_atoms": 23,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_v110m",
+      "ligand": "ascr3",
+      "receptor_pdb": "05_v110m/prepared.pdb",
+      "prolif_receptor_json": "05_v110m/receptor.json",
+      "ligand_sdf": "05_v110m/ascr3/top1.sdf",
+      "contact_table": "05_v110m/ascr3/contact_residues.csv",
+      "score_kcal_mol": "-6.629",
+      "selected_vina_model": 1,
+      "contact_residue_count": 11,
+      "heavy_atoms": 21,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_v110m",
+      "ligand": "ascr18",
+      "receptor_pdb": "05_v110m/prepared.pdb",
+      "prolif_receptor_json": "05_v110m/receptor.json",
+      "ligand_sdf": "05_v110m/ascr18/top1.sdf",
+      "contact_table": "05_v110m/ascr18/contact_residues.csv",
+      "score_kcal_mol": "-6.066",
+      "selected_vina_model": 1,
+      "contact_residue_count": 11,
+      "heavy_atoms": 23,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_v110c",
+      "ligand": "ascr3",
+      "receptor_pdb": "05_v110c/prepared.pdb",
+      "prolif_receptor_json": "05_v110c/receptor.json",
+      "ligand_sdf": "05_v110c/ascr3/top1.sdf",
+      "contact_table": "05_v110c/ascr3/contact_residues.csv",
+      "score_kcal_mol": "-6.719",
+      "selected_vina_model": 1,
+      "contact_residue_count": 10,
+      "heavy_atoms": 21,
+      "formal_charge": -1
+    },
+    {
+      "receptor": "05_v110c",
+      "ligand": "ascr18",
+      "receptor_pdb": "05_v110c/prepared.pdb",
+      "prolif_receptor_json": "05_v110c/receptor.json",
+      "ligand_sdf": "05_v110c/ascr18/top1.sdf",
+      "contact_table": "05_v110c/ascr18/contact_residues.csv",
+      "score_kcal_mol": "-7.053",
+      "selected_vina_model": 1,
+      "contact_residue_count": 10,
+      "heavy_atoms": 23,
+      "formal_charge": -1
+    }
+  ],
+  "files_copied": [
+    {
+      "path": "05_baseline/prepared.pdb",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/prepared.pdb",
+      "sha256": "11a94a58fa02164bccb2da7c77ad16bb3db8731813c7973e186a90b777f0bd35",
+      "bytes": 469280
+    },
+    {
+      "path": "05_baseline/receptor.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/receptor.json",
+      "sha256": "8a4036566588f9f5119a059a01af21d8d14cfc6aa9aed92a04b661c484d58d56",
+      "bytes": 8932491
+    },
+    {
+      "path": "05_baseline/ascr3/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/top1.sdf",
+      "sha256": "7cc2a666d94aa8cf37d75a34dc639d31a95cb2ffc84566c789d775971b15511e",
+      "bytes": 4044
+    },
+    {
+      "path": "05_baseline/ascr3/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/top1.pdbqt",
+      "sha256": "6d4a26d956b212c662095dbb7c8dcd69a5ad0a213db1294022eba1bfc8890a76",
+      "bytes": 2831
+    },
+    {
+      "path": "05_baseline/ascr3/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/contact_residues.csv",
+      "sha256": "29365fef666c3c5725b8444add5e1aebd3d6a628f770a555684d38412ecac552",
+      "bytes": 275
+    },
+    {
+      "path": "05_baseline/ascr3/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/selection.json",
+      "sha256": "35a74234f9371037767de930e96747a305572630f985e6a17220cf6b7027400e",
+      "bytes": 515
+    },
+    {
+      "path": "05_baseline/ascr3/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "d5456c1a18529b11e71bb7daabb27e4d96ef19de28b0240216fb863f08e7f882",
+      "bytes": 376
+    },
+    {
+      "path": "05_baseline/ascr3/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "50ea111db01d9a3950b12df6fc631c7dfdb4e991a1014bacb38d6c1e3bc0c46a",
+      "bytes": 192
+    },
+    {
+      "path": "05_baseline/ascr3/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "8cea7129c0473159576f90b0bfba14fd139c19916edc3f5d0cd7f4dfa5a41483",
+      "bytes": 118
+    },
+    {
+      "path": "05_baseline/ascr3/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr3/top1_contacts/ifp/metadata.json",
+      "sha256": "fd32a6c72bfea8c2ef5cfb0080e8a265ae891b79d89037c40baccad6b7f3f3a2",
+      "bytes": 751
+    },
+    {
+      "path": "05_baseline/ascr18/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/top1.sdf",
+      "sha256": "670237e228f231fcf0a174d63e29ac5f761720f64e6aacd3ecc406c9e3a8cd6c",
+      "bytes": 4708
+    },
+    {
+      "path": "05_baseline/ascr18/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/top1.pdbqt",
+      "sha256": "712e6671abbe66670e6feb9f805e973dc86eb7ce125da9baaafdd93f5e69d08a",
+      "bytes": 3131
+    },
+    {
+      "path": "05_baseline/ascr18/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/contact_residues.csv",
+      "sha256": "2a45a8f09a82ae01fe2f6c0b5f1badbdcce436fb0e2252899ea4087d590e85d6",
+      "bytes": 354
+    },
+    {
+      "path": "05_baseline/ascr18/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/selection.json",
+      "sha256": "b6dfa985a93efb39cefbe7d53ac50d6da7b8f7a2799fe01ccf55a48dd61a2c26",
+      "bytes": 517
+    },
+    {
+      "path": "05_baseline/ascr18/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "801f4a44aa184ee5084d7824d3b605b67407de818fc89561749bddd9bd2e4ff3",
+      "bytes": 495
+    },
+    {
+      "path": "05_baseline/ascr18/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "b91f912a069ca337014f02aef73144a6a2eb399b1a4c09e625d07fd3461cffad",
+      "bytes": 244
+    },
+    {
+      "path": "05_baseline/ascr18/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "a4b7ef709f9605796c6d4b83ef451aa800dd931c38bea50dbfc9547c150b8ba8",
+      "bytes": 158
+    },
+    {
+      "path": "05_baseline/ascr18/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_baseline/ascr18/top1_contacts/ifp/metadata.json",
+      "sha256": "acaae1d7caa6128dab501138570929cc119dd4da5882547b650be50d69718db3",
+      "bytes": 752
+    },
+    {
+      "path": "05_v368r/prepared.pdb",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/prepared.pdb",
+      "sha256": "d3f36cf19839e8d4276dd1509331ecd8f6627f13b8bb2f3253e5c2f397a0cfee",
+      "bytes": 469920
+    },
+    {
+      "path": "05_v368r/receptor.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/receptor.json",
+      "sha256": "60c497eb116cbdebd1de16f1599c4f4b086a2fbf65390d60decce570f81fe967",
+      "bytes": 8941543
+    },
+    {
+      "path": "05_v368r/ascr3/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/top1.sdf",
+      "sha256": "18358ede6093a6fc300137b17e5e9ee22dfc2fc47cf1a4175293d9070c421506",
+      "bytes": 4045
+    },
+    {
+      "path": "05_v368r/ascr3/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/top1.pdbqt",
+      "sha256": "dbc141615e4f398fc5f8b3f3a8b30527cd60d193b10c24d0b8fbae3d4a0b1199",
+      "bytes": 2831
+    },
+    {
+      "path": "05_v368r/ascr3/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/contact_residues.csv",
+      "sha256": "1065b63459f77eeec8ca39c9b50631d433811216184475079b2b921f95be312b",
+      "bytes": 317
+    },
+    {
+      "path": "05_v368r/ascr3/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/selection.json",
+      "sha256": "845245f27e6c6859950088be53aa0d91d847052ad9bada56e47beeacdf590ddc",
+      "bytes": 512
+    },
+    {
+      "path": "05_v368r/ascr3/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "c0aa037ba25958e717b5cc271883f9df203c7cccf2f1561c16c38b3ac89cf0b4",
+      "bytes": 519
+    },
+    {
+      "path": "05_v368r/ascr3/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "a323300add978034eef2be00f8a7d8fa019d7765a54e53458bca81ffeb9ad070",
+      "bytes": 188
+    },
+    {
+      "path": "05_v368r/ascr3/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "fbb820a5e649069ca76ad36141c244374bdbf8071403bb790d71b4b10b3a9ef2",
+      "bytes": 114
+    },
+    {
+      "path": "05_v368r/ascr3/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr3/top1_contacts/ifp/metadata.json",
+      "sha256": "f0e9739a956ec3fdc3a64de8309e0b7763408526d4841ddd0234cfa6a47701f4",
+      "bytes": 745
+    },
+    {
+      "path": "05_v368r/ascr18/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/top1.sdf",
+      "sha256": "15413aae5c7ed06b4321f38dfff4a8942cd7da906681d0127c132695ca43ca31",
+      "bytes": 4708
+    },
+    {
+      "path": "05_v368r/ascr18/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/top1.pdbqt",
+      "sha256": "c8f83c8b2f66ef171e49c06bcc627b7bbdbb994c31014804ec487623bcf17b04",
+      "bytes": 3131
+    },
+    {
+      "path": "05_v368r/ascr18/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/contact_residues.csv",
+      "sha256": "5591dd685d0f2240d4d7efff598e483872d0137c4b7f89e95dd4bb96e4a8f3a3",
+      "bytes": 334
+    },
+    {
+      "path": "05_v368r/ascr18/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/selection.json",
+      "sha256": "3c2aef7f8b5294dcf7c1e2157f130d47c45b9b5ac4ab1c5ed192450346254331",
+      "bytes": 513
+    },
+    {
+      "path": "05_v368r/ascr18/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "a4626ac3be22d01a18f4435e72f1aad96f94bed2df2424dcf731797abc5e3e1b",
+      "bytes": 523
+    },
+    {
+      "path": "05_v368r/ascr18/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "835afe5fb89d080a620e55b682f01e977cc3a9f520a460f11e044853d56fff7b",
+      "bytes": 206
+    },
+    {
+      "path": "05_v368r/ascr18/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "4d34ce72e6abf40e5debd9f01c554b725c253a08debde429b57c18f26018cf3e",
+      "bytes": 128
+    },
+    {
+      "path": "05_v368r/ascr18/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r/ascr18/top1_contacts/ifp/metadata.json",
+      "sha256": "f53c22fff04fcf1c375c0dac8a998198a2592a6197425a981904e26ef8379b0c",
+      "bytes": 746
+    },
+    {
+      "path": "05_n84v/prepared.pdb",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/prepared.pdb",
+      "sha256": "7b4c782baf8c1af46af5f8b44861d847d873cb376113044ea26faefd4782055a",
+      "bytes": 469440
+    },
+    {
+      "path": "05_n84v/receptor.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/receptor.json",
+      "sha256": "98a9f60cb87fe613eb9fab10c0455f08f49d486a29ce98062940b997c6f079aa",
+      "bytes": 8935354
+    },
+    {
+      "path": "05_n84v/ascr3/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/top1.sdf",
+      "sha256": "0b0faa6bfc6bdd4c462ae051a576bbf92dd61eb77243c15166751cfe53d66cfb",
+      "bytes": 4043
+    },
+    {
+      "path": "05_n84v/ascr3/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/top1.pdbqt",
+      "sha256": "3991286b160753264864522703a135901cc3bf9b501080a48693a3f5c56f38f1",
+      "bytes": 2831
+    },
+    {
+      "path": "05_n84v/ascr3/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/contact_residues.csv",
+      "sha256": "cbb3f6d1b3e5091b49b928595f29241d499d524c8ece0ab6bce26eed33493fa5",
+      "bytes": 261
+    },
+    {
+      "path": "05_n84v/ascr3/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/selection.json",
+      "sha256": "3636695677f522f27d9c5c924a1d9cf938848fdb6db0f063bbea6551445502ba",
+      "bytes": 511
+    },
+    {
+      "path": "05_n84v/ascr3/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "1c2e81e6114e679ca8199a634198d45ee57ef48cb67ddc30b11b0f5f2205a704",
+      "bytes": 376
+    },
+    {
+      "path": "05_n84v/ascr3/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "72995e75c70c41ccff73053bc2c116d1fcd9cf4b74aacfba769bcc436e3f8856",
+      "bytes": 174
+    },
+    {
+      "path": "05_n84v/ascr3/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "7989a2a1cd58cd00dacce2215abaf1e42db5a6a1dad5f671b702ad1e79529a24",
+      "bytes": 104
+    },
+    {
+      "path": "05_n84v/ascr3/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr3/top1_contacts/ifp/metadata.json",
+      "sha256": "c0dd0009ea48d606db04a72f0d041d8213e1429cc43422f93909099d393738ad",
+      "bytes": 743
+    },
+    {
+      "path": "05_n84v/ascr18/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/top1.sdf",
+      "sha256": "c81504d49f3a92190b53dba3867dded54d1b473d760501b7a730b6a75f94f1ba",
+      "bytes": 4709
+    },
+    {
+      "path": "05_n84v/ascr18/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/top1.pdbqt",
+      "sha256": "ba4506461d5c02374fe13dc05052f706f5bda33ec03309939cbb50f7e01cea1c",
+      "bytes": 3131
+    },
+    {
+      "path": "05_n84v/ascr18/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/contact_residues.csv",
+      "sha256": "d0b6f7043960a91dbbf0dc9cd3d2d65d1979dfa6ed502422f9485b254b1ceb9d",
+      "bytes": 417
+    },
+    {
+      "path": "05_n84v/ascr18/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/selection.json",
+      "sha256": "287385edf7eb09c3c49f781d4159fb46cf9cd641abd9a0ca6c2262839127c3be",
+      "bytes": 513
+    },
+    {
+      "path": "05_n84v/ascr18/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "f8dd113479be34be3c2c6525b0c59420de83b1b7df17e0b4789006105dd3aa01",
+      "bytes": 590
+    },
+    {
+      "path": "05_n84v/ascr18/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "a5cb24b0dfdd63894d7971418cba54f1dbe483945f8ffe78496fa23d27ec80f4",
+      "bytes": 280
+    },
+    {
+      "path": "05_n84v/ascr18/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "95295bc6bb317e42e29408110cf3ec6014ae2edd037e5ed65b3705f6a74c8fc5",
+      "bytes": 186
+    },
+    {
+      "path": "05_n84v/ascr18/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v/ascr18/top1_contacts/ifp/metadata.json",
+      "sha256": "938a97afd90dae8272e3652789a02ac4d44dbb99b1589438c070de9ce3b75046",
+      "bytes": 744
+    },
+    {
+      "path": "05_v110m/prepared.pdb",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/prepared.pdb",
+      "sha256": "8a18d14515454215f65318f1e5ddcf50aea80f18a7a2a08bee55468d1deb4325",
+      "bytes": 469360
+    },
+    {
+      "path": "05_v110m/receptor.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/receptor.json",
+      "sha256": "769297d5410abfe9f096067ac14e4ea595b6a3253bdba49b8d8fce2540d8f628",
+      "bytes": 8937516
+    },
+    {
+      "path": "05_v110m/ascr3/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/top1.sdf",
+      "sha256": "571abd1cbb1e8a886d305efeda5f82a0924926c1caa9ca2f4c4138c2c83dcdf0",
+      "bytes": 4044
+    },
+    {
+      "path": "05_v110m/ascr3/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/top1.pdbqt",
+      "sha256": "88e98c1d3db2fe4a037ad0c34a2c859678f0a3baa1a05c0e128e3eadccdb156b",
+      "bytes": 2831
+    },
+    {
+      "path": "05_v110m/ascr3/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/contact_residues.csv",
+      "sha256": "c634e77d8b0883a4002e6338f800a439682645f413254ec6d969df52a4500b1d",
+      "bytes": 348
+    },
+    {
+      "path": "05_v110m/ascr3/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/selection.json",
+      "sha256": "fd01332cabf0353c761d71ecba10539cf1cde9e72962a622e12ef4141da2d745",
+      "bytes": 513
+    },
+    {
+      "path": "05_v110m/ascr3/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "d18ff333921df7a89a1400de1e5ce8ac0c70dde20430e4492c7b444777812919",
+      "bytes": 468
+    },
+    {
+      "path": "05_v110m/ascr3/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "457cbb9930c47be7ced86f58af01b3282c058fd89668d8916e3018d5c2880a4e",
+      "bytes": 245
+    },
+    {
+      "path": "05_v110m/ascr3/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "04cd505e98313af33892e2d7c4599a29f1344194c4d634bf3c4f5acfdcbf6ec8",
+      "bytes": 159
+    },
+    {
+      "path": "05_v110m/ascr3/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr3/top1_contacts/ifp/metadata.json",
+      "sha256": "b03fb9e539ddc9b4a0ffb1ae26aa3fed4f4670ac90e1724f5ece8036707491f4",
+      "bytes": 745
+    },
+    {
+      "path": "05_v110m/ascr18/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/top1.sdf",
+      "sha256": "7210574eca6e16ca5717ad0843cdf7f010cf2c2c00aaee8f16b814250717cb88",
+      "bytes": 4709
+    },
+    {
+      "path": "05_v110m/ascr18/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/top1.pdbqt",
+      "sha256": "578b559537c016274c22fe726e907548866de4b2c52f5a53e857d1c8afc36872",
+      "bytes": 3131
+    },
+    {
+      "path": "05_v110m/ascr18/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/contact_residues.csv",
+      "sha256": "02dd9d6bf3ee425fa49f206e4dbf242ca8814637267753a8df14e7b1bcf2eb22",
+      "bytes": 367
+    },
+    {
+      "path": "05_v110m/ascr18/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/selection.json",
+      "sha256": "0cbfc0d15ae67586b6bc4f540b593d846369762a9d12f95ef63596b675fc1c0b",
+      "bytes": 514
+    },
+    {
+      "path": "05_v110m/ascr18/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "59a56666c2a5e7cf54f84c84781e692fcf3b59f3ff9c458cfb5812cce0ce46e4",
+      "bytes": 528
+    },
+    {
+      "path": "05_v110m/ascr18/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "06dd961a0e108b8225a33c852a0a58c0c2c20bb0f4f6aaf5b7574d8646af0cf9",
+      "bytes": 243
+    },
+    {
+      "path": "05_v110m/ascr18/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "05a69e8f87edb086e2dbfa74ed6759f0720fd8da8be9496c4939a67f2c9ea67e",
+      "bytes": 157
+    },
+    {
+      "path": "05_v110m/ascr18/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m/ascr18/top1_contacts/ifp/metadata.json",
+      "sha256": "10e06aff68b08b4b8b51678977acc82e9b85472fc00360c6545caec49e0b4c34",
+      "bytes": 746
+    },
+    {
+      "path": "05_v110c/prepared.pdb",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/prepared.pdb",
+      "sha256": "5231beac725415a5d1586d50b0959be63afba02c9c5a652582d741e4553ba5f4",
+      "bytes": 468880
+    },
+    {
+      "path": "05_v110c/receptor.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/receptor.json",
+      "sha256": "8491416fcf0eb542e40458e5a70acd976b34a3510bed5959d0a416d5750bd74e",
+      "bytes": 8929225
+    },
+    {
+      "path": "05_v110c/ascr3/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/top1.sdf",
+      "sha256": "888e99443fc337d177d01efab1585acfd77a48f05fa7a2c73f6a288f8f6ad62a",
+      "bytes": 4045
+    },
+    {
+      "path": "05_v110c/ascr3/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/top1.pdbqt",
+      "sha256": "a108bb877ce908c564c2a8c5a8462b17ccb2e5944116903edddd71672305b941",
+      "bytes": 2831
+    },
+    {
+      "path": "05_v110c/ascr3/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/contact_residues.csv",
+      "sha256": "c3500f1bc710b007cd5739b7065af343ca7d5d0e57ffe15b7b2093b2a70a0da2",
+      "bytes": 354
+    },
+    {
+      "path": "05_v110c/ascr3/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/selection.json",
+      "sha256": "b2e9dcaf91a57211337b4072214489e14f968737e7c3cbefabada5c8815b3ce4",
+      "bytes": 513
+    },
+    {
+      "path": "05_v110c/ascr3/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "e219dedf6e3ca237ac15a2708e958a5e76e0d73dcc839a45fe67dceb0546d566",
+      "bytes": 527
+    },
+    {
+      "path": "05_v110c/ascr3/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "bb5049f9f8776f105be7b84843b946e57c0bff61db28e7d259bfe73fff18a3af",
+      "bytes": 227
+    },
+    {
+      "path": "05_v110c/ascr3/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "cb73b825bb8484805c53d7224a7d04f0adbe9e8f2a2f6a0d7f76576517a5ca51",
+      "bytes": 145
+    },
+    {
+      "path": "05_v110c/ascr3/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr3/top1_contacts/ifp/metadata.json",
+      "sha256": "ac4b8a7784c810369cf1e8036fb16e2d488a58ec6d203336124b34f397f01f97",
+      "bytes": 745
+    },
+    {
+      "path": "05_v110c/ascr18/top1.sdf",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/top1.sdf",
+      "sha256": "071267aea4c49081a9a3221ab49342564a25e6d468ea6421cd8ce1a637cf9b47",
+      "bytes": 4709
+    },
+    {
+      "path": "05_v110c/ascr18/top1.pdbqt",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/top1.pdbqt",
+      "sha256": "d1bca5b502cc27d52734b2b2b67e30bbc85b68fd7c37a601ddf5f56e96885479",
+      "bytes": 3131
+    },
+    {
+      "path": "05_v110c/ascr18/contact_residues.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/contact_residues.csv",
+      "sha256": "34504ebfab1196126c29acf572bc8276f67b9fa79991a822c1ddc602ffaa4188",
+      "bytes": 364
+    },
+    {
+      "path": "05_v110c/ascr18/selection.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/selection.json",
+      "sha256": "fa57b1e5a497f1ba691847bd3025795d7e463d0a8cac521b7818f53de16c5ea3",
+      "bytes": 514
+    },
+    {
+      "path": "05_v110c/ascr18/ifp/ifp_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/ifp/ifp_presence.csv",
+      "sha256": "f51d24513016bb482665ee117d11be6880c4945c82139b7480c58957f9c065e8",
+      "bytes": 558
+    },
+    {
+      "path": "05_v110c/ascr18/ifp/residue_counts.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/ifp/residue_counts.csv",
+      "sha256": "a8633af29433c0575116ae3b2cce9f68a284acd66158c5fd4dfdf3cb6d416d6c",
+      "bytes": 226
+    },
+    {
+      "path": "05_v110c/ascr18/ifp/residue_presence.csv",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/ifp/residue_presence.csv",
+      "sha256": "1ab28f65f5baa87d23dcf078eb6764f764b22463bd5da1338dbad52996adb10d",
+      "bytes": 144
+    },
+    {
+      "path": "05_v110c/ascr18/ifp/metadata.json",
+      "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c/ascr18/top1_contacts/ifp/metadata.json",
+      "sha256": "607afaf9ab70ab594f495c421fadb92577b077c934c85816163d3ef2fa941ca5",
+      "bytes": 746
+    }
+  ],
+  "source_root": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab",
+  "coordinate_processing": "none; exact copies of prepared receptor and selected ligand pose",
+  "n_copied_files": 90
+}

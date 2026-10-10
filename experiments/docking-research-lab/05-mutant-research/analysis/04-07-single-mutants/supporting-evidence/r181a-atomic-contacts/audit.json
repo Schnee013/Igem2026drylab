@@ -1,0 +1,106 @@
+[
+  {
+    "group": "baseline",
+    "ligand": "ascr3",
+    "receptor_sha256": "e886e13cae3cd6de1273f025b06b0473b09efc7dfba3ebd8410fe8091d8fbdfd",
+    "sdf_sha256": "ab7df22670790dbc1a48987745f9af309c9380020c3695fb8076c491bc88468b",
+    "settings": {
+      "prolif_version": "2.1.0",
+      "n_poses": 1,
+      "interactions": [
+        "Anionic",
+        "CationPi",
+        "Cationic",
+        "HBAcceptor",
+        "HBDonor",
+        "Hydrophobic",
+        "PiCation",
+        "PiStacking",
+        "VdWContact"
+      ],
+      "vicinity_cutoff_A": 6.0,
+      "receptor_json": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/baseline/receptor.json",
+      "poses_sdf": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/baseline/ascr3/top1_contacts/top1.sdf",
+      "receptor_sha256": "e886e13cae3cd6de1273f025b06b0473b09efc7dfba3ebd8410fe8091d8fbdfd",
+      "sdf_sha256": "ab7df22670790dbc1a48987745f9af309c9380020c3695fb8076c491bc88468b"
+    }
+  },
+  {
+    "group": "baseline",
+    "ligand": "ascr18",
+    "receptor_sha256": "e886e13cae3cd6de1273f025b06b0473b09efc7dfba3ebd8410fe8091d8fbdfd",
+    "sdf_sha256": "d8d9af1dc7b57e38c5b0f935b20ef041be57150c5d99cfcd3aba57b472579d48",
+    "settings": {
+      "prolif_version": "2.1.0",
+      "n_poses": 1,
+      "interactions": [
+        "Anionic",
+        "CationPi",
+        "Cationic",
+        "HBAcceptor",
+        "HBDonor",
+        "Hydrophobic",
+        "PiCation",
+        "PiStacking",
+        "VdWContact"
+      ],
+      "vicinity_cutoff_A": 6.0,
+      "receptor_json": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/baseline/receptor.json",
+      "poses_sdf": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/baseline/ascr18/top1_contacts/top1.sdf",
+      "receptor_sha256": "e886e13cae3cd6de1273f025b06b0473b09efc7dfba3ebd8410fe8091d8fbdfd",
+      "sdf_sha256": "d8d9af1dc7b57e38c5b0f935b20ef041be57150c5d99cfcd3aba57b472579d48"
+    }
+  },
+  {
+    "group": "R181A",
+    "ligand": "ascr3",
+    "receptor_sha256": "b64171caeebd1599b2cc8ec28cc5ae80c64ddc8807c5da170a0ba2b9dbf0e88f",
+    "sdf_sha256": "0e1c37498ee958fa4c39dac8f67237dd7fc6934d2ac89924ee9110046bdae051",
+    "settings": {
+      "prolif_version": "2.1.0",
+      "n_poses": 1,
+      "interactions": [
+        "Anionic",
+        "CationPi",
+        "Cationic",
+        "HBAcceptor",
+        "HBDonor",
+        "Hydrophobic",
+        "PiCation",
+        "PiStacking",
+        "VdWContact"
+      ],
+      "vicinity_cutoff_A": 6.0,
+      "receptor_json": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/R181A/receptor.json",
+      "poses_sdf": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/R181A/ascr3/top1_contacts/top1.sdf",
+      "receptor_sha256": "b64171caeebd1599b2cc8ec28cc5ae80c64ddc8807c5da170a0ba2b9dbf0e88f",
+      "sdf_sha256": "0e1c37498ee958fa4c39dac8f67237dd7fc6934d2ac89924ee9110046bdae051"
+    }
+  },
+  {
+    "group": "R181A",
+    "ligand": "ascr18",
+    "receptor_sha256": "b64171caeebd1599b2cc8ec28cc5ae80c64ddc8807c5da170a0ba2b9dbf0e88f",
+    "sdf_sha256": "3f68f1cdd4e3ef430df8308d7386202a118a3523725a1ccb71a3d5642eb9d926",
+    "settings": {
+      "prolif_version": "2.1.0",
+      "n_poses": 1,
+      "interactions": [
+        "Anionic",
+        "CationPi",
+        "Cationic",
+        "HBAcceptor",
+        "HBDonor",
+        "Hydrophobic",
+        "PiCation",
+        "PiStacking",
+        "VdWContact"
+      ],
+      "vicinity_cutoff_A": 6.0,
+      "receptor_json": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/R181A/receptor.json",
+      "poses_sdf": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/R181A/ascr18/top1_contacts/top1.sdf",
+      "receptor_sha256": "b64171caeebd1599b2cc8ec28cc5ae80c64ddc8807c5da170a0ba2b9dbf0e88f",
+      "sdf_sha256": "3f68f1cdd4e3ef430df8308d7386202a118a3523725a1ccb71a3d5642eb9d926"
+    }
+  }
+]

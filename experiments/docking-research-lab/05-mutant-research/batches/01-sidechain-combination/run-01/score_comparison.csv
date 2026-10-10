@@ -1,0 +1,7 @@
+group,ligand,best_score_kcal_mol,n_poses,mutant_minus_baseline
+baseline,ascr3,-6.612,9,0.0
+baseline,ascr18,-6.753,9,0.0
+N84A_L90A_R345A,ascr3,-6.382,9,0.23
+N84A_L90A_R345A,ascr18,-6.205,9,0.548
+V110A_R181A_W338A_V368A,ascr3,-6.799,9,-0.187
+V110A_R181A_W338A_V368A,ascr18,-6.742,9,0.011

@@ -1,0 +1,11 @@
+{
+    "exit_code": 0,
+    "arguments": [
+        "--fasta",
+        "Aflagrans_GprC_A0A437AGY2.fasta"
+    ],
+    "app_uri": "DTU/DeepTMHMM:1.0.57",
+    "ended_at": "2026-08-16T07:01:17.272850Z",
+    "job_uuid": "9c38a0e9-2b08-4d63-806c-6bd9683e3461",
+    "started_at": "2026-08-16T06:59:08.055021Z"
+}
