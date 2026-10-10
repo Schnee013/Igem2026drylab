@@ -1,0 +1,25 @@
+{
+  "manifest_sha256": "88881c8e88ec3cdbaddceb68cdaa8bb81d9c8e940ec6e52eb818a3dc1765b7d2",
+  "files": {
+    "all_18.fasta": "61fc275694bf75e985431152485e0c55a7ad8b65352637136a38b666c413d1e9",
+    "individual/08_n84l_v110m.fasta": "2d0943bb6d8367b3972ac384e6af4fa695c1eaddbc12f07db8ba77f519a864ff",
+    "individual/08_n84l_v368q.fasta": "49f13aaa7d45fe3319131b5dc1ac85408655e3a1018b6b46da60cad4b2cbf0d0",
+    "individual/08_n84l_v368r.fasta": "eb25073e68e435e4f22e0e5fa7c07b5a7e4602cf8b3319efca2829b3ae61402c",
+    "individual/08_n84t_v110c.fasta": "f851437c57abf385032e6d44e0d6b80a67ab291d4e12e7df89c41f09e5494f89",
+    "individual/08_n84t_v110s.fasta": "aacca89e5d234aeeb87ce08cb489c57a8b4c4698b3664ea981736b6d842c4a37",
+    "individual/08_n84v_v110c.fasta": "84e82144d7c62652503eb9ec5bb0e7ccd33d6b771f5a619d22579d1d7aeb156f",
+    "individual/08_n84v_v110s.fasta": "b58f58eec5cdd8bec7fe68928455407d31247afd92ed23de1d9127b510eafb5a",
+    "individual/08_n84v_v368n.fasta": "f9fed8b3db707270003b0bcd0ecd914a49670e75cb1bd944b25171b17cb0413d",
+    "individual/08_n84y_v368n.fasta": "10bfc5a12efc0992b5aaa32ffff3ad866e5e5a7f20ea6b2daddb3b5345331458",
+    "individual/08_n84y_v368q.fasta": "7f3b99b62ef91e1e5384ae21c5915c3dd245d5585b9d2286810cc32e9ca3d948",
+    "individual/08_n84y_v368r.fasta": "4d96fe6daba24f64a0d037dbdf1ae873df7fb24015e1178b3f6b449e42b2c54b",
+    "individual/08_v110c_w338f.fasta": "fecf9f7680088dee549110dac685ae53cff46bad0fdff2157a7453423e973c28",
+    "individual/08_v110c_w338h.fasta": "5153467bc8a33f57b62094c2a1aeb3d053dc9c3db4de623d9b13aa15b1c4c591",
+    "individual/08_v110c_w338l.fasta": "b02e8720abc64d8d776357a10b6890ad4a51485a64062cbd958b9e713394ccdf",
+    "individual/08_v110m_w338q.fasta": "a3b9d2abb6c3ab9915016a415472296e8120ca4f1b14a6bd047698cd245b96cb",
+    "individual/08_v110s_w338f.fasta": "38ff75e6a3844c36e4ba589525dce1cdb5c6f26cf781d8ebfd3965455115d799",
+    "individual/08_v110s_w338h.fasta": "a90cd5a5fe3fc07371c4f71db93f1715981be63a5bc885420d00aeeb3750964d",
+    "individual/08_v110s_w338l.fasta": "e09ef478ea5f577bab25f27c93f867a43d2435719be333217059d79ccb5a312d",
+    "submission_jobs.tsv": "24b4184bae7b5955aba27a4e1aad8902685f7b1839adc894d248826b52d0f750"
+  }
+}

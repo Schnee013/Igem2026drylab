@@ -1,0 +1,1162 @@
+{
+  "batch": "08",
+  "status": "baseline_addition_ready_user_run",
+  "scope": "18 double mutants + one new WT; reuse existing single-mutant results",
+  "plan": "outputs/phase2-design/combination-plan-v1.md",
+  "plan_sha256": "f32e02512f9e7781bc876b77e3c7d6cb44be91d31c28e76f99ee352ccf4edaca",
+  "source_fasta": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+  "source_fasta_sha256": "d4459a2fdda470457f41fe3dd414d3ec01878b905171e56a4cef28fb31e52150",
+  "source_sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9",
+  "sequence_length": 406,
+  "fasta_output": "vina/inputs/receptors/fasta/08-af3-double-mutants",
+  "counts": {
+    "core": 16,
+    "exploratory": 2,
+    "baseline": 1,
+    "total": 19
+  },
+  "control_status": {
+    "WT": "new 08_baseline full-length AF prediction",
+    "single_parents": "reuse batch05 for N84/V110/V368 and batch07 for W338; no new single-mutant AF or docking jobs"
+  },
+  "variants": [
+    {
+      "id": "N84Y_V368R",
+      "af_job_name": "08_n84y_v368r",
+      "module": "A",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "Y"
+        },
+        {
+          "position": 368,
+          "from": "V",
+          "to": "R"
+        }
+      ],
+      "sequence_sha256": "c038602b59c517483f79bf298f90e2977fe34ee1fd158449baf216ac406f4db0",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84Y",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84y",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84y",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V368R",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84Y_V368Q",
+      "af_job_name": "08_n84y_v368q",
+      "module": "A",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "Y"
+        },
+        {
+          "position": 368,
+          "from": "V",
+          "to": "Q"
+        }
+      ],
+      "sequence_sha256": "36f756d5ccfa4ce8f1e12d27ee91da0662e2e7b76541c9ce4fc3463b0830f7b4",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84Y",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84y",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84y",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V368Q",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368q",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368q",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84L_V368R",
+      "af_job_name": "08_n84l_v368r",
+      "module": "A",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "L"
+        },
+        {
+          "position": 368,
+          "from": "V",
+          "to": "R"
+        }
+      ],
+      "sequence_sha256": "ba1bac62d1942c5f25d721a4a8ef96b7900b11c489a1084e74a4fa2cc566ba20",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84L",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84l",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84l",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V368R",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368r",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84L_V368Q",
+      "af_job_name": "08_n84l_v368q",
+      "module": "A",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "L"
+        },
+        {
+          "position": 368,
+          "from": "V",
+          "to": "Q"
+        }
+      ],
+      "sequence_sha256": "dd6433e025ddf2480dc42036b6d7ef8f6b24700dfa594f773e42bc0c91ef13c0",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84L",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84l",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84l",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V368Q",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368q",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368q",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84L_V110M",
+      "af_job_name": "08_n84l_v110m",
+      "module": "B",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "L"
+        },
+        {
+          "position": 110,
+          "from": "V",
+          "to": "M"
+        }
+      ],
+      "sequence_sha256": "5b615573cd4d0057d0748c11fb9de4ec6dde2be811aeb387846b0462b31a1a6a",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84L",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84l",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84l",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V110M",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "V110M_W338Q",
+      "af_job_name": "08_v110m_w338q",
+      "module": "B",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 110,
+          "from": "V",
+          "to": "M"
+        },
+        {
+          "position": 338,
+          "from": "W",
+          "to": "Q"
+        }
+      ],
+      "sequence_sha256": "664be38a9fd35c8740360e9c44ae03c70e1024f194ace6018760fdde6237a678",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "V110M",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110m",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "W338Q",
+          "historical_records": [
+            {
+              "batch": "07",
+              "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338q",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "07",
+            "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338q",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84V_V110C",
+      "af_job_name": "08_n84v_v110c",
+      "module": "C",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "V"
+        },
+        {
+          "position": 110,
+          "from": "V",
+          "to": "C"
+        }
+      ],
+      "sequence_sha256": "7cfeac0c2def3d6c6a22a02530fe1f3dce550488362126d8a261ef59b9ba5215",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84V",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V110C",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84V_V110S",
+      "af_job_name": "08_n84v_v110s",
+      "module": "C",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "V"
+        },
+        {
+          "position": 110,
+          "from": "V",
+          "to": "S"
+        }
+      ],
+      "sequence_sha256": "1c39ae61f42ecb44230b4f0bf9da82b7431b99d01b2ab14dbcc7a9bfb074ccdc",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84V",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V110S",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84T_V110C",
+      "af_job_name": "08_n84t_v110c",
+      "module": "C",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "T"
+        },
+        {
+          "position": 110,
+          "from": "V",
+          "to": "C"
+        }
+      ],
+      "sequence_sha256": "098591ec5d47afafdddb689f5eb811099de644a67cbecab743641e55a09451a9",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84T",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84t",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84t",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V110C",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84T_V110S",
+      "af_job_name": "08_n84t_v110s",
+      "module": "C",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "T"
+        },
+        {
+          "position": 110,
+          "from": "V",
+          "to": "S"
+        }
+      ],
+      "sequence_sha256": "5115d45d8604f32e5aff3cafed2341abc9820d0bc0963f95573d3b46669c3b3c",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84T",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84t",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84t",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V110S",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "V110C_W338F",
+      "af_job_name": "08_v110c_w338f",
+      "module": "D",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 110,
+          "from": "V",
+          "to": "C"
+        },
+        {
+          "position": 338,
+          "from": "W",
+          "to": "F"
+        }
+      ],
+      "sequence_sha256": "d2714f72b7c6e10f66fbddf295538ff435da2b5829a84837e2c88efb187e5865",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "V110C",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "W338F",
+          "historical_records": [
+            {
+              "batch": "06",
+              "source": "outputs/batches/06-af3-supplement-singles/run-01/06_w338f",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "06/run-01/baseline/af0/seed1919"
+            },
+            {
+              "batch": "07",
+              "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338f",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "07",
+            "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338f",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "V110C_W338H",
+      "af_job_name": "08_v110c_w338h",
+      "module": "D",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 110,
+          "from": "V",
+          "to": "C"
+        },
+        {
+          "position": 338,
+          "from": "W",
+          "to": "H"
+        }
+      ],
+      "sequence_sha256": "b5c0f40fc2b8a2b4283058ecad1e4b0e12391e4760a90279c899867d9ac73597",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "V110C",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "W338H",
+          "historical_records": [
+            {
+              "batch": "07",
+              "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338h",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "07",
+            "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338h",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "V110S_W338F",
+      "af_job_name": "08_v110s_w338f",
+      "module": "D",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 110,
+          "from": "V",
+          "to": "S"
+        },
+        {
+          "position": 338,
+          "from": "W",
+          "to": "F"
+        }
+      ],
+      "sequence_sha256": "14c288670b084e009e856837943a858268390721eac1b7e1f13053b62efdaac1",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "V110S",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "W338F",
+          "historical_records": [
+            {
+              "batch": "06",
+              "source": "outputs/batches/06-af3-supplement-singles/run-01/06_w338f",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "06/run-01/baseline/af0/seed1919"
+            },
+            {
+              "batch": "07",
+              "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338f",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "07",
+            "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338f",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "V110S_W338H",
+      "af_job_name": "08_v110s_w338h",
+      "module": "D",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 110,
+          "from": "V",
+          "to": "S"
+        },
+        {
+          "position": 338,
+          "from": "W",
+          "to": "H"
+        }
+      ],
+      "sequence_sha256": "bbbbfb1448a815950cccedf887a802aeed4adea392ad984d643cd7bb8d27457a",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "V110S",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "W338H",
+          "historical_records": [
+            {
+              "batch": "07",
+              "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338h",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "07",
+            "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338h",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84Y_V368N",
+      "af_job_name": "08_n84y_v368n",
+      "module": "E",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "Y"
+        },
+        {
+          "position": 368,
+          "from": "V",
+          "to": "N"
+        }
+      ],
+      "sequence_sha256": "a141e1da30f09e47632b0554e2a8889efbfba32864c42f824e24717e89420eab",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84Y",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84y",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84y",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V368N",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368n",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368n",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "N84V_V368N",
+      "af_job_name": "08_n84v_v368n",
+      "module": "E",
+      "role": "core",
+      "mutations": [
+        {
+          "position": 84,
+          "from": "N",
+          "to": "V"
+        },
+        {
+          "position": 368,
+          "from": "V",
+          "to": "N"
+        }
+      ],
+      "sequence_sha256": "e949a7fbd069c7c90059ebc06693d27208eafdca8e52e9722510cdbf7c1827ea",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "N84V",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_n84v",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "V368N",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368n",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v368n",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "V110C_W338L",
+      "af_job_name": "08_v110c_w338l",
+      "module": "F",
+      "role": "exploratory",
+      "mutations": [
+        {
+          "position": 110,
+          "from": "V",
+          "to": "C"
+        },
+        {
+          "position": 338,
+          "from": "W",
+          "to": "L"
+        }
+      ],
+      "sequence_sha256": "bb3c63365a5230912a8c9bf13d1abc3d67c763f3118ae1e120679314e5754aef",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "V110C",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110c",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "W338L",
+          "historical_records": [
+            {
+              "batch": "06",
+              "source": "outputs/batches/06-af3-supplement-singles/run-01/06_w338l",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "06/run-01/baseline/af0/seed1919"
+            },
+            {
+              "batch": "07",
+              "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338l",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "07",
+            "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338l",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "V110S_W338L",
+      "af_job_name": "08_v110s_w338l",
+      "module": "F",
+      "role": "exploratory",
+      "mutations": [
+        {
+          "position": 110,
+          "from": "V",
+          "to": "S"
+        },
+        {
+          "position": 338,
+          "from": "W",
+          "to": "L"
+        }
+      ],
+      "sequence_sha256": "09964472fcfcfd6bd7622c6c49a6cb4b8982cc6f1d146e60f2a0d2ccd522dbb7",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": [
+        {
+          "variant": "V110S",
+          "historical_records": [
+            {
+              "batch": "05",
+              "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "05",
+            "source": "outputs/batches/05-af3-n84-v110-v368-saturations/run-01/05_v110s",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "05/run-01/baseline/af0/seed1919"
+          }
+        },
+        {
+          "variant": "W338L",
+          "historical_records": [
+            {
+              "batch": "06",
+              "source": "outputs/batches/06-af3-supplement-singles/run-01/06_w338l",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "06/run-01/baseline/af0/seed1919"
+            },
+            {
+              "batch": "07",
+              "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338l",
+              "af_model": 0,
+              "seed": 1919,
+              "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+            }
+          ],
+          "selected_existing_result": {
+            "batch": "07",
+            "source": "outputs/batches/07-af3-w338-saturation/run-01/07_w338l",
+            "af_model": 0,
+            "seed": 1919,
+            "baseline_record_id": "07/run-01/baseline/af0/seed1919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "baseline",
+      "af_job_name": "08_baseline",
+      "module": "WT",
+      "role": "baseline",
+      "mutations": [],
+      "sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9",
+      "source": "new_full_length_AF_prediction",
+      "selected_af_model": 0,
+      "parents": []
+    }
+  ],
+  "previous_manifest_sha256": "88881c8e88ec3cdbaddceb68cdaa8bb81d9c8e940ec6e52eb818a3dc1765b7d2"
+}

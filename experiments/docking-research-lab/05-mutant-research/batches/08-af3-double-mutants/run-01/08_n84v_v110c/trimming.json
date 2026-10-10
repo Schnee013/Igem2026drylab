@@ -1,0 +1,1508 @@
+{
+  "job_name": "08_n84v_v110c",
+  "model_seeds": [
+    "1975560500"
+  ],
+  "prediction_residue_count": 406,
+  "docking_residue_count": 370,
+  "deleted_original_ranges": [
+    [
+      1,
+      21
+    ],
+    [
+      164,
+      178
+    ]
+  ],
+  "retained_coordinate_changes": false,
+  "renumbered": false,
+  "mapping": [
+    {
+      "af3_number": 22,
+      "original_number": 22
+    },
+    {
+      "af3_number": 23,
+      "original_number": 23
+    },
+    {
+      "af3_number": 24,
+      "original_number": 24
+    },
+    {
+      "af3_number": 25,
+      "original_number": 25
+    },
+    {
+      "af3_number": 26,
+      "original_number": 26
+    },
+    {
+      "af3_number": 27,
+      "original_number": 27
+    },
+    {
+      "af3_number": 28,
+      "original_number": 28
+    },
+    {
+      "af3_number": 29,
+      "original_number": 29
+    },
+    {
+      "af3_number": 30,
+      "original_number": 30
+    },
+    {
+      "af3_number": 31,
+      "original_number": 31
+    },
+    {
+      "af3_number": 32,
+      "original_number": 32
+    },
+    {
+      "af3_number": 33,
+      "original_number": 33
+    },
+    {
+      "af3_number": 34,
+      "original_number": 34
+    },
+    {
+      "af3_number": 35,
+      "original_number": 35
+    },
+    {
+      "af3_number": 36,
+      "original_number": 36
+    },
+    {
+      "af3_number": 37,
+      "original_number": 37
+    },
+    {
+      "af3_number": 38,
+      "original_number": 38
+    },
+    {
+      "af3_number": 39,
+      "original_number": 39
+    },
+    {
+      "af3_number": 40,
+      "original_number": 40
+    },
+    {
+      "af3_number": 41,
+      "original_number": 41
+    },
+    {
+      "af3_number": 42,
+      "original_number": 42
+    },
+    {
+      "af3_number": 43,
+      "original_number": 43
+    },
+    {
+      "af3_number": 44,
+      "original_number": 44
+    },
+    {
+      "af3_number": 45,
+      "original_number": 45
+    },
+    {
+      "af3_number": 46,
+      "original_number": 46
+    },
+    {
+      "af3_number": 47,
+      "original_number": 47
+    },
+    {
+      "af3_number": 48,
+      "original_number": 48
+    },
+    {
+      "af3_number": 49,
+      "original_number": 49
+    },
+    {
+      "af3_number": 50,
+      "original_number": 50
+    },
+    {
+      "af3_number": 51,
+      "original_number": 51
+    },
+    {
+      "af3_number": 52,
+      "original_number": 52
+    },
+    {
+      "af3_number": 53,
+      "original_number": 53
+    },
+    {
+      "af3_number": 54,
+      "original_number": 54
+    },
+    {
+      "af3_number": 55,
+      "original_number": 55
+    },
+    {
+      "af3_number": 56,
+      "original_number": 56
+    },
+    {
+      "af3_number": 57,
+      "original_number": 57
+    },
+    {
+      "af3_number": 58,
+      "original_number": 58
+    },
+    {
+      "af3_number": 59,
+      "original_number": 59
+    },
+    {
+      "af3_number": 60,
+      "original_number": 60
+    },
+    {
+      "af3_number": 61,
+      "original_number": 61
+    },
+    {
+      "af3_number": 62,
+      "original_number": 62
+    },
+    {
+      "af3_number": 63,
+      "original_number": 63
+    },
+    {
+      "af3_number": 64,
+      "original_number": 64
+    },
+    {
+      "af3_number": 65,
+      "original_number": 65
+    },
+    {
+      "af3_number": 66,
+      "original_number": 66
+    },
+    {
+      "af3_number": 67,
+      "original_number": 67
+    },
+    {
+      "af3_number": 68,
+      "original_number": 68
+    },
+    {
+      "af3_number": 69,
+      "original_number": 69
+    },
+    {
+      "af3_number": 70,
+      "original_number": 70
+    },
+    {
+      "af3_number": 71,
+      "original_number": 71
+    },
+    {
+      "af3_number": 72,
+      "original_number": 72
+    },
+    {
+      "af3_number": 73,
+      "original_number": 73
+    },
+    {
+      "af3_number": 74,
+      "original_number": 74
+    },
+    {
+      "af3_number": 75,
+      "original_number": 75
+    },
+    {
+      "af3_number": 76,
+      "original_number": 76
+    },
+    {
+      "af3_number": 77,
+      "original_number": 77
+    },
+    {
+      "af3_number": 78,
+      "original_number": 78
+    },
+    {
+      "af3_number": 79,
+      "original_number": 79
+    },
+    {
+      "af3_number": 80,
+      "original_number": 80
+    },
+    {
+      "af3_number": 81,
+      "original_number": 81
+    },
+    {
+      "af3_number": 82,
+      "original_number": 82
+    },
+    {
+      "af3_number": 83,
+      "original_number": 83
+    },
+    {
+      "af3_number": 84,
+      "original_number": 84
+    },
+    {
+      "af3_number": 85,
+      "original_number": 85
+    },
+    {
+      "af3_number": 86,
+      "original_number": 86
+    },
+    {
+      "af3_number": 87,
+      "original_number": 87
+    },
+    {
+      "af3_number": 88,
+      "original_number": 88
+    },
+    {
+      "af3_number": 89,
+      "original_number": 89
+    },
+    {
+      "af3_number": 90,
+      "original_number": 90
+    },
+    {
+      "af3_number": 91,
+      "original_number": 91
+    },
+    {
+      "af3_number": 92,
+      "original_number": 92
+    },
+    {
+      "af3_number": 93,
+      "original_number": 93
+    },
+    {
+      "af3_number": 94,
+      "original_number": 94
+    },
+    {
+      "af3_number": 95,
+      "original_number": 95
+    },
+    {
+      "af3_number": 96,
+      "original_number": 96
+    },
+    {
+      "af3_number": 97,
+      "original_number": 97
+    },
+    {
+      "af3_number": 98,
+      "original_number": 98
+    },
+    {
+      "af3_number": 99,
+      "original_number": 99
+    },
+    {
+      "af3_number": 100,
+      "original_number": 100
+    },
+    {
+      "af3_number": 101,
+      "original_number": 101
+    },
+    {
+      "af3_number": 102,
+      "original_number": 102
+    },
+    {
+      "af3_number": 103,
+      "original_number": 103
+    },
+    {
+      "af3_number": 104,
+      "original_number": 104
+    },
+    {
+      "af3_number": 105,
+      "original_number": 105
+    },
+    {
+      "af3_number": 106,
+      "original_number": 106
+    },
+    {
+      "af3_number": 107,
+      "original_number": 107
+    },
+    {
+      "af3_number": 108,
+      "original_number": 108
+    },
+    {
+      "af3_number": 109,
+      "original_number": 109
+    },
+    {
+      "af3_number": 110,
+      "original_number": 110
+    },
+    {
+      "af3_number": 111,
+      "original_number": 111
+    },
+    {
+      "af3_number": 112,
+      "original_number": 112
+    },
+    {
+      "af3_number": 113,
+      "original_number": 113
+    },
+    {
+      "af3_number": 114,
+      "original_number": 114
+    },
+    {
+      "af3_number": 115,
+      "original_number": 115
+    },
+    {
+      "af3_number": 116,
+      "original_number": 116
+    },
+    {
+      "af3_number": 117,
+      "original_number": 117
+    },
+    {
+      "af3_number": 118,
+      "original_number": 118
+    },
+    {
+      "af3_number": 119,
+      "original_number": 119
+    },
+    {
+      "af3_number": 120,
+      "original_number": 120
+    },
+    {
+      "af3_number": 121,
+      "original_number": 121
+    },
+    {
+      "af3_number": 122,
+      "original_number": 122
+    },
+    {
+      "af3_number": 123,
+      "original_number": 123
+    },
+    {
+      "af3_number": 124,
+      "original_number": 124
+    },
+    {
+      "af3_number": 125,
+      "original_number": 125
+    },
+    {
+      "af3_number": 126,
+      "original_number": 126
+    },
+    {
+      "af3_number": 127,
+      "original_number": 127
+    },
+    {
+      "af3_number": 128,
+      "original_number": 128
+    },
+    {
+      "af3_number": 129,
+      "original_number": 129
+    },
+    {
+      "af3_number": 130,
+      "original_number": 130
+    },
+    {
+      "af3_number": 131,
+      "original_number": 131
+    },
+    {
+      "af3_number": 132,
+      "original_number": 132
+    },
+    {
+      "af3_number": 133,
+      "original_number": 133
+    },
+    {
+      "af3_number": 134,
+      "original_number": 134
+    },
+    {
+      "af3_number": 135,
+      "original_number": 135
+    },
+    {
+      "af3_number": 136,
+      "original_number": 136
+    },
+    {
+      "af3_number": 137,
+      "original_number": 137
+    },
+    {
+      "af3_number": 138,
+      "original_number": 138
+    },
+    {
+      "af3_number": 139,
+      "original_number": 139
+    },
+    {
+      "af3_number": 140,
+      "original_number": 140
+    },
+    {
+      "af3_number": 141,
+      "original_number": 141
+    },
+    {
+      "af3_number": 142,
+      "original_number": 142
+    },
+    {
+      "af3_number": 143,
+      "original_number": 143
+    },
+    {
+      "af3_number": 144,
+      "original_number": 144
+    },
+    {
+      "af3_number": 145,
+      "original_number": 145
+    },
+    {
+      "af3_number": 146,
+      "original_number": 146
+    },
+    {
+      "af3_number": 147,
+      "original_number": 147
+    },
+    {
+      "af3_number": 148,
+      "original_number": 148
+    },
+    {
+      "af3_number": 149,
+      "original_number": 149
+    },
+    {
+      "af3_number": 150,
+      "original_number": 150
+    },
+    {
+      "af3_number": 151,
+      "original_number": 151
+    },
+    {
+      "af3_number": 152,
+      "original_number": 152
+    },
+    {
+      "af3_number": 153,
+      "original_number": 153
+    },
+    {
+      "af3_number": 154,
+      "original_number": 154
+    },
+    {
+      "af3_number": 155,
+      "original_number": 155
+    },
+    {
+      "af3_number": 156,
+      "original_number": 156
+    },
+    {
+      "af3_number": 157,
+      "original_number": 157
+    },
+    {
+      "af3_number": 158,
+      "original_number": 158
+    },
+    {
+      "af3_number": 159,
+      "original_number": 159
+    },
+    {
+      "af3_number": 160,
+      "original_number": 160
+    },
+    {
+      "af3_number": 161,
+      "original_number": 161
+    },
+    {
+      "af3_number": 162,
+      "original_number": 162
+    },
+    {
+      "af3_number": 163,
+      "original_number": 163
+    },
+    {
+      "af3_number": 179,
+      "original_number": 179
+    },
+    {
+      "af3_number": 180,
+      "original_number": 180
+    },
+    {
+      "af3_number": 181,
+      "original_number": 181
+    },
+    {
+      "af3_number": 182,
+      "original_number": 182
+    },
+    {
+      "af3_number": 183,
+      "original_number": 183
+    },
+    {
+      "af3_number": 184,
+      "original_number": 184
+    },
+    {
+      "af3_number": 185,
+      "original_number": 185
+    },
+    {
+      "af3_number": 186,
+      "original_number": 186
+    },
+    {
+      "af3_number": 187,
+      "original_number": 187
+    },
+    {
+      "af3_number": 188,
+      "original_number": 188
+    },
+    {
+      "af3_number": 189,
+      "original_number": 189
+    },
+    {
+      "af3_number": 190,
+      "original_number": 190
+    },
+    {
+      "af3_number": 191,
+      "original_number": 191
+    },
+    {
+      "af3_number": 192,
+      "original_number": 192
+    },
+    {
+      "af3_number": 193,
+      "original_number": 193
+    },
+    {
+      "af3_number": 194,
+      "original_number": 194
+    },
+    {
+      "af3_number": 195,
+      "original_number": 195
+    },
+    {
+      "af3_number": 196,
+      "original_number": 196
+    },
+    {
+      "af3_number": 197,
+      "original_number": 197
+    },
+    {
+      "af3_number": 198,
+      "original_number": 198
+    },
+    {
+      "af3_number": 199,
+      "original_number": 199
+    },
+    {
+      "af3_number": 200,
+      "original_number": 200
+    },
+    {
+      "af3_number": 201,
+      "original_number": 201
+    },
+    {
+      "af3_number": 202,
+      "original_number": 202
+    },
+    {
+      "af3_number": 203,
+      "original_number": 203
+    },
+    {
+      "af3_number": 204,
+      "original_number": 204
+    },
+    {
+      "af3_number": 205,
+      "original_number": 205
+    },
+    {
+      "af3_number": 206,
+      "original_number": 206
+    },
+    {
+      "af3_number": 207,
+      "original_number": 207
+    },
+    {
+      "af3_number": 208,
+      "original_number": 208
+    },
+    {
+      "af3_number": 209,
+      "original_number": 209
+    },
+    {
+      "af3_number": 210,
+      "original_number": 210
+    },
+    {
+      "af3_number": 211,
+      "original_number": 211
+    },
+    {
+      "af3_number": 212,
+      "original_number": 212
+    },
+    {
+      "af3_number": 213,
+      "original_number": 213
+    },
+    {
+      "af3_number": 214,
+      "original_number": 214
+    },
+    {
+      "af3_number": 215,
+      "original_number": 215
+    },
+    {
+      "af3_number": 216,
+      "original_number": 216
+    },
+    {
+      "af3_number": 217,
+      "original_number": 217
+    },
+    {
+      "af3_number": 218,
+      "original_number": 218
+    },
+    {
+      "af3_number": 219,
+      "original_number": 219
+    },
+    {
+      "af3_number": 220,
+      "original_number": 220
+    },
+    {
+      "af3_number": 221,
+      "original_number": 221
+    },
+    {
+      "af3_number": 222,
+      "original_number": 222
+    },
+    {
+      "af3_number": 223,
+      "original_number": 223
+    },
+    {
+      "af3_number": 224,
+      "original_number": 224
+    },
+    {
+      "af3_number": 225,
+      "original_number": 225
+    },
+    {
+      "af3_number": 226,
+      "original_number": 226
+    },
+    {
+      "af3_number": 227,
+      "original_number": 227
+    },
+    {
+      "af3_number": 228,
+      "original_number": 228
+    },
+    {
+      "af3_number": 229,
+      "original_number": 229
+    },
+    {
+      "af3_number": 230,
+      "original_number": 230
+    },
+    {
+      "af3_number": 231,
+      "original_number": 231
+    },
+    {
+      "af3_number": 232,
+      "original_number": 232
+    },
+    {
+      "af3_number": 233,
+      "original_number": 233
+    },
+    {
+      "af3_number": 234,
+      "original_number": 234
+    },
+    {
+      "af3_number": 235,
+      "original_number": 235
+    },
+    {
+      "af3_number": 236,
+      "original_number": 236
+    },
+    {
+      "af3_number": 237,
+      "original_number": 237
+    },
+    {
+      "af3_number": 238,
+      "original_number": 238
+    },
+    {
+      "af3_number": 239,
+      "original_number": 239
+    },
+    {
+      "af3_number": 240,
+      "original_number": 240
+    },
+    {
+      "af3_number": 241,
+      "original_number": 241
+    },
+    {
+      "af3_number": 242,
+      "original_number": 242
+    },
+    {
+      "af3_number": 243,
+      "original_number": 243
+    },
+    {
+      "af3_number": 244,
+      "original_number": 244
+    },
+    {
+      "af3_number": 245,
+      "original_number": 245
+    },
+    {
+      "af3_number": 246,
+      "original_number": 246
+    },
+    {
+      "af3_number": 247,
+      "original_number": 247
+    },
+    {
+      "af3_number": 248,
+      "original_number": 248
+    },
+    {
+      "af3_number": 249,
+      "original_number": 249
+    },
+    {
+      "af3_number": 250,
+      "original_number": 250
+    },
+    {
+      "af3_number": 251,
+      "original_number": 251
+    },
+    {
+      "af3_number": 252,
+      "original_number": 252
+    },
+    {
+      "af3_number": 253,
+      "original_number": 253
+    },
+    {
+      "af3_number": 254,
+      "original_number": 254
+    },
+    {
+      "af3_number": 255,
+      "original_number": 255
+    },
+    {
+      "af3_number": 256,
+      "original_number": 256
+    },
+    {
+      "af3_number": 257,
+      "original_number": 257
+    },
+    {
+      "af3_number": 258,
+      "original_number": 258
+    },
+    {
+      "af3_number": 259,
+      "original_number": 259
+    },
+    {
+      "af3_number": 260,
+      "original_number": 260
+    },
+    {
+      "af3_number": 261,
+      "original_number": 261
+    },
+    {
+      "af3_number": 262,
+      "original_number": 262
+    },
+    {
+      "af3_number": 263,
+      "original_number": 263
+    },
+    {
+      "af3_number": 264,
+      "original_number": 264
+    },
+    {
+      "af3_number": 265,
+      "original_number": 265
+    },
+    {
+      "af3_number": 266,
+      "original_number": 266
+    },
+    {
+      "af3_number": 267,
+      "original_number": 267
+    },
+    {
+      "af3_number": 268,
+      "original_number": 268
+    },
+    {
+      "af3_number": 269,
+      "original_number": 269
+    },
+    {
+      "af3_number": 270,
+      "original_number": 270
+    },
+    {
+      "af3_number": 271,
+      "original_number": 271
+    },
+    {
+      "af3_number": 272,
+      "original_number": 272
+    },
+    {
+      "af3_number": 273,
+      "original_number": 273
+    },
+    {
+      "af3_number": 274,
+      "original_number": 274
+    },
+    {
+      "af3_number": 275,
+      "original_number": 275
+    },
+    {
+      "af3_number": 276,
+      "original_number": 276
+    },
+    {
+      "af3_number": 277,
+      "original_number": 277
+    },
+    {
+      "af3_number": 278,
+      "original_number": 278
+    },
+    {
+      "af3_number": 279,
+      "original_number": 279
+    },
+    {
+      "af3_number": 280,
+      "original_number": 280
+    },
+    {
+      "af3_number": 281,
+      "original_number": 281
+    },
+    {
+      "af3_number": 282,
+      "original_number": 282
+    },
+    {
+      "af3_number": 283,
+      "original_number": 283
+    },
+    {
+      "af3_number": 284,
+      "original_number": 284
+    },
+    {
+      "af3_number": 285,
+      "original_number": 285
+    },
+    {
+      "af3_number": 286,
+      "original_number": 286
+    },
+    {
+      "af3_number": 287,
+      "original_number": 287
+    },
+    {
+      "af3_number": 288,
+      "original_number": 288
+    },
+    {
+      "af3_number": 289,
+      "original_number": 289
+    },
+    {
+      "af3_number": 290,
+      "original_number": 290
+    },
+    {
+      "af3_number": 291,
+      "original_number": 291
+    },
+    {
+      "af3_number": 292,
+      "original_number": 292
+    },
+    {
+      "af3_number": 293,
+      "original_number": 293
+    },
+    {
+      "af3_number": 294,
+      "original_number": 294
+    },
+    {
+      "af3_number": 295,
+      "original_number": 295
+    },
+    {
+      "af3_number": 296,
+      "original_number": 296
+    },
+    {
+      "af3_number": 297,
+      "original_number": 297
+    },
+    {
+      "af3_number": 298,
+      "original_number": 298
+    },
+    {
+      "af3_number": 299,
+      "original_number": 299
+    },
+    {
+      "af3_number": 300,
+      "original_number": 300
+    },
+    {
+      "af3_number": 301,
+      "original_number": 301
+    },
+    {
+      "af3_number": 302,
+      "original_number": 302
+    },
+    {
+      "af3_number": 303,
+      "original_number": 303
+    },
+    {
+      "af3_number": 304,
+      "original_number": 304
+    },
+    {
+      "af3_number": 305,
+      "original_number": 305
+    },
+    {
+      "af3_number": 306,
+      "original_number": 306
+    },
+    {
+      "af3_number": 307,
+      "original_number": 307
+    },
+    {
+      "af3_number": 308,
+      "original_number": 308
+    },
+    {
+      "af3_number": 309,
+      "original_number": 309
+    },
+    {
+      "af3_number": 310,
+      "original_number": 310
+    },
+    {
+      "af3_number": 311,
+      "original_number": 311
+    },
+    {
+      "af3_number": 312,
+      "original_number": 312
+    },
+    {
+      "af3_number": 313,
+      "original_number": 313
+    },
+    {
+      "af3_number": 314,
+      "original_number": 314
+    },
+    {
+      "af3_number": 315,
+      "original_number": 315
+    },
+    {
+      "af3_number": 316,
+      "original_number": 316
+    },
+    {
+      "af3_number": 317,
+      "original_number": 317
+    },
+    {
+      "af3_number": 318,
+      "original_number": 318
+    },
+    {
+      "af3_number": 319,
+      "original_number": 319
+    },
+    {
+      "af3_number": 320,
+      "original_number": 320
+    },
+    {
+      "af3_number": 321,
+      "original_number": 321
+    },
+    {
+      "af3_number": 322,
+      "original_number": 322
+    },
+    {
+      "af3_number": 323,
+      "original_number": 323
+    },
+    {
+      "af3_number": 324,
+      "original_number": 324
+    },
+    {
+      "af3_number": 325,
+      "original_number": 325
+    },
+    {
+      "af3_number": 326,
+      "original_number": 326
+    },
+    {
+      "af3_number": 327,
+      "original_number": 327
+    },
+    {
+      "af3_number": 328,
+      "original_number": 328
+    },
+    {
+      "af3_number": 329,
+      "original_number": 329
+    },
+    {
+      "af3_number": 330,
+      "original_number": 330
+    },
+    {
+      "af3_number": 331,
+      "original_number": 331
+    },
+    {
+      "af3_number": 332,
+      "original_number": 332
+    },
+    {
+      "af3_number": 333,
+      "original_number": 333
+    },
+    {
+      "af3_number": 334,
+      "original_number": 334
+    },
+    {
+      "af3_number": 335,
+      "original_number": 335
+    },
+    {
+      "af3_number": 336,
+      "original_number": 336
+    },
+    {
+      "af3_number": 337,
+      "original_number": 337
+    },
+    {
+      "af3_number": 338,
+      "original_number": 338
+    },
+    {
+      "af3_number": 339,
+      "original_number": 339
+    },
+    {
+      "af3_number": 340,
+      "original_number": 340
+    },
+    {
+      "af3_number": 341,
+      "original_number": 341
+    },
+    {
+      "af3_number": 342,
+      "original_number": 342
+    },
+    {
+      "af3_number": 343,
+      "original_number": 343
+    },
+    {
+      "af3_number": 344,
+      "original_number": 344
+    },
+    {
+      "af3_number": 345,
+      "original_number": 345
+    },
+    {
+      "af3_number": 346,
+      "original_number": 346
+    },
+    {
+      "af3_number": 347,
+      "original_number": 347
+    },
+    {
+      "af3_number": 348,
+      "original_number": 348
+    },
+    {
+      "af3_number": 349,
+      "original_number": 349
+    },
+    {
+      "af3_number": 350,
+      "original_number": 350
+    },
+    {
+      "af3_number": 351,
+      "original_number": 351
+    },
+    {
+      "af3_number": 352,
+      "original_number": 352
+    },
+    {
+      "af3_number": 353,
+      "original_number": 353
+    },
+    {
+      "af3_number": 354,
+      "original_number": 354
+    },
+    {
+      "af3_number": 355,
+      "original_number": 355
+    },
+    {
+      "af3_number": 356,
+      "original_number": 356
+    },
+    {
+      "af3_number": 357,
+      "original_number": 357
+    },
+    {
+      "af3_number": 358,
+      "original_number": 358
+    },
+    {
+      "af3_number": 359,
+      "original_number": 359
+    },
+    {
+      "af3_number": 360,
+      "original_number": 360
+    },
+    {
+      "af3_number": 361,
+      "original_number": 361
+    },
+    {
+      "af3_number": 362,
+      "original_number": 362
+    },
+    {
+      "af3_number": 363,
+      "original_number": 363
+    },
+    {
+      "af3_number": 364,
+      "original_number": 364
+    },
+    {
+      "af3_number": 365,
+      "original_number": 365
+    },
+    {
+      "af3_number": 366,
+      "original_number": 366
+    },
+    {
+      "af3_number": 367,
+      "original_number": 367
+    },
+    {
+      "af3_number": 368,
+      "original_number": 368
+    },
+    {
+      "af3_number": 369,
+      "original_number": 369
+    },
+    {
+      "af3_number": 370,
+      "original_number": 370
+    },
+    {
+      "af3_number": 371,
+      "original_number": 371
+    },
+    {
+      "af3_number": 372,
+      "original_number": 372
+    },
+    {
+      "af3_number": 373,
+      "original_number": 373
+    },
+    {
+      "af3_number": 374,
+      "original_number": 374
+    },
+    {
+      "af3_number": 375,
+      "original_number": 375
+    },
+    {
+      "af3_number": 376,
+      "original_number": 376
+    },
+    {
+      "af3_number": 377,
+      "original_number": 377
+    },
+    {
+      "af3_number": 378,
+      "original_number": 378
+    },
+    {
+      "af3_number": 379,
+      "original_number": 379
+    },
+    {
+      "af3_number": 380,
+      "original_number": 380
+    },
+    {
+      "af3_number": 381,
+      "original_number": 381
+    },
+    {
+      "af3_number": 382,
+      "original_number": 382
+    },
+    {
+      "af3_number": 383,
+      "original_number": 383
+    },
+    {
+      "af3_number": 384,
+      "original_number": 384
+    },
+    {
+      "af3_number": 385,
+      "original_number": 385
+    },
+    {
+      "af3_number": 386,
+      "original_number": 386
+    },
+    {
+      "af3_number": 387,
+      "original_number": 387
+    },
+    {
+      "af3_number": 388,
+      "original_number": 388
+    },
+    {
+      "af3_number": 389,
+      "original_number": 389
+    },
+    {
+      "af3_number": 390,
+      "original_number": 390
+    },
+    {
+      "af3_number": 391,
+      "original_number": 391
+    },
+    {
+      "af3_number": 392,
+      "original_number": 392
+    },
+    {
+      "af3_number": 393,
+      "original_number": 393
+    },
+    {
+      "af3_number": 394,
+      "original_number": 394
+    },
+    {
+      "af3_number": 395,
+      "original_number": 395
+    },
+    {
+      "af3_number": 396,
+      "original_number": 396
+    },
+    {
+      "af3_number": 397,
+      "original_number": 397
+    },
+    {
+      "af3_number": 398,
+      "original_number": 398
+    },
+    {
+      "af3_number": 399,
+      "original_number": 399
+    },
+    {
+      "af3_number": 400,
+      "original_number": 400
+    },
+    {
+      "af3_number": 401,
+      "original_number": 401
+    },
+    {
+      "af3_number": 402,
+      "original_number": 402
+    },
+    {
+      "af3_number": 403,
+      "original_number": 403
+    },
+    {
+      "af3_number": 404,
+      "original_number": 404
+    },
+    {
+      "af3_number": 405,
+      "original_number": 405
+    },
+    {
+      "af3_number": 406,
+      "original_number": 406
+    }
+  ],
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/raw_model0.pdb": "f7fcec2f4026239b3c0fe6b0b8d833246a4bf6334acc8a04f046082ac6579e19",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/inputs/receptors/af3/08-af3-double-mutants/fasta_full_length/08_n84v_v110c.fasta": "84e82144d7c62652503eb9ec5bb0e7ccd33d6b771f5a619d22579d1d7aeb156f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/vina/inputs/receptors/af3/08-af3-double-mutants/original_cif/folds_2026_09_18_08_05/08_n84v_v110c/fold_08_n84v_v110c_job_request.json": "e888f4dac53f85d4bf533e8856c200edc9db945f72d4e8412ecad4cb65f554b1",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84v_v110c/trimmed.pdb": "32d9a0cea9ec1486e66727e089dd480873703ddedf09c2b5ac37e8862d3413f8"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84l_v368r/ascr18/poses.pdbqt",
+  "source_sha256": "de98960d65815460186108ddb140419332e199060e849fdba025e1e8d8deaab6",
+  "selected_original_mode": 1,
+  "vina_score_kcal_mol": -6.293,
+  "tied_minimum_modes": [
+    1
+  ],
+  "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+  "analyzed_pose_count": 1,
+  "unique_contact_residues": 11,
+  "pose_index_in_ifp": 0
+}

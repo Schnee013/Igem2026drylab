@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 9,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/contact_residues.csv": "762328c017579a7e3ba18657d7078028082ec238307dba8a5149799737a596d9",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/ifp/ifp_presence.csv": "c58790c79d895e1621f18ced759184f62ff9e7b036209b6042310272f994a85d",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/ifp/metadata.json": "1b041c7f84ad91db619144e5743ba1d57c79ab0c13c9513926fe60833df10557",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/ifp/residue_counts.csv": "5ae526c99763ff1936ff4135513a6a8857767d793ddfd2a1750567f87e7647c1",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/ifp/residue_presence.csv": "c28ca5aee763847ccfd0213af6c786f3fcb46e45af32c00707421b09f377aa1a",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/selection.json": "4d1cd49fc25aa4a51fbe36a2433cac62cccf1a83433eae89d915f4be66fe04e6",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/top1.pdbqt": "94bd06573a75ef6595016160349fcad6a856189e41c9b4790a24d137c639bb10",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/top1.sdf": "2eca126e3f92322db2f5d14bfc5c70954357dbb2c07f86ca4a06aa2b0fbcdb25",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338h/ascr3/top1_contacts/view_contacts.pml": "1f6bbe6f161ae04807d9a59fbe4f18ab313beede5c608d8c5c065e410cc7efac"
+  }
+}

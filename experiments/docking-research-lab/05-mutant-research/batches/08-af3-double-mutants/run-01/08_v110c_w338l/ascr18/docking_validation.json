@@ -1,0 +1,16 @@
+{
+  "alias": "08_v110c_w338l",
+  "ligand": "ascr18",
+  "pose_count": 9,
+  "lowest_score": -5.955,
+  "selected_model": 1,
+  "selection_rule": "minimum score, then minimum MODEL number",
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338l/ascr18/poses.pdbqt": "3764111a76a4fdac150bb2b25cf476ff47e46aadc27ae84a321a2b14d7e15824",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338l/ascr18/vina.stdout.txt": "07d6cc1bb8d6806280d30c6e90177ba9f99ed479c06160e45dea0628d3796acf",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338l/ascr18/vina.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338l/ascr18/run.json": "af2bdc5c85bf45587f987552aea346fa751087fd99f145e267ab4754e0a7c035",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338l/ascr18/summary.json": "f1e9bb527a02c286037ee9d52c5cc5bfc14bbd16125832bc74b59394af8e5449",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_v110c_w338l/ascr18/runner.log": "062c937a821ef5b5d7fbb0dcd2ac91cc2bc73f5dc83b761c945ecd6131a682b7"
+  }
+}

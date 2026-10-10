@@ -1,0 +1,27 @@
+{
+  "scope": "14013 copied source files; new navigation and audit documents are Git candidates outside this table",
+  "classification_status": "proposal only; no files removed, moved, archived or ignored",
+  "categories": {
+    "git_candidate": {
+      "files": 9999,
+      "bytes": 346332599
+    },
+    "data_attachment": {
+      "files": 3980,
+      "bytes": 3953284629
+    },
+    "duplicate_review": {
+      "files": 32,
+      "bytes": 504438
+    },
+    "local_backup_review": {
+      "files": 2,
+      "bytes": 1077786
+    }
+  },
+  "direct_analysis_source_files": 2271,
+  "analysis_unique_source_files": 2393,
+  "analysis_sources_in_attachments": 122,
+  "duplicate_content_groups": 832,
+  "duplicate_redundant_bytes": 533090367
+}

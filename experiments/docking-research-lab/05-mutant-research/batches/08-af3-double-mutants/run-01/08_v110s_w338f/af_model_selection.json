@@ -1,0 +1,8 @@
+{
+  "af_model": 0,
+  "source": {
+    "path": "vina/inputs/receptors/af3/08-af3-double-mutants/original_cif/folds_2026_09_18_08_05/08_v110s_w338f/fold_08_v110s_w338f_model_0.cif",
+    "sha256": "b3b3f9e5fb9e2d9e76e5f9880d00bf97ee2aca82a16cda57e62e5c1ad54f358a"
+  },
+  "reason": "default model_0"
+}

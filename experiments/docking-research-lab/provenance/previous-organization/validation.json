@@ -1,0 +1,67 @@
+{
+  "layout": "task-grouped",
+  "removed_duplicate_aliases": {
+    "gpr2-combination-cli": "batches/01-sidechain-combination/cli",
+    "gpr2-round2-af3-cli": "batches/04-af3-round2/cli",
+    "gpr2-phase1-af3-report.md": "phase1-statistics.md",
+    "gpr2-af3-cli": "batches/02-af3-combination/cli",
+    "gpr2-af3-combination-run01": "batches/02-af3-combination/run-01",
+    "gpr2-round2-af3-run01": "batches/04-af3-round2/run-01",
+    "gpr2-residue-prioritization.md": "phase1-residue-priorities.md",
+    "gpr2-single-af3-run01": "batches/03-af3-single-alanine/run-01",
+    "gpr2-combination-run01": "batches/01-sidechain-combination/run-01",
+    "gpr2-single-af3-cli": "batches/03-af3-single-alanine/cli"
+  },
+  "checked_document_links": 25,
+  "scientific_programs_executed": false,
+  "previous_validation": {
+    "layout": "flat-documents-and-analyses-with-batches",
+    "verified_unchanged_noncode_files": 2629,
+    "document_links_checked": 22,
+    "scientific_programs_executed": false,
+    "previous_validation": {
+      "original_files": 2645,
+      "unchanged_files": 2632,
+      "modified_entrypoints_and_docs": [
+        "batches/01-sidechain-combination/cli/README.md",
+        "batches/01-sidechain-combination/cli/commands.sh",
+        "batches/02-af3-combination/cli/README.md",
+        "batches/02-af3-combination/cli/commands.sh",
+        "batches/03-af3-single-alanine/cli/commands.sh",
+        "batches/03-af3-single-alanine/cli/helpers.py",
+        "batches/03-af3-single-alanine/cli/top1_contacts.py",
+        "batches/04-af3-round2/cli/batch.sh",
+        "batches/04-af3-round2/cli/commands.sh",
+        "batches/04-af3-round2/cli/helpers.py",
+        "analyses/00-route-comparison-history/analyze.py",
+        "reports/phase1-statistics.md",
+        "reports/phase1-residue-priorities.md"
+      ],
+      "static_checks": [
+        "batches/01-sidechain-combination/cli/commands.sh",
+        "batches/01-sidechain-combination/cli/helpers.py",
+        "batches/02-af3-combination/cli/trim_after_full_length_af3.py",
+        "batches/02-af3-combination/cli/commands.sh",
+        "batches/03-af3-single-alanine/cli/top1_contacts.py",
+        "batches/03-af3-single-alanine/cli/commands.sh",
+        "batches/03-af3-single-alanine/cli/helpers.py",
+        "batches/04-af3-round2/cli/commands.sh",
+        "batches/04-af3-round2/cli/batch.sh",
+        "batches/04-af3-round2/cli/helpers.py",
+        "analyses/00-route-comparison-history/analyze.py"
+      ],
+      "compatibility_links": 14,
+      "source_comparison": {
+        "common_python_files": 28,
+        "different": [],
+        "src_only": [
+          "align_pdb_to_reference.py",
+          "run_vina.py"
+        ]
+      },
+      "scientific_programs_executed": false,
+      "document_links_checked": 20,
+      "document_link_errors": []
+    }
+  }
+}

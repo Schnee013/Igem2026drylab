@@ -1,0 +1,36 @@
+file,line,original_target,status
+05-mutant-research/batches/05-af3-n84-v110-v368-saturations/README.source.md,7,../../phase2-design/parallel-screen.md,retained source snapshot
+05-mutant-research/batches/06-af3-supplement-singles/README.source.md,5,../../phase2-design/saturation-review-20260917.md,retained source snapshot
+05-mutant-research/analysis/01-03-initial-screen/residue-priorities.md,3,../phase2-analysis/single-mutant-analysis.md,unavailable original reference labelled in reading copy
+05-mutant-research/analysis/04-07-single-mutants/README.source.md,13,single-mutant-analysis.md,retained source snapshot
+05-mutant-research/analysis/04-07-single-mutants/saturation-analysis.md,204,combination-mutant-scores.md,unavailable original reference labelled in reading copy
+05-mutant-research/analysis/04-07-single-mutants/single-mutant-contact-candidates.md,3,single-mutant-analysis.md#2-按位点解读,unavailable original reference labelled in reading copy
+05-mutant-research/analysis/04-07-single-mutants/single-mutant-contact-candidates.md,418,single-mutant-analysis.md,unavailable original reference labelled in reading copy
+05-mutant-research/analysis/04-07-single-mutants/single-mutant-roles.md,3,single-mutant-analysis.md,unavailable original reference labelled in reading copy
+05-mutant-research/design/combination-plan-v1.md,3,../phase2-analysis/single-mutant-analysis.md,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/ATCC24927_Gpr2_G1X9E2/DeepTMHMM/deeptmhmm_results.md,4,sp|G1X9E2|GPR2_ARTOA_probs.csv,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/ATCC24927_Gpr3_G1XJN1/DeepTMHMM/deeptmhmm_results.md,4,sp|G1XJN1|GPR3_ARTOA_probs.csv,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/Aflagrans_GprC_A0A437AGY2/DeepTMHMM/deeptmhmm_results.md,4,sp|A0A437AGY2|GPRC_ARTFL_probs.csv,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/Celegans_N2_DAF37_Q18321/DeepTMHMM/deeptmhmm_results.md,4,NP_001309490.1_probs.csv,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/Celegans_N2_DAF38_Q9U320/DeepTMHMM/deeptmhmm_results.md,4,NP_502887.1_probs.csv,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/Celegans_N2_SRBC64_G5ECV4/DeepTMHMM/deeptmhmm_results.md,4,tr|G5ECV4|G5ECV4_CAEEL_probs.csv,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/TWF154_Gpr2_TGJ68930.1/DeepTMHMM/deeptmhmm_results.md,4,TGJ68930.1_probs.csv,unavailable original reference labelled in reading copy
+03-structure-and-pocket/topology/raw/TWF154_Gpr3_TGJ67963.1/DeepTMHMM/deeptmhmm_results.md,4,TGJ67963.1_probs.csv,unavailable original reference labelled in reading copy
+04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/deltaNlid-source/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/README.md,74,CCCC/C=C/C(=O,unavailable original reference labelled in reading copy
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/README.md,74,C,unavailable original reference labelled in reading copy
+02-swissdock-reproduction/tasks/001-gpr2-gpr3-ascr3-reproduction/README.md,74,O,unavailable original reference labelled in reading copy
+04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+04-vina-baseline/wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+shared/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+shared/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+shared/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+shared/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy
+shared/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md,3,plot.png,unavailable original reference labelled in reading copy

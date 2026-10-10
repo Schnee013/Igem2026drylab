@@ -1,0 +1,9 @@
+{
+  "alias": "08_n84y_v368n",
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdb": "339a0650fd6dad7c8fa1e9bd245ddb7d4471550892b73ccb3b87838e3be84a46",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84y_v368n/trimmed.pdb": "e30e9fb2868191dd58fc1dc4717b925888c6ec5c6b1fbd5a4be2972867374463",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84y_v368n/input.pdb": "3c8be2b218031cd68096a206f2a97d6826011cc47b0fa2ff0004c378c5b5661b",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/08-af3-double-mutants/run-01/08_n84y_v368n/alignment.json": "14da5d9d9672ed59751ee0b693a50b927949aba909c33443cdfce91518da474d"
+  }
+}
