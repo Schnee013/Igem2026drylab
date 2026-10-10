@@ -1,0 +1,43 @@
+{
+  "archive": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_combination_20260909/original_archives/folds_2026_09_09_16_03.zip",
+  "archive_sha256": "e54dbba1a0365b633000fcf2d6c5b2c47484c9eba0340439f8d133326c68d7fc",
+  "jobs": [
+    {
+      "group": "baseline",
+      "job_name": "Gpr2_deltaN_baseline",
+      "request": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_combination_20260909/original_cif/gpr2_deltan_baseline/fold_gpr2_deltan_baseline_job_request.json",
+      "length": 406,
+      "matches_full_length_unmutated": true,
+      "model_seeds": [
+        "1408681757"
+      ],
+      "status": "ready_for_post_prediction_trimming",
+      "matches_expected_full_length": true
+    },
+    {
+      "group": "N84A_L90A_R345A",
+      "job_name": "Gpr2_deltaN_N84A_L90A_R345A",
+      "request": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_combination_20260909/original_cif/gpr2_deltan_n84a_l90a_r345a/fold_gpr2_deltan_n84a_l90a_r345a_job_request.json",
+      "length": 370,
+      "matches_full_length_unmutated": false,
+      "model_seeds": [
+        "508893731"
+      ],
+      "status": "requires_full_length_mutant_prediction",
+      "matches_expected_full_length": false
+    },
+    {
+      "group": "V110A_R181A_W338A_V368A",
+      "job_name": "Gpr2_deltaN_V110A_R181A_W338A_V368A",
+      "request": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/gpr2_combination_20260909/original_cif/gpr2_deltan_v110a_r181a_w338a_v368a/fold_gpr2_deltan_v110a_r181a_w338a_v368a_job_request.json",
+      "length": 370,
+      "matches_full_length_unmutated": false,
+      "model_seeds": [
+        "90681843"
+      ],
+      "status": "requires_full_length_mutant_prediction",
+      "matches_expected_full_length": false
+    }
+  ],
+  "protocol": "Predict all three 406-aa full-length sequences, then remove original residues 1-21 and 164-178 from structures for docking; preserve retained coordinates and residue numbering."
+}

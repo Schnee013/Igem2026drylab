@@ -1,0 +1,17 @@
+group,ligand,best_score_kcal_mol,n_poses,mutant_minus_baseline
+baseline,ascr3,-6.295,9,0.0
+baseline,ascr18,-6.678,9,0.0
+N84A,ascr3,-6.52,9,-0.225
+N84A,ascr18,-6.362,9,0.316
+L90A,ascr3,-6.559,9,-0.264
+L90A,ascr18,-6.765,9,-0.087
+R345A,ascr3,-6.538,9,-0.243
+R345A,ascr18,-6.82,9,-0.142
+V110A,ascr3,-6.654,9,-0.359
+V110A,ascr18,-6.32,9,0.358
+R181A,ascr3,-6.591,9,-0.296
+R181A,ascr18,-6.826,9,-0.148
+W338A,ascr3,-6.573,9,-0.278
+W338A,ascr18,-6.696,9,-0.018
+V368A,ascr3,-6.618,9,-0.323
+V368A,ascr18,-6.417,9,0.261

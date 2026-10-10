@@ -1,0 +1,34 @@
+{
+  "moving_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/baseline/trimmed.pdb",
+  "reference_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdb",
+  "output_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-single-af3-run01/baseline/input.pdb",
+  "moving_chain": "A",
+  "reference_chain": "A",
+  "moving_ranges": "30-50,62-83,101-126,144-163,182-201,326-346,358-380",
+  "reference_ranges": "30-50,62-83,101-126,144-163,182-201,326-346,358-380",
+  "matched_ca_count": 153,
+  "ca_rmsd_before_angstrom": 31.374719619750977,
+  "ca_rmsd_after_angstrom": 0.21871291891304698,
+  "rotation_matrix": [
+    [
+      -0.8878145624470093,
+      0.35497568793748957,
+      0.292878069647305
+    ],
+    [
+      -0.3019692097042563,
+      0.030893755697693155,
+      -0.9528169668144443
+    ],
+    [
+      -0.3472749618063655,
+      -0.934364937715557,
+      0.07976380175361601
+    ]
+  ],
+  "translation_vector": [
+    -1.1612977015205228,
+    0.842278686311257,
+    -2.0629587649261305
+  ]
+}

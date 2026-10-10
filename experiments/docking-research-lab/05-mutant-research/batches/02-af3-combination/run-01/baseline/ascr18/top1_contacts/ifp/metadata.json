@@ -1,0 +1,20 @@
+{
+  "prolif_version": "2.1.0",
+  "n_poses": 1,
+  "interactions": [
+    "Anionic",
+    "CationPi",
+    "Cationic",
+    "HBAcceptor",
+    "HBDonor",
+    "Hydrophobic",
+    "PiCation",
+    "PiStacking",
+    "VdWContact"
+  ],
+  "vicinity_cutoff_A": 6.0,
+  "receptor_json": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-af3-combination-run01/baseline/receptor.json",
+  "poses_sdf": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/gpr2-af3-combination-run01/baseline/ascr18/top1_contacts/top1.sdf",
+  "receptor_sha256": "ee3d453a762c5f45d8801373652c9bf55f582cf3c2ad27ea75625e176a71ad8c",
+  "sdf_sha256": "4a354c862bf903de516d43ea24d076fa2b4953619e67693c3e8cf85581ded69b"
+}

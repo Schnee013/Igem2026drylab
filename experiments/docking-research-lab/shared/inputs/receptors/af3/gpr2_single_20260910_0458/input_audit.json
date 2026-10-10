@@ -1,0 +1,100 @@
+{
+  "archive_sha256": "6d0e287478ceba0746528bb962e27e5c4d489adbc31bc26ab1a00674e8375b7f",
+  "protocol": "406-aa full-length AF3 prediction; delete original 1-21 and 164-178 only after prediction; retain remaining coordinates and original numbering.",
+  "jobs": [
+    {
+      "group": "baseline",
+      "residues": 406,
+      "mutations": {},
+      "modelSeeds": [
+        "871707450"
+      ],
+      "job_request": "gpr2_baseline/fold_gpr2_baseline_job_request.json",
+      "selected_model": "gpr2_baseline/fold_gpr2_baseline_model_0.cif"
+    },
+    {
+      "group": "N84A",
+      "residues": 406,
+      "mutations": {
+        "84": "N"
+      },
+      "modelSeeds": [
+        "1972067749"
+      ],
+      "job_request": "gpr2_n84a/fold_gpr2_n84a_job_request.json",
+      "selected_model": "gpr2_n84a/fold_gpr2_n84a_model_0.cif"
+    },
+    {
+      "group": "L90A",
+      "residues": 406,
+      "mutations": {
+        "90": "L"
+      },
+      "modelSeeds": [
+        "1342968528"
+      ],
+      "job_request": "gpr2_l90a/fold_gpr2_l90a_job_request.json",
+      "selected_model": "gpr2_l90a/fold_gpr2_l90a_model_0.cif"
+    },
+    {
+      "group": "R345A",
+      "residues": 406,
+      "mutations": {
+        "345": "R"
+      },
+      "modelSeeds": [
+        "123921903"
+      ],
+      "job_request": "gpr2_r345a/fold_gpr2_r345a_job_request.json",
+      "selected_model": "gpr2_r345a/fold_gpr2_r345a_model_0.cif"
+    },
+    {
+      "group": "V110A",
+      "residues": 406,
+      "mutations": {
+        "110": "V"
+      },
+      "modelSeeds": [
+        "1540529282"
+      ],
+      "job_request": "gpr2_v110a/fold_gpr2_v110a_job_request.json",
+      "selected_model": "gpr2_v110a/fold_gpr2_v110a_model_0.cif"
+    },
+    {
+      "group": "R181A",
+      "residues": 406,
+      "mutations": {
+        "181": "R"
+      },
+      "modelSeeds": [
+        "1463665412"
+      ],
+      "job_request": "gpr2_r181a/fold_gpr2_r181a_job_request.json",
+      "selected_model": "gpr2_r181a/fold_gpr2_r181a_model_0.cif"
+    },
+    {
+      "group": "W338A",
+      "residues": 406,
+      "mutations": {
+        "338": "W"
+      },
+      "modelSeeds": [
+        "1626912218"
+      ],
+      "job_request": "gpr2_w338a/fold_gpr2_w338a_job_request.json",
+      "selected_model": "gpr2_w338a/fold_gpr2_w338a_model_0.cif"
+    },
+    {
+      "group": "V368A",
+      "residues": 406,
+      "mutations": {
+        "368": "V"
+      },
+      "modelSeeds": [
+        "2100887167"
+      ],
+      "job_request": "gpr2_v368a/fold_gpr2_v368a_job_request.json",
+      "selected_model": "gpr2_v368a/fold_gpr2_v368a_model_0.cif"
+    }
+  ]
+}
