@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "input": {
+    "u_max_per_second": {"value": 1.206908, "status": "assumed", "unit": "s^-1", "source": "Supady k3 * source initial receptor concentration; demonstration scale only"},
+    "K_L_normalized": {"value": 1.0, "status": "assumed", "unit": "normalized ligand", "source": "project scenario; no ascr concentration mapping"}
+  },
+  "output": {
+    "b": {"value": 0.020384615384615383, "status": "assumed", "unit": "color a.u. h^-1", "source": "exact merge of preserved original scenario"},
+    "a": {"value": 0.2945252945252946, "status": "assumed", "unit": "color a.u. h^-1", "source": "exact merge of preserved original scenario"},
+    "K": {"value": 0.12099437854561526, "status": "assumed", "unit": "active Fus3 fraction", "source": "original output merge plus assumed mapping from original M to Fus3 fraction"},
+    "n": {"value": 2.0, "status": "assumed", "unit": "dimensionless", "source": "original scenario; keep fixed unless data justify changing"},
+    "delta": {"value": 0.12, "status": "assumed", "unit": "h^-1", "source": "preserved original scenario loss rate"}
+  },
+  "fixed_assumptions": ["input Hill exponent 1", "zero basal core drive", "constant normalized ligand", "source core rates and initial pools", "fixed output construct", "instantaneous effective transcription response", "arbitrary-unit color"]
+}

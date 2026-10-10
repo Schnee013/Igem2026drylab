@@ -1,0 +1,151 @@
+{
+  "version": "Supady2009_ModelB_reaction_reconstruction_v1",
+  "source_url": "https://rumo.biologie.hu-berlin.de/tbp/images/Theses/bsc_supady.pdf",
+  "time_unit": "s",
+  "concentration_unit": "uM",
+  "parameters": {
+    "k1": {
+      "value": 0.071,
+      "unit": "uM^-1 s^-1",
+      "meaning": "受体活化",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K1",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k2": {
+      "value": 2.457,
+      "unit": "s^-1",
+      "meaning": "受体失活",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K2",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k12": {
+      "value": 1.199,
+      "unit": "s^-1",
+      "meaning": "活化受体损失",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K3",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k3": {
+      "value": 0.724,
+      "unit": "uM^-1 s^-1",
+      "meaning": "G蛋白活化",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K4",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k4": {
+      "value": 1.259,
+      "unit": "s^-1",
+      "meaning": "GTP水解",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K5",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k41": {
+      "value": 1.124,
+      "unit": "uM^-1 s^-1",
+      "meaning": "Sst2活性态促进水解",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K6",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k5": {
+      "value": 0.002,
+      "unit": "uM^-1 s^-1",
+      "meaning": "G蛋白再结合",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K7",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k6": {
+      "value": 0.021,
+      "unit": "uM^-1 s^-1",
+      "meaning": "支架装配",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K8",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k7": {
+      "value": 0.004,
+      "unit": "s^-1",
+      "meaning": "支架解离",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K9",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k71": {
+      "value": 0.261,
+      "unit": "uM^-1 s^-1",
+      "meaning": "Sst2活性态促进支架解离",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K10",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k8": {
+      "value": 0.818,
+      "unit": "uM^-1 s^-1",
+      "meaning": "Fus3活化",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K11",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k91": {
+      "value": 0.017,
+      "unit": "uM^-1 s^-1",
+      "meaning": "Sst2依赖Fus3失活",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K12",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k10": {
+      "value": 0.342,
+      "unit": "uM^-1 s^-1",
+      "meaning": "Sst2状态转化",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K13",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k11": {
+      "value": 0.643,
+      "unit": "s^-1",
+      "meaning": "Sst2状态恢复",
+      "source_pointer": "Supady 2009 PDF p49, Model B; Delft Table4.2 K14",
+      "evidence_status": "source_fitted",
+      "unit_status": "derived from mass-action law; seconds and uM"
+    },
+    "k9": {
+      "value": 0.0,
+      "unit": "s^-1",
+      "meaning": "基础Fus3失活",
+      "source_pointer": "Supady 2009 PDF p49, Model B k9",
+      "evidence_status": "source_fitted_zero"
+    }
+  },
+  "initial_uM": {
+    "G_trimer": 1.667,
+    "Ga_GTP": 0,
+    "Ga_GDP": 0,
+    "Gbg_free": 0,
+    "scaffold_free": 0.036,
+    "scaffold_bound": 0,
+    "Fus3": 0.686,
+    "Fus3_active": 0,
+    "Sst2": 0.505,
+    "Sst2_active": 0
+  },
+  "receptor_initial_uM": 1.667,
+  "initial_source": "Supady PDF p49; Delft Table4.3",
+  "implementation_note": "mass balances constructed from reaction network; Delft printed Fus3 derivative corrected by stoichiometry; original software unavailable",
+  "evidence_review": {
+    "as_of": "2026-10-11",
+    "source_status": "Delft tables visually checked; Supady indexed text checked, original figures pending",
+    "corrections": [
+      "Fus3 active derivative uses activation minus inactivation, based on Table 4.1 reactions",
+      "k91 unit inferred as uM^-1 s^-1; Delft K12 printed s^-1"
+    ],
+    "project_transfer_status": "assumed; SST2 genotype and chimeric Gpa1 identity unresolved"
+  }
+}

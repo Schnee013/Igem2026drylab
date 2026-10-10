@@ -1,0 +1,33 @@
+{
+  "observed_at": "2026-10-10T16:33:23.638969+00:00",
+  "status": "passed",
+  "base_commit": "6ec153d6d331d39b2b95736c9bd46dd5814738c1",
+  "tests": {
+    "command": "python -m unittest discover -s tests/modeling -p 'test_ode*.py' -v",
+    "passed": 51,
+    "new_tests": 8,
+    "failures": 0
+  },
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0"
+  },
+  "input_sha256": {
+    "src/modeling/ode/run_literature_core.py": "8191c91b52b0921dffeec520d3cd1c580506a06815ae48bbc34b583422f32968",
+    "src/modeling/ode/literature_core.py": "6885f380d9259fd87940110d399cdf5b041be8a63c801e9b6c17f363be31a05e",
+    "experiments/ode-model/configs/literature_core_project.json": "49ca2e58661d98e24dd3bdb6f0235cdfbc833ea2035d3318dd0cd86be6bb4ee3",
+    "experiments/ode-model/configs/literature_core_source.json": "4a8dece503509b10e7d1e7fd91be54ccaca6dc4075a937e7b3c732d96a06407b",
+    "tests/modeling/test_ode_literature_core.py": "2a907afaf82cc4e13326c063f8a44f9c3d4df9dac9eecc96b5ee2b458b326220",
+    "src/modeling/ode/plot_literature_core.py": "fb697dbacc79c00b6292e9f471a9e13e5de892176ecbb9ded27f2280e839595b"
+  },
+  "scenario_rows": 1600,
+  "reference_max_abs_difference": 0.0,
+  "reference_csv_sha256": "82ac3e1f0be48088217e72d95384cee2f56fb9a4d49946aa73984c98379b2e0f",
+  "generated_csv_sha256": "82ac3e1f0be48088217e72d95384cee2f56fb9a4d49946aa73984c98379b2e0f",
+  "original_solver_config_unchanged": true,
+  "original_research_snapshot_preserved": true,
+  "plot_generated": true,
+  "validation_scope": "numerical implementation and reference replay; project calibration pending",
+  "rerun": "python -m src.modeling.ode.run_literature_core --output temp/ode-literature-core"
+}
