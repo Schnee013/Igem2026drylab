@@ -1,0 +1,8 @@
+variant_id	af_job_name	fasta_path
+baseline	06_baseline	individual/06_baseline.fasta
+R181K	06_r181k	individual/06_r181k.fasta
+R181Q	06_r181q	individual/06_r181q.fasta
+T106S	06_t106s	individual/06_t106s.fasta
+T106V	06_t106v	individual/06_t106v.fasta
+W338F	06_w338f	individual/06_w338f.fasta
+W338L	06_w338l	individual/06_w338l.fasta

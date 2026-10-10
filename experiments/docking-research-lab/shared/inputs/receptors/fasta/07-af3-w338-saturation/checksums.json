@@ -1,0 +1,27 @@
+{
+  "manifest_sha256": "1092f6370e2da6b49d45f1af5c9584111dc181ae759cc8c6963d323429aad12c",
+  "files": {
+    "all_20.fasta": "b3b1ea19b1a77f73f6596eec8742d93fe73f5e64909afa81e60eb300e516aeb8",
+    "individual/07_baseline.fasta": "02d39bc8aeb05f19beaa6b112044196f177bfb5e997670501149e8880a2d542f",
+    "individual/07_w338a.fasta": "2371381778bea098c89109a4567cd327ff7193e6875659c6de636a44cea00ca2",
+    "individual/07_w338c.fasta": "0c46361b40b1d843c4310a1b16933a3070af7bd1995ab82415869c7165eaf052",
+    "individual/07_w338d.fasta": "dcf16a65515a8512f6092f2ce4c8d34208d0114a07d4b402413ac9f567d41c5d",
+    "individual/07_w338e.fasta": "6c02a34ffa80cbcfe7a5ec031a2ebb88840e6372532d80d8d03c66af0d44accc",
+    "individual/07_w338f.fasta": "b63c28fbaaa6f12da5255b4d30dca2024de7d2ed691502b5c7244b4a7e515df4",
+    "individual/07_w338g.fasta": "c021ebe83c30b85c82c0e8411e045351c968cac6423e9122d3ebdfabaf239159",
+    "individual/07_w338h.fasta": "814405c6c887dcab678f09ce82dbcda072c7c115f21e4109bdaedb6c8049143f",
+    "individual/07_w338i.fasta": "1fb0d85bbce349821c4f57a3664279ae2b89dc4d75ca6d7437e6b87286c87d89",
+    "individual/07_w338k.fasta": "5786800ed730a58326cce7038fedd736b45e879f78717a5fa34dcac3fd113f1e",
+    "individual/07_w338l.fasta": "daa6453b5d95b5a5556173f61965adba7cc2d7890424e01c7392c2dc40cdc2fc",
+    "individual/07_w338m.fasta": "5a4153da316a6777b5fcbeccf0c480159fef9059a51890178c55096e5f767b6d",
+    "individual/07_w338n.fasta": "74bca89437e445aba282e0f56f93bc2396b0f590a3579bcbd7f1b17cf8eb5e7e",
+    "individual/07_w338p.fasta": "3493db11b44b18036c49c26148e2de15efb82b1872214b353d22b117dd527f9d",
+    "individual/07_w338q.fasta": "3470c5d0902ba2b7cb2a19c747c99751e6e37ee0c7d2b8c5ba8f7fff2893c524",
+    "individual/07_w338r.fasta": "2bf59ffcd399b987cd7b089bf412038641fdb97154a6c288d7cb3afe634bf08d",
+    "individual/07_w338s.fasta": "389cc7ea1d7a4a088f882337cf529bc7c9e25776634ae20afcda72cf00468e3d",
+    "individual/07_w338t.fasta": "da07b674a63834225b3d5df541a85dde67231e18eab75995cc3b1470c5ba9372",
+    "individual/07_w338v.fasta": "23923d5e327b12754062e837267cc60dec3b81d2fab590515178fbf55ae7c1ac",
+    "individual/07_w338y.fasta": "861990ec1c5a1d41e4072520e8e1d5fc0c2e93b8aebcfb9910219140e4e0ad65",
+    "submission_jobs.tsv": "a5c4a3282491654cd9e183ac0231aff7991a86ca9a932d13b47cebc908014dd7"
+  }
+}

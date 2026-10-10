@@ -1,0 +1,13 @@
+ligand,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1,UNL1
+protein,ASN10.A,ASN10.A,TYR56.A,TYR56.A,VAL60.A,LYS64.A,LYS64.A,TYR67.A,ILE86.A,THR89.A,ASN160.A,ASN160.A,PHE161.A,PHE161.A,ASN162.A,TYR170.A,TYR170.A,TYR170.A,TRP173.A,TRP173.A,TRP173.A,VAL174.A,VAL174.A,ASP177.A,ASP177.A,TYR181.A,TYR181.A,TYR181.A,TYR181.A,SER228.A,SER228.A,SER232.A,SER232.A,PHE235.A,PHE243.A,PHE243.A,PRO248.A,THR250.A,ILE251.A,ILE251.A,LYS254.A,LYS254.A,LYS254.A,LYS254.A,HIS255.A,HIS255.A
+interaction,HBAcceptor,VdWContact,HBAcceptor,VdWContact,VdWContact,Anionic,VdWContact,Hydrophobic,VdWContact,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,VdWContact,Hydrophobic,HBAcceptor,VdWContact,Hydrophobic,HBAcceptor,VdWContact,Hydrophobic,VdWContact,Hydrophobic,VdWContact,Hydrophobic,HBDonor,HBAcceptor,VdWContact,HBDonor,VdWContact,HBAcceptor,VdWContact,VdWContact,Hydrophobic,VdWContact,VdWContact,VdWContact,Hydrophobic,VdWContact,Hydrophobic,HBAcceptor,Anionic,VdWContact,HBAcceptor,VdWContact
+Pose,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+0,2,4,0,0,0,0,0,2,0,0,4,5,3,1,3,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,12,8,6,3,0,1,0,0,0,0,0,0
+1,0,0,0,0,0,0,0,0,0,0,0,0,13,2,0,1,0,0,13,0,5,0,0,0,0,0,0,0,2,0,0,1,1,0,0,0,0,2,6,7,0,1,2,5,0,0
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,1,0,1,1,7,1,1,0,7,0,6,2,2,6,2,3,0,0,0,11,0,0
+3,0,0,0,0,0,0,0,0,0,1,0,0,19,4,0,0,0,2,11,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,6,0,1,0,2,0,0
+4,0,0,0,0,0,2,2,0,0,0,1,1,3,2,0,0,0,2,0,0,5,0,0,0,0,0,0,1,5,0,0,1,1,0,9,7,0,2,1,1,0,0,0,5,0,0
+5,0,0,1,6,3,0,2,0,4,1,0,0,0,0,0,0,1,1,5,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,8,13,3,0,0,5,0,0
+6,0,0,0,1,0,0,0,0,0,0,0,0,18,4,2,0,0,0,13,1,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,0,3,13,0,0,0,0,0,0
+7,0,0,0,2,5,0,0,0,2,1,0,0,0,5,0,0,0,0,5,0,6,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,4,10,5,0,0,6,1,4
+8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,7,0,4,2,5,2,2,3,0,0,0,0,0,0,0,0,0,2,0,1,0,1,0,1,1,2,0,0

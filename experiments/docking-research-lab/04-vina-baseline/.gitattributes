@@ -1,0 +1,18 @@
+# Preserve the exact bytes of imported records and generated evidence.
+# Exceptions match observed original whitespace; other checks retain defaults.
+atcc-full-length-r3/pose_index.tsv -text whitespace=cr-at-eol,-blank-at-eol
+atcc-full-length-r3/reference_2_pearl_overview.pml -text whitespace=-blank-at-eol
+deltaNlid-source/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+deltaNlid-source/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+deltaNlid-source/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+deltaNlid-source/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+deltaNlid-source/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+display-copy-check.csv -text whitespace=cr-at-eol
+prolif-analysis/prolif-batch-full/af3/batch_manifest.csv -text whitespace=cr-at-eol
+receptor-numbering.csv -text whitespace=cr-at-eol
+run-inventory.csv -text whitespace=cr-at-eol
+wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/DAF37_CAEEL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/GPRC_ARTFL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/SRBC64_CAEEL_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/gpr2_TGJ68930.1_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol
+wt-deltaN-comparison/inputs/receptors/topology/deepTMHMM/gpr3_TGJ67963.1_probs/deeptmhmm_results.md -text whitespace=-blank-at-eol

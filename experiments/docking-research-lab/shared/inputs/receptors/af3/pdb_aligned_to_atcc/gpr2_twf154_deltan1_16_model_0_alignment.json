@@ -1,0 +1,34 @@
+{
+  "moving_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/pdb/gpr2_twf154_deltan1_16/fold_gpr2_twf154_deltan1_16_model_0.pdb",
+  "reference_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/pdb_aligned_to_atcc/gpr2_twf154_wt_model_0_aligned_to_atcc.pdb",
+  "output_pdb": "/Users/yangruoxi/Projects/Docking-Research-Lab/vina/inputs/receptors/af3/pdb_aligned_to_atcc/gpr2_twf154_deltan1_16_model_0_aligned_to_atcc.pdb",
+  "moving_chain": "A",
+  "reference_chain": "A",
+  "moving_ranges": "14-34,46-67,85-110,128-148,166-185,310-330,342-364",
+  "reference_ranges": "30-50,62-83,101-126,144-164,182-201,326-346,358-380",
+  "matched_ca_count": 154,
+  "ca_rmsd_before_angstrom": 30.135677337646484,
+  "ca_rmsd_after_angstrom": 0.24753988009836972,
+  "rotation_matrix": [
+    [
+      -0.15256795985036642,
+      -0.8417833147470611,
+      0.5178067869780653
+    ],
+    [
+      -0.9821923301007116,
+      0.07102224303255882,
+      -0.17393696469111733
+    ],
+    [
+      0.1096414352260665,
+      -0.5351230624894376,
+      -0.8376288340747912
+    ]
+  ],
+  "translation_vector": [
+    -11.922520967322454,
+    2.1814300500408175,
+    9.243077704482975
+  ]
+}

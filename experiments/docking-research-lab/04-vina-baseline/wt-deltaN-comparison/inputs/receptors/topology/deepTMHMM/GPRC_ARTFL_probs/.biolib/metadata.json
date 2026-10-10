@@ -1,0 +1,11 @@
+{
+    "exit_code": 0,
+    "arguments": [
+        "--fasta",
+        "GprC_Arthrobotrys_flagrans_A0A437AGY2.fasta"
+    ],
+    "app_uri": "DTU/DeepTMHMM:1.0.57",
+    "ended_at": "2026-08-13T09:03:02.461555Z",
+    "job_uuid": "ad30bdbf-ae16-4d32-bc1d-9ae2b3747b28",
+    "started_at": "2026-08-13T09:02:06.913328Z"
+}
