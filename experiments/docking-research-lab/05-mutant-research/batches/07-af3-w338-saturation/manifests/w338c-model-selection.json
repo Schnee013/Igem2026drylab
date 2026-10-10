@@ -1,0 +1,32 @@
+{
+  "alias": "07_w338c",
+  "selected_model": 1,
+  "receipt_sha256": "b25d8397b5f55460b216a202cc57a51f78ef61692865586bd6563148c5813aca",
+  "cif": {
+    "path": "vina/inputs/receptors/af3/gpr2_batch07_20260918/original_cif/folds_2026_09_18_02_12/07_w338c/fold_07_w338c_model_1.cif",
+    "sha256": "417f7f1df7371c919e5834e8b4cc31edf13a6ca84cfb44e250d31bf86959e621"
+  },
+  "reason": "model_0 ARG181 NH1 / ARG345 NH1 1.5568 A overlap and Meeko inter-residue bond failure; model_1 selected before docking by geometry QC, not docking score",
+  "qc": {
+    "full_length_residues": 406,
+    "sequence_verified": true,
+    "NH1_NH1_distance_A": 3.1837641244288197,
+    "nonadjacent_heavy_atom_pairs_within_1_8_A": 0,
+    "scope": "screen excludes same and adjacent residues; not a full geometry validation"
+  },
+  "preserved_failure": {
+    "old_directory": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338c",
+    "new_directory": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/diagnostics/07_w338c-failed-model0",
+    "files": {
+      "preparation.log": "59b2aafa05db64366b057754f82345d0d3ea926a0d8c82e778d6a9543fb9253c",
+      "raw_model0.pdb": "c9f5914432e69f03b0e0cc93b59d9f8526e0f80365a36b0c55ef3a7ed222b83c",
+      "input.pdb": "b75d5eb860a8ab0b4d9784774fe3cca8e13ae95c50ba63fa891c6f689f7ef638",
+      "alignment.json": "dfea02048e0aefffbdf8f9dee851e63a794cbdb4e6350c3dbb1785a32413b609",
+      "trimming.json": "0c43e3976f6963f8a9cc11afde32714065cde492c6c8a9859f08d376592f97bd",
+      "alignment_provenance.json": "b7a639c4284acecd427c044b42e24df1f453c70babebd7f77a181d9fc3d5c2d1",
+      "trimmed.pdb": "4f3966fb1a0ce1e91a69b879bf6e9e9959529ba88fe09e5889df997dabc70abe",
+      "alignment_review.pml": "a0349cfe71c7612975a5474b0771100025db2a5c3d7cb9f3c6e573f648438750"
+    },
+    "note": "Original report bytes preserved; embedded old absolute paths describe the original location."
+  }
+}

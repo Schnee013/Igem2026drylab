@@ -1,0 +1,195 @@
+{
+  "archive_sha256": "ac869e9a1c91bc8aa1e29115dd16ceac44a5b104194426dab0a5aa688b3c40d0",
+  "jobs": [
+    {
+      "group": "baseline",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "baseline/fold_baseline_job_request.json",
+      "selected_model": "baseline/fold_baseline_model_0.cif",
+      "modelSeeds": [
+        "822163725"
+      ]
+    },
+    {
+      "group": "V110I",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "v110i/fold_v110i_job_request.json",
+      "selected_model": "v110i/fold_v110i_model_0.cif",
+      "modelSeeds": [
+        "1529361272"
+      ]
+    },
+    {
+      "group": "V110L",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "v110l/fold_v110l_job_request.json",
+      "selected_model": "v110l/fold_v110l_model_0.cif",
+      "modelSeeds": [
+        "1336837226"
+      ]
+    },
+    {
+      "group": "V110T",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "v110t/fold_v110t_job_request.json",
+      "selected_model": "v110t/fold_v110t_model_0.cif",
+      "modelSeeds": [
+        "28724094"
+      ]
+    },
+    {
+      "group": "N84Q",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "n84q/fold_n84q_job_request.json",
+      "selected_model": "n84q/fold_n84q_model_0.cif",
+      "modelSeeds": [
+        "1903077122"
+      ]
+    },
+    {
+      "group": "N84S",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "n84s/fold_n84s_job_request.json",
+      "selected_model": "n84s/fold_n84s_model_0.cif",
+      "modelSeeds": [
+        "560824919"
+      ]
+    },
+    {
+      "group": "V368I",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "v368i/fold_v368i_job_request.json",
+      "selected_model": "v368i/fold_v368i_model_0.cif",
+      "modelSeeds": [
+        "1065806887"
+      ]
+    },
+    {
+      "group": "V368L",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "v368l/fold_v368l_job_request.json",
+      "selected_model": "v368l/fold_v368l_model_0.cif",
+      "modelSeeds": [
+        "896196417"
+      ]
+    },
+    {
+      "group": "S80A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "s80a/fold_s80a_job_request.json",
+      "selected_model": "s80a/fold_s80a_model_0.cif",
+      "modelSeeds": [
+        "590136738"
+      ]
+    },
+    {
+      "group": "N102A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "n102a/fold_n102a_job_request.json",
+      "selected_model": "n102a/fold_n102a_model_0.cif",
+      "modelSeeds": [
+        "293670979"
+      ]
+    },
+    {
+      "group": "G103A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "g103a/fold_g103a_job_request.json",
+      "selected_model": "g103a/fold_g103a_model_0.cif",
+      "modelSeeds": [
+        "1563072604"
+      ]
+    },
+    {
+      "group": "T106A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "t106a/fold_t106a_job_request.json",
+      "selected_model": "t106a/fold_t106a_model_0.cif",
+      "modelSeeds": [
+        "1162661196"
+      ]
+    },
+    {
+      "group": "V368A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "v368a/fold_v368a_job_request.json",
+      "selected_model": "v368a/fold_v368a_model_0.cif",
+      "modelSeeds": [
+        "1394394836"
+      ]
+    },
+    {
+      "group": "L27A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "l27a/fold_l27a_job_request.json",
+      "selected_model": "l27a/fold_l27a_model_0.cif",
+      "modelSeeds": [
+        "735029171"
+      ]
+    },
+    {
+      "group": "N28A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "n28a/fold_n28a_job_request.json",
+      "selected_model": "n28a/fold_n28a_model_0.cif",
+      "modelSeeds": [
+        "1914412509"
+      ]
+    },
+    {
+      "group": "V110A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "v110a/fold_v110a_job_request.json",
+      "selected_model": "v110a/fold_v110a_model_0.cif",
+      "modelSeeds": [
+        "1145943798"
+      ]
+    },
+    {
+      "group": "R181A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "r181a/fold_r181a_job_request.json",
+      "selected_model": "r181a/fold_r181a_model_0.cif",
+      "modelSeeds": [
+        "1406820304"
+      ]
+    },
+    {
+      "group": "W338A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "w338a/fold_w338a_job_request.json",
+      "selected_model": "w338a/fold_w338a_model_0.cif",
+      "modelSeeds": [
+        "2136937292"
+      ]
+    },
+    {
+      "group": "N84A_V110A_V368A",
+      "residues": 406,
+      "models_verified": 5,
+      "job_request": "n84a_v110a_v368a/fold_n84a_v110a_v368a_job_request.json",
+      "selected_model": "n84a_v110a_v368a/fold_n84a_v110a_v368a_model_0.cif",
+      "modelSeeds": [
+        "2005302321"
+      ]
+    }
+  ]
+}

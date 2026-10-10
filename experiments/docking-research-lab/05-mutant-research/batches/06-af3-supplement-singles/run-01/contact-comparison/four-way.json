@@ -1,0 +1,2671 @@
+{
+  "records": [
+    {
+      "variant": "W338L",
+      "alias": "06_w338l",
+      "scores": {
+        "variant": "W338L",
+        "alias": "06_w338l",
+        "rmsd_A": 0.47327170068584706,
+        "ascr3": {
+          "score": "-6.752",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr3"
+        },
+        "ascr18": {
+          "score": "-6.620",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr18"
+        },
+        "deltaS3": "0.180",
+        "deltaS18": "0.407",
+        "D": "0.227"
+      },
+      "ascr3": {
+        "wt": {
+          "score": -6.932,
+          "model": 1,
+          "count": 11,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "THR106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.752,
+          "model": 1,
+          "count": 8,
+          "entry_count": 12,
+          "contacts": {
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "THR106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr3/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ARG181.A:HBAcceptor"
+          ],
+          "lost": [
+            "LEU31.A:Hydrophobic",
+            "LEU31.A:VdWContact",
+            "SER80.A:HBAcceptor",
+            "ASN185.A:VdWContact",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [],
+          "lost_residues": [
+            "LEU31.A",
+            "ASN185.A",
+            "VAL368.A"
+          ],
+          "identity_changes": []
+        }
+      },
+      "ascr18": {
+        "wt": {
+          "score": -7.027,
+          "model": 1,
+          "count": 12,
+          "entry_count": 19,
+          "contacts": {
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.62,
+          "model": 1,
+          "count": 9,
+          "entry_count": 16,
+          "contacts": {
+            "24": {
+              "residue": "ASP24.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "HBAcceptor",
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr18/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ASP24.A:HBDonor",
+            "ASP24.A:VdWContact",
+            "ASN28.A:HBAcceptor",
+            "VAL110.A:Hydrophobic",
+            "LYS364.A:HBAcceptor"
+          ],
+          "lost": [
+            "LEU31.A:VdWContact",
+            "SER80.A:HBDonor",
+            "ASN84.A:VdWContact",
+            "ARG189.A:HBAcceptor",
+            "ARG189.A:VdWContact",
+            "TRP338.A:Hydrophobic",
+            "TRP338.A:VdWContact",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [
+            "ASP24.A"
+          ],
+          "lost_residues": [
+            "LEU31.A",
+            "ASN84.A",
+            "TRP338.A",
+            "VAL368.A"
+          ],
+          "identity_changes": []
+        }
+      }
+    },
+    {
+      "variant": "T106S",
+      "alias": "06_t106s",
+      "scores": {
+        "variant": "T106S",
+        "alias": "06_t106s",
+        "rmsd_A": 0.6333187261687467,
+        "ascr3": {
+          "score": "-6.745",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr3"
+        },
+        "ascr18": {
+          "score": "-6.730",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr18"
+        },
+        "deltaS3": "0.187",
+        "deltaS18": "0.297",
+        "D": "0.110"
+      },
+      "ascr3": {
+        "wt": {
+          "score": -6.932,
+          "model": 1,
+          "count": 11,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "THR106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.745,
+          "model": 1,
+          "count": 8,
+          "entry_count": 12,
+          "contacts": {
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "186": {
+              "residue": "PHE186.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr3/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "PHE186.A:VdWContact",
+            "ARG189.A:HBAcceptor",
+            "ARG189.A:VdWContact"
+          ],
+          "lost": [
+            "LEU31.A:Hydrophobic",
+            "LEU31.A:VdWContact",
+            "SER80.A:HBAcceptor",
+            "SER80.A:VdWContact",
+            "THR106.A:VdWContact",
+            "GLN107.A:VdWContact",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [
+            "PHE186.A",
+            "ARG189.A"
+          ],
+          "lost_residues": [
+            "LEU31.A",
+            "SER80.A",
+            "THR106.A",
+            "GLN107.A",
+            "VAL368.A"
+          ],
+          "identity_changes": []
+        }
+      },
+      "ascr18": {
+        "wt": {
+          "score": -7.027,
+          "model": 1,
+          "count": 12,
+          "entry_count": 19,
+          "contacts": {
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.73,
+          "model": 1,
+          "count": 10,
+          "entry_count": 19,
+          "contacts": {
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "HBAcceptor",
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr18/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ASN28.A:HBAcceptor",
+            "VAL110.A:Hydrophobic",
+            "LYS364.A:HBAcceptor"
+          ],
+          "lost": [
+            "SER80.A:HBDonor",
+            "SER80.A:VdWContact",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [],
+          "lost_residues": [
+            "SER80.A",
+            "VAL368.A"
+          ],
+          "identity_changes": []
+        }
+      }
+    },
+    {
+      "variant": "R181K",
+      "alias": "06_r181k",
+      "scores": {
+        "variant": "R181K",
+        "alias": "06_r181k",
+        "rmsd_A": 0.3873299544009801,
+        "ascr3": {
+          "score": "-6.548",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr3"
+        },
+        "ascr18": {
+          "score": "-6.613",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr18"
+        },
+        "deltaS3": "0.384",
+        "deltaS18": "0.414",
+        "D": "0.030"
+      },
+      "ascr3": {
+        "wt": {
+          "score": -6.932,
+          "model": 1,
+          "count": 11,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "THR106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.548,
+          "model": 1,
+          "count": 11,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "81": {
+              "residue": "ALA81.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "LYS181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr3/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ALA81.A:HBAcceptor",
+            "ALA81.A:VdWContact"
+          ],
+          "lost": [
+            "SER80.A:HBAcceptor",
+            "THR106.A:VdWContact"
+          ],
+          "gained_residues": [
+            "ALA81.A"
+          ],
+          "lost_residues": [
+            "THR106.A"
+          ],
+          "identity_changes": [
+            {
+              "number": 181,
+              "wt": "ARG181.A",
+              "mutant": "LYS181.A"
+            }
+          ]
+        }
+      },
+      "ascr18": {
+        "wt": {
+          "score": -7.027,
+          "model": 1,
+          "count": 12,
+          "entry_count": 19,
+          "contacts": {
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.613,
+          "model": 1,
+          "count": 13,
+          "entry_count": 19,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "81": {
+              "residue": "ALA81.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "LYS181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "186": {
+              "residue": "PHE186.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "345": {
+              "residue": "ARG345.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr18/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "LEU31.A:Hydrophobic",
+            "ALA81.A:HBAcceptor",
+            "ALA81.A:VdWContact",
+            "LYS181.A:VdWContact",
+            "ASN185.A:VdWContact",
+            "PHE186.A:VdWContact",
+            "ARG345.A:HBAcceptor",
+            "ARG345.A:VdWContact"
+          ],
+          "lost": [
+            "LEU27.A:VdWContact",
+            "ASN28.A:VdWContact",
+            "SER80.A:HBDonor",
+            "ASN84.A:VdWContact",
+            "ARG189.A:Anionic",
+            "ARG189.A:HBAcceptor",
+            "ARG189.A:VdWContact",
+            "TRP338.A:Hydrophobic"
+          ],
+          "gained_residues": [
+            "ALA81.A",
+            "LYS181.A",
+            "ASN185.A",
+            "PHE186.A",
+            "ARG345.A"
+          ],
+          "lost_residues": [
+            "LEU27.A",
+            "ASN28.A",
+            "ASN84.A",
+            "ARG189.A"
+          ],
+          "identity_changes": []
+        }
+      }
+    },
+    {
+      "variant": "T106V",
+      "alias": "06_t106v",
+      "scores": {
+        "variant": "T106V",
+        "alias": "06_t106v",
+        "rmsd_A": 0.30351373158899314,
+        "ascr3": {
+          "score": "-6.608",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3"
+        },
+        "ascr18": {
+          "score": "-6.695",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr18"
+        },
+        "deltaS3": "0.324",
+        "deltaS18": "0.332",
+        "D": "0.008"
+      },
+      "ascr3": {
+        "wt": {
+          "score": -6.932,
+          "model": 1,
+          "count": 11,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "THR106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.608,
+          "model": 1,
+          "count": 11,
+          "entry_count": 17,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "81": {
+              "residue": "ALA81.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "VAL106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ALA81.A:VdWContact",
+            "GLN107.A:HBDonor"
+          ],
+          "lost": [
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [
+            "ALA81.A"
+          ],
+          "lost_residues": [
+            "VAL368.A"
+          ],
+          "identity_changes": [
+            {
+              "number": 106,
+              "wt": "THR106.A",
+              "mutant": "VAL106.A"
+            }
+          ]
+        }
+      },
+      "ascr18": {
+        "wt": {
+          "score": -7.027,
+          "model": 1,
+          "count": 12,
+          "entry_count": 19,
+          "contacts": {
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.695,
+          "model": 1,
+          "count": 12,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "81": {
+              "residue": "ALA81.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "VAL106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr18/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ALA81.A:VdWContact",
+            "VAL106.A:VdWContact",
+            "GLN107.A:HBDonor",
+            "GLN107.A:VdWContact",
+            "ARG181.A:VdWContact",
+            "ASN185.A:VdWContact"
+          ],
+          "lost": [
+            "LEU27.A:VdWContact",
+            "ASN28.A:VdWContact",
+            "SER80.A:HBDonor",
+            "ARG189.A:Anionic",
+            "ARG189.A:HBAcceptor",
+            "ARG189.A:VdWContact",
+            "TRP338.A:Hydrophobic",
+            "TRP338.A:VdWContact",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [
+            "ALA81.A",
+            "VAL106.A",
+            "GLN107.A",
+            "ARG181.A",
+            "ASN185.A"
+          ],
+          "lost_residues": [
+            "LEU27.A",
+            "ASN28.A",
+            "ARG189.A",
+            "TRP338.A",
+            "VAL368.A"
+          ],
+          "identity_changes": []
+        }
+      }
+    },
+    {
+      "variant": "R181Q",
+      "alias": "06_r181q",
+      "scores": {
+        "variant": "R181Q",
+        "alias": "06_r181q",
+        "rmsd_A": 0.319703685529028,
+        "ascr3": {
+          "score": "-6.493",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3"
+        },
+        "ascr18": {
+          "score": "-6.617",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr18"
+        },
+        "deltaS3": "0.439",
+        "deltaS18": "0.410",
+        "D": "-0.029"
+      },
+      "ascr3": {
+        "wt": {
+          "score": -6.932,
+          "model": 1,
+          "count": 11,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "THR106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.493,
+          "model": 1,
+          "count": 11,
+          "entry_count": 19,
+          "contacts": {
+            "24": {
+              "residue": "ASP24.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "81": {
+              "residue": "ALA81.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "345": {
+              "residue": "ARG345.A",
+              "types": [
+                "Anionic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ASP24.A:HBDonor",
+            "ASP24.A:VdWContact",
+            "LEU27.A:VdWContact",
+            "ASN28.A:HBAcceptor",
+            "ASN28.A:VdWContact",
+            "ALA81.A:VdWContact",
+            "ARG345.A:Anionic",
+            "ARG345.A:VdWContact",
+            "LYS364.A:Anionic",
+            "LYS364.A:HBAcceptor"
+          ],
+          "lost": [
+            "LEU31.A:Hydrophobic",
+            "SER80.A:HBAcceptor",
+            "THR106.A:VdWContact",
+            "GLN107.A:VdWContact",
+            "VAL110.A:VdWContact",
+            "ARG181.A:VdWContact",
+            "ASN185.A:VdWContact"
+          ],
+          "gained_residues": [
+            "ASP24.A",
+            "LEU27.A",
+            "ASN28.A",
+            "ALA81.A",
+            "ARG345.A"
+          ],
+          "lost_residues": [
+            "THR106.A",
+            "GLN107.A",
+            "VAL110.A",
+            "ARG181.A",
+            "ASN185.A"
+          ],
+          "identity_changes": []
+        }
+      },
+      "ascr18": {
+        "wt": {
+          "score": -7.027,
+          "model": 1,
+          "count": 12,
+          "entry_count": 19,
+          "contacts": {
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.617,
+          "model": 1,
+          "count": 9,
+          "entry_count": 14,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "102": {
+              "residue": "ASN102.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "186": {
+              "residue": "PHE186.A",
+              "types": [
+                "Hydrophobic"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr18/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "SER80.A:HBAcceptor",
+            "ASN102.A:VdWContact",
+            "PHE186.A:Hydrophobic"
+          ],
+          "lost": [
+            "LEU27.A:VdWContact",
+            "ASN28.A:VdWContact",
+            "SER80.A:HBDonor",
+            "ASN84.A:VdWContact",
+            "ARG189.A:Anionic",
+            "ARG189.A:HBAcceptor",
+            "ARG189.A:VdWContact",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [
+            "ASN102.A",
+            "PHE186.A"
+          ],
+          "lost_residues": [
+            "LEU27.A",
+            "ASN28.A",
+            "ASN84.A",
+            "ARG189.A",
+            "VAL368.A"
+          ],
+          "identity_changes": []
+        }
+      }
+    },
+    {
+      "variant": "W338F",
+      "alias": "06_w338f",
+      "scores": {
+        "variant": "W338F",
+        "alias": "06_w338f",
+        "rmsd_A": 0.26981559494153917,
+        "ascr3": {
+          "score": "-6.639",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr3"
+        },
+        "ascr18": {
+          "score": "-6.909",
+          "model": 1,
+          "poses": 9,
+          "run_dir": "outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18"
+        },
+        "deltaS3": "0.293",
+        "deltaS18": "0.118",
+        "D": "-0.175"
+      },
+      "ascr3": {
+        "wt": {
+          "score": -6.932,
+          "model": 1,
+          "count": 11,
+          "entry_count": 16,
+          "contacts": {
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "106": {
+              "residue": "THR106.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "107": {
+              "residue": "GLN107.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "185": {
+              "residue": "ASN185.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.639,
+          "model": 1,
+          "count": 10,
+          "entry_count": 17,
+          "contacts": {
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "81": {
+              "residue": "ALA81.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "181": {
+              "residue": "ARG181.A",
+              "types": [
+                "Anionic",
+                "VdWContact"
+              ]
+            },
+            "345": {
+              "residue": "ARG345.A",
+              "types": [
+                "Anionic"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr3/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ASN28.A:HBAcceptor",
+            "ASN28.A:VdWContact",
+            "ALA81.A:VdWContact",
+            "ASN84.A:VdWContact",
+            "ARG181.A:Anionic",
+            "ARG345.A:Anionic",
+            "LYS364.A:Anionic",
+            "LYS364.A:HBAcceptor"
+          ],
+          "lost": [
+            "LEU31.A:Hydrophobic",
+            "SER80.A:HBAcceptor",
+            "THR106.A:VdWContact",
+            "GLN107.A:VdWContact",
+            "VAL110.A:VdWContact",
+            "ASN185.A:VdWContact",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [
+            "ASN28.A",
+            "ALA81.A",
+            "ASN84.A",
+            "ARG345.A"
+          ],
+          "lost_residues": [
+            "THR106.A",
+            "GLN107.A",
+            "VAL110.A",
+            "ASN185.A",
+            "VAL368.A"
+          ],
+          "identity_changes": []
+        }
+      },
+      "ascr18": {
+        "wt": {
+          "score": -7.027,
+          "model": 1,
+          "count": 12,
+          "entry_count": 19,
+          "contacts": {
+            "27": {
+              "residue": "LEU27.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "80": {
+              "residue": "SER80.A",
+              "types": [
+                "HBDonor",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "TRP338.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "368": {
+              "residue": "VAL368.A",
+              "types": [
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts"
+        },
+        "mutant": {
+          "score": -6.909,
+          "model": 1,
+          "count": 11,
+          "entry_count": 18,
+          "contacts": {
+            "28": {
+              "residue": "ASN28.A",
+              "types": [
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "31": {
+              "residue": "LEU31.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "77": {
+              "residue": "PHE77.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "84": {
+              "residue": "ASN84.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "90": {
+              "residue": "LEU90.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "110": {
+              "residue": "VAL110.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "186": {
+              "residue": "PHE186.A",
+              "types": [
+                "Hydrophobic"
+              ]
+            },
+            "189": {
+              "residue": "ARG189.A",
+              "types": [
+                "Anionic",
+                "HBAcceptor",
+                "VdWContact"
+              ]
+            },
+            "338": {
+              "residue": "PHE338.A",
+              "types": [
+                "VdWContact"
+              ]
+            },
+            "364": {
+              "residue": "LYS364.A",
+              "types": [
+                "HBAcceptor",
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            },
+            "367": {
+              "residue": "ILE367.A",
+              "types": [
+                "Hydrophobic",
+                "VdWContact"
+              ]
+            }
+          },
+          "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts"
+        },
+        "changes": {
+          "gained": [
+            "ASN28.A:HBAcceptor",
+            "LEU90.A:VdWContact",
+            "PHE186.A:Hydrophobic",
+            "LYS364.A:HBAcceptor"
+          ],
+          "lost": [
+            "LEU27.A:VdWContact",
+            "SER80.A:HBDonor",
+            "SER80.A:VdWContact",
+            "TRP338.A:Hydrophobic",
+            "VAL368.A:VdWContact"
+          ],
+          "gained_residues": [
+            "LEU90.A",
+            "PHE186.A"
+          ],
+          "lost_residues": [
+            "LEU27.A",
+            "SER80.A",
+            "VAL368.A"
+          ],
+          "identity_changes": [
+            {
+              "number": 338,
+              "wt": "TRP338.A",
+              "mutant": "PHE338.A"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "baseline": {
+    "ascr3": {
+      "score": -6.932,
+      "model": 1,
+      "count": 11,
+      "entry_count": 16,
+      "contacts": {
+        "31": {
+          "residue": "LEU31.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "77": {
+          "residue": "PHE77.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "80": {
+          "residue": "SER80.A",
+          "types": [
+            "HBAcceptor",
+            "VdWContact"
+          ]
+        },
+        "106": {
+          "residue": "THR106.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "107": {
+          "residue": "GLN107.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "110": {
+          "residue": "VAL110.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "181": {
+          "residue": "ARG181.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "185": {
+          "residue": "ASN185.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "364": {
+          "residue": "LYS364.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "367": {
+          "residue": "ILE367.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "368": {
+          "residue": "VAL368.A",
+          "types": [
+            "VdWContact"
+          ]
+        }
+      },
+      "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts"
+    },
+    "ascr18": {
+      "score": -7.027,
+      "model": 1,
+      "count": 12,
+      "entry_count": 19,
+      "contacts": {
+        "27": {
+          "residue": "LEU27.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "28": {
+          "residue": "ASN28.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "31": {
+          "residue": "LEU31.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "77": {
+          "residue": "PHE77.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "80": {
+          "residue": "SER80.A",
+          "types": [
+            "HBDonor",
+            "VdWContact"
+          ]
+        },
+        "84": {
+          "residue": "ASN84.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "110": {
+          "residue": "VAL110.A",
+          "types": [
+            "VdWContact"
+          ]
+        },
+        "189": {
+          "residue": "ARG189.A",
+          "types": [
+            "Anionic",
+            "HBAcceptor",
+            "VdWContact"
+          ]
+        },
+        "338": {
+          "residue": "TRP338.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "364": {
+          "residue": "LYS364.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "367": {
+          "residue": "ILE367.A",
+          "types": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "368": {
+          "residue": "VAL368.A",
+          "types": [
+            "VdWContact"
+          ]
+        }
+      },
+      "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts"
+    }
+  },
+  "comparison_key": "original residue number and interaction type; residue identity changes separately recorded",
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts/selection.json": "674eb9cab1231c5f11d77bcd85c371e557162a9feb3413854781d038452a8ccd",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts/contact_residues.csv": "d9927f9e08e4d40dcab4c8bd25eb5ff2de17d80445d9c0323f2452de1615e164",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts/ifp/ifp_presence.csv": "20fd8641cd27b926708298e8b80119c5eedb9dc44fac8781943b6af724286c29",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/top1_contacts/ifp/metadata.json": "b19da0cc24365117cfe63c51595c17ccd5af7db6e486477288e34848b3f39909",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts/selection.json": "26a5b291a27d7d77518a7ed468a0b505a4362af7c273858f601bf5b998019407",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts/contact_residues.csv": "89fddf2065fa00db1b715ac36fd9e2aa537b1886713fec9a2fed58947d5a7663",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts/ifp/ifp_presence.csv": "0efe414d80e7be761326da846b71e56cc46ab062dbc628360bfd59fd8c33dd98",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr18/top1_contacts/ifp/metadata.json": "b8830cca3bac1967f44612dcbd288aa242e4aa63191883a47318f603947fcbb0",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr3/top1_contacts/selection.json": "4705b296fdff95b4b386c3f52fa7bbe657adad983eb59797a0c45243bc3347be",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr3/top1_contacts/contact_residues.csv": "946190541057f294cc367f08bc19f695c2f5f04034487e255c1fc5af32d92926",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr3/top1_contacts/ifp/ifp_presence.csv": "60949d98b4c4dee0fb63f8e7740185c71aa0861f2d15b10633bd04db2492f8b0",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr3/top1_contacts/ifp/metadata.json": "8bdbff5d201227f49431994f89129109648211d5e18768f8b1a450aa08e267f8",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr18/top1_contacts/selection.json": "3a5d8cedf6e1689a59bbbbdd1b5508cab3b8ec8b2ba497ab5a710aa0d078d7ca",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr18/top1_contacts/contact_residues.csv": "e9bbc6882df9449d96a2065a0f233516f2b2503ac146050c4ca9322114bff3c4",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr18/top1_contacts/ifp/ifp_presence.csv": "1066c849f87002ee7a602de8353f27360dddfc397040645d10fd5d7418948fd1",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181k/ascr18/top1_contacts/ifp/metadata.json": "075fb2567580e0899daf42a9c84534df9be3d30278b412951c0c39b2f6c1c655",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/top1_contacts/selection.json": "acba760cb25876cb69b7e923a27c3b437d80fbdbcc5581c92801dc82f4582e65",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/top1_contacts/contact_residues.csv": "58f5151d23b21b7bf1aac5cfc354cbc2d93aa73cc462680a301aa89b07d33a81",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/top1_contacts/ifp/ifp_presence.csv": "981a7c75aa455f5e93b294a496f1d81889d1bd73b093133ba444995d792f9136",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr3/top1_contacts/ifp/metadata.json": "9793f263f87658596e2c8144cf4784becc6f73e4f79348a746c5037ad6738593",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr18/top1_contacts/selection.json": "b57fb341aca2ac2690b7085e882d16f2fcb1b948146e100f1f39a8a011fae910",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr18/top1_contacts/contact_residues.csv": "f0d81f9f97e2a20a33e257a7742e66e57835eb95f8838736e289dc3b5b19f476",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr18/top1_contacts/ifp/ifp_presence.csv": "615c3c1bf42de7334374c304c6236cb0ac0525794d974a9635105ca8387fd3b6",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_r181q/ascr18/top1_contacts/ifp/metadata.json": "65386cded5c36ed11308941b2649426251dbb075ef9d7d98d79bf43602746f72",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr3/top1_contacts/selection.json": "95bf50bffd7b23db3e11dd59180eff7efedb2a5a6faccfe84bdf542ab74a5b20",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr3/top1_contacts/contact_residues.csv": "8991b711bf22ba559efa0066a4d73ee9490d28dd8107d9a29385e1167c583b2b",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr3/top1_contacts/ifp/ifp_presence.csv": "7c1427b382b9c2839fec6d500c8d58fd5e58acdf2da37a7ca957f7f08aec5b2a",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr3/top1_contacts/ifp/metadata.json": "b0712c0b458656f10e978197017b8019ff9c01c4e15827fab382fa491e778a88",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr18/top1_contacts/selection.json": "558e3411d94bf08b8d717c55ece58b8de96f3d9e928c526f4106f1a467268446",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr18/top1_contacts/contact_residues.csv": "a83028e74e0ac5d30307fd8316f35b4e66ed76440dd983245d086722f42a22b3",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr18/top1_contacts/ifp/ifp_presence.csv": "b208f13d4779f5e008c423a4e2520e46e213e0bc8b007ebf1ea1e56a6d85df6b",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106s/ascr18/top1_contacts/ifp/metadata.json": "9028158356817471b19ab9c2796201e7666aa2733258b79986638fdfb252b483",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/selection.json": "3e1056784320d294781a515aadfd3ffdc248b6b4551ff32828f0c4cd2f435de5",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/contact_residues.csv": "1521b5f20d73517134efcea49da2a710a8c300a60ba19d38a0e349e4c8dfd1e9",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/ifp/ifp_presence.csv": "670343a48f31ad7d687f06f63c82cfa48236196c39e52ff53aa38d04b39e9270",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr3/top1_contacts/ifp/metadata.json": "8a8e3c1ff308c1110b6819df3ca34ba736483f5e5e9f1632a077b06e089f0877",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr18/top1_contacts/selection.json": "c4e7e1d3ceafa7c03d880fbf9788d9082d3954f673e2a219f8510e1873daa0b3",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr18/top1_contacts/contact_residues.csv": "8c69dc9d7af4bcd447958b6f36670be6117fee377c652cac6bddde6ef30d9135",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr18/top1_contacts/ifp/ifp_presence.csv": "ed6ad58a150789bac17bd08fed0ba2046b7037d2f05d045279fd123f27be3d38",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_t106v/ascr18/top1_contacts/ifp/metadata.json": "66b68c6db3c10351ade3271f6f4e7512d82757fbfa349ca707dbe8eff718abed",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr3/top1_contacts/selection.json": "2cf8343283f73bdbe0cf26b30d77bd459aa8cff8961d007f738aa9d80f546529",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr3/top1_contacts/contact_residues.csv": "cd09fdd6f61a5fa049d98e3d543eb9078ec051e269b5d20739de72757924e69b",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr3/top1_contacts/ifp/ifp_presence.csv": "0fc618865fd7bf2ced3b42b17ec9987122710f6b3c1c0913e02378ea3cf4528f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr3/top1_contacts/ifp/metadata.json": "323fef9f5fce36a86e58788d64b2f37a9714cd8747c328262678f2a6bc3e28f6",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/selection.json": "8f27bffd3dd55a93a3ac3395b0b941491b63d7c5c3c56a1a293df23c6c42b15f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/contact_residues.csv": "55311a8c9f223343d749a865dcf39dd3c39c4ac1fb91ea31c474d8128823afe7",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/ifp/ifp_presence.csv": "daf9649f0d5d6a39440121828bb3f953ab6c1c694ccbc542928dc357c2a31474",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338f/ascr18/top1_contacts/ifp/metadata.json": "d0128193b2db1af192e5ee83e4d95ac8dae999efb79e4b80e0669596d184616f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr3/top1_contacts/selection.json": "3f54b91e3b5025842cd80e6c1eb916249b2ac5a1c254671bb6967d095671854f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr3/top1_contacts/contact_residues.csv": "036cec2230c06b7d9f77818ed2835dd72ad7c4dd3f60557c8686fed408637ea1",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr3/top1_contacts/ifp/ifp_presence.csv": "9cd44924deb923309c4055dd22d5ebfbb4bda771ce57cddd84d19d2e77f4025b",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr3/top1_contacts/ifp/metadata.json": "d659335081954313f73d43b13f826d07c4d34caabaabb1cd92fc3504fa5adc9c",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr18/top1_contacts/selection.json": "c58efc1a3318fc272b713cd3514024fe515625662c277b8ba96bb99ba6cd3942",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr18/top1_contacts/contact_residues.csv": "055b6a91a9895c702cd93e097864917d258e49bc7544e8e11eca6ff8b9074e9f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr18/top1_contacts/ifp/ifp_presence.csv": "c0d39677c1db379949d242d57d5efb35b943d288b1f6f0ec7299b3f2cc9c91f5",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_w338l/ascr18/top1_contacts/ifp/metadata.json": "62abf5af2fbf46358102884491af7cb168a236ae05f481d5b0064a95cc41f4ee"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "alias": "05_n84l",
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/receptors/af3/pdb/gpr2_twf154_wt/deltaN_aligned/gpr2_twf154_wt_model_0_deltaN1-21_deltaN164-178_aligned.pdb": "339a0650fd6dad7c8fa1e9bd245ddb7d4471550892b73ccb3b87838e3be84a46",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_n84l/trimmed.pdb": "bddd40e28074e64fab08dc2e2f83ada47052ec227a84b40bccf8e7beee4198f5",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_n84l/input.pdb": "bbca1ef5f9ae4c3221c6d484f8299c65b6d1fbe11c8ae036ff12475dc9e252a8",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_n84l/alignment.json": "127dff61b2cd9d190e1446ff3b4bcea7c93b89995e066a494bb1517b358d4726"
+  }
+}

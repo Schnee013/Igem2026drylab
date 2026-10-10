@@ -1,0 +1,26 @@
+{
+  "alias": "07_w338p",
+  "ligand": "ascr18",
+  "parameters": {
+    "center_x": 20,
+    "center_y": -20,
+    "center_z": 5,
+    "size_x": 26,
+    "size_y": 26,
+    "size_z": 26,
+    "exhaustiveness": 8,
+    "num_modes": 9,
+    "energy_range": 3,
+    "seed": 1919
+  },
+  "runtime_parameters": {
+    "spacing": 0.375,
+    "min_rmsd": 1,
+    "max_evals": 0
+  },
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338p/receptor.pdbqt": "2e73b40f953dc4b89a6e4c481a69f575b31ebb453dccd9b04ef9c733c002b8bd",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/projects-done/inputs&outputs-deltaNlid/inputs/ligands/deprotonated-minus1/pdbqt/ascr18_deprotonated.pdbqt": "5ba010aba5295154610f0a6e84b5dc682b7e408c23fbf6d159ce87518a52cf39",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338p/ascr18/vina.conf": "a728efffb12ce9b817e8a0ef6a7997459d92766337e579f0ece940c9e9612c97"
+  }
+}

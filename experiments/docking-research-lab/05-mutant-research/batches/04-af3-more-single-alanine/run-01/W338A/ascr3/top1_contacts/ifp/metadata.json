@@ -1,0 +1,20 @@
+{
+  "prolif_version": "2.1.0",
+  "n_poses": 1,
+  "interactions": [
+    "Anionic",
+    "CationPi",
+    "Cationic",
+    "HBAcceptor",
+    "HBDonor",
+    "Hydrophobic",
+    "PiCation",
+    "PiStacking",
+    "VdWContact"
+  ],
+  "vicinity_cutoff_A": 6.0,
+  "receptor_json": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/W338A/receptor.json",
+  "poses_sdf": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/W338A/ascr3/top1_contacts/top1.sdf",
+  "receptor_sha256": "dae11b1c9587561e36b45385ba90bbe8d3bc456f6aa6b08de0db9a39514f1d4f",
+  "sdf_sha256": "4743f99898df1e80bc1dab2d42d9618e00e386b49f244ebb1537f464e7a561a5"
+}

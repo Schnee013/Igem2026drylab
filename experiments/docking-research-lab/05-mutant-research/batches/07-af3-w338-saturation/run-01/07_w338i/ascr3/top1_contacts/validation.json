@@ -1,0 +1,16 @@
+{
+  "analyzed_pose_count": 1,
+  "selected_model": 1,
+  "unique_contact_residues": 9,
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/contact_residues.csv": "1f4e92c05fb374b30a69d5d4fed88bfeacb6f14da534e263c2de86a9a8017c54",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/ifp/ifp_presence.csv": "c582e13f2f6e9c073d1d030396999c6a2cb07860f40bdf093208a961f149b010",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/ifp/metadata.json": "bda55853785b45d4a07a33f306fa5b1208dd9a050e84ce6aa81e95b2f6e61f61",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/ifp/residue_counts.csv": "4e7886f3ecc7c3ede6e17324e7371834d46bcdeec597ee27ba24d13cb6047726",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/ifp/residue_presence.csv": "cd5355ca6a33feb0dff91944e8db897f776da3025065b8ac1768d91065998ba7",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/selection.json": "3d2671e56d92e11203220f580998afbff3c61911e910ca77ca939c30dbdf9138",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/top1.pdbqt": "945b530149a8fe835f51113518d83ac19723fd540a291fa19f70eead34aa2e0f",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/top1.sdf": "a6187b97f8bb94302d8fbbf7c49355eac3620cf7d475dd9afa737aef922edf22",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_w338i/ascr3/top1_contacts/view_contacts.pml": "0a9c064d681e8b4d0489a99cbc667a2ab85a77d486f331a5e17100d5b462ccc1"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "format": "vina-1.x-log",
+  "log_file": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/V110I/ascr3/vina.stdout.txt",
+  "mechanical_extraction_only": true,
+  "mode_count": 9,
+  "modes": [
+    {
+      "affinity_kcal_per_mol": -6.892,
+      "mode": 1,
+      "rmsd_lb": 0.0,
+      "rmsd_ub": 0.0
+    },
+    {
+      "affinity_kcal_per_mol": -6.837,
+      "mode": 2,
+      "rmsd_lb": 1.627,
+      "rmsd_ub": 1.958
+    },
+    {
+      "affinity_kcal_per_mol": -6.62,
+      "mode": 3,
+      "rmsd_lb": 2.803,
+      "rmsd_ub": 9.011
+    },
+    {
+      "affinity_kcal_per_mol": -6.541,
+      "mode": 4,
+      "rmsd_lb": 3.889,
+      "rmsd_ub": 7.275
+    },
+    {
+      "affinity_kcal_per_mol": -6.53,
+      "mode": 5,
+      "rmsd_lb": 3.465,
+      "rmsd_ub": 8.604
+    },
+    {
+      "affinity_kcal_per_mol": -6.527,
+      "mode": 6,
+      "rmsd_lb": 3.187,
+      "rmsd_ub": 7.794
+    },
+    {
+      "affinity_kcal_per_mol": -6.434,
+      "mode": 7,
+      "rmsd_lb": 3.708,
+      "rmsd_ub": 8.183
+    },
+    {
+      "affinity_kcal_per_mol": -6.361,
+      "mode": 8,
+      "rmsd_lb": 2.644,
+      "rmsd_ub": 8.588
+    },
+    {
+      "affinity_kcal_per_mol": -6.059,
+      "mode": 9,
+      "rmsd_lb": 3.578,
+      "rmsd_ub": 5.878
+    }
+  ],
+  "pose_file": "/Users/yangruoxi/Projects/Docking-Research-Lab/outputs/gpr2-round2-af3-run01/V110I/ascr3/poses.pdbqt",
+  "vina_version": "1.2.5"
+}

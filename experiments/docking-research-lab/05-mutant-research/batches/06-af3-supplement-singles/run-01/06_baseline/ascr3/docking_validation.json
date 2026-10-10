@@ -1,0 +1,16 @@
+{
+  "alias": "06_baseline",
+  "ligand": "ascr3",
+  "pose_count": 9,
+  "lowest_score": -6.932,
+  "selected_model": 1,
+  "selection_rule": "minimum score, then minimum MODEL number",
+  "files": {
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/poses.pdbqt": "8735c994d01f67e660a87f3c9df1287f258766587a582add7beca3ace18ff158",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/vina.stdout.txt": "590b5405bbb7b62e6a2262089a95531989862c646f5684b2c7d5804d4d71d86e",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/vina.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/run.json": "9602cbbaa0f5882120a1f2a173e7dc5092a1383850c78004cfeb08b9e6715e8a",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/summary.json": "baaa2b2be8bf9662a7e7c100654e723f29cc65064f43b69365f9d12fa4fb4ba7",
+    "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/06-af3-supplement-singles/run-01/06_baseline/ascr3/runner.log": "bcf88dda95c7c51beb612ecd0d936538d31378b55f09769ca462eaf5d051a34b"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "format": "vina-1.x-log",
+  "log_file": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_baseline/ascr18/vina.stdout.txt",
+  "mechanical_extraction_only": true,
+  "mode_count": 9,
+  "modes": [
+    {
+      "affinity_kcal_per_mol": -6.52,
+      "mode": 1,
+      "rmsd_lb": 0.0,
+      "rmsd_ub": 0.0
+    },
+    {
+      "affinity_kcal_per_mol": -6.474,
+      "mode": 2,
+      "rmsd_lb": 1.817,
+      "rmsd_ub": 3.134
+    },
+    {
+      "affinity_kcal_per_mol": -6.465,
+      "mode": 3,
+      "rmsd_lb": 2.566,
+      "rmsd_ub": 3.559
+    },
+    {
+      "affinity_kcal_per_mol": -6.445,
+      "mode": 4,
+      "rmsd_lb": 2.159,
+      "rmsd_ub": 2.692
+    },
+    {
+      "affinity_kcal_per_mol": -6.418,
+      "mode": 5,
+      "rmsd_lb": 3.423,
+      "rmsd_ub": 4.91
+    },
+    {
+      "affinity_kcal_per_mol": -6.39,
+      "mode": 6,
+      "rmsd_lb": 3.197,
+      "rmsd_ub": 4.283
+    },
+    {
+      "affinity_kcal_per_mol": -6.214,
+      "mode": 7,
+      "rmsd_lb": 2.017,
+      "rmsd_ub": 3.128
+    },
+    {
+      "affinity_kcal_per_mol": -6.173,
+      "mode": 8,
+      "rmsd_lb": 2.75,
+      "rmsd_ub": 3.765
+    },
+    {
+      "affinity_kcal_per_mol": -6.1,
+      "mode": 9,
+      "rmsd_lb": 1.626,
+      "rmsd_ub": 2.229
+    }
+  ],
+  "pose_file": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/07-af3-w338-saturation/run-01/07_baseline/ascr18/poses.pdbqt",
+  "vina_version": "1.2.5"
+}

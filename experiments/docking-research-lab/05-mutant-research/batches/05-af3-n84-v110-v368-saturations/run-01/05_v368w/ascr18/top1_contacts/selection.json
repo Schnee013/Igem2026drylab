@@ -1,0 +1,13 @@
+{
+  "source": "/Users/yangruoxi/Documents/ChatGPT/Docking-Research-Lab/outputs/batches/05-af3-saturation-combinations/run-01/05_v368w/ascr18/poses.pdbqt",
+  "source_sha256": "4e81f0f49cf04e60743dfee5d7a2d71195e8f3197e3610fe48a9d287eaf26986",
+  "selected_original_mode": 1,
+  "vina_score_kcal_mol": -6.215,
+  "tied_minimum_modes": [
+    1
+  ],
+  "selection_rule": "Minimum reported Vina score; lowest mode number breaks ties",
+  "analyzed_pose_count": 1,
+  "unique_contact_residues": 13,
+  "pose_index_in_ifp": 0
+}

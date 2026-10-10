@@ -1,0 +1,702 @@
+{
+  "schema_version": 1,
+  "scope": "N84/V110/V368 saturation singles plus full-length WT",
+  "source_fasta": "projects-done/inputs&outputs-deltaNlid/inputs/receptors/fasta/Gpr2_TWF154_TGJ68930.1.fasta",
+  "source_sequence_sha256": "8bb94cd26d6020327faf44d853efaaa6a983440b4060c5d0f29be7d9ceb6c1f9",
+  "length": 406,
+  "alphabet": "ACDEFGHIKLMNPQRSTVWY",
+  "fasta_output": "vina/inputs/receptors/fasta/gpr2_phase2_saturation_05_full_length",
+  "counts": {
+    "mutants": 57,
+    "baseline": 1,
+    "historical_reuse": 10,
+    "new_af_including_baseline": 48
+  },
+  "main_baseline": "baseline",
+  "historical_wt": {
+    "03": {
+      "batch": "03",
+      "paths": {
+        "fasta": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/fasta_full_length/Gpr2_full_length_baseline.fasta",
+        "model_0": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/original_cif/gpr2_baseline/fold_gpr2_baseline_model_0.cif",
+        "job_request": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/original_cif/gpr2_baseline/fold_gpr2_baseline_job_request.json"
+      },
+      "file_sha256": {
+        "fasta": "409ea0b28ed6228b6e5a0f6ab17033e04dcff5b95bd491fbc00c0b66fa15e99a",
+        "model_0": "fa16b5eb03f02a48c719cf435a6d25c12723e770c6f024e8dc553a4a311f3047",
+        "job_request": "dbb9eab3f00355e059c88ed0a6cf9618d13abeee69d16457d096ce1f3d240757"
+      },
+      "structure_sequence_status": "pending_CIF_validation"
+    },
+    "04": {
+      "batch": "04",
+      "paths": {
+        "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_baseline.fasta",
+        "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/baseline/fold_baseline_model_0.cif",
+        "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/baseline/fold_baseline_job_request.json"
+      },
+      "file_sha256": {
+        "fasta": "289782aa51ce00ed6ffdb32ce137caf3d7d2e1285c4dff738c9338050f193285",
+        "model_0": "9a4f7d3466c209c9a19fd8864437c3895501e65a1b0f624415927141d298c714",
+        "job_request": "2d4a76bd0b8263e2ecd3e08d86e9794d906a703021be5955181e4adbbc2ded4b"
+      },
+      "structure_sequence_status": "pending_CIF_validation"
+    }
+  },
+  "analysis_convention": "D=deltaS18-deltaS3; lowest-score pose per run; other poses reference only",
+  "variants": [
+    {
+      "id": "baseline",
+      "position": null,
+      "from": null,
+      "to": null,
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_baseline"
+    },
+    {
+      "id": "N84A",
+      "position": 84,
+      "from": "N",
+      "to": "A",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "03",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/fasta_full_length/Gpr2_full_length_N84A.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/original_cif/gpr2_n84a/fold_gpr2_n84a_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_single_20260910_0458/original_cif/gpr2_n84a/fold_gpr2_n84a_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "dafa45f310cd22db0e3fd0fac3cef46da0a157fed0134095babfc763a37ad95f",
+          "model_0": "9abbedab3ba239215f659f8abad00d5bed8045208312d9236b1e3ea099245ecc",
+          "job_request": "b0057aabd415b03bbe19a839cfba9cf3bbc73643f28f067ebb0bde951da30cd3"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_n84a"
+    },
+    {
+      "id": "N84C",
+      "position": 84,
+      "from": "N",
+      "to": "C",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84c"
+    },
+    {
+      "id": "N84D",
+      "position": 84,
+      "from": "N",
+      "to": "D",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84d"
+    },
+    {
+      "id": "N84E",
+      "position": 84,
+      "from": "N",
+      "to": "E",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84e"
+    },
+    {
+      "id": "N84F",
+      "position": 84,
+      "from": "N",
+      "to": "F",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84f"
+    },
+    {
+      "id": "N84G",
+      "position": 84,
+      "from": "N",
+      "to": "G",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84g"
+    },
+    {
+      "id": "N84H",
+      "position": 84,
+      "from": "N",
+      "to": "H",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84h"
+    },
+    {
+      "id": "N84I",
+      "position": 84,
+      "from": "N",
+      "to": "I",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84i"
+    },
+    {
+      "id": "N84K",
+      "position": 84,
+      "from": "N",
+      "to": "K",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84k"
+    },
+    {
+      "id": "N84L",
+      "position": 84,
+      "from": "N",
+      "to": "L",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84l"
+    },
+    {
+      "id": "N84M",
+      "position": 84,
+      "from": "N",
+      "to": "M",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84m"
+    },
+    {
+      "id": "N84P",
+      "position": 84,
+      "from": "N",
+      "to": "P",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84p"
+    },
+    {
+      "id": "N84Q",
+      "position": 84,
+      "from": "N",
+      "to": "Q",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_N84Q.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84q/fold_n84q_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84q/fold_n84q_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "91a3ce1572e16e1d8a5866ba17e66f050b9b705d9977c964f14ea0cbe3d1e311",
+          "model_0": "75155f6193f61d4c30f70965c917a6406285be25a0f95341da42e0db7f7bcc44",
+          "job_request": "ab30179512ac614b40a2fd6b47d9015068eddf4021ec1b7803f97cffebc6ed16"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_n84q"
+    },
+    {
+      "id": "N84R",
+      "position": 84,
+      "from": "N",
+      "to": "R",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84r"
+    },
+    {
+      "id": "N84S",
+      "position": 84,
+      "from": "N",
+      "to": "S",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_N84S.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84s/fold_n84s_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/n84s/fold_n84s_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "f5c2d9336edb8110fe8866c1d2ed5aca313aec7b481ce7bed3ef3fa70df06705",
+          "model_0": "f9527c910f9d5f06a67e4ca81b300f481bc682bd0a0c66574078aa7f45c3c4f6",
+          "job_request": "1e954c483e8492d05118dd7380b3410fd3e2080c83623916079700f24ad2aa7f"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_n84s"
+    },
+    {
+      "id": "N84T",
+      "position": 84,
+      "from": "N",
+      "to": "T",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84t"
+    },
+    {
+      "id": "N84V",
+      "position": 84,
+      "from": "N",
+      "to": "V",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84v"
+    },
+    {
+      "id": "N84W",
+      "position": 84,
+      "from": "N",
+      "to": "W",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84w"
+    },
+    {
+      "id": "N84Y",
+      "position": 84,
+      "from": "N",
+      "to": "Y",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_n84y"
+    },
+    {
+      "id": "V110A",
+      "position": 110,
+      "from": "V",
+      "to": "A",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110A.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110a/fold_v110a_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110a/fold_v110a_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "ad67aef903635b1c323e6939f88634fbd628957ea6fc5b2b0c90f0dbd2c3802d",
+          "model_0": "0159cc1f3818a5fc85eb341c6eed064596b44bdbded05b2e9cef23373b3a89e4",
+          "job_request": "65684bb0fc10ed9abb5a84c11a92ed8a7ca1d3ddae52203d6b02b2689df4f43f"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_v110a"
+    },
+    {
+      "id": "V110C",
+      "position": 110,
+      "from": "V",
+      "to": "C",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110c"
+    },
+    {
+      "id": "V110D",
+      "position": 110,
+      "from": "V",
+      "to": "D",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110d"
+    },
+    {
+      "id": "V110E",
+      "position": 110,
+      "from": "V",
+      "to": "E",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110e"
+    },
+    {
+      "id": "V110F",
+      "position": 110,
+      "from": "V",
+      "to": "F",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110f"
+    },
+    {
+      "id": "V110G",
+      "position": 110,
+      "from": "V",
+      "to": "G",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110g"
+    },
+    {
+      "id": "V110H",
+      "position": 110,
+      "from": "V",
+      "to": "H",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110h"
+    },
+    {
+      "id": "V110I",
+      "position": 110,
+      "from": "V",
+      "to": "I",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110I.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110i/fold_v110i_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110i/fold_v110i_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "bbdddad594a47a9e3d9c528e69bcf432873f45334d018bac004213d2ed5c656c",
+          "model_0": "5f39abeacc46d6450d8e9205bcbd164d44a4b90bbbcd21030979bf3d3f25561d",
+          "job_request": "1d1e7adbb0780558d13194e3b8d0054747f9053b604ed25fea3689840053ed0b"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_v110i"
+    },
+    {
+      "id": "V110K",
+      "position": 110,
+      "from": "V",
+      "to": "K",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110k"
+    },
+    {
+      "id": "V110L",
+      "position": 110,
+      "from": "V",
+      "to": "L",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110L.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110l/fold_v110l_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110l/fold_v110l_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "c8bb47ce8cce2a60b92a6070da65aa9c0f0b13c715d797a571bc7798879daf28",
+          "model_0": "5558a2c45ebd95fb8d2fa2a3a151740c9c86f89aa38154e52e16897c35c6d074",
+          "job_request": "43b5e9c0e21116933d126e3f9be1d14d9657f8162c8669c8d40876707fe77c61"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_v110l"
+    },
+    {
+      "id": "V110M",
+      "position": 110,
+      "from": "V",
+      "to": "M",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110m"
+    },
+    {
+      "id": "V110N",
+      "position": 110,
+      "from": "V",
+      "to": "N",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110n"
+    },
+    {
+      "id": "V110P",
+      "position": 110,
+      "from": "V",
+      "to": "P",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110p"
+    },
+    {
+      "id": "V110Q",
+      "position": 110,
+      "from": "V",
+      "to": "Q",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110q"
+    },
+    {
+      "id": "V110R",
+      "position": 110,
+      "from": "V",
+      "to": "R",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110r"
+    },
+    {
+      "id": "V110S",
+      "position": 110,
+      "from": "V",
+      "to": "S",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110s"
+    },
+    {
+      "id": "V110T",
+      "position": 110,
+      "from": "V",
+      "to": "T",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V110T.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110t/fold_v110t_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v110t/fold_v110t_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "f557580b4284a9b80c21287058d9eea5cda1f82d4f6de205c5151d5cf4ae4bda",
+          "model_0": "eff5fe772dc2f4ce36d951fb3b4cba09e90848897e9ad153928d250f7f61ef4c",
+          "job_request": "04df47625e9498bde70e581ce2eda2e50f5262380e5c960f203ad73be5f0376f"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_v110t"
+    },
+    {
+      "id": "V110W",
+      "position": 110,
+      "from": "V",
+      "to": "W",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110w"
+    },
+    {
+      "id": "V110Y",
+      "position": 110,
+      "from": "V",
+      "to": "Y",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v110y"
+    },
+    {
+      "id": "V368A",
+      "position": 368,
+      "from": "V",
+      "to": "A",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V368A.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368a/fold_v368a_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368a/fold_v368a_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "e4ef1bafa31f8093bab5e7cae880f29b5a64dc53619a1c4caf1d43872c21787e",
+          "model_0": "d83b6dce6eb51872e6ec4d9e85af8f0e653251a34144a5f0dc347a02f6fab306",
+          "job_request": "59509b21234ce4fe92c779abc692682ef5414a86d54e11cc9a2ee04b8e524d46"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_v368a"
+    },
+    {
+      "id": "V368C",
+      "position": 368,
+      "from": "V",
+      "to": "C",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368c"
+    },
+    {
+      "id": "V368D",
+      "position": 368,
+      "from": "V",
+      "to": "D",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368d"
+    },
+    {
+      "id": "V368E",
+      "position": 368,
+      "from": "V",
+      "to": "E",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368e"
+    },
+    {
+      "id": "V368F",
+      "position": 368,
+      "from": "V",
+      "to": "F",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368f"
+    },
+    {
+      "id": "V368G",
+      "position": 368,
+      "from": "V",
+      "to": "G",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368g"
+    },
+    {
+      "id": "V368H",
+      "position": 368,
+      "from": "V",
+      "to": "H",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368h"
+    },
+    {
+      "id": "V368I",
+      "position": 368,
+      "from": "V",
+      "to": "I",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V368I.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368i/fold_v368i_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368i/fold_v368i_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "767b6cef098d7bce86ad05cc72c3ae937a2947c15e4f4adede0a8dc2deb517e8",
+          "model_0": "8895648b53bde1e35f783441123fd57bc456a04145bbe3e6451da09b6897efa0",
+          "job_request": "4f4b9c6b56aa167ae35e615adfe14f2caaca23f661968f92028f9ae02bc6f937"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_v368i"
+    },
+    {
+      "id": "V368K",
+      "position": 368,
+      "from": "V",
+      "to": "K",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368k"
+    },
+    {
+      "id": "V368L",
+      "position": 368,
+      "from": "V",
+      "to": "L",
+      "new_af_required": false,
+      "historical_source": {
+        "batch": "04",
+        "paths": {
+          "fasta": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/fasta_full_length/Gpr2_full_length_V368L.fasta",
+          "model_0": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368l/fold_v368l_model_0.cif",
+          "job_request": "vina/inputs/receptors/af3/gpr2_round2_20260911_0054/original_cif/v368l/fold_v368l_job_request.json"
+        },
+        "file_sha256": {
+          "fasta": "ce6b8f4713a5b677fe8c15a89fec3369f6a1b365181c5041b3523b6f8b7fc7fc",
+          "model_0": "96d5b39d50f10aeffad05a1f9155d7b7a3a37f3e86538393f3966474573891de",
+          "job_request": "4d9566d58e7083338b7af24df8e9eba506cd663596fb7ccc143ab82e9d769b97"
+        },
+        "structure_sequence_status": "pending_CIF_validation"
+      },
+      "af_job_name": "gpr2_b05_fl_v368l"
+    },
+    {
+      "id": "V368M",
+      "position": 368,
+      "from": "V",
+      "to": "M",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368m"
+    },
+    {
+      "id": "V368N",
+      "position": 368,
+      "from": "V",
+      "to": "N",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368n"
+    },
+    {
+      "id": "V368P",
+      "position": 368,
+      "from": "V",
+      "to": "P",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368p"
+    },
+    {
+      "id": "V368Q",
+      "position": 368,
+      "from": "V",
+      "to": "Q",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368q"
+    },
+    {
+      "id": "V368R",
+      "position": 368,
+      "from": "V",
+      "to": "R",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368r"
+    },
+    {
+      "id": "V368S",
+      "position": 368,
+      "from": "V",
+      "to": "S",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368s"
+    },
+    {
+      "id": "V368T",
+      "position": 368,
+      "from": "V",
+      "to": "T",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368t"
+    },
+    {
+      "id": "V368W",
+      "position": 368,
+      "from": "V",
+      "to": "W",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368w"
+    },
+    {
+      "id": "V368Y",
+      "position": 368,
+      "from": "V",
+      "to": "Y",
+      "new_af_required": true,
+      "historical_source": null,
+      "af_job_name": "gpr2_b05_fl_v368y"
+    }
+  ],
+  "af_job_name_pattern": "gpr2_b05_fl_<variant_lowercase>"
+}
