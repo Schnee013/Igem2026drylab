@@ -1,0 +1,132 @@
+schema_version: "minimal-vina-v1"
+status: "method_frozen"
+execution_gate: "inputs_migrated_and_tool_preflight_passed"
+
+scope:
+  validation_pair: [GprC, ascr18]
+  wt_pairs:
+    - [Gpr2, ascr3]
+    - [Gpr2, ascr18]
+    - [Gpr3, ascr3]
+    - [Gpr3, ascr18]
+  max_first_round_mutants: 4
+
+software:
+  checked_on: "2026-08-14"
+  python:
+    project_version: "3.11"
+    system_version_seen_in_preflight: "3.14.4"
+  vina:
+    project_version: "1.2.7"
+    paper_version: "1.2.3"
+    source_url: "https://github.com/ccsb-scripps/AutoDock-Vina/releases/tag/v1.2.7"
+  adfrsuite:
+    project_version: "1.0 rc1 official package (contains ADFR v1.2)"
+    paper_version: "not reported"
+    source_url: "https://ccsb.scripps.edu/adcp/downloads/"
+  openbabel:
+    project_version: "3.1.1"
+  orca:
+    project_version: "5.0.1"
+    paper_version: "5.0.1"
+
+inputs:
+  receptors:
+    GprC:
+      file: "inputs/receptors/GprC_A0A437AGY2.pdb"
+      accession: "A0A437AGY2"
+      sha256: "270871e91f8af0ebbd0d283e8ec3fab269ccc41687c4cf632093c2dcbc6a820d"
+      keep_ranges: [[10, 197], [369, 432]]
+      expected_kept_residues: 252
+      helices: [[15, 35], [47, 69], [89, 109], [125, 145], [172, 192], [374, 394], [405, 427]]
+    Gpr2:
+      file: "inputs/receptors/Gpr2_G1X9E2.pdb"
+      accession: "G1X9E2"
+      sha256: "0801e8e3c746ec1089ccfdcdb2c4d6dfa67710b3c01a1a3510897a278de946df"
+      keep_ranges: [[25, 211], [322, 382]]
+      expected_kept_residues: 248
+      helices: [[30, 50], [62, 82], [108, 128], [144, 164], [186, 206], [327, 347], [357, 377]]
+    Gpr3:
+      file: "inputs/receptors/Gpr3_G1XJN1.pdb"
+      accession: "G1XJN1"
+      sha256: "cbca769fd582bd837bfe3984cf7ca9d72fc7bad3c541095ce7f016107f5b643a"
+      keep_ranges: [[12, 201], [290, 347]]
+      expected_kept_residues: 248
+      helices: [[17, 37], [48, 68], [94, 114], [129, 149], [176, 196], [295, 315], [322, 342]]
+  ligands:
+    ascr18:
+      file: "inputs/ligands/ascr18_CID71514784.sdf"
+      pubchem_cid: 71514784
+      sha256: "d0f46ab82153c12541d7908b68a7f2c84467138b4df9fb5a43d46b1731749faa"
+      formal_charge: 0
+    ascr3:
+      file: "inputs/ligands/ascr3_CID16066476.sdf"
+      pubchem_cid: 16066476
+      sha256: "cf3969daa490879ac4cc0fc225b657d00b3c21f568558e4c90a4ca7c85a588c0"
+      formal_charge: 0
+
+preparation:
+  receptor:
+    chain: "A"
+    records: "standard ATOM residues only"
+    preserve_ecl2: true
+    adfr_add_hydrogens: true
+    adfr_cleanup: "nphs_lps_waters_nonstdres"
+  ligand:
+    protonation: "neutral carboxylic acid"
+    orca_method: "B3LYP"
+    orca_basis: "def2-TZVP"
+    orca_job: "Opt TightOpt"
+    orca_charge: 0
+    orca_multiplicity: 1
+    adfr_add_hydrogens: true
+    rotatable_bonds: "aliphatic-chain and ascarylose-exocyclic heavy-atom single bonds"
+    dof_reference_range: [7, 11]
+    dof_validation: "BRANCH count, TORSDOF and active-torsion REMARK must agree; stop for bond review outside reference range"
+
+docking:
+  scoring: "vina"
+  receptor_rigid: true
+  box:
+    center_source: "mass-weighted all-atom COM of the extracted WT receptor PDB before ADFR"
+    mutant_rule: "reuse the stored numeric center from the corresponding WT"
+    size_angstrom: [40.0, 40.0, 40.0]
+    spacing_angstrom: 0.1
+    offset_angstrom: [0.0, 0.0, 0.0]
+  exhaustiveness: 200
+  seed: 44
+  cpu: 4
+  num_modes: 5
+  energy_range_kcal_mol: 5.0
+  min_rmsd_angstrom: 1.0
+  max_evals: 0
+
+contact_analysis:
+  poses: 5
+  interaction_types: [HBAcceptor, HBDonor, Hydrophobic, Anionic, Cationic, VdWContact]
+  count_rule: "a residue is counted at most once per pose"
+  high_frequency_min_poses: 3
+  ligand_specific_other_max_poses: 1
+  groups: [shared, ascr3_only, ascr18_only, ambiguous]
+  hu2024_distance_check_angstrom: 3.5
+  top1_2d_diagram: true
+  first_round_protected_sites: ["shared high-frequency contacts", "D2.50", "S2.41"]
+  manual_review_sites: ["R-motif"]
+  max_candidates_per_receptor: 2
+
+pose_gate:
+  required_location: "extracellular orthosteric pocket"
+  expected_regions: [TM2, TM3, TM5, TM6, TM7]
+  record_ecl2_contact: true
+  suspicious_regions: ["intracellular side", "membrane-exposed groove", "TM1/TM4-dominated pocket"]
+  gprc_ascr18_reference_score_kcal_mol: -8.29
+  score_reference_is_gate: false
+
+ranking:
+  ddg18: "dg_mut_ascr18 - dg_wt_ascr18"
+  ddg3: "dg_mut_ascr3 - dg_wt_ascr3"
+  ddg_selectivity: "ddg18 - ddg3"
+  negative_direction: "relatively favors ascr18"
+  positive_direction: "relatively favors ascr3"
+  require_same_protocol: true
+  vina_score_use: "same-protocol relative ranking only"
