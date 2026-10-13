@@ -1,0 +1,68 @@
+{
+  "schema_version": "assumed-paired-matrix-v4-mi-1-to-10",
+  "purpose": "User-approved Mi 1:10, Ce 10:1; equal per-worm two-ligand total; synthetic only",
+  "protocol": {
+    "target_species": "Meloidogyne incognita",
+    "target_stage": "J2",
+    "background_species": "Caenorhabditis elegans",
+    "background_strain": "N2",
+    "background_stage": "L4 hermaphrodite",
+    "soil_volume_cm3": 100,
+    "effective_collection_volume_mL": 1,
+    "collection_duration_h": 1,
+    "recovery_fraction": 1,
+    "sensor_sample_dilution_factor": 1,
+    "sensor_read_time_h": 8,
+    "temperature_C": null,
+    "pigment": "betaxanthin equivalent; exact composition unconfirmed",
+    "wavelength_nm": 480,
+    "effective_path_length_cm": 1,
+    "epsilon_L_mol_cm": 48000,
+    "blank_pigment_equivalent_uM": 0.5,
+    "replicates_per_condition": 1,
+    "noise": "none; deterministic design points, not independent experimental replicates",
+    "stage_role": "Stage labels define intended density units; release rates use equal two-ligand total, not a cross-stage empirical comparison"
+  },
+  "release_rates_fmol_per_worm_h": {
+    "target_ascr3": {
+      "value": 0.09090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "target_ascr18": {
+      "value": 0.9090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "background_ascr3": {
+      "value": 0.9090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "background_ascr18": {
+      "value": 0.09090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    }
+  },
+  "equations": {
+    "amount_to_nM": "(q_target*N_target+q_background*N_background)*collection_h*recovery_fraction/(1000*volume_mL*dilution_factor)",
+    "channel3_pigment_uM": "0.5 + 5*ascr3_nM + 0.1*ascr18_nM",
+    "channel18_pigment_uM": "0.5 + 0.5*ascr3_nM + 0.4*ascr18_nM",
+    "A480": "48000*1*pigment_uM*1e-6",
+    "blank_corrected_A480": "A480 - 0.024",
+    "ascr3_nM": "Q*(T/11 + 10*B/11)/1000",
+    "ascr18_nM": "Q*(10*T/11 + B/11)/1000"
+  },
+  "normalization": {
+    "scope": "ascr3+ascr18 only; not all ascarosides",
+    "common_Q_fmol_per_worm_h": 1.0,
+    "Q_status": "arbitrary common simulation scale; not a measured rate",
+    "target_ascr3_fraction": 0.09090909090909091,
+    "target_ascr18_fraction": 0.9090909090909091,
+    "background_ascr3_fraction": 0.9090909090909091,
+    "background_ascr18_fraction": 0.09090909090909091,
+    "fraction_status": "assumed ratios, not quantified literature spectra",
+    "rule": "equal per worm per hour, not equal per sample; concentration retains worm abundance"
+  }
+}
