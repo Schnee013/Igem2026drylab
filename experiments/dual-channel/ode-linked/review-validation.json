@@ -1,0 +1,82 @@
+{
+  "as_of": "2026-10-15",
+  "base_heads": {
+    "19": "5b9a5c1dc98738b6f4aad5cc91ffef601d6f9d19",
+    "20": "2e8c9db16fbfcc340453a2cb05264190219ee41b"
+  },
+  "candidate": "local combined source snapshot with uncommitted review fixes",
+  "tests": {
+    "ode": 53,
+    "dual_channel_and_eco": 28,
+    "generation_in_combined_snapshot": 1,
+    "combined_total": 82,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "software": {
+    "python": "3.14.4",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0"
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-09,
+    "atol": 1e-12
+  },
+  "regeneration": {
+    "csv_max_absolute_numeric_difference": {
+      "ode-endpoints.csv": 1.9984014443252818e-15,
+      "calibration.csv": 9.584347204771859e-17,
+      "evaluation.csv": 9.060460715026863e-15
+    },
+    "csv_tolerance": {
+      "rtol": 1e-07,
+      "atol": 1e-09
+    },
+    "regression_and_error_metrics_tolerance": {
+      "rtol": 1e-07,
+      "atol": 1e-07
+    },
+    "output_records": {
+      "ode-endpoints.csv": {
+        "rows": 18,
+        "sha256": "5b03eb2695808773bcd722476cccf97395d9f6f77dc70b0a8c73107466efe418"
+      },
+      "calibration.csv": {
+        "rows": 9,
+        "sha256": "d257b0f23d141ab98c8ed17f0d6db705b1ee0553db9add88ecb9b0b063bef942"
+      },
+      "evaluation.csv": {
+        "rows": 36,
+        "sha256": "164a169e51100b69521d229f6a36bb96949dd1efb9462ca93f50d7091415cf89"
+      }
+    },
+    "original_parameter_checksums_verified": true,
+    "generator_reads_saved_signal_csv": false
+  },
+  "implementation_sha256": {
+    "src/modeling/dual_channel/generate_inputs.py": "8491599ab6113ff2cbc451a5dce55289b89e641dd28761a6aeede3bdf897ce04",
+    "tests/modeling/test_dual_channel_generation.py": "b5b0052400b380bccab83fd9622beea2120bec262f30ebf958b68c99957089dc"
+  },
+  "ode_implementation_sha256": {
+    "src/modeling/ode/run_literature_core.py": "64fba6f3f163b1ef19e7e6962726b7f29383a3d593533e3d6d9415953c1b6d97",
+    "src/modeling/ode/literature_core.py": "6885f380d9259fd87940110d399cdf5b041be8a63c801e9b6c17f363be31a05e",
+    "tests/modeling/test_ode_literature_core.py": "c4279e2ecee36a36d5323c8c4fb642ae6813d424c7a2badbf7f255ac83aab393"
+  },
+  "checks": [
+    "Existing ODE directory rejected with CSV, run.json, image and event bytes unchanged",
+    "Existing empty directory and file rejected",
+    "Regenerated signals reproduce frozen fixtures and all regression metrics",
+    "Generation output reuse rejected without changing prior files"
+  ],
+  "limitations": [
+    "Final Git merge commit is not created or validated",
+    "Unrelated full-suite discovery in partial snapshot failed (10 failures, 13 errors): dependencies and domain fixtures unavailable; no full-repository pass claimed",
+    "All biological calibration remains synthetic"
+  ],
+  "reproduce": [
+    "python -m unittest discover -s tests/modeling -p \"test_ode*.py\" -v",
+    "python -m unittest tests.modeling.test_dual_channel tests.modeling.test_eco_model tests.modeling.test_dual_channel_generation -v"
+  ]
+}

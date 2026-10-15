@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "training_targets": [
+    0,
+    40,
+    120
+  ],
+  "training_backgrounds": [
+    0,
+    80,
+    200
+  ],
+  "evaluation_targets": [
+    0,
+    9,
+    11,
+    60,
+    79,
+    81
+  ],
+  "evaluation_backgrounds": [
+    40,
+    140
+  ],
+  "target_ratio_denominators": [
+    5,
+    10,
+    20
+  ],
+  "assumed_pigment_slopes": {
+    "3": [
+      5,
+      0.1
+    ],
+    "18": [
+      0.5,
+      0.4
+    ]
+  },
+  "scope": "Frozen v4/r04/r01 synthetic design; slopes restate scenario.json endpoint assumptions."
+}

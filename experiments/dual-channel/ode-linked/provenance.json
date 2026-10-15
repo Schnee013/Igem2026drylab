@@ -72,5 +72,20 @@
       "bytes": 11530,
       "sha256": "181ae12c30fb7b27a172d8ac0c911c3ce92a294684602696b44f3c48301c1c78"
     }
-  ]
+  ],
+  "regeneration": {
+    "as_of": "2026-10-15",
+    "entrypoint": "src/modeling/dual_channel/generate_inputs.py",
+    "source_dependency": "PR #19 LiteratureCoreModel and literature_core_source.json",
+    "inputs": [
+      "inputs/scenario.json",
+      "inputs/generation-design.json",
+      "inputs/channel3.json",
+      "inputs/channel18.json"
+    ],
+    "parameter_identity": "channel3.json and channel18.json copied byte-for-byte from the r04 sources listed above",
+    "promotion": "Frozen r04 channel configurations are repo-owned canonical inputs for deterministic regeneration",
+    "validation": "review-validation.json",
+    "allowed_use": "Recompute synthetic signals from frozen parameters and compare regression diagnostics"
+  }
 }
