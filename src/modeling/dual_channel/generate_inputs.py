@@ -1,4 +1,4 @@
-"""Regenerate synthetic paired inputs using the frozen r04 ODE parameters."""
+"""Regenerate synthetic paired inputs using versioned frozen ODE parameters."""
 import argparse
 import csv
 from datetime import datetime, timezone
@@ -23,7 +23,7 @@ def sha(path):
 
 
 def generate(input_dir, output, source):
-    # PR #19 supplies the shared core; regression replay remains independent.
+    # Regeneration uses the shared literature core and frozen channel adapters.
     from src.modeling.ode.literature_core import LiteratureCoreModel
     from src.modeling.ode import literature_core
 
@@ -37,6 +37,19 @@ def generate(input_dir, output, source):
         adapter = model.parameters['calibration_adapter']
         if adapter['channel'] != ch or adapter['read_time_h'] != hours:
             raise ValueError('Channel configuration and protocol disagree')
+        response = scenario.get('sensor_response')
+        if response is not None:
+            expected = response['weights'][ch]
+            actual = [adapter['S3_weight'], adapter['S18_weight']]
+            gain = response['common_gain_uM_per_nM']
+            if (adapter['matrix_sha256'] != sha(input_dir/'scenario.json') or
+                not np.allclose(actual, expected, rtol=0, atol=1e-12) or
+                not np.isclose(sum(actual), 1.) or
+                adapter['common_endpoint_gain_uM_per_nM'] != gain or
+                adapter['ligand_reference_nM'] != response['ligand_reference_nM'] or
+                not np.allclose(design['assumed_pigment_slopes'][ch],
+                                np.array(expected)*gain, rtol=0, atol=1e-12)):
+                raise ValueError('Scenario, pigment design and ODE adapter disagree')
     output.mkdir(parents=True, exist_ok=False)
     absorbance = protocol['epsilon_L_mol_cm']*protocol['effective_path_length_cm']*1e-6
     blank = {ch: model.solve(0., [0., hours*3600]).y[-1, -1] for ch, model in models.items()}
@@ -64,7 +77,7 @@ def generate(input_dir, output, source):
     training, endpoints, evaluation = [], [], []
     for target in design['training_targets']:
         for background in design['training_backgrounds']:
-            name = f'SIM-V4-T{target:g}-B{background:g}'
+            name = f"{design.get('training_sample_prefix', 'SIM-V4')}-T{target:g}-B{background:g}"
             s3, s18 = concentrations(target, background)
             signals = {}
             for ch in models:

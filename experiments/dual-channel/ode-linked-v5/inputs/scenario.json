@@ -1,0 +1,236 @@
+{
+  "schema_version": "assumed-paired-matrix-v5-complementary-equal-gain",
+  "purpose": "Synthetic V368R/P3 and N84V/P18 complementary preference; equal weight sums and equal pigment gains",
+  "protocol": {
+    "target_species": "Meloidogyne incognita",
+    "target_stage": "J2",
+    "background_species": "Caenorhabditis elegans",
+    "background_strain": "N2",
+    "background_stage": "L4 hermaphrodite",
+    "soil_volume_cm3": 100,
+    "effective_collection_volume_mL": 1,
+    "collection_duration_h": 1,
+    "recovery_fraction": 1,
+    "sensor_sample_dilution_factor": 1,
+    "sensor_read_time_h": 8,
+    "temperature_C": null,
+    "pigment": "betaxanthin equivalent; exact composition unconfirmed",
+    "wavelength_nm": 480,
+    "effective_path_length_cm": 1,
+    "epsilon_L_mol_cm": 48000,
+    "blank_pigment_equivalent_uM": 0.5,
+    "replicates_per_condition": 1,
+    "noise": "none; deterministic design points, not independent experimental replicates",
+    "stage_role": "Stage labels define intended density units; release rates use equal two-ligand total, not a cross-stage empirical comparison",
+    "protocol_id": "SIM_V5_MI1TO10_CE10TO1_SENSOR2TO1_1TO2_G1_8H_A480"
+  },
+  "release_rates_fmol_per_worm_h": {
+    "target_ascr3": {
+      "value": 0.09090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "target_ascr18": {
+      "value": 0.9090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "background_ascr3": {
+      "value": 0.9090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "background_ascr18": {
+      "value": 0.09090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    }
+  },
+  "equations": {
+    "amount_to_nM": "(q_target*N_target+q_background*N_background)*collection_h*recovery_fraction/(1000*volume_mL*dilution_factor)",
+    "channel3_pigment_uM": "0.5 + 1*((2/3)*ascr3_nM + (1/3)*ascr18_nM)",
+    "channel18_pigment_uM": "0.5 + 1*((1/3)*ascr3_nM + (2/3)*ascr18_nM)",
+    "A480": "48000*1*pigment_uM*1e-6",
+    "blank_corrected_A480": "A480 - 0.024",
+    "ascr3_nM": "Q*(T/11 + 10*B/11)/1000",
+    "ascr18_nM": "Q*(10*T/11 + B/11)/1000"
+  },
+  "provenance": {
+    "all_pigment_values": "v5 predefined endpoints: complementary normalized weights and common G=1 uM/nM; independent of ODE fit",
+    "all_density_to_ligand_values": "Fully synthetic, equal per-worm two-ligand total; qualitative literature context only; all four rates and exact ratios assumed",
+    "epsilon": "working approximation from prior source search S3; full-text verification pending in this run",
+    "read_time": "8 h candidate from Fan 2024 S4, not validated for this construct",
+    "ratio_decision": "User approved Mi 1:10 on 2026-10-13; see ../2026-10-13-mi-final-literature/README.md",
+    "sensor_weight_decision": "User approved complementary 2:1 / 1:2 with equal sums; common G=1 is an explicit implementation simulation scale"
+  },
+  "rows": [
+    {
+      "sample_id": "SIM-V5-T0-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 0,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.0,
+      "ascr18_nM": 0.0,
+      "channel3_pigment_equivalent_uM": 0.5,
+      "channel18_pigment_equivalent_uM": 0.5,
+      "channel3_A480": 0.024,
+      "channel18_A480": 0.024,
+      "channel3_A480_blank_corrected": 0.0,
+      "channel18_A480_blank_corrected": 0.0
+    },
+    {
+      "sample_id": "SIM-V5-T0-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 0,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.07272727272727272,
+      "ascr18_nM": 0.007272727272727273,
+      "channel3_pigment_equivalent_uM": 0.5509090909090909,
+      "channel18_pigment_equivalent_uM": 0.5290909090909092,
+      "channel3_A480": 0.026443636363636364,
+      "channel18_A480": 0.02539636363636364,
+      "channel3_A480_blank_corrected": 0.0024436363636363635,
+      "channel18_A480_blank_corrected": 0.00139636363636364
+    },
+    {
+      "sample_id": "SIM-V5-T0-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 0,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.18181818181818182,
+      "ascr18_nM": 0.01818181818181818,
+      "channel3_pigment_equivalent_uM": 0.6272727272727273,
+      "channel18_pigment_equivalent_uM": 0.5727272727272726,
+      "channel3_A480": 0.030109090909090912,
+      "channel18_A480": 0.027490909090909087,
+      "channel3_A480_blank_corrected": 0.006109090909090911,
+      "channel18_A480_blank_corrected": 0.0034909090909090866
+    },
+    {
+      "sample_id": "SIM-V5-T40-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 40,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.0036363636363636364,
+      "ascr18_nM": 0.03636363636363636,
+      "channel3_pigment_equivalent_uM": 0.5145454545454545,
+      "channel18_pigment_equivalent_uM": 0.5254545454545455,
+      "channel3_A480": 0.024698181818181817,
+      "channel18_A480": 0.025221818181818186,
+      "channel3_A480_blank_corrected": 0.0006981818181818174,
+      "channel18_A480_blank_corrected": 0.0012218181818181844
+    },
+    {
+      "sample_id": "SIM-V5-T40-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 40,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.07636363636363637,
+      "ascr18_nM": 0.04363636363636364,
+      "channel3_pigment_equivalent_uM": 0.5654545454545454,
+      "channel18_pigment_equivalent_uM": 0.5545454545454546,
+      "channel3_A480": 0.02714181818181818,
+      "channel18_A480": 0.02661818181818182,
+      "channel3_A480_blank_corrected": 0.003141818181818181,
+      "channel18_A480_blank_corrected": 0.002618181818181819
+    },
+    {
+      "sample_id": "SIM-V5-T40-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 40,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.18545454545454546,
+      "ascr18_nM": 0.05454545454545454,
+      "channel3_pigment_equivalent_uM": 0.6418181818181818,
+      "channel18_pigment_equivalent_uM": 0.5981818181818181,
+      "channel3_A480": 0.03080727272727273,
+      "channel18_A480": 0.02871272727272727,
+      "channel3_A480_blank_corrected": 0.006807272727272729,
+      "channel18_A480_blank_corrected": 0.004712727272727271
+    },
+    {
+      "sample_id": "SIM-V5-T120-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 120,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.01090909090909091,
+      "ascr18_nM": 0.10909090909090909,
+      "channel3_pigment_equivalent_uM": 0.5436363636363637,
+      "channel18_pigment_equivalent_uM": 0.5763636363636364,
+      "channel3_A480": 0.026094545454545457,
+      "channel18_A480": 0.02766545454545455,
+      "channel3_A480_blank_corrected": 0.0020945454545454574,
+      "channel18_A480_blank_corrected": 0.0036654545454545477
+    },
+    {
+      "sample_id": "SIM-V5-T120-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 120,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.08363636363636363,
+      "ascr18_nM": 0.11636363636363636,
+      "channel3_pigment_equivalent_uM": 0.5945454545454546,
+      "channel18_pigment_equivalent_uM": 0.6054545454545455,
+      "channel3_A480": 0.02853818181818182,
+      "channel18_A480": 0.02906181818181818,
+      "channel3_A480_blank_corrected": 0.0045381818181818205,
+      "channel18_A480_blank_corrected": 0.005061818181818183
+    },
+    {
+      "sample_id": "SIM-V5-T120-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 120,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.19272727272727272,
+      "ascr18_nM": 0.12727272727272726,
+      "channel3_pigment_equivalent_uM": 0.6709090909090909,
+      "channel18_pigment_equivalent_uM": 0.649090909090909,
+      "channel3_A480": 0.032203636363636365,
+      "channel18_A480": 0.031156363636363635,
+      "channel3_A480_blank_corrected": 0.008203636363636363,
+      "channel18_A480_blank_corrected": 0.007156363636363634
+    }
+  ],
+  "parent": {
+    "path": "../2026-10-13-paired-matrix-v4/matrix.json",
+    "sha256": "a63c78699fa1b9d5f4489834753c3f381151875add529d4501edbb6a07d08ff2"
+  },
+  "ode_refit_status": "New fit stored separately as ODE r05; old r04 coefficients do not apply",
+  "sources": {
+    "S1": "https://doi.org/10.1371/journal.pone.0017804",
+    "S2": "https://doi.org/10.1038/ncomms8795",
+    "S6": "https://doi.org/10.1016/j.cub.2012.03.024"
+  },
+  "normalization": {
+    "scope": "ascr3+ascr18 only; not all ascarosides",
+    "common_Q_fmol_per_worm_h": 1.0,
+    "Q_status": "arbitrary common simulation scale; not a measured rate",
+    "target_ascr3_fraction": 0.09090909090909091,
+    "target_ascr18_fraction": 0.9090909090909091,
+    "background_ascr3_fraction": 0.9090909090909091,
+    "background_ascr18_fraction": 0.09090909090909091,
+    "fraction_status": "assumed ratios, not quantified literature spectra",
+    "rule": "equal per worm per hour, not equal per sample; concentration retains worm abundance"
+  },
+  "sensor_response": {
+    "weights": {
+      "3": [
+        0.6666666666666666,
+        0.3333333333333333
+      ],
+      "18": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    },
+    "ligand_reference_nM": 1.0,
+    "common_gain_uM_per_nM": 1.0,
+    "receptors": {
+      "3": "Gpr2 V368R",
+      "18": "Gpr2 N84V"
+    },
+    "weight_status": "assumed 2:1 and 1:2; unit row sums; docking informs direction only under binding-to-activation assumption",
+    "gain_status": "common unit simulation scale; not measured or derived from docking",
+    "blank_pigment_equivalent_uM": 0.5
+  }
+}

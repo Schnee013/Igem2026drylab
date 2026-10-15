@@ -3,7 +3,7 @@ direction: P1-dual-channel-calibration
 status: exploratory_interface_simulation_only
 priority: P1
 chassis_dependent: true
-last_updated: 2026-10-13
+last_updated: 2026-10-15
 ---
 
 # 双通道读数 → 南方根结线虫密度 → Eco
@@ -12,11 +12,11 @@ last_updated: 2026-10-13
 
 ## 权威与复核
 
-- `source`：最新远端 main `6ec153d6d331d39b2b95736c9bd46dd5814738c1` 的 [Eco 配置](../../experiments/economic/configs/eco_model_example_model.json)、[配置读取](../../src/modeling/economic/eco_model_pkg/config.py)、[经济计算](../../src/modeling/economic/eco_model_pkg/economics.py)和[密度范围检查](../../src/modeling/economic/eco_model_pkg/loss.py)。2026-10-13已只读核对远端提交；后续远端变化须重新核验。
-- `as_of`：2026-10-13（任务于 10 月 10 日开始）。
+- `source`：本次核验 main `da408f407802aa2c0df8dc11346cad4638c1375e` 的 [Eco 配置](../../experiments/economic/configs/eco_model_example_model.json)、[配置读取](../../src/modeling/economic/eco_model_pkg/config.py)、[经济计算](../../src/modeling/economic/eco_model_pkg/economics.py)和[密度范围检查](../../src/modeling/economic/eco_model_pkg/loss.py)。2026-10-15已只读核对远端提交；后续远端变化须重新核验。
+- `as_of`：2026-10-15（任务于 10 月 10 日开始）。
 - `allowed_use`：设计标定实验、检查数据接口、演示条件性 Eco 情景。
 - `update_trigger`：Eco 配置/实现或实验 protocol 改变时，重新检查接口与范围。
-- 机制与运行来源：[ODE联合情景来源清单](../../experiments/dual-channel/ode-linked/provenance.json)。六状态实现采用该清单固定的上游提交，双通道阶段消费已保存的两路ODE输出。
+- 机制与运行来源：[ODE联合情景来源清单](../../experiments/dual-channel/ode-linked-v5/provenance.json)。六状态实现和 Eco 采用该清单记录的仓库版本，双通道阶段消费冻结参数生成的两路 ODE 输出。
 
 ## 1. 最小实验：3 × 3 × 3
 
@@ -88,10 +88,10 @@ $$
 - 输出：南方根结线虫 J2 密度，单位 `J2/100 cm^3 soil`；秀丽隐杆线虫为背景干扰。
 - 参数：仅拟合 `beta0、beta3、beta18`，采用带截距普通最小二乘，允许负系数。本版保持双变量线性形式。
 - 读数单位：当前ODE联合情景使用空白校正的A480，固定8 h终点、1 cm有效光程及A480=0.048C的工作近似，C为μM色素等效量；这些条件是模拟设定，实际湿实验仍按第1节确认protocol。
-- 标定状态：当前ODE配对读数已完成模拟训练，固定输入与结果见[ODE联合情景](../../experiments/dual-channel/ode-linked/README.md)。早期任意单位演示与本轮吸光度模型的系数不可混用。
+- 标定状态：当前ODE配对读数已完成模拟训练，固定输入与结果见[ODE联合情景](../../experiments/dual-channel/ode-linked-v5/README.md)。早期任意单位演示与本轮吸光度模型的系数不可混用。
 - 下游：沿用现有 Eco 适配与配置分级，保留范围检查和区间跨阈值时的不确定性标记。
 
-当前状态为模拟训练完成；系数和误差的数值权威为[模型参数](../../experiments/dual-channel/ode-linked/results/model.json)与[结果摘要](../../experiments/dual-channel/ode-linked/results/summary.json)。
+当前状态为模拟训练完成；系数和误差的数值权威为[模型参数](../../experiments/dual-channel/ode-linked-v5/results/model.json)与[结果摘要](../../experiments/dual-channel/ode-linked-v5/results/summary.json)。
 
 实现：[calibration.py](../../src/modeling/dual_channel/calibration.py)。依赖 NumPy、SciPy 和既有 Eco 模块；本次运行版本见实验说明。
 
@@ -123,13 +123,13 @@ scenarios = eco_scenarios(p, eco)
 
 ### ODE联合训练的数据背景与解释
 
-本轮模拟将Mi的#3∶#18设为1∶10、Ce设为10∶1，并令单虫两配体合计释放量相同。这里的总量仅涵盖#3与#18，精确比例和绝对释放量都是项目假设。采样条件与生成公式见[scenario.json](../../experiments/dual-channel/ode-linked/inputs/scenario.json)。
+本轮模拟将Mi的#3∶#18设为1∶10、Ce设为10∶1，并令单虫两配体合计释放量相同。这里的总量仅涵盖#3与#18，精确比例和绝对释放量都是项目假设。采样条件与生成公式见[scenario.json](../../experiments/dual-channel/ode-linked-v5/inputs/scenario.json)。
 
-两物种分别向S3、S18贡献信号；同一混合提取液作用于两个独立传感器。两路均使用480 nm吸光度，通道名表示设计靶标而非波长或物种专一性。固定交叉响应为L3=(S3+0.02S18)/(1 nM)、L18=(1.25S3+S18)/(1 nM)。预设色素终点用于上游ODE的K_L、a拟合；本轮回归使用ODE实际算出的8 h颜色，保留ODE近似偏差。
+两物种分别向S3、S18贡献信号；同一混合提取液作用于两个独立传感器。两路均使用480 nm吸光度，通道名表示设计靶标而非波长或物种专一性。固定交叉响应为L3=(2S3/3+S18/3)/(1 nM)、L18=(S3/3+2S18/3)/(1 nM)。预设色素终点用于上游ODE的K_L、a拟合；本轮回归使用ODE实际算出的8 h颜色，保留ODE近似偏差。
 
-[校准输入](../../experiments/dual-channel/ode-linked/inputs/calibration.csv)由9个两物种独立变化组合构成。Ce密度参与样本设计和分层解释，预测目标为Mi：相同Mi、不同Ce的样本拥有相同目标标签，要求同一组三系数尽量抵抗背景变化。以Ce真实密度作为预测必需输入会要求额外背景计数，故当前接口只接收两路颜色。
+[校准输入](../../experiments/dual-channel/ode-linked-v5/inputs/calibration.csv)由9个两物种独立变化组合构成。Ce密度参与样本设计和分层解释，预测目标为Mi：相同Mi、不同Ce的样本拥有相同目标标签，要求同一组三系数尽量抵抗背景变化。以Ce真实密度作为预测必需输入会要求额外背景计数，故当前接口只接收两路颜色。
 
-[评价输入](../../experiments/dual-channel/ode-linked/inputs/evaluation.csv)包含未用于拟合的新组合及Mi比例变化情景。它们仍由同一ODE和假设生成，无测量噪声或生物学重复，不能当作独立湿实验验证。邻近比例检查保持ODE与回归参数固定，检查输入假设改变的影响。
+[评价输入](../../experiments/dual-channel/ode-linked-v5/inputs/evaluation.csv)包含未用于拟合的新组合及Mi比例变化情景。它们仍由同一ODE和假设生成，无测量噪声或生物学重复，不能当作独立湿实验验证。邻近比例检查保持ODE与回归参数固定，检查输入假设改变的影响。
 
 文献依据：Manosalva 2015的[Supplementary Fig. 1（S1页）及Supplementary Table 1（S10页）](https://pure.mpg.de/rest/items/item_2175401_5/component/file_3032827/content)支持Mi分泌#18且其在报告谱中占优；Mi栏未列#3，不足以给出#3/#18配对定量比，也不能证明#3绝对为零。[Choe 2012 Fig. 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC3360977/)中的根结线虫是M. hapla，不能直接作为Mi比例。完整检索记录的本地路径及校验值见来源清单。
 
@@ -164,3 +164,11 @@ main 的输入为 `{"density": 数值, "density_unit": "J2/100 cm^3 soil"}`；Ec
 
 - 输出到：湿实验配对标定、Eco 条件情景接口。
 - 依赖于：固定实验 protocol、独立参照计数、[Eco 权威配置与实现](P2-economic-benefit.md)、既有 ODE 研究入口。
+
+## 2026-10-15 互补权重迭代
+
+[v5 模拟包](../../experiments/dual-channel/ode-linked-v5/README.md)统一了预设显色与 ODE 入口的权重：
+P3 使用 (2/3, 1/3)，P18 使用 (1/3, 2/3)，共同显色尺度为 1 μM/nM。
+冻结的 r05 两路 ODE 参数及 r02 回归模型随版本保存；三系数回归形式保持不变。
+Docking 仅约束偏好方向，精确权重属于模拟假设。历史 v4 结果见
+[原模拟包](../../experiments/dual-channel/ode-linked/README.md)。

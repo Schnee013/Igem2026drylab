@@ -1,0 +1,128 @@
+{
+  "as_of": "2026-10-15",
+  "protocol_id": "SIM_V5_MI1TO10_CE10TO1_SENSOR2TO1_1TO2_G1_8H_A480",
+  "base_main_commit": "da408f407802aa2c0df8dc11346cad4638c1375e",
+  "source_kind": "v5/r05/r02 synthetic scenario and frozen parameter replay",
+  "allowed_use": "Recompute synthetic colors and regression diagnostics with the shared ODE and Eco implementations",
+  "promotion": "inputs JSON/CSV are canonical v5 replay fixtures; results are compact reviewed summaries; original fit scripts, histories, plots and trajectories remain in the research workspace",
+  "sources": [
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-15-paired-matrix-v5/matrix.json",
+      "bytes": 10534,
+      "sha256": "5888244e72783cf702022355fbe7607c50a3508fdd73ffa195a2ac701bb560d0"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-15-paired-matrix-v5/generate.py",
+      "bytes": 2517,
+      "sha256": "c1d67525e4c5e18cc6e8069bc3d869ab78d79d41a3e3a44e5de75075910628f0"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/channel18.json",
+      "bytes": 2416,
+      "sha256": "08d74035aefa351a6a735a6af159ce129e6712ce06309beed65c1bcea9bb439c"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/channel3.json",
+      "bytes": 2416,
+      "sha256": "ef47cbf1d31e2917f112f20613ddf5d91b5216f28763b211783ec11e1a2d5f5d"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/checks.json",
+      "bytes": 474,
+      "sha256": "ebb577ce31033a2bd2b8553482ce9ae04b5457680e1df6bdf875ec8895b7e178"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/endpoint-fit.png",
+      "bytes": 107252,
+      "sha256": "7b2011c4e053745f09ab254c8d97ba4c29457184547bb52477a7ba00aa41cdec"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/endpoints.csv",
+      "bytes": 3785,
+      "sha256": "fdf3631999cf78b608ab88375f78ee5aa2806ea7b684c61627ce9d6fa63235ff"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/fit-history.json",
+      "bytes": 17634,
+      "sha256": "5022d40e627cd749fe08c6731614d5ee2adf1701ef9ef75f9911c0bb669bca1e"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/fit-source.txt",
+      "bytes": 14425,
+      "sha256": "352c9c61a559962681dbb65ac83bad4572d8b18bc10ffa672bddc41e8fdcc3b0"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/parameter-provenance.csv",
+      "bytes": 4982,
+      "sha256": "0bf0e61caa8ed93538b7349d269a23a5e89b177e18ee8b4be61c9e9e01e0b5e1"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/run.json",
+      "bytes": 3221,
+      "sha256": "22f5d4d63f6a243abc3ee85e6ed223a7eb4be39a8fc9d2f81540a804c423616d"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/summary.json",
+      "bytes": 1537,
+      "sha256": "1f1090d282f0c736a286122011dd32ec007c7b1a4041f7512999aa18f7e7fb16"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/timecourses.csv",
+      "bytes": 176965,
+      "sha256": "895a1656eedb2c75f123660cd1961aee7261e2980ad3325752b3455e589487b4"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r05/timecourses.png",
+      "bytes": 156678,
+      "sha256": "8d154a80f2005e0ee730ecbe19c9e90587a195efc3521eddf15a2857e812764f"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/calibration-pairs.csv",
+      "bytes": 1191,
+      "sha256": "3a414acb54369ef51fe38122ec1fcd42fc13d0a4e4d46dd8584249b4b453e966"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/checks.json",
+      "bytes": 286,
+      "sha256": "8f7680918f5c7497a3e2970955d9440b8f5a5971f23336c7288517a326eaf1be"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/dual-channel-check.png",
+      "bytes": 129500,
+      "sha256": "4ff4c66b110ffc421c095c12e5b8fcdac8527baec3efb170e258c91e8e6af2b6"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/model.json",
+      "bytes": 1650,
+      "sha256": "5a196da95d964a8e9ba4164dd29013853e38b01b7f14e8fe798d5251414c17cb"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/predictions.json",
+      "bytes": 70430,
+      "sha256": "7117a5e77e3e3cb67b52e6e609b888baf9074b43c5d9213810855c14acfcd5c8"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/run-source.txt",
+      "bytes": 13189,
+      "sha256": "f9acd2e48ba2729a1d92ae3f13ef2f16900007b0505ec2b3ec6261b9b21fdfaf"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/run.json",
+      "bytes": 4412,
+      "sha256": "0c470856eff0d22d4aa43ecdf11ac6ebb16fde1c2887216597dc78ead0152bd7"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/summary.json",
+      "bytes": 3202,
+      "sha256": "a87de0cfcf0d93ce951c16cc854e6eef207a20e232235ad3042a51ca4ec6e856"
+    },
+    {
+      "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r02/test-pairs.csv",
+      "bytes": 9433,
+      "sha256": "3fb3ca9c0c42bb549777726a17e23e3a6606b61e24fa343d1f0c616ad3fd8342"
+    }
+  ],
+  "reproduction": "README.md",
+  "validation": "validation.json",
+  "literature_context": "../ode-linked/provenance.json (source pointers and hashes for the prior species-profile review)"
+}
