@@ -1,0 +1,15 @@
+delft_id,supady_model_B_id,role,delft_value,supady_value,numerical_match,reaction_inferred_unit,caveat
+K1,k1,受体活化,0.071,0.071,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K2,k2,受体失活,2.457,2.457,True,s^-1,Units inferred from reaction law; not independent measurement
+K3,k12,活化受体损失,1.199,1.199,True,s^-1,Units inferred from reaction law; not independent measurement
+K4,k3,G蛋白活化,0.724,0.724,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K5,k4,GTP水解,1.259,1.259,True,s^-1,Units inferred from reaction law; not independent measurement
+K6,k41,Sst2活性态促进水解,1.124,1.124,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K7,k5,G蛋白再结合,0.002,0.002,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K8,k6,支架装配,0.021,0.021,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K9,k7,支架解离,0.004,0.004,True,s^-1,Units inferred from reaction law; not independent measurement
+K10,k71,Sst2活性态促进支架解离,0.261,0.261,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K11,k8,Fus3活化,0.818,0.818,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K12,k91,Sst2依赖Fus3失活,0.017,0.017,True,uM^-1 s^-1,Delft K12 prints s^-1; unit here derived from bimolecular law
+K13,k10,Sst2状态转化,0.342,0.342,True,uM^-1 s^-1,Units inferred from reaction law; not independent measurement
+K14,k11,Sst2状态恢复,0.643,0.643,True,s^-1,Units inferred from reaction law; not independent measurement
