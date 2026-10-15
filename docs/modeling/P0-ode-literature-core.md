@@ -24,6 +24,8 @@ python -m src.modeling.ode.plot_literature_core temp/ode-literature-core/timecou
 python -m unittest discover -s tests/modeling -p 'test_ode*.py' -v
 ```
 
+每次运行的 `--output` 必须为尚不存在的目录。运行器在计算前原子创建该目录，已有目录（包括空目录）或文件会被拒绝，确保 CSV、图片、`run.json` 和事件记录保持同一运行身份。失败运行保留其目录；重试时使用新路径。
+
 运行器支持`--parameters`、`--source`、`--ligand`、`--hours`、`--output`。默认归一化输入0、0.1、1、10，8小时；结果包含全部重建分子状态及颜色，run.json绑定参数、软件版本、输入和CSV校验和。时间曲线、图片和原始运行日志可重新生成并保存在本地；仓库只保存规范输入与紧凑验证。
 
 ## 六个独立方程

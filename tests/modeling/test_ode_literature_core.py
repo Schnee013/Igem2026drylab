@@ -125,6 +125,37 @@ class LiteratureCoreTests(unittest.TestCase):
             self.assertTrue(rows)
             self.assertEqual({row['ligand_normalized'] for row in rows},{'0.0','0.1'})
 
+    def test_repeat_run_preserves_all_existing_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dest=Path(tmp)/'run'
+            command=[sys.executable,str(ROOT/'src/modeling/ode/run_literature_core.py'),
+                     '--output',str(dest)]
+            first=subprocess.run(command,cwd=tmp,capture_output=True,text=True)
+            self.assertEqual(first.returncode,0,first.stderr)
+            plot=subprocess.run([sys.executable,str(ROOT/'src/modeling/ode/plot_literature_core.py'),
+                                 str(dest/'timecourses.csv')],cwd=tmp,capture_output=True,text=True)
+            self.assertEqual(plot.returncode,0,plot.stderr)
+            before={p.name:p.read_bytes() for p in dest.iterdir()}
+            repeat=subprocess.run(command+['--hours','.1','--ligand','0'],
+                                  cwd=tmp,capture_output=True,text=True)
+            self.assertNotEqual(repeat.returncode,0)
+            self.assertIn('choose a new directory',repeat.stderr)
+            self.assertEqual(before,{p.name:p.read_bytes() for p in dest.iterdir()})
+            self.assertEqual(len((dest/'run_state_events.tsv').read_text().splitlines()),2)
+
+    def test_existing_empty_directory_or_file_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            for kind in ('directory','file'):
+                dest=Path(tmp)/kind
+                if kind=='directory': dest.mkdir()
+                else: dest.write_text('preserve me')
+                result=subprocess.run([sys.executable,str(ROOT/'src/modeling/ode/run_literature_core.py'),
+                                       '--output',str(dest)],capture_output=True,text=True)
+                self.assertNotEqual(result.returncode,0)
+                self.assertIn('already exists',result.stderr)
+                if kind=='directory': self.assertEqual(list(dest.iterdir()),[])
+                else: self.assertEqual(dest.read_text(),'preserve me')
+
 
 if __name__=='__main__':
     unittest.main()

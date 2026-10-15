@@ -28,6 +28,11 @@ def main():
     model=LiteratureCoreModel(args.parameters,args.source)
     for ligand in args.ligand:
         model.drive(ligand)
+    # Atomically reserve a fresh directory before producing run evidence.
+    try:
+        args.output.mkdir(parents=True,exist_ok=False)
+    except FileExistsError:
+        parser.error('--output already exists; choose a new directory for each run')
     end=args.hours*3600
     times=np.unique(np.r_[0,np.geomspace(end*1e-8,end,200),np.linspace(0,end,201)])
     rows=[]
@@ -37,7 +42,6 @@ def main():
         if not np.isfinite(expanded).all() or expanded.min() < -1e-8:
             raise RuntimeError('Nonphysical trajectory; output not saved')
         rows.extend([ligand,time,*expanded[:,i],expanded[7,i]/model.pools[3]] for i,time in enumerate(times))
-    args.output.mkdir(parents=True,exist_ok=True)
     with (args.output/'timecourses.csv').open('w') as f:
         writer=csv.writer(f)
         writer.writerow(['ligand_normalized','time_s',*RECONSTRUCTED,'MAPK_fraction'])
