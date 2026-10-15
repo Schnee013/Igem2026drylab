@@ -1,0 +1,42 @@
+{
+  "3": {
+    "K_L_normalized": 488891.4576018619,
+    "a_uM_per_h": 0.11499131858590207,
+    "b_uM_per_h": 0.09722785337648886,
+    "rmse_uM": 0.003680772548805723,
+    "mae_uM": 0.00304516315264072,
+    "max_abs_error_uM": 0.007018649985203851,
+    "rmse_fraction_of_target_dynamic_range": 0.021536435125990936,
+    "sse_uM2": 0.00012193277900437602,
+    "optimizer_success": true,
+    "evaluations": 52,
+    "K_L_at_search_boundary": false,
+    "a_at_search_boundary": false,
+    "sampled_K_L_within_5pct_best_SSE": [
+      464158.8833612772,
+      492862.9978874855
+    ],
+    "profile_note": "sampled numerical candidates, not a confidence interval or proof of uniqueness",
+    "interpretation": "synthetic endpoint approximation; no empirical validation"
+  },
+  "18": {
+    "K_L_normalized": 441362.8671027855,
+    "a_uM_per_h": 0.10283107334358885,
+    "b_uM_per_h": 0.09722785337648886,
+    "rmse_uM": 0.0035871271133590533,
+    "mae_uM": 0.0029920195987690468,
+    "max_abs_error_uM": 0.006223173288576689,
+    "rmse_fraction_of_target_dynamic_range": 0.024059998931066827,
+    "sse_uM2": 0.0001158073283465609,
+    "optimizer_success": true,
+    "evaluations": 51,
+    "K_L_at_search_boundary": false,
+    "a_at_search_boundary": false,
+    "sampled_K_L_within_5pct_best_SSE": [
+      441328.90746884124,
+      464158.8833612772
+    ],
+    "profile_note": "sampled numerical candidates, not a confidence interval or proof of uniqueness",
+    "interpretation": "synthetic endpoint approximation; no empirical validation"
+  }
+}

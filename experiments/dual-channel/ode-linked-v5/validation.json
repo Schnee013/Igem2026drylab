@@ -1,0 +1,39 @@
+{
+  "as_of": "2026-10-15",
+  "regeneration": {
+    "status": "passed",
+    "comparisons": [
+      {
+        "file": "calibration.csv",
+        "rows": 9,
+        "max_absolute_difference": 1.2255821357776142e-15
+      },
+      {
+        "file": "evaluation.csv",
+        "rows": 36,
+        "max_absolute_difference": 1.913183153567921e-15
+      },
+      {
+        "file": "ode-endpoints.csv",
+        "rows": 18,
+        "max_absolute_difference": 2.55351295663786e-14
+      }
+    ],
+    "coefficient_and_metrics_match_r02": true
+  },
+  "scope": "deterministic software reproduction; no measured biological validation",
+  "unittest": {
+    "command": "python -m unittest tests.modeling.test_dual_channel_generation -v",
+    "tests": 3,
+    "status": "passed",
+    "coverage": [
+      "v4 frozen regeneration and regression",
+      "v5 frozen regeneration and regression",
+      "mismatched adapter rejection"
+    ]
+  },
+  "payload_policy": {
+    "status": "passed",
+    "existing_warning": "unrelated docking input_manifest.tsv lacks sha256; unchanged"
+  }
+}

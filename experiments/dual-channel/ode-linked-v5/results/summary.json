@@ -1,0 +1,94 @@
+{
+  "evidence_status": "simulated",
+  "coefficients": [
+    3.211510188850032,
+    -26096.58381205424,
+    45856.790112151975
+  ],
+  "condition_number": 3.910516563415265,
+  "density_unit": "J2/100 cm^3 soil",
+  "calibration_metrics": {
+    "n": 9,
+    "rmse": 4.833010165185215,
+    "mae": 4.453950028987268,
+    "max_absolute_error": 6.450327506031073
+  },
+  "scenario_metrics": {
+    "1:10": {
+      "channel3": {
+        "n": 12,
+        "rmse": 34.030771905050194,
+        "mae": 30.27333317321418,
+        "max_absolute_error": 57.42858856936398
+      },
+      "channel18": {
+        "n": 12,
+        "rmse": 22.520445320306198,
+        "mae": 17.54530785161778,
+        "max_absolute_error": 39.04698330401638
+      },
+      "dual": {
+        "n": 12,
+        "rmse": 2.6683002294844544,
+        "mae": 2.411041549286138,
+        "max_absolute_error": 4.221518366364236
+      }
+    },
+    "1:20": {
+      "channel3": {
+        "n": 12,
+        "rmse": 34.108328485837795,
+        "mae": 30.376942014081077,
+        "max_absolute_error": 57.42858856936398
+      },
+      "channel18": {
+        "n": 12,
+        "rmse": 22.353351802772085,
+        "mae": 17.550387322085545,
+        "max_absolute_error": 39.04698330401638
+      },
+      "dual": {
+        "n": 12,
+        "rmse": 4.58062927002633,
+        "mae": 4.181527489612584,
+        "max_absolute_error": 7.801686199637771
+      }
+    },
+    "1:5": {
+      "channel3": {
+        "n": 12,
+        "rmse": 33.89878498930764,
+        "mae": 30.092787156011024,
+        "max_absolute_error": 57.42858856936398
+      },
+      "channel18": {
+        "n": 12,
+        "rmse": 22.857287893490785,
+        "mae": 17.566824029812235,
+        "max_absolute_error": 39.04698330401638
+      },
+      "dual": {
+        "n": 12,
+        "rmse": 4.588598887312487,
+        "mae": 4.463897486966775,
+        "max_absolute_error": 6.257628167410758
+      }
+    }
+  },
+  "interval_scope": "formal OLS diagnostic; no empirical coverage",
+  "input_files": [
+    {
+      "path": "experiments/dual-channel/ode-linked-v5/inputs/calibration.csv",
+      "sha256": "9899cafd34806eb83cce333d4d978c1158d421ff532747f6434bdb58fccf75f4"
+    },
+    {
+      "path": "experiments/dual-channel/ode-linked-v5/inputs/evaluation.csv",
+      "sha256": "c27c2aa27d7d50c1cbccecdb15c58fdc9f3a30c82ccb3cc93f6915010b6161ab"
+    },
+    {
+      "path": "experiments/economic/configs/eco_model_example_model.json",
+      "sha256": "0ba3b5e18ae29d320ede8a8a51d21f39d57a681ad279a3a0f67b76688086e7e3"
+    }
+  ],
+  "scope": "regression replay of saved ODE signals, not new ODE fitting or wet-lab validation"
+}
