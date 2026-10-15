@@ -1,11 +1,11 @@
 # iGEM DryLab 干实验 — 项目索引
 
 > 2026-10-10 局部更新：保留本地研究增量并接入 final-docking；TWF154 六组机制分析仍为单重复探索证据。
-> 最后校准：项目全表 2026-07-31；ODE 条目 2026-08-16；P2 经济效益条目 2026-10-04。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
+> 最后校准：项目全表 2026-07-31；ODE／双通道条目 2026-10-15；P2 经济效益条目 2026-10-04。本文是项目路由表；详细结果数值沿链接回到领域文档、日志和原始结果文件。
 >
 > Source: system-local `PACKAGE_STATUS.md`、直接 gate/run artifacts、领域权威文件。
 >
-> As of: 项目全表 `2026-07-31`，ODE 条目 `2026-08-16`，P2 经济效益条目 `2026-10-04`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
+> As of: 项目全表 `2026-07-31`，ODE／双通道条目 `2026-10-15`，P2 经济效益条目 `2026-10-04`；运行状态使用其条目内的独立核验时间，超过新鲜度边界后不继续视为当前状态。
 >
 > Allowed use: 项目级状态投影、优先级、阻塞项和活跃入口。
 >
@@ -29,8 +29,9 @@
 | **P0（探索）** | 双/多突变 docking | 否 | **phase2_local_schema_test_ready_blocked_by_frame_repair（2026-07-30）**：canonical genotype、multi-mutation FASTA、旧单突变只读兼容、WT/A/B/AB validator 和 synthetic focused tests 已完成；仍须等共同 frame 修复、单突变全量重跑和 active shortlist 重建后才能冻结真实 AB，当前未生成双突变结构或启动计算 | [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md) |
 | **P0（本轮完成）** | Gpr2 TWF154 N84V/V368R 配体偏好机制 MD | 对应全长湿实验构建体 | **six_rep1_mechanism_analysis_validated; single_rep_exploratory**：基础七指标后，已补齐位点邻域、基团锚定、局部拟合/lid、时间顺序四项分析及机制图/证据表。局部结构线索有支持，突变增强选择性的因果链未建立；不同起点、单重复限制保留。AutoDL关机、定时任务删除；无追加MD/FEP | [机制中文报告](../experiments/md-simulation/results/gpr2-twf154-n84v-v368r/autodl-production-20261006/mechanism-20261010/REPORT_CN.md)、[机制交付入口](../experiments/md-simulation/results/gpr2-twf154-n84v-v368r/autodl-production-20261006/mechanism-20261010/README.md)、[基础后分析](../experiments/md-simulation/results/gpr2-twf154-n84v-v368r/autodl-production-20261006/analysis-20261008/README.md)、[当天记录](logs/2026-10-10.md) |
 | **P0** | MD 模拟（突变体稳定性 + 嵌合 Gpa1 验证） | 否/酵母触发 | **compute_triage + gpr2_wt_r59c_rep1_analyzed + gpr3_r167y_rep1_analyzed**：旧 Slurm control/chctrl 3 reps 为历史完成证据，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；R1 Z-only 已降级为省算力不足；chimeric 候选 full MD 暂停；Gpr2 WT/R59C 200 ns rep1、七 driver、matched single-rep 和 ligand-path triage 已完成；Gpr3 R167Y AutoDL 200 ns rep1、postprocess 和共享七 driver 已完成，当前为 single-rep exploratory，WT arm 尚无 production completion | [P0-md-simulation.md](modeling/P0-md-simulation.md) |
-| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **phase2b_runners_verified_result_package_pending**：Phase 0/1 可执行原型、Phase 2A 分析合同及 Phase 2B 局部敏感性、Morris、Sobol、重点曲面 runner/config/test 已验证；完整长运行结果尚缺仓库内紧凑结果包与恢复指针，候选冻结和项目校准仍待证据接纳 | [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) |
+| **P0** | 信号通路 ODE 建模（酵母 STE2） | 已锁定酵母 | **source_grounded_prototype_uncalibrated；phase2b_result_package_pending**：文献公共核心数值实现与双通道生成接口已验证，项目校准待完成；原归一化 Phase 2B 完整结果仍待接纳 | [方向入口](modeling/P0-signal-pathway-ode.md)、[文献公共核心](modeling/P0-ode-literature-core.md) |
 | **P0** | 嵌合 Gpa1 同源性建模 | 酵母触发 | **MD_validation_paused_compute_triage**：42 个 AF3 jobs + Top 3 选择完成；AoGpa2 序列核查通过；旧 Slurm control/chctrl 组 3 reps 完成，E2 有 chctrl rep1 early-gate 与 R1 reduced-chctrl exploratory short-run 证据；候选迁移规则仍需非 Z-only 的 source-backed 物理依据，候选体系验证暂停 | [P3-chimeric-gprotein.md](modeling/P3-chimeric-gprotein.md) |
+| **P1** | 双通道显色→目标虫密度校准 | 酵母显色读数 | **exploratory_interface_simulation_only**：冻结参数生成、回归重放及 Eco 防护已验证；27 份独立样本设计与空白模板已提供，实测标定待开展 | [方法与证据边界](modeling/P1-dual-channel-calibration.md)、[可复现模拟包](../experiments/dual-channel/ode-linked/README.md) |
 | **P1** | 土壤 ascaroside 扩散模型 | 否 | not_started | [P1-soil-diffusion.md](modeling/P1-soil-diffusion.md) |
 | **P1** | 标志物→线虫丰度贝叶斯推断 | 否 | not_started | [P1-bayesian-inference.md](modeling/P1-bayesian-inference.md) |
 | **P2** | 早期检测经济效益模型 | 否 | **framework_mvp_validated + spain_tomato_demo_integrated**：公开框架 MVP 保留；西班牙设施番茄—南方根结线虫示例已集成密度—损失函数、三级处理、EUR/ha 核算和中英文报告。示例不是田间处方，跨地区/作物的最终 ROI 仍待 HP、产品性能和田间参数校准 | [P2-economic-benefit.md](modeling/P2-economic-benefit.md) |
@@ -61,7 +62,7 @@
 2. **chimeric Gpa1 省算力方案调研** — 候选体系 production 仍暂停；R1-Z 对照与路线选择历史见 `experiments/md-simulation/analysis/r1_tight_full_rebuild_chctrl_20260703/r1_z_only_public_atom_count_comparison.md` 和 `experiments/md-simulation/analysis/chimeric_route_family_selection_20260704.md`。R4 的唯一当前材料边界见 `experiments/chimeric-gpa1/literature/r4_material_decision_addendum_20260706.md`；`experiments/chimeric-gpa1/literature/r4_tool_validation_plan_20260706.md` 作为非执行 validation-design evidence。任何 full-production 启动都需要新的当前 work order 和审批。
 3. **docking-repro frame repair** — 当前状态和方法边界见 [P0 molecular docking](modeling/P0-molecular-docking.md) 与 [docking-repro directory contract](../experiments/docking-repro/README.md)。新门已冻结；seed-44 独立 holdout 归档在 `temp/docking_frame_repair_20260731_e2_full_seed44_r1/`，终态为 `TERMINAL_ABNORMAL / fail_stop_before_full`。下一步是对失败门保持现状，或另行决定新的 geometry 策略与独立验证；当前不得启动剩余 320 jobs。旧 shortlist/ratio/IFP 只保留为带日期的撤回历史证据。
 4. **双/多突变 docking（Phase 2 local ready / blocked）** — 方向、证据边界和核心文献见 [multi-mutant-docking/README.md](modeling/multi-mutant-docking/README.md)，执行合同见 [multi-mutant-docking-execution-plan-20260730.md](../codex/docs/plans/multi-mutant-docking-execution-plan-20260730.md)，本地 schema/test 入口见 [multi-mutant local contract](../experiments/docking-repro/multi-mutant/README.md)。当前不从旧 ratio/IFP 组合候选；只有 frame repair 和 repaired single-mutant shortlist 完成后，才冻结少量真实 WT/A/B/AB 周期。
-5. **ODE 并行推进** — 可执行入口为 `src/modeling/ode/` 与 `experiments/ode-model/`，分析合同入口为 `experiments/ode-model/configs/phase2a_analysis_contract.json`；参数证据/边界回 [P0-signal-pathway-ode.md](modeling/P0-signal-pathway-ode.md) 和 [lumped 参数登记表](modeling/P0-ode-lumped-parameter-register.md)。当前只支持归一化 `scenario_prior`；下一门槛是补齐并审查 Phase 2B 紧凑结果包，Kd/calibration、可识别性、拟合和不确定性传播仍未完成。
+5. **ODE 与双通道计算链** — [ODE 方向入口](modeling/P0-signal-pathway-ode.md)区分原归一化工程情景与[文献公共核心](modeling/P0-ode-literature-core.md)；[双通道方法](modeling/P1-dual-channel-calibration.md)和[生成／重放入口](../experiments/dual-channel/ode-linked/README.md)连接显色、目标虫密度与 Eco 条件情景。当前可作可复现的计算概念验证；独立实测校准、检测限和构建优化结论待证据。原 Phase 2B 结果接纳门保持。
 6. **早期检测经济效益模型** — 可执行入口为 `src/modeling/economic/eco_model.py`，配置和双语报告路由见 `experiments/economic/README.md`；西班牙设施番茄固定示例可运行，但一般化与最终商业结论仍需沿 [early-detection economic-benefit dossier](papers/p2-economic-benefit/README.md) 和 [HP 问卷](modeling/P2-economic-benefit-hp-questionnaire.md) 回收参数。
 7. **湿实验/reporter 输出参数讨论** — 需要结合 [overview-v4.md](prd/overview-v4.md)、[决策 003](decisions/003-chassis-yeast-ste2-integration.md)、[决策 004](decisions/004-reporter-output-architecture.md) 与 ODE 需求。
 
@@ -193,7 +194,8 @@
 - [x] 1/2/4 copy 归一化情景比较（不是实际构建优选结论）
 - [x] Phase 2A 分析合同：18 字段参数空间、输出指标、主/诊断 contexts、参数—潜在可观测量—证据缺口和 guarded ratio
 - [x] Phase 2B runner/config/test：局部时变敏感性、Morris、条件性 Sobol 和重点双参数曲面；当前支持设计预检与 `scenario_prior` 技术诊断
-- [ ] Phase 2B 紧凑结果包与正式结果接纳；可识别性、拟合/不确定性传播和逐级 pathway kinetic model
+- [x] 独立文献公共核心与双通道生成／重放接口；范围为未校准的计算概念验证，见[ODE 入口](modeling/P0-signal-pathway-ode.md)和[双通道方法](modeling/P1-dual-channel-calibration.md)
+- [ ] Phase 2B 紧凑结果包与正式结果接纳；项目可识别性、实测拟合、不确定性传播及文献动力学迁移适用性验证
 - [ ] 与 docking 联动：WT 场景结构可继续使用；mutant 候选标签/排序/IFP 等待 frame-repaired 全量候选清单，Kd/calibration 需等待单独文献审查
 
 ### ④ 其他待启动

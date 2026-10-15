@@ -3,7 +3,7 @@ direction: P0-signal-pathway-ode
 status: in_progress
 priority: P0
 chassis_dependent: true
-last_updated: 2026-08-16
+last_updated: 2026-10-15
 ---
 
 # P0: 信号通路 ODE 建模（酵母 STE2）
@@ -25,6 +25,14 @@ last_updated: 2026-08-16
 > **2026-08-10 Phase 2A 边界校准**：机器合同固定 18 个模型字段的筛选范围、主/诊断 ligand contexts、输出指标，以及参数—潜在可观测量—证据缺口映射。`ratio_color_8h` 对零/近零计算对照 denominator 使用 `NaN`、显式 validity flag 和 reason；正 ligand 计算情景缺失 matched control 时 runner fail closed。Phase 2A 仍是 `scenario_prior` 分析合同；Phase 2B 负责模型侧敏感性，Phase 2C 负责可识别性，具体实验接口进入后续 DBTL handoff gate。
 >
 > **Phase 2B 实现与证据边界（核验至 2026-08-16）**：局部时变敏感性、Morris、条件性 Sobol 和重点双参数曲面的 runner、配置、测试及设计预检已具备，允许用于 `scenario_prior` 技术诊断。完整长运行数值尚缺仓库内紧凑结果包与恢复指针；候选冻结需在来源哈希、输出校验和、生成命令、软件身份和恢复入口完成审查后接纳。实现经过见 [2026-08-07-yrx 日志](../logs/2026-08-07-yrx.md)，项目当前状态回 [INDEX](../INDEX.md)。
+
+## 两套实现与双通道接口（2026-10-15）
+
+- **归一化工程情景**：原 Phase 0/1 和 Phase 2 runner 继续支持 copy number、gain、leakage 与观察时间的条件比较；其参数合同和 Phase 2B 结果接纳门保持不变。
+- **文献公共核心**：[六状态方法](P0-ode-literature-core.md)提供独立的 G 蛋白—Fus3—显色入口。来源反应、内部速率与项目两端假设分开记录；数值一致性已验证，来源动力学向项目菌株及小时尺度迁移仍待确认。合并输出不再分别识别拷贝数与增益贡献。
+- **下游密度接口**：[双通道校准](P1-dual-channel-calibration.md)通过两路冻结合成配置生成显色读数，再估计目标虫密度并调用 Eco 条件情景。参数、生成／重放命令和验证入口见[模拟包](../../experiments/dual-channel/ode-linked/README.md)。这项计算交付不构成真实选择性、检测限或田间分档验证。
+
+接纳与联合验证指针见 [2026-10-15 规范日志](../logs/2026-10-15.md)。
 
 ## 解决什么问题
 
@@ -59,7 +67,7 @@ last_updated: 2026-08-16
 - 项目校准证据尚未进入模型；Gpr-ascr 的 Kd/EC50-like、Emax、Hill、basal leak、coupling efficiency 和 reporter gain 仍不能固定。
 - 旧 docking mutant shortlist 已撤回；尚未把 frame-repaired 全量排名展开成逐 receptor-ligand 的可校准配置，当前归一化 suite 不代表具体 Gpr2/Gpr3–ascr 构建。
 - Phase 2B 完整长运行结果尚缺仓库内紧凑结果包；结果接纳需要可恢复的来源与输出身份。
-- Phase 2C 可识别性、校准拟合、不确定性传播和必要的逐级 pathway kinetic model 尚未实现；具体实验接口仍需通过后续 DBTL handoff gate。
+- 项目 Phase 2C 可识别性、实测校准拟合及不确定性传播尚未完成；文献公共核心已提供独立机制原型，内部速率迁移适用性仍待验证。双通道探索实验接口见其方法文档，具体 protocol 尚需湿实验确认。
 
 ### 完整完成后的形态
 

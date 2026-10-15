@@ -3,7 +3,7 @@ direction: P2-economic-benefit
 status: framework_mvp_validated + spain_tomato_demo_comparison_hardened
 priority: P2
 chassis_dependent: false
-last_updated: 2026-10-07
+last_updated: 2026-10-15
 ---
 
 # P2: 早期检测经济效益模型
@@ -25,6 +25,10 @@ P2 经济效益模型和 P0 ODE 的建模原理不同：
 - ODE 是动态反应网络模型：输入 ascr 浓度、配体-受体激活、G protein/MAPK/reporter 参数，求解随时间变化的 pathway/reporter 输出。
 - P2 是 deterministic cost-accounting 模型：输入作物、线虫密度、损失函数、作物价格、早期检测/干预成本和干预效果，直接计算 gross loss、break-even early-program cost、net benefit 和 ROI。
 - P2 当前已有 `src/modeling/economic/` 的公开框架 MVP，以及固定为“西班牙设施番茄—南方根结线虫”的文献支持演示。后者分别报告“检测＋防治整套项目相对无防治”的收益和“检测分级相对未检测统一处理”的条件增量价值，并给出各自的净收益、增量成本、ROI 和密度盈亏平衡。它仍是简化示例，不是田间处方、种植前期望信息价值或对其他地区/作物的最终 ROI 校准；不能把 docking Delta G、ODE Kd 或未验证 wet-lab 假设当作经济确定输入。
+
+## 双通道密度输入
+
+[双通道校准接口](P1-dual-channel-calibration.md)将配对显色读数转换为目标南方根结线虫 J2 密度，并检查单位、协议、QC、饱和及校准范围后生成 Eco 条件情景。当前输入与验证均为模拟；形式预测区间尚无实测覆盖率保证，跨阈值时保留分档不确定性。复现与证据回到[ODE 联合模拟包](../../experiments/dual-channel/ode-linked/README.md)，不改变本方向对当地参数与实际检测性能的校准要求。
 
 ## 方法路线
 
