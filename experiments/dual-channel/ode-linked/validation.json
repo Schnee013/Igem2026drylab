@@ -1,0 +1,38 @@
+{
+  "as_of": "2026-10-13",
+  "unittest": {
+    "command": "python -m unittest tests.modeling.test_dual_channel tests.modeling.test_eco_model -q",
+    "tests": 28,
+    "status": "passed"
+  },
+  "replay": {
+    "status": "passed",
+    "max_metric_absolute_difference": 0.0,
+    "coefficient_atol": 1e-08,
+    "calibration_signals_match_saved_ode_endpoints": true
+  },
+  "wetlab_template": {
+    "rows": 27,
+    "unique_ids": 27,
+    "combinations": 9,
+    "replicates": 3,
+    "training": 18,
+    "validation": 9,
+    "measurements_filled": false
+  },
+  "payload_policy": {
+    "status": "passed",
+    "existing_warning": "unrelated docking input_manifest.tsv lacks sha256; not changed"
+  },
+  "scope": "software/snapshot checks only; no measured biological validation",
+  "serialization_check": {
+    "line_endings": "LF",
+    "parsed_tables_unchanged": true,
+    "normalized_files": [
+      "experiments/dual-channel/ode-linked/inputs/calibration.csv",
+      "experiments/dual-channel/ode-linked/inputs/ode-endpoints.csv",
+      "experiments/dual-channel/ode-linked/inputs/evaluation.csv",
+      "experiments/dual-channel/ode-linked/payload-manifest.tsv"
+    ]
+  }
+}

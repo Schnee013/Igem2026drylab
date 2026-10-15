@@ -1,0 +1,76 @@
+{
+  "equation": "d=beta0+beta3*x3+beta18*x18",
+  "coefficients": [
+    3.602712159286246,
+    -6196.765980748936,
+    57028.764270023144
+  ],
+  "input_unit": "blank-corrected A480, 1 cm effective path; both channels paired",
+  "density_unit": "J2/100 cm^3 soil",
+  "protocol_id": "SIM_V4_MI1TO10_CE10TO1_Q1_8H_A480",
+  "evidence_status": "simulated",
+  "reference_basis": "hypothetical spike_count",
+  "calibration_density_range": [
+    0.0,
+    120.0
+  ],
+  "hull_equations": [
+    [
+      0.09930972301420503,
+      -0.9950565707108524,
+      -2.1508343647873675e-20
+    ],
+    [
+      0.6193309391960723,
+      -0.7851300451227881,
+      -0.02341026680298247
+    ],
+    [
+      0.11698662632821737,
+      -0.9931334901514208,
+      -0.00030948701321217143
+    ],
+    [
+      -0.9399362295790983,
+      0.3413500905589874,
+      5.292628301086653e-21
+    ],
+    [
+      -0.8518602188558153,
+      0.523769192995276,
+      -0.0001020157200990044
+    ],
+    [
+      -0.09614185369320202,
+      0.9953676426167544,
+      -0.0023580262229363942
+    ],
+    [
+      -0.10592051796054283,
+      0.9943745993713689,
+      -0.0021478790773083374
+    ]
+  ],
+  "covariance": [
+    [
+      29.276640626244603,
+      514.5551886459958,
+      -9774.17643600258
+    ],
+    [
+      514.5551886459958,
+      175855.8942379809,
+      -1339093.3606314466
+    ],
+    [
+      -9774.17643600258,
+      -1339093.3606314466,
+      12020789.735139275
+    ]
+  ],
+  "residual_variance": 80.72998356648206,
+  "df": 6,
+  "condition_number": 4.931603369426068,
+  "interval_interpretation": "OLS formal residual-based interval only; deterministic simulated data, no empirical 95% coverage",
+  "formula_parameters_are_not_field_calibrated": true
+}

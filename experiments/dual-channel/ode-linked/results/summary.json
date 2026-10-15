@@ -1,0 +1,104 @@
+{
+  "data_origin": "synthetic_only",
+  "protocol_id": "SIM_V4_MI1TO10_CE10TO1_Q1_8H_A480",
+  "coefficients": [
+    3.602712159286246,
+    -6196.765980748936,
+    57028.764270023144
+  ],
+  "condition_number": 4.931603369426068,
+  "calibration_metrics": {
+    "rmse": 7.336210809697427,
+    "mae": 6.3962061358795115,
+    "max_absolute_error": 13.303712103499663,
+    "n": 9
+  },
+  "scenario_metrics": {
+    "1:5": {
+      "channel3": {
+        "rmse": 36.47613878509014,
+        "mae": 33.08425676942522,
+        "max_absolute_error": 54.961144098890564,
+        "n": 12
+      },
+      "channel18": {
+        "rmse": 31.48454809364562,
+        "mae": 27.329920538268407,
+        "max_absolute_error": 55.14591974293319,
+        "n": 12
+      },
+      "dual": {
+        "rmse": 3.9562645794596043,
+        "mae": 2.9315349170599547,
+        "max_absolute_error": 8.370094071660958,
+        "n": 12
+      },
+      "valid_point_n": 10,
+      "eco_conditional_n": 10,
+      "raw_point_band_match_n": 8,
+      "note": "Raw band match is a diagnostic; negative/out-of-domain/uncertain outputs are retained and not deployed as definite grades"
+    },
+    "1:10": {
+      "channel3": {
+        "rmse": 36.52917209754312,
+        "mae": 33.18524038900181,
+        "max_absolute_error": 54.961144098890564,
+        "n": 12
+      },
+      "channel18": {
+        "rmse": 31.55196725918149,
+        "mae": 27.422499728125604,
+        "max_absolute_error": 55.14591974293319,
+        "n": 12
+      },
+      "dual": {
+        "rmse": 3.744079393146128,
+        "mae": 2.567875173244612,
+        "max_absolute_error": 8.103336277414272,
+        "n": 12
+      },
+      "valid_point_n": 10,
+      "eco_conditional_n": 10,
+      "raw_point_band_match_n": 7,
+      "note": "Raw band match is a diagnostic; negative/out-of-domain/uncertain outputs are retained and not deployed as definite grades"
+    },
+    "1:20": {
+      "channel3": {
+        "rmse": 36.55972881268167,
+        "mae": 33.24295954102887,
+        "max_absolute_error": 54.961144098890564,
+        "n": 12
+      },
+      "channel18": {
+        "rmse": 31.59107947001068,
+        "mae": 27.475497714906002,
+        "max_absolute_error": 55.14591974293319,
+        "n": 12
+      },
+      "dual": {
+        "rmse": 6.068486720971864,
+        "mae": 4.2036606018758444,
+        "max_absolute_error": 13.039385052935074,
+        "n": 12
+      },
+      "valid_point_n": 10,
+      "eco_conditional_n": 10,
+      "raw_point_band_match_n": 7,
+      "note": "Raw band match is a diagnostic; negative/out-of-domain/uncertain outputs are retained and not deployed as definite grades"
+    }
+  },
+  "frozen_during_ratio_test": [
+    "both ODE configurations",
+    "dual and single regression coefficients",
+    "Ce ratio",
+    "common Q"
+  ],
+  "thresholds": {
+    "middle": 10.0,
+    "high": 80.0,
+    "unit": "J2/100 cm^3 soil"
+  },
+  "validation_scope": "new deterministic combinations from same fitted ODE; no independent biological validation",
+  "ratio_scope": "three assumed scenarios, not a measured uncertainty distribution",
+  "interval_scope": "OLS formal residual-based interval only; deterministic simulated data, no empirical 95% coverage"
+}
