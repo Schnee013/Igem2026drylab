@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "input": {
+    "u_max_per_second": {
+      "value": 1.206908,
+      "status": "assumed",
+      "unit": "s^-1",
+      "source": "Supady k3 * source initial receptor concentration; demonstration scale only"
+    },
+    "K_L_normalized": {
+      "value": 472207.0314290248,
+      "status": "fitted_synthetic",
+      "unit": "normalized ligand",
+      "source": "r06 matrix endpoint fit; effective scale, not receptor Kd"
+    }
+  },
+  "output": {
+    "b": {
+      "value": 44.15290626588096,
+      "status": "derived_from_assumed_blank",
+      "unit": "uM pigment equivalent h^-1",
+      "source": "assumed Cblank(8h)=0.07 mg/mL indicaxanthin equivalent"
+    },
+    "a": {
+      "value": 1033.6445089806925,
+      "status": "analytically_rescaled_synthetic_fit",
+      "unit": "uM pigment equivalent h^-1",
+      "source": "v6 optimum rescaled: all centered targets multiplied by same positive factor; profiled SSE scales by factor squared"
+    },
+    "K": {
+      "value": 0.12099437854561526,
+      "status": "assumed",
+      "unit": "active Fus3 fraction",
+      "source": "original output merge plus assumed mapping from original M to Fus3 fraction"
+    },
+    "n": {
+      "value": 2.0,
+      "status": "assumed",
+      "unit": "dimensionless",
+      "source": "original scenario; keep fixed unless data justify changing"
+    },
+    "delta": {
+      "value": 0.12,
+      "status": "assumed",
+      "unit": "h^-1",
+      "source": "preserved original scenario loss rate"
+    }
+  },
+  "fixed_assumptions": [
+    "input Hill exponent 1",
+    "zero basal core drive",
+    "constant normalized ligand",
+    "source core rates and initial pools",
+    "fixed output construct",
+    "instantaneous effective transcription response",
+    "color state interpreted as uM betaxanthin equivalent by calibration adapter"
+  ],
+  "calibration_adapter": {
+    "channel": "3",
+    "S3_weight": 0.6666666666666666,
+    "S18_weight": 0.3333333333333333,
+    "ligand_reference_nM": 1.0,
+    "equation": "L=(S3_weight*S3_nM + S18_weight*S18_nM)/1 nM",
+    "weight_status": "assumed 2:1 and 1:2; unit row sums; docking informs direction only under binding-to-activation assumption",
+    "initial_pigment_uM": 0,
+    "pigment_state": "uM indicaxanthin equivalent",
+    "read_time_h": 8,
+    "data_origin": "synthetic_assumption",
+    "matrix_sha256": "71b020c27360ca2dd3ee438f1cb195c6a19ded61a6c0fbe50a4b25b179927ef7",
+    "receptor": "Gpr2 V368R",
+    "common_endpoint_gain_uM_per_nM": 9299.754376060673,
+    "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+  }
+}

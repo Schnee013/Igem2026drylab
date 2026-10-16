@@ -1,0 +1,37 @@
+{
+  "scope": "Frozen ODE regeneration and simulated phone regression, no new fitting of ODE",
+  "coefficients": [
+    4.335372397168108,
+    -1207.9444773253072,
+    2109.8805829417693
+  ],
+  "metrics": {
+    "calibration": {
+      "n": 45,
+      "rmse": 3.924166568120671,
+      "mae": 3.1420141878468257,
+      "max_absolute_error": 10.114958494258815
+    },
+    "heldout": {
+      "n": 19,
+      "rmse": 3.008247900554428,
+      "mae": 2.540425747270144,
+      "max_absolute_error": 4.89486922435421
+    }
+  },
+  "max_reference_difference": {
+    "dual-r04/calibration-pairs.csv": 1.3489209749195652e-14,
+    "dual-r04/heldout-pairs.csv": 6.231126725708691e-14,
+    "ode-r07/endpoints.csv": 5.065947661364589e-15
+  },
+  "max_coefficient_difference": 7.73070496506989e-12,
+  "reference_reproduction_passed": true,
+  "as_of": "2026-10-17",
+  "phone_boundary_checks": "pass: unity blank; zero, >1 and NaN rejected",
+  "example_prediction_J2_per_100cm3": 39.71572101392407,
+  "existing_dual_channel_unit_tests": {
+    "command": "python -m unittest tests.modeling.test_dual_channel -q",
+    "tests": 8,
+    "result": "passed"
+  }
+}

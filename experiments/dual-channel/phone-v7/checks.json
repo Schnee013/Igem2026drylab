@@ -1,0 +1,6 @@
+{
+  "prediction_invariance_max_J2": 2.1947244022157975e-10,
+  "phone_inverse_roundtrip_max": 4.498791136780311e-17,
+  "all_8h_concentrations_within_selected_range": true,
+  "ode_rescale_max_error_mg_mL": 2.2071233729548112e-13
+}

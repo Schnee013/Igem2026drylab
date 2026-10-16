@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-17",
+  "source": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-17-phone-readout-v7",
+  "allowed_use": "Frozen-parameter ODE regeneration and simulated phone regression; not empirical validation",
+  "promotion": "Compact CSV/JSON fixtures accepted for portable reproduction; figures, search histories and trajectories retained locally",
+  "source_manifest": {
+    "created_at": "2026-10-17T01:12:10.361458+08:00",
+    "inputs": [
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-16-paired-matrix-v6/matrix.json",
+        "sha256": "9b5f271b8925aa9b60e841126f353c75b041f979cc79969e99ed97ede277d3ee"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r06/channel3.json",
+        "sha256": "c9b1de33c9493becda199036ac6acc1acbc9e616995fc27d74dce6a5b6141edc"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-synthetic-endpoints/r06/channel18.json",
+        "sha256": "39a43f82cf9dafba647e3955c364830d442df403603f2e0c389b835c54795015"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r03/sampling-plan.json",
+        "sha256": "7bab3bee16275644923e9e1a90a76d0670c71bf2f284b5607df5dbd53cd2d652"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/r03/test-pairs.csv",
+        "sha256": "bf7b06cd14d550133ebe15a819a1396043c62bd0e0f29e71e34114ac7362cd84"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/model/src/modeling/ode/literature_core.py",
+        "sha256": "6885f380d9259fd87940110d399cdf5b041be8a63c801e9b6c17f363be31a05e"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/model/experiments/ode-model/configs/literature_core_source.json",
+        "sha256": "4a8dece503509b10e7d1e7fd91be54ccaca6dc4075a937e7b3c732d96a06407b"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-10-dual-channel-main/experiments/economic/configs/eco_model_example_model.json",
+        "sha256": "0ba3b5e18ae29d320ede8a8a51d21f39d57a681ad279a3a0f67b76688086e7e3"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/ode-v1/calibration/2026-10-13-dual-channel/run.py",
+        "sha256": "f9acd2e48ba2729a1d92ae3f13ef2f16900007b0505ec2b3ec6261b9b21fdfaf"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-17-phone-readout-v7/run.py",
+        "sha256": "eadcb13286f8050b6da30a981e216665431594b6aa8811928aeb6f1bacf93a52"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "checks.json",
+        "sha256": "6dfce27f2e7ff91dae615f0f5fb22a50bf08f8735236ed74fd4cc118e4637aae"
+      },
+      {
+        "path": "dual-r04/calibration-pairs.csv",
+        "sha256": "a1bacb30137dbe347e272fd4d73b91b0ba8e31d2d6ad85b78391c5c0886fcc79"
+      },
+      {
+        "path": "dual-r04/calibration-predictions.json",
+        "sha256": "ea88462a1d414fd65e31bb782f66379933e08998cc783422709ea06c1d63ba3b"
+      },
+      {
+        "path": "dual-r04/heldout-pairs.csv",
+        "sha256": "0eeb5d041057cf4b1367830a0c43bbe8f9756af86bb936e0dd727b9f575218bc"
+      },
+      {
+        "path": "dual-r04/heldout-predictions.json",
+        "sha256": "f1f112f1762549483479a7546a7ad9a0091dfd833ae3c4c8ac185238234f4260"
+      },
+      {
+        "path": "dual-r04/model.json",
+        "sha256": "71ff715901fee8c6c11ecb071cedb95385d5d21951708b594beff1f9f1f07c57"
+      },
+      {
+        "path": "dual-r04/sampling-plan.json",
+        "sha256": "7bab3bee16275644923e9e1a90a76d0670c71bf2f284b5607df5dbd53cd2d652"
+      },
+      {
+        "path": "matrix.json",
+        "sha256": "71b020c27360ca2dd3ee438f1cb195c6a19ded61a6c0fbe50a4b25b179927ef7"
+      },
+      {
+        "path": "ode-r07/channel18.json",
+        "sha256": "37845b801288d9bccabc9406915b97d45fe9eeea1ff1bf7ddd0bca9936baefb4"
+      },
+      {
+        "path": "ode-r07/channel3.json",
+        "sha256": "1197b2e0120de439f5434a3d5ddf98fe8c428a537cd78be92083c8870231f210"
+      },
+      {
+        "path": "ode-r07/endpoints.csv",
+        "sha256": "ac9b95f7e3148ce2e82e166aeaa57c21028c3a2d00391fa3eec84494bbb2d41a"
+      },
+      {
+        "path": "ode-r07/parameters.csv",
+        "sha256": "0bb71d4735ab3fc08a527ab8eb1cfcd8109a8ecaf938f6c9900953685ebef106"
+      },
+      {
+        "path": "phone-chain.png",
+        "sha256": "876be5ce89f108aa94f088f2bd668bb28854e5f9fc0bac685bc5be5ddc7cc7ad"
+      },
+      {
+        "path": "summary.json",
+        "sha256": "160a4cd2955b408c93964ec1ece2f8ecbde2b52b51a62ed7c17a82385fc6a0d6"
+      }
+    ],
+    "entry_files": [
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-17-phone-readout-v7/README.md",
+        "sha256": "12999b1d42e20fa0aff8c8b5c59c129d8af05dd0a5f44a0361530ff7446d2322"
+      },
+      {
+        "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-17-phone-readout-v7/predict_phone.py",
+        "sha256": "0f6b5e919df36f5b2fe3a95bb1301fed6f39a026ab3de078cc81f57079f2f94f"
+      }
+    ]
+  },
+  "dependencies": [
+    {
+      "path": "src/modeling/ode/literature_core.py",
+      "sha256": "6885f380d9259fd87940110d399cdf5b041be8a63c801e9b6c17f363be31a05e",
+      "matches_research_dependency": true
+    },
+    {
+      "path": "experiments/ode-model/configs/literature_core_source.json",
+      "sha256": "4a8dece503509b10e7d1e7fd91be54ccaca6dc4075a937e7b3c732d96a06407b",
+      "matches_research_dependency": true
+    },
+    {
+      "path": "experiments/economic/configs/eco_model_example_model.json",
+      "sha256": "0ba3b5e18ae29d320ede8a8a51d21f39d57a681ad279a3a0f67b76688086e7e3",
+      "matches_research_dependency": true
+    },
+    {
+      "path": "src/modeling/dual_channel/calibration.py",
+      "sha256": "0234f5391403ce3750e170622e4d2644994283b397590f212ee7efcfa6abd351",
+      "matches_research_dependency": true
+    }
+  ],
+  "packaging_change": "CSV line endings normalized to LF; numerical values unchanged; source_manifest retains original local hashes"
+}

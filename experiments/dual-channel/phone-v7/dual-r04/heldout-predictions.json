@@ -1,0 +1,1174 @@
+[
+  {
+    "sample_id": "SIM-V7-T0-B20",
+    "target": 0,
+    "background": 20,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.08765656772629671,
+    "x3": 0.006356364381466812,
+    "B3_over_blank": 0.9854705167634678,
+    "c18_mg_mL": 0.0772146789756078,
+    "x18": 0.0025972844312188046,
+    "B18_over_blank": 0.994037378991295,
+    "estimate": 2.1371971365139686,
+    "error": 2.1371971365139686,
+    "prediction": {
+      "density": 2.1371971365139686,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -6.370473165749258,
+        10.644867438777196
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": false,
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "blocked",
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "scenarios": []
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T0-B110",
+    "target": 0,
+    "background": 110,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.27595191648159223,
+    "x3": 0.0741426899333732,
+    "B3_over_blank": 0.8430577208247411,
+    "c18_mg_mL": 0.17601729339721245,
+    "x18": 0.03816622562299648,
+    "B18_over_blank": 0.9158698750770093,
+    "estimate": -4.698702075757296,
+    "error": -4.698702075757296,
+    "prediction": {
+      "density": -4.698702075757296,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -13.143663118949357,
+        3.7462589674347644
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": false,
+      "reasons": [
+        "outside_joint_signal_hull",
+        "outside_density_calibration",
+        "negative_density"
+      ],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "blocked",
+      "reasons": [
+        "outside_joint_signal_hull",
+        "outside_density_calibration",
+        "negative_density"
+      ],
+      "scenarios": []
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T0-B180",
+    "target": 0,
+    "background": 180,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.40979757686243506,
+    "x3": 0.12232712767047661,
+    "B3_over_blank": 0.754523676680639,
+    "c18_mg_mL": 0.2617776692321787,
+    "x18": 0.06903996092358433,
+    "B18_over_blank": 0.8530216209638322,
+    "estimate": 2.2370671002776987,
+    "error": 2.2370671002776987,
+    "prediction": {
+      "density": 2.2370671002776987,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -6.304149228554801,
+        10.778283429110198
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": false,
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "blocked",
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "scenarios": []
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T9-B20",
+    "target": 9,
+    "background": 20,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.09588005810344917,
+    "x3": 0.0093168209172417,
+    "B3_over_blank": 0.9787757010586468,
+    "c18_mg_mL": 0.08968236570297784,
+    "x18": 0.007085651653072021,
+    "B18_over_blank": 0.983817058010511,
+    "estimate": 8.031048864263454,
+    "error": -0.9689511357365461,
+    "prediction": {
+      "density": 8.031048864263454,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -0.44754681852858447,
+        16.509644547055494
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        0.0,
+        16.509644547055494
+      ],
+      "interval_truncated_at_zero": true,
+      "scenarios": [
+        {
+          "density": 0.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": 215.0
+        },
+        {
+          "density": 8.031048864263454,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -307.1258795914364
+        },
+        {
+          "density": 9.999999999999998,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -804.707113401837
+        },
+        {
+          "density": 10.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 16.509644547055494,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T9-B110",
+    "target": 9,
+    "background": 110,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.28670408798102404,
+    "x3": 0.07801347167316865,
+    "B3_over_blank": 0.8355770985001958,
+    "c18_mg_mL": 0.19578257985488629,
+    "x18": 0.045281728747759056,
+    "B18_over_blank": 0.9009864740860898,
+    "estimate": 5.63847037952317,
+    "error": -3.36152962047683,
+    "prediction": {
+      "density": 5.63847037952317,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -2.754990027437824,
+        14.031930786484164
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        0.0,
+        14.031930786484164
+      ],
+      "interval_truncated_at_zero": true,
+      "scenarios": [
+        {
+          "density": 0.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": 215.0
+        },
+        {
+          "density": 5.63847037952317,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": 215.0
+        },
+        {
+          "density": 9.999999999999998,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -804.707113401837
+        },
+        {
+          "density": 10.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 14.031930786484164,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T9-B180",
+    "target": 9,
+    "background": 180,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.4185571183477828,
+    "x3": 0.1254805626052018,
+    "B3_over_blank": 0.7490648830998349,
+    "c18_mg_mL": 0.27999204325206345,
+    "x18": 0.07559713557074284,
+    "B18_over_blank": 0.8402390557635004,
+    "estimate": 12.26274825326945,
+    "error": 3.26274825326945,
+    "prediction": {
+      "density": 12.26274825326945,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        3.7668734249192433,
+        20.758623081619657
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        3.7668734249192433,
+        20.758623081619657
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 3.7668734249192433,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": 215.0
+        },
+        {
+          "density": 9.999999999999998,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -804.707113401837
+        },
+        {
+          "density": 10.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 12.26274825326945,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 20.758623081619657,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T11-B20",
+    "target": 11,
+    "background": 20,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.097833530747374,
+    "x3": 0.010020071069054637,
+    "B3_over_blank": 0.9771920586446821,
+    "c18_mg_mL": 0.09296723119423801,
+    "x18": 0.008268203229925681,
+    "B18_over_blank": 0.9811418411866459,
+    "estimate": 9.676604337533536,
+    "error": -1.3233956624664636,
+    "prediction": {
+      "density": 9.676604337533536,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        1.2050121746820537,
+        18.14819650038502
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        1.2050121746820537,
+        18.14819650038502
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 1.2050121746820537,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": 215.0
+        },
+        {
+          "density": 9.676604337533536,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -723.5543145175106
+        },
+        {
+          "density": 9.999999999999998,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -804.707113401837
+        },
+        {
+          "density": 10.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 18.14819650038502,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T11-B110",
+    "target": 11,
+    "background": 110,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.2890750863805773,
+    "x3": 0.07886703109700781,
+    "B3_over_blank": 0.8339364737128032,
+    "c18_mg_mL": 0.20015614466653603,
+    "x18": 0.04685621207995297,
+    "B18_over_blank": 0.8977259679370357,
+    "estimate": 7.929389798189064,
+    "error": -3.0706102018109362,
+    "prediction": {
+      "density": 7.929389798189064,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -0.4541186659136578,
+        16.312898262291785
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        0.0,
+        16.312898262291785
+      ],
+      "interval_truncated_at_zero": true,
+      "scenarios": [
+        {
+          "density": 0.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": 215.0
+        },
+        {
+          "density": 7.929389798189064,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -281.2071406399955
+        },
+        {
+          "density": 9.999999999999998,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -804.707113401837
+        },
+        {
+          "density": 10.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 16.312898262291785,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T11-B180",
+    "target": 11,
+    "background": 180,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.4204844929921572,
+    "x3": 0.1261744174771766,
+    "B3_over_blank": 0.7478690876764578,
+    "c18_mg_mL": 0.2839727379449205,
+    "x18": 0.07703018566017138,
+    "B18_over_blank": 0.8374710716342881,
+    "estimate": 14.448174650670495,
+    "error": 3.448174650670495,
+    "prediction": {
+      "density": 14.448174650670495,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        5.960806582246853,
+        22.935542719094137
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        5.960806582246853,
+        22.935542719094137
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 5.960806582246853,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": 215.0
+        },
+        {
+          "density": 9.999999999999998,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "低",
+          "detection_net_benefit_vs_uniform": -804.707113401837
+        },
+        {
+          "density": 10.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 14.448174650670495,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 22.935542719094137,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T79-B20",
+    "target": 79,
+    "background": 20,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.17797113184861774,
+    "x3": 0.03886960746550238,
+    "B3_over_blank": 0.914387735949136,
+    "c18_mg_mL": 0.23585916784954095,
+    "x18": 0.059709300425834735,
+    "B18_over_blank": 0.8715467737436955,
+    "estimate": 83.36253831291758,
+    "error": 4.362538312917579,
+    "prediction": {
+      "density": 83.36253831291758,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        74.90766511373583,
+        91.81741151209933
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        74.90766511373583,
+        91.81741151209933
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 74.90766511373583,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 79.99999999999999,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 80.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 45.6124489120848
+        },
+        {
+          "density": 83.36253831291758,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 126.86648950016752
+        },
+        {
+          "density": 91.81741151209933,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 321.1459824628964
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T79-B110",
+    "target": 79,
+    "background": 110,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.365415839563695,
+    "x3": 0.1063497022429302,
+    "B3_over_blank": 0.7827990641093728,
+    "c18_mg_mL": 0.33705453563283716,
+    "x18": 0.09613963282782137,
+    "B18_over_blank": 0.801420352119827,
+    "estimate": 78.71398146220137,
+    "error": -0.2860185377986255,
+    "prediction": {
+      "density": 78.71398146220137,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        70.36697440954987,
+        87.06098851485288
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        70.36697440954987,
+        87.06098851485288
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 70.36697440954987,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 78.71398146220137,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 79.99999999999999,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 80.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 45.6124489120848
+        },
+        {
+          "density": 87.06098851485288,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 213.58121565137662
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T79-B180",
+    "target": 79,
+    "background": 180,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.48205408263519073,
+    "x3": 0.14833946974866866,
+    "B3_over_blank": 0.7106578051481907,
+    "c18_mg_mL": 0.4044615161966095,
+    "x18": 0.12040614583077942,
+    "B18_over_blank": 0.7578684960169766,
+    "estimate": 79.19211830011614,
+    "error": 0.1921183001161353,
+    "prediction": {
+      "density": 79.19211830011614,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        70.72606529331414,
+        87.65817130691813
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        70.72606529331414,
+        87.65817130691813
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 70.72606529331414,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 79.19211830011614,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 79.99999999999999,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 80.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 45.6124489120848
+        },
+        {
+          "density": 87.65817130691813,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 227.32759993207583
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T81-B20",
+    "target": 81,
+    "background": 20,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.18050604638195958,
+    "x3": 0.039782176697505445,
+    "B3_over_blank": 0.9124683792245389,
+    "c18_mg_mL": 0.2400859107542569,
+    "x18": 0.061230927871532476,
+    "B18_over_blank": 0.8684984988457667,
+    "estimate": 85.47065755109142,
+    "error": 4.470657551091421,
+    "prediction": {
+      "density": 85.47065755109142,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        77.0083377020706,
+        93.93297740011224
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        77.0083377020706,
+        93.93297740011224
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 77.0083377020706,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 79.99999999999999,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 80.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 45.6124489120848
+        },
+        {
+          "density": 85.47065755109142,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 176.62968695165728
+        },
+        {
+          "density": 93.93297740011224,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 367.6012748030844
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T81-B110",
+    "target": 81,
+    "background": 110,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.36753213004271346,
+    "x3": 0.10711156681537684,
+    "B3_over_blank": 0.781427036380151,
+    "c18_mg_mL": 0.34065609814193637,
+    "x18": 0.09743619533109708,
+    "B18_over_blank": 0.799031323274378,
+    "estimate": 80.52928340967641,
+    "error": -0.47071659032359037,
+    "prediction": {
+      "density": 80.52928340967641,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        72.1762377671121,
+        88.88232905224072
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        72.1762377671121,
+        88.88232905224072
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 72.1762377671121,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 79.99999999999999,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 80.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 45.6124489120848
+        },
+        {
+          "density": 80.52928340967641,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 58.55771503739379
+        },
+        {
+          "density": 88.88232905224072,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 255.28771892605982
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T81-B180",
+    "target": 81,
+    "background": 180,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.48375384982709885,
+    "x3": 0.1489513859377556,
+    "B3_over_blank": 0.7096572011359596,
+    "c18_mg_mL": 0.40758670968139943,
+    "x18": 0.12153121548530378,
+    "B18_over_blank": 0.7559077265273496,
+    "estimate": 80.8267201374606,
+    "error": -0.17327986253940253,
+    "prediction": {
+      "density": 80.8267201374606,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        72.35536854034783,
+        89.29807173457337
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": true,
+      "reasons": [],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "conditional_demo_only",
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "grade_uncertain": true,
+      "physical_interval": [
+        72.35536854034783,
+        89.29807173457337
+      ],
+      "interval_truncated_at_zero": false,
+      "scenarios": [
+        {
+          "density": 72.35536854034783,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 79.99999999999999,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "中",
+          "detection_net_benefit_vs_uniform": -5.0
+        },
+        {
+          "density": 80.0,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 45.6124489120848
+        },
+        {
+          "density": 80.8267201374606,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 65.8067859381481
+        },
+        {
+          "density": 89.29807173457337,
+          "density_unit": "J2/100 cm^3 soil",
+          "band": "高",
+          "detection_net_benefit_vs_uniform": 264.71703590527795
+        }
+      ]
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T9-B0",
+    "target": 9,
+    "background": 0,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.07149978178841565,
+    "x3": 0.0005399214438296317,
+    "B3_over_blank": 0.9987575574037534,
+    "c18_mg_mL": 0.07468824205920635,
+    "x18": 0.0016877671413142836,
+    "B18_over_blank": 0.9961213141492673,
+    "estimate": 7.244164390891198,
+    "error": -1.7558356091088019,
+    "prediction": {
+      "density": 7.244164390891198,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -1.2736669127854423,
+        15.761995694567839
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": false,
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "blocked",
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "scenarios": []
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T11-B0",
+    "target": 11,
+    "background": 0,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.07219269730554827,
+    "x3": 0.0007893710299973738,
+    "B3_over_blank": 0.9981840568570731,
+    "c18_mg_mL": 0.07673808159899699,
+    "x18": 0.002425709375638914,
+    "B18_over_blank": 0.994430167110325,
+    "estimate": 8.499813132442988,
+    "error": -2.5001868675570122,
+    "prediction": {
+      "density": 8.499813132442988,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        -0.013843338343068723,
+        17.013469603229044
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": false,
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "blocked",
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "scenarios": []
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T79-B0",
+    "target": 79,
+    "background": 0,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.1344922774827186,
+    "x3": 0.023217219893778694,
+    "B3_over_blank": 0.9479442140208454,
+    "c18_mg_mL": 0.21134980161344374,
+    "x18": 0.05088592858083974,
+    "B18_over_blank": 0.8894347053427193,
+    "estimate": 83.65349250530645,
+    "error": 4.6534925053064455,
+    "prediction": {
+      "density": 83.65349250530645,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        75.12738504372999,
+        92.1795999668829
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": false,
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "blocked",
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "scenarios": []
+    }
+  },
+  {
+    "sample_id": "SIM-V7-T81-B0",
+    "target": 81,
+    "background": 0,
+    "data_origin": "synthetic_ODE_and_ideal_phone",
+    "c3_mg_mL": 0.13689895029805793,
+    "x3": 0.02408362210730085,
+    "B3_over_blank": 0.9460549837617603,
+    "c18_mg_mL": 0.2156785648864366,
+    "x18": 0.052444283359117175,
+    "B18_over_blank": 0.886248915284141,
+    "estimate": 85.89486922436201,
+    "error": 4.8948692243620116,
+    "prediction": {
+      "density": 85.89486922436201,
+      "density_unit": "J2/100 cm^3 soil",
+      "prediction_interval_95": [
+        77.36044235268952,
+        94.4292960960345
+      ],
+      "calibration_density_range": [
+        0.0,
+        120.0
+      ],
+      "within_calibration_range": false,
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "evidence_status": "simulated",
+      "reference_basis": "spike_count",
+      "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H"
+    },
+    "eco": {
+      "status": "blocked",
+      "reasons": [
+        "outside_joint_signal_hull"
+      ],
+      "scenarios": []
+    }
+  }
+]

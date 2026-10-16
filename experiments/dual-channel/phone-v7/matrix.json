@@ -1,0 +1,470 @@
+{
+  "schema_version": "assumed-paired-matrix-v7-phone",
+  "purpose": "Literature-informed ideal phone scenario, synthetic only",
+  "protocol": {
+    "target_species": "Meloidogyne incognita",
+    "target_stage": "J2",
+    "background_species": "Caenorhabditis elegans",
+    "background_strain": "N2",
+    "background_stage": "L4 hermaphrodite",
+    "soil_volume_cm3": 100,
+    "effective_collection_volume_mL": 1,
+    "collection_duration_h": 1,
+    "recovery_fraction": 1,
+    "sensor_sample_dilution_factor": 1,
+    "sensor_read_time_h": 8,
+    "temperature_C": null,
+    "pigment": "indicaxanthin equivalent",
+    "blank_pigment_equivalent_uM": 227.05893801290992,
+    "replicates_per_condition": 1,
+    "noise": "none; deterministic design points, not independent experimental replicates",
+    "stage_role": "Stage labels define intended density units; release rates use equal two-ligand total, not a cross-stage empirical comparison",
+    "protocol_id": "SIM_V7_INDICAXANTHIN_BLUE_LOG_RATIO_8H",
+    "readout": "delta_A_blue=-log10(B_sample/B_sensor_blank)"
+  },
+  "release_rates_fmol_per_worm_h": {
+    "target_ascr3": {
+      "value": 0.09090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "target_ascr18": {
+      "value": 0.9090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "background_ascr3": {
+      "value": 0.9090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    },
+    "background_ascr18": {
+      "value": 0.09090909090909091,
+      "status": "assumed; common Q times assumed composition fraction; no absolute release anchor",
+      "source_support": "Final literature audit: qualitative profile only; exact fractions assumed, Mi ascr3 secretion unconfirmed"
+    }
+  },
+  "equations": {
+    "amount_to_nM": "(q_target*N_target+q_background*N_background)*collection_h*recovery_fraction/(1000*volume_mL*dilution_factor)",
+    "ascr3_nM": "Q*(T/11 + 10*B/11)/1000",
+    "ascr18_nM": "Q*(10*T/11 + B/11)/1000",
+    "pigment_mg_mL": "0.07 + common_gain_uM_per_nM * weighted_ligand_nM * 308.29e-6",
+    "phone_delta_A": "0.36*(sample_mg_mL-blank_mg_mL)",
+    "blue_ratio": "10**(-phone_delta_A)"
+  },
+  "provenance": {
+    "all_pigment_values": "Project assumption: total 8h endpoints 0.07--0.56 mg/mL within published nonzero standard range",
+    "all_density_to_ligand_values": "Fully synthetic, equal per-worm two-ligand total; qualitative literature context only; all four rates and exact ratios assumed",
+    "read_time": "8 h candidate from Fan 2024 S4, not validated for this construct",
+    "ratio_decision": "User approved Mi 1:10 on 2026-10-13; see ../2026-10-13-mi-final-literature/README.md",
+    "sensor_weight_decision": "Retained complementary 2:1/1:2, equal row sums; gain rescaled in v7"
+  },
+  "rows": [
+    {
+      "sample_id": "SIM-V7-T0-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 0,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.0,
+      "ascr18_nM": 0.0,
+      "channel3_pigment_equivalent_uM": 227.05893801290992,
+      "channel18_pigment_equivalent_uM": 227.05893801290992,
+      "channel3_pigment_mg_mL": 0.07,
+      "channel3_phone_delta_A": 0.0,
+      "channel3_blue_ratio": 1.0,
+      "channel18_pigment_mg_mL": 0.07,
+      "channel18_phone_delta_A": 0.0,
+      "channel18_blue_ratio": 1.0
+    },
+    {
+      "sample_id": "SIM-V7-T0-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 0,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.07272727272727272,
+      "ascr18_nM": 0.007272727272727273,
+      "channel3_pigment_equivalent_uM": 700.5009789759987,
+      "channel18_pigment_equivalent_uM": 497.59724713467494,
+      "channel3_pigment_mg_mL": 0.21595744680851064,
+      "channel3_phone_delta_A": 0.05254468085106383,
+      "channel3_blue_ratio": 0.8860440614620433,
+      "channel18_pigment_mg_mL": 0.15340425531914895,
+      "channel18_phone_delta_A": 0.030025531914893617,
+      "channel18_blue_ratio": 0.9331994369431351
+    },
+    {
+      "sample_id": "SIM-V7-T0-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 0,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.18181818181818182,
+      "ascr18_nM": 0.01818181818181818,
+      "channel3_pigment_equivalent_uM": 1410.6640404206323,
+      "channel18_pigment_equivalent_uM": 903.4047108173226,
+      "channel3_pigment_mg_mL": 0.43489361702127677,
+      "channel3_phone_delta_A": 0.13136170212765963,
+      "channel3_blue_ratio": 0.7389895512970451,
+      "channel18_pigment_mg_mL": 0.27851063829787237,
+      "channel18_phone_delta_A": 0.07506382978723405,
+      "channel18_blue_ratio": 0.8412714879295324
+    },
+    {
+      "sample_id": "SIM-V7-T5-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 5,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.00045454545454545455,
+      "ascr18_nM": 0.004545454545454545,
+      "channel3_pigment_equivalent_uM": 243.96758233302023,
+      "channel18_pigment_equivalent_uM": 256.649065573103,
+      "channel3_pigment_mg_mL": 0.07521276595744682,
+      "channel3_phone_delta_A": 0.0018765957446808517,
+      "channel3_blue_ratio": 0.9956883007936885,
+      "channel18_pigment_mg_mL": 0.07912234042553191,
+      "channel18_phone_delta_A": 0.0032840425531914866,
+      "channel18_blue_ratio": 0.9924667309582158
+    },
+    {
+      "sample_id": "SIM-V7-T5-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 5,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.07318181818181818,
+      "ascr18_nM": 0.011818181818181818,
+      "channel3_pigment_equivalent_uM": 717.409623296109,
+      "channel18_pigment_equivalent_uM": 527.187374694868,
+      "channel3_pigment_mg_mL": 0.22117021276595744,
+      "channel3_phone_delta_A": 0.05442127659574467,
+      "channel3_blue_ratio": 0.8822237059854804,
+      "channel18_pigment_mg_mL": 0.16252659574468087,
+      "channel18_phone_delta_A": 0.03330957446808511,
+      "channel18_blue_ratio": 0.926169394515001
+    },
+    {
+      "sample_id": "SIM-V7-T5-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 5,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.18227272727272728,
+      "ascr18_nM": 0.022727272727272728,
+      "channel3_pigment_equivalent_uM": 1427.5726847407423,
+      "channel18_pigment_equivalent_uM": 932.9948383775156,
+      "channel3_pigment_mg_mL": 0.44010638297872345,
+      "channel3_phone_delta_A": 0.13323829787234043,
+      "channel3_blue_ratio": 0.7358032506352452,
+      "channel18_pigment_mg_mL": 0.2876329787234043,
+      "channel18_phone_delta_A": 0.07834787234042555,
+      "channel18_blue_ratio": 0.8349339634737771
+    },
+    {
+      "sample_id": "SIM-V7-T10-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 10,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.0009090909090909091,
+      "ascr18_nM": 0.00909090909090909,
+      "channel3_pigment_equivalent_uM": 260.8762266531305,
+      "channel18_pigment_equivalent_uM": 286.239193133296,
+      "channel3_pigment_mg_mL": 0.08042553191489361,
+      "channel3_phone_delta_A": 0.003753191489361698,
+      "channel3_blue_ratio": 0.9913951923374228,
+      "channel18_pigment_mg_mL": 0.08824468085106382,
+      "channel18_phone_delta_A": 0.006568085106382973,
+      "channel18_blue_ratio": 0.9849902120588876
+    },
+    {
+      "sample_id": "SIM-V7-T10-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 10,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.07363636363636364,
+      "ascr18_nM": 0.016363636363636365,
+      "channel3_pigment_equivalent_uM": 734.3182676162194,
+      "channel18_pigment_equivalent_uM": 556.7775022550611,
+      "channel3_pigment_mg_mL": 0.2263829787234043,
+      "channel3_phone_delta_A": 0.05629787234042554,
+      "channel3_blue_ratio": 0.8784198227325937,
+      "channel18_pigment_mg_mL": 0.1716489361702128,
+      "channel18_phone_delta_A": 0.0365936170212766,
+      "channel18_blue_ratio": 0.9191923112878532
+    },
+    {
+      "sample_id": "SIM-V7-T10-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 10,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.18272727272727274,
+      "ascr18_nM": 0.02727272727272727,
+      "channel3_pigment_equivalent_uM": 1444.4813290608529,
+      "channel18_pigment_equivalent_uM": 962.5849659377088,
+      "channel3_pigment_mg_mL": 0.44531914893617036,
+      "channel3_phone_delta_A": 0.1351148936170213,
+      "channel3_blue_ratio": 0.7326306883434798,
+      "channel18_pigment_mg_mL": 0.29675531914893627,
+      "channel18_phone_delta_A": 0.08163191489361706,
+      "channel18_blue_ratio": 0.828644181294806
+    },
+    {
+      "sample_id": "SIM-V7-T40-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 40,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.0036363636363636364,
+      "ascr18_nM": 0.03636363636363636,
+      "channel3_pigment_equivalent_uM": 362.32809257379245,
+      "channel18_pigment_equivalent_uM": 463.7799584944543,
+      "channel3_pigment_mg_mL": 0.11170212765957448,
+      "channel3_phone_delta_A": 0.015012765957446808,
+      "channel3_blue_ratio": 0.9660224826281918,
+      "channel18_pigment_mg_mL": 0.14297872340425533,
+      "channel18_phone_delta_A": 0.026272340425531913,
+      "channel18_blue_ratio": 0.9412991349523505
+    },
+    {
+      "sample_id": "SIM-V7-T40-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 40,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.07636363636363637,
+      "ascr18_nM": 0.04363636363636364,
+      "channel3_pigment_equivalent_uM": 835.7701335368813,
+      "channel18_pigment_equivalent_uM": 734.3182676162194,
+      "channel3_pigment_mg_mL": 0.25765957446808513,
+      "channel3_phone_delta_A": 0.06755744680851064,
+      "channel3_blue_ratio": 0.8559384839715293,
+      "channel18_pigment_mg_mL": 0.2263829787234043,
+      "channel18_phone_delta_A": 0.05629787234042554,
+      "channel18_blue_ratio": 0.8784198227325937
+    },
+    {
+      "sample_id": "SIM-V7-T40-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 40,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.18545454545454546,
+      "ascr18_nM": 0.05454545454545454,
+      "channel3_pigment_equivalent_uM": 1545.9331949815146,
+      "channel18_pigment_equivalent_uM": 1140.1257312988669,
+      "channel3_pigment_mg_mL": 0.47659574468085114,
+      "channel3_phone_delta_A": 0.1463744680851064,
+      "channel3_blue_ratio": 0.7138805209802651,
+      "channel18_pigment_mg_mL": 0.3514893617021277,
+      "channel18_phone_delta_A": 0.10133617021276596,
+      "channel18_blue_ratio": 0.7918881238481457
+    },
+    {
+      "sample_id": "SIM-V7-T80-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 80,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.007272727272727273,
+      "ascr18_nM": 0.07272727272727272,
+      "channel3_pigment_equivalent_uM": 497.59724713467494,
+      "channel18_pigment_equivalent_uM": 700.5009789759987,
+      "channel3_pigment_mg_mL": 0.15340425531914895,
+      "channel3_phone_delta_A": 0.030025531914893617,
+      "channel3_blue_ratio": 0.9331994369431351,
+      "channel18_pigment_mg_mL": 0.21595744680851064,
+      "channel18_phone_delta_A": 0.05254468085106383,
+      "channel18_blue_ratio": 0.8860440614620433
+    },
+    {
+      "sample_id": "SIM-V7-T80-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 80,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.08,
+      "ascr18_nM": 0.08,
+      "channel3_pigment_equivalent_uM": 971.0392880977637,
+      "channel18_pigment_equivalent_uM": 971.0392880977637,
+      "channel3_pigment_mg_mL": 0.2993617021276596,
+      "channel3_phone_delta_A": 0.08257021276595745,
+      "channel3_blue_ratio": 0.8268558192631874,
+      "channel18_pigment_mg_mL": 0.2993617021276596,
+      "channel18_phone_delta_A": 0.08257021276595745,
+      "channel18_blue_ratio": 0.8268558192631874
+    },
+    {
+      "sample_id": "SIM-V7-T80-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 80,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.1890909090909091,
+      "ascr18_nM": 0.09090909090909091,
+      "channel3_pigment_equivalent_uM": 1681.202349542397,
+      "channel18_pigment_equivalent_uM": 1376.8467517804113,
+      "channel3_pigment_mg_mL": 0.5182978723404257,
+      "channel3_phone_delta_A": 0.16138723404255323,
+      "channel3_blue_ratio": 0.6896246331772626,
+      "channel18_pigment_mg_mL": 0.424468085106383,
+      "channel18_phone_delta_A": 0.12760851063829787,
+      "channel18_blue_ratio": 0.7454036059572993
+    },
+    {
+      "sample_id": "SIM-V7-T120-B0",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 120,
+      "background_density_L4_per_100cm3": 0,
+      "ascr3_nM": 0.01090909090909091,
+      "ascr18_nM": 0.10909090909090909,
+      "channel3_pigment_equivalent_uM": 632.8664016955574,
+      "channel18_pigment_equivalent_uM": 937.2219994575431,
+      "channel3_pigment_mg_mL": 0.1951063829787234,
+      "channel3_phone_delta_A": 0.04503829787234042,
+      "channel3_blue_ratio": 0.9014916368630381,
+      "channel18_pigment_mg_mL": 0.28893617021276596,
+      "channel18_phone_delta_A": 0.07881702127659575,
+      "channel18_blue_ratio": 0.8340325085838887
+    },
+    {
+      "sample_id": "SIM-V7-T120-B80",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 120,
+      "background_density_L4_per_100cm3": 80,
+      "ascr3_nM": 0.08363636363636363,
+      "ascr18_nM": 0.11636363636363636,
+      "channel3_pigment_equivalent_uM": 1106.3084426586463,
+      "channel18_pigment_equivalent_uM": 1207.7603085793082,
+      "channel3_pigment_mg_mL": 0.3410638297872341,
+      "channel3_phone_delta_A": 0.09758297872340427,
+      "channel3_blue_ratio": 0.7987613113001918,
+      "channel18_pigment_mg_mL": 0.37234042553191493,
+      "channel18_phone_delta_A": 0.10884255319148937,
+      "channel18_blue_ratio": 0.7783186674027553
+    },
+    {
+      "sample_id": "SIM-V7-T120-B200",
+      "data_origin": "synthetic_assumption",
+      "target_density_J2_per_100cm3": 120,
+      "background_density_L4_per_100cm3": 200,
+      "ascr3_nM": 0.19272727272727272,
+      "ascr18_nM": 0.12727272727272726,
+      "channel3_pigment_equivalent_uM": 1816.4715041032796,
+      "channel18_pigment_equivalent_uM": 1613.5677722619557,
+      "channel3_pigment_mg_mL": 0.56,
+      "channel3_phone_delta_A": 0.1764,
+      "channel3_blue_ratio": 0.6661929002234553,
+      "channel18_pigment_mg_mL": 0.4974468085106384,
+      "channel18_phone_delta_A": 0.15388085106382982,
+      "channel18_blue_ratio": 0.7016477694779685
+    }
+  ],
+  "parent": {
+    "path": "/Users/yangruoxi/Documents/ChatGPT/ODE-Research-Lab/research/2026-10-16-paired-matrix-v6/matrix.json",
+    "sha256": "9b5f271b8925aa9b60e841126f353c75b041f979cc79969e99ed97ede277d3ee"
+  },
+  "sources": {
+    "S1": "https://doi.org/10.1371/journal.pone.0017804",
+    "S2": "https://doi.org/10.1038/ncomms8795",
+    "S6": "https://doi.org/10.1016/j.cub.2012.03.024"
+  },
+  "normalization": {
+    "scope": "ascr3+ascr18 only; not all ascarosides",
+    "common_Q_fmol_per_worm_h": 1.0,
+    "Q_status": "arbitrary common simulation scale; not a measured rate",
+    "target_ascr3_fraction": 0.09090909090909091,
+    "target_ascr18_fraction": 0.9090909090909091,
+    "background_ascr3_fraction": 0.9090909090909091,
+    "background_ascr18_fraction": 0.09090909090909091,
+    "fraction_status": "assumed ratios, not quantified literature spectra",
+    "rule": "equal per worm per hour, not equal per sample; concentration retains worm abundance"
+  },
+  "sensor_response": {
+    "weights": {
+      "3": [
+        0.6666666666666666,
+        0.3333333333333333
+      ],
+      "18": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    },
+    "ligand_reference_nM": 1.0,
+    "common_gain_uM_per_nM": 9299.754376060673,
+    "receptors": {
+      "3": "Gpr2 V368R",
+      "18": "Gpr2 N84V"
+    },
+    "weight_status": "assumed 2:1 and 1:2; unit row sums; docking informs direction only under binding-to-activation assumption",
+    "gain_status": "Derived synthetic scale mapping v6 net maximum to 0.49 mg/mL",
+    "blank_pigment_equivalent_uM": 227.05893801290992
+  },
+  "approval_status": "user_authorized_continue_2026-10-17; numeric range is implementation assumption",
+  "design": {
+    "target_levels": [
+      0,
+      5,
+      10,
+      40,
+      80,
+      120
+    ],
+    "background_levels": [
+      0,
+      80,
+      200
+    ],
+    "units": "Mi J2 and Ce L4 per 100 cm^3 soil",
+    "read_time_h": 8,
+    "includes_blank_in_six_target_levels": true
+  },
+  "future_sampling_proposal": {
+    "dual_channel_fit": {
+      "target_levels": [
+        0,
+        5,
+        10,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "background_levels": [
+        0,
+        40,
+        80,
+        140,
+        200
+      ],
+      "n": 45
+    },
+    "held_out_simulation": {
+      "target_levels": [
+        0,
+        9,
+        11,
+        79,
+        81
+      ],
+      "background_levels": [
+        20,
+        110,
+        180
+      ],
+      "n": 15
+    },
+    "rule": "Cross each listed pair of axes; holdout is excluded from both fits and parameter selection. All share the same synthetic generator."
+  },
+  "phone_readout": {
+    "slope_mL_per_mg": 0.36,
+    "published_slope_uncertainty": 0.01,
+    "slope_source": "https://doi.org/10.1093/nar/gkaa342, Methods p4 and Fig4",
+    "published_nonzero_standards_mg_mL": [
+      0.07,
+      0.14,
+      0.28,
+      0.56,
+      1.12,
+      2.24
+    ],
+    "molecular_weight_g_mol": 308.29,
+    "mass_source": "https://pubchem.ncbi.nlm.nih.gov/compound/Indicaxanthin",
+    "intercept": "cancels in sample/sensor-blank ratio; absolute B and A480 not generated",
+    "transfer_status": "assumed transfer of published slope; not measured on this construct or device",
+    "noise": "none; no quantization, illumination or device noise simulated",
+    "calibration_scope": "8h endpoints only; early-time concentrations may be below literature nonzero standards"
+  }
+}
