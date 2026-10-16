@@ -1,0 +1,15 @@
+channel,parameter,value,status,unit,source
+3,u_max_per_second,1.206908,assumed,s^-1,Supady k3 * source initial receptor concentration; demonstration scale only
+3,K_L_normalized,472207.0314290248,fitted_synthetic,normalized ligand,"r06 matrix endpoint fit; effective scale, not receptor Kd"
+3,b,44.15290626588096,derived_from_assumed_blank,uM pigment equivalent h^-1,assumed Cblank(8h)=0.07 mg/mL indicaxanthin equivalent
+3,a,1033.6445089806925,analytically_rescaled_synthetic_fit,uM pigment equivalent h^-1,v6 optimum rescaled: all centered targets multiplied by same positive factor; profiled SSE scales by factor squared
+3,K,0.12099437854561526,assumed,active Fus3 fraction,original output merge plus assumed mapping from original M to Fus3 fraction
+3,n,2.0,assumed,dimensionless,original scenario; keep fixed unless data justify changing
+3,delta,0.12,assumed,h^-1,preserved original scenario loss rate
+18,u_max_per_second,1.206908,assumed,s^-1,Supady k3 * source initial receptor concentration; demonstration scale only
+18,K_L_normalized,417856.92605595756,fitted_synthetic,normalized ligand,"r06 matrix endpoint fit; effective scale, not receptor Kd"
+18,b,44.15290626588096,derived_from_assumed_blank,uM pigment equivalent h^-1,assumed Cblank(8h)=0.07 mg/mL indicaxanthin equivalent
+18,a,905.2780002293454,analytically_rescaled_synthetic_fit,uM pigment equivalent h^-1,v6 optimum rescaled: all centered targets multiplied by same positive factor; profiled SSE scales by factor squared
+18,K,0.12099437854561526,assumed,active Fus3 fraction,original output merge plus assumed mapping from original M to Fus3 fraction
+18,n,2.0,assumed,dimensionless,original scenario; keep fixed unless data justify changing
+18,delta,0.12,assumed,h^-1,preserved original scenario loss rate

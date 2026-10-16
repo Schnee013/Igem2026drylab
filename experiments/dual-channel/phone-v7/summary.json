@@ -1,0 +1,72 @@
+{
+  "data_origin": "synthetic_only",
+  "old_version": "v6/r06/r03",
+  "new_version": "v7/r07/r04",
+  "ode_fit_method": "exact analytical rescaling of v6 unconstrained optimum; no repeated KL search",
+  "scale_of_net_pigment": 309.9918125353558,
+  "blank_mg_mL": 0.07,
+  "target_max_mg_mL": 0.56,
+  "common_gain_uM_per_nM": 9299.754376060673,
+  "coefficients": [
+    4.335372397168574,
+    -1207.9444773253026,
+    2109.8805829417615
+  ],
+  "density_metrics": {
+    "calibration": {
+      "single3": {
+        "rmse": 39.5112309820938,
+        "mae": 34.35597574039287,
+        "max_absolute_error": 80.65862819132371,
+        "n": 45
+      },
+      "single18": {
+        "rmse": 29.138322382835113,
+        "mae": 23.44943759571264,
+        "max_absolute_error": 59.922807272394714,
+        "n": 45
+      },
+      "dual": {
+        "rmse": 3.9241665681204756,
+        "mae": 3.1420141878464727,
+        "max_absolute_error": 10.11495849425873,
+        "n": 45
+      }
+    },
+    "heldout": {
+      "single3": {
+        "rmse": 36.591211161113876,
+        "mae": 33.99905536262189,
+        "max_absolute_error": 59.31268274571253,
+        "n": 19
+      },
+      "single18": {
+        "rmse": 28.428849055683326,
+        "mae": 23.035888348312007,
+        "max_absolute_error": 50.96223535608042,
+        "n": 19
+      },
+      "dual": {
+        "rmse": 3.0082479005514053,
+        "mae": 2.5404257472684573,
+        "max_absolute_error": 4.8948692243620116,
+        "n": 19
+      }
+    }
+  },
+  "ode_rmse_mg_mL": {
+    "3": 0.00968793051298921,
+    "18": 0.009655949004338056
+  },
+  "actual_endpoint_range_mg_mL": {
+    "3": [
+      0.06999999999998593,
+      0.542624154680629
+    ],
+    "18": [
+      0.06999999999998593,
+      0.4795479477771219
+    ]
+  },
+  "validation": "Same deterministic generator, no camera measurements or noise; readout transfer assumed"
+}
